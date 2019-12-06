@@ -24,7 +24,7 @@ Examples:
 `- run setGuildData_multiple def:Mages|<list[members.leader/Xeane|display.name/Mages|display.color/<&b>].escaped>`
 
 ## Creating/Removing Guilds
-There are two tasks for this purpose  
+These are pretty self-explanatory
 
 ### guilds_createGuild
 Type: Task  
@@ -38,3 +38,18 @@ Definitions: Guild_Name
 Examples:  
 ` - run guilds_deleteGuild def:Mages`
 
+## Adding/Remove Guild Skills
+This will Add or Remove skill trees to the guild
+Members of the guild will have their skills updated accordingly.
+
+### guilds_addSkill
+Type: Task  
+Definitions: Guild_Name | Skill_Name  
+Examples:  
+` - run guilds_addSkill def:Mages|Arcane<&sp>Magic`
+
+### guilds_removeSkill
+Type: Task  
+Definitions: Guild_Name | Skill_Name  
+Examples:  
+` - run guilds_removeSkill def:Mages|Arcane<&sp>Magic`
