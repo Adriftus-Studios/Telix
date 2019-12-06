@@ -10,11 +10,12 @@ PlayerLevels_setLevel:
   type: task
   definitions: level
   script:
-    - run setPlayerData def:health.max|<[level].*[10].+[100]>
-    - run setPlayerData def:power.max|<[level].*[10].+[100]>
-    - adjust <player> max_health:<[level].*[10].+[100]>
-    - if <player.health> > <[level].*[10].+[100]>:
-      - adjust <player> health:<[level].*[10].+[100]>
+    - run setPlayerData def:health.max|<[level].*[10]>
+    - run setPlayerData def:power.max|<[level].*[10]>
+    - adjust <player> max_health:<[level].*[10]>
+    - adjust <player> health_scale:20
+    - if <player.health> > <[level].*[10]>:
+      - adjust <player> health:<[level].*[10]>
 
 PlayerLevels_setStatsForLevel:
   type: task
