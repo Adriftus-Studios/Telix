@@ -5,6 +5,14 @@ setGuildData:
     - yaml id:guild.<[guild]> set <[dataName]>:<[dataValue]>
     - yaml savefile:data/GlobalLiveData/server/Telix/guilds/<[guild]>.yml id:guild.<[guild]>
 
+setGuildData_multiple:
+  type: procedure
+  definitions: guild|dataList
+  script:
+    - foreach <[dataList].unescaped> as:map:
+      - yaml id:guild.<[guild]> set <[map].before[/]>:<[map].after[/]>
+    - yaml savefile:data/GlobalLiveData/server/Telix/guilds/<[guild]>.yml id:guild.<[guild]>
+
 getGuildData:
   type: procedure
   definitions: guild|dataName
@@ -35,10 +43,11 @@ guilds_createGuild:
   script:
     - flag server guilds:|:<[guildName]>
     - yaml create id:guild.<[guildName]>
-    - run setGuildData def:<[guildName]>|display.name|<[guildName]>
-    - run setGuildData def:<[guildName]>|members.count|0
-    - run setGuildData def:<[guildName]>|members.leader|NONE
-    - run setGuildData def:<[guildName]>|skills|!
+    - define guildDataDump:display.name/<[guildName]>
+    - define guildDataDump:members.count/0
+    - define guildDataDump:members.leader/NONE
+    - define guildDataDump:skills/!
+    - run setGuildData_multiple def:<[guildName]>|<[guildDataDump].escaped>
 
 guilds_deleteGuild:
   type: task
