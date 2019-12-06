@@ -1,8 +1,8 @@
 # Guild API Documentation
-This page is purely for more information regarding usage of the Guild tasks/procedures
+This page is purely for more information regarding usage of the Guild tasks/procedures.
 
 ## Direct Data Saving
-THIS SHOULD NOT BE THE GO-TO WAY OF ADDING DATA  
+THIS SHOULD NOT BE THE GO-TO WAY OF ADDING DATA!  
 Use this as an interface for other system wrappers.
 
 ### setGuildData
@@ -24,7 +24,7 @@ Examples:
 `- run setGuildData_multiple def:Mages|<list[members.leader/Xeane|display.name/Mages|display.color/<&b>].escaped>`
 
 ## Creating/Removing Guilds
-These are used for creating new Guilds, or removing current Guilds
+These tasks are used for creating new Guilds, or removing current existing Guilds.  
 
 ### guilds_createGuild
 Type: Task  
@@ -39,8 +39,7 @@ Examples:
 ` - run guilds_deleteGuild def:Mages`
 
 ## Adding/Remove Guild Skills
-This will Add or Remove skill trees to the guild
-Members of the guild will have their skills updated accordingly.
+This will Add or Remove skill trees to the guild. Members of the guild will have their skills updated accordingly.
 
 ### guilds_addSkill
 Type: Task  
