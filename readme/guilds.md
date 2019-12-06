@@ -19,8 +19,22 @@ Examples:
 
 ### setGuildData_multiple
 Type: Task  
-Definitions: Guild_Name | DataList(ListTag - NBT Formatting)  
+Definitions: Guild_Name | DataList(ListTag - NBT Formatting - `.escaped`)  
 Examples:  
 `- run setGuildData_multiple def:Mages|<list[members.leader/Xeane|display.name/Mages|display.color/<&b>].escaped>`
 
-## 
+## Creating/Removing Guilds
+There are two tasks for this purpose  
+
+### guilds_createGuild
+Type: Task  
+Definitions: Guild_Name  
+Examples:
+` - run guilds_createGuild def:Mages`
+
+### guilds_deleteGuild
+Type: Task  
+Definitions: Guild_Name  
+Examples:  
+` - run guilds_deleteGuild def:Mages`
+
