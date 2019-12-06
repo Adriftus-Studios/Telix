@@ -8,16 +8,16 @@ Use this as an interface for other system wrappers.
 ### setGuildData
 Type: Task  
 Definitions: Guild_Name | Data_Name | Data_Value  
-Example: `- run setGuildData def:Mages|members.leader|Xeane`
+Examples:  `- run setGuildData def:Mages|members.leader|Xeane`
 
 ### getGuildData
 Type: Procedure  
 Definitions: Guild_Name | Data_Name  
-Example: `- define guildLeader:<proc[getGuildData].context[Mages|members.leader]>`
+Examples:  `- define guildLeader:<proc[getGuildData].context[Mages|members.leader]>`
 
 ### setGuildData_multiple
 Type: Task  
 Definitions: Guild_Name | DataList(ListTag - NBT Formatting)  
-Example: `- run setGuildData_multiple def:Mages|<list[members.leader/Xeane|display.name/Mages|display.color/<&b>].escaped>`
+Examples:  `- run setGuildData_multiple def:Mages|<list[members.leader/Xeane|display.name/Mages|display.color/<&b>].escaped>`
 
 ## 
