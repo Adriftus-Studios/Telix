@@ -24,7 +24,7 @@ Examples:
 `- run setGuildData_multiple def:Mages|<list[members.leader/Xeane|display.name/Mages|display.color/<&b>].escaped>`
 
 ## Creating/Removing Guilds
-These are pretty self-explanatory
+These are used for creating new Guilds, or removing current Guilds
 
 ### guilds_createGuild
 Type: Task  
