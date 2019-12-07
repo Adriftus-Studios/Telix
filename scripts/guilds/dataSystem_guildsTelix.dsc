@@ -66,13 +66,13 @@ guilds_addSkill:
   type: task
   definitions: guildName|SkillName
   script:
-    - if !<proc[getGuildData].context[<[guildName]>|skills]>].contains[<[skillName]>]>:
+    - if !<yaml[guild.<[guild]>].read[skills].contains[<[skillName]>]>:
       - run setGuildData_listAppend def:<[guildName]>|skills|<[skillName]>
 
 guilds_removeSkill:
   type: task
   script:
-    - if <proc[getGuildData].context[<[guildName]>|skills]>].contains[<[skillName]>]>:
+    - if <yaml[guild.<[guild]>].read[skills].contains[<[skillName]>]>:
       - run setGuildData_listRemove def:<[guildName]>|skills|<[skillName]>
 
 guilds_getSkills:
