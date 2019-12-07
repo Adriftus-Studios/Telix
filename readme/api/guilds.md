@@ -45,8 +45,8 @@ Examples:
 
 ## guilds_listGuilds
 Type: Procedure  
-Returns: ListTag of ElementTags
-Definitions: NONE
+Returns: ListTag (ElementTag)  
+Definitions: NONE  
 Examples:  
 ` - define allGuilds:<proc[guilds_listGuilds]>`
 
@@ -68,13 +68,13 @@ Examples:
 
 ## guilds_getSkills
 Type: Procedure  
-Returns: ListTag of ElementTags  
+Returns: ListTag (ElementTag)  
 Definitions: Guild_Name  
 Examples:  
 ` - define skills:<proc[guilds_getSkills].context[Mages]>`  
 
 # Modifying Membership
-> These tasks, and procedures are for getting/setting variosu aspects of member data in Guilds.  
+> These tasks, and procedures are for getting/setting various aspects of member data in Guilds.  
 
 ## Leadership
 ### guilds_setLeader
@@ -90,7 +90,7 @@ Examples:
 ` - run guilds_removeLeader def:Mages`  
 
 ### guilds_getLeader
-Type: Procedure
+Type: Procedure  
 Returns: PlayerTag  
 Definitions: Guild_Name  
 Examples:  
@@ -111,6 +111,7 @@ Examples:
 
 ### guilds_listMembers  
 Type: Procedure  
+Returns: ListTag (PlayerTag)  
 Definitions: Guild_Name  
 Examples:  
 ` - define GuildMembers:<proc[guilds_listMembers].context[Mages]>`  
