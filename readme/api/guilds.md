@@ -7,43 +7,43 @@ This page is purely for more information regarding usage of the Guild tasks/proc
 * [Modifying Members](#modifying-membership)  
 
 
-## Direct Data Saving
+# Direct Data Saving
 > THIS SHOULD NOT BE THE GO-TO WAY OF ADDING DATA! Use this as an interface for other system wrappers.
 
-### setGuildData
+## setGuildData
 Type: Task  
 Definitions: Guild_Name | Data_Name | Data_Value  
 Examples:  
 `- run setGuildData def:Mages|members.leader|Xeane`
 
-### getGuildData
+## getGuildData
 Type: Procedure  
 Definitions: Guild_Name | Data_Name  
 Examples:  
 `- define guildLeader:<proc[getGuildData].context[Mages|members.leader]>`
 
-### setGuildData_multiple
+## setGuildData_multiple
 Type: Task  
 Definitions: Guild_Name | DataList(ListTag - NBT Formatting - `.escaped`)  
 Examples:  
 `- run setGuildData_multiple def:Mages|<list[members.leader/Xeane|display.name/Mages|display.color/<&b>].escaped>`
 
-## Creating or Removing Guilds
+# Creating or Removing Guilds
 > These tasks are used for creating new Guilds, or removing currently existing Guilds.
 
-### guilds_createGuild
+## guilds_createGuild
 Type: Task  
 Definitions: Guild_Name  
 Examples:
 ` - run guilds_createGuild def:Mages`
 
-### guilds_deleteGuild
+## guilds_deleteGuild
 Type: Task  
 Definitions: Guild_Name  
 Examples:  
 ` - run guilds_deleteGuild def:Mages`
 
-### guilds_listGuilds
+## guilds_listGuilds
 Type: Procedure  
 Returns: ListTag of ElementTags
 Definitions: NONE
@@ -51,31 +51,32 @@ Examples:
 ` - define allGuilds:<proc[guilds_listGuilds]>`
 
 
-## Add or Remove Guild Skills
+# Add or Remove Guild Skills
 > This will Add or Remove skill trees to the guild. Members of the guild will have their skills updated accordingly.
 
-### guilds_addSkill
+## guilds_addSkill
 Type: Task  
 Definitions: Guild_Name | Skill_Name  
 Examples:  
 ` - run guilds_addSkill def:Mages|Arcane<&sp>Magic`
 
-### guilds_removeSkill
+## guilds_removeSkill
 Type: Task  
 Definitions: Guild_Name | Skill_Name  
 Examples:  
 ` - run guilds_removeSkill def:Mages|Arcane<&sp>Magic`  
 
-### guilds_getSkills
+## guilds_getSkills
 Type: Procedure  
 Returns: ListTag of ElementTags  
 Definitions: Guild_Name  
 Examples:  
 ` - define skills:<proc[guilds_getSkills].context[Mages]>`  
 
-## Modifying Membership
+# Modifying Membership
 > These tasks, and procedures are for getting/setting variosu aspects of member data in Guilds.  
 
+## Leadership
 ### guilds_setLeader
 Type: Task  
 Definitions: Guild_Name  
@@ -95,6 +96,7 @@ Definitions: Guild_Name
 Examples:  
 ` - define GuildLeader:<proc[guilds_getLeader].context[Mages]>`  
 
+## Members
 ### guilds_addMember  
 Type: Task  
 Definitions: Guild_Name  
