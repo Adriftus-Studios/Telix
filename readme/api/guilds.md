@@ -3,7 +3,7 @@ This page is purely for more information regarding usage of the Guild tasks/proc
 ## Table of Contents:
 * [Direct Data Saving](#direct-data-saving)
 * [Creating or Remove Guilds](#creating-or-removing-guilds)
-* [Adding or Removing Guild Skills](#adding-or-removing-guild-skills)  
+* [Adding or Removing Guild Skills](#add-or-remove-guild-skills)  
 
 
 ## Direct Data Saving
@@ -28,7 +28,7 @@ Definitions: Guild_Name | DataList(ListTag - NBT Formatting - `.escaped`)
 Examples:  
 `- run setGuildData_multiple def:Mages|<list[members.leader/Xeane|display.name/Mages|display.color/<&b>].escaped>`
 
-## Creating ot Removing Guilds
+## Creating or Removing Guilds
 These tasks are used for creating new Guilds, or removing current existing Guilds.  
 
 ### guilds_createGuild
@@ -43,7 +43,7 @@ Definitions: Guild_Name
 Examples:  
 ` - run guilds_deleteGuild def:Mages`
 
-## Adding or Remove Guild Skills
+## Add or Remove Guild Skills
 This will Add or Remove skill trees to the guild. Members of the guild will have their skills updated accordingly.
 
 ### guilds_addSkill
