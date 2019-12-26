@@ -13,7 +13,7 @@ dataSystem_nations:
       - else:
         - announce to_console "[Nations Redux] |nations_config.yml| has not been found from |/plugins/Denizen/data/GlobalLiveData/server/Telix/nations/|."
     on script reload:
-      - inject loadNationData
+      - inject reloadNationData
 
 
 #Load Nation Data
