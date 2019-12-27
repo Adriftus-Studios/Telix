@@ -21,21 +21,11 @@ loadNationData:
   type: task
   debug: true
   script:
+    - announce to_console "[Nations Redux] |nations_config.yml| is being loaded from |/plugins/Denizen/data/GlobalLiveData/server/Telix/nations/|."
     - if <yaml.list.contains[nations]>:
       - yaml unload id:nations
-    - announce to_console "[Nations Redux] |nations_config.yml| is being loaded from |/plugins/Denizen/data/GlobalLiveData/server/Telix/nations/|."
     - yaml load:data/GlobalLiveData/server/Telix/nations/nations_config.yml id:nations
     - announce to_console "[Nations Redux] |nations_config.yml| has been loaded from |/plugins/Denizen/data/GlobalLiveData/server/Telix/nations/| as YAML ID |nations|."
-
-
-#Reload Nation Data
-reloadNationData:
-  type: task
-  debug: true
-  script:
-    - if <yaml.list.contains[nations]>:
-      - yaml unload id:nations
-      - yaml load:data/GlobalLiveData/server/Telix/nations/nations_config.yml id:nations
 
 
 #Get Nation Data
