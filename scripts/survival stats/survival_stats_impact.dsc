@@ -84,17 +84,17 @@ survival_thirst_hunger_impact:
       - hurt 1000
       - narrate "<&c>You have died of dehydration."
     - else if <yaml[player.<player.uuid>].read[stats.thirst.current]> <= 0:
-      - if !<player.has_flag[dehydrated]>:
+      - if !<yaml[player.<player.uuid>].read[effects.dehydrated]||null>:
         - run survival_thirst_dehydration
 
 survival_thirst_dehydration:
   type: task
   script:
-    - flag player dehydrated:true
+    - flag player effects:->:dehydrated
     - cast confusion duration:6h
     - while <yaml[player.<player.uuid>].read[stats.thirst.current]> <= 0 && <player.is_online>:
       - wait 1s
-    - flag player dehydrated:!
+    - flag player effects:<-:dehydrated
     - cast remove confusion
 
 survival_stats_thirst_hunger_periodic_drain:
