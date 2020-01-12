@@ -2,11 +2,7 @@ PlayerLevels_loginEvents:
   type: world
   events:
     on player joins:
-<<<<<<< HEAD
       - if <proc[getPlayerData].context[stats.level]> == null:
-=======
-      - if <proc[getPlayerData].context[stats.food.current]> == null:
->>>>>>> 7edae8a9e714b6864193b7288fe0b34aa1420d95
         - inject stats_setup
       - wait 1t
       - adjust <player> health_scale:20
@@ -28,11 +24,8 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.damage:100
     - yaml id:player.<player.uuid> set stats.speed:100
     - yaml id:player.<player.uuid> set stats.temperature:100
-<<<<<<< HEAD
     - yaml id:player.<player.uuid> set stats.xp:0
     - yaml id:player.<player.uuid> set stats.level:1
-=======
->>>>>>> 7edae8a9e714b6864193b7288fe0b34aa1420d95
 
 survival_sidebar:
   type: world
