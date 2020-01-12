@@ -2,7 +2,7 @@ PlayerLevels_loginEvents:
   type: world
   events:
     on player joins:
-      - if <proc[getPlayerData].context[stats.level]> == null:
+      - if <proc[getPlayerData].context[stats.level]||null> == null:
         - inject stats_setup
       - wait 1t
       - adjust <player> health_scale:20

@@ -6,7 +6,7 @@ debuff_dehydrated:
       - wait 1s
     - if !<player.is_online>:
       - stop
-    - flag player effects:<-:dehydrated
+    - yaml id:player.<player.uuid> set debuffs:<-:dehydrated
     - cast remove confusion
 
 
