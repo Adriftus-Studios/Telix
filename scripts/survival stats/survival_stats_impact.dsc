@@ -115,7 +115,7 @@ survival_stats_weight_impact:
     - choose <[encumberance]>:
       - case 110:
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[full_encumbered]>:
-        - inject debuff_full_encumbered
+          - inject debuff_full_encumbered
       - case 100:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.99]>]>
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
