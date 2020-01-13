@@ -9,6 +9,23 @@ debuff_dehydrated:
     - yaml id:player.<player.uuid> set debuffs:<-:dehydrated
     - cast remove confusion
 
+debuff_encumbered:
+  type: task
+  script:
+    - flag player no_jump:->:encumbered
+    - while <yaml[player.<player.uuid>].read[stats.weight]||100> <= 0 && <player.is_online>:
+      - wait 1s
+    - if !<player.is_online>:
+      - flag player no_jump:<-:encumbered
+      - stop
+    - yaml id:player.<player.uuid> set debuffs:<-:encumbered
+
+debuff_no_jump:
+  type: world
+  events:
+    on player jumps flagged:no_jump priority:-2000 bukkit_priority:LOWEST:
+      - determine cancelled
+
 
 debuffs_on_join:
   type: world

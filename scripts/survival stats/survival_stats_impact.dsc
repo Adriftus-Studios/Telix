@@ -114,19 +114,19 @@ survival_stats_weight_impact:
       - define encumberance:100
     - choose <[encumberance]>:
       - case 100:
-        - adjust <player> walk_speed:0.01
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.99]>]>
       - case 90:
-        - adjust <player> walk_speed:0.03
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.85]>]>
       - case 80:
-        - adjust <player> walk_speed:0.1
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.5]>]>
       - case 70:
-        - adjust <player> walk_speed:0.18
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.2]>]>
       - case 60:
-        - adjust <player> walk_speed:0.19
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.1]>]>
       - case 50:
-        - adjust <player> walk_speed:0.2
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.1]>]>
       - default:
-        - adjust <player> walk_speed:0.22
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed]>
 
 survival_stats_weight_events:
   type: world
