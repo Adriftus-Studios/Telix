@@ -7,5 +7,5 @@ player_join_event:
       - wait 1t
       - adjust <player> health_scale:20
       - inject playerLevel_showXP
-      - if <player.equipment.contains[air]>:
+      - if <player.equipment.get[1].material.name> == air:
         - inject system_equipment_set
