@@ -110,9 +110,12 @@ survival_stats_weight_impact:
   debug: false
   script:
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
-    - if <[encumberance]> > 100:
-      - define encumberance:100
+    - if <[encumberance]> > 110:
+      - define encumberance:110
     - choose <[encumberance]>:
+      - case 110:
+        - if !<yaml[player.<player.uuid>].read[debuffs].contains[full_encumbered]>:
+        - inject debuff_full_encumbered
       - case 100:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.99]>]>
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
