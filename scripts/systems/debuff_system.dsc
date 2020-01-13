@@ -13,7 +13,7 @@ debuff_encumbered:
   type: task
   script:
     - flag player no_jump:->:encumbered
-    - while <yaml[player.<player.uuid>].read[stats.weight]||100> <= 0 && <player.is_online>:
+    - while <yaml[player.<player.uuid>].read[stats.weight.current]./[<yaml[player.<player.uuid>].read[stats.weight.max]>]> >= 0.8 && <player.is_online>:
       - wait 1s
     - if !<player.is_online>:
       - flag player no_jump:<-:encumbered
