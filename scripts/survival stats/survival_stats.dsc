@@ -15,8 +15,9 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.weight.current:0
     - yaml id:player.<player.uuid> set stats.weight.max:100
     - yaml id:player.<player.uuid> set stats.damage:100
-    - yaml id:player.<player.uuid> set stats.speed:100
+    - yaml id:player.<player.uuid> set stats.speed:0
     - yaml id:player.<player.uuid> set stats.temperature:100
+    - yaml id:player.<player.uuid> set stats.basespeed:0.22
     - yaml id:player.<player.uuid> set stats.xp:0
     - yaml id:player.<player.uuid> set stats.level:1
 
