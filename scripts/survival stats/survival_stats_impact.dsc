@@ -172,10 +172,10 @@ survival_stats_food_burn_swim:
       - yaml id:player.<[value].uuid> set stats.food.current:--
       - wait 3s
 
-survival_stats_death_reset:
-  type: world
-  events:
-    on player respawns bukkit_priority:HIGHEST:
-      - yaml id:player.<player.uuid> set stats.food.current:100
-      - yaml id:player.<player.uuid> set stats.thirst.current:100
-      - yaml id:player.<player.uuid> set stats.temperature:100
+survival_stats_reset:
+  type: task
+  script:
+    - yaml id:player.<player.uuid> set stats.food.current:100
+    - yaml id:player.<player.uuid> set stats.thirst.current:100
+    - yaml id:player.<player.uuid> set stats.temperature:100
+    - inject survival_stats_weight_calculate
