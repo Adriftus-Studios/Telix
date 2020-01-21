@@ -16,7 +16,7 @@ debuff_encumbered:
     - flag player no_jump:->:encumbered
     - while <yaml[player.<player.uuid>].read[stats.weight.current]./[<yaml[player.<player.uuid>].read[stats.weight.max]>]> >= 0.8 && <player.is_online>:
       - wait 1s
-    - flag player no_jump:<-:encumbered
+    - flag player no_jump:<-:encumberede
     - if !<player.is_online>:
       - stop
     - yaml id:player.<player.uuid> set debuffs:<-:encumbered
