@@ -19,7 +19,9 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.temperature:100
     - yaml id:player.<player.uuid> set stats.basespeed:0.22
     - yaml id:player.<player.uuid> set stats.xp:0
-    - yaml id:player.<player.uuid> set stats.level:0
+    - yaml id:player.<player.uuid> set lessons.current:0
+    - yaml id:player.<player.uuid> set lessons.lifetime:0
+
 
 survival_sidebar:
   type: world

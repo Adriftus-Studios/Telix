@@ -1,0 +1,22 @@
+skill_trees:
+  # Magic
+  Elemental:
+    available_check: <yaml[player.<player.uuid>].read[some_quest_complete].and[<yaml[player.<player.uuid>].read[skills.Arcane.level].is[>=].to[100]>]>
+  Arcane:
+  Demonic:
+  Nature:
+  Musical:
+  Illusion:
+  # Physical
+  Swords:
+  Axes:
+  Hammers:
+  Archery:
+  Fisticuffs:
+  Endurance:
+  # Stealth
+  Stealth:
+  Acrobatics:
+  Perception:
+  Thievery:
+  Athleticism:
