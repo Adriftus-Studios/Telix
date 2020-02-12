@@ -1,6 +1,7 @@
 
 abilities_reload:
   type: world
+  debug: true
   abilities_reload:
     - yaml load:data/skill_trees.yml id:ability_trees
       - yaml create id:server.skills_by_level
@@ -12,7 +13,7 @@ abilities_reload:
       - inject locally abilities_reload
     on script reload:
       - inject locally abilities_reload
-      
+
 abilities_checkAbilities:
   type: task
   definitions: ability_tree
