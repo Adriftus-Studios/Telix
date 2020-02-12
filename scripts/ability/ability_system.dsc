@@ -21,8 +21,9 @@ abilities_characterAbilityTrees:
   definitions:
     filler: <item[white_stained_glass].with[display_name=<&c>]>
   procedural items:
-    - foreach <yaml[player.<player.uuid>].read[playerskills]> as:value1:
-      - define list:|:<item[GUIItem_abilityTree_<[value1]>].with[nbt=skillname/<[value1]>]>
+    - foreach <yaml[ability_trees].list_keys[skill_trees]> as:value1:
+      - if <yaml[ability_trees].read[<[value1]>.available_check].parsed>:
+        - define list:|:<item[GUIItem_abilityTree_<[value1]>].with[nbt=skillname/<[value1]>]>
     - determine <[list]>
   slots:
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
