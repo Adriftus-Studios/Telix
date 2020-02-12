@@ -4,6 +4,7 @@ equipment_head_slot:
   display name: <&6>Cosmetics
   GUI_Inventory: abilities_characterAbilityTrees
   drops_on_death: false
+  weight: 0
   lore:
   - "<&e>Click to open your cosmetics menu."
 
@@ -13,6 +14,7 @@ equipment_chest_slot:
   display name: <&7>Equipment
   GUI_Inventory: abilities_characterAbilityTrees
   drops_on_death: false
+  weight: 0
   lore:
   - "<&e>Click to open your equipment window."
   mechanisms:
@@ -25,6 +27,7 @@ equipment_leg_slot:
   display name: <&c>Stats
   GUI_Inventory: abilities_characterAbilityTrees
   drops_on_death: false
+  weight: 0
   lore:
   - "<&a>Level<&co><&e> <yaml[player.<player.uuid>].read[stats.level]>"
   - "<&c>Max Health<&co><&e> <yaml[player.<player.uuid>].read[stats.health.max]>"
@@ -41,6 +44,7 @@ equipment_boots_slot:
   GUI_Inventory: abilities_characterAbilityTrees
   display name: <&c>Skills/Abilities
   drops_on_death: false
+  weight: 0
   lore:
   - "<&e>Click to open your skills and abilities menu."
 

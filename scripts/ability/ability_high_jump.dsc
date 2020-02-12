@@ -1,7 +1,7 @@
 ability_high_jump:
   type: world
   name: high_jump
-  ability_tree: general
+  ability_tree: Acrobatics
   level: 1
   power_cost: 10
   display_item: GUI_high_jump

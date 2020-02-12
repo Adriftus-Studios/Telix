@@ -6,7 +6,7 @@ abilities_reload:
       - yaml load:data/skill_trees.yml id:ability_trees
       - yaml create id:server.skills_by_level
       - foreach <server.list_scripts>:
-        - if <[value].starts_with[ability]>:
+        - if <[value].name.starts_with[ability]>:
           - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[level]>:|:<[value].yaml_key[name]>
   events:
     on server start:
@@ -40,6 +40,15 @@ abilities_characterAbilityTrees:
     - "[filler] [] [] [] [] [] [] [] [filler]"
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   
+abilityTree_inventory:
+  type: inventory
+  title: <&c>ERROR - REPORT
+  slots:
+    - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+    - "[filler] [] [] [] [] [] [] [] [filler]"
+    - "[filler] [] [] [] [] [] [] [] [filler]"
+    - "[filler] [] [] [] [] [] [] [] [filler]"
+    - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
 ability_characterAbilities_events:
   type: world
@@ -47,7 +56,13 @@ ability_characterAbilities_events:
     on player left clicks item in abilities_characterAbilityTrees:
       - determine passively cancelled
       - if <context.item.has_nbt[skillname]>:
-        - inventory open d:<inventory[abilityTree_<context.item.nbt[skillname]>]>
+        - define inventory:<inventory[abilityTree_inventory]>
+        - adjust def:inventory title:<context.item.has_nbt[skillname].to_titlecase>
+        - foreach <yaml[server.skills_by_level].list_keys[<context.item.nbt[skillname]>].numerical> as:skill:
+          - foreach <[level].alphabetical> as:ability:
+            - define list:|:<item[stone].with[display_name=<[skill]>]>
+        - inventory add d:<[inventory]> o:<[list]>
+        - inventory open d:<[inventory]>
 
     on player shift left clicks item in abilities_characterAbilityTrees priority:10:
       - determine passively cancelled
