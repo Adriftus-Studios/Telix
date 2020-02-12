@@ -9,7 +9,7 @@ survival_stats_temperature:
         - if !<player.is_online>:
           - foreach next
         - if <player.location.material.name.contains[water]>:
-          - define temp:<player.location.biome.temperature.*[100].round_to[0].-[10]>
+          - define temp:<player.location.biome.temperature.*[100].round_to[0].-[10].+[<server.flag[global_temperature_modifier]>]>
           - if <[temp]> >= 100:
             - define temp:100
           - if <[temp]> > <yaml[player.<player.uuid>].read[stats.temperature]>:
