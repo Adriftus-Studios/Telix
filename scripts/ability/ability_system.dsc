@@ -1,12 +1,18 @@
-abilities_reload:
-  type: task
-  script:
-    - yaml load:data/skill_trees.yml id:ability_trees
-    - yaml create id:server.skills_by_level
-    - foreach <server.list_scripts>:
-      - if <[value].starts_with[ability]>:
-        - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[level]>:|:<[value].yaml_key[name]>
 
+abilities_reload:
+  type: world
+  abilities_reload:
+    - yaml load:data/skill_trees.yml id:ability_trees
+      - yaml create id:server.skills_by_level
+      - foreach <server.list_scripts>:
+        - if <[value].starts_with[ability]>:
+          - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[level]>:|:<[value].yaml_key[name]>
+  events:
+    on server start:
+      - inject locally abilities_reload
+    on script reload:
+      - inject locally abilities_reload
+      
 abilities_checkAbilities:
   type: task
   definitions: ability_tree
@@ -20,7 +26,7 @@ abilities_characterAbilityTrees:
   type: inventory
   title: <&b>Ability Trees
   definitions:
-    filler: <item[white_stained_glass].with[display_name=<&c>]>
+    filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   procedural items:
     - foreach <yaml[ability_trees].list_keys[skill_trees]> as:value1:
       - if <yaml[ability_trees].read[skill_trees.<[value1]>.available_check].parsed>:
