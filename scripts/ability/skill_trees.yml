@@ -2,71 +2,71 @@ skill_trees:
   # Magic
   Elemental:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Arcane:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Demonic:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Nature:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Musical:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Illusion:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   # Physical
   Swords:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Axes:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Hammers:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Archery:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Fisticuffs:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Endurance:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   # Stealth
   Stealth:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Acrobatics:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Perception:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Thievery:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
   Athleticism:
     available_check: true
-    item: sand
+    GUIItem: sand
     custom_model_data: 1
