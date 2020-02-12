@@ -3,7 +3,7 @@ abilities_reload:
   type: world
   debug: true
   abilities_reload:
-    - yaml load:data/skill_trees.yml id:ability_trees
+      - yaml load:data/skill_trees.yml id:ability_trees
       - yaml create id:server.skills_by_level
       - foreach <server.list_scripts>:
         - if <[value].starts_with[ability]>:
