@@ -28,11 +28,9 @@ abilities_characterAbilityTrees:
     - determine <[list]>
   slots:
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
-    - "[] [filler] [] [filler] [] [filler] [] [filler] []"
-    - "[filler] [] [filler] [] [filler] [] [filler] [] [filler]"
-    - "[] [filler] [] [filler] [] [filler] [] [filler] []"
-    - "[filler] [] [filler] [] [filler] [] [filler] [] [filler]"
-    - "[] [filler] [] [filler] [] [filler] [] [filler] []"
+    - "[filler] [] [] [] [] [] [] [] [filler]"
+    - "[filler] [] [] [] [] [] [] [] [filler]"
+    - "[filler] [] [] [] [] [] [] [] [filler]"
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   
 
