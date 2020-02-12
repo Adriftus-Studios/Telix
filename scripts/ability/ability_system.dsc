@@ -22,7 +22,7 @@ abilities_characterAbilityTrees:
     filler: <item[white_stained_glass].with[display_name=<&c>]>
   procedural items:
     - foreach <yaml[ability_trees].list_keys[skill_trees]> as:value1:
-      - if <yaml[ability_trees].read[<[value1]>.available_check].parsed>:
+      - if <yaml[ability_trees].read[skill_trees.<[value1]>.available_check].parsed>:
         - define list:|:<yaml[ability_trees].read[skill_trees.<[value1]>.GUIItem].as_item.with[custom_model_data=<yaml[ability_trees].read[skill_trees.<[value1]>.custom_model_data]>;nbt=skillname/<[value1]>]>
     - determine <[list]>
   slots:
@@ -38,13 +38,10 @@ abilities_characterAbilityTrees:
 ability_characterAbilities_events:
   type: world
   events:
-    on player clicks item in abilities_characterAbilityTrees:
-      - if !<context.item.has_nbt[skillname]>:
-        - determine cancelled
-
-    on player left clicks item in abilities_characterAbilityTrees priority:10:
+    on player left clicks item in abilities_characterAbilityTrees:
       - determine passively cancelled
-      - inventory open d:<inventory[abilityTree_<context.item.nbt[skillname]>]>
+      - if <context.item.has_nbt[skillname]>:
+        - inventory open d:<inventory[abilityTree_<context.item.nbt[skillname]>]>
 
     on player shift left clicks item in abilities_characterAbilityTrees priority:10:
       - determine passively cancelled
