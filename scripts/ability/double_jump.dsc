@@ -1,7 +1,7 @@
 ability_double_jump:
   type: world
-  name: double_jump
-  ability_tree: general
+  name: Double Jump
+  ability_tree: Acrobatics
   level: 3
   power_cost: 10
   display_item: GUI_double_jump
