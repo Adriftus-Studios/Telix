@@ -2,6 +2,7 @@ equipment_head_slot:
   type: item
   material: rabbit_hide
   display name: <&6>Cosmetics
+  GUI_Inventory: abilities_characterAbilityTrees
   drops_on_death: false
   lore:
   - "<&e>Click to open your cosmetics menu."
@@ -10,6 +11,7 @@ equipment_chest_slot:
   type: item
   material: golden_chestplate
   display name: <&7>Equipment
+  GUI_Inventory: abilities_characterAbilityTrees
   drops_on_death: false
   lore:
   - "<&e>Click to open your equipment window."
@@ -21,6 +23,7 @@ equipment_leg_slot:
   type: item
   material: snow
   display name: <&c>Stats
+  GUI_Inventory: abilities_characterAbilityTrees
   drops_on_death: false
   lore:
   - "<&a>Level<&co><&e> <yaml[player.<player.uuid>].read[stats.level]>"
@@ -35,6 +38,7 @@ equipment_leg_slot:
 equipment_boots_slot:
   type: item
   material: snow
+  GUI_Inventory: abilities_characterAbilityTrees
   display name: <&c>Skills/Abilities
   drops_on_death: false
   lore:
@@ -52,4 +56,4 @@ system_equipment_override:
       - narrate <context.item.script.name.after[_].before[_]>
       - determine passively cancelled
       - wait 1t
-      - inventory open d:player_screen_<context.item.script.name.after[_].before[_]>
+      - inventory open d:<context.item.script.yaml_key[GUI_Inventory]>
