@@ -54,7 +54,6 @@ fishing_inventory_listener:
       - playeffect happy_villager <context.hook.location> targets:<player> quantity:60
       - narrate "<&6>HOOKED!"
     on player fishes while caught_fish:
-      - determine caught af_entity_crab
-      #- spawn af_entity_crab <context.hook.location>
+      - spawn af_entity_crab <context.hook.location>
       - narrate "<&6>A crab was caught!"
     
