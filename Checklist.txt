@@ -1,0 +1,42 @@
+Abilities
+Skill Trees
+    Elemental
+    Arcane
+    Demonic
+    Nature
+    Musical
+    Illusion
+    Swords
+    Axes
+    Hammers
+    Archery
+    Fishicuffs
+    Stealth
+    Acrobatics
+    Perception
+    Thievery
+    Athleticism
+Stats
+    Carry Weight
+    Hunger
+    Thirst
+    Constitution - More constitution you have, the less you are affected by the environment
+    Stamina
+    Melee Damage
+Cosmetics
+    Hats
+    Item Nametags
+    Player Nametags
+    Item Stat Tracker
+Leveling
+Professions
+    Fishing
+    Woodworking
+    Alchemy
+    Mining
+    Hunting
+Alchemy
+    Resource Gathering - Gathering more resources from the resources around you
+    Brewing - Reduces resource usage and increases production speed
+    Distillation - 
+    Mastery - How effective are your potions
