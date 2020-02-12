@@ -1,6 +1,6 @@
 ability_double_jump:
   type: world
-  name: Double Jump
+  name: double_jump
   ability_tree: Acrobatics
   level: 3
   power_cost: 10

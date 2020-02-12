@@ -1,6 +1,6 @@
 ability_high_jump:
   type: world
-  name: High Jump
+  name: high_jump
   ability_tree: Acrobatics
   level: 1
   power_cost: 10

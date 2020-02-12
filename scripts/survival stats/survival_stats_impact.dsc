@@ -110,7 +110,7 @@ survival_stats_weight_impact:
   type: task
   debug: false
   script:
-    - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
+    - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
     - if <[encumberance]> > 110:
       - define encumberance:110
     - choose <[encumberance]>:

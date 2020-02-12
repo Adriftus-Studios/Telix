@@ -47,7 +47,13 @@ ability_characterAbilities_events:
     on player left clicks item in abilities_characterAbilityTrees:
       - determine passively cancelled
       - if <context.item.has_nbt[skillname]>:
-        - inventory open d:<inventory[abilityTree_<context.item.nbt[skillname]>]>
+        - define inventory:<inventory[abilityTree_inventory]>
+        - adjust def:inventory title:<context.item.has_nbt[skillname].to_titlecase>
+        - foreach <yaml[server.skills_by_level].list_keys[<context.item.has_nbt[skillname]>].numerical> as:skill:
+          - foreach <[level].alphabetical> as:ability:
+            - define list:|:<item[stone].with[display_name=<[skill]>]>
+        - inventory add d:<[inventory]> o:<[list]>
+        - inventory open d:<[inventory]>
 
     on player shift left clicks item in abilities_characterAbilityTrees priority:10:
       - determine passively cancelled

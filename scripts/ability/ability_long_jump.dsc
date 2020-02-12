@@ -1,6 +1,6 @@
 ability_long_jump:
   type: world
-  name: Long Jump
+  name: long_jump
   ability_tree: Acrobatics
   level: 2
   power_cost: 10
