@@ -59,7 +59,7 @@ ability_characterAbilities_events:
         - define inventory:<inventory[abilityTree_inventory]>
         - adjust def:inventory title:<context.item.has_nbt[skillname].to_titlecase>
         - foreach <yaml[server.skills_by_level].list_keys[<context.item.nbt[skillname]>].numerical> as:skilllevel:
-          - foreach <yaml[server.skills_by_level].list_keys[<context.item.nbt[skillname]>.<[skilllevel]>].alphabetical> as:ability:
+          - foreach <yaml[server.skills_by_level].read[<context.item.nbt[skillname]>.<[skilllevel]>].alphabetical> as:ability:
             - define list:|:<item[stone].with[display_name=<[ability].replace[_].with[<&sp>].to_titlecase>]>
         - inventory add d:<[inventory]> o:<[list]>
         - inventory open d:<[inventory]>
