@@ -6,7 +6,7 @@ abilities_reload:
       - yaml load:data/skill_trees.yml id:ability_trees
       - yaml create id:server.skills_by_level
       - foreach <server.list_scripts>:
-        - if <[value].starts_with[ability]>:
+        - if <[value].name.starts_with[ability]>:
           - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[level]>:|:<[value].yaml_key[name]>
   events:
     on server start:
@@ -49,7 +49,7 @@ abilityTree_inventory:
     - "[filler] [] [] [] [] [] [] [] [filler]"
     - "[filler] [] [] [] [] [] [] [] [filler]"
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
-    
+
 ability_characterAbilities_events:
   type: world
   events:
@@ -58,7 +58,7 @@ ability_characterAbilities_events:
       - if <context.item.has_nbt[skillname]>:
         - define inventory:<inventory[abilityTree_inventory]>
         - adjust def:inventory title:<context.item.has_nbt[skillname].to_titlecase>
-        - foreach <yaml[server.skills_by_level].list_keys[<context.item.has_nbt[skillname]>].numerical> as:skill:
+        - foreach <yaml[server.skills_by_level].list_keys[<context.item.nbt[skillname]>].numerical> as:skill:
           - foreach <[level].alphabetical> as:ability:
             - define list:|:<item[stone].with[display_name=<[skill]>]>
         - inventory add d:<[inventory]> o:<[list]>
