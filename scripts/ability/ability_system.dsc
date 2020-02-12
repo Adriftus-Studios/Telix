@@ -1,6 +1,7 @@
 abilities_reload:
   type: task
   script:
+    - yaml load:data/skill_trees.yml id:ability_trees
     - yaml create id:server.skills_by_level
     - foreach <server.list_scripts>:
       - if <[value].starts_with[ability]>:
