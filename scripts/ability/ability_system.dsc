@@ -40,7 +40,16 @@ abilities_characterAbilityTrees:
     - "[filler] [] [] [] [] [] [] [] [filler]"
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   
-
+abilityTree_inventory:
+  type: inventory
+  title: <&c>ERROR - REPORT
+  slots:
+    - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+    - "[filler] [] [] [] [] [] [] [] [filler]"
+    - "[filler] [] [] [] [] [] [] [] [filler]"
+    - "[filler] [] [] [] [] [] [] [] [filler]"
+    - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+    
 ability_characterAbilities_events:
   type: world
   events:
