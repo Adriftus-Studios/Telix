@@ -13,7 +13,7 @@ abilities_checkAbilities:
       - if <yaml[server.skills_by_level].read[<[ability_tree]>.<yaml[player.<player.uuid>].read[skills.<[ability_tree]>.level]>]||null> != null:
         - narrate "<&e>You have unlocked new <&b><[ability_tree]><&e> abilities<&co>"
         - foreach <yaml[server.skills_by_level].read[<[ability_tree]>.<[level]>]>:
-          - narrate "<&a><[value].replace[_].with[<&sp>].to_titlecase"
+          - narrate "<&a><[value].replace[_].with[<&sp>].to_titlecase>"
 
 abilities_characterAbilityTrees:
   type: inventory
