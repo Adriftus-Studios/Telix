@@ -57,6 +57,3 @@ fishing_inventory_listener:
       - spawn chicken <context.hook.location>
       - narrate "<&6>A crab was caught!"
     
-    on entity spawns:
-      - if <context.entity.scriptname> == af_entity_crab:
-        - narrate "<&2>AALSKJDHA"
