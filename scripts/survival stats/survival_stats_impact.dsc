@@ -3,7 +3,8 @@ survival_stats_temperature:
   debug: false
   events:
     on player walks:
-      - narrate <player.location.above.material.name>
+      - if <player.location.above.material.name.is[==].to[water]>:
+        - narrate y
     on delta time secondly every:15:
       - foreach <server.list_online_players.filter[health.is[OR_MORE].than[0]]>:
         - adjust <queue> linked_player:<[value]>
