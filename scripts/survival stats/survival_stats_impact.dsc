@@ -4,8 +4,6 @@ survival_stats_temperature:
   events:
     on delta time secondly every:15:
       - foreach <server.list_online_players.filter[health.is[OR_MORE].than[0]]>:
-        - if <[value].has_flag[cheatmode]>:
-          - stop
         - adjust <queue> linked_player:<[value]>
         - define change:none
         - if !<player.is_online>:
@@ -48,6 +46,8 @@ survival_stats_temperature:
 survival_temperature_impact:
   type: task
   script:
+    - if <[player].has_flag[cheatmode]>:
+      - stop
     - if <yaml[player.<player.uuid>].read[stats.temperature]> < 50:
       - narrate "<&c>You have <&b>frozen<&c> to death."
       - hurt 1000
