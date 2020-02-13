@@ -164,15 +164,6 @@ survival_stats_food_impact_events:
       - inject survival_stats_food_burn_sprint
     on player starts swimming:
       - inject survival_stats_food_burn_swim
-    on player damaged:
-      - inject survival_stats_food_burn_block
-
-survival_stats_food_burn_block:
-  type: task
-  script:
-    - while <player.is_blocking>:
-      - yaml id:player.<[value].uuid> set stats.food.current:--
-      - wait 3s
 
 survival_stats_food_burn_sprint:
   type: task
