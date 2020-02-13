@@ -116,7 +116,8 @@ survival_stats_weight_impact:
   script:
     - if <player.has_flag[cheatmode]>:
       - stop
-    - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
+    #- define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[101].round_down_to_precision[10]>
+    - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]>
     - if <[encumberance]> > <yaml[player.<player.uuid>].read[stats.weight.max].+[10]>:
       - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.max].+[10]>
     - narrate <[encumberance]>
