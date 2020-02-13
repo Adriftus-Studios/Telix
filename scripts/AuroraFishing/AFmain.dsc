@@ -52,7 +52,7 @@ fishing_inventory_listener:
         - wait 1t
       - if <context.hook.location.material.name> == lava:
         - adjust <context.hook> gravity:false
-      
+        - narrate "Shit's happening"
       
       - narrate "state<&co> <context.state>"
       - narrate "biome<&co> <context.hook.location.biome.name>"
