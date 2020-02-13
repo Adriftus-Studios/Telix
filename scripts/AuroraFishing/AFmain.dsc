@@ -51,6 +51,7 @@ fishing_inventory_listener:
       - while <context.hook.location.material.name> == air:
         - wait 1t
       - if <context.hook.location.material.name> == lava:
+        - wait 2t
         - adjust <context.hook> gravity:false
         - narrate "Shit's happening"
       
