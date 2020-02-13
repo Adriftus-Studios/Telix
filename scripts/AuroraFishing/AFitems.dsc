@@ -52,3 +52,13 @@ af_merchant_button:
   display name: <&a>Merchant
   lore:
   - "<&b>Sell your caught fish here!"
+
+
+### Fish being Caught ###
+
+af_fish_1:
+  type: item
+  material: cod
+  display name: <&a>Redfish
+  mechanisms:
+    custom_model_data: 1
