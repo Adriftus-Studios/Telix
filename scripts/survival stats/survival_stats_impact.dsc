@@ -119,6 +119,7 @@ survival_stats_weight_impact:
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
     - if <[encumberance]> > <yaml[player.<player.uuid>].read[stats.weight.max].+[10]>:
       - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.max].+[10]>
+    - narrate <[encumberance]>
     - choose <[encumberance]>:
       - case <yaml[player.<player.uuid>].read[stats.weight.max].+[10]>:
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[full_encumbered]>:
