@@ -26,7 +26,7 @@ fake_durability_modify:
         - if <[item].nbt[durability]> > <[item].script.yaml_key[fake_durability]>:
             - adjust def:item nbt:durability/<[item].script.yaml_key[fake_durability]>
         - adjust def:item durability:<[item].max_durability.-[<[item].nbt[durability]./[<[item].script.yaml_key[fake_durability]>].*[<[item].max_durability>]>]>
-        - if <[item].lore.replace[regex:(.*)Durability<&co><&sp>(.*)].is[!=].to[<[item].lore>]>:
+        - if <[item].lore.replace[regex:(.*)Durability<&co><&sp>(.*)].is[==].to[<[item].lore>]>:
             - adjust def:item lore:<[item].lore.include[<&f>Durability<&co><&sp><[item].nbt[durability]><&sp>/<&sp><[item].script.yaml_key[fake_durability]>]>
         - else:
             - adjust def:item lore:<[item].lore.replace[regex:(.*)Durability<&co><&sp>(.*)].with[<&f>Durability:<&sp><[item].nbt[durability]><&sp>/<&sp><[item].script.yaml_key[fake_durability]>]>
