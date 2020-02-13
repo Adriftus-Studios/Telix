@@ -3,6 +3,16 @@
 # All GUI's will be in format 'afgui_<name>'
 
 
+fishing_reload:
+  type: world
+  debug: true
+  fish_reload:
+      - yaml load:data/af_config.yml id:fish_info
+  events:
+    on server start:
+      - inject locally fish_reload
+    on script reload:
+      - inject locally fish_reload
 
 ## Event Listener ##
 
