@@ -3,7 +3,7 @@ survival_stats_temperature:
   debug: false
   events:
     on player walks:
-      - if <player.location.above[1.5].material.name.is[==].to[water]>:
+      - if <player.location.above[1.6].material.name.is[==].to[water]>:
         - narrate y
     on delta time secondly every:15:
       - foreach <server.list_online_players.filter[health.is[OR_MORE].than[0]]>:
