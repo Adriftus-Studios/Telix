@@ -16,6 +16,9 @@ Skill Trees
     Perception
     Thievery
     Athleticism
+Diseases
+	Swamp Fever
+	Radiation
 Stats
     Carry Weight
     Hunger

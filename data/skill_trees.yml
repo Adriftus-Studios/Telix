@@ -49,7 +49,6 @@ skill_trees:
     available_check: true
     GUIItem: sand
     custom_model_data: 1
-  # Stealth
   Stealth:
     available_check: true
     GUIItem: sand
