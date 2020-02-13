@@ -51,14 +51,6 @@ fishing_inventory_listener:
       - narrate "state<&co> <context.state>"
       - narrate "biome<&co> <context.hook.location.biome.name>"
       - narrate "material<&co> <context.hook.location.material.name>"
-      - while <context.hook.location.material.name> == air:
-        - wait 1t
-        - if !<context.hook.is_spawned>:
-          - stop
-      - if <context.hook.location.material.name> == lava:
-        - wait 2t
-        - adjust <context.hook> gravity:false
-        - narrate "Shit's happening"
       
 
     on player fishes while bite:
