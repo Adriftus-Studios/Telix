@@ -21,11 +21,13 @@ Diseases
 	Swamp Fever
 	Radiation
 Stats
+	Health
+	Movement Speed
     Carry Weight
     Hunger
     Thirst
     Constitution - More constitution you have, the less you are affected by the environment
-    Stamina/Mana
+    Power (Stamina/Mana) - Used to activate abilities
     Melee Damage
 Cosmetics
     Hats

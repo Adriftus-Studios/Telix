@@ -117,27 +117,27 @@ survival_stats_weight_impact:
     - if <player.has_flag[cheatmode]>:
       - stop
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
-    - if <[encumberance]> > 110:
-      - define encumberance:110
+    - if <[encumberance]> > <yaml[player.<player.uuid>].read[stats.weight.max].+[10]>:
+      - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.max].+[10]>
     - choose <[encumberance]>:
-      - case 110:
+      - case <yaml[player.<player.uuid>].read[stats.weight.max].+[10]>:
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[full_encumbered]>:
           - inject debuff_full_encumbered
-      - case 100:
+      - case <yaml[player.<player.uuid>].read[stats.weight.max]>:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.99]>]>
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
           - inject debuff_encumbered
-      - case 90:
+      - case <yaml[player.<player.uuid>].read[stats.weight.max].-[10]>:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.85]>]>
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
           - inject debuff_encumbered
-      - case 80:
+      - case <yaml[player.<player.uuid>].read[stats.weight.max].-[20]>:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.5]>]>
-      - case 70:
+      - case <yaml[player.<player.uuid>].read[stats.weight.max].-[30]>:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.2]>]>
-      - case 60:
+      - case <yaml[player.<player.uuid>].read[stats.weight.max].-[40]>:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.1]>]>
-      - case 50:
+      - case <yaml[player.<player.uuid>].read[stats.weight.max].-[50]>:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.1]>]>
       - default:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed]>
@@ -182,7 +182,9 @@ survival_stats_food_burn_swim:
 survival_stats_reset:
   type: task
   script:
-    - yaml id:player.<player.uuid> set stats.food.current:100
-    - yaml id:player.<player.uuid> set stats.thirst.current:100
+    - yaml id:player.<player.uuid> set stats.food.current:<yaml[player.<player.uuid>].read[stats.food.max]>
+    - yaml id:player.<player.uuid> set stats.thirst.current:<yaml[player.<player.uuid>].read[stats.thirst.max]>
+    - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]>
+    - yaml id:player.<player.uuid> set stats.health.current:<yaml[player.<player.uuid>].read[stats.health.max]>
     - yaml id:player.<player.uuid> set stats.temperature:100
     - inject survival_stats_weight_calculate

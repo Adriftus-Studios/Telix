@@ -24,7 +24,6 @@ skill_trees:
     available_check: true
     GUIItem: sand
     custom_model_data: 1
-  # Physical
   Swords:
     available_check: true
     GUIItem: sand
