@@ -4,6 +4,8 @@ survival_stats_temperature:
   events:
     on delta time secondly every:15:
       - foreach <server.list_online_players.filter[health.is[OR_MORE].than[0]]>:
+        - if <[value].has_flag[cheatmode]>:
+          - stop
         - adjust <queue> linked_player:<[value]>
         - define change:none
         - if !<player.is_online>:
@@ -94,6 +96,8 @@ survival_stats_thirst_hunger_periodic_drain:
   events:
     on delta time secondly every:15:
       - foreach <server.list_online_players>:
+        - if <[value].has_flag[cheatmode]>:
+          - stop
         - yaml id:player.<[value].uuid> set stats.food.current:--
         - yaml id:player.<[value].uuid> set stats.thirst.current:--
 
@@ -110,6 +114,8 @@ survival_stats_weight_impact:
   type: task
   debug: false
   script:
+    - if <player.has_flag[cheatmode]>:
+      - stop
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
     - if <[encumberance]> > 110:
       - define encumberance:110

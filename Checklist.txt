@@ -1,4 +1,5 @@
-Abilities
+Abilities/Spells
+	*to many to list*
 Skill Trees
     Elemental
     Arcane
@@ -16,18 +17,20 @@ Skill Trees
     Perception
     Thievery
     Athleticism
+Diseases
+	Swamp Fever
+	Radiation
 Stats
     Carry Weight
     Hunger
     Thirst
     Constitution - More constitution you have, the less you are affected by the environment
-    Stamina
+    Stamina/Mana
     Melee Damage
 Cosmetics
     Hats
     Item Nametags
     Player Nametags
-    Item Stat Tracker
 Leveling
 Professions
     Fishing
@@ -40,3 +43,8 @@ Alchemy
     Brewing - Reduces resource usage and increases production speed
     Distillation - 
     Mastery - How effective are your potions
+Expansions
+	The Abyss
+		Theme - The entire world is underground, there is no surface
+		Concept - The planets atmosphere has 
+Darkness

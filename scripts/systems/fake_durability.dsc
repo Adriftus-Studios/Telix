@@ -6,7 +6,7 @@ fake_durability_handler:
         - define item:<context.item>
         - define amount:-1
         - if !<[item].enchantments.contains_any[DURABILITY]>:
-            - inject fake_durability_modify5
+            - inject fake_durability_modify
             - inventory set slot:<context.slot> d:<player.inventory> o:<[new_item]>
         - else:
             - if <util.random.int[0].to[100]> < <util.random.int[100].to[100]./[<[item].enchantments.level[DURABILITY].+[1]>]>:
@@ -26,7 +26,10 @@ fake_durability_modify:
         - if <[item].nbt[durability]> > <[item].script.yaml_key[fake_durability]>:
             - adjust def:item nbt:durability/<[item].script.yaml_key[fake_durability]>
         - adjust def:item durability:<[item].max_durability.-[<[item].nbt[durability]./[<[item].script.yaml_key[fake_durability]>].*[<[item].max_durability>]>]>
-        - adjust def:item lore:<[item].lore.replace[regex:(.*)Durability(.*)].with[<&f>Durability:<&sp><[item].nbt[durability]><&sp>/<&sp><[item].script.yaml_key[fake_durability]>]>
+        - if <[item].lore.replace[regex:(.*)Durability<&co><&sp>(.*)].is[==].to[<[item].lore>]>:
+            - adjust def:item lore:<[item].lore.include[<&f>Durability<&co><&sp><[item].nbt[durability]><&sp>/<&sp><[item].script.yaml_key[fake_durability]>]>
+        - else:
+            - adjust def:item lore:<[item].lore.replace[regex:(.*)Durability<&co><&sp>(.*)].with[<&f>Durability:<&sp><[item].nbt[durability]><&sp>/<&sp><[item].script.yaml_key[fake_durability]>]>
         - if <[item].nbt[durability]> < 0:
             - define new_item:<item[air]>
         - else:
@@ -42,7 +45,7 @@ fake_durability_test_item:
     fake_durability: 5
     unobtainable: true
     lore:
-    - "<&r>Durability: <script.yaml_key[fake_durability]>"
+    - "<&r>Durability: <script.yaml_key[fake_durability]> / <script.yaml_key[fake_durability]>"
 
 fake_durability_give_test_item:
     type: command
