@@ -46,14 +46,27 @@ fishing_inventory_listener:
         - inventory adjust slot:<context.slot> d:<context.clicked_inventory> remove_nbt:baited
       - else:
         - narrate "<&c>This rod does not have any bait attached!"
-    
+
     on player fishes:
       - narrate "state<&co> <context.state>"
-    
+      - narrate "biome<&co> <context.hook.location.biome.name>"
+
     on player fishes while bite:
       - playeffect happy_villager <context.hook.location> targets:<player> quantity:60
       - narrate "<&6>HOOKED!"
+
     on player fishes while caught_fish:
+     #- if <util.random.int[1].to[100]> <= <yaml_key[fish_chance_percent]>
+      - if <util.random.int[1].to[100]> <= 1:
+        - give <yaml[fish_info].read[general.<context.location.biome.name>.<[platinum]>].random>
+      - else if <util.random.int[1].to[100]> <= 10:
+        - give <yaml[fish_info].read[general.<context.location.biome.name>.<[diamond]>].random>
+      - else if <util.random.int[1].to[100]> <= 20:
+        - give <yaml[fish_info].read[general.<context.location.biome.name>.<[gold]>].random>
+      - else if <util.random.int[1].to[100]> <= 40:
+        - give <yaml[fish_info].read[general.<context.location.biome.name>.<[silver]>].random>
+      - else if <util.random.int[1].to[100]> <= 80:
+        - give <yaml[fish_info].read[general.<context.location.biome.name>.<[bronze]>].random>
+      
       - spawn af_entity_crab <context.hook.location>
       - narrate "<&6>A crab was caught!"
-    
