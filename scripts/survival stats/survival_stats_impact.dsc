@@ -182,7 +182,9 @@ survival_stats_food_burn_swim:
 survival_stats_reset:
   type: task
   script:
-    - yaml id:player.<player.uuid> set stats.food.current:100
-    - yaml id:player.<player.uuid> set stats.thirst.current:100
+    - yaml id:player.<player.uuid> set stats.food.current:<yaml[player.<player.uuid>].read[stats.food.max]>
+    - yaml id:player.<player.uuid> set stats.thirst.current:<yaml[player.<player.uuid>].read[stats.thirst.max]>
+    - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]>
+    - yaml id:player.<player.uuid> set stats.health.current:<yaml[player.<player.uuid>].read[stats.health.max]>
     - yaml id:player.<player.uuid> set stats.temperature:100
     - inject survival_stats_weight_calculate
