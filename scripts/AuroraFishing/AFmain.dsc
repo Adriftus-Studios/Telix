@@ -71,7 +71,7 @@ fishing_inventory_listener:
       - define number <util.random.int[1].to[100]>
       - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[value]> > <[number]>:
-          - determine caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>]>
+          - determine caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>]||<yaml[fish_info].read[general.fallback.<[value]>]>
         
       
       - spawn af_entity_crab <context.hook.location>
