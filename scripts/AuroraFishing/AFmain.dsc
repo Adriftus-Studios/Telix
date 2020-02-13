@@ -48,6 +48,12 @@ fishing_inventory_listener:
         - narrate "<&c>This rod does not have any bait attached!"
 
     on player fishes:
+      - while <context.hook.location.material.name> != air:
+        - wait 1t
+      - if <context.hook.location.material.name> == lava:
+        - adjust <context.hook> gravity:false
+      
+      
       - narrate "state<&co> <context.state>"
       - narrate "biome<&co> <context.hook.location.biome.name>"
       - narrate "material<&co> <context.hook.location.material.name>"
