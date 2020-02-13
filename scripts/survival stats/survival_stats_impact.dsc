@@ -116,30 +116,28 @@ survival_stats_weight_impact:
   script:
     - if <player.has_flag[cheatmode]>:
       - stop
-    #- define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[101].round_down_to_precision[10]>
-    - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]>
-    - if <[encumberance]> > <yaml[player.<player.uuid>].read[stats.weight.max].+[10]>:
-      - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.max].+[10]>
-    - narrate <[encumberance]>
+    - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
+    - if <[encumberance]> > 110:
+      - define encumberance:110
     - choose <[encumberance]>:
-      - case <yaml[player.<player.uuid>].read[stats.weight.max].+[10]>:
+      - case 110:
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[full_encumbered]>:
           - inject debuff_full_encumbered
-      - case <yaml[player.<player.uuid>].read[stats.weight.max]>:
+      - case 100:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.99]>]>
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
           - inject debuff_encumbered
-      - case <yaml[player.<player.uuid>].read[stats.weight.max].-[10]>:
+      - case 90:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.85]>]>
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
           - inject debuff_encumbered
-      - case <yaml[player.<player.uuid>].read[stats.weight.max].-[20]>:
+      - case 80:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.5]>]>
-      - case <yaml[player.<player.uuid>].read[stats.weight.max].-[30]>:
+      - case 70:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.2]>]>
-      - case <yaml[player.<player.uuid>].read[stats.weight.max].-[40]>:
+      - case 60:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.1]>]>
-      - case <yaml[player.<player.uuid>].read[stats.weight.max].-[50]>:
+      - case 50:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.1]>]>
       - default:
         - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed]>
