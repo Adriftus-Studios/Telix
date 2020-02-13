@@ -3,6 +3,16 @@
 # All GUI's will be in format 'afgui_<name>'
 
 
+fishing_reload:
+  type: world
+  debug: true
+  fish_reload:
+      - yaml load:data/af_config.yml id:fish_info
+  events:
+    on server start:
+      - inject locally fish_reload
+    on script reload:
+      - inject locally fish_reload
 
 ## Event Listener ##
 
@@ -58,17 +68,11 @@ fishing_inventory_listener:
       - narrate "<&6>HOOKED!"
 
     on player fishes while caught_fish:
-    # - if <util.random.int[1].to[100]> <= <yaml_key[fish_chance_percent]>
-      - if <util.random.int[1].to[100]> <= 1:
-        - give <yaml[fish_info].read[general.<context.location.biome.name>.<[platinum]>].random>
-      - else if <util.random.int[1].to[100]> <= 10:
-        - give <yaml[fish_info].read[general.<context.location.biome.name>.<[diamond]>].random>
-      - else if <util.random.int[1].to[100]> <= 20:
-        - give <yaml[fish_info].read[general.<context.location.biome.name>.<[gold]>].random>
-      - else if <util.random.int[1].to[100]> <= 40:
-        - give <yaml[fish_info].read[general.<context.location.biome.name>.<[silver]>].random>
-      - else if <util.random.int[1].to[100]> <= 80:
-        - give <yaml[fish_info].read[general.<context.location.biome.name>.<[bronze]>].random>
+      - define number <util.random.int[1].to[100]>
+      - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
+        - if <[value]> > <[number]>:
+          - determine caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>]>
+        
       
       - spawn af_entity_crab <context.hook.location>
       - narrate "<&6>A crab was caught!"
