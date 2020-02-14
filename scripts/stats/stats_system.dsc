@@ -30,14 +30,20 @@ stats_character:
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 54
   procedural items:
-  - narrate 1
+  - define var:1
   slots:
-  - "[] [] [] [] [health_icon] [] [] [] []"
-  - "[] [] [] [carry_weight_icon] [power_icon] [food_icon] [] [] []"
-  - "[] [] [] [speed_icon] [constitution_icon] [thirst_icon] [] [] []"
-  - "[] [] [] [] [melee_damage_icon] [] [] [] []"
-  - "[] [] [] [] [] [] [] [] []"
-  - "[] [] [] [] [guiclose] [] [] [] []"
+  - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+  - "[filler] [] [] [] [health_icon] [] [] [] [filler]"
+  - "[filler] [] [] [carry_weight_icon] [power_icon] [food_icon] [] [] [filler]"
+  - "[filler] [] [] [speed_icon] [constitution_icon] [thirst_icon] [] [] [filler]"
+  - "[filler] [] [] [] [melee_damage_icon] [] [] [] [filler]"
+  - "[filler] [filler] [filler] [filler] [guiclose] [filler] [filler] [filler] [filler]"
+  
+health_icon:
+  type: item
+  material: snow
+  display name: "<&c>Health<[var]>"
+  drops_on_death: false
 
 melee_damage_icon:
   type: item
@@ -79,12 +85,6 @@ power_icon:
   type: item
   material: snow
   display name: "<&c>Power"
-  drops_on_death: false
-
-health_icon:
-  type: item
-  material: snow
-  display name: "<&c>Health"
   drops_on_death: false
 
 create_player_stats:
