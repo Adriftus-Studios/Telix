@@ -6,7 +6,7 @@ ability_high_jump:
   power_cost: 10
   display_item: GUI_high_jump
   events:
-    on player jumps:
+    on player jumps1:
       - if <player.is_sneaking> && !<player.is_sprinting>:
         - if <yaml[player.<player.uuid>].read[skills.<script.yaml_key[ability_tree]>.skills].contains[<script.yaml_key[name]>]>:
           - determine passively cancelled
