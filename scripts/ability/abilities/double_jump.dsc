@@ -2,9 +2,13 @@ ability_double_jump:
   type: world
   name: double_jump
   ability_tree: Acrobatics
-  level: 3
+  ability_type: passive
+  points_to_unlock: 3
   power_cost: 10
-  display_item: GUI_double_jump
+  description: Sneaking in mid-air will jump again, shortly after an initial jump.
+  icon:
+    material: stone
+    custom_model_data: 1
   events:
     on player starts sneaking flagged:jumped:
       - if <player.location.material.name> == air:

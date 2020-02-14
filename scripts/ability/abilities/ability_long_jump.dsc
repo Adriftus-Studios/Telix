@@ -2,9 +2,13 @@ ability_long_jump:
   type: world
   name: long_jump
   ability_tree: Acrobatics
-  level: 2
+  ability_type: passive
+  points_to_unlock: 3
   power_cost: 10
-  display_item: GUI_long_jump
+  description: Sneaking in mid-air will jump again, shortly after an initial jump.
+  icon:
+    material: stone
+    custom_model_data: 1
   events:
     on player jumps:
       - if <player.is_sneaking> && <player.is_sprinting>:

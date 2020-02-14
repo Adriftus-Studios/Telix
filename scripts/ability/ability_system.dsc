@@ -7,7 +7,7 @@ abilities_reload:
       - yaml create id:server.skills_by_level
       - foreach <server.list_scripts>:
         - if <[value].name.starts_with[ability]>:
-          - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[level]>:|:<[value].yaml_key[name]>
+          - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
   events:
     on server start:
       - inject locally abilities_reload
@@ -40,15 +40,41 @@ abilities_characterAbilityTrees:
     - "[filler] [] [] [] [] [] [] [] [filler]"
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   
+ability_item:
+  type: item
+  material: stone
+  display name: <&c>BROKEN - REPORT THIS
+
+
 abilityTree_inventory:
   type: inventory
-  title: <&c>ERROR - REPORT
+  title: <&c>ERROR - REPORT THIS
+  definitions:
+    filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   slots:
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
     - "[filler] [] [] [] [] [] [] [] [filler]"
     - "[filler] [] [] [] [] [] [] [] [filler]"
     - "[filler] [] [] [] [] [] [] [] [filler]"
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+
+abilityTree_inventory_events:
+  type: world
+  events:
+    on player clicks in abilityTree_inventory:
+      - determine passively cancelled
+      - if <script[<context.item.nbt[skillname]>].yaml_key[ability_type]||nope> == active:
+        - adjust <player> item_on_cursor:<script[<context.item.nbt[skillname]>].yaml_key[ability_type]>
+
+ability_item_buildLore:
+  type: task
+  script:
+    - define "lore:!|:<&e>-------------------------"
+    - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
+    - define "lore:|:<&a>Ability Type<&co> <script[ability_<[ability]>].yaml_key[ability_type].to_titlecase>"
+    - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
+    - define "lore:|:<&e>-------------------------"
+        
 
 ability_characterAbilities_events:
   type: world
@@ -57,10 +83,11 @@ ability_characterAbilities_events:
       - determine passively cancelled
       - if <context.item.has_nbt[skillname]>:
         - define inventory:<inventory[abilityTree_inventory]>
-        - adjust def:inventory title:<context.item.has_nbt[skillname].to_titlecase>
+        - adjust def:inventory title:<context.item.nbt[skillname].to_titlecase>
         - foreach <yaml[server.skills_by_level].list_keys[<context.item.nbt[skillname]>].numerical> as:skilllevel:
           - foreach <yaml[server.skills_by_level].read[<context.item.nbt[skillname]>.<[skilllevel]>].alphabetical> as:ability:
-            - define list:|:<item[stone].with[display_name=<[ability].replace[_].with[<&sp>].to_titlecase>]>
+            - inject ability_item_buildLore
+            - define list:|:<item[ability_item].with[material=<script[ability_<[ability]>].yaml_key[icon.material]>;custom_model_data=<script[ability_<[ability]>].yaml_key[icon.custom_model_data98]>;display_name=<[ability].replace[_].with[<&sp>].to_titlecase>;lore=<[lore]>;nbt=skillname/<[ability]>]>
         - inventory add d:<[inventory]> o:<[list]>
         - inventory open d:<[inventory]>
 
