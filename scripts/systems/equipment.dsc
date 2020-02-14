@@ -90,6 +90,8 @@ equipment_inventory_handler:
       - if <[item].script.yaml_key[category]||null> != null:
         - inventory set d:<context.inventory> o:<yaml[player.<player.uuid>].read[equipment.<[item].script.yaml_key[category]>].as_item> slot:<context.inventory.find[item]>
         - narrate <context.inventory.find[item]>
+        - narrate <yaml[player.<player.uuid>].read[equipment.<[item].script.yaml_key[category]>].as_item>
+        - narrate <[item]>
     on player clicks in equipment_character:
     - if <context.clicked_inventory.script_name> == "EQUIPMENT_CHARACTER":
       - determine passively cancelled
