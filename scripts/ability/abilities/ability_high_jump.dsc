@@ -1,5 +1,5 @@
 ability_high_jump:
-  type: world1
+  type: world
   name: high_jump
   ability_tree: Acrobatics
   level: 1

@@ -14,21 +14,85 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.constitution:0
     - yaml id:player.<player.uuid> set stats.weight.current:0
     - yaml id:player.<player.uuid> set stats.weight.max:100
-    - yaml id:player.<player.uuid> set stats.damage:100
+    - yaml id:player.<player.uuid> set stats.melee_damage:100
     - yaml id:player.<player.uuid> set stats.speed:100
     - yaml id:player.<player.uuid> set stats.temperature:100
     - yaml id:player.<player.uuid> set stats.basespeed:0.22
     - yaml id:player.<player.uuid> set stats.xp:0
+    - yaml id:player.<player.uuid> set stats.level:0
+    - yaml id:player.<player.uuid> set stats.mastery:0
+    - yaml id:player.<player.uuid> set stats.skill_points:0
     - yaml id:player.<player.uuid> set lessons.current:0
     - yaml id:player.<player.uuid> set lessons.lifetime:0
 
+stats_character:
+  type: inventory
+  title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
+  size: 45
+  slots:
+  - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+  - "[filler] [] [] [carry_weight_icon] [power_icon] [food_icon] [] [] [filler]"
+  - "[filler] [] [] [speed_icon] [guiclose] [thirst_icon] [] [] [filler]"
+  - "[filler] [] [] [health_icon] [melee_damage_icon] [constitution_icon] [] [] [filler]"
+  - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+  
+health_icon:
+  type: item
+  material: snow
+  display name: "<&c>Health"
+  drops_on_death: false
 
-survival_sidebar:
+melee_damage_icon:
+  type: item
+  material: snow
+  display name: "<&c>Melee Damage"
+  drops_on_death: false
+
+constitution_icon:
+  type: item
+  material: snow
+  display name: "<&c>Constitution"
+  drops_on_death: false
+
+speed_icon:
+  type: item
+  material: snow
+  display name: "<&c>Speed"
+  drops_on_death: false
+
+carry_weight_icon:
+  type: item
+  material: snow
+  display name: "<&c>Carry Weight"
+  drops_on_death: false
+
+thirst_icon:
+  type: item
+  material: snow
+  display name: "<&c>Thirst"
+  drops_on_death: false
+
+food_icon:
+  type: item
+  material: snow
+  display name: "<&c>Food"
+  drops_on_death: false
+
+power_icon:
+  type: item
+  material: snow
+  display name: "<&c>Power"
+  drops_on_death: false
+
+create_player_stats:
   type: world
   events:
     on player first login:
       - inject stats_setup
 
+survival_sidebar:
+  type: world
+  events:
     on player join:
       - inject survival_sidebar_show
     
