@@ -5,6 +5,8 @@ equipment_head_slot:
   GUI_Inventory: abilities_characterAbilityTrees
   drops_on_death: false
   weight: 0
+  mechanisms:
+    custom_model_data: 0
   lore:
   - "<&e>Click to open your cosmetics menu."
 
@@ -56,6 +58,8 @@ invisible_item:
   display name: <&c>
   drops_on_death: false
   weight: 0
+  mechanisms:
+    custom_model_data: 0
 
 equipment_character:
   type: inventory
@@ -64,7 +68,7 @@ equipment_character:
   procedural items:
   - define items
   - foreach <list[pendent|charm|w_filler|w_filler|w_filler|hat|w_filler|w_filler|amulet|ring|w_filler|w_filler|gloves|shirt|cape|ring|earrings|w_filler|w_filler|w_filler|pants|w_filler|w_filler|shoes|w_filler|face_accessory]>:
-    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||equipment_filler_<[value]>||<[value]>>
+    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<[value]>_equipment_filler||<[value]>>
   - determine <[items]>
   definitions:
     w_filler: <item[white_stained_glass_pane].with[display_name=<&c>]>

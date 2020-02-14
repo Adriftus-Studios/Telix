@@ -37,7 +37,6 @@ stats_setup:
     - yaml id:player.<player.uuid> set equipment.earrings
     - yaml id:player.<player.uuid> set equipment.face_accessory
 
-
 stats_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
