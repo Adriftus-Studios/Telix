@@ -61,4 +61,4 @@ af_fish_1:
   material: cod
   display name: <&a>Redfish
   mechanisms:
-    custom_model_data: 1
+    custom_model_data: 0
