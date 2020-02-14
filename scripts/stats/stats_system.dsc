@@ -30,7 +30,7 @@ stats_character:
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 54
   procedural items:
-  - define var:1
+  - narrate 2
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [] [] [] [health_icon] [] [] [] [filler]"
@@ -42,7 +42,9 @@ stats_character:
 health_icon:
   type: item
   material: snow
-  display name: "<&c>Health<[var]>"
+  procedural items:
+  - narrate 1
+  display name: "<&c>Health"
   drops_on_death: false
 
 melee_damage_icon:
