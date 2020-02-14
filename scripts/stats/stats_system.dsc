@@ -25,8 +25,9 @@ stats_setup:
     - yaml id:player.<player.uuid> set lessons.current:0
     - yaml id:player.<player.uuid> set lessons.lifetime:0
 
-test:
+testaaaa:
   type: world
+  debug:true
   events:
     on player clicks item:
     - narrate <context.slot>
