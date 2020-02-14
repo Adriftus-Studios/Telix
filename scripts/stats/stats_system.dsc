@@ -55,7 +55,7 @@ health_stats_icon:
   assigned_stat_increment: 10
   display name: "<green><&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
   lore:
-  - "Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
+  - "Current Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   drops_on_death: false
 
 melee_damage_stats_icon:
@@ -65,7 +65,7 @@ melee_damage_stats_icon:
   assigned_stat_increment: 2
   display name: "<green><&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
   lore:
-  - "Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
+  - "Current Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   drops_on_death: false
 
 constitution_stats_icon:
@@ -75,7 +75,7 @@ constitution_stats_icon:
   assigned_stat_increment: 1
   display name: "<green><&6>◆ <&a><&n><&l>Constitution<&r> <&6>◆"
   lore:
-  - "Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
+  - "Current Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   drops_on_death: false
 
 speed_stats_icon:
@@ -85,7 +85,7 @@ speed_stats_icon:
   assigned_stat_increment: 0.01
   display name: "<green><&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
   lore:
-  - "Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
+  - "Current Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   drops_on_death: false
 
 carry_weight_stats_icon:
@@ -95,7 +95,7 @@ carry_weight_stats_icon:
   assigned_stat_increment: 10
   display name: "<green><&6>◆ <&a><&n><&l>Carry Weight<&r> <&6>◆"
   lore:
-  - "Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
+  - "Current Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   drops_on_death: false
 
 thirst_stats_icon:
@@ -105,7 +105,7 @@ thirst_stats_icon:
   assigned_stat_increment: 10
   display name: "<green><&6>◆ <&a><&n><&l>Thirst<&r> <&6>◆"
   lore:
-  - "Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
+  - "Current Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   drops_on_death: false
 
 food_stats_icon:
@@ -115,7 +115,7 @@ food_stats_icon:
   assigned_stat_increment: 10
   display name: "<green><&6>◆ <&a><&n><&l>Food<&r> <&6>◆"
   lore:
-  - "Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
+  - "Current Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   drops_on_death: false
 
 power_stats_icon:
@@ -125,7 +125,7 @@ power_stats_icon:
   assigned_stat_increment: 2
   display name: "<green><&6>◆ <&a><&n><&l>Power<&r> <&6>◆"
   lore:
-  - "Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
+  - "Current Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   drops_on_death: false
 
 create_player_stats:
