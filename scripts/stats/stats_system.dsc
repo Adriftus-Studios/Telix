@@ -24,20 +24,20 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.equipment_rating:0
     - yaml id:player.<player.uuid> set lessons.current:0
     - yaml id:player.<player.uuid> set lessons.lifetime:0
-    - yaml id:player.<player.uuid> set equipment.hat:none
-    - yaml id:player.<player.uuid> set equipment.shirt:none
-    - yaml id:player.<player.uuid> set equipment.pants:none
-    - yaml id:player.<player.uuid> set equipment.boots:none
-    - yaml id:player.<player.uuid> set equipment.gloves:none
-    - yaml id:player.<player.uuid> set equipment.cape:none
-    - yaml id:player.<player.uuid> set equipment.pendent:none
-    - yaml id:player.<player.uuid> set equipment.amulet.1:none
-    - yaml id:player.<player.uuid> set equipment.amulet.2:none
-    - yaml id:player.<player.uuid> set equipment.ring.1:none
-    - yaml id:player.<player.uuid> set equipment.ring.2:none
-    - yaml id:player.<player.uuid> set equipment.ring.3:none
-    - yaml id:player.<player.uuid> set equipment.earrings:none
-    - yaml id:player.<player.uuid> set equipment.face_accessory:none
+    - yaml id:player.<player.uuid> set equipment.hat:hat_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.shirt:shirt_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.pants:pants_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.shoes:shoes_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.gloves:gloves_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.cape:cape_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.pendent:pendent_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.charm:charm_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.amulet:amulet_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.ring.1:ring_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.ring.2:ring_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.ring.3:ring_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.earrings:earring_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.face_accessory:face_accessory_equipment_filler
 
 
 stats_character:

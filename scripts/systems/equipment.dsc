@@ -51,6 +51,9 @@ equipment_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
   size: 54
+  procedural items:
+  - define items:|:<yaml[player.<player.uuid>].read[equipment.ring.1]>|equipment.shirt
+
   definitions:
     w_filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   slots:
@@ -60,6 +63,12 @@ equipment_character:
   - "[w_filler] [ring_equipment_filler] [pendent_equipment_filler] [] [] [] [pants_equipment_filler] [] [w_filler]"
   - "[w_filler] [earring_equipment_filler] [face_accessory_equipment_filler] [] [] [] [shoes_equipment_filler] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+save_equipment_inventory:
+  type: task
+  script:
+  - if <[inventory].script_name.is[==].to[equipment_character]>:
+    - narrate a
 
 equipment_inventory_handler:
   type: world
