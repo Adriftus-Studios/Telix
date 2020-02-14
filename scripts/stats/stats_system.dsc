@@ -25,25 +25,28 @@ stats_setup:
     - yaml id:player.<player.uuid> set lessons.current:0
     - yaml id:player.<player.uuid> set lessons.lifetime:0
 
+test:
+  type: world
+  events:
+    on player clicks item:
+    - narrate <context.slot>
+
 stats_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
-  size: 54
+  size: 45
   procedural items:
-  - narrate 2
+  - inventory adjust slot:5 "lore:Item modified!"
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
-  - "[filler] [] [] [] [health_icon] [] [] [] [filler]"
   - "[filler] [] [] [carry_weight_icon] [power_icon] [food_icon] [] [] [filler]"
-  - "[filler] [] [] [speed_icon] [constitution_icon] [thirst_icon] [] [] [filler]"
-  - "[filler] [] [] [] [melee_damage_icon] [] [] [] [filler]"
-  - "[filler] [filler] [filler] [filler] [guiclose] [filler] [filler] [filler] [filler]"
+  - "[filler] [] [] [speed_icon] [guiclose] [thirst_icon] [] [] [filler]"
+  - "[filler] [] [] [health_icon] [melee_damage_icon] [constitution_icon] [] [] [filler]"
+  - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   
 health_icon:
   type: item
   material: snow
-  procedural items:
-  - narrate 1
   display name: "<&c>Health"
   drops_on_death: false
 
