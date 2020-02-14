@@ -73,9 +73,9 @@ fishing_inventory_listener:
       - define weight_lbmid <util.random.int[50].to[100]>
       - define weight_lbhigh <util.random.int[100].to[500]>
       - define weight_oz <util.random.int[0].to[15]>
+      - narrate "<&6>You have just caught a <&3><[weight_lblow]><&6>, <&3><[weight_oz]> <&a>(Fish from file)"
       - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[value]> > <[number]>:
           - determine caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random||<yaml[fish_info].read[general.fallback.<[value]>].random>>
-          - narrate "<&6>You have just caught a <&3><[weight_lblow]><&6>, <&3><[weight_oz]> <&a>(Fish from file)"
       - spawn af_entity_crab <context.hook.location>
         - narrate "<&6>A crab was caught!"
