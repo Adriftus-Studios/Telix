@@ -53,80 +53,90 @@ equipment_character:
   title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
   size: 54
   definitions:
-    bfiller: <item[bfiller]>
-    wfiller: <item[wfiller]>
+    filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
     closeitem: <item[guiclose]>
   slots:
-  - "[] [] [] [] [] [] [] [] []"
-  - "[] [ring_filler] [amulet_filler] [] [] [] [hat_filler] [] []"
-  - "[] [ring_filler] [amulet_filler] [] [] [cape_filler] [shirt_filler] [gloves_filler] []"
-  - "[] [ring_filler] [pendent_filler] [] [] [] [pants_filler] [] []"
-  - "[] [earring_filler] [face_accessory_filler] [] [] [] [shoes_filler] [] []"
-  - "[] [] [] [] [guiclose] [] [] [] []"
+  - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+  - "[filler] [ring_filler] [amulet_filler] [] [] [] [hat_filler] [] [filler]"
+  - "[filler] [ring_filler] [amulet_filler] [] [] [cape_filler] [shirt_filler] [gloves_filler] [filler]"
+  - "[filler] [ring_filler] [pendent_filler] [] [] [] [pants_filler] [] [filler]"
+  - "[filler] [earring_filler] [face_accessory_filler] [] [] [] [shoes_filler] [] [filler]"
+  - "[filler] [filler] [filler] [filler] [guiclose] [filler] [filler] [filler] [filler]"
 
 face_accessory_filler:
   type: item
   material: snow
+  category: face_accessory
   display name: "<&c>No Face Accessory Equipted"
   drops_on_death: false
 
 earring_filler:
   type: item
   material: snow
+  category: earrings
   display name: "<&c>No Earrings Equipted"
   drops_on_death: false
 
 ring_filler:
   type: item
   material: snow
+  category: ring
   display name: "<&c>No Ring Equipted"
   drops_on_death: false
 
 amulet_filler:
   type: item
   material: snow
+  category: amulet
   display name: "<&c>No Amulet Equipted"
   drops_on_death: false
 
 pendent_filler:
   type: item
   material: snow
+  category: pendent
   display name: "<&c>No Pendent Equipted"
   drops_on_death: false
 
 shoes_filler:
   type: item
   material: snow
+  category: shoes
   display name: "<&c>No Shoes Equipted"
   drops_on_death: false
 
 pants_filler:
   type: item
   material: snow
+  category: pants
   display name: "<&c>No Pants Equipted"
   drops_on_death: false
 
 shirt_filler:
   type: item
   material: snow
+  category: shirt
   display name: "<&c>No Shirt Equipted"
   drops_on_death: false
 
 gloves_filler:
   type: item
   material: snow
+  category: gloves
   display name: "<&c>No Gloves Equipted"
   drops_on_death: false
 
 cape_filler:
   type: item
   material: snow
+  category: cape
   display name: "<&c>No Cape Equipted"
   drops_on_death: false
 
 hat_filler:
   type: item
   material: snow
+  category: hat
   display name: "<&c>No Hat Equipted"
   drops_on_death: false
 

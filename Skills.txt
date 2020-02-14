@@ -1,0 +1,1 @@
+Divide: turns a spear (or whatever you want your tool to be), into several small throwing knives, which deal small amount of damage, but come in large amounts dealing quite a bit of damage.

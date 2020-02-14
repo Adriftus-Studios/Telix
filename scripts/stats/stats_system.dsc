@@ -42,13 +42,13 @@ stats_inventory_handler:
   debug: true
   events:
     on player clicks in stats_character:
-    - narrate <context.clicked_inventory.script_name>
-    - determine passively cancelled
-    - if <context.item.script.yaml_key[assigned_stat_increment]||null> != null:
-      - if <yaml[player.<player.uuid>].read[stats.stat_points]> > 0:
-        - yaml id:player.<player.uuid> set stats.<context.item.script.yaml_key[assigned_stat]>:+:<context.item.script.yaml_key[assigned_stat_increment]>
-        - yaml id:player.<player.uuid> set stats.stat_points:--
-        - inventory open d:stats_character
+    - if <context.clicked_inventory.script_name> == "STATS_CHARACTER":
+      - determine passively cancelled
+      - if <context.item.script.yaml_key[assigned_stat_increment]||null> != null:
+        - if <yaml[player.<player.uuid>].read[stats.stat_points]> > 0:
+          - yaml id:player.<player.uuid> set stats.<context.item.script.yaml_key[assigned_stat]>:+:<context.item.script.yaml_key[assigned_stat_increment]>
+          - yaml id:player.<player.uuid> set stats.stat_points:--
+          - inventory open d:stats_character
 
 drop_rate_multiplier_stats_icon:
   type: item
