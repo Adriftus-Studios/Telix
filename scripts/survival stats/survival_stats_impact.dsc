@@ -2,8 +2,6 @@ survival_stats_temperature:
   type: world
   debug: false
   events:
-    on player walks:
-      - narrate <player.location.above.material.name>
     on delta time secondly every:15:
       - foreach <server.list_online_players.filter[health.is[OR_MORE].than[0]]>:
         - adjust <queue> linked_player:<[value]>
@@ -12,7 +10,7 @@ survival_stats_temperature:
           - foreach next
         - define temperature:<player.location.biome.temperature.*[100].+[<server.flag[global_temperature_modifier]>]>
         - if <player.location.material.name.contains[water]>:
-          - define temp:<[temperature].*[100].round_to[0].-[10]>
+          - define temp:<[temperature].round_to[0].-[10]>
           - if <[temp]> >= 100:
             - define temp:100
           - if <[temp]> > <yaml[player.<player.uuid>].read[stats.temperature]>:
@@ -48,8 +46,6 @@ survival_stats_temperature:
 survival_temperature_impact:
   type: task
   script:
-    - if <[player].has_flag[cheatmode]>:
-      - stop
     - if <yaml[player.<player.uuid>].read[stats.temperature]> < 50:
       - narrate "<&c>You have <&b>frozen<&c> to death."
       - hurt 1000
