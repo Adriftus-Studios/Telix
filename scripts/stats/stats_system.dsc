@@ -43,12 +43,13 @@ stats_inventory_handler:
     - determine passively cancelled
     - if <context.item.script.yaml_key[assigned_stat]||null> != null:
       - if <yaml[player.<player.uuid>].read[lessons.current]> > 0:
-        - narrate 1
+        - yaml id:player.<player.uuid> set stats.<context.item.script.yaml_key[assigned_stat]>:+:<context.item.script.yaml_key[assigned_stat_increment]>
 
 health_filler:
   type: item
   material: snow
-  assigned_stat: health
+  assigned_stat: health.max
+  assigned_stat_increment: 10
   display name: "<green><&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
   drops_on_death: false
 
@@ -56,6 +57,7 @@ melee_damage_filler:
   type: item
   material: snow
   assigned_stat: melee_damage
+  assigned_stat_increment: 2
   display name: "<green><&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
   drops_on_death: false
 
@@ -63,6 +65,7 @@ constitution_filler:
   type: item
   material: snow
   assigned_stat: constitution
+  assigned_stat_increment: 1
   display name: "<green><&6>◆ <&a><&n><&l>Constitution<&r> <&6>◆"
   drops_on_death: false
 
@@ -70,34 +73,39 @@ speed_filler:
   type: item
   material: snow
   assigned_stat: speed
+  assigned_stat_increment: 0.01
   display name: "<green><&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
   drops_on_death: false
 
 carry_weight_filler:
   type: item
   material: snow
-  assigned_stat: carry_weight
+  assigned_stat: carry_weight.max
+  assigned_stat_increment: 10
   display name: "<green><&6>◆ <&a><&n><&l>Carry Weight<&r> <&6>◆"
   drops_on_death: false
 
 thirst_filler:
   type: item
   material: snow
-  assigned_stat: thirst
+  assigned_stat: thirst.max
+  assigned_stat_increment: 10
   display name: "<green><&6>◆ <&a><&n><&l>Thirst<&r> <&6>◆"
   drops_on_death: false
 
 food_filler:
   type: item
   material: snow
-  assigned_stat: food
+  assigned_stat: food.max
+  assigned_stat_increment: 10
   display name: "<green><&6>◆ <&a><&n><&l>Food<&r> <&6>◆"
   drops_on_death: false
 
 power_filler:
   type: item
   material: snow
-  assigned_stat: power
+  assigned_stat: power.max
+  assigned_stat_increment: 2
   display name: "<green><&6>◆ <&a><&n><&l>Power<&r> <&6>◆"
   drops_on_death: false
 
