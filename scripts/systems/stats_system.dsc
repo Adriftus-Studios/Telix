@@ -24,20 +24,18 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.equipment_rating:0
     - yaml id:player.<player.uuid> set lessons.current:0
     - yaml id:player.<player.uuid> set lessons.lifetime:0
-    - yaml id:player.<player.uuid> set equipment.hat:hat_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.shirt:shirt_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.pants:pants_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.shoes:shoes_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.gloves:gloves_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.cape:cape_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.pendent:pendent_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.charm:charm_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.amulet:amulet_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.ring.1:ring_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.ring.2:ring_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.ring.3:ring_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.earrings:earring_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.face_accessory:face_accessory_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.hat
+    - yaml id:player.<player.uuid> set equipment.shirt
+    - yaml id:player.<player.uuid> set equipment.pants
+    - yaml id:player.<player.uuid> set equipment.shoes
+    - yaml id:player.<player.uuid> set equipment.gloves
+    - yaml id:player.<player.uuid> set equipment.cape
+    - yaml id:player.<player.uuid> set equipment.pendent
+    - yaml id:player.<player.uuid> set equipment.charm
+    - yaml id:player.<player.uuid> set equipment.amulet
+    - yaml id:player.<player.uuid> set equipment.ring
+    - yaml id:player.<player.uuid> set equipment.earrings
+    - yaml id:player.<player.uuid> set equipment.face_accessory
 
 
 stats_character:
