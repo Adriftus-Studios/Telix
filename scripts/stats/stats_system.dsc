@@ -30,12 +30,14 @@ stats_character:
   definitions:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   procedural items:
-  - narrate <player.open_inventory.list_contents>
+  - foreach <server.list_scripts.filter[yaml_key[type].is[==].to[item]]> as:item:
+    - if <[item].script.name.ends_with[_stats_icon]>:
+      - narrate <[item]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
-  - "[filler] [] [] [carry_weight_filler] [power_filler] [food_filler] [] [] [filler]"
-  - "[filler] [] [] [speed_filler] [guiclose] [thirst_filler] [] [] [filler]"
-  - "[filler] [] [] [health_filler] [melee_damage_filler] [constitution_filler] [] [] [filler]"
+  - "[filler] [] [] [carry_weight_stats_icon] [power_stats_icon] [food_stats_icon] [] [] [filler]"
+  - "[filler] [] [] [speed_stats_icon] [guiclose] [thirst_stats_icon] [] [] [filler]"
+  - "[filler] [] [] [health_stats_icon] [melee_damage_stats_icon] [constitution_stats_icon] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
 stats_inventory_handler:
@@ -50,7 +52,7 @@ stats_inventory_handler:
         - yaml id:player.<player.uuid> set stats.<context.item.script.yaml_key[assigned_stat]>:+:<context.item.script.yaml_key[assigned_stat_increment]>
         - yaml id:player.<player.uuid> set lessons.current:--
 
-health_filler:
+health_stats_icon:
   type: item
   material: snow
   assigned_stat: health.max
@@ -60,7 +62,7 @@ health_filler:
   - ""
   drops_on_death: false
 
-melee_damage_filler:
+melee_damage_stats_icon:
   type: item
   material: snow
   assigned_stat: melee_damage
@@ -68,7 +70,7 @@ melee_damage_filler:
   display name: "<green><&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
   drops_on_death: false
 
-constitution_filler:
+constitution_stats_icon:
   type: item
   material: snow
   assigned_stat: constitution
@@ -76,7 +78,7 @@ constitution_filler:
   display name: "<green><&6>◆ <&a><&n><&l>Constitution<&r> <&6>◆"
   drops_on_death: false
 
-speed_filler:
+speed_stats_icon:
   type: item
   material: snow
   assigned_stat: speed
@@ -84,7 +86,7 @@ speed_filler:
   display name: "<green><&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
   drops_on_death: false
 
-carry_weight_filler:
+carry_weight_stats_icon:
   type: item
   material: snow
   assigned_stat: weight.max
@@ -92,7 +94,7 @@ carry_weight_filler:
   display name: "<green><&6>◆ <&a><&n><&l>Carry Weight<&r> <&6>◆"
   drops_on_death: false
 
-thirst_filler:
+thirst_stats_icon:
   type: item
   material: snow
   assigned_stat: thirst.max
@@ -100,7 +102,7 @@ thirst_filler:
   display name: "<green><&6>◆ <&a><&n><&l>Thirst<&r> <&6>◆"
   drops_on_death: false
 
-food_filler:
+food_stats_icon:
   type: item
   material: snow
   assigned_stat: food.max
@@ -108,7 +110,7 @@ food_filler:
   display name: "<green><&6>◆ <&a><&n><&l>Food<&r> <&6>◆"
   drops_on_death: false
 
-power_filler:
+power_stats_icon:
   type: item
   material: snow
   assigned_stat: power.max
