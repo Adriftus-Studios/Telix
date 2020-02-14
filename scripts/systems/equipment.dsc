@@ -65,25 +65,31 @@ equipment_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
   size: 54
-  procedural items:
-  - define items
-  - foreach <list[pendent|charm|w_filler|w_filler|w_filler|hat|w_filler|w_filler|amulet|ring|ring|w_filler|w_filler|gloves|shirt|cape|ring|earrings|w_filler|w_filler|w_filler|pants|w_filler|w_filler|shoes|w_filler|face_accessory]>:
-    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<[value]>_equipment_filler||<[value]>>
-  - determine <[items]>
   definitions:
     w_filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [charm_equipment_filler] [face_accessory_equipment_filler] [] [] [] [hat_equipment_filler] [] [w_filler]"
+  - "[w_filler] [earring_equipment_filler] [ring_equipment_filler] [] [] [gloves_equipment_filler] [shirt_equipment_filler] [cape_equipment_filler] [w_filler]"
+  - "[w_filler] [amulet_equipment_filler] [pendent_equipment_filler] [] [] [] [pants_equipment_filler] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [shoes_equipment_filler] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 equipment_inventory_handler:
   type: world
   debug: true
   events:
+    on player closes equipment_character:
+    - foreach <context.inventory.list_contents> as:item:
+      - if <[item].script.yaml_key[category]||null> != null:
+        - narrate <[item].script.yaml_key[category]>
+        - yaml id:player.<player.uuid> set equipment.<[item].script.yaml_key[category]>:<[item]>
+    on player opens equipment_character:
+    - foreach <context.inventory.list_contents> as:item:
+      - if <[item].script.yaml_key[category]||null> != null:
+        - if <yaml[player.<player.uuid>].read[equipment.<[item].script.yaml_key[category]>]||null> != null:
+          - narrate <[item].script.yaml_key[category]>
+          - inventory set d:<context.inventory> o:<yaml[player.<player.uuid>].read[equipment.<[item].script.yaml_key[category]>]> slot:<context.inventory.find[item]>
     on player clicks in equipment_character:
     - if <context.clicked_inventory.script_name> == "EQUIPMENT_CHARACTER":
       - determine passively cancelled
