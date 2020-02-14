@@ -52,8 +52,9 @@ equipment_character:
   title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
   size: 54
   procedural items:
-  - define items:|:<yaml[player.<player.uuid>].read[equipment.ring.1]>|equipment.shirt
-
+  - define items
+  - foreach <list[hat|shirt|pants|shoes|gloves|cape|pendent|charm|amulet|ring|earrings|face_accessory]>:
+    - determine items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||equipment_filler_<[value]>>
   definitions:
     w_filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   slots:
@@ -64,6 +65,20 @@ equipment_character:
   - "[w_filler] [earring_equipment_filler] [face_accessory_equipment_filler] [] [] [] [shoes_equipment_filler] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+    - yaml id:player.<player.uuid> set equipment.hat:hat_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.shirt:shirt_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.pants:pants_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.shoes:shoes_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.gloves:gloves_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.cape:cape_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.pendent:pendent_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.charm:charm_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.amulet:amulet_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.ring.1:ring_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.ring.2:ring_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.ring.3:ring_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.earrings:earring_equipment_filler
+    - yaml id:player.<player.uuid> set equipment.face_accessory:face_accessory_equipment_filler
 save_equipment_inventory:
   type: task
   script:
