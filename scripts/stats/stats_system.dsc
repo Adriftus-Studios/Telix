@@ -30,9 +30,12 @@ stats_character:
   definitions:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   procedural items:
+  - define slots:<list[13|14|15|22|24|31|32|33]>
+  - define current:1
   - foreach <server.list_scripts.filter[yaml_key[type].is[==].to[item]].filter[name.ends_with[_stats_icon]]>:
     - define item:<item[<[value].name>]>
-    - narrate <[item]>
+    - adjust def:item lore:"Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
+
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [] [] [carry_weight_stats_icon] [power_stats_icon] [food_stats_icon] [] [] [filler]"
@@ -45,7 +48,7 @@ stats_inventory_handler:
   debug: true
   events:
     on player clicks in stats_character:
-    - narrate <context.slot>
+    - narrate <context.inventory.script.name>
     - determine passively cancelled
     - if <context.item.script.yaml_key[assigned_stat]||null> != null:
       - if <yaml[player.<player.uuid>].read[lessons.current]> > 0:
