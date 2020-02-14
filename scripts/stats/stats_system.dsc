@@ -30,7 +30,8 @@ stats_character:
   definitions:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   procedural items:
-  - foreach <server.list_scripts.filter[yaml_key[type].is[==].to[item]].filter[name.ends_with[_stats_icon]]> as:item:
+  - foreach <server.list_scripts.filter[yaml_key[type].is[==].to[item]].filter[name.ends_with[_stats_icon]]>:
+    - define item:<item[<[value].name>]>
     - narrate <[item]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
