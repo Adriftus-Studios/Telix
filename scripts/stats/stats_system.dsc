@@ -1,5 +1,3 @@
-
-
 stats_setup:
   type: task
   script:
