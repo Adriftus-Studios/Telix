@@ -25,13 +25,6 @@ stats_setup:
     - yaml id:player.<player.uuid> set lessons.current:0
     - yaml id:player.<player.uuid> set lessons.lifetime:0
 
-testaaaa:
-  type: world
-  debug:true
-  events:
-    on player clicks item:
-    - narrate <context.slot>
-
 stats_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
