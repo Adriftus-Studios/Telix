@@ -63,22 +63,8 @@ equipment_character:
   - "[w_filler] [ring_equipment_filler] [amulet_equipment_filler] [] [] [cape_equipment_filler] [shirt_equipment_filler] [gloves_equipment_filler] [w_filler]"
   - "[w_filler] [ring_equipment_filler] [pendent_equipment_filler] [] [] [] [pants_equipment_filler] [] [w_filler]"
   - "[w_filler] [earring_equipment_filler] [face_accessory_equipment_filler] [] [] [] [shoes_equipment_filler] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-
-    - yaml id:player.<player.uuid> set equipment.hat:hat_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.shirt:shirt_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.pants:pants_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.shoes:shoes_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.gloves:gloves_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.cape:cape_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.pendent:pendent_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.charm:charm_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.amulet:amulet_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.ring.1:ring_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.ring.2:ring_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.ring.3:ring_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.earrings:earring_equipment_filler
-    - yaml id:player.<player.uuid> set equipment.face_accessory:face_accessory_equipment_filler
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]
+  
 save_equipment_inventory:
   type: task
   script:
