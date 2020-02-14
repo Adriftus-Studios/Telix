@@ -77,6 +77,8 @@ survival_temperature_impact:
 survival_thirst_hunger_impact:
   type: task
   script:
+    - if <[player].has_flag[cheatmode]>:
+      - stop
     - if <yaml[player.<player.uuid>].read[stats.food.current]> <= -50:
       - hurt 1000
       - narrate "<&c>You have starved to death."
