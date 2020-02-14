@@ -30,17 +30,16 @@ stats_character:
   definitions:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   procedural items:
-  - define slots:<list[13|14|15|22|24|31|32|33]>
-  - define current:1
   - foreach <server.list_scripts.filter[yaml_key[type].is[==].to[item]].filter[name.ends_with[_stats_icon]]>:
     - define item:<item[<[value].name>]>
     - adjust def:item lore:"Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
-
+    - define list:|:item
+  - determine <[list]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
-  - "[filler] [] [] [carry_weight_stats_icon] [power_stats_icon] [food_stats_icon] [] [] [filler]"
-  - "[filler] [] [] [speed_stats_icon] [guiclose] [thirst_stats_icon] [] [] [filler]"
-  - "[filler] [] [] [health_stats_icon] [melee_damage_stats_icon] [constitution_stats_icon] [] [] [filler]"
+  - "[filler] [] [] [] [] [] [] [] [filler]"
+  - "[filler] [] [] [] [] [] [] [] [filler]"
+  - "[filler] [] [] [] [] [] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
 stats_inventory_handler:
