@@ -29,16 +29,14 @@ stats_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 54
-  definitions:
-    bfiller: <item[bfiller]>
-    wfiller: <item[wfiller]>
-    closeitem: <item[guiclose]>
+  procedural items:
+  - narrate 1
   slots:
-  - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [health_icon] [] [] [] []"
   - "[] [] [] [carry_weight_icon] [power_icon] [food_icon] [] [] []"
   - "[] [] [] [speed_icon] [constitution_icon] [thirst_icon] [] [] []"
   - "[] [] [] [] [melee_damage_icon] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [guiclose] [] [] [] []"
 
 melee_damage_icon:
