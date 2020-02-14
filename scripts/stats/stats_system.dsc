@@ -17,9 +17,10 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.temperature:100
     - yaml id:player.<player.uuid> set stats.basespeed:0.22
     - yaml id:player.<player.uuid> set stats.xp:0
-    - yaml id:player.<player.uuid> set stats.level:0
-    - yaml id:player.<player.uuid> set stats.experience_increase:0
-    - yaml id:player.<player.uuid> set stats.drop_rate_increase:0
+    - yaml id:player.<player.uuid> set stats.level:1
+    - yaml id:player.<player.uuid> set stats.stat_points:0
+    - yaml id:player.<player.uuid> set stats.experience_multiplier:0
+    - yaml id:player.<player.uuid> set stats.drop_rate_multiplier:0
     - yaml id:player.<player.uuid> set lessons.current:0
     - yaml id:player.<player.uuid> set lessons.lifetime:0
 
@@ -32,7 +33,7 @@ stats_character:
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [power_stats_icon] [food_stats_icon] [thirst_stats_icon] [carry_weight_stats_icon] [speed_stats_icon] [constitution_stats_icon] [health_stats_icon] [filler]"
-  - "[filler] [] [] [] [] [] [] [] [filler]"
+  - "[filler] [drop_rate_multiplier_stats_icon] [drop_rate_multiplier_stats_icon] [] [] [] [] [] [filler]"
   - "[filler] [] [] [] [] [] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
@@ -43,11 +44,31 @@ stats_inventory_handler:
     on player clicks in stats_character:
     - narrate <context.clicked_inventory.script_name>
     - determine passively cancelled
-    - if <context.item.script.yaml_key[assigned_stat]||null> != null:
-      - if <yaml[player.<player.uuid>].read[lessons.current]> > 0:
+    - if <context.item.script.yaml_key[assigned_stat_increment]||null> != null:
+      - if <yaml[player.<player.uuid>].read[stats.stat_points]> > 0:
         - yaml id:player.<player.uuid> set stats.<context.item.script.yaml_key[assigned_stat]>:+:<context.item.script.yaml_key[assigned_stat_increment]>
-        - yaml id:player.<player.uuid> set lessons.current:--
+        - yaml id:player.<player.uuid> set stats.stat_points:--
         - inventory open d:stats_character
+
+drop_rate_multiplier_stats_icon:
+  type: item
+  material: snow
+  assigned_stat: drop_rate_multiplier
+  display name: "<green><&6>◆ <&a><&n><&l>Drop Rate Multiplier<&r> <&6>◆"
+  lore:
+  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
+  - "This Stat cannot be increased with lessons."
+  drops_on_death: false
+
+experience_multiplier_stats_icon:
+  type: item
+  material: snow
+  assigned_stat: experience_multiplier
+  display name: "<green><&6>◆ <&a><&n><&l>Experience Multiplier<&r> <&6>◆"
+  lore:
+  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
+  - "This Stat cannot be increased with lessons."
+  drops_on_death: false
 
 health_stats_icon:
   type: item
