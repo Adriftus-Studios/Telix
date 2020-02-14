@@ -2,7 +2,7 @@
 
 # All GUI's will be in format 'afgui_<name>'
 
-
+#Injecting the YAML keys.
 fishing_reload:
   type: world
   debug: true
@@ -14,7 +14,7 @@ fishing_reload:
     on script reload:
       - inject locally fish_reload
 
-## Event Listener ##
+## Event Listeners ##
 
 fishing_inventory_listener:
   type: world
@@ -56,23 +56,36 @@ fishing_inventory_listener:
         - inventory adjust slot:<context.slot> d:<context.clicked_inventory> remove_nbt:baited
       - else:
         - narrate "<&c>This rod does not have any bait attached!"
-
-    on player fishes:
-      - narrate "state<&co> <context.state>"
-      - narrate "biome<&co> <context.hook.location.biome.name>"
-      - narrate "material<&co> <context.hook.location.material.name>"
-      
+### Debug Message - Disable after testing
+    #on player fishes:
+    #  - narrate "state<&co> <context.state>"
+    #  - narrate "biome<&co> <context.hook.location.biome.name>"
+    #  - narrate "material<&co> <context.hook.location.material.name>"
+############################################################################################
 
     on player fishes while bite:
       - playeffect happy_villager <context.hook.location> targets:<player> quantity:60
       - narrate "<&6>HOOKED!"
-
+#This is the full system for catching fish. All the fish magic happens here.
     on player fishes while caught_fish:
       - define number <util.random.int[1].to[100]>
+      - define weight_lblow <util.random.int[0].to[50]>
+      - define weight_lbmid <util.random.int[50].to[100]>
+      - define weight_lbhigh <util.random.int[100].to[500]>
+      - define weight_oz <util.random.int[0].to[15]>
+
+#Need a system for spawning crabs
+#      - if <util.random.int[1].to[100]> <= 30:
+#        - narrate "<&6>You snagged a crab!"
+#        - spawn af_entity_crab <context.hook.location>
+      - if <util.random.int[1].to[100]> <= 70:
+        - narrate "<&6>You caught a <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
+      - else if <util.random.int[1].to[100]> <= 20:
+        - narrate "<&6>You caught a <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
+      - else:
+        - narrate "<&6>You caught a <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
+
+#need a system for determining fish caught with each bait. Will probably be a YAML key deeper with bait type, following [baited] key item. 
       - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[value]> > <[number]>:
           - determine caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random||<yaml[fish_info].read[general.fallback.<[value]>].random>>
-        
-      
-      - spawn af_entity_crab <context.hook.location>
-      - narrate "<&6>A crab was caught!"
