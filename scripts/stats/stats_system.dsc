@@ -126,7 +126,7 @@ power_stats_icon:
   display name: "<green><&6>◆ <&a><&n><&l>Power<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat_increment]>]>]>"
+  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script.yaml_key[assigned_stat_increment]>]>"
   drops_on_death: false
 
 create_player_stats:
