@@ -122,7 +122,7 @@ speed_stats_icon:
   type: item
   material: snow
   assigned_stat: speed
-  assigned_stat_increment: 0.01
+  assigned_stat_increment: 2
   display name: "<green><&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
