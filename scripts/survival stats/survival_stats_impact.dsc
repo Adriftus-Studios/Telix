@@ -4,6 +4,8 @@ survival_stats_temperature:
   events:
     on delta time secondly every:15:
       - foreach <server.list_online_players.filter[health.is[OR_MORE].than[0]]>:
+        - if <[value].has_flag[cheatmode]>:
+          - foreach next
         - adjust <queue> linked_player:<[value]>
         - define change:none
         - if !<player.is_online>:
