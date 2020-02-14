@@ -69,7 +69,7 @@ abilityTree_inventory_events:
 ability_item_buildLore:
   type: task
   script:
-    - define "lore:|:<&e>-------------------------"
+    - define "lore:!|:<&e>-------------------------"
     - define "lore:|:<&b><script[ability_<context.item.nbt[skillname]>].yaml_key[description]>"
     - define "lore:|:<&a>Ability Type<&co> <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_type].to_titlecase>"
     - define "lore:|:<&c>Power Cost<&co> <script[ability_<context.item.nbt[skillname]>].yaml_key[power_cost]>"
@@ -83,7 +83,7 @@ ability_characterAbilities_events:
       - determine passively cancelled
       - if <context.item.has_nbt[skillname]>:
         - define inventory:<inventory[abilityTree_inventory]>
-        - adjust def:inventory title:<context.item.has_nbt[skillname].to_titlecase>
+        - adjust def:inventory title:<context.item.nbt[skillname].to_titlecase>
         - foreach <yaml[server.skills_by_level].list_keys[<context.item.nbt[skillname]>].numerical> as:skilllevel:
           - foreach <yaml[server.skills_by_level].read[<context.item.nbt[skillname]>.<[skilllevel]>].alphabetical> as:ability:
             - inject ability_item_buildLore
