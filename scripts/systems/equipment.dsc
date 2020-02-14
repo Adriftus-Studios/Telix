@@ -88,8 +88,7 @@ equipment_inventory_handler:
     on player opens equipment_character:
     - foreach <context.inventory.list_contents> as:item:
       - if <[item].script.yaml_key[category]||null> != null:
-        #- inventory set d:<context.inventory> o:<yaml[player.<player.uuid>].read[equipment.<[item].script.yaml_key[category]>].as_item> slot:<context.inventory.find[item]>
-        - adjust <context.inventory> contents:<context.inventory.list_contents.replace[item].with[<yaml[player.<player.uuid>].read[equipment.<[item].script.yaml_key[category]>].as_item>]>
+        - inventory set d:<context.inventory> o:<yaml[player.<player.uuid>].read[equipment.<[item].script.yaml_key[category]>].as_item> slot:<context.inventory.find[item]>
     on player clicks in equipment_character:
     - if <context.clicked_inventory.script_name> == "EQUIPMENT_CHARACTER":
       - determine passively cancelled
@@ -98,8 +97,8 @@ equipment_inventory_handler:
     - else:
       - if <context.item.script.yaml_key[category]||null> != null:
         - determine passively cancelled
-        - if <yaml[player.<player.uuid>].read[equipment.<context.item.script.script.yaml_key[category]>]||null> == null:
-          - if !<yaml[player.<player.uuid>].read[equipment.<context.item.script.script.yaml_key[category]>].as_item.script.name.ends_with[_filler]>:
+        - if <yaml[player.<player.uuid>].read[equipment.<context.item.script.yaml_key[category]>]||null> == null:
+          - if !<yaml[player.<player.uuid>].read[equipment.<context.item.script.yaml_key[category]>].as_item.script.name.ends_with[_filler]>:
             - yaml id:player.<player.uuid> set equipment.<context.item.script.yaml_key[category]>:<context.item>
             - narrate <yaml[player.<player.uuid>].read[equipment.hat].as_item>
         
