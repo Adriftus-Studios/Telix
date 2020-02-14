@@ -82,7 +82,6 @@ equipment_inventory_handler:
     on player closes equipment_character:
     - foreach <context.inventory.list_contents> as:item:
       - if <[item].script.yaml_key[category]||null> != null:
-        - narrate <[item].script.yaml_key[category]>
         - yaml id:player.<player.uuid> set equipment.<[item].script.yaml_key[category]>:<[item]>
     on player opens equipment_character:
     - foreach <context.inventory.list_contents> as:item:
