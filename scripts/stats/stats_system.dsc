@@ -39,7 +39,8 @@ stats_inventory_handler:
   type: world
   events:
     on player clicks in stats_character:
-    - narrate <context.item.script.yaml_key[assigned_stat]>
+    - if <context.item.script.yaml_key[assigned_stat]||null> == null:
+      - narrate 1
 
 health_icon:
   type: item
