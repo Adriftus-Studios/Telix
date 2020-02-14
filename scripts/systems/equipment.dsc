@@ -57,7 +57,8 @@ equipment_character:
   procedural items:
   - define items
   - foreach <list[hat|shirt|pants|shoes|gloves|cape|pendent|charm|amulet|ring|earrings|face_accessory]>:
-    - determine items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||equipment_filler_<[value]>>
+    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||equipment_filler_<[value]>>
+  - determine <[items]>
   definitions:
     w_filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   slots:
