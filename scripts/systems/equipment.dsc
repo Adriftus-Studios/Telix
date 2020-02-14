@@ -47,21 +47,19 @@ equipment_boots_slot:
   weight: 0
   lore:
   - "<&e>Click to open your skills and abilities menu."
-
 equipment_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
   size: 54
   definitions:
-    filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
-    closeitem: <item[guiclose]>
+    w_filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   slots:
-  - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
-  - "[filler] [ring_equipment_filler] [amulet_equipment_filler] [] [] [] [hat_equipment_filler] [] [filler]"
-  - "[filler] [ring_equipment_filler] [amulet_equipment_filler] [] [] [cape_equipment_filler] [shirt_equipment_filler] [gloves_equipment_filler] [filler]"
-  - "[filler] [ring_equipment_filler] [pendent_equipment_filler] [] [] [] [pants_equipment_filler] [] [filler]"
-  - "[filler] [earring_equipment_filler] [face_accessory_equipment_filler] [] [] [] [shoes_equipment_filler] [] [filler]"
-  - "[filler] [filler] [filler] [filler] [guiclose] [filler] [filler] [filler] [filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [ring_equipment_filler] [charm_equipment_filler] [] [] [] [hat_equipment_filler] [] [w_filler]"
+  - "[w_filler] [ring_equipment_filler] [amulet_equipment_filler] [] [] [cape_equipment_filler] [shirt_equipment_filler] [gloves_equipment_filler] [w_filler]"
+  - "[w_filler] [ring_equipment_filler] [pendent_equipment_filler] [] [] [] [pants_equipment_filler] [] [w_filler]"
+  - "[w_filler] [earring_equipment_filler] [face_accessory_equipment_filler] [] [] [] [shoes_equipment_filler] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 equipment_inventory_handler:
   type: world
@@ -71,8 +69,7 @@ equipment_inventory_handler:
     - if <context.clicked_inventory.script_name> == "EQUIPMENT_CHARACTER":
       - determine passively cancelled
       - if <context.item.script.yaml_key[category]||null> != null:
-        - narrate 1
-        - if <context.item.script.name.ends_with[_equipment_filler]>:
+        - if <context.item.script.name.ends_with[_filler]>:
           - narrate 2
     - else:
       - if <context.item.script.yaml_key[category]||null> != null:
@@ -86,6 +83,14 @@ basic_hat:
   equipment_rating: 5
   display name: "<&c>Basic Hat"
   drops_on_death: true
+
+charm_equipment_filler:
+  type: item
+  material: snow
+  category: charm
+  equipment_rating: 0
+  display name: "<&c>No Charm Equipted"
+  drops_on_death: false
 
 face_accessory_equipment_filler:
   type: item
