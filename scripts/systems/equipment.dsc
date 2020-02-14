@@ -58,7 +58,7 @@ equipment_character:
   - define items
   - foreach <list[hat|shirt|pants|shoes|w_filler|gloves|cape|pendent|charm|amulet|ring|earrings|face_accessory]>:
     - if <[value].ends_with[_filler]>:
-      - define items:|:<i@[value]>
+      - define items:|:<i@<[value]>>
     - else:
       - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||equipment_filler_<[value]>>
   - determine <[items]>
