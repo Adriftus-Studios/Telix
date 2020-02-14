@@ -18,7 +18,6 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.basespeed:0.22
     - yaml id:player.<player.uuid> set stats.xp:0
     - yaml id:player.<player.uuid> set stats.level:0
-    - yaml id:player.<player.uuid> set stats.mastery:0
     - yaml id:player.<player.uuid> set stats.skill_points:0
     - yaml id:player.<player.uuid> set lessons.current:0
     - yaml id:player.<player.uuid> set lessons.lifetime:0
@@ -35,7 +34,13 @@ stats_character:
   - "[filler] [] [] [speed_icon] [guiclose] [thirst_icon] [] [] [filler]"
   - "[filler] [] [] [health_icon] [melee_damage_icon] [constitution_icon] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
-  
+
+stats_inventory_handler:
+  type: world
+  events:
+    on player clicks in stats_character:
+    - narrate 1
+
 health_icon:
   type: item
   material: snow
