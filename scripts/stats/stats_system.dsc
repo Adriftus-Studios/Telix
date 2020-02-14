@@ -21,6 +21,7 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.stat_points:0
     - yaml id:player.<player.uuid> set stats.experience_multiplier:0
     - yaml id:player.<player.uuid> set stats.drop_rate_multiplier:0
+    - yaml id:player.<player.uuid> set stats.equipment_rating:0
     - yaml id:player.<player.uuid> set lessons.current:0
     - yaml id:player.<player.uuid> set lessons.lifetime:0
 
@@ -33,7 +34,7 @@ stats_character:
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [power_stats_icon] [food_stats_icon] [thirst_stats_icon] [carry_weight_stats_icon] [speed_stats_icon] [constitution_stats_icon] [health_stats_icon] [filler]"
-  - "[filler] [drop_rate_multiplier_stats_icon] [drop_rate_multiplier_stats_icon] [] [] [] [] [] [filler]"
+  - "[filler] [drop_rate_multiplier_stats_icon] [drop_rate_multiplier_stats_icon] [equipment_rating_stats_icon] [] [] [] [] [filler]"
   - "[filler] [] [] [] [] [] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
@@ -50,6 +51,16 @@ stats_inventory_handler:
           - yaml id:player.<player.uuid> set stats.stat_points:--
           - inventory open d:stats_character
 
+equipment_rating_stats_icon:
+  type: item
+  material: snow
+  assigned_stat: equipment_rating
+  display name: "<green><&6>◆ <&a><&n><&l>Equipment Rating<&r> <&6>◆"
+  lore:
+  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
+  - "This Stat cannot be increased with Skill Points."
+  drops_on_death: false
+
 drop_rate_multiplier_stats_icon:
   type: item
   material: snow
@@ -57,7 +68,7 @@ drop_rate_multiplier_stats_icon:
   display name: "<green><&6>◆ <&a><&n><&l>Drop Rate Multiplier<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "This Stat cannot be increased with lessons."
+  - "This Stat cannot be increased with Skill Points."
   drops_on_death: false
 
 experience_multiplier_stats_icon:
@@ -67,7 +78,7 @@ experience_multiplier_stats_icon:
   display name: "<green><&6>◆ <&a><&n><&l>Experience Multiplier<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "This Stat cannot be increased with lessons."
+  - "This Stat cannot be increased with Skill Points."
   drops_on_death: false
 
 health_stats_icon:
