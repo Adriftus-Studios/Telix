@@ -1,5 +1,5 @@
 ability_double_jump:
-  type: world1
+  type: world
   name: double_jump
   ability_tree: Acrobatics
   level: 3

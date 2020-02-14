@@ -29,8 +29,6 @@ stats_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 45
-  procedural items:
-  - inventory adjust slot:5 "lore:Item modified!"
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [] [] [carry_weight_icon] [power_icon] [food_icon] [] [] [filler]"

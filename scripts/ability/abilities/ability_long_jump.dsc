@@ -1,5 +1,5 @@
 ability_long_jump:
-  type: world1
+  type: world
   name: long_jump
   ability_tree: Acrobatics
   level: 2
