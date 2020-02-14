@@ -30,7 +30,9 @@ stats_character:
   definitions:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   procedural items:
-  
+  - define slots:<list[13|14|15|22|24|31|32|33]>
+  - foreach <[slots]>:
+    - narrate <[value]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [] [] [carry_weight_filler] [power_filler] [food_filler] [] [] [filler]"
