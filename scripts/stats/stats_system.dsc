@@ -29,6 +29,8 @@ stats_character:
   size: 45
   definitions:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
+  procedural items:
+  
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [] [] [carry_weight_filler] [power_filler] [food_filler] [] [] [filler]"
@@ -41,10 +43,12 @@ stats_inventory_handler:
   debug: true
   events:
     on player clicks in stats_character:
+    - narrate <context.slot>
     - determine passively cancelled
     - if <context.item.script.yaml_key[assigned_stat]||null> != null:
       - if <yaml[player.<player.uuid>].read[lessons.current]> > 0:
         - yaml id:player.<player.uuid> set stats.<context.item.script.yaml_key[assigned_stat]>:+:<context.item.script.yaml_key[assigned_stat_increment]>
+        - yaml id:player.<player.uuid> set lessons.current:--
 
 health_filler:
   type: item
@@ -52,6 +56,8 @@ health_filler:
   assigned_stat: health.max
   assigned_stat_increment: 10
   display name: "<green><&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
+  lore:
+  - ""
   drops_on_death: false
 
 melee_damage_filler:
