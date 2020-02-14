@@ -27,6 +27,8 @@ stats_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 45
+  definitions:
+    filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [] [] [carry_weight_icon] [power_icon] [food_icon] [] [] [filler]"
@@ -37,49 +39,49 @@ stats_character:
 health_icon:
   type: item
   material: snow
-  display name: "<&c>Health"
+  display name: "<green><&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
   drops_on_death: false
 
 melee_damage_icon:
   type: item
   material: snow
-  display name: "<&c>Melee Damage"
+  display name: "<green><&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
   drops_on_death: false
 
 constitution_icon:
   type: item
   material: snow
-  display name: "<&c>Constitution"
+  display name: "<green><&6>◆ <&a><&n><&l>Constitution<&r> <&6>◆"
   drops_on_death: false
 
 speed_icon:
   type: item
   material: snow
-  display name: "<&c>Speed"
+  display name: "<green><&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
   drops_on_death: false
 
 carry_weight_icon:
   type: item
   material: snow
-  display name: "<&c>Carry Weight"
+  display name: "<green><&6>◆ <&a><&n><&l>Carry Weight<&r> <&6>◆"
   drops_on_death: false
 
 thirst_icon:
   type: item
   material: snow
-  display name: "<&c>Thirst"
+  display name: "<green><&6>◆ <&a><&n><&l>Thirst<&r> <&6>◆"
   drops_on_death: false
 
 food_icon:
   type: item
   material: snow
-  display name: "<&c>Food"
+  display name: "<green><&6>◆ <&a><&n><&l>Food<&r> <&6>◆"
   drops_on_death: false
 
 power_icon:
   type: item
   material: snow
-  display name: "<&c>Power"
+  display name: "<green><&6>◆ <&a><&n><&l>Power<&r> <&6>◆"
   drops_on_death: false
 
 create_player_stats:
