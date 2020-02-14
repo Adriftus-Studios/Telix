@@ -30,7 +30,7 @@ stats_character:
   definitions:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   procedural items:
-  - narrate <player.open_inventory>
+  - narrate <player.open_inventory.list_contents>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [] [] [carry_weight_filler] [power_filler] [food_filler] [] [] [filler]"
