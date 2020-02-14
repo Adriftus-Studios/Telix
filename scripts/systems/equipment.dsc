@@ -177,6 +177,8 @@ system_equipment_set:
 system_equipment_override:
   type: world
   events:
+    on reload scripts:
+      - inject system_equipment_set
     on player clicks equipment_*_slot in inventory:
       - narrate <context.item.script.name.after[_].before[_]>
       - determine passively cancelled
