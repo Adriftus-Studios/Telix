@@ -14,4 +14,4 @@ equipment_character:
   - "[w_filler] [ring_equipment_filler] [amulet_equipment_filler] [] [] [cape_equipment_filler] [shirt_equipment_filler] [gloves_equipment_filler] [w_filler]"
   - "[w_filler] [ring_equipment_filler] [pendent_equipment_filler] [] [] [] [pants_equipment_filler] [] [w_filler]"
   - "[w_filler] [earring_equipment_filler] [face_accessory_equipment_filler] [] [] [] [shoes_equipment_filler] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
