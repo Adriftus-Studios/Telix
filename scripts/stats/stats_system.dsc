@@ -81,7 +81,7 @@ speed_filler:
 carry_weight_filler:
   type: item
   material: snow
-  assigned_stat: carry_weight.max
+  assigned_stat: weight.max
   assigned_stat_increment: 10
   display name: "<green><&6>◆ <&a><&n><&l>Carry Weight<&r> <&6>◆"
   drops_on_death: false
