@@ -7,3 +7,4 @@ Boulder Dash - sends Boulders flying towards the target
 Inferno - sets the user and surrounding area ablaze
 Tornado - sends the player whirling through the air in a tornado
 Heal - Heals the target
+

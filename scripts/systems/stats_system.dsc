@@ -180,7 +180,6 @@ survival_sidebar:
   type: world
   events:
     on player join:
-      - inject stats_setup
       - inject survival_sidebar_show
     
     on delta time secondly:
