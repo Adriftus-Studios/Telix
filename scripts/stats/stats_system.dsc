@@ -31,8 +31,8 @@ stats_character:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
-  - "[filler] [power_stats_icon] [food_stats_icon] [thirst_stats_icon] [carry_weight_stats_icon] [speed_stats_icon] [constitution_stats_icon] [melee_damage_stats_icon] [filler]"
-  - "[filler] [health_stats_icon] [] [] [] [] [] [] [filler]"
+  - "[filler] [] [] [] [] [] [] [] [filler]"
+  - "[filler] [] [] [] [] [] [] [] [filler]"
   - "[filler] [] [] [] [] [] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
