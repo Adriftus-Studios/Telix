@@ -66,12 +66,6 @@ equipment_character:
   - "[w_filler] [earring_equipment_filler] [face_accessory_equipment_filler] [] [] [] [shoes_equipment_filler] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]
 
-save_equipment_inventory:
-  type: task
-  script:
-  - if <[inventory].script_name.is[==].to[equipment_character]>:
-    - narrate a
-
 equipment_inventory_handler:
   type: world
   debug: true
