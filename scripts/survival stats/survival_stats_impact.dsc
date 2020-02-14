@@ -46,8 +46,6 @@ survival_stats_temperature:
 survival_temperature_impact:
   type: task
   script:
-    - if <[player].has_flag[cheatmode]>:
-      - stop
     - if <yaml[player.<player.uuid>].read[stats.temperature]> < 50:
       - narrate "<&c>You have <&b>frozen<&c> to death."
       - hurt 1000
