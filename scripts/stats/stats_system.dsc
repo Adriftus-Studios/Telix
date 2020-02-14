@@ -31,8 +31,8 @@ stats_character:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
-  - "[filler] [power_stats_icon] [food_stats_icon] [thirst_stats_icon] [carry_weight_stats_icon] [speed_stats_icon] [constitution_stats_icon] [melee_damage_stats_icon] [filler]"
-  - "[filler] [health_stats_icon] [] [] [] [] [] [] [filler]"
+  - "[filler] [power_stats_icon] [food_stats_icon] [thirst_stats_icon] [carry_weight_stats_icon] [speed_stats_icon] [constitution_stats_icon] [health_stats_icon] [filler]"
+  - "[filler] [] [] [] [] [] [] [] [filler]"
   - "[filler] [] [] [] [] [] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
@@ -55,17 +55,6 @@ health_stats_icon:
   assigned_stat: health.max
   assigned_stat_increment: 10
   display name: "<green><&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script.yaml_key[assigned_stat_increment]>]>"
-  drops_on_death: false
-
-melee_damage_stats_icon:
-  type: item
-  material: snow
-  assigned_stat: melee_damage
-  assigned_stat_increment: 2
-  display name: "<green><&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script.yaml_key[assigned_stat_increment]>]>"
