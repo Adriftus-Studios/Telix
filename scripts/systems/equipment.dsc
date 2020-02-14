@@ -90,10 +90,7 @@ equipment_inventory_handler:
       - if <[item].script.yaml_key[category]||null> != null:
         - inventory set d:<context.inventory> o:<yaml[player.<player.uuid>].read[equipment.<[item].script.yaml_key[category]>].as_item> slot:<context.inventory.find[item]>
     on player clicks in equipment_character:
-    - if <context.clicked_inventory.script_name> == "EQUIPMENT_CHARACTER":
-      #stuff
-    - else:
-      - narrate "Fuck you Drew"
+    - narrate <context.clicked_inventory.script_name>
         
 
 basic_hat:
