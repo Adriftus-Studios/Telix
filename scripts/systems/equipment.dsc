@@ -50,13 +50,20 @@ equipment_boots_slot:
   lore:
   - "<&e>Click to open your skills and abilities menu."
 
+invisible_item:
+  type: item
+  material: rabbit_hide
+  display name: <&c>
+  drops_on_death: false
+  weight: 0
+
 equipment_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
   size: 54
   procedural items:
   - define items
-  - foreach <list[hat|shirt|pants|shoes|w_filler|gloves|cape|pendent|charm|amulet|ring|earrings|face_accessory]>:
+  - foreach <list[pendent|charm|w_filler|w_filler|w_filler|hat|w_filler|w_filler|amulet|ring|w_filler|w_filler|gloves|shirt|cape|ring|earrings|w_filler|w_filler|w_filler|pants|w_filler|w_fillershoes|w_filler|face_accessory]>:
     - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||equipment_filler_<[value]>||<[value]>>
   - determine <[items]>
   definitions:
