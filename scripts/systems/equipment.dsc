@@ -56,7 +56,7 @@ equipment_character:
   size: 54
   procedural items:
   - define items
-  - foreach <list[hat|shirt|pants|shoes|gloves|cape|pendent|charm|amulet|ring|earrings|face_accessory]>:
+  - foreach <list[hat|shirt|pants|shoes|gloves|cape|pendent|charm|amulet|ring|earrings|face_accessory|w_filler|w_filler]>:
     - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||equipment_filler_<[value]>>
   - determine <[items]>
   definitions:
