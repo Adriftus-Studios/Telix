@@ -48,7 +48,7 @@ stats_inventory_handler:
   debug: true
   events:
     on player clicks in stats_character:
-    - narrate <context.clicked_inventory.script.name>
+    - narrate <context.clicked_inventory.script_name>
     - determine passively cancelled
     - if <context.item.script.yaml_key[assigned_stat]||null> != null:
       - if <yaml[player.<player.uuid>].read[lessons.current]> > 0:
