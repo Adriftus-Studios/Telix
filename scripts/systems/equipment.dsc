@@ -23,11 +23,9 @@ equipment_chest_slot:
 
 equipment_leg_slot:
   type: item
-  material: gold_nugget
+  material: snow
   display name: <&c>Stats
   GUI_Inventory: stats_character
-  mechanisms:
-    custom_model_data:5
   drops_on_death: false
   weight: 0
   lore:
