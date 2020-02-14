@@ -1,17 +1,17 @@
 ability_double_jump:
-  type: world
+  type: world1
   name: double_jump
   ability_tree: Acrobatics
   level: 3
   power_cost: 10
   display_item: GUI_double_jump
   events:
-    on player starts sneaking1 flagged:jumped:
+    on player starts sneaking flagged:jumped:
       - if <player.location.material.name> == air:
         - adjust <player> velocity:<player.velocity.add[0,0.4,0]>
         - flag Player jumped:!
 
-    on player jumps1:
+    on player jumps:
       - if <yaml[player.<player.uuid>].read[<script.yaml_key[ability_tree]>.skills].contains[<script.yaml_key[name]>]>:
         - flag Player jumped:true duration:1s
 

@@ -1,12 +1,12 @@
 ability_high_jump:
-  type: world
+  type: world1
   name: high_jump
   ability_tree: Acrobatics
   level: 1
   power_cost: 10
   display_item: GUI_high_jump
   events:
-    on player jumps1:
+    on player jumps:
       - if <player.is_sneaking> && !<player.is_sprinting>:
         - if <yaml[player.<player.uuid>].read[skills.<script.yaml_key[ability_tree]>.skills].contains[<script.yaml_key[name]>]>:
           - determine passively cancelled
