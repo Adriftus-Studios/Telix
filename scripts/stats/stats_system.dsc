@@ -39,7 +39,11 @@ stats_inventory_handler:
   type: world
   events:
     on player clicks in stats_character:
-    - narrate 1
+    - choose <context.item.script.name>:
+      - case health_icon:
+        - narrate 1
+      - case speed_icon:
+        - narrate 2
 
 health_icon:
   type: item

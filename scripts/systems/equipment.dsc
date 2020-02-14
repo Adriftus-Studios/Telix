@@ -61,8 +61,20 @@ equipment_character:
   - "[] [ring_filler] [amulet_filler] [] [] [] [hat_filler] [] []"
   - "[] [ring_filler] [amulet_filler] [] [] [cape_filler] [shirt_filler] [gloves_filler] []"
   - "[] [ring_filler] [pendent_filler] [] [] [] [pants_filler] [] []"
-  - "[] [] [] [] [] [] [shoes_filler] [] []"
+  - "[] [earring_filler] [face_accessory_filler] [] [] [] [shoes_filler] [] []"
   - "[] [] [] [] [guiclose] [] [] [] []"
+
+face_accessory_filler:
+  type: item
+  material: snow
+  display name: "<&c>No Face Accessory Equipted"
+  drops_on_death: false
+
+earring_filler:
+  type: item
+  material: snow
+  display name: "<&c>No Earrings Equipted"
+  drops_on_death: false
 
 ring_filler:
   type: item
