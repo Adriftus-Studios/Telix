@@ -84,6 +84,7 @@ equipment_inventory_handler:
       - if <[item].script.yaml_key[category]||null> != null:
         - if !<[item].script.name.ends_with[_filler]>:
           - yaml id:player.<player.uuid> set equipment.<[item].script.yaml_key[category]>:<[item]>
+    - narrate <yaml[player.<player.uuid>].read[equipment.hat].as_item>
     on player opens equipment_character:
     - foreach <context.inventory.list_contents> as:item:
       - if <[item].script.yaml_key[category]||null> != null:
@@ -93,16 +94,13 @@ equipment_inventory_handler:
       - determine passively cancelled
       - if <context.item.script.yaml_key[category]||null> != null:
         - if !<context.item.script.name.ends_with[_filler]>:
-          - narrate 1
     - else:
       - if <context.item.script.yaml_key[category]||null> != null:
-        - narrate 2
         - determine passively cancelled
         - if <yaml[player.<player.uuid>].read[equipment.<context.item.script.script.yaml_key[category]>]||null> == null:
-          - narrate 3
           - if !<yaml[player.<player.uuid>].read[equipment.<context.item.script.script.yaml_key[category]>].as_item.script.name.ends_with[_filler]>:
-            - narrate 4
             - yaml id:player.<player.uuid> set equipment.<[item].script.yaml_key[category]>:<context.item>
+            - narrate <yaml[player.<player.uuid>].read[equipment.hat].as_item>
         
 
 basic_hat:
