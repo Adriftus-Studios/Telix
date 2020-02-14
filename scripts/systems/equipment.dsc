@@ -70,8 +70,14 @@ equipment_inventory_handler:
     on player clicks in equipment_character:
     - if <context.clicked_inventory.script_name> == "EQUIPMENT_CHARACTER":
       - determine passively cancelled
-      - if <context.item.script.yaml_key[category]||null> == null:
+      - if <context.item.script.yaml_key[category]||null> != null:
         - narrate 1
+        - if <context.item.script.name.ends_with[_equipment_filler]>:
+          - narrate 2
+    - else:
+      - if <context.item.script.yaml_key[category]||null> != null:
+        - determine passively cancelled
+        - narrate 3
 
 basic_hat:
   type: item
