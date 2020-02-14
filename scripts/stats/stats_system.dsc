@@ -26,6 +26,9 @@ stats_setup:
 survival_sidebar:
   type: world
   events:
+    on player first login:
+      - inject stats_setup
+
     on player join:
       - inject survival_sidebar_show
     

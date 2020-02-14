@@ -3,12 +3,6 @@ survival_stats_temperature:
   type: world
   debug: false
   events:
-    on delta time secondly every:1:
-      - foreach <server.list_online_players.filter[health.is[OR_MORE].than[0]]>:
-        - if <[value].has_flag[cheatmode]>:
-          - foreach next
-        - if <[value].location.above[2].material.name.is[==].to[water]>:
-          - narrate 2
     on delta time secondly every:15:
       - foreach <server.list_online_players.filter[health.is[OR_MORE].than[0]]>:
         - if <[value].has_flag[cheatmode]>:

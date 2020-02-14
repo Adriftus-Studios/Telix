@@ -12,7 +12,7 @@ equipment_chest_slot:
   type: item
   material: golden_chestplate
   display name: <&7>Equipment
-  GUI_Inventory: abilities_characterAbilityTrees
+  GUI_Inventory: equipment_character
   drops_on_death: false
   weight: 0
   lore:
@@ -47,6 +47,76 @@ equipment_boots_slot:
   weight: 0
   lore:
   - "<&e>Click to open your skills and abilities menu."
+
+equipment_character:
+  type: inventory
+  title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
+  size: 54
+  definitions:
+    bfiller: <item[bfiller]>
+    wfiller: <item[wfiller]>
+    closeitem: <item[guiclose]>
+  slots:
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [ring_filler] [amulet_filler] [] [] [] [hat_filler] [] []"
+  - "[] [ring_filler] [amulet_filler] [] [] [cape_filler] [shirt_filler] [gloves_filler] []"
+  - "[] [ring_filler] [pendent_filler] [] [] [] [pants_filler] [] []"
+  - "[] [] [] [] [] [] [shoes_filler] [] []"
+  - "[] [] [] [] [guiclose] [] [] [] []"
+
+ring_filler:
+  type: item
+  material: snow
+  display name: "<&c>No Ring Equipted"
+  drops_on_death: false
+
+amulet_filler:
+  type: item
+  material: snow
+  display name: "<&c>No Amulet Equipted"
+  drops_on_death: false
+
+pendent_filler:
+  type: item
+  material: snow
+  display name: "<&c>No Pendent Equipted"
+  drops_on_death: false
+
+shoes_filler:
+  type: item
+  material: snow
+  display name: "<&c>No Shoes Equipted"
+  drops_on_death: false
+
+pants_filler:
+  type: item
+  material: snow
+  display name: "<&c>No Pants Equipted"
+  drops_on_death: false
+
+shirt_filler:
+  type: item
+  material: snow
+  display name: "<&c>No Shirt Equipted"
+  drops_on_death: false
+
+gloves_filler:
+  type: item
+  material: snow
+  display name: "<&c>No Gloves Equipted"
+  drops_on_death: false
+
+cape_filler:
+  type: item
+  material: snow
+  display name: "<&c>No Cape Equipted"
+  drops_on_death: false
+
+hat_filler:
+  type: item
+  material: snow
+  display name: "<&c>No Hat Equipted"
+  drops_on_death: false
 
 system_equipment_set:
   type: task
