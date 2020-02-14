@@ -23,9 +23,11 @@ equipment_chest_slot:
 
 equipment_leg_slot:
   type: item
-  material: snow
+  material: gold_nugget
   display name: <&c>Stats
   GUI_Inventory: stats_character
+  mechanisms:
+    custom_model_data:5
   drops_on_death: false
   weight: 0
   lore:
@@ -40,12 +42,10 @@ equipment_leg_slot:
 
 equipment_boots_slot:
   type: item
-  material: gold_nugget
+  material: snow
   GUI_Inventory: abilities_characterAbilityTrees
   display name: <&c>Skills/Abilities
   drops_on_death: false
-  mechanisms:
-    custom_model_data:5
   weight: 0
   lore:
   - "<&e>Click to open your skills and abilities menu."
@@ -177,8 +177,6 @@ system_equipment_set:
 system_equipment_override:
   type: world
   events:
-    on reload scripts:
-      - inject system_equipment_set
     on player clicks equipment_*_slot in inventory:
       - narrate <context.item.script.name.after[_].before[_]>
       - determine passively cancelled
