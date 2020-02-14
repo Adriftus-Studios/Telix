@@ -38,6 +38,7 @@ stats_character:
 
 stats_inventory_handler:
   type: world
+  debug: true
   events:
     on player clicks in stats_character:
     - determine passively cancelled
