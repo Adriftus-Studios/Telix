@@ -30,10 +30,12 @@ stats_character:
   definitions:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   procedural items:
-  - foreach <server.list_scripts.filter[yaml_key[type].is[==].to[item]].filter[name.ends_with[_stats_icon]]>:
+  - define items:<list[health_stats_icon|melee_damage_stats_icon|power_stats_icon|food_stats_icon|thirst_stats_icon|carry_weight_stats_icon|speed_stats_icon|constitution_stats_icon]>
+  - foreach <[items]>:
     - define item:<item[<[value].name>]>
     - adjust def:item lore:"Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
     - define list:|:item
+  - narrate <[list]>
   - determine <[list]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
