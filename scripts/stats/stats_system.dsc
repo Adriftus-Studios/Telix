@@ -18,7 +18,8 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.basespeed:0.22
     - yaml id:player.<player.uuid> set stats.xp:0
     - yaml id:player.<player.uuid> set stats.level:0
-    - yaml id:player.<player.uuid> set stats.skill_points:0
+    - yaml id:player.<player.uuid> set stats.experience_increase:0
+    - yaml id:player.<player.uuid> set stats.drop_rate_increase:0
     - yaml id:player.<player.uuid> set lessons.current:0
     - yaml id:player.<player.uuid> set lessons.lifetime:0
 
@@ -30,68 +31,70 @@ stats_character:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
-  - "[filler] [] [] [carry_weight_icon] [power_icon] [food_icon] [] [] [filler]"
-  - "[filler] [] [] [speed_icon] [guiclose] [thirst_icon] [] [] [filler]"
-  - "[filler] [] [] [health_icon] [melee_damage_icon] [constitution_icon] [] [] [filler]"
+  - "[filler] [] [] [carry_weight_filler] [power_filler] [food_filler] [] [] [filler]"
+  - "[filler] [] [] [speed_filler] [guiclose] [thirst_filler] [] [] [filler]"
+  - "[filler] [] [] [health_filler] [melee_damage_filler] [constitution_filler] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
 stats_inventory_handler:
   type: world
   events:
     on player clicks in stats_character:
-    - if <context.item.script.yaml_key[assigned_stat]||null> == null:
-      - narrate 1
+    - determine passively cancelled
+    - if <context.item.script.yaml_key[assigned_stat]||null> != null:
+      - if <yaml[player.<player.uuid>].read[lessons.current]> > 0:
+        - narrate 1
 
-health_icon:
+health_filler:
   type: item
   material: snow
   assigned_stat: health
   display name: "<green><&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
   drops_on_death: false
 
-melee_damage_icon:
+melee_damage_filler:
   type: item
   material: snow
   assigned_stat: melee_damage
   display name: "<green><&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
   drops_on_death: false
 
-constitution_icon:
+constitution_filler:
   type: item
   material: snow
   assigned_stat: constitution
   display name: "<green><&6>◆ <&a><&n><&l>Constitution<&r> <&6>◆"
   drops_on_death: false
 
-speed_icon:
+speed_filler:
   type: item
   material: snow
   assigned_stat: speed
   display name: "<green><&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
   drops_on_death: false
 
-carry_weight_icon:
+carry_weight_filler:
   type: item
   material: snow
   assigned_stat: carry_weight
   display name: "<green><&6>◆ <&a><&n><&l>Carry Weight<&r> <&6>◆"
   drops_on_death: false
 
-thirst_icon:
+thirst_filler:
   type: item
   material: snow
   assigned_stat: thirst
   display name: "<green><&6>◆ <&a><&n><&l>Thirst<&r> <&6>◆"
   drops_on_death: false
 
-food_icon:
+food_filler:
   type: item
   material: snow
   assigned_stat: food
   display name: "<green><&6>◆ <&a><&n><&l>Food<&r> <&6>◆"
   drops_on_death: false
 
-power_icon:
+power_filler:
   type: item
   material: snow
   assigned_stat: power

@@ -1,12 +1,12 @@
 #### FILLER COLORS ####
 
-bfiller:
+b_filler:
   type: item
   material: black_stained_glass_pane
   display name: <&6>
   unobtainable: true
 
-wfiller:
+w_filler:
   type: item
   material: white_stained_glass_pane
   display name: <&6>
@@ -14,7 +14,7 @@ wfiller:
 
 #### CLOSE ITEM ####
 
-guiclose:
+gui_close_btn:
   type: item
   material: barrier
   display name: <&c>Close
