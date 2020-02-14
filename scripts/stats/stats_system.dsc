@@ -34,7 +34,7 @@ stats_character:
   - foreach <[items]>:
     - define item:<item[<[value].name>]>
     - adjust def:item lore:"Current Level: <yaml[player.<player.uuid>].read[stats.<context.item.script.yaml_key[assigned_stat]>]>"
-    - define list:|:item
+    - define list:|:<[item]>
   - narrate <[list]>
   - determine <[list]>
   slots:
