@@ -49,7 +49,7 @@ stats_character:
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [power_stats_icon] [food_stats_icon] [thirst_stats_icon] [carry_weight_stats_icon] [speed_stats_icon] [constitution_stats_icon] [health_stats_icon] [filler]"
-  - "[filler] [drop_rate_multiplier_stats_icon] [drop_rate_multiplier_stats_icon] [equipment_rating_stats_icon] [] [] [] [] [filler]"
+  - "[filler] [experience_multiplier_stats_icon] [drop_rate_multiplier_stats_icon] [equipment_rating_stats_icon] [] [] [] [] [filler]"
   - "[filler] [] [] [] [] [] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
