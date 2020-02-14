@@ -39,57 +39,61 @@ stats_inventory_handler:
   type: world
   events:
     on player clicks in stats_character:
-    - choose <context.item.script.name>:
-      - case health_icon:
-        - narrate 1
-      - case speed_icon:
-        - narrate 2
+    - narrate <context.item.script.yaml_key[assigned_stat]>
 
 health_icon:
   type: item
   material: snow
+  assigned_stat: health
   display name: "<green><&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
   drops_on_death: false
 
 melee_damage_icon:
   type: item
   material: snow
+  assigned_stat: melee_damage
   display name: "<green><&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
   drops_on_death: false
 
 constitution_icon:
   type: item
   material: snow
+  assigned_stat: constitution
   display name: "<green><&6>◆ <&a><&n><&l>Constitution<&r> <&6>◆"
   drops_on_death: false
 
 speed_icon:
   type: item
   material: snow
+  assigned_stat: speed
   display name: "<green><&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
   drops_on_death: false
 
 carry_weight_icon:
   type: item
   material: snow
+  assigned_stat: carry_weight
   display name: "<green><&6>◆ <&a><&n><&l>Carry Weight<&r> <&6>◆"
   drops_on_death: false
 
 thirst_icon:
   type: item
   material: snow
+  assigned_stat: thirst
   display name: "<green><&6>◆ <&a><&n><&l>Thirst<&r> <&6>◆"
   drops_on_death: false
 
 food_icon:
   type: item
   material: snow
+  assigned_stat: food
   display name: "<green><&6>◆ <&a><&n><&l>Food<&r> <&6>◆"
   drops_on_death: false
 
 power_icon:
   type: item
   material: snow
+  assigned_stat: power
   display name: "<green><&6>◆ <&a><&n><&l>Power<&r> <&6>◆"
   drops_on_death: false
 
