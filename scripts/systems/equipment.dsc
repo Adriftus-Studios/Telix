@@ -44,7 +44,7 @@ equipment_boots_slot:
   GUI_Inventory: abilities_characterAbilityTrees
   display name: <&c>Skills/Abilities
   drops_on_death: false
-  mechanism:
+  mechanisms:
     custom_model_data:5
   weight: 0
   lore:
