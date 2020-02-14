@@ -25,7 +25,7 @@ equipment_leg_slot:
   type: item
   material: snow
   display name: <&c>Stats
-  GUI_Inventory: abilities_characterAbilityTrees
+  GUI_Inventory: stats_character
   drops_on_death: false
   weight: 0
   lore:
