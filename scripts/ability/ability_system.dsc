@@ -7,7 +7,7 @@ abilities_reload:
       - yaml create id:server.skills_by_level
       - foreach <server.list_scripts>:
         - if <[value].name.starts_with[ability]>:
-          - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[level]>:|:<[value].yaml_key[name]>
+          - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
   events:
     on server start:
       - inject locally abilities_reload
