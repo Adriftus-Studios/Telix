@@ -30,9 +30,8 @@ stats_character:
   definitions:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   procedural items:
-  - foreach <server.list_scripts.filter[yaml_key[type].is[==].to[item]]> as:item:
-    - if <[item].script.name.ends_with[_stats_icon]>:
-      - narrate <[item]>
+  - foreach <server.list_scripts.filter[yaml_key[type].is[==].to[item]].filter[name.ends_with[_stats_icon]]> as:item:
+    - narrate <[item]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [] [] [carry_weight_stats_icon] [power_stats_icon] [food_stats_icon] [] [] [filler]"
