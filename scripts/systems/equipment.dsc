@@ -99,7 +99,7 @@ equipment_inventory_handler:
         - determine passively cancelled
         - if <yaml[player.<player.uuid>].read[equipment.<context.item.script.script.yaml_key[category]>]||null> == null:
           - if !<yaml[player.<player.uuid>].read[equipment.<context.item.script.script.yaml_key[category]>].as_item.script.name.ends_with[_filler]>:
-            - yaml id:player.<player.uuid> set equipment.<[item].script.yaml_key[category]>:<context.item>
+            - yaml id:player.<player.uuid> set equipment.<context.item.script.yaml_key[category]>:<context.item>
             - narrate <yaml[player.<player.uuid>].read[equipment.hat].as_item>
         
 
