@@ -194,7 +194,7 @@ hat_equipment_filler:
 system_equipment_set:
   type: task
   script:
-    - equip head:<item[equipment_head_slot].with[custom_model_data=0]> chest:<item[equipment_chest_slot]> legs:<item[equipment_leg_slot].with[custom_model_data=1]> boots:<item[equipment_boots_slot]>
+    - equip head:<item[equipment_head_slot]> chest:<item[equipment_chest_slot]> legs:<item[equipment_leg_slot]> boots:<item[equipment_boots_slot]>
 
 system_equipment_override:
   type: world
