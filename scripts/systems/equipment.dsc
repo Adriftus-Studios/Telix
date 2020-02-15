@@ -87,7 +87,7 @@ equipment_character:
     - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<[value]>_equipment_filler>
   - determine <[items]>
   definitions:
-    w_filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
+    w_filler: <item[gui_invis_item]>
     gui_top: <item[gui_equipment_top]>
     gui_bottom: <item[gui_equipment_bottom]>
     closeitem: <item[gui_close_btn]>
@@ -98,7 +98,7 @@ equipment_character:
   - "[gui_top] [] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
   - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
- 
+ 5
 basic_hat:
   type: item
   material: diamond_helmet
