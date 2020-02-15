@@ -88,6 +88,9 @@ equipment_inventory_handler:
       - inventory set d:<context.clicked_inventory> o:<item[<context.item.script.yaml_key[category]>_equipment_filler]> slot:<context.slot>
     on player clicks in equipment_character:
     #update stats
+    on player clicks in inventory:
+    - narrate <context.clicked_inventory>
+    - narrate <context.slot>
     
 equipment_character:
   type: inventory
