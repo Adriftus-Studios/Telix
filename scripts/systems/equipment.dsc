@@ -61,24 +61,6 @@ invisible_item:
   mechanisms:
     custom_model_data: 0
 
-equipment_character:
-  type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
-  size: 54
-  procedural items:
-  - foreach <list[amulet|pendant|hat|amulet|ring|gloves|shirt|cape|charm|trinket|pants|boots]>:
-    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||equipment_filler_<[value]>||<[value]>>
-  - determine <[items]>
-  definitions:
-    w_filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
-  slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [w_filler] [w_filler] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-
 equipment_inventory_handler:
   type: world
   debug: false
@@ -101,6 +83,24 @@ equipment_inventory_handler:
     on player clicks in equipment_character:
     #update stats
     
+equipment_character:
+  type: inventory
+  title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
+  size: 54
+  procedural items:
+  - foreach <list[amulet|pendant|hat|amulet|ring|gloves|shirt|cape|charm|trinket|pants|boots]>:
+    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<[value]>_equipment_filler>
+  - determine <[items]>
+  definitions:
+    w_filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [w_filler] [w_filler] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
         
 
 basic_hat:
@@ -110,6 +110,14 @@ basic_hat:
   equipment_rating: 5
   display name: "<&c>Basic Hat"
   drops_on_death: true
+
+pendant_equipment_filler:
+  type: item
+  material: snow
+  category: pendant
+  equipment_rating: 0
+  display name: "<&c>No Pendant Equipped"
+  drops_on_death: false
 
 charm_equipment_filler:
   type: item
@@ -157,14 +165,6 @@ amulet_equipment_filler:
   category: amulet
   equipment_rating: 0
   display name: "<&c>No Amulet Equipped"
-  drops_on_death: false
-
-pendant_equipment_filler:
-  type: item
-  material: snow
-  category: pendant
-  equipment_rating: 0
-  display name: "<&c>No pendant Equipped"
   drops_on_death: false
 
 shoes_equipment_filler:
