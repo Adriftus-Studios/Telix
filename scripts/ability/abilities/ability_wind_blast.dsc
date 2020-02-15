@@ -21,6 +21,5 @@ ability_wind_blast:
       - playeffect sweep_attack at:<[points].get[<[number]>]> quantity:5 offset:1
       - if !<[points].get[<[number]>].find.living_entities.within[3].exclude[<player>].is_empty>:
         - inject locally apply_effect
-      - if <[number].%[4]> == 0:
-        - wait 1t
+      - wait 1t
     
