@@ -36,6 +36,9 @@ stats_setup:
     - yaml id:player.<player.uuid> set equipment.ring
     - yaml id:player.<player.uuid> set equipment.earrings
     - yaml id:player.<player.uuid> set equipment.face_accessory
+    - wait 1t
+    - foreach <yaml[ability_trees].list_keys[skill_trees]>:
+      - yaml id:player.<player.uuid> set skills.<[value]>.current:100
 
 stats_character:
   type: inventory

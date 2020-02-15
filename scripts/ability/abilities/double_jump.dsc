@@ -13,11 +13,11 @@ ability_double_jump:
     on player starts sneaking flagged:jumped:
       - if <player.location.material.name> == air:
         - adjust <player> velocity:<player.velocity.add[0,0.4,0]>
-        - flag Player jumped:!
+        - flag player jumped:!
 
     on player jumps:
-      - if <yaml[player.<player.uuid>].read[<script.yaml_key[ability_tree]>.skills].contains[<script.yaml_key[name]>]>:
-        - flag Player jumped:true duration:1s
+      - if <yaml[player.<player.uuid>].read[skills.<script.yaml_key[ability_tree]>.current]> >= <script.yaml_key[points_to_unlock]>:
+        - flag player jumped:true duration:1s
 
 GUI_double_jump:
   type: item
