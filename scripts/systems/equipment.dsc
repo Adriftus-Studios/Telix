@@ -78,13 +78,14 @@ equipment_inventory_handler:
     #adding armor to slot
     - wait 1t
     - determine passively cancelled
-    - if <context.item.script.yaml_key[category]> == <context.cursor_item>:
+    - if <context.item.script.yaml_key[category]> == <context.cursor_item.script.yaml_key[category]>:
       - inventory set d:<context.clicked_inventory> o:<context.cursor_item> slot:<context.slot>
       - narrate 1
     on player clicks item in equipment_character:
     - wait 1t
     - determine passively cancelled
-    - inventory set d:<context.clicked_inventory> o:<item[<context.item.script.yaml_key[category]>_equipment_filler]> slot:<context.slot>
+    - if !<context.item.script.name.ends_with[_equipment_filler]>:
+      - inventory set d:<context.clicked_inventory> o:<item[<context.item.script.yaml_key[category]>_equipment_filler]> slot:<context.slot>
     on player clicks in equipment_character:
     #update stats
     
