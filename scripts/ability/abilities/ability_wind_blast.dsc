@@ -12,7 +12,7 @@ ability_wind_blast:
     custom_model_data: 1
   apply_effect:
     - foreach <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]>:
-      - defin original:<[value].location>
+      - define original:<[value].location>
       - shoot <[value]> o:<[value].location> destination:<[value].location.with_pitch[0].with_yaw[<[loc].yaw>].forward[5]>
       - wait 1t
       - look <[value]> <[original].precise_cursor_on> duration:1t
