@@ -66,21 +66,23 @@ equipment_inventory_handler:
       - if <[item].script.yaml_key[category]||null> != null:
         - inventory set d:<context.inventory> o:<yaml[player.<player.uuid>].read[equipment.<[item].script.yaml_key[category]>].as_item> slot:<context.inventory.find[item]>
     on player clicks *_equipment_filler in equipment_character with item:
-    - determine passively cancelled
     - wait 1t
+    - determine passively cancelled
     - if <context.item.script.yaml_key[category]> == <context.cursor_item.script.yaml_key[category]>:
       - adjust <player> item_on_cursor:<item[air]>
       - yaml id:player.<player.uuid> set equipment.<context.item.script.yaml_key[category]>:<context.cursor_item>
     on player clicks item in equipment_character:
-    - determine passively cancelled
     - wait 1t
+    - determine passively cancelled
     - if !<context.item.script.name.ends_with[_filler]>:
       - inventory set d:<context.clicked_inventory> o:<item[<context.item.script.yaml_key[category]>_equipment_filler]> slot:<context.slot>
       - yaml id:player.<player.uuid> set equipment.<context.item.script.yaml_key[category]>:null
     - else:
       - determine passively cancelled
     on player clicks in equipment_character:
-
+    - if <context.cursor_item.material.name> == "air":
+      - if <context.item.script.name.ends_with[_filler]>
+        - determine passively cancelled
 
 equipment_character:
   type: inventory
