@@ -12,7 +12,7 @@ ability_super_kick:
     custom_model_data: 1
   script:
     - inject abilities_check
-    - if <player.target.distance[<player.location>]> <= 3:
+    - if <player.target.location.distance[<player.location>]> <= 3:
       - adjust <player.target> velocity:<player.location.direction.vector.mul[10]>
     
     
