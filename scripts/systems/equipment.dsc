@@ -79,7 +79,8 @@ equipment_inventory_handler:
     - wait 1t
     - inventory set d:<context.clicked_inventory> slot:<context.slot> o:<context.cursor_item>
     on player clicks item in equipment_character:
-    #remove armor from slot
+    - wait 1t
+    - inventory set d:<context.clicked_inventory> o:<item[<context.item.script.yaml_key[category]>_equipment_filler]> slot:<context.slot>
     on player clicks in equipment_character:
     #update stats
     
