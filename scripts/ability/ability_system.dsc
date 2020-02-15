@@ -34,7 +34,7 @@ abilities_characterAbilityTrees:
   definitions:
     filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
   procedural items:
-    - foreach <yaml[ability_trees].list_keys[skill_trees]> as:value1:
+    - foreach <yaml[ability_trees].list_keys[skill_trees].alphabetical> as:value1:
       - if <yaml[ability_trees].read[skill_trees.<[value1]>.available_check].parsed>:
         - define list:|:<yaml[ability_trees].read[skill_trees.<[value1]>.GUIItem].as_item.with[display_name=<&b><[value1]>;custom_model_data=<yaml[ability_trees].read[skill_trees.<[value1]>.custom_model_data]>;nbt=skillname/<[value1]>]>
     - determine <[list]>
