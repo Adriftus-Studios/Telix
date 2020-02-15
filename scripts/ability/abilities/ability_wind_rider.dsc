@@ -13,7 +13,7 @@ ability_wind_rider:
   script:
     - inject abilities_check
     - shoot <player> destination:<player.location.forward[10]> speed:3
-    - wait 1t
+    - wait 1s
     - inventory adjust d:<player.inventory> slot:39 material:<material[elytra]>
     - adjust <player> gliding:true
     - flag player wind_rider:true
