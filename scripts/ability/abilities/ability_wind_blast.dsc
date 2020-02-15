@@ -13,7 +13,8 @@ ability_wind_blast:
   apply_effect:
     - foreach <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]>:
       - defin original:<[value].location>
-      - shoot <[value]> o:<[value].location> destination:<[value].location.with_pitch[<[loc].pitch>].with_yaw[<[loc].yaw>].forward[3]>
+      - shoot <[value]> o:<[value].location> destination:<[value].location.with_pitch[0].with_yaw[<[loc].yaw>].forward[5]>
+      - wait 1t
       - look <[value]> <[original].precise_cursor_on> duration:1t
   script:
     - inject abilities_check
