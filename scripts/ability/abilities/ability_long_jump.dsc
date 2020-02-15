@@ -12,7 +12,7 @@ ability_long_jump:
   events:
     on player jumps:
       - if <player.is_sneaking> && <player.is_sprinting>:
-        - inject ability_check
+        - inject abilities_check
         - determine passively cancelled
         - shoot <player> d:<player.location.forward_flat[20]> height:2
 

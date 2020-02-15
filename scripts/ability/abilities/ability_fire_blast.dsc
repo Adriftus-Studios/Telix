@@ -12,7 +12,7 @@ ability_fire_blast:
   apply_damage:
     - burn <[points].get[<[number]>].find.entities.within[0.5]> <script.yaml_key[duration]>
   script:
-    - inject ability_check
+    - inject abilities_check
     - define points:<player.eye_location.point_between[<player.location.cursor_on>].distance[0.5]>
     - repeat <[points].size> as:number:
       - playeffect redstone at:<[points].get[<[number]>]> quantity:30 offset:0.5,0.5,0.5 special_data:red|0.5
