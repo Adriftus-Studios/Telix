@@ -76,7 +76,6 @@ equipment_inventory_handler:
     - if !<context.item.script.name.ends_with[equipment_filler]>:
       - inventory set d:<context.clicked_inventory> o:<item[<context.item.script.yaml_key[category]>_equipment_filler]> slot:<context.slot>
     on player clicks in equipment_character:
-    - determine passively cancelled
 
 
 equipment_character:
