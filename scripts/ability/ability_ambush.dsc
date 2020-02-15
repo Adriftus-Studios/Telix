@@ -1,6 +1,6 @@
 ability_ambush:
   type: task
-  name: sand_shift
+  name: ambush
   ability_tree: Stealth
   ability_type: active
   points_to_unlock: 10
