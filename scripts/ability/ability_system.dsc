@@ -50,6 +50,13 @@ ability_item:
   material: stone
   display name: <&c>BROKEN - REPORT THIS
 
+ability_item_buildLore:
+  type: task
+  script:
+    - define "lore:!|:<&e>-------------------------"
+    - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
+    - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
+    - define "lore:|:<&e>-------------------------"
 
 abilityTree_inventory:
   type: inventory
@@ -69,9 +76,10 @@ abilityTree_inventory_events:
     on player clicks in abilityTree_inventory:
       - determine passively cancelled
       - if <script[<context.item.nbt[skillname]>].yaml_key[ability_type]||nope> == active:
-        - adjust <player> item_on_cursor:<script[<context.item.nbt[skillname]>].yaml_key[ability_type]>
+        - inject ability_item_BuildLore
+        - adjust <player> item_on_cursor:<item[ability_item].with[lore=<[lore]>;nbt=skillname/<context.item.nbt[skillname]>;material=<script[ability_<[ability]>].yaml_key[icon.material]>;custom_model_data=<script[ability_<[ability]>].yaml_key[icon.custom_model_data]>]>
 
-ability_item_buildLore:
+ability_GUIitem_buildLore:
   type: task
   script:
     - define "lore:!|:<&e>-------------------------"
@@ -93,8 +101,8 @@ ability_characterAbilities_events:
           - if <yaml[player.<player.uuid>].read[skills.<context.item.nbt[skillname]>.current]> < <[skilllevel]>:
             - foreach next
           - foreach <yaml[server.skills_by_level].read[<context.item.nbt[skillname]>.<[skilllevel]>].alphabetical> as:ability:
-            - inject ability_item_buildLore
-            - define list:|:<item[ability_item].with[material=<script[ability_<[ability]>].yaml_key[icon.material]>;custom_model_data=<script[ability_<[ability]>].yaml_key[icon.custom_model_dataYe]>;display_name=<[ability].replace[_].with[<&sp>].to_titlecase>;lore=<[lore]>;nbt=skillname/<[ability]>]>
+            - inject ability_GUIitem_buildLore
+            - define list:|:<item[ability_item].with[material=<script[ability_<[ability]>].yaml_key[icon.material]>;custom_model_data=<script[ability_<[ability]>].yaml_key[icon.custom_model_data]>;display_name=<[ability].replace[_].with[<&sp>].to_titlecase>;lore=<[lore]>;nbt=skillname/<[ability]>]>
         - inventory add d:<[inventory]> o:<[list]>
         - inventory open d:<[inventory]>
 
