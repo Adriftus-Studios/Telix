@@ -12,7 +12,7 @@ ability_ender_world:
     custom_model_data: 1
   script:
     - inject abilities_check
-    - if <player.has_flag[ender_world]>:
+    - if !<player.has_flag[ender_world]>:
       - adjust <player> hide_from_players:true
       - adjust <player> vision:enderman
       - foreach <server.list_online_players_flagged[ender_world]>:
@@ -20,7 +20,7 @@ ability_ender_world:
       - flag <player> ender_world:true
     - else:
       - adjust <player> show_to_players:true
-      - adjust <player> vision:!
+      - adjust <player> vision
       - foreach <server.list_online_players_flagged[ender_world]>:
         - adjust <player> hide_entity:<[value]>
 
