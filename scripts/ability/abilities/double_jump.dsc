@@ -16,7 +16,7 @@ ability_double_jump:
         - flag player jumped:!
 
     on player jumps:
-      - if <yaml[player.<player.uuid>].read[skills.<script.yaml_key[ability_tree]>.current]> >= <script.yaml_key[points_to_unlock]>:
+      - inject ability_check:
         - flag player jumped:true duration:1s
 
 GUI_double_jump:
