@@ -25,7 +25,7 @@ equipment_chest_slot:
 
 equipment_leg_slot:
   type: item
-  material: gold_nugget
+  material: snow
   display name: <&c>Stats
   GUI_Inventory: stats_character
   mechanisms:
