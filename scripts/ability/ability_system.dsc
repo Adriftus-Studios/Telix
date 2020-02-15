@@ -15,7 +15,7 @@ abilities_reload:
           - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
   events:
     on server start:
-      - inject locally abilities_reloadaw
+      - inject locally abilities_reload
     on script reload:
       - inject locally abilities_reload
 
