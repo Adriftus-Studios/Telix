@@ -52,15 +52,6 @@ equipment_boots_slot:
   lore:
   - "<&e>Click to open your skills and abilities menu."
 
-invisible_item:
-  type: item
-  material: rabbit_hide
-  display name: <&c>
-  drops_on_death: false
-  weight: 0
-  mechanisms:
-    custom_model_data: 0
-
 equipment_inventory_handler:
   type: world
   debug: false
@@ -78,7 +69,6 @@ equipment_inventory_handler:
     - wait 1t
     - determine passively cancelled
     - if <context.item.script.yaml_key[category]> == <context.cursor_item.script.yaml_key[category]>:
-      - inventory set d:<context.clicked_inventory> o:<context.cursor_item> slot:<context.slot>
       - adjust <player> item_on_cursor:<item[air]>
     on player clicks item in equipment_character:
     - wait 1t
