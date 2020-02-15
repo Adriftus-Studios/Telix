@@ -12,6 +12,6 @@ ability_super_kick:
   script:
     - inject abilities_check
     - if <player.target.location.distance[<player.location>]||5> <= 3:
-      - adjust <player.target> velocity:<player.location.direction.vector.mul[10]>
+      - adjust <player.target> velocity:<player.location.direction.vector.mul[2]>
     
     
