@@ -89,9 +89,9 @@ equipment_inventory_handler:
     on player clicks in equipment_character:
     #update stats
     on player clicks in inventory:
-    - narrate <context.clicked_inventory>
-    - narrate <context.raw_slot>
-    
+    - if <context.clicked_inventory> == <player.inventory> && <list[2|3|4|5].contains[<context.raw_slot>]>:
+      - determine cancelled
+
 equipment_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
