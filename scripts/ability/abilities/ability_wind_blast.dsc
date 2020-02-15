@@ -12,7 +12,9 @@ ability_wind_blast:
     custom_model_data: 1
   apply_effect:
     - foreach <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]>:
-      - teleport <[value]> <[value].location.with_pitch[0].with_yaw[<[loc].yaw>].forward[2].with_pitch[<[value].pitch>].with_yaw[<[value].yaw>]>
+      - defin original:<[value].location>
+      - shoot <[value]> o:<[value].location> destination:<[value].location.with_pitch[<[loc].pitch>].with_yaw[<[loc].yaw>].forward[3]>
+      - look <[value]> <[original].precise_cursor_on> duration:1t
   script:
     - inject abilities_check
     - define loc:<player.location>
