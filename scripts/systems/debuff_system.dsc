@@ -1,3 +1,20 @@
+apply_debuff:
+  type: task
+  definitions: debuff
+  # TODO
+  # THIS SYSTEM IS NOT YET COMPLETE
+  # DO NOT USE IT.
+  script:
+    - yaml id:player.<player.uuid> set debuffs:->:<[debuff]>
+    - run <script[debuff_<[debuff]>].yaml_key[impact]> save:debuff
+    - while <script[debuff_<[debuff]>].yaml_key[conditional]> && <player.is_online>:
+      - wait 1s
+    - if !<player.is_online>:
+      - queue <entry[debuff].created_queue> clear
+      - stop
+    - yaml id:player.<player.uuid> set debuffs:<-:<[debuff]>
+    - inject <script[debuff_<[debuff]>].yaml_key[cured]>
+
 debuff_dehydrated:
   type: task
   script:
