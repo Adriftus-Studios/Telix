@@ -1,6 +1,6 @@
 ability_ender_world:
   type: task
-  name: wind_blast
+  name: ender_world
   ability_tree: Demonic
   ability_type: active
   duration: 5
