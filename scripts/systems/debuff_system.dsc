@@ -1,6 +1,7 @@
 debuff_dehydrated:
   type: task
   script:
+    - yaml id:player.<player.uuid> set debuffs:->:dehydrated
     - cast confusion duration:6h
     - while <yaml[player.<player.uuid>].read[stats.thirst.current]||100> <= 0 && <player.is_online>:
       - wait 1s
@@ -50,4 +51,4 @@ debuffs_on_join:
   events:
     on player join:
       - foreach <yaml[player.<player.uuid>].read[debuffs]>:
-        - inject debuff_<[value]>
+        - run debuff_<[value]>

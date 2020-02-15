@@ -3,7 +3,7 @@ ability_double_jump:
   name: double_jump
   ability_tree: Acrobatics
   ability_type: passive
-  points_to_unlock: 3
+  points_to_unlock: 30
   power_cost: 10
   description: Sneaking in mid-air will jump again, shortly after an initial jump.
   icon:

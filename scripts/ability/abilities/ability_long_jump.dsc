@@ -3,9 +3,9 @@ ability_long_jump:
   name: long_jump
   ability_tree: Acrobatics
   ability_type: passive
-  points_to_unlock: 3
+  points_to_unlock: 10
   power_cost: 10
-  description: Sneaking in mid-air will jump again, shortly after an initial jump.
+  description: Jumping while running and sneaking, will do a longer jump.
   icon:
     material: stone
     custom_model_data: 1

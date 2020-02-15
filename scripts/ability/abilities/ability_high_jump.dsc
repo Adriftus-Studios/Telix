@@ -3,9 +3,9 @@ ability_high_jump:
   name: high_jump
   ability_tree: Acrobatics
   ability_type: passive
-  points_to_unlock: 3
+  points_to_unlock: 20
   power_cost: 10
-  description: Sneaking in mid-air will jump again, shortly after an initial jump.
+  description: Jumping while sneaking, will jump extra high.
   icon:
     material: stone
     custom_model_data: 1
