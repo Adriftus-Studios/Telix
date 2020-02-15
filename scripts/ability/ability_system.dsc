@@ -81,7 +81,7 @@ abilityTree_inventory:
 abilityTree_inventory_events:
   type: world
   events:
-    on player clicks in abilityTree_inventory:
+    on player clicks item in abilityTree_inventory:
       - determine passively cancelled
       - if <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_type]||nope> == active:
         - inject abilities_item_BuildLore
