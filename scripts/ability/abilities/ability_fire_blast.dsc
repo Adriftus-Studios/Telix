@@ -1,4 +1,5 @@
 ability_fire_blast:
+  type: task
   name: fire_blast
   ability_tree: Elemental
   ability_type: active

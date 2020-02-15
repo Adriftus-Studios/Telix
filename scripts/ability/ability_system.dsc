@@ -50,6 +50,12 @@ abilities_item:
   material: stone
   display name: <&c>BROKEN - REPORT THIS
 
+abilites_item_use:
+  type: world
+  events:
+    on player right clicks with abilities_item:
+      - inject abilities_<context.item.nbt[skillname]>
+
 abilities_item_buildLore:
   type: task
   script:
