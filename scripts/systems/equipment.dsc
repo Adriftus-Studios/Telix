@@ -90,7 +90,7 @@ equipment_inventory_handler:
     #update stats
     on player clicks in inventory:
     - narrate <context.clicked_inventory>
-    - narrate <context.slot>
+    - narrate <context.raw_slot>
     
 equipment_character:
   type: inventory
