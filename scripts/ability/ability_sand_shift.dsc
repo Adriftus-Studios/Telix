@@ -14,7 +14,7 @@ ability_sand_shift:
   script:
     - inject abilities_check
     - if !<script.yaml_key[whitelist_materials].contains[<player.location.below.material.name>]>:
-      - narrate "Unsuitable location"
+      - narrate "<&c>Unsuitable location"
       - stop
     - flag <player> no_suffocate:true
     - define firstblock:<player.location.below.material.name>
