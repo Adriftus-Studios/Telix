@@ -81,7 +81,7 @@ abilityTree_inventory_events:
   events:
     on player clicks in abilityTree_inventory:
       - determine passively cancelled
-      - if <script[<context.item.nbt[skillname]>].yaml_key[ability_type]||nope> == active:
+      - if <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_type]||nope> == active:
         - inject abilities_item_BuildLore
         - adjust <player> item_on_cursor:<item[abilities_item].with[lore=<[lore]>;nbt=skillname/<context.item.nbt[skillname]>;material=<script[ability_<[ability]>].yaml_key[icon.material]>;custom_model_data=<script[ability_<[ability]>].yaml_key[icon.custom_model_data]>]>
 
