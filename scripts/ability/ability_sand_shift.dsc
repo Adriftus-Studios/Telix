@@ -6,7 +6,7 @@ ability_sand_shift:
   points_to_unlock: 10
   power_cost: 10
   distance: 10
-  description: Shift yourself <script.yaml_key[distance]> blocks forward, through the ground.
+  description: Shift yourself 10 blocks forward, through the ground.
   icon:
     material: stone
     custom_model_data: 1
