@@ -21,7 +21,7 @@ ability_sand_shift:
       - teleport <player.location.below[0.2]>
       - wait 1t
     - define target:<location[<[target].x>,<cuboid[<[target].with_y[1]>|<[target].with_y[255]>].blocks[<script.yaml_key[whitelist_materials]>].filter[above.material.name.is[==].to[air]].parse[y].highest>,<[target].z>,<[target].world>]>
-    - teleport <[target].below>
+    - teleport <[target].below.center>
     - define secondblock:<[target].material.name>
     - repeat 10:
       - playeffect blockdust_<[secondblock]> at:<player.location.above> quantity:10 offset:0.25
