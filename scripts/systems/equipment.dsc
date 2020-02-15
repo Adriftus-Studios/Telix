@@ -103,6 +103,110 @@ basic_hat:
   display name: "<&c>Basic Hat"
   drops_on_death: true
 
+pendant_equipment_filler:
+  type: item
+  material: snow
+  category: pendant
+  equipment_rating: 0
+  display name: "<&c>No Pendant Equipped"
+  drops_on_death: false
+
+charm_equipment_filler:
+  type: item
+  material: snow
+  category: charm
+  equipment_rating: 0
+  display name: "<&c>No Charm Equipped"
+  drops_on_death: false
+
+trinket_equipment_filler:
+  type: item
+  material: snow
+  category: charm
+  equipment_rating: 0
+  display name: "<&c>No Trinket Equipped"
+  drops_on_death: false
+
+face_accessory_equipment_filler:
+  type: item
+  material: snow
+  category: face_accessory
+  equipment_rating: 0
+  display name: "<&c>No Face Accessory Equipped"
+  drops_on_death: false
+
+earring_equipment_filler:
+  type: item
+  material: snow
+  category: earrings
+  equipment_rating: 0
+  display name: "<&c>No Earrings Equipped"
+  drops_on_death: false
+
+ring_equipment_filler:
+  type: item
+  material: snow
+  category: ring
+  equipment_rating: 0
+  display name: "<&c>No Ring Equipped"
+  drops_on_death: false
+
+amulet_equipment_filler:
+  type: item
+  material: snow
+  category: amulet
+  equipment_rating: 0
+  display name: "<&c>No Amulet Equipped"
+  drops_on_death: false
+
+shoes_equipment_filler:
+  type: item
+  material: snow
+  category: shoes
+  equipment_rating: 0
+  display name: "<&c>No Shoes Equipped"
+  drops_on_death: false
+
+pants_equipment_filler:
+  type: item
+  material: snow
+  category: pants
+  equipment_rating: 0
+  display name: "<&c>No Pants Equipped"
+  drops_on_death: false
+
+shirt_equipment_filler:
+  type: item
+  material: snow
+  category: shirt
+  equipment_rating: 0
+  display name: "<&c>No Shirt Equipped"
+  drops_on_death: false
+
+gloves_equipment_filler:
+  type: item
+  material: snow
+  category: gloves
+  equipment_rating: 0
+  display name: "<&c>No Gloves Equipped"
+  drops_on_death: false
+
+cape_equipment_filler:
+  type: item
+  material: snow
+  category: cape
+  equipment_rating: 0
+  display name: "<&c>No Cape Equipped"
+  drops_on_death: false
+
+hat_equipment_filler:
+  type: item
+  material: snow
+  category: hat
+  equipment_rating: 0
+  display name: "<&c>No Hat Equipped"
+  drops_on_death: false
+
 system_equipment_set:
   type: task
   script:
