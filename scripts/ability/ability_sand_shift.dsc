@@ -6,6 +6,7 @@ ability_sand_shift:
   points_to_unlock: 10
   power_cost: 10
   distance: 10
+  whitelist_materials: dirt|grass_block|sand
   description: Shift yourself 10 blocks forward, through the ground.
   icon:
     material: stone
