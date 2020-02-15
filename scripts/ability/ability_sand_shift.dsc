@@ -13,7 +13,7 @@ ability_sand_shift:
   script:
     - inject abilities_check
     - flag <player> no_suffocate:true
-    - define target:<player.location.flat_forward[<script.yaml_key[distance]>]>
+    - define target:<player.location.forward_flat[<script.yaml_key[distance]>]>
     - repeat 10:
       - teleport <player.location.below[0.2]>
     - teleport <location[<[target].x>,<cuboid[<[target].with_y[1]>|<[target].with_y[255]>].blocks[<script.yaml_key[whitelist_materials]>].parse[y].highest>,<[target].z>,<[target].world>].below>
