@@ -3,7 +3,6 @@ ability_super_kick:
   name: super_kick
   ability_tree: Fisticuffs
   ability_type: active
-  duration: 5
   points_to_unlock: 10
   power_cost: 10
   description: Create a 3x3 wall of sand infront of you.
