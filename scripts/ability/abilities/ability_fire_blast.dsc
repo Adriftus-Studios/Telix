@@ -17,8 +17,8 @@ ability_fire_blast:
     - inject abilities_check
     - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[0.5]>
     - repeat <[points].size> as:number:
-      - playeffect flame at:<[points].get[<[number]>]> quantity:10 offset:0.1
-      - playeffect lava at:<[points].get[<[number]>]> quantity:20 offset:0.25
+      - playeffect flame at:<[points].get[<[number]>]> quantity:5 offset:0.1
+      - playeffect lava at:<[points].get[<[number]>]> quantity:10 offset:0.25
       - if !<[points].get[<[number]>].find.entities.within[2].exclude[<player>].is_empty>:
         - inject locally apply_damage
         - stop
