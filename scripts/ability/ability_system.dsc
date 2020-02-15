@@ -54,7 +54,8 @@ abilites_item_use:
   type: world
   events:
     on player right clicks with abilities_item:
-      - inject ability_<context.item.nbt[skillname]>
+      - determine passively cancelled
+      - run ability_<context.item.nbt[skillname]>
 
 abilities_item_buildLore:
   type: task
