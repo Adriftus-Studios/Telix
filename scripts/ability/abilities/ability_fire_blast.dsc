@@ -11,14 +11,14 @@ ability_fire_blast:
     material: stone
     custom_model_data: 1
   apply_damage:
-    - hurt <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]> 5
-    - burn <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]> <script.yaml_key[duration]>
+    - hurt <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> 5
+    - burn <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> <script.yaml_key[duration]>
   script:
     - inject abilities_check
     - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[0.5]>
     - repeat <[points].size> as:number:
       - playeffect flame at:<[points].get[<[number]>]> quantity:5 offset:0.1
-      - if !<[points].get[<[number]>].find.living_entities.within[2].exclude[<player>].is_empty>:
+      - if !<[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>].is_empty>:
         - inject locally apply_damage
         - stop
       - if <[number].%[4]> == 0:
