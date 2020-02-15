@@ -12,7 +12,7 @@ ability_wind_blast:
     custom_model_data: 1
   apply_effect:
     - foreach <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]>:
-      - adjust <[value]> velocity:<[loc].direction.vector.with_y[0.5]>
+      - adjust <[value]> velocity:<[loc].direction.vector.mul[10].with_y[0.5]>
   script:
     - inject abilities_check
     - define loc:<player.location>
