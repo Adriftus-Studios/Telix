@@ -8,7 +8,7 @@ afgui_main:
   definitions:
     bfiller: <item[bfiller]>
     wfiller: <item[wfiller]>
-    closeitem: <item[guiclose]>
+    closeitem: <item[gui_close_btn]>
     rod: <item[af_rod_basic]>
     merchantbutton: <item[af_merchant_button]>
   slots:
