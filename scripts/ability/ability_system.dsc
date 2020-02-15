@@ -79,7 +79,7 @@ abilityTree_inventory_events:
         - inject abilities_item_BuildLore
         - adjust <player> item_on_cursor:<item[abilities_item].with[lore=<[lore]>;nbt=skillname/<context.item.nbt[skillname]>;material=<script[ability_<[ability]>].yaml_key[icon.material]>;custom_model_data=<script[ability_<[ability]>].yaml_key[icon.custom_model_data]>]>
 
-ability_GUIitem_buildLore:
+abilities_GUIitem_buildLore:
   type: task
   script:
     - define "lore:!|:<&e>-------------------------"
@@ -89,7 +89,7 @@ ability_GUIitem_buildLore:
     - define "lore:|:<&e>-------------------------"
         
 
-ability_characterAbilities_events:
+abilities_characterAbilities_events:
   type: world
   events:
     on player left clicks item in abilities_characterAbilityTrees:
@@ -101,7 +101,7 @@ ability_characterAbilities_events:
           - if <yaml[player.<player.uuid>].read[skills.<context.item.nbt[skillname]>.current]> < <[skilllevel]>:
             - foreach next
           - foreach <yaml[server.skills_by_level].read[<context.item.nbt[skillname]>.<[skilllevel]>].alphabetical> as:ability:
-            - inject ability_GUIitem_buildLore
+            - inject abilities_GUIitem_buildLore
             - define list:|:<item[abilities_item].with[material=<script[ability_<[ability]>].yaml_key[icon.material]>;custom_model_data=<script[ability_<[ability]>].yaml_key[icon.custom_model_data]>;display_name=<[ability].replace[_].with[<&sp>].to_titlecase>;lore=<[lore]>;nbt=skillname/<[ability]>]>
         - inventory add d:<[inventory]> o:<[list]>
         - inventory open d:<[inventory]>
