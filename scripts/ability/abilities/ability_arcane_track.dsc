@@ -1,6 +1,6 @@
 ability_arcane_track:
   type: task
-  name: high_jump
+  name: arcane_track
   ability_tree: Arcane
   ability_type: command
   points_to_unlock: 20
