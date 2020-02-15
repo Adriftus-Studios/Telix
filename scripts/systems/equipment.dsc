@@ -69,7 +69,7 @@ equipment_inventory_handler:
     - wait 1t
     - determine passively cancelled
     - if <context.item.script.yaml_key[category]> == <context.cursor_item.script.yaml_key[category]>:
-      - adjust <player> item_on_cursor:<item[air]>
+      - adjust <player> item_on_cursor:<item[iron_ingot]>
     on player clicks item in equipment_character:
     - wait 1t
     - determine passively cancelled
