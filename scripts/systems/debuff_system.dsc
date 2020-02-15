@@ -1,6 +1,24 @@
+apply_debuff:
+  type: task
+  definitions: debuff
+  # TODO
+  # THIS SYSTEM IS NOT YET COMPLETE
+  # DO NOT USE IT.
+  script:
+    - yaml id:player.<player.uuid> set debuffs:->:<[debuff]>
+    - run <script[debuff_<[debuff]>].yaml_key[impact]> save:debuff
+    - while <script[debuff_<[debuff]>].yaml_key[conditional]> && <player.is_online>:
+      - wait 1s
+    - if !<player.is_online>:
+      - queue <entry[debuff].created_queue> clear
+      - stop
+    - yaml id:player.<player.uuid> set debuffs:<-:<[debuff]>
+    - inject <script[debuff_<[debuff]>].yaml_key[cured]>
+
 debuff_dehydrated:
   type: task
   script:
+    - yaml id:player.<player.uuid> set debuffs:->:dehydrated
     - cast confusion duration:6h
     - while <yaml[player.<player.uuid>].read[stats.thirst.current]||100> <= 0 && <player.is_online>:
       - wait 1s
@@ -50,4 +68,4 @@ debuffs_on_join:
   events:
     on player join:
       - foreach <yaml[player.<player.uuid>].read[debuffs]>:
-        - inject debuff_<[value]>
+        - run debuff_<[value]>

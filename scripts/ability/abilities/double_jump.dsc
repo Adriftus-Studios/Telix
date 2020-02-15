@@ -3,7 +3,7 @@ ability_double_jump:
   name: double_jump
   ability_tree: Acrobatics
   ability_type: passive
-  points_to_unlock: 3
+  points_to_unlock: 30
   power_cost: 10
   description: Sneaking in mid-air will jump again, shortly after an initial jump.
   icon:
@@ -16,8 +16,8 @@ ability_double_jump:
         - flag player jumped:!
 
     on player jumps:
-      - if <yaml[player.<player.uuid>].read[skills.<script.yaml_key[ability_tree]>.current]> >= <script.yaml_key[points_to_unlock]>:
-        - flag player jumped:true duration:1s
+      - inject ability_check
+      - flag player jumped:true duration:1s
 
 GUI_double_jump:
   type: item
