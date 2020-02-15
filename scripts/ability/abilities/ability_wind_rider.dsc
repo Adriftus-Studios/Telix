@@ -12,7 +12,7 @@ ability_wind_rider:
     custom_model_data: 1
   script:
     - inject abilities_check
-    - push <player> destination:<player.location.forward[10]> speed:3
+    - shoot <player> destination:<player.location.forward[10]> speed:3
     - wait 1t
     - inventory adjust d:<player.inventory> slot:39 material:<material[elytra]>
     - adjust <player> gliding:true
