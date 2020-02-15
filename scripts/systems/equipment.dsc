@@ -66,7 +66,7 @@ equipment_character:
   title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
   size: 54
   procedural items:
-  - foreach <list[amulet|pendant|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|boots]>:
+  - foreach <list[amulet|pendant|hat|amulet|ring|gloves|shirt|cape|charm|trinket|pants|boots]>:
     - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||equipment_filler_<[value]>||<[value]>>
   - determine <[items]>
   definitions:
@@ -117,6 +117,14 @@ charm_equipment_filler:
   category: charm
   equipment_rating: 0
   display name: "<&c>No Charm Equipped"
+  drops_on_death: false
+
+trinket_equipment_filler:
+  type: item
+  material: snow
+  category: charm
+  equipment_rating: 0
+  display name: "<&c>No Trinket Equipped"
   drops_on_death: false
 
 face_accessory_equipment_filler:
