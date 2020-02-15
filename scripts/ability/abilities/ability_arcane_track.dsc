@@ -5,7 +5,7 @@ ability_arcane_track:
   ability_type: command
   points_to_unlock: 20
   power_cost: 10
-  command_usage: arcane_track player_name
+  command_usage: arcane_track (player Name)
   description: Will face you in the direction of a specified player.
   icon:
     material: stone
@@ -16,7 +16,7 @@ ability_arcane_track:
     - if <[target]> == null:
       - narrate "Unknown Target."
       - stop
-    - look <player> <[target].location> duration:1t
+    - look <player> <[target].eye_location> duration:1t
 
 abilities_arcane_track:
   type: command
