@@ -14,12 +14,17 @@ ability_sand_shift:
   script:
     - inject abilities_check
     - flag <player> no_suffocate:true
+    - define firstblock:<player.location.below.material.name>
     - define target:<player.location.forward_flat[<script.yaml_key[distance]>]>
     - repeat 10:
+      - playeffect blockdust_<[firstblock]> at:<player.location> quantity:4 offset:0.25
       - teleport <player.location.below[0.2]>
       - wait 1t
-    - teleport <location[<[target].x>,<cuboid[<[target].with_y[1]>|<[target].with_y[255]>].blocks[<script.yaml_key[whitelist_materials]>].parse[y].highest>,<[target].z>,<[target].world>].below>
+    - define target:<location[<[target].x>,<cuboid[<[target].with_y[1]>|<[target].with_y[255]>].blocks[<script.yaml_key[whitelist_materials]>].parse[y].highest>,<[target].z>,<[target].world>]>
+    - teleport <[target].below>
+    - define secondblock:<[target].material.name>
     - repeat 10:
+      - playeffect blockdust_<[secondblock]> at:<player.location> quantity:4 offset:0.25
       - teleport <player.location.above[0.2]>
       - wait 1t
     - flag <player> no_suffocate:!
