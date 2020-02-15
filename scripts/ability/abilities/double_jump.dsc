@@ -16,8 +16,8 @@ ability_double_jump:
         - flag player jumped:!
 
     on player jumps:
-      - inject ability_check:
-        - flag player jumped:true duration:1s
+      - inject ability_check
+      - flag player jumped:true duration:1s
 
 GUI_double_jump:
   type: item
