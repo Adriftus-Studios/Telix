@@ -27,7 +27,7 @@ ability_sand_shift:
 no_suffocate:
   type: world
   events:
-    on player damaged by suffocate flagged:no_suffocate:
+    on player damaged by suffocation flagged:no_suffocate:
       - determine cancelled
     
     
