@@ -65,7 +65,7 @@ equipment_inventory_handler:
     - foreach <context.inventory.list_contents> as:item:
       - if <[item].script.yaml_key[category]||null> != null:
         - inventory set d:<context.inventory> o:<yaml[player.<player.uuid>].read[equipment.<[item].script.yaml_key[category]>].as_item> slot:<context.inventory.find[item]>
-    on player clicks *._equipment_filler in equipment_character with item:
+    on player clicks *_equipment_filler in equipment_character with item:
     - wait 1t
     - determine passively cancelled
     - narrate <context.item.script.yaml_key[category]>
