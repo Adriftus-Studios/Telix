@@ -85,7 +85,7 @@ ability_characterAbilities_events:
         - define inventory:<inventory[abilityTree_inventory]>
         - adjust def:inventory title:<context.item.nbt[skillname].to_titlecase>
         - foreach <yaml[server.skills_by_level].list_keys[<context.item.nbt[skillname]>].numerical> as:skilllevel:
-          - if <yaml[player.<player.uuid>].read[skills.<context.item.nbt[skillname]>.current]> <>=> <[skilllevel]>:
+          - if <yaml[player.<player.uuid>].read[skills.<context.item.nbt[skillname]>.current]> < <[skilllevel]>:
             - foreach next
           - foreach <yaml[server.skills_by_level].read[<context.item.nbt[skillname]>.<[skilllevel]>].alphabetical> as:ability:
             - inject ability_item_buildLore
