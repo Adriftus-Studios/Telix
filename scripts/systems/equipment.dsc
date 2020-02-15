@@ -91,6 +91,13 @@ equipment_inventory_handler:
     on player clicks in inventory:
     - if <context.clicked_inventory> == <player.inventory> && <list[2|3|4|5].contains[<context.raw_slot>]>:
       - determine cancelled
+    on player drags in inventory:
+    - if <context.clicked_inventory> == <player.inventory> && <list[2|3|4|5].contains[<context.raw_slot>]>:
+      - determine cancelled
+    on player crafts item:
+    - if <context.inventory> == <player.inventory> && <list[2|3|4|5].contains[<context.raw_slot>]>:
+      - determine cancelled
+
 
 equipment_character:
   type: inventory
