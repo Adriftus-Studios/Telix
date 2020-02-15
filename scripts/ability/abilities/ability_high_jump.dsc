@@ -12,7 +12,7 @@ ability_high_jump:
   events:
     on player jumps:
       - if <player.is_sneaking> && !<player.is_sprinting>:
-        - if if <yaml[player.<player.uuid>].read[skills.<script.yaml_key[ability_tree]>.current]> >= <script.yaml_key[points_to_unlock]>::
+        - if <yaml[player.<player.uuid>].read[skills.<script.yaml_key[ability_tree]>.current]> >= <script.yaml_key[points_to_unlock]>::
           - determine passively cancelled
           - adjust <player> velocity:<location[0,0.7,0]>
 
