@@ -1,6 +1,6 @@
 ability_wind_rider:
   type: task
-  name: fire_blast
+  name: wind_rider
   ability_tree: Elemental
   ability_type: active
   duration: 5
