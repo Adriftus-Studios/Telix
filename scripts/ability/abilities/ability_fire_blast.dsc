@@ -11,7 +11,7 @@ ability_fire_blast:
     material: stone
     custom_model_data: 1
   apply_damage:
-    - hurt <[points].get[<[number]>].find.entities.within[2]> 5
+    - hurt <[points].get[<[number]>].find.entities.within[2]>
     - burn <[points].get[<[number]>].find.entities.within[2]> <script.yaml_key[duration]>
   script:
     - inject abilities_check
