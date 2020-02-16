@@ -1,5 +1,5 @@
 abilitytrees:
-  type: yaml_data
+  type: yaml data
   trees:
     # Magic
     Earth:
