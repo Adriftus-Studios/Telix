@@ -87,7 +87,7 @@ gui_nations_join:
     - foreach <proc[system_nations_getnations].context[list|open]> as:nation:
       #Read from YAML ID: nations and define inventory item and mechanisms
       - define displayname:<proc[getNationData].context[<[nation]>|display.color].parse_color><proc[getNationData].context[<[nation]>|display.name]>
-      - define lore:<list[<&e><proc[getNationData].context[<[nation]>|display.description]>|<&b>Click<&sp>to<&sp>Join<&sp>this<&sp>Nation]>
+      - define lore:<list[<&6><proc[getNationData].context[<[nation]>|display.description]>|<&b>Click<&sp>to<&sp>Join<&sp>this<&sp>Nation]>
       #Construct nation GUI item
       - define item:<proc[getNationData].context[<[nation]>|display.item].as_item>
       - adjust <[item]> display_name:<[displayname]> save:newitem
@@ -142,7 +142,8 @@ gui_nations_confirmjoin_events:
     
     on player clicks lime_stained_glass_pane in gui_nations_confirmjoin:
       - yaml id:player.<player.uuid> set nations.nation:<context.item.nbt[nation]>
-      - narrate "<&a>You have now joined <proc[getNationData].context[<context.item.nbt[nation]>|display.color].parse_color><proc[getNationData].context[<context.item.nbt[nation]>|display.name]>"
+      - actionbar "<&3><player.name> has joined <proc[getNationData].context[<context.item.nbt[nation]>|display.color].parse_color><proc[getNationData].context[<context.item.nbt[nation]>|display.name]>." targets:<server.list_online_players>
+      - narrate "<&a>You have now joined <proc[getNationData].context[<context.item.nbt[nation]>|display.color].parse_color><proc[getNationData].context[<context.item.nbt[nation]>|display.name]>."
       - narrate "<&e>You may now use the <&b>Nation Menu <&e>with the command <&b>/n menu (/n)."
       - inventory close
 

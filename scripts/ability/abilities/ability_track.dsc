@@ -5,7 +5,7 @@ ability_find:
   ability_type: command
   points_to_unlock: 20
   power_cost: 10
-  command_usage: fnd (player Name)
+  command_usage: find (player Name)
   description: Will face you in the direction of a specified player.
   icon:
     material: iron_nugget
@@ -18,7 +18,7 @@ ability_find:
       - stop
     - look <player> <[target].eye_location> duration:1t
 
-abilities_arcane_track:
+abilities_track:
   type: command
   name: find
   script:
