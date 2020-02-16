@@ -65,15 +65,14 @@ equipment_inventory_handler:
           - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
             - narrate 1
             - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
+            - if !<context.item.script.name.ends_with[_filler]>:
+              - narrate 5
           - else:
             - narrate 2
             - determine passively cancelled
         - else:
-          - narrate 3
+          - narrate <context.item.script.name>
           - determine passively cancelled
-      - else:
-        - if <context.item.script.yaml_key[category]||null> != null:
-          - narrate 4
 
 equipment_character:
   type: inventory
