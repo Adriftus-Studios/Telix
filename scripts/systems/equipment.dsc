@@ -63,7 +63,7 @@ equipment_inventory_handler:
         - stop
       - if <context.item> == <item[invisible_placeholder]>:
         - if <context.cursor_item> == <item[air]>:
-          - determine cancelled
+          - determine passively cancelled
           - stop
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
       - if <context.cursor_item.script.yaml_key[category]||null> != null:
