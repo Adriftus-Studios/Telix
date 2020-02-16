@@ -6,7 +6,7 @@ item_nation1:
   material: red_banner
   display name: <proc[getNationData].context[nation1|display.color].parse_color><proc[getNationData].context[nation1|display.name]>
   lore:
-    - "Nation 1"
+    - "Some Latin Motto Here lol"
 
 item_nation1_border:
   type: item

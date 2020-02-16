@@ -87,7 +87,7 @@ gui_nations_join:
     - foreach <proc[system_nations_getnations].context[list|open]> as:nation:
       #Read from YAML ID: nations and define inventory item and mechanisms
       - define displayname:<proc[getNationData].context[<[nation]>|display.color].parse_color><proc[getNationData].context[<[nation]>|display.name]>
-      - define lore:<list[<&b>Click<&sp>to<&sp>Join<&sp>this<&sp>Nation]>
+      - define lore:<list[<&e><proc[getNationData].context[<[nation]>|display.description]>|<&b>Click<&sp>to<&sp>Join<&sp>this<&sp>Nation]>
       #Construct nation GUI item
       - define item:<proc[getNationData].context[<[nation]>|display.item].as_item>
       - adjust <[item]> display_name:<[displayname]> save:newitem

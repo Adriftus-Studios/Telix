@@ -19,8 +19,9 @@ nations:
   #Nation 1
   nation1:
     display:
-      name: "Nation 1"
-      color: "&c"
+      name: "Aerua"
+      color: "&b"
+      description: "Aer Nation"
       item: item_nation1
       border: item_nation1_border
     status:
