@@ -1,71 +1,72 @@
 ability_trees:
   type: yaml_data
-  # Magic
-  Earth:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Nether:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Ender:
-    available_check: true
-    GUIItem: sand>.>
-    custom_model_data: 1
-  Ocean:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Musical:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Aer:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Swords:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Axes:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Hammers:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Archery:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Fisticuffs:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Endurance:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Stealth:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Acrobatics:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Perception:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Thievery:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
-  Athleticism:
-    available_check: true
-    GUIItem: sand
-    custom_model_data: 1
+  trees:
+    # Magic
+    Earth:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Nether:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Ender:
+      available_check: true
+      GUIItem: sand>.>
+      custom_model_data: 1
+    Ocean:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Musical:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Aer:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Swords:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Axes:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Hammers:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Archery:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Fisticuffs:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Endurance:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Stealth:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Acrobatics:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Perception:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Thievery:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
+    Athleticism:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
