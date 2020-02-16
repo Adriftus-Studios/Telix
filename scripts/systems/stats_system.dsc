@@ -21,6 +21,18 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.experience_multiplier:0
     - yaml id:player.<player.uuid> set stats.drop_rate_multiplier:0
     - yaml id:player.<player.uuid> set stats.equipment_rating:0
+    - yaml id:player.<player.uuid> set equipment.pendant
+    - yaml id:player.<player.uuid> set equipment.earrings
+    - yaml id:player.<player.uuid> set equipment.hat
+    - yaml id:player.<player.uuid> set equipment.ring1
+    - yaml id:player.<player.uuid> set equipment.ring2
+    - yaml id:player.<player.uuid> set equipment.gloves
+    - yaml id:player.<player.uuid> set equipment.shirt
+    - yaml id:player.<player.uuid> set equipment.cape
+    - yaml id:player.<player.uuid> set equipment.trinket1
+    - yaml id:player.<player.uuid> set equipment.trinket2
+    - yaml id:player.<player.uuid> set equipment.pants
+    - yaml id:player.<player.uuid> set equipment.shoes
     - yaml id:player.<player.uuid> set lessons.current:1000
     - yaml id:player.<player.uuid> set lessons.lifetime:0
     - wait 1t
@@ -38,7 +50,7 @@ stats_character:
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [power_stats_icon] [food_stats_icon] [thirst_stats_icon] [carry_weight_stats_icon] [speed_stats_icon] [constitution_stats_icon] [health_stats_icon] [filler]"
-  - "[gui_stats_top] [experience_multiplier_stats_icon] [drop_rate_multiplier_stats_icon] [equipment_rating_stats_icon] [] [] [] [] [filler]"
+  - "[gui_stats_top] [experience_multiplier_stats_icon] [drop_rate_multiplier_stats_icon] [equipment_rating_stats_icon] [damage_stats_icon] [] [] [] [filler]"
   - "[gui_stats_bottom] [] [] [] [] [] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
@@ -60,7 +72,18 @@ update_stats:
   type: task
   debug: true
   script:
-  - adjust <[player]> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
+  - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
+  - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
+
+damage_stats_icon:
+  type: item
+  material: snow
+  assigned_stat: melee_damage
+  display name: "<green><&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
+  lore:
+  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
+  - "This Stat cannot be increased with Skill Points."
+  drops_on_death: false
 
 equipment_rating_stats_icon:
   type: item
@@ -96,7 +119,7 @@ health_stats_icon:
   type: item
   material: snow
   assigned_stat: health.max
-  assigned_stat_increment: 10
+  assigned_stat_increment: 1
   display name: "<green><&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
