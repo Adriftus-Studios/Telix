@@ -63,7 +63,7 @@ equipment_inventory_handler:
         - stop
       - if <context.item> == <item[invisible_placeholder]>:
         - narrate 1
-        - if <context.cursor_item||null> == null:
+        - if <context.cursor_item||null> != null:
           - narrate 2
           - determine cancelled
           - stop
