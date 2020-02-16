@@ -21,18 +21,18 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.experience_multiplier:0
     - yaml id:player.<player.uuid> set stats.drop_rate_multiplier:0
     - yaml id:player.<player.uuid> set stats.equipment_rating:0
-    - yaml id:player.<player.uuid> set equipment.pendant
-    - yaml id:player.<player.uuid> set equipment.earrings
-    - yaml id:player.<player.uuid> set equipment.hat
-    - yaml id:player.<player.uuid> set equipment.ring1
-    - yaml id:player.<player.uuid> set equipment.ring2
-    - yaml id:player.<player.uuid> set equipment.gloves
-    - yaml id:player.<player.uuid> set equipment.shirt
-    - yaml id:player.<player.uuid> set equipment.cape
-    - yaml id:player.<player.uuid> set equipment.trinket1
-    - yaml id:player.<player.uuid> set equipment.trinket2
-    - yaml id:player.<player.uuid> set equipment.pants
-    - yaml id:player.<player.uuid> set equipment.shoes
+    - yaml id:player.<player.uuid> set equipment.pendant:null
+    - yaml id:player.<player.uuid> set equipment.earrings:null
+    - yaml id:player.<player.uuid> set equipment.hat:null
+    - yaml id:player.<player.uuid> set equipment.ring1:null
+    - yaml id:player.<player.uuid> set equipment.ring2:null
+    - yaml id:player.<player.uuid> set equipment.gloves:null
+    - yaml id:player.<player.uuid> set equipment.shirt:null
+    - yaml id:player.<player.uuid> set equipment.cape:null
+    - yaml id:player.<player.uuid> set equipment.trinket1:null
+    - yaml id:player.<player.uuid> set equipment.trinket2:null
+    - yaml id:player.<player.uuid> set equipment.pants:null
+    - yaml id:player.<player.uuid> set equipment.shoes:null
     - yaml id:player.<player.uuid> set lessons.current:1000
     - yaml id:player.<player.uuid> set lessons.lifetime:0
     - wait 1t
