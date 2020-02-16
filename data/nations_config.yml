@@ -21,7 +21,7 @@ nations:
     display:
       name: "Aerua"
       color: "&b"
-      description: "Aer Nation"
+      description: "Nation from the Aer Dimension"
       item: item_nation1
       border: item_nation1_border
     status:
