@@ -24,4 +24,4 @@ abilities_fire_arrows_events:
     
     on player damaged by projectile:
       - if <context.projectile.has_flag[fire_arrow]>:
-        - burn <context.entity> 5
+        - burn <context.entity> 6
