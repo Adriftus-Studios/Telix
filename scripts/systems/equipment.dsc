@@ -62,9 +62,17 @@ equipment_inventory_handler:
       - if <context.cursor_item.script.yaml_key[category]||null> != null:
         - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
           - narrate 1
+          - determine passively cancelled
         - else:
           - narrate 2
           - determine passively cancelled
+
+invisible_placeholder:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: -1
+  display name: <&7>
 
 equipment_character:
   type: inventory
@@ -72,7 +80,7 @@ equipment_character:
   size: 54
   procedural items:
   - foreach <list[pendant|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
-    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[gui_invisible_item]>>
+    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[invisible_placeholder]>>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
