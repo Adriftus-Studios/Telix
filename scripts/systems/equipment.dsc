@@ -71,7 +71,8 @@ equipment_inventory_handler:
     - if <context.item.script.yaml_key[category]> == <context.cursor_item.script.yaml_key[category]>:
       - adjust <player> item_on_cursor:<item[air]>
       - yaml id:player.<player.uuid> set equipment.<context.item.script.yaml_key[category]>:<context.cursor_item>
-    on player clicks item in equipment_character:
+    on player clicks in equipment_character:
+    - narrate <context.slot>
     - wait 1t
     - determine passively cancelled
     - if !<context.item.script.name.ends_with[_filler]>:
