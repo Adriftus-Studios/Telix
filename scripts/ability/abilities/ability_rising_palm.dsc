@@ -16,6 +16,6 @@ ability_rising_palm:
     - define target:<player.target>
     - playeffect crit <[target].eye_location> quantity:30 offset:0.15
     - narrate "<&c>STUNNED." players:<[target]>
-    - flag <[target]> no_move:->rising_palm
+    - flag <[target]> no_move:->:rising_palm
     - wait 3s
     - flag <[target]> no_move:<-:rising_palm

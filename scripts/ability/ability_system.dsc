@@ -17,10 +17,6 @@ abilities_reload:
       - inject locally abilities_reload
     on script reload:
       - inject locally abilities_reload
-
-abilities_checkAbilities:
-  type: task
-  definitions: ability_tree
   script:
       - if <yaml[server.skills_by_level].read[<[ability_tree]>.<yaml[player.<player.uuid>].read[skills.<[ability_tree]>.level]>]||null> != null:
         - narrate "<&e>You have unlocked new <&b><[ability_tree]><&e> abilities<&co>"
