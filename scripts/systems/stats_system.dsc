@@ -34,13 +34,13 @@ stats_character:
   size: 45
   definitions:
     filler: <item[gui_invisible_item]>
-    gui_top: <item[gui_skills_top]>
-    gui_bottom: <item[gui_skills_bottom]>
+    gui_top: <item[gui_stats_top]>
+    gui_bottom: <item[gui_stats_bottom]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   - "[filler] [power_stats_icon] [food_stats_icon] [thirst_stats_icon] [carry_weight_stats_icon] [speed_stats_icon] [constitution_stats_icon] [health_stats_icon] [filler]"
-  - "[gui_skills_top] [experience_multiplier_stats_icon] [drop_rate_multiplier_stats_icon] [equipment_rating_stats_icon] [] [] [] [] [filler]"
-  - "[gui_skills_bottom] [] [] [] [] [] [] [] [filler]"
+  - "[gui_stats_top] [experience_multiplier_stats_icon] [drop_rate_multiplier_stats_icon] [equipment_rating_stats_icon] [] [] [] [] [filler]"
+  - "[gui_stats_bottom] [] [] [] [] [] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
 stats_inventory_handler:
