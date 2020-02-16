@@ -56,33 +56,24 @@ equipment_inventory_handler:
   type: world
   debug: false
   events:
-    on player closes equipment_character:
-    - foreach <context.inventory.list_contents> as:item:
-      - if <[item].script.yaml_key[category]||null> != null:
-        - if !<[item].script.name.ends_with[_filler]>:
-          - yaml id:player.<player.uuid> set equipment.<[item].script.yaml_key[category]>:<[item]>
-    on player opens equipment_character:
-    - foreach <context.inventory.list_contents> as:item:
-      - if <[item].script.yaml_key[category]||null> != null:
-        - inventory set d:<context.inventory> o:<yaml[player.<player.uuid>].read[equipment.<[item].script.yaml_key[category]>].as_item> slot:<context.inventory.find[item]>
-    on player clicks *_equipment_filler in equipment_character with item:
-    - wait 1t
-    - determine passively cancelled
-    - if <context.item.script.yaml_key[category]> == <context.cursor_item.script.yaml_key[category]>:
-      - adjust <player> item_on_cursor:<item[air]>
-      - yaml id:player.<player.uuid> set equipment.<context.item.script.yaml_key[category]>:<context.cursor_item>
     on player clicks in equipment_character:
+    - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
     - narrate <context.slot>
-    - wait 1t
-    - determine passively cancelled
     - if !<context.item.script.name.ends_with[_filler]>:
       - inventory set d:<context.clicked_inventory> o:<item[<context.item.script.yaml_key[category]>_equipment_filler]> slot:<context.slot>
       - yaml id:player.<player.uuid> set equipment.<context.item.script.yaml_key[category]>:null
+    - else:
+      - determine passively cancelled
+
 
 equipment_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
   size: 54
+  procedural items:
+  - foreach <list[pendant|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
+    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||equipment_filler_<[value]>||<[value]>>
+  - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
     gui_top: <item[gui_equipment_top]>
@@ -96,117 +87,85 @@ equipment_character:
   - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
-basic_hat:
-  type: item
-  material: diamond_helmet
-  category: hat
-  equipment_rating: 5
-  display name: "<&c>Basic Hat"
-  drops_on_death: true
-
-pendant_equipment_filler:
+basic_pendant:
   type: item
   material: snow
   category: pendant
   equipment_rating: 0
-  display name: "<&c>No Pendant Equipped"
-  drops_on_death: false
+  display name: "<&c>Basic Pendant"
+  drops_on_death: true
 
-charm_equipment_filler:
+basic_trinket:
   type: item
   material: snow
-  category: charm
+  category: trinket
   equipment_rating: 0
-  display name: "<&c>No Charm Equipped"
-  drops_on_death: false
+  display name: "<&c>Basic Trinket"
+  drops_on_death: true
 
-trinket_equipment_filler:
-  type: item
-  material: snow
-  category: charm
-  equipment_rating: 0
-  display name: "<&c>No Trinket Equipped"
-  drops_on_death: false
-
-face_accessory_equipment_filler:
-  type: item
-  material: snow
-  category: face_accessory
-  equipment_rating: 0
-  display name: "<&c>No Face Accessory Equipped"
-  drops_on_death: false
-
-earring_equipment_filler:
+basic_earrings:
   type: item
   material: snow
   category: earrings
   equipment_rating: 0
-  display name: "<&c>No Earrings Equipped"
-  drops_on_death: false
+  display name: "<&c>Basic Earrings"
+  drops_on_death: true
 
-ring_equipment_filler:
+basic_ring:
   type: item
   material: snow
   category: ring
   equipment_rating: 0
-  display name: "<&c>No Ring Equipped"
-  drops_on_death: false
+  display name: "<&c>Basic Ring"
+  drops_on_death: true
 
-amulet_equipment_filler:
-  type: item
-  material: snow
-  category: amulet
-  equipment_rating: 0
-  display name: "<&c>No Amulet Equipped"
-  drops_on_death: false
-
-shoes_equipment_filler:
+basic_shoes:
   type: item
   material: snow
   category: shoes
   equipment_rating: 0
-  display name: "<&c>No Shoes Equipped"
-  drops_on_death: false
+  display name: "<&c>Basic Shoes"
+  drops_on_death: true
 
-pants_equipment_filler:
+basic_pants:
   type: item
   material: snow
   category: pants
   equipment_rating: 0
-  display name: "<&c>No Pants Equipped"
-  drops_on_death: false
+  display name: "<&c>Basic Pants"
+  drops_on_death: true
 
-shirt_equipment_filler:
+basic_shirt:
   type: item
   material: snow
   category: shirt
   equipment_rating: 0
-  display name: "<&c>No Shirt Equipped"
-  drops_on_death: false
+  display name: "<&c>Basic Shirt"
+  drops_on_death: true
 
-gloves_equipment_filler:
+basic_gloves:
   type: item
   material: snow
   category: gloves
   equipment_rating: 0
-  display name: "<&c>No Gloves Equipped"
-  drops_on_death: false
+  display name: "<&c>Basic Gloves"
+  drops_on_death: true
 
-cape_equipment_filler:
+basic_cape:
   type: item
   material: snow
   category: cape
   equipment_rating: 0
-  display name: "<&c>No Cape Equipped"
-  drops_on_death: false
+  display name: "<&c>Basic Cape"
+  drops_on_death: true
 
-hat_equipment_filler:
+basic_hat:
   type: item
   material: snow
   category: hat
   equipment_rating: 0
-  display name: "<&c>No Hat Equipped"
-  drops_on_death: false
+  display name: "<&c>Basic Hat"
+  drops_on_death: true
 
 system_equipment_set:
   type: task
