@@ -59,23 +59,12 @@ equipment_inventory_handler:
     on player clicks item in equipment_character with item:
     - if <context.clicked_inventory.script_name> == "equipment_character":
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
-      - if <context.cursor_item||null> != null:
-        - if <context.cursor_item.script.yaml_key[category]||null> != null:
-          - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
-            - if !<context.item.script.name.ends_with[gui_invisible_item]>:
-              - narrate 1
-              - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
-            - else:
-              - narrate 2
-              - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
-          - else:
-            - narrate 3
-            - determine passively cancelled
+      - if <context.cursor_item.script.yaml_key[category]||null> != null:
+        - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
+          - narrate 1
         - else:
-          - if <context.item.script.name||null> != null:
-            - if !<context.item.script.name.ends_with[gui_invisible_item]>:
-              - narrate "removed item"
-              - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:null
+          - narrate 2
+          - determine passively cancelled
 
 equipment_character:
   type: inventory
