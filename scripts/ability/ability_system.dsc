@@ -70,12 +70,14 @@ abilityTree_inventory:
   type: inventory
   title: <&c>ERROR - REPORT THIS
   definitions:
-    filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
+    filler: <item[gui_invisible_item]>
+    gui_top: <item[gui_abilities_top]>
+    gui_bottom: <item[gui_abilities_bottom]>
   slots:
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
     - "[filler] [] [] [] [] [] [] [] [filler]"
-    - "[filler] [] [] [] [] [] [] [] [filler]"
-    - "[filler] [] [] [] [] [] [] [] [filler]"
+    - "[gui_abilities_top] [] [] [] [] [] [] [] [filler]"
+    - "[gui_abilities_bottom] [] [] [] [] [] [] [] [filler]"
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
 abilityTree_inventory_events:

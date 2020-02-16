@@ -12,7 +12,7 @@ gui_equipment_top:
     custom_model_data: 6
   display name: <&7>
 
-gui_invis_item:
+gui_invisible_item:
   type: item
   material: gold_nugget
   mechanisms:
