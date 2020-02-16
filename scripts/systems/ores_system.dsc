@@ -8,7 +8,7 @@ ore_system:
             - if <[value].yaml_key[ore]||null> != null:
                 - yaml id:server.ores set <[value].yaml_key[ore.biome]>.<[value].yaml_key[ore.block]>:|:<[value].name>
         on player breaks block:
-        - foreach <yaml[server.ores].read[all.<context.material.name>].include[<yaml[server.ores].read[<context.location.biome.name>.<context.material.name>]>]>:
+        - foreach <yaml[server.ores].read[all.<context.material.name>]>:
             - narrate <[value]>
 
 iron_ore:
