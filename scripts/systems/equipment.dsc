@@ -64,7 +64,6 @@ equipment_inventory_handler:
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
       - if <context.cursor_item.script.yaml_key[category]||null> != null:
         - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
-          - determine <context.cursor_item>
           - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
           - adjust <player> item_on_cursor:<item[air]>
         - else:
