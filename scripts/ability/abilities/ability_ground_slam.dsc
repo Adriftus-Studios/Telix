@@ -5,7 +5,7 @@ ability_ground_slam:
   ability_type: active
   points_to_unlock: 10
   power_cost: 10
-  description: Slam the ground and knock back players in a 3 block radius.
+  description: Slam the ground and knock back players in a 4 block radius.
   icon:
     material: stone
     custom_model_data: 1
@@ -18,6 +18,6 @@ ability_ground_slam:
     - adjust <player> velocity:0,-1,0
     - wait 8t
     - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:15 targets:<server.list_online_players>
-    - foreach <player.location.find.players.within[3].exclude[<player>]>:
+    - foreach <player.location.find.players.within[4].exclude[<player>]>:
       - teleport <[value]> <[value].location.with_pitch[45]>
       - shoot <[value]> o:<[value].location> speed:-2.0
