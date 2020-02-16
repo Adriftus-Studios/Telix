@@ -1,0 +1,53 @@
+## Nations Configuration
+# Put in |/plugins/Denizen/data/GlobalLiveData/server/Telix/nations/|.
+
+## NATION EXAMPLE
+#  nationexample: [YAML keys are always lowercase. Name entries are in double-quotes, while other fields are not.]
+#    display: [Display settings for the nation.]
+#      name: "Nation Example" [Formatted nation name // No color codes in this field.]
+#      color: "&f" [Color code here. Minecraft community color code tags only.] (Convert to color using: .parse_color)
+#      item: "white_banner" [Namespaced item name here. RECOMMENDED that you use a Denizen item, this way you can use custom_model_data.
+#                            Nations configuration display tags below.] (Convert to item using: .as_item)
+#      border: "white_stained_glass_pane" [Namespaced item name here. Used as a border item in the Nations menu. Nations configuration display tags below.
+#                                          RECOMMENDED that you use a Denizen item.] (Convert to item using: .as_item)
+#    status: [Status settings for the nation.]
+#      joinable: true [Is the nation joinable? "true" OR "false".]
+#      event: false [Is the nation part of the story/an event? "true" OR "false".]
+
+# NATIONS
+nations:
+  #Nation 1
+  nation1:
+    display:
+      name: "Nation 1"
+      color: "&c"
+      item: item_nation1
+      border: item_nation1_border
+    status:
+      joinable: true
+      event: false
+
+# MENU
+# Nation Menus are found in nations_menu.dsc
+# Note that inventory events (clicking, right-clicking, etc.) are handled by gui_nations_menu_events in system_nations_ui.dsc
+# <player.flag[nation]> is a temporary flag created when opening the nation menu. This is used for inventory titles & items.
+# Use the tags below to construct your own custom nation items. Corresponding item script keys are in ().
+# DO NOT CHANGE the inventory script name, it will not work if you do so.
+# Tags:
+#   Nation Name: <proc[getNationData].context[<player.flag[nation]>|display.name]> ('display name', second)
+#   Nation Colo(u)r: <proc[getNationData].context[<player.flag[nation]>|display.color].parse_color> ('display name', first)
+#   Nation Item:  <proc[getNationData].context[<player.flag[nation]>|display.item]>
+# 
+# To create a functioning menu item, you must reference an item with an NBT tag.
+# In a Denizen item, write the following:
+# mechanisms:
+#   nbt: <list[nbtkey/nbtvalue]>
+#
+# 'nbtkey' is where you insert the NBT key, in this case it is one of the below keys.
+# 'nbtvalue' is where you insert the NBT value: an inventory script name, an injected task script, or a run task script.
+#
+# NBT Keys:
+#   inventory: Inventory script name. Ex: gui_nations_menu
+#   inject: Injected task script name. Ex: system_nations_join
+#   run: Run task script name. Ex: setPlayerData
+#

@@ -23,8 +23,8 @@ loadNationData:
   debug: true
   script:
     # Check for "nations_config.yml" file and "nations_menu.dsc" file.
-    - if !<server.has_file[data/GlobalLiveData/server/Telix/nations/nations_config.yml]>:
-      - announce to_console "[Nations Redux] nations_config.yml has not been found from |/plugins/Denizen/data/GlobalLiveData/server/Telix/nations/|."
+    - if !<server.has_file[data/nations_config.yml]>:
+      - announce to_console "[Nations Redux] nations_config.yml has not been found from |/plugins/Denizen/data/|."
       - stop
     - else if !<server.list_scripts.parse[name].contains[gui_nations_menu]>:
       - announce to_console "[Nations Redux] nations_menu.dsc has not been found from |/plugins/Denizen/scripts/Telix/nations/|."
@@ -34,8 +34,8 @@ loadNationData:
     - if <yaml.list.contains[nations]>:
       - yaml unload id:nations
     #Load file from storage, generate inventories, and narrate information
-    - yaml load:data/GlobalLiveData/server/Telix/nations/nations_config.yml id:nations
-    - announce to_console "[Nations Redux] nations_config.yml has been loaded from |/plugins/Denizen/data/GlobalLiveData/server/Telix/nations/| as YAML ID: nations."
+    - yaml load:data/nations_config.yml id:nations
+    - announce to_console "[Nations Redux] nations_config.yml has been loaded from |/plugins/Denizen/data| as YAML ID: nations."
 
 
 #Set Nation Data (Probably should not be used as one can set data values in "nations_config.yml" and /ex reload)
@@ -45,7 +45,7 @@ setNationData:
   definitions: nation|dataName|dataValue
   script:
     - yaml id:nations set nations.<[nation]>.<[dataName]>:<[dataValue]>
-    - yaml savefile:data/GlobalLiveData/server/Telix/nations/nations_config.yml id:nations
+    - yaml savefile:data/nations_config.yml id:nations
 
 
 #Get Nation Data
