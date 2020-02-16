@@ -12,7 +12,7 @@ ability_false_door:
     custom_model_data: 1
   script:
     - inject abilities_check
-    - if <player.location.forward_flat> != air:
+    - if <player.location.forward_flat> == air:
       - stop
     - flag <player> no_suffocate:true
     - showfake air <player.location.forward_flat>|<player.location.forward_flat.above> duration:10s
