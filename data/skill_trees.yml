@@ -1,4 +1,4 @@
-ability_trees:
+abilitytrees:
   type: yaml_data
   trees:
     # Magic
