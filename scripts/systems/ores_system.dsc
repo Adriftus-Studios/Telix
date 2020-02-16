@@ -6,7 +6,7 @@ ore_system:
         - yaml create id:server.ores
         - foreach <server.list_scripts>:
             - if <[value].yaml_key[ore]||null> != null:
-                - yaml id:server.ores set <yaml[server.ores]>:|:<[value].name>
+                - yaml id:server.ores set ores:|:<[value].name>
         on player breaks block:
         - narrate <yaml[ore_config].read[biomes.<context.location.biome.name>.<context.material.name>]>
 
