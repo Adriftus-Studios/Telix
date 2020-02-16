@@ -12,6 +12,8 @@ ability_frost_blast:
   apply_effect:
     - foreach <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]>:
       - showfake ice <[value].location.find.blocks.within[3]> players:<server.list_online_players> duration:10s
+  apply_environmental_effect:
+    - showfake ice <[points].get[<[number]>].find.blocks.within[4].filter[material.name.contains[water]]> players:<server.list_online_players> duration:10s
   script:
     - inject abilities_check
     - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[0.5]>
@@ -21,5 +23,8 @@ ability_frost_blast:
       - if !<[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>].is_empty>:
         - inject locally apply_effect
         - stop
+      - if <[points].get[<[number]>].find.blocks.within[2].contains[water]>:
+          - inject apply_environmental_effect
+          - stop
       - if <[number].%[4]> == 0:
         - wait 1t
