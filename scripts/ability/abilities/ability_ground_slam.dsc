@@ -13,7 +13,6 @@ ability_ground_slam:
     #/ex teleport <[value]> <[value].location.with_pitch[0]>
     #/ex shoot <player> speed:-2.0 height:2.5
     - inject abilities_check
-    - define pitch:<player.location.pitch.round>
     - adjust <player> velocity:0,1,0
     - wait 18t
     - teleport <player> <player.location.with_pitch[75]>
@@ -21,8 +20,6 @@ ability_ground_slam:
     - wait 8t
     - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:15 targets:<server.list_online_players>
     - cast slow <player> duration:2s power:255
-    - wait 10t
-    - teleport <player> <player.location.with_pitch[<[pitch]>]>
     - foreach <player.location.find.players.within[4].exclude[<player>]>:
       - teleport <[value]> <[value].location.with_pitch[45]>
       - shoot <[value]> o:<[value].location> speed:-2.0
