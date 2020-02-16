@@ -67,10 +67,11 @@ equipment_inventory_handler:
           - narrate 1
           - determine passively cancelled
         - else:
-          - narrate 2
           - determine passively cancelled
       - else:
         - narrate 3
+        - if <context.cursor_item||null> != null:
+          - narrate 4
         - determine passively cancelled
 
 invisible_placeholder:
