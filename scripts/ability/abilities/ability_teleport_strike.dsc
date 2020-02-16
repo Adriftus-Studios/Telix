@@ -8,8 +8,8 @@ ability_teleport_strike:
   damage: 10
   description: Teleport into the air and strike at the target
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 14
   teleport:
   script:
     - if <player.target||null> == null:
