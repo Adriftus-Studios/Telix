@@ -15,7 +15,6 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.melee_damage:100
     - yaml id:player.<player.uuid> set stats.speed:100
     - yaml id:player.<player.uuid> set stats.temperature:100
-    - yaml id:player.<player.uuid> set stats.basespeed:0.22
     - yaml id:player.<player.uuid> set stats.xp:0
     - yaml id:player.<player.uuid> set stats.level:1
     - yaml id:player.<player.uuid> set stats.stat_points:1000
@@ -55,9 +54,13 @@ stats_inventory_handler:
           - yaml id:player.<player.uuid> set stats.<context.item.script.yaml_key[assigned_stat]>:+:<context.item.script.yaml_key[assigned_stat_increment]>
           - yaml id:player.<player.uuid> set stats.stat_points:--
           - inventory open d:stats_character
-          - if <context.item.script.yaml_key[assigned_stat]> == "speed":
-            - narrate <context.item.script.yaml_key[assigned_stat_increment].*[0.02]>
-            - yaml id:player.<player.uuid> set stats.basespeed:+:<context.item.script.yaml_key[assigned_stat_increment].*0.02>
+          - inject update_stats
+
+update_stats:
+  type: task
+  debug: true
+  script:
+  - adjust <[player]> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
 
 equipment_rating_stats_icon:
   type: item
