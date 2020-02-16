@@ -19,7 +19,7 @@ abilities_fire_arrows_events:
       - wait 1t
       - flag <context.projectile> fire_arrow:true duration:30s
       - while <context.projectile.is_spawned>:
-        - playeffect flame <context.projectile.location> quantity:5
+        - playeffect flame <context.projectile.location> quantity:15 offset:0.1
         - wait 1t
     
     on player damaged by projectile:
