@@ -58,11 +58,12 @@ equipment_inventory_handler:
   events:
     on player clicks in equipment_character:
     - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
-    - narrate <context.slot>
-    - if !<context.item.script.name.ends_with[_filler]>:
-      - inventory set d:<context.clicked_inventory> o:<item[<context.item.script.yaml_key[category]>_equipment_filler]> slot:<context.slot>
-      - yaml id:player.<player.uuid> set equipment.<context.item.script.yaml_key[category]>:null
+    - if <context.item.script.yaml_key[category]||null> != null:
+      - narrate 1
+      - if <[slotmap].map_get[<context.slot>].starts_with[<context.item.script.yaml_key[category]>]>:
+        - narrate 2
     - else:
+      - narrate 3
       - determine passively cancelled
 
 
@@ -72,7 +73,7 @@ equipment_character:
   size: 54
   procedural items:
   - foreach <list[pendant|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
-    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||equipment_filler_<[value]>||<[value]>>
+    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||w_filler>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
