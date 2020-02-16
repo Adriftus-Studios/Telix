@@ -119,6 +119,14 @@ basic_earrings:
   display name: "<&c>Basic Earrings"
   drops_on_death: true
 
+rare_ring:
+  type: item
+  material: snow
+  category: ring
+  equipment_rating: 0
+  display name: "<&c>Rare Ring"
+  drops_on_death: true
+
 basic_ring:
   type: item
   material: snow
