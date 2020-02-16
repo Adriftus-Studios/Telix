@@ -61,6 +61,10 @@ equipment_inventory_handler:
       - if <context.item.script.name> == "gui_invisible_item":
         - determine passively cancelled
         - stop
+      - if <context.item> == <item[invisible_placeholder]>:
+        - if <context.cursor_item||null> == null:
+          - determine cancelled
+          - stop
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
       - narrate <[slotmap].map_get[<context.slot>]>
       - if <context.cursor_item.script.yaml_key[category]||null> != null:
