@@ -8,8 +8,8 @@ ability_arcane_track:
   command_usage: arcane_track (player Name)
   description: Will face you in the direction of a specified player.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 12
   script:
     - inject abilties_check
     - define target:<server.match_player[<context.args.get[1]>]||null>
