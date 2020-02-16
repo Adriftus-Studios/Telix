@@ -12,6 +12,7 @@ ability_super_kick:
   script:
     - inject abilities_check
     - if <player.target.location.distance[<player.location>]||5> <= 3:
+      - playeffect sweep_attack at:<player.location.above> quantity:1
       - adjust <player.target> velocity:<player.location.direction.vector.with_y[0.2].mul[2]>
     
     
