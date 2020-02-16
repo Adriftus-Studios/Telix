@@ -1,11 +1,11 @@
-ability_dolphin_kick_world:
+ability_dolphin_kick:
   type: world
   name: dolphin_kick
   ability_tree: Athleticism
   ability_type: passive
   points_to_unlock: 20
   power_cost: 10
-  description: Sneaking while swimming will perform a fast kick
+  description: Sneaking while swimming will perform a fast kick.
   icon:
     material: stone
     custom_model_data: 1
