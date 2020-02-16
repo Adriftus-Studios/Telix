@@ -15,7 +15,7 @@ ability_ground_slam:
     - inject abilities_check
     - teleport <player> <player.location.with_pitch[-90]>
     - adjust <player> velocity:0,1,0
-    - wait 1s
+    - wait 16t
     - teleport <player> <player.location.with_pitch[90]>
     - adjust <player> velocity:0,-1,0
     - wait 8t
