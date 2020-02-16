@@ -17,5 +17,5 @@ ability_teleport_strike:
     - define target:<player.target>
     - teleport <[target].location.find.blocks[air].within[16].exclude[<[target].location.find.blocks[air].within[8]>].filter[y.is[MORE].than[<[target].location.y>]].random>
     - wait 1t
-    - ~push <player> <[target].location> speed:1
+    - ~push <player> origin:<player.location> destination:<[target].location> speed:1.5
     - hurt <[target]> <script.yaml_key[damage]>
