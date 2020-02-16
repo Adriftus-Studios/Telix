@@ -16,3 +16,4 @@ ability_dolphin_kick:
         - determine passively cancelled
         - cast speed duration:1.5s power:5 <player> hide_particles
         - cast dolphins_grace duration:6s power:10 <player> hide_particles
+        - playeffect water_splash at:<player.location> quantity:20 targets:<player>
