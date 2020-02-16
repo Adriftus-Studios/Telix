@@ -8,8 +8,8 @@ ability_sand_cacoon:
   power_cost: 10
   description: Retreat into a protective shell within the ground.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 4
   script:
     - inject abilities_check
     - adjust <player> noclip:true

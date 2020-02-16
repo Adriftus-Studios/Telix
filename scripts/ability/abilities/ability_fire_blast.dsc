@@ -8,8 +8,8 @@ ability_fire_blast:
   power_cost: 10
   description: Launch a powerful fire blast to burn your opponents
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 5
   apply_damage:
     - hurt <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> 5
     - burn <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> <script.yaml_key[duration]>
