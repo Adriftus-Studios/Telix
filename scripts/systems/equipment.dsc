@@ -72,7 +72,7 @@ equipment_inventory_handler:
             - determine passively cancelled
         - else:
           - narrate <context.item.script.name>
-          - determine passively cancelled
+          - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:null
 
 equipment_character:
   type: inventory
