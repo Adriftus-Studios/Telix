@@ -12,7 +12,7 @@ abilitytrees:
       custom_model_data: 1
     Ender:
       available_check: true
-      GUIItem: sand>.>
+      GUIItem: sand
       custom_model_data: 1
     Ocean:
       available_check: true
@@ -23,18 +23,6 @@ abilitytrees:
       GUIItem: sand
       custom_model_data: 1
     Aer:
-      available_check: true
-      GUIItem: sand
-      custom_model_data: 1
-    Swords:
-      available_check: true
-      GUIItem: sand
-      custom_model_data: 1
-    Axes:
-      available_check: true
-      GUIItem: sand
-      custom_model_data: 1
-    Hammers:
       available_check: true
       GUIItem: sand
       custom_model_data: 1
