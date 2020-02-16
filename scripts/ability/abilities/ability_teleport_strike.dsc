@@ -14,9 +14,8 @@ ability_teleport_strike:
   script:
     - if <player.target||null> == null:
       - stop
-    - define target <player.target>
-    - repeat 3:
-      - teleport <[target].location.find.blocks[air].within[16].exclude[<[target].location.find.blocks[air].within[8]>].filter[y.is[MORE].than[<[target].location.y>]].random>
-      - wait 1t
-      - ~push <player> <[target].location> speed:1
-      - hurt <[target]> <script.yaml_key[damage]>
+    - define target:<player.target>
+    - teleport <[target].location.find.blocks[air].within[16].exclude[<[target].location.find.blocks[air].within[8]>].filter[y.is[MORE].than[<[target].location.y>]].random>
+    - wait 1t
+    - ~push <player> origin:<player.location> destination:<[target].location> speed:1.5 ignore_collision no_damage
+    - hurt <[target]> <script.yaml_key[damage]>
