@@ -59,7 +59,7 @@ equipment_inventory_handler:
     on player clicks item in equipment_character:
 
     on player clicks in equipment_character with item:
-    - if <context.clicked_inventory.script_name> == "equipment_character": # if top inventory is clicked
+    - if <context.clicked_inventory.script_name> == "equipment_character":
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
       - if <context.cursor_item.script.yaml_key[category]||null> != null:
         - narrate 1

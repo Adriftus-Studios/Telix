@@ -59,7 +59,7 @@ stats_inventory_handler:
   debug: true
   events:
     on player clicks in stats_character:
-    - if <context.clicked_inventory.script_name> == "STATS_CHARACTER": # if top inventory is clicked
+    - if <context.clicked_inventory.script_name> == "STATS_CHARACTER":
       - determine passively cancelled
       - if <context.item.script.yaml_key[assigned_stat_increment]||null> != null:
         - if <yaml[player.<player.uuid>].read[stats.stat_points]> > 0:
