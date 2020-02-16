@@ -15,8 +15,8 @@ ability_ground_slam:
     - inject abilities_check
     - define pitch:<player.location.pitch.round>
     - adjust <player> velocity:0,1,0
-    - wait 16t
-    - teleport <player> <player.location.with_pitch[90]>
+    - wait 1s
+    - teleport <player> <player.location.with_pitch[60]>
     - adjust <player> velocity:0,-1,0
     - wait 8t
     - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:15 targets:<server.list_online_players>
