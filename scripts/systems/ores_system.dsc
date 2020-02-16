@@ -8,9 +8,11 @@ ore_system:
             - if <[value].yaml_key[ore]||null> != null:
                 - yaml id:server.ores set <[value].yaml_key[ore.biome]>.<[value].yaml_key[ore.block]>:|:<[value].name>
         on player breaks block:
-        - define ores:|:<yaml[server.ores].read[all.<context.material.name>]>
-        - define ores:|:<yaml[server.ores].read[<context.location.biome.name>.<context.material.name>]>
-        - foreach <[ores]> as:ore:
+        - if <yaml[server.ores].read[all.<context.material.name>]||null> != null:
+            - define ores:|:<yaml[server.ores].read[all.<context.material.name>]>
+        - if <yaml[server.ores].read[<context.location.biome.name>.<context.material.name>]||null> != null:
+            - define ores:|:<yaml[server.ores].read[<context.location.biome.name>.<context.material.name>]>
+        - foreach <[ores]||<list[]>> as:ore:
             - narrate <[ore]>
 
 iron_ore:
