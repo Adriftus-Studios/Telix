@@ -14,5 +14,7 @@ ability_false_door:
     - inject abilities_check
     - if <player.location.forward_flat> != air:
     - showfake air <player.location.forward_flat>|<player.location.forward_flat.above> duration:10s
-
+    - adjust <player> noclip:true
+    - wait 10s
+    - adjust <player> noclip:false
     

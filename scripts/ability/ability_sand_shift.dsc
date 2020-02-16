@@ -1,12 +1,12 @@
-ability_sand_shift:
+ability_scape_shift:
   type: task
-  name: sand_shift
+  name: scape_shift
   ability_tree: Elemental
   ability_type: active
   points_to_unlock: 10
   power_cost: 10
   distance: 25
-  whitelist_materials: dirt|grass_block|sand|coarse_dirt|red_sand|mycelium|podzol|soul_sand
+  whitelist_materials: dirt|grass_block|sand|coarse_dirt|red_sand|mycelium|podzol|soul_sand|farmland|gravel
   description: Shift yourself 25 blocks forward, through the ground.
   icon:
     material: stone
