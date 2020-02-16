@@ -9,8 +9,8 @@ ability_scape_shift:
   whitelist_materials: dirt|grass_block|sand|coarse_dirt|red_sand|mycelium|podzol|soul_sand|farmland|gravel
   description: Shift yourself 25 blocks forward, through the ground.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 3
   script:
     - inject abilities_check
     - if !<script.yaml_key[whitelist_materials].contains[<player.location.below.material.name>]>:

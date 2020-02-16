@@ -7,14 +7,15 @@ ability_dolphin_kick:
   power_cost: 10
   description: Sneaking while swimming will perform a fast kick.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 8
   events:
     on player starts sneaking:
       - if <player.swimming>:
         - inject abilities_check
         - determine passively cancelled
-        - playeffect water_bubble at:<player.location.forward_flat.center.below[1]> quantity:30 targets:<player>
+        - playeffect water_bubble at:<player.location.forward_flat.center.below[1]> visibility:15 quantity:30
         - cast speed duration:1.5s power:5 <player> hide_particles
         - cast dolphins_grace duration:6s power:10 <player> hide_particles
-        - playeffect water_bubble at:<player.location.forward_flat.center.below[1]> quantity:30 targets:<player>
+        - playeffect water_bubble at:<player.location.forward_flat.center.below[1]> visibility:15 quantity:30
+        - playsound <player.location> sound:entity_generic_splash volume:1.0

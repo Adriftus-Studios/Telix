@@ -7,8 +7,8 @@ ability_ambush:
   power_cost: 10
   description: Disappear and re-appear facing your target's back.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 9
   script:
     - inject abilities_check
     - if <player.target||null> == null:

@@ -8,8 +8,8 @@ ability_false_door:
   power_cost: 10
   description: Open yourself a 2x1 door you can pass through
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 7
   script:
     - inject abilities_check
     - if <player.location.forward_flat> == air:

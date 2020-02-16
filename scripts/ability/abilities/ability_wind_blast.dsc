@@ -8,8 +8,8 @@ ability_wind_blast:
   power_cost: 10
   description: Launch a powerful blast of wind to push your opponents
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 2
   apply_effect:
     - foreach <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]>:
       - adjust <[value]> velocity:<[loc].direction.vector.with_y[0.25]>
