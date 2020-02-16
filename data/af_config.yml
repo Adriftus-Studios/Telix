@@ -1,0 +1,21 @@
+general:
+  #biome
+  fallback:
+    100:
+      - "stick"
+  deep_ocean:
+    100:
+      - "cooked_beef"
+  swamp:
+    #rarity
+    80:
+      #fish_keys
+      - "af_fish_1"
+    60:
+      - "thing2"
+    30:
+      - adsf
+    10:
+      - adsf
+    1:
+      - adsf

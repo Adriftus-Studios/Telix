@@ -8,7 +8,7 @@ ability_quicksand:
   description: turn the ground around you into soul sand for other players.
   icon:
     material: iron_nugget
-    custom_model_data: 10
+    custom_model_data: 13
   script:
     - showfake soul_sand <player.location.find.surface_blocks.within[3]> players:<server.list_online_players.exclude[<player>]> duration:6s
     - showfake brown_terracotta <player.location.find.surface_blocks.within[3]> players:<player> duration:6s
