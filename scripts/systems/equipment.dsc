@@ -62,19 +62,21 @@ equipment_inventory_handler:
       - if <context.cursor_item||null> != null:
         - if <context.cursor_item.script.yaml_key[category]||null> != null:
           - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
-            - narrate 1
             - if !<context.item.script.name.ends_with[gui_invisible_item]>:
-              - narrate 2
+              - narrate 1
               - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
             - else:
-              - narrate 4
+              - narrate 2
               - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
           - else:
             - narrate 3
             - determine passively cancelled
         - else:
           - narrate <context.item.script.name>
-          - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:null
+          - if <context.item.script.name||null> != null:
+            - if !<context.item.script.name.ends_with[gui_invisible_item]>:
+              - narrate "removed item"
+              - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:null
 
 equipment_character:
   type: inventory
