@@ -8,7 +8,7 @@ ability_wind_rider:
   power_cost: 10
   description: Launch yourself torwards your cursor, and ride the winds
   icon:
-    material: stone
+    material: iron_nugget
     custom_model_data: 1
   script:
     - inject abilities_check
