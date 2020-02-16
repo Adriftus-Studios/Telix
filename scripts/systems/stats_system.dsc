@@ -56,7 +56,7 @@ stats_inventory_handler:
           - yaml id:player.<player.uuid> set stats.stat_points:--
           - inventory open d:stats_character
           - if <context.item.script.yaml_key[assigned_stat]> == "speed":
-            - narrate <context.item.script.yaml_key[assigned_stat_increment].*0.02>
+            - narrate <context.item.script.yaml_key[assigned_stat_increment].*[0.02]>
             - yaml id:player.<player.uuid> set stats.basespeed:+:<context.item.script.yaml_key[assigned_stat_increment].*0.02>
 
 equipment_rating_stats_icon:
