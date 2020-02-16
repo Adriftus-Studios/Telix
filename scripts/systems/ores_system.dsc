@@ -22,7 +22,7 @@ ore_drop_events:
     events:
         on player breaks block:
             - yaml create id:location
-            - yaml id:location savefile:DONT_PUT_STUFF_IN_HERE/<context.location>/location.yml
+            - yaml id:location savefile:DONT_PUT_SHIT_IN_HERE/<context.location>.yml
             - define roll:<util.random.int[1].to[100]>
             - define drop_num:<script[ore_rates].list_keys[<context.location.biome>].include[<script[ore_rates].list_keys[all]>].filter[is[OR_LESS].than[<[roll]>].highest>
             - define to_drop:<script[ore_rates].read[<context.location.biome>.<[drop_num]>].random||script[ore_rates].read[all.<[drop_num]>].random>>
