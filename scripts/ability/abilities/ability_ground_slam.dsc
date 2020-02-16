@@ -24,5 +24,6 @@ ability_ground_slam:
       - teleport <[value]> <[value].location.with_pitch[45]>
       - shoot <[value]> o:<[value].location> speed:-2.0
     - adjust <player> walk_speed:0
+    - cast slow <player> duration:2s power:255
     - wait 2s
     - adjust <player> walk_speed:<[walk_speed]>
