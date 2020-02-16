@@ -128,7 +128,7 @@ basic_earrings:
 
 rare_ring:
   type: item
-  material: snow
+  material: gold_ingot
   category: ring
   equipment_rating: 0
   display name: "<&c>Rare Ring"
