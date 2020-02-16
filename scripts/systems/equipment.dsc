@@ -83,7 +83,7 @@ equipment_character:
   title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
   size: 54
   definitions:
-    w_filler: <item[gui_invis_item]>
+    w_filler: <item[gui_invisible_item]>
     gui_top: <item[gui_equipment_top]>
     gui_bottom: <item[gui_equipment_bottom]>
     closeitem: <item[gui_close_btn]>
