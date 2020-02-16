@@ -1,7 +1,7 @@
 ability_fire_blast:
   type: task
   name: fire_blast
-  ability_tree: Elemental
+  ability_tree: Nether
   ability_type: active
   duration: 5
   points_to_unlock: 10

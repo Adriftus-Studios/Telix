@@ -1,7 +1,7 @@
 ability_scape_shift:
   type: task
   name: scape_shift
-  ability_tree: Elemental
+  ability_tree: Earth
   ability_type: active
   points_to_unlock: 10
   power_cost: 10

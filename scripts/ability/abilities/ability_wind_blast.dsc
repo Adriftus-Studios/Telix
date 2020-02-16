@@ -1,7 +1,7 @@
 ability_wind_blast:
   type: task
   name: wind_blast
-  ability_tree: Elemental
+  ability_tree: Aer
   ability_type: active
   duration: 5
   points_to_unlock: 10

@@ -1,7 +1,7 @@
 ability_wind_rider:
   type: task
   name: wind_rider
-  ability_tree: Elemental
+  ability_tree: Aer
   ability_type: active
   duration: 5
   points_to_unlock: 99

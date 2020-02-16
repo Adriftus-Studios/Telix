@@ -1,7 +1,7 @@
 ability_sand_cacoon:
   type: task
   name: sand_cacoon
-  ability_tree: Elemental
+  ability_tree: Earth
   ability_type: active
   duration: 5
   points_to_unlock: 10

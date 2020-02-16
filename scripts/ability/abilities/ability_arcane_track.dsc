@@ -1,11 +1,11 @@
-ability_arcane_track:
+ability_find:
   type: task
-  name: arcane_track
-  ability_tree: Arcane
+  name: find
+  ability_tree: Perception
   ability_type: command
   points_to_unlock: 20
   power_cost: 10
-  command_usage: arcane_track (player Name)
+  command_usage: fnd (player Name)
   description: Will face you in the direction of a specified player.
   icon:
     material: iron_nugget
@@ -20,6 +20,6 @@ ability_arcane_track:
 
 abilities_arcane_track:
   type: command
-  name: arcane_track
+  name: find
   script:
-    - inject ability_arcane_track
+    - inject ability_find

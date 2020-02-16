@@ -1,7 +1,7 @@
 ability_ender_world:
   type: task
   name: ender_world
-  ability_tree: Demonic
+  ability_tree: Ender
   ability_type: active
   duration: 5
   points_to_unlock: 10

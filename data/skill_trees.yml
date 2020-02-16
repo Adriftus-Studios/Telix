@@ -1,18 +1,19 @@
-skill_trees:
+ability_trees:
+  type: yaml_data
   # Magic
-  Elemental:
+  Earth:
     available_check: true
     GUIItem: sand
     custom_model_data: 1
-  Arcane:
+  Nether:
     available_check: true
     GUIItem: sand
     custom_model_data: 1
-  Demonic:
+  Ender:
     available_check: true
-    GUIItem: sand
+    GUIItem: sand>.>
     custom_model_data: 1
-  Nature:
+  Ocean:
     available_check: true
     GUIItem: sand
     custom_model_data: 1
@@ -20,7 +21,7 @@ skill_trees:
     available_check: true
     GUIItem: sand
     custom_model_data: 1
-  Illusion:
+  Aer:
     available_check: true
     GUIItem: sand
     custom_model_data: 1

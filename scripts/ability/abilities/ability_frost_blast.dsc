@@ -1,7 +1,7 @@
 ability_frost_blast:
   type: task
   name: frost_blast
-  ability_tree: Elemental
+  ability_tree: Ocean
   ability_type: active
   points_to_unlock: 10
   power_cost: 10

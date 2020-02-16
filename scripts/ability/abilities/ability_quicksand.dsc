@@ -1,7 +1,7 @@
 ability_quicksand:
   type: task
   name: quicksand
-  ability_tree: Elemental
+  ability_tree: Earth
   ability_type: active
   points_to_unlock: 10
   power_cost: 10
