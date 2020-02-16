@@ -13,10 +13,9 @@ ability_sand_cacoon:
   script:
     - inject abilities_check
     - adjust <player> noclip:true
-    - if !<cuboid[<player.location.below.right.forward_flat>|<player.location.below[6].left.backward_flat>].blocks[air].is_empty>:
+    - if !<cuboid[<player.location.below.right.forward_flat>|<player.location.below[10].left.backward_flat>].blocks[air].is_empty>:
       - narrate "<&c>Nope"
       - stop
-    - showfake air <cuboid[<player.location.below.right.forward_flat>|<player.location.below[6].left.backward_flat>].blocks>  players:<player> duration:31s
+    - showfake air <cuboid[<player.location.below.right.forward_flat>|<player.location.below[10].left.backward_flat>].blocks>  players:<player> duration:31s
     - wait 1t
-    - showfake air <player.location.below[6].center.find.blocks.within[4]> players:<player> duration:30s
-    - wait 25s
+    - showfake air <player.location.below[10].center.find.blocks.within[3]> players:<player> duration:30s
