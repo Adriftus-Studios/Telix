@@ -23,7 +23,7 @@ ability_frost_blast:
       - if !<[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>].is_empty>:
         - inject locally apply_effect
         - stop
-      - if <[points].get[<[number]>].find.blocks.within[2].contains[water]>:
+      - if <[points].get[<[number]>].find.blocks.within[2].parse[material.name].contains[water]>:
           - inject apply_environmental_effect
           - stop
       - if <[number].%[4]> == 0:
