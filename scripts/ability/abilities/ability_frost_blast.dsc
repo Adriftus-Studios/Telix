@@ -24,7 +24,7 @@ ability_frost_blast:
         - inject locally apply_effect
         - stop
       - if <[points].get[<[number]>].find.blocks.within[2].parse[material.name].contains[water]>:
-          - inject apply_environmental_effect
+          - inject locally apply_environmental_effect
           - stop
       - if <[number].%[4]> == 0:
         - wait 1t
