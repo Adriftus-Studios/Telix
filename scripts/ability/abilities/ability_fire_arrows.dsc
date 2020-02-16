@@ -23,6 +23,6 @@ abilities_fire_arrows_events:
         - playeffect flame <context.projectile.location> quantity:15 offset:0.1
         - wait 1t
     
-    on player damaged by projectile:
+    on entity damaged by projectile:
       - if <context.projectile.has_flag[fire_arrow]>:
         - burn <context.entity> 6

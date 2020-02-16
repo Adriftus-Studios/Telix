@@ -14,11 +14,10 @@ ability_ground_slam:
     #/ex shoot <player> speed:-2.0 height:2.5
     - inject abilities_check
     - define walk_speed:<player.walk_speed>
-    - adjust <player> velocity:0,1,0
-    - wait 18t
+    - adjust <player> velocity:0,0.5,0
+    - wait 12t
     - teleport <player> <player.location.with_pitch[75]>
     - adjust <player> velocity:0,-1,0
-    - wait 8t
     - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:15 targets:<server.list_online_players>
     - foreach <player.location.find.players.within[4].exclude[<player>]>:
       - teleport <[value]> <[value].location.with_pitch[45]>
