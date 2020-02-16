@@ -57,6 +57,8 @@ abilites_item_use:
   events:
     on player right clicks with abilities_item:
       - determine passively cancelled
+      - if <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_tree]> != Ender && <player.has_flag[ender_world]>:
+        - stop
       - run ability_<context.item.nbt[skillname]>
 
 abilities_item_buildLore:
