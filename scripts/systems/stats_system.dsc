@@ -18,11 +18,11 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.basespeed:0.22
     - yaml id:player.<player.uuid> set stats.xp:0
     - yaml id:player.<player.uuid> set stats.level:1
-    - yaml id:player.<player.uuid> set stats.stat_points:0
+    - yaml id:player.<player.uuid> set stats.stat_points:1000
     - yaml id:player.<player.uuid> set stats.experience_multiplier:0
     - yaml id:player.<player.uuid> set stats.drop_rate_multiplier:0
     - yaml id:player.<player.uuid> set stats.equipment_rating:0
-    - yaml id:player.<player.uuid> set lessons.current:0
+    - yaml id:player.<player.uuid> set lessons.current:1000
     - yaml id:player.<player.uuid> set lessons.lifetime:0
     - wait 1t
     - foreach <yaml[ability_trees].list_keys[skill_trees]>:
@@ -55,6 +55,8 @@ stats_inventory_handler:
           - yaml id:player.<player.uuid> set stats.<context.item.script.yaml_key[assigned_stat]>:+:<context.item.script.yaml_key[assigned_stat_increment]>
           - yaml id:player.<player.uuid> set stats.stat_points:--
           - inventory open d:stats_character
+          - if <context.item.script.yaml_key[assigned_stat]> == "speed":
+            - yaml id:player.<player.uuid> set stats.basespeed:+:<context.item.script.yaml_key[assigned_stat_increment].*0.02>
 
 equipment_rating_stats_icon:
   type: item
