@@ -19,6 +19,7 @@ ore_rates:
 
 ore_drop_events:
     type: world
+    debug: true
     events:
         on player breaks block:
             - yaml create id:location
