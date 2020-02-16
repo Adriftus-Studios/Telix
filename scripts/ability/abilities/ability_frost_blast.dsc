@@ -7,8 +7,8 @@ ability_frost_blast:
   power_cost: 10
   description: Shoot a blast that freezes a player in place
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 10
   apply_effect:
     - foreach <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]>:
       - showfake ice <[value].location.find.blocks.within[3]> players:<server.list_online_players> duration:10s
