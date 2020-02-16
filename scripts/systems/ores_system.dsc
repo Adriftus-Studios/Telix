@@ -13,7 +13,7 @@ ore_system:
         - if <yaml[server.ores].read[<context.location.biome.name>.<context.material.name>]||null> != null:
             - define ores:|:<yaml[server.ores].read[<context.location.biome.name>.<context.material.name>]>
         - foreach <[ores]||<list[]>> as:ore:
-            - narrate ore
+            - narrate <[ore]>
 
 
 iron_ore:
