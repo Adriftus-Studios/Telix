@@ -9,3 +9,7 @@ flag_handler:
         - if <player||null> != null:
             - if <player.has_flag[no_fall]>:
                 - determine 0.0
+        on entity damaged:
+        - if <player||null> != null:
+            - if <player.has_flag[no_damage]>:
+                - determine 0.0
