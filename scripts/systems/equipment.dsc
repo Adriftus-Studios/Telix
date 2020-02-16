@@ -72,7 +72,6 @@ equipment_inventory_handler:
             - narrate 3
             - determine passively cancelled
         - else:
-          - narrate <context.item.script.name>
           - if <context.item.script.name||null> != null:
             - if !<context.item.script.name.ends_with[gui_invisible_item]>:
               - narrate "removed item"
@@ -84,7 +83,7 @@ equipment_character:
   size: 54
   procedural items:
   - foreach <list[pendant|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
-    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[gui_invisible_item]>>
+    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[w_filler]>>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
