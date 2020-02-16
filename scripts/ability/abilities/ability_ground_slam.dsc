@@ -18,6 +18,6 @@ ability_ground_slam:
     - adjust <player> velocity:0,-1,0
     - wait 10t
     - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:15 targets:<server.list_online_players>
-    - foreach <player.location.find.players.within[3]>:
+    - foreach <player.location.find.players.within[3].exclude[<player>]>:
       - teleport <[value]> <[value].location.with_pitch[45]>
       - shoot <[value]> o:<[value].location> speed:-2.0
