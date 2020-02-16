@@ -73,7 +73,7 @@ equipment_inventory_handler:
           - determine passively cancelled
       - else:
         - if <context.cursor_item||null> != null:
-          - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<item[air]>
+          - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:!
           - determine <item[air]>
 
 invisible_placeholder:
