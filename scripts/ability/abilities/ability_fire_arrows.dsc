@@ -16,6 +16,7 @@ abilities_fire_arrows_events:
   type: world
   events:
     on player shoots bow flagged:fire_arrows:
+      - inject abilities_check
       - wait 1t
       - flag <context.projectile> fire_arrow:true duration:30s
       - while <context.projectile.is_spawned>:
