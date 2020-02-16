@@ -8,8 +8,8 @@ ability_ender_world:
   power_cost: 10
   description: Transport yourself to the ender world.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 6
   script:
     - inject abilities_check
     - if !<player.has_flag[ender_world]>:

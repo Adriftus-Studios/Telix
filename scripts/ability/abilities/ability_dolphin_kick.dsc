@@ -7,8 +7,8 @@ ability_dolphin_kick:
   power_cost: 10
   description: Sneaking while swimming will perform a fast kick.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 8
   events:
     on player starts sneaking:
       - if <player.swimming>:
