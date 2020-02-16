@@ -6,7 +6,7 @@ ability_sand_shift:
   points_to_unlock: 10
   power_cost: 10
   distance: 25
-  whitelist_materials: dirt|grass_block|sand|coarse_dirt
+  whitelist_materials: dirt|grass_block|sand|coarse_dirt|red_sand|mycelium|podzol|soul_sand
   description: Shift yourself 25 blocks forward, through the ground.
   icon:
     material: stone
@@ -14,11 +14,15 @@ ability_sand_shift:
   script:
     - inject abilities_check
     - if !<script.yaml_key[whitelist_materials].contains[<player.location.below.material.name>]>:
-      - narrate "<&c>Unsuitable location"
+      - narrate "Unsuitable location"
       - stop
     - flag <player> no_suffocate:true
     - define firstblock:<player.location.below.material.name>
     - define target:<player.location.forward_flat[<script.yaml_key[distance]>]>
+    - define block_target:<location[<[target].x>,<cuboid[<[target].with_y[1]>|<[target].with_y[255]>].blocks[<script.yaml_key[whitelist_materials]>].filter[above.material.name.is[==].to[air]].parse[y].highest>,<[target].z>,<[target].world>]||null>
+    - if <[block_target]> == null:
+      - narrate "<&c>Unsuitable Target Location"
+      - stop
     - repeat 10:
       - playeffect blockdust_<[firstblock]> at:<player.location.above> quantity:10 offset:0.25
       - teleport <player.location.below[0.2]>
