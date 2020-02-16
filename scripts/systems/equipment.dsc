@@ -64,7 +64,7 @@ equipment_inventory_handler:
         - if <context.cursor_item.script.yaml_key[category]||null> != null:
           - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
             - narrate 1
-            - if !<context.item.script.name.ends_with[_filler]>:
+            - if !<context.item.script.name.ends_with[gui_invisible_item]>:
               - narrate 2
               - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
             - else:
@@ -82,7 +82,7 @@ equipment_character:
   size: 54
   procedural items:
   - foreach <list[pendant|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
-    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<[w_filler]>>>
+    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[gui_invisible_item]>>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
