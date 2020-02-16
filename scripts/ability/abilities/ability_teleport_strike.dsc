@@ -1,4 +1,4 @@
-ability_teleport_strike
+ability_teleport_strike:
   type: task
   name: teleport_strike
   ability_tree: Stealth
