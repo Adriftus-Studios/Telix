@@ -32,7 +32,9 @@ abilities_characterAbilityTrees:
   type: inventory
   title: <&b>Ability Trees
   definitions:
-    filler: <item[white_stained_glass_pane].with[display_name=<&c>]>
+    filler: <item[gui_invisible_item]>
+    gui_top: <item[gui_abilities_top]>
+    gui_bottom: <item[gui_abilities_bottom]>
   procedural items:
     - foreach <yaml[ability_trees].list_keys[skill_trees].alphabetical> as:value1:
       - if <yaml[ability_trees].read[skill_trees.<[value1]>.available_check].parsed>:
@@ -41,8 +43,8 @@ abilities_characterAbilityTrees:
   slots:
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
     - "[filler] [] [] [] [] [] [] [] [filler]"
-    - "[filler] [] [] [] [] [] [] [] [filler]"
-    - "[filler] [] [] [] [] [] [] [] [filler]"
+    - "[gui_abilities_top] [] [] [] [] [] [] [] [filler]"
+    - "[gui_abilities_bottom] [] [] [] [] [] [] [] [filler]"
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
   
 abilities_item:
