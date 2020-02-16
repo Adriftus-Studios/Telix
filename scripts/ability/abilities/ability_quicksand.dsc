@@ -11,4 +11,4 @@ ability_quicksand:
     custom_model_data: 10
   script:
     - showfake soul_sand <player.location.find.surface_blocks.within[3]> players:<server.list_online_players.exclude[<player>]> duration:6s
-    - showfake brown_terracotta <player.location.find.surface_blocks.within[3]> players:<player>> duration:6s
+    - showfake brown_terracotta <player.location.find.surface_blocks.within[3]> players:<player> duration:6s
