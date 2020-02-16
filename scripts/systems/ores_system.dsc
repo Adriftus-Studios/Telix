@@ -12,11 +12,10 @@ ore_system:
             - define ores:|:<yaml[server.ores].read[all.<context.material.name>]>
         - if <yaml[server.ores].read[<context.location.biome.name>.<context.material.name>]||null> != null:
             - define ores:|:<yaml[server.ores].read[<context.location.biome.name>.<context.material.name>]>
-        - foreach <[ores]||<list[]>> as:ore:
-            - narrate <[ore]>
+        - define rand:<util.random.int[0].to[300-<context.location.y>]>
+        - if <>
 
-
-iron_ore:
+custom_iron_ore:
     type: item
     debug: true
     material: iron_ore
@@ -25,7 +24,7 @@ iron_ore:
         block: stone
         chance: 10
 
-coal_ore:
+custom_coal_ore:
     type: item
     debug: true
     material: coal_ore
