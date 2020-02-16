@@ -26,10 +26,11 @@ equipment_chest_slot:
 equipment_leg_slot:
   type: item
   material: snow
+  material: iron_nugget
   display name: <&c>Stats
   GUI_Inventory: stats_character
   mechanisms:
-    custom_model_data: 5
+    custom_model_data: 0
   drops_on_death: false
   weight: 0
   lore:
@@ -56,7 +57,6 @@ equipment_inventory_handler:
   type: world
   debug: false
   events:
-    on player clicks item in equipment_character:
     on player clicks item in equipment_character with item:
     - if <context.clicked_inventory.script_name> == "equipment_character":
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
@@ -64,11 +64,13 @@ equipment_inventory_handler:
         - if <context.cursor_item.script.yaml_key[category]||null> != null:
           - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
             - narrate 1
-            - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
             - if !<context.item.script.name.ends_with[_filler]>:
-              - narrate 5
+              - narrate 2
+              - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
+            - else:
+              - narrate 4
           - else:
-            - narrate 2
+            - narrate 3
             - determine passively cancelled
         - else:
           - narrate <context.item.script.name>
