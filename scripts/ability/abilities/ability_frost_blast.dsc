@@ -11,7 +11,7 @@ ability_frost_blast:
     custom_model_data: 10
   apply_effect:
     - foreach <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]>:
-      - showfake ice <[value].location.center.find.blocks.within[3].exclude[[value].location.center.find.blocks.within[1]>]> players:<server.list_online_players> duration:10s
+      - showfake ice <[value].location.center.find.blocks.within[3].exclude[<[value].location.center.find.blocks.within[1]>]> players:<server.list_online_players> duration:10s
   apply_environmental_effect:
     - showfake ice <[points].get[<[number]>].find.blocks.within[4].filter[material.name.contains[water]]> players:<server.list_online_players> duration:10s
   script:
