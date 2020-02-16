@@ -68,6 +68,7 @@ equipment_inventory_handler:
               - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
             - else:
               - narrate 4
+              - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
           - else:
             - narrate 3
             - determine passively cancelled
