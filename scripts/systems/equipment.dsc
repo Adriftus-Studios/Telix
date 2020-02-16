@@ -62,9 +62,6 @@ equipment_inventory_handler:
         - determine passively cancelled
         - stop
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
-      - if <context.item.script.name> != "invisible_placeholder":
-        - determine passively cancelled
-        - stop
       - if <context.cursor_item.script.yaml_key[category]||null> != null:
         - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
           - narrate 1
@@ -72,6 +69,9 @@ equipment_inventory_handler:
         - else:
           - narrate 2
           - determine passively cancelled
+      - else:
+        - narrate 3
+        - determine passively cancelled
 
 invisible_placeholder:
   type: item
