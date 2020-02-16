@@ -18,8 +18,8 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.xp:0
     - yaml id:player.<player.uuid> set stats.level:1
     - yaml id:player.<player.uuid> set stats.stat_points:1000
-    - yaml id:player.<player.uuid> set stats.experience_multiplier:0
-    - yaml id:player.<player.uuid> set stats.drop_rate_multiplier:0
+    - yaml id:player.<player.uuid> set stats.experience_multiplier:100
+    - yaml id:player.<player.uuid> set stats.drop_rate_multiplier:100
     - yaml id:player.<player.uuid> set stats.equipment_rating:0
     - yaml id:player.<player.uuid> set lessons.current:1000
     - yaml id:player.<player.uuid> set lessons.lifetime:0
@@ -69,7 +69,7 @@ damage_stats_icon:
   assigned_stat: melee_damage
   display name: "<green><&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
   lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
+  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>%"
   - "This Stat cannot be increased with Skill Points."
   drops_on_death: false
 
@@ -89,7 +89,7 @@ drop_rate_multiplier_stats_icon:
   assigned_stat: drop_rate_multiplier
   display name: "<green><&6>◆ <&a><&n><&l>Drop Rate Multiplier<&r> <&6>◆"
   lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
+  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>%"
   - "This Stat cannot be increased with Skill Points."
   drops_on_death: false
 
@@ -99,7 +99,7 @@ experience_multiplier_stats_icon:
   assigned_stat: experience_multiplier
   display name: "<green><&6>◆ <&a><&n><&l>Experience Multiplier<&r> <&6>◆"
   lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
+  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>%"
   - "This Stat cannot be increased with Skill Points."
   drops_on_death: false
 
