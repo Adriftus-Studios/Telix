@@ -14,6 +14,7 @@ ability_dolphin_kick:
       - if <player.swimming>:
         - inject abilities_check
         - determine passively cancelled
+        - playeffect water_bubble at:<player.location.forward_flat.center.below[1]> quantity:30 targets:<player>
         - cast speed duration:1.5s power:5 <player> hide_particles
         - cast dolphins_grace duration:6s power:10 <player> hide_particles
-        - playeffect water_splash at:<player.location> quantity:20 targets:<player>
+        - playeffect water_bubble at:<player.location.forward_flat.center.below[1]> quantity:30 targets:<player>
