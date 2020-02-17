@@ -79,6 +79,7 @@ equipment_inventory_handler:
         - if <context.cursor_item||null> != null:
           - narrate 4
           - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:!
+          - adjust <player> item_on_cursor:<context.item>
 
 invisible_placeholder:
   type: item
