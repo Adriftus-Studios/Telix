@@ -53,6 +53,9 @@ fishing_inventory_listener:
         - determine passively cancelled
         - inventory open d:<inventory[afgui_main]>
         - narrate "<&6>You have opened the <&a><&n><&l>Fishing Menu<&r>"
+      - else if !<context.item.has_nbt[baited]>:
+        - narrate "<&c>Are you going to fish without using bait?"
+        - determine cancelled
       - else:
         - stop
     
@@ -86,10 +89,6 @@ fishing_inventory_listener:
     #  - narrate "biome<&co> <context.hook.location.biome.name>"
     #  - narrate "material<&co> <context.hook.location.material.name>"
 ############################################################################################
-    on player right clicks with af_rod_*:
-      - if !<context.item.has_nbt[baited]>:
-        - narrate "<&c>Are you going to fish without using bait?"
-        - determine cancelled
     on player fishes while bite:
       - playeffect happy_villager <context.hook.location> targets:<player> quantity:60
       - narrate "<&6>HOOKED!"
