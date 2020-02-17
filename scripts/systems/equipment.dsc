@@ -82,7 +82,7 @@ equipment_inventory_handler:
         - define found:false
         - foreach <[slotmap]> as:slot:
           - if !<[found]>:
-            - if <[slot].contains[/<context.item.script.yaml_key[category]>]>
+            - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
               - if <context.clicked_inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
                 - narrate "move shift clicked item to <[slot].split[/].get[1]>"
                 - define found:true
