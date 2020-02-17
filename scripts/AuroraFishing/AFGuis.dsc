@@ -19,3 +19,18 @@ afgui_main:
   - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
   - "[bfiller] [wfiller] [bfiller] [wfiller] [closeitem] [wfiller] [bfiller] [wfiller] [bfiller]"
 
+afgui_bait_shop:
+  type: inventory
+  title: <green><&6>◆ <&a><&n><&l>Bait Shop<&r> <&6>◆
+  size: 54
+  definitions:
+    wfiller: <item[wfiller]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller]"
+  - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
+  - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
+  - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
+  - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
+  - "[wfiller] [wfiller] [wfiller] [wfiller] [closeitem] [wfiller] [wfiller] [wfiller] [wfiller]"
+

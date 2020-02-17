@@ -20,4 +20,12 @@ gui_close_btn:
   display name: <&c>Close
   unobtainable: true
 
+### Invisible Item
+# Needs work on the GUI item.
 
+gui_invisible_item:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: -1
+  display name: <&7>

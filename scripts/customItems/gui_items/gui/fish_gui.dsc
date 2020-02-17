@@ -1,11 +1,11 @@
-gui_equipment_bottom:
+fish_main_bottom:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: 5
   display name: <&7>
 
-gui_equipment_top:
+fish_main_top:
   type: item
   material: gold_nugget
   mechanisms:
