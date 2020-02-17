@@ -63,10 +63,8 @@ equipment_inventory_handler:
         - determine passively cancelled
     on player clicks item in equipment_character with item:
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
-      - narrate <context.clicked_inventory>
-      - narrate <context.inventory>
       - if !<context.is_shift_click>:
-        - if <context.inventory.script_name> != "equipment_character":
+        - if <context.clicked_inventory.script_name> != "equipment_character":
           - stop
         - if <[slotmap].map_get[<context.slot>]||null> == null:
           - determine passively cancelled
@@ -79,13 +77,13 @@ equipment_inventory_handler:
             - determine passively cancelled
             - stop
         - wait 1t
-        - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.inventory.slot[<context.slot>]>
+        - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
       - else:
         - define found:false
         - foreach <[slotmap]> as:slot:
           - if <[slot].matches[(\d\d/<context.item.script.yaml_key[category]>)]>:
-            - narrate <context.inventory.slot[<[slot].split[/].get[1]>]>
-            - if <context.inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
+            - narrate <context.clicked_inventory.slot[<[slot].split[/].get[1]>]>
+            - if <context.clicked_inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
               - narrate "can fit in <[slot].split[/].get[1]>"
               - adjust <context.item> quantity:0
 
