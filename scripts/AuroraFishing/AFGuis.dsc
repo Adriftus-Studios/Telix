@@ -9,7 +9,7 @@ afgui_main:
     gui_top: <item[fish_main_top]>
     gui_bottom: <item[fish_main_bottom]>
     gut_station: <item[af_gutting_station_button]>
-    bait_shop: <item[af_ait_shop_button]>
+    bait_shop: <item[af_bait_shop_button]>
     closeitem: <item[gui_close_btn]>
     rod: <item[af_rod_basic]>
     merchantbutton: <item[af_merchant_button]>
