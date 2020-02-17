@@ -104,10 +104,11 @@ fishing_inventory_listener:
 #        - narrate "<&6>You snagged a crab!"
 #        - spawn af_entity_crab <context.hook.location>
      #Rolls here
-      - if <[number]> <= 20:
+      - if <[number]> <= 100:
         - firework <player.location> star primary:yellow fade:white
         - give af_fish_token
         - narrate "<&6>You have recieved a shiney new <&a>Fish Token<&6>!"
+      - if <[number]> <= 20:
         - narrate "<&6>You caught a <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
       - else if <[number]> <= 50:
         - narrate "<&6>You caught a <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
