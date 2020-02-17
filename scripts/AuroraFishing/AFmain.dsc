@@ -108,8 +108,9 @@ fishing_inventory_listener:
         - narrate "<&6>You caught a <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
       - else:
         - narrate "<&6>You caught a <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
-      - inventory adjust <player.held_item_slot> remove_nbt:baited
-      - inventory adjust <player.held_item_slot> "lore:<context.item.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
+
+      - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
+      - inventory adjust slot:<player.held_item_slot> "lore:<context.item.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
 #need a system for determining fish caught with each bait. Will probably be a YAML key deeper with bait type, following [baited] key item.
       - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[value]> > <[number]>:
