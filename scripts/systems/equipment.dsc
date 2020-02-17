@@ -91,8 +91,8 @@ equipment_inventory_handler:
             - if !<[found]>:
               - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
                 - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]>:
-                  - inventory adjust slot:<context.slot> quantity:<player.open_inventory.slot[<context.slot>].quantity.-[1]>
-                  - inventory set d:<context.inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
+                  - inventory adjust slot:<context.slot> quantity:<player.inventory.slot[<context.slot>].quantity.-[1]>
+                  - inventory set d:<context.open_inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
                   - wait 1t
                   - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<[slot].split[/].get[1]>]>:<context.inventory.slot[<[slot].split[/].get[1]>]>
                   - define found:true
