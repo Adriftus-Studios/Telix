@@ -92,7 +92,7 @@ equipment_inventory_handler:
         - foreach <[slotmap]> as:slot:
           - if <[slot].matches[(\d\d/<context.item.script.yaml_key[category]>.)]>:
             - narrate <context.inventory.slot[<[slot].split[/].get[1]>]>
-            - if <context.inventory.slot[<[slot].split[/].get[1]>]||null> != null:
+            - if <context.inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
               - narrate 1
 
 invisible_placeholder:
