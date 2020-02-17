@@ -83,8 +83,11 @@ equipment_inventory_handler:
           - determine passively cancelled
           - define found:false
           - foreach <[slotmap]> as:slot:
+            - narrate 1
             - if !<[found]>:
+              - narrate 2
               - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
+                - narrate 3
                 - if <context.clicked_inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
                   - narrate "move shift clicked item to <[slot].split[/].get[1]>"
                   - inventory adjust slot:<context.slot> quantity:<context.clicked_inventory.slot[<context.slot>].quantity.-[1]>
