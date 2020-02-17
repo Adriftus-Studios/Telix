@@ -14,8 +14,8 @@ afgui_main:
     rod: <item[af_rod_basic]>
     merchantbutton: <item[af_merchant_button]>
   slots:
-  - "[] [] [] [] [merchantbutton] [] [] [] []"
-  - "[] [gut_station] [] [bait_shop] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [gut_station] [] [bait_shop] [] [merchantbutton] [] [] []"
   - "[gui_top] [] [] [] [] [] [] [] []"
   - "[gui_bottom] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [closeitem] [] [] [] []"

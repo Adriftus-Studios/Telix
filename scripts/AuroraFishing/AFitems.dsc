@@ -65,8 +65,10 @@ af_bait_honeycomb:
 
 af_merchant_button:
   type: item
-  material: emerald
+  material: snow
   display name: <&a>Merchant
+  mechanisms:
+    custom_model_data: 3
   lore:
   - "<&b>Sell your caught fish here!"
 
