@@ -92,7 +92,11 @@ equipment_inventory_handler:
                   - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<[slot].split[/].get[1]>]>:<context.inventory.slot[<[slot].split[/].get[1]>]>
                   - define found:true
         - else:
-          - determine passively cancelled
+          - if <[slotmap].map_get[<context.slot>]||null> == null:
+            - determine passively cancelled
+            - stop
+          - wait 1t
+          - yaml id:player.<player.uuid> set equipment.<context.item.script.yaml_key[category]>:<context.inventory.slot[<context.slot>]>
 
 invisible_placeholder:
   type: item
