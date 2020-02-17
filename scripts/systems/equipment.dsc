@@ -96,6 +96,8 @@ equipment_inventory_handler:
             - determine passively cancelled
             - stop
           - wait 1t
+          - narrate <context.inventory.slot[<context.slot>]>
+          - narrate <context.item.script.yaml_key[category]>
           - yaml id:player.<player.uuid> set equipment.<context.item.script.yaml_key[category]>:<context.inventory.slot[<context.slot>]>
 
 invisible_placeholder:
