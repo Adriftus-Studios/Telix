@@ -85,14 +85,18 @@ equipment_inventory_handler:
           - foreach <[slotmap]> as:slot:
             - if !<[found]>:
               - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
-                - narrate <context.inventory.slot[<[slot].split[/].get[1]>]>
-                - if <context.inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
-                  - narrate "move shift clicked item to <[slot].split[/].get[1]>"
+                - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]>:
                   - inventory adjust slot:<context.slot> quantity:<context.clicked_inventory.slot[<context.slot>].quantity.-[1]>
-                  - inventory set d:<context.inventory> o:<context.item.with["quantity=1"]> slot:<[slot].split[/].get[1]>
+                  - inventory set d:<context.inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
+                  - wait 1t
+                  - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<[slot].split[/].get[1]>]>:<context.inventory.slot[<[slot].split[/].get[1]>]>
                   - define found:true
         - else:
-          - determine passively cancelled
+          - if <[slotmap].map_get[<context.slot>]||null> == null:
+            - determine passively cancelled
+            - stop
+          - wait 1t
+          - yaml id:player.<player.uuid> set equipment.<context.item.script.yaml_key[category]>:<context.inventory.slot[<context.slot>]>
 
 invisible_placeholder:
   type: item
