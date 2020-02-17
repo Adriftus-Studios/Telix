@@ -59,14 +59,12 @@ equipment_inventory_handler:
   debug: false
   events:
     on player drags item in equipment_character:
-      - if <context.clicked_inventory.script_name> == "equipment_character":
+      - if <player.open_inventory.script_name> == "equipment_character":
         - determine passively cancelled
     on player clicks item in equipment_character with item:
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
-      - narrate <context.clicked_inventory>
-      - narrate <player.open_inventory>
       - if !<context.is_shift_click>:
-        - if <context.clicked_inventory.script_name> != "equipment_character":
+        - if <player.open_inventory.script_name> != "equipment_character":
           - stop
         - if <[slotmap].map_get[<context.slot>]||null> == null:
           - determine passively cancelled
@@ -79,16 +77,16 @@ equipment_inventory_handler:
             - determine passively cancelled
             - stop
         - wait 1t
-        - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
+        - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
       - else:
-        - if <context.clicked_inventory.script_name> != "equipment_character":
+        - if <player.open_inventory.script_name> != "equipment_character":
           - determine passively cancelled
           - define found:false
           - foreach <[slotmap]> as:slot:
             - if !<[found]>:
               - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
                 - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]>:
-                  - inventory adjust slot:<context.slot> quantity:<context.clicked_inventory.slot[<context.slot>].quantity.-[1]>
+                  - inventory adjust slot:<context.slot> quantity:<player.open_inventory.slot[<context.slot>].quantity.-[1]>
                   - inventory set d:<context.inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
                   - wait 1t
                   - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<[slot].split[/].get[1]>]>:<context.inventory.slot[<[slot].split[/].get[1]>]>
