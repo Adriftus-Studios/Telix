@@ -68,8 +68,10 @@ fishing_inventory_listener:
         - inventory adjust slot:<context.slot> d:<context.clicked_inventory> "lore:<context.item.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
         - adjust <player> item_on_cursor:<context.item.nbt[baited]>
         - inventory adjust slot:<context.slot> d:<context.clicked_inventory> remove_nbt:baited
+      - else if <context.item.has_nbt[baited]>:
+        - narrate "<&c>You can only remove bait with an empty hand!"
       - else:
-        - narrate "<&c>This rod does not have any bait attached!"
+        - narrate "<&c>This rod does not have any bait attached."
 ### Debug Message - Disable after testing
     #on player fishes:
     #  - narrate "state<&co> <context.state>"
