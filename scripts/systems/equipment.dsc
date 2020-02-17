@@ -79,6 +79,7 @@ equipment_inventory_handler:
         - wait 1t
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
       - else:
+        - determine <item[rare_ring]>
         - define found:false
         - foreach <[slotmap]> as:slot:
           - if !<[found]>:
