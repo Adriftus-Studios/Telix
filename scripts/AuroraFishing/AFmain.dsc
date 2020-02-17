@@ -31,11 +31,13 @@ fishing_inventory_listener:
     
     # Bait Shop Listen
     on player left clicks af_bait_* in afgui_bait_shop:
-      - give <context.item>
-      - narrate "<&6>You have just purchased <&a>1 <context.item.display><&6>."
+      - if <context.clicked_inventory.script_name> == "afgui_bait_shop":
+        - give <context.item>
+        - narrate "<&6>You have just purchased <&a>1 <context.item.display><&6>."
     on player right clicks af_bait_* in afgui_bait_shop:
-      - give <context.item> quantity:8
-      - narrate "<&6>You have just purchased <&a>8 <context.item.display><&6>."
+      - if <context.clicked_inventory.script_name> == "afgui_bait_shop":
+        - give <context.item> quantity:8
+        - narrate "<&6>You have just purchased <&a>8 <context.item.display><&6>."
 
 
     on player right clicks with af_rod_*:

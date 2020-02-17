@@ -32,7 +32,7 @@ afgui_bait_shop:
     bait_chum: <item[af_bait_chum]>
     bait_honeycomb: <item[af_bait_honeycomb]>
   slots:
-  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [shop_info] [] [] [] []"
   - "[] [bait_chum] [bait_honeycomb] [] [] [] [] [] []"
   - "[gui_top] [] [] [] [] [] [] [] []"
   - "[gui_bottom] [] [] [] [] [] [] [] []"
