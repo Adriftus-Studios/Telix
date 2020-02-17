@@ -73,7 +73,7 @@ equipment_inventory_handler:
           - stop
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
       - else:
-        - if <context.cursor_item||null> == null:
+        - if <context.cursor_item||null> != null:
           - narrate 3
         - else:
           - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
