@@ -97,6 +97,14 @@ af_gutting_station_button:
   lore:
   - "<&b>Gut and prepare your catch for market"
 
+af_fish_token:
+  type: item
+  material: paper
+  display name: <&a>Fishing Token
+  lore:
+  - "<&b>General admission ticket to the"
+  - "<&b>monthly fishing event!"
+
 ### Info Icons ###
 af_bait_shop_info:
   type: item

@@ -47,6 +47,12 @@ fishing_inventory_listener:
         - give <context.item>
         - narrate "<&6>You have just purchased a <&a><context.item.display><&6>."
 
+### Debug Message - Disable after testing
+    on player fishes:
+      - narrate "state<&co> <context.state>"
+      - narrate "biome<&co> <context.hook.location.biome.name>"
+      - narrate "material<&co> <context.hook.location.material.name>"
+############################################################################################
 
     on player right clicks with af_rod_*:
       - if <player.is_sneaking>:
@@ -83,38 +89,40 @@ fishing_inventory_listener:
         - narrate "<&c>You can only remove bait with an empty hand!"
       - else:
         - narrate "<&c>This rod does not have any bait attached."
-### Debug Message - Disable after testing
-    on player fishes:
-      - narrate "state<&co> <context.state>"
-      - narrate "biome<&co> <context.hook.location.biome.name>"
-      - narrate "material<&co> <context.hook.location.material.name>"
-############################################################################################
     on player fishes while bite:
-      - playeffect happy_villager <context.hook.location> targets:<player> quantity:60
+      - playeffect bubble_column_up <context.hook.location> targets:<player> quantity:60
       - narrate "<&6>HOOKED!"
-#This is the full system for catching fish. All the fish magic happens here.
+
     on player fishes while caught_fish:
       - define number <util.random.int[1].to[100]>
       - define weight_lblow <util.random.int[0].to[50]>
       - define weight_lbmid <util.random.int[50].to[100]>
       - define weight_lbhigh <util.random.int[100].to[500]>
       - define weight_oz <util.random.int[0].to[15]>
-
-#Need a system for spawning crabs
+# Need a better system for spawning crabs
 #      - if <util.random.int[1].to[100]> <= 30:
 #        - narrate "<&6>You snagged a crab!"
 #        - spawn af_entity_crab <context.hook.location>
-      - if <util.random.int[1].to[100]> <= 70:
-        - narrate "<&6>You caught a <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
-      - else if <util.random.int[1].to[100]> <= 20:
-        - narrate "<&6>You caught a <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
-      - else:
+     #Rolls here
+      - if <[number]> <= 20:
+        - firework <player.location> star primary:yellow fade:white
+        - give af_fish_token
+        - narrate "<&6>You have recieved a shiney new <&a>Fish Token<&6>!"
         - narrate "<&6>You caught a <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
+      - else if <[number]> <= 50:
+        - narrate "<&6>You caught a <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
+      - else if <[number]> <= 99:
+        - narrate "<&6>You caught a <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
+      - else:
+        - firework <player.location> star primary:yellow fade:white
+        - give af_fish_token
+        - narrate "<&6>You have recieved a shiney new <&a>Fish Token<&6>!"
 
-#need a system for determining fish caught with each bait. Will probably be a YAML key deeper with bait type, following [baited] key item.
+# Need a system for determining fish caught with each bait. Will probably be a YAML key deeper with bait type, following [baited] key item.
       - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[value]> > <[number]>:
           - determine passively caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random.as_item||<yaml[fish_info].read[general.fallback.<[value]>].random.as_item>>
       - wait 1t
-      - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
-      - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
+      - if <[number]> <= 30:
+        - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
+        - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
