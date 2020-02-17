@@ -76,6 +76,7 @@ equipment_inventory_handler:
           - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
             - determine passively cancelled
             - stop
+        - wait 1t
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
       - else:
         - if <context.clicked_inventory.script_name> != "equipment_character":
@@ -87,6 +88,8 @@ equipment_inventory_handler:
                 - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]>:
                   - inventory adjust slot:<context.slot> quantity:<context.clicked_inventory.slot[<context.slot>].quantity.-[1]>
                   - inventory set d:<context.inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
+                  - wait 1t
+                  - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<[slot].split[/].get[1]>]>:<context.inventory.slot[<[slot].split[/].get[1]>]>
                   - define found:true
         - else:
           - determine passively cancelled
