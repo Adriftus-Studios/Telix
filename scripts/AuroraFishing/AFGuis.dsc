@@ -27,9 +27,11 @@ afgui_bait_shop:
   definitions:
     wfiller: <item[w_filler]>
     closeitem: <item[gui_close_btn]>
+    bait_chum: <item[af_bait_chum]>
+    bait_honeycomb: <item[af_bait_honeycomb]>
   slots:
   - "[wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller]"
-  - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
+  - "[wfiller] [bait_chum] [bait_honeycomb] [] [] [] [] [] [wfiller]"
   - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
   - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
   - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
