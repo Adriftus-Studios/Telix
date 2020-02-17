@@ -5,7 +5,7 @@ ability_quicksand:
   ability_type: active
   points_to_unlock: 10
   power_cost: 10
-  description: turn the ground around you into soul sand for other players.
+  description: Turn the ground around you into soul sand.
   icon:
     material: iron_nugget
     custom_model_data: 13

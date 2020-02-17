@@ -5,7 +5,7 @@ ability_fire_arrows:
   ability_type: active
   points_to_unlock: 10
   power_cost: 10
-  description: For the next 15 second your arrows are fire arrows.
+  description: Your arrows light themselves for the next 15 seconds.
   icon:
     material: iron_nugget
     custom_model_data: 10
