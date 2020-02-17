@@ -68,20 +68,21 @@ equipment_inventory_handler:
         - if <player.open_inventory.script_name> != "equipment_character":
           - stop
         - narrate 1
-        - if <[slotmap].map_get[<context.slot>]||null> == null:
-          - determine passively cancelled
-          - stop
-        - narrate 2
-        - if <context.cursor_item.material.name> != air:
-          - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
+        - if <context.raw_slot> < 55:
+          - if <[slotmap].map_get[<context.slot>]||null> == null:
             - determine passively cancelled
             - stop
-          - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
-            - determine passively cancelled
-            - stop
-        - narrate 3
-        - wait 1t
-        - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
+          - narrate 2
+          - if <context.cursor_item.material.name> != air:
+            - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
+              - determine passively cancelled
+              - stop
+            - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
+              - determine passively cancelled
+              - stop
+          - narrate 3
+          - wait 1t
+          - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
       - else:
         - if <player.open_inventory.script_name> != "equipment_character":
           - determine passively cancelled
