@@ -70,6 +70,22 @@ af_merchant_button:
   lore:
   - "<&b>Sell your caught fish here!"
 
+af_bait_shop_button:
+  type: item
+  material: cod
+  display name: <&a>Bait Shop
+  mechanisms:
+    custom_model_data: 0
+  lore:
+  - "<&b>Purchase fresh bait!"
+
+af_gutting_station_button:
+  type: item
+  material: minecart
+  display name: <&a>Gutting Station
+  lore:
+  - "<&b>Gut and prepare your catch for market"
+
 
 ### Fish being Caught ###
 
