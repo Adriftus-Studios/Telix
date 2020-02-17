@@ -1,8 +1,15 @@
 
 ### All bait will be formatted as 'af_bait_<name>' ###
 ### All rods will be formatted as 'af_rod_<name>' ###
+### All Fish will be formatted as 'af_fish_<name>' ###
+
+
 
 ### RODS ###
+# Need to add more rods. This is supposed to be a fully immersive mini game type system, where players will have to fish for a long time
+# to unlock everything, and get the best rods. Fishing pays off, but only with the best bait, and best rods.
+#  With that beign said, they will not be paid insanely more. Only a fraction added to the top tiers. This will ensure that just because you're
+#  new, you won't be left extremely far behind, with no hope of catching up.
 
 af_rod_basic:
   type: item
@@ -20,7 +27,7 @@ af_rod_basic:
   - "<&b>Slot: []"
   - "<&b>Slot: []"
   - "<&b>Slot: []"
-  - "<&6><&l><&m>-------------<&r><&6>     Bait      <&l><&m>-------------"
+  - "<&6><&l><&m>--------------<&r><&6>     Bait      <&l><&m>--------------"
   - "<&b>Right click to remove the bait"
   - "<&6>Baited with: <&7>Nothing"
 
