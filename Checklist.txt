@@ -36,10 +36,17 @@ Cosmetics
 Leveling
 Professions
     Fishing
-    Woodworking
+    Breeder
+    Lumberjack
+    Carpenter
     Alchemy
+    Herbalism
+    Enchanter
+    Farmer
     Mining
     Hunting
+#Future: Runecraft ("I have a very, very big plan for this. And our runecrafting will be very unique" - Xeane)
+    
 Alchemy
     Resource Gathering - Gathering more resources from the resources around you
     Brewing - Reduces resource usage and increases production speed
