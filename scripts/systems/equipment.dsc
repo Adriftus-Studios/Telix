@@ -58,26 +58,28 @@ equipment_inventory_handler:
   type: world
   debug: false
   events:
+    on player drags item in equipment_character:
+      - determine passively cancelled
     on player clicks item in equipment_character with item:
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
-      - if <context.clicked_inventory.script_name> != "equipment_character":
+      - if !<context.is_shift_click>:
+        - if <context.clicked_inventory.script_name> != "equipment_character":
         - stop
-      - narrate a
-      - if <[slotmap].map_get[<context.slot>]||null> == null:
-        - determine passively cancelled
-        - stop
-      - narrate b
-      - if <context.cursor_item> != <item[air]>:
-        - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
+        - if <[slotmap].map_get[<context.slot>]||null> == null:
           - determine passively cancelled
           - stop
-        - narrate c
-        - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
-          - determine passively cancelled
-          - stop
-        - narrate d
-      - wait 1t
-      - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
+        - if <context.cursor_item> != <item[air]>:
+          - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
+            - determine passively cancelled
+            - stop
+          - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
+            - determine passively cancelled
+            - stop
+        - wait 1t
+        - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
+      - else:
+        - narrate <context.item>
+        - narrate <context.cursor_item>
 
 invisible_placeholder:
   type: item
