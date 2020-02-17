@@ -59,6 +59,9 @@ equipment_inventory_handler:
   debug: false
   events:
     on player clicks item in equipment_character with item:
+      - if <context.item.script.name == "gui_invisible_item">:
+        - determine passively cancelled
+        - stop
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
       - if <context.cursor_item.script.yaml_key[category]||null> != null:
         - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
