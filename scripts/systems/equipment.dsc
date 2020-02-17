@@ -87,7 +87,7 @@ equipment_inventory_handler:
                 - if <context.clicked_inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
                   - wait 1t
                   - narrate "move shift clicked item to <[slot].split[/].get[1]>"
-                  - inventory adjust slot:<context.slot> quantity:<context.item.quantity.-1>
+                  - inventory adjust slot:<context.slot> quantity:<context.item.quantity.-.1>
                   - define found:true
           - determine passively cancelled
         - else:
