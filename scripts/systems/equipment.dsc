@@ -83,7 +83,8 @@ equipment_inventory_handler:
         - adjust <context.item> quantity:0
         - foreach <[slotmap]> as:slot:
           - narrate <context.item.script.yaml_key[category]><&sp><[slot].matches[(/<context.item.script.yaml_key[category]>)]><&sp><[slot]>
-          - if <[slot].matches[(\d\d/<context.item.script.yaml_key[category]>)]>:
+          - narrate <[slot].contains[/<context.item.script.yaml_key[category]>]>
+          - if <[slot].matches[(/<context.item.script.yaml_key[category]>)]>:
             - narrate <context.clicked_inventory.slot[<[slot].split[/].get[1]>]>
             - if <context.clicked_inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
               - narrate "can fit in <[slot].split[/].get[1]>"
