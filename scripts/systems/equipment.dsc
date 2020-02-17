@@ -56,7 +56,7 @@ equipment_boots_slot:
 
 equipment_inventory_handler:
   type: world
-  debug: true
+  debug: false
   events:
     on player drags item in equipment_character:
       - if <context.clicked_inventory.script_name> == "equipment_character":
@@ -79,16 +79,17 @@ equipment_inventory_handler:
         - wait 1t
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
       - else:
-        - determine <item[rare_ring]>
-        - define found:false
-        - foreach <[slotmap]> as:slot:
+        - if <context.clicked_inventory.script_name> != "equipment_character":
+          - define found:false
+          - foreach <[slotmap]> as:slot:
+            - if !<[found]>:
+              - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
+                - if <context.clicked_inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
+                  - wait 1t
+                  - narrate "move shift clicked item to <[slot].split[/].get[1]>"
+                  - define found:true
           - if !<[found]>:
-            - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
-              - if <context.clicked_inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
-                - narrate "move shift clicked item to <[slot].split[/].get[1]>"
-                - define found:true
-        - if !<[found]>:
-          - determine passively cancelled
+            - determine passively cancelled
 
 invisible_placeholder:
   type: item
