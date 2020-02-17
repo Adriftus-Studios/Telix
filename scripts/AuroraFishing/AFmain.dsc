@@ -53,7 +53,7 @@ fishing_inventory_listener:
       - if !<context.item.has_nbt[baited]>:
         - inventory adjust slot:<context.slot> d:<context.clicked_inventory> "lore:<context.item.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <context.cursor_item.display>]>"
         - wait 1t
-        - adjust <player> item_on_cursor:air
+        - adjust <player> item_on_cursor:<player.item_on_cursor.with[quantity=<player.item_on_cursor.quantity.-[1]>]>
         - inventory adjust slot:<context.slot> d:<context.clicked_inventory> nbt:baited/<context.cursor_item.scriptname>
         - narrate "<&6>Baited with<&co> <context.cursor_item.display>"
       - else:
