@@ -85,11 +85,11 @@ equipment_inventory_handler:
           - foreach <[slotmap]> as:slot:
             - if !<[found]>:
               - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
-                - narrate <context.clicked_inventory.slot[<[slot].split[/].get[1]>]>
-                - if <context.clicked_inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
+                - narrate <context.inventory.slot[<[slot].split[/].get[1]>]>
+                - if <context.inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
                   - narrate "move shift clicked item to <[slot].split[/].get[1]>"
                   - inventory adjust slot:<context.slot> quantity:<context.clicked_inventory.slot[<context.slot>].quantity.-[1]>
-                  - inventory set d:<context.inventory> o:<context.item.with["quantity=1"]> slot:<context.slot>
+                  - inventory set d:<context.inventory> o:<context.item.with["quantity=1"]> slot:<[slot].split[/].get[1]>
                   - define found:true
         - else:
           - determine passively cancelled
