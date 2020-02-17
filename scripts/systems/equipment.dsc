@@ -79,16 +79,7 @@ equipment_inventory_handler:
         - wait 1t
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
       - else:
-        - determine <item[air]>
-        - foreach <[slotmap]> as:slot:
-          - if <[slot].matches[(\d\d/<context.item.script.yaml_key[category]>.)]>:
-            - narrate <[slot].split[/].get[1]>
-            
-            
-    on player clicks item in equipment_character with item:
-      - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
-      - define found:false
-      - if <context.is_shift_click>:
+        - define found:false
         - foreach <[slotmap]> as:slot:
           - if <[slot].matches[(\d\d/<context.item.script.yaml_key[category]>.)]>:
             - narrate <context.inventory.slot[<[slot].split[/].get[1]>]>
