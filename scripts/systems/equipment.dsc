@@ -74,7 +74,10 @@ equipment_inventory_handler:
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
         - stop
       - else:
-        - narrate 3
+        - if <yaml[player.<player.uuid>].read[equipment.<[slotmap].map_get[<context.slot>]>]||null> != null:
+          - narrate 3
+        - else:
+          - narrate 4
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:!
         - stop
 
