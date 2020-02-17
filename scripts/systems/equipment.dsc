@@ -60,7 +60,7 @@ equipment_inventory_handler:
   events:
     on player clicks item in equipment_character with item:
     - if <context.clicked_inventory.script_name> == "equipment_character":
-      - if <context.item.script.name> == "gui_invisible_item":
+      - if <context.item.script.name> != "invisible_placeholder":
         - determine passively cancelled
         - stop
       - if <context.item> == <item[invisible_placeholder]>:
