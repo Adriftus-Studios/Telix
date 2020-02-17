@@ -24,10 +24,22 @@ fishing_inventory_listener:
       - determine cancelled
     on player clicks back_item in afgui_*:
       - inventory open d:<inventory[afgui_main]>
-    on player clicks guiclose in afgui_*:
+    on player clicks af_bait_shop_button in afgui_*:
+      - inventory open d:<inventory[afgui_bait_shop]>
+    on player clicks gui_close_btn in afgui_*:
       - inventory close
     
-    
+    # Bait Shop Listen
+    on player left clicks af_bait_* in afgui_bait_shop:
+      - if <context.clicked_inventory.script_name> == "afgui_bait_shop":
+        - give <context.item>
+        - narrate "<&6>You have just purchased <&a>1 <context.item.display><&6>."
+    on player right clicks af_bait_* in afgui_bait_shop:
+      - if <context.clicked_inventory.script_name> == "afgui_bait_shop":
+        - give <context.item> quantity:8
+        - narrate "<&6>You have just purchased <&a>8 <context.item.display><&6>."
+
+
     on player right clicks with af_rod_*:
       - if <player.is_sneaking>:
         - determine passively cancelled
@@ -41,7 +53,7 @@ fishing_inventory_listener:
       - if !<context.item.has_nbt[baited]>:
         - inventory adjust slot:<context.slot> d:<context.clicked_inventory> "lore:<context.item.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <context.cursor_item.display>]>"
         - wait 1t
-        - adjust <player> item_on_cursor:air
+        - adjust <player> item_on_cursor:<player.item_on_cursor.with[quantity=<player.item_on_cursor.quantity.-[1]>]>
         - inventory adjust slot:<context.slot> d:<context.clicked_inventory> nbt:baited/<context.cursor_item.scriptname>
         - narrate "<&6>Baited with<&co> <context.cursor_item.display>"
       - else:

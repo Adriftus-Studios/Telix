@@ -65,10 +65,37 @@ af_bait_honeycomb:
 
 af_merchant_button:
   type: item
-  material: emerald
+  material: iron_nugget
   display name: <&a>Merchant
+  mechanisms:
+    custom_model_data: 34
   lore:
   - "<&b>Sell your caught fish here!"
+
+af_bait_shop_button:
+  type: item
+  material: cod
+  display name: <&a>Bait Shop
+  mechanisms:
+    custom_model_data: 0
+  lore:
+  - "<&b>Purchase fresh bait!"
+af_bait_shop_info:
+  type: item
+  material: cod
+  display name: <&a>Bait Shop Info
+  mechanisms:
+    custom_model_data: 0
+  lore:
+  - "<&b>Left Click - Purchase 1 Bait"
+  - "<&b>Right Click - Purchase 8 Bait"
+
+af_gutting_station_button:
+  type: item
+  material: minecart
+  display name: <&a>Gutting Station
+  lore:
+  - "<&b>Gut and prepare your catch for market"
 
 
 ### Fish being Caught ###
