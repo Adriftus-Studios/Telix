@@ -84,10 +84,10 @@ fishing_inventory_listener:
       - else:
         - narrate "<&c>This rod does not have any bait attached."
 ### Debug Message - Disable after testing
-    #on player fishes:
-    #  - narrate "state<&co> <context.state>"
-    #  - narrate "biome<&co> <context.hook.location.biome.name>"
-    #  - narrate "material<&co> <context.hook.location.material.name>"
+    on player fishes:
+      - narrate "state<&co> <context.state>"
+      - narrate "biome<&co> <context.hook.location.biome.name>"
+      - narrate "material<&co> <context.hook.location.material.name>"
 ############################################################################################
     on player fishes while bite:
       - playeffect happy_villager <context.hook.location> targets:<player> quantity:60
