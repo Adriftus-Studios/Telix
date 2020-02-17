@@ -61,7 +61,7 @@ fishing_inventory_listener:
     
     on player right clicks af_rod_* in inventory:
       - determine passively cancelled
-      - if <context.item.has_nbt[baited]> && <context.player.item_on_cursor> == i@air:
+      - if <context.item.has_nbt[baited]> && <player.item_on_cursor.material.name> == i@air:
         - narrate "<&6>You have removed the <&a><context.item.nbt[baited].as_script.yaml_key[display<&sp>name].parsed><&r> <&6>from your <&a><context.item.display>."
         - inventory adjust slot:<context.slot> d:<context.clicked_inventory> "lore:<context.item.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
         - adjust <player> item_on_cursor:<context.item.nbt[baited]>
