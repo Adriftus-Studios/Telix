@@ -16,12 +16,16 @@ af_rod_basic:
   material: fishing_rod
   display name: <&7>Basic Rod
   rod_rarity: common
+  weight: 5
   mechanisms:
   # starting at 1
     custom_model_data: 1
   lore:
   - "<&6><&l><&m>-------------<&r><&6>  Fishing Rod  <&l><&m>-------------"
   - "<&b>Basic rod for catching basic fish."
+  - "<&6>"
+  - "<&6>Weight<&b><&co><&6> <script.yaml_key[weight]>"
+  - "<&6>Rarity<&b><&co><&6> <script.yaml_key[rod_rarity].to_titlecase>"
   - "<&6>"
   - "<&6><&l><&m>-------------<&r><&6>   Upgrades    <&l><&m>-------------"
   - "<&b>Slot: []"
