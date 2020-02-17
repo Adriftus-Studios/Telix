@@ -4,7 +4,7 @@
 afgui_main:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Fishing Menu<&r> <&6>◆
-  size: 54
+  size: 45
   definitions:
     gui_top: <item[fish_main_top]>
     gui_bottom: <item[fish_main_bottom]>
