@@ -16,7 +16,6 @@ afgui_main:
   slots:
   - "[] [] [] [] [merchantbutton] [] [] [] []"
   - "[] [gut_station] [] [bait_shop] [] [] [] [] []"
-  - "[] [] [] [] [] [] [] [] []"
   - "[gui_top] [] [] [] [] [] [] [] []"
   - "[gui_bottom] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [closeitem] [] [] [] []"
