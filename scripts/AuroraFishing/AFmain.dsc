@@ -99,9 +99,6 @@ fishing_inventory_listener:
       - define weight_lbmid <util.random.int[50].to[100]>
       - define weight_lbhigh <util.random.int[100].to[500]>
       - define weight_oz <util.random.int[0].to[15]>
-      
-      - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
-      - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
 
 #Need a system for spawning crabs
 #      - if <util.random.int[1].to[100]> <= 30:
@@ -119,4 +116,5 @@ fishing_inventory_listener:
         - if <[value]> > <[number]>:
           - determine passively caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random.as_item||<yaml[fish_info].read[general.fallback.<[value]>].random.as_item>>
       - wait 1t
-      - inventory update
+      - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
+      - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
