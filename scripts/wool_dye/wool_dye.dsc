@@ -3,4 +3,4 @@ wool_click_handler:
   events:
     on player right clicks *_wool with *_dye:
     - narrate "Context Item: <context.item>"
-    - narrate "Context Block: <context.block>"
+    - narrate "Context Block: <context.location.material.name>"
