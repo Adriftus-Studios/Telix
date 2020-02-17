@@ -65,10 +65,10 @@ af_bait_honeycomb:
 
 af_merchant_button:
   type: item
-  material: snow_layer
+  material: iron_nugget
   display name: <&a>Merchant
   mechanisms:
-    custom_model_data: 3
+    custom_model_data: 34
   lore:
   - "<&b>Sell your caught fish here!"
 
