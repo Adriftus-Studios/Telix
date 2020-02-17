@@ -69,7 +69,7 @@ equipment_inventory_handler:
         - if <[slotmap].map_get[<context.slot>]||null> == null:
           - determine passively cancelled
           - stop
-        - if <context.cursor_item> != <item[air]>:
+        - if <context.cursor_item.material.name> != air:
           - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
             - determine passively cancelled
             - stop
