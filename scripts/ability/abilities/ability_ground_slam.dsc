@@ -13,7 +13,7 @@ ability_ground_slam:
     #/ex teleport <[value]> <[value].location.with_pitch[0]>
     #/ex shoot <player> speed:-2.0 height:2.5
     - inject abilities_check
-    - flag player no_jump:true duration:5s
+    - flag player no_jump:true duration:3s
     - adjust <player> velocity:0,1,0
     - wait 15t
     - teleport <player> <player.location.with_pitch[75]>
