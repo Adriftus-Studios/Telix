@@ -83,7 +83,7 @@ af_bait_shop_button:
 
 af_rod_shop_button:
   type: item
-  material: cod
+  material: fishing_rod
   display name: <&a>Rod Shop
   mechanisms:
     custom_model_data: 0
