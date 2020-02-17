@@ -57,7 +57,7 @@ fishing_inventory_listener:
         - inventory adjust slot:<context.slot> d:<context.clicked_inventory> nbt:baited/<context.cursor_item.scriptname>
         - narrate "<&6>Baited with<&co> <context.cursor_item.display>"
       - else:
-        - narrate "<&c>You can't remove any bait from this rod"
+        - narrate "<&c>You can't place any bait on this rod"
     
     on player right clicks af_rod_* in inventory:
       - determine passively cancelled
