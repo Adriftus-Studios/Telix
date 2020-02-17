@@ -24,6 +24,8 @@ fishing_inventory_listener:
       - determine cancelled
     on player clicks back_item in afgui_*:
       - inventory open d:<inventory[afgui_main]>
+    on player clicks af_gutting_station_button in afgui_*:
+      - inventory open d:<inventory[afgui_bait_shop]>
     on player clicks gui_close_btn in afgui_*:
       - inventory close
     
