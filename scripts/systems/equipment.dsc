@@ -62,32 +62,21 @@ equipment_inventory_handler:
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
       - if <context.clicked_inventory.script_name> != "equipment_character":
         - stop
+      - narrate a
       - if <[slotmap].map_get[<context.slot>]||null> == null:
         - determine passively cancelled
         - stop
+      - narrate b
       - if !<context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
         - determine passively cancelled
         - stop
+      - narrate c
       - if !<[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
         - determine passively cancelled
         - stop
-      - narrate a
-      - if <context.item> == <item[air]>:
-        - narrate 1
-        - if !<[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
-          - narrate 2
-          - determine passively cancelled
-          - stop
-        - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
-      - else:
-        - if <context.cursor_item||null> != null:
-          - narrate 3a
-          - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
-            - narrate 3b
-            - wait 1t
-            - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
-        - else:
-          - narrate 4
+      - narrate d
+      - wait 1t
+      - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
 
 invisible_placeholder:
   type: item
