@@ -80,6 +80,7 @@ equipment_inventory_handler:
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
       - else:
         - define found:false
+        - adjust <context.item> quantity:0
         - foreach <[slotmap]> as:slot:
           - narrate <context.item.script.yaml_key[category]><&sp><[slot].matches[(/<context.item.script.yaml_key[category]>)]><&sp><[slot]>
           - if <[slot].matches[(\d\d/<context.item.script.yaml_key[category]>)]>:
