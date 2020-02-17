@@ -12,10 +12,10 @@ general:
       #fish_keys
       - "af_fish_1"
     60:
-      - "thing2"
+      - "af_fish_1"
     30:
-      - adsf
+      - "af_fish_1"
     10:
-      - adsf
+      - "af_fish_1"
     1:
-      - adsf
+      - "af_fish_1"
