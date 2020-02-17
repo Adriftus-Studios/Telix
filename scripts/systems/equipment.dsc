@@ -65,7 +65,10 @@ equipment_inventory_handler:
       - if <[slotmap].map_get[<context.slot>]||null> == null:
         - determine passively cancelled
         - stop
-      - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
+      - if <context.item> == <item[air]>:
+        - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
+          - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
+      - else:
         - wait 1t
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
 
