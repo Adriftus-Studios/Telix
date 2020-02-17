@@ -84,7 +84,7 @@ equipment_inventory_handler:
           - wait 1t
           - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
       - else:
-        - if <player.open_inventory.script_name> != "equipment_character":
+        - if <context.raw_slot> > 54:
           - determine passively cancelled
           - define found:false
           - foreach <[slotmap]> as:slot:
