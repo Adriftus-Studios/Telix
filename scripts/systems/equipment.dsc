@@ -67,7 +67,7 @@ equipment_inventory_handler:
         - determine passively cancelled
         - stop
       - narrate b
-      - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
+      - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
         - determine passively cancelled
         - stop
       - narrate c
