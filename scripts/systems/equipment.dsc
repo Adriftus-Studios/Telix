@@ -44,7 +44,9 @@ equipment_leg_slot:
 
 equipment_boots_slot:
   type: item
-  material: snow
+  material: iron_nugget
+  mechanisms:
+    custom_model_data: -1
   GUI_Inventory: abilities_characterAbilityTrees
   display name: <&c>Skills/Abilities
   drops_on_death: false
