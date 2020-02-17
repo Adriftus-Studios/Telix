@@ -56,7 +56,7 @@ equipment_boots_slot:
 
 equipment_inventory_handler:
   type: world
-  debug: false
+  debug: true
   events:
     on player drags item in equipment_character:
       - determine passively cancelled
@@ -81,7 +81,7 @@ equipment_inventory_handler:
         - define found:false
         - narrate <context.clicked_inventory>
         - narrate <context.inventory>
-        - determine ItemTag <item[air]>
+        - determine <item[air]>
         - foreach <[slotmap]> as:slot:
           - if <[slot].matches[(\d\d/<context.item.script.yaml_key[category]>.)]>:
             - narrate <[slot].split[/].get[1]>
