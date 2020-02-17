@@ -71,7 +71,7 @@ equipment_inventory_handler:
         - determine passively cancelled
         - stop
       - narrate c
-      - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
+      - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
         - determine passively cancelled
         - stop
       - narrate d
