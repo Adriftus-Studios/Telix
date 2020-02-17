@@ -15,7 +15,7 @@ af_rod_basic:
   type: item
   material: fishing_rod
   display name: <&7>Basic Rod
-  rod_rarity: common
+  rod_rarity: <&7>common
   weight: 5
   mechanisms:
   # starting at 1
@@ -24,7 +24,7 @@ af_rod_basic:
   - "<&6><&l><&m>-------------<&r><&6>  Fishing Rod  <&l><&m>-------------"
   - "<&b>Basic rod for catching basic fish."
   - "<&6>"
-  - "<&6>Rarity<&b><&co><&6> <script.yaml_key[rod_rarity].to_titlecase>"
+  - "<&6>Rarity<&b><&co><&6> <script.yaml_key[rod_rarity].to_titlecase.parsed>"
   - "<&6>"
   - "<&6><&l><&m>-------------<&r><&6>   Upgrades    <&l><&m>-------------"
   - "<&b>Slot: []"
