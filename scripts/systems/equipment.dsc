@@ -29,7 +29,7 @@ equipment_leg_slot:
   display name: <&c>Stats
   GUI_Inventory: stats_character
   mechanisms:
-    custom_model_data: 0
+    custom_model_data: -2
   drops_on_death: false
   weight: 0
   lore:
