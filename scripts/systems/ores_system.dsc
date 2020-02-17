@@ -13,7 +13,7 @@ ore_rates:
     all:
         50:
             - "custom_iron_ore"
-    swamp:
+    plains:
         25:
             - "custom_coal_ore"
 
