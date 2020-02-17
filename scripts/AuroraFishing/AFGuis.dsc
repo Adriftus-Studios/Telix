@@ -23,17 +23,16 @@ afgui_main:
 afgui_bait_shop:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Bait Shop<&r> <&6>◆
-  size: 54
+  size: 45
   definitions:
     wfiller: <item[w_filler]>
     closeitem: <item[gui_close_btn]>
     bait_chum: <item[af_bait_chum]>
     bait_honeycomb: <item[af_bait_honeycomb]>
   slots:
-  - "[wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller] [wfiller]"
+  - "[] [] [] [] [] [] [] [] []"
   - "[wfiller] [bait_chum] [bait_honeycomb] [] [] [] [] [] [wfiller]"
-  - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
-  - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
-  - "[wfiller] [] [] [] [] [] [] [] [wfiller]"
-  - "[wfiller] [wfiller] [wfiller] [wfiller] [closeitem] [wfiller] [wfiller] [wfiller] [wfiller]"
+  - "[gui_top] [] [] [] [] [] [] [] []"
+  - "[gui_bottom] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [closeitem] [] [] [] []"
 
