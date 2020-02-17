@@ -80,6 +80,24 @@ af_bait_shop_button:
     custom_model_data: 0
   lore:
   - "<&b>Purchase fresh bait!"
+
+af_rod_shop_button:
+  type: item
+  material: cod
+  display name: <&a>Rod Shop
+  mechanisms:
+    custom_model_data: 0
+  lore:
+  - "<&b>Purchase a brand new rod!"
+
+af_gutting_station_button:
+  type: item
+  material: minecart
+  display name: <&a>Gutting Station
+  lore:
+  - "<&b>Gut and prepare your catch for market"
+
+### Info Icons ###
 af_bait_shop_info:
   type: item
   material: cod
@@ -90,12 +108,14 @@ af_bait_shop_info:
   - "<&b>Left Click - Purchase 1 Bait"
   - "<&b>Right Click - Purchase 8 Bait"
 
-af_gutting_station_button:
+af_rod_shop_info:
   type: item
-  material: minecart
-  display name: <&a>Gutting Station
+  material: fishing_rod
+  display name: <&a>Rod Shop Info
+  mechanisms:
+    custom_model_data: 0
   lore:
-  - "<&b>Gut and prepare your catch for market"
+  - "<&b>Left Click - Purchase fishing rod"
 
 
 ### Fish being Caught ###

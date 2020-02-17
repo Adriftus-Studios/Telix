@@ -26,6 +26,8 @@ fishing_inventory_listener:
       - inventory open d:<inventory[afgui_main]>
     on player clicks af_bait_shop_button in afgui_*:
       - inventory open d:<inventory[afgui_bait_shop]>
+    on player clicks af_rod_shop_button in afgui_*:
+      - inventory open d:<inventory[afgui_rod_shop]>
     on player clicks gui_close_btn in afgui_*:
       - inventory close
     
@@ -38,6 +40,12 @@ fishing_inventory_listener:
       - if <context.clicked_inventory.script_name> == "afgui_bait_shop":
         - give <context.item> quantity:8
         - narrate "<&6>You have just purchased <&a>8 <context.item.display><&6>."
+    
+    # Rod Shop Listen
+    on player left clicks af_rod_* in afgui_rod_shop:
+      - if <context.clicked_inventory.script_name> == "afgui_rod_shop":
+        - give <context.item>
+        - narrate "<&6>You have just purchased a <&a><context.item.display><&6>."
 
 
     on player right clicks with af_rod_*:
