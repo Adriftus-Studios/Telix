@@ -56,6 +56,8 @@ fishing_inventory_listener:
         - adjust <player> item_on_cursor:<player.item_on_cursor.with[quantity=<player.item_on_cursor.quantity.-[1]>]>
         - inventory adjust slot:<context.slot> d:<context.clicked_inventory> nbt:baited/<context.cursor_item.scriptname>
         - narrate "<&6>Baited with<&co> <context.cursor_item.display>"
+      - else if <context.item.has_nbt[baited]>:
+        - narrate "<&c>Your <&a><context.item.display><&c> already has <&a><context.item.nbt[baited].as_script.yaml_key[display<&sp>name].parsed><&r> <&c>applied!"
       - else:
         - narrate "<&c>You can't place any bait on this rod"
     
