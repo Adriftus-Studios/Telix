@@ -78,12 +78,14 @@ equipment_inventory_handler:
         - wait 1t
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
       - else:
-        - narrate <context.item>
-        - narrate <context.item.script.yaml_key[category]>
         - define found:false
+        - narrate <context.clicked_inventory>
+        - narrate <context.inventory>
+        - determine <item[air]>
         - foreach <[slotmap]> as:slot:
           - if <[slot].matches[(\d\d/<context.item.script.yaml_key[category]>.)]>:
             - narrate <[slot].split[/].get[1]>
+            
             
 
 invisible_placeholder:
