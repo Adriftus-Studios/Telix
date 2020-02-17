@@ -18,7 +18,7 @@ ability_ground_slam:
     - teleport <player> <player.location.with_pitch[75]>
     - adjust <player> velocity:0,-1,0
     - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:15 targets:<server.list_online_players>
-    - flag player no_jump:true duration:3s
+    - flag player no_jump:true duration:2s
     - foreach <player.location.find.players.within[4].exclude[<player>]>:
       - look <[value]> <player.location>
       - teleport <[value]> <[value].location.with_pitch[45]>
