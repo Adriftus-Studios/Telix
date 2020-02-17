@@ -29,7 +29,15 @@ fishing_inventory_listener:
     on player clicks gui_close_btn in afgui_*:
       - inventory close
     
-    
+    # Bait Shop Listen
+    on player left clicks af_bait_* in afgui_bait_shop:
+      - give <context.item>
+      - narrate "<&6>You have just purchased <&a>1 <context.item><&6>."
+    on player right clicks af_bait_* in afgui_bait_shop:
+      - give <context.item> quantity:8
+      - narrate "<&6>You have just purchased <&a>8 <context.item><&6>."
+
+
     on player right clicks with af_rod_*:
       - if <player.is_sneaking>:
         - determine passively cancelled

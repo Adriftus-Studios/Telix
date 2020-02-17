@@ -28,6 +28,7 @@ afgui_bait_shop:
     gui_top: <item[fish_main_top]>
     gui_bottom: <item[fish_main_bottom]>
     closeitem: <item[gui_close_btn]>
+    shop_info: <item[af_bait_shop_info]>
     bait_chum: <item[af_bait_chum]>
     bait_honeycomb: <item[af_bait_honeycomb]>
   slots:

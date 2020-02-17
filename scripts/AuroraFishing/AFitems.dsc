@@ -80,6 +80,15 @@ af_bait_shop_button:
     custom_model_data: 0
   lore:
   - "<&b>Purchase fresh bait!"
+af_bait_shop_info:
+  type: item
+  material: cod
+  display name: <&a>Bait Shop Info
+  mechanisms:
+    custom_model_data: 0
+  lore:
+  - "<&b>Left Click - Purchase 1 Bait"
+  - "<&b>Right Click - Purchase 8 Bait"
 
 af_gutting_station_button:
   type: item
