@@ -24,7 +24,6 @@ af_rod_basic:
   - "<&6><&l><&m>-------------<&r><&6>  Fishing Rod  <&l><&m>-------------"
   - "<&b>Basic rod for catching basic fish."
   - "<&6>"
-  - "<&6>Weight<&b><&co><&6> <script.yaml_key[weight]>"
   - "<&6>Rarity<&b><&co><&6> <script.yaml_key[rod_rarity].to_titlecase>"
   - "<&6>"
   - "<&6><&l><&m>-------------<&r><&6>   Upgrades    <&l><&m>-------------"
@@ -34,6 +33,7 @@ af_rod_basic:
   - "<&6><&l><&m>--------------<&r><&6>     Bait      <&l><&m>--------------"
   - "<&b>Right click to remove the bait"
   - "<&6>Baited with: <&7>Nothing"
+  - "<&8>Item Weight: <script.yaml_key[weight]>"
 
 
 ### BAIT ###
@@ -42,17 +42,23 @@ af_bait_chum:
   type: item
   material: brown_dye
   display name: <&a>Chum
+  weight: 0.25
   lore:
   - "<&b>Drag and drop this bait on any"
   - "<&b>rod to apply the bait."
+  - ""
+  - "<&8>Item Weight: <script.yaml_key[weight]>"
 
 af_bait_honeycomb:
   type: item
   material: honeycomb
   display name: <&a>Honeycomb
+  weight: 0.25
   lore:
   - "<&b>Drag and drop this bait on any"
   - "<&b>rod to apply the bait."
+  - ""
+  - "<&8>Item Weight: <script.yaml_key[weight]>"
 
 
 ### MISC ITEMS ###
@@ -73,3 +79,6 @@ af_fish_1:
   display name: <&a>Redfish
   mechanisms:
     custom_model_data: 0
+  weight: 0.20
+  lore:
+  - "<&8>Item Weight: <script.yaml_key[weight]>"
