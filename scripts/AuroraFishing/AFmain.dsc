@@ -105,7 +105,7 @@ fishing_inventory_listener:
 #        - spawn af_entity_crab <context.hook.location>
 
       - if <[number]> <= 100:
-        - firework <context.hook.location> power:5 star primary:yellow fade:white flicker
+        - firework <context.hook.location> power:0.5 star primary:yellow fade:white flicker
         - give af_fish_token
         - narrate "<&6>You have recieved a shiney new <&a>Fish Token<&6>!"
       - if <[number]> <= 20:
