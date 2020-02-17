@@ -13,3 +13,7 @@ flag_handler:
         - if <player||null> != null:
             - if <player.has_flag[no_damage]>:
                 - determine 0.0
+        on player jumps:
+        - if <player||null> != null:
+            - if <player.has_flag[no_jump]>:
+                - determine cancelled
