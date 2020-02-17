@@ -101,7 +101,7 @@ fishing_inventory_listener:
       - define weight_oz <util.random.int[0].to[15]>
 
       - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
-      - inventory adjust slot:<player.held_item_slot> "lore:<context.item.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
+      - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
 
 #Need a system for spawning crabs
 #      - if <util.random.int[1].to[100]> <= 30:
