@@ -75,7 +75,7 @@ equipment_inventory_handler:
       - else:
         - if <context.cursor_item||null> == null:
           - narrate 3
-        - else
+        - else:
           - narrate 4
           - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]>:
             - wait 1t
