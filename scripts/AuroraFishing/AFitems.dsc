@@ -65,7 +65,7 @@ af_bait_honeycomb:
 
 af_merchant_button:
   type: item
-  material: snow
+  material: snow_layer
   display name: <&a>Merchant
   mechanisms:
     custom_model_data: 3
