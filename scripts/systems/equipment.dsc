@@ -82,7 +82,7 @@ equipment_inventory_handler:
         - define found:false
         - foreach <[slotmap]> as:slot:
           - narrate <context.item.script.yaml_key[category]><&sp><[slot]>
-          - if <[slot].matches[(\d\d/<context.item.script.yaml_key[category]>.)]>:
+          - if <[slot].matches[(\d\d/<context.item.script.yaml_key[category]>)]>:
             - narrate <context.inventory.slot[<[slot].split[/].get[1]>]>
             - if <context.inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
               - narrate 1
