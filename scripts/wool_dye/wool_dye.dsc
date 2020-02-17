@@ -2,4 +2,4 @@ wool_click_handler:
   type: world
   events:
     on player right clicks *_wool with *_dye:
-    - narrate "Clicked Wool"
+    - narrate "<context.item.in_hand>"
