@@ -80,16 +80,14 @@ equipment_inventory_handler:
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
       - else:
         - if <context.clicked_inventory.script_name> != "equipment_character":
-          - define found:false
           - foreach <[slotmap]> as:slot:
             - if !<[found]>:
               - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
                 - if <context.clicked_inventory.slot[<[slot].split[/].get[1]>]> != <item[air]>:
                   - wait 1t
                   - narrate "move shift clicked item to <[slot].split[/].get[1]>"
-                  - inventory adjust d:<context.clicked_inventory> o:<context.item> slot:<context.slot> quantity:--
-                  - define found:true
-          - determine passively cancelled
+                  - determine passively cancelled
+                  - inventory adjust slot:<context.slot> quantity:--
         - else:
           - determine passively cancelled
 
