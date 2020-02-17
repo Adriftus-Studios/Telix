@@ -73,13 +73,9 @@ equipment_inventory_handler:
           - stop
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.cursor_item>
       - else:
-        - if <yaml[player.<player.uuid>].read[equipment.<[slotmap].map_get[<context.slot>]>]||null> != null:
-          - narrate 3
-        - else:
-          - narrate 4
+        - narrate 3
         - wait 1t
         - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
-        - stop
 
 invisible_placeholder:
   type: item
