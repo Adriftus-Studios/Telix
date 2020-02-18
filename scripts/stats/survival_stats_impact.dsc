@@ -121,28 +121,6 @@ survival_stats_weight_impact:
     - if <[encumberance]> > 100:
       - define encumberance:100
     - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
-    - choose <[encumberance]>:
-      - case 110:
-        - if !<yaml[player.<player.uuid>].read[debuffs].contains[full_encumbered]>:
-          - inject debuff_full_encumbered
-      - case 100:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.99]>]>
-        - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
-          - inject debuff_encumbered
-      - case 90:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.85]>]>
-        - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
-          - inject debuff_encumbered
-      - case 80:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.5]>]>
-      - case 70:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.2]>]>
-      - case 60:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.1]>]>
-      - case 50:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.1]>]>
-      - default:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed]>
     - inject update_stats
 
 survival_stats_weight_events:
