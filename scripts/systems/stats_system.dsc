@@ -27,6 +27,10 @@ stats_setup:
     - foreach <yaml[ability_trees].list_keys[skill_trees]>:
       - yaml id:player.<player.uuid> set skills.<[value]>.current:100
 
+default_stats:
+  type: yaml data
+  test: 1
+
 stats_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
