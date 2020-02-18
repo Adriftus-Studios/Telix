@@ -30,6 +30,9 @@ fishing_inventory_listener:
       - inventory open d:<inventory[afgui_rod_shop]>
     on player clicks gui_close_btn in afgui_*:
       - inventory close
+    on player join:
+      - if <player.display_name> == Mutim_Endymion
+        - playsound <server.list_online_players> sound:magic.warhorn volume:1.0 pitch:1.0 custom
     
     # Bait Shop Listen
     on player left clicks af_bait_* in afgui_bait_shop:
