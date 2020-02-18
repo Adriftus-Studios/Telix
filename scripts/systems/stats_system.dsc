@@ -9,9 +9,9 @@ stats_setup:
     - yaml id:player.<player.uuid> set stats.food.current:100
     - yaml id:player.<player.uuid> set stats.thirst.max:100
     - yaml id:player.<player.uuid> set stats.thirst.current:100
-    - yaml id:player.<player.uuid> set stats.constitution:0
     - yaml id:player.<player.uuid> set stats.weight.current:0
     - yaml id:player.<player.uuid> set stats.weight.max:100
+    - yaml id:player.<player.uuid> set stats.constitution:0
     - yaml id:player.<player.uuid> set stats.melee_damage:100
     - yaml id:player.<player.uuid> set stats.speed:100
     - yaml id:player.<player.uuid> set stats.temperature:100
@@ -42,15 +42,21 @@ update_stats:
       - if <yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.material.name> != air:
         - foreach <yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.list_keys[equipment_modifiers]> as:stat:
           - define value:<yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.yaml_key[equipment_modifiers.<[stat]>]>
-          - if !<list[speed|constitution].contains[<[stat]>]>:
+          - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier].contains[<[stat]>]>:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
+    - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
+    - if <[encumberance]> > 100:
+      - define encumberance:100
+    - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
+    - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
     - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 49:
-      - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
-      - narrate <[speed]>
       - adjust <player> walk_speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]>
+    - else:
+      - adjust <player> walk_speed:<[speed]>
+
 
 default_stats:
   type: yaml data
