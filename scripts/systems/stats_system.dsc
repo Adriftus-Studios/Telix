@@ -55,7 +55,6 @@ calculate_base_stats:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:<[value]>
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:<[value]>
-    - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
 
 calculate_weight_equipment_stats:
   type: task
@@ -79,6 +78,7 @@ calculate_encumberance_speed:
   type: task
   debug: false
   script:
+    - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
     - if <[encumberance]> > 100:
       - define encumberance:100
