@@ -33,21 +33,34 @@ update_stats_command:
   description: update_stats
   usage: /update_stat
   script:
-  - inject calculate_base_stats
+    - inject update_stats
+
+update_stats:
+  type: task
+  debug: false
+  script:
+    - inject calculate_base_stats
+    - inject calculate_weight_equipment_stats
+    - inject calculate_encumberance_speed
 
 calculate_base_stats:
   type: task
   debug: false
   script:
-  # calculate base stats
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]||null>> != null:
         - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
+          - define value:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
           - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
-            - yaml id:player.<player.uuid> set stats.<[stat]>.max:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
+            - yaml id:player.<player.uuid> set stats.<[stat]>.max:<[value]>
           - else:
-            - yaml id:player.<player.uuid> set stats.<[stat]>:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
-  # calculate weight + equipment stats
+            - yaml id:player.<player.uuid> set stats.<[stat]>:<[value]>
+    - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
+
+calculate_weight_equipment_stats:
+  type: task
+  debug: false
+  script:
     - foreach <player.inventory.list_contents> as:item:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
       - define weight:|:<[this_item_weight].*[<[item].quantity>]>
@@ -61,8 +74,11 @@ calculate_base_stats:
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
     - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
-  # apply encumberance effects and calculate health + speed
-    - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
+
+calculate_encumberance_speed:
+  type: task
+  debug: false
+  script:
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
     - if <[encumberance]> > 100:
       - define encumberance:100
@@ -72,7 +88,6 @@ calculate_base_stats:
       - adjust <player> walk_speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]>
     - else:
       - adjust <player> walk_speed:<[speed]>
-
 
 default_stats:
   type: yaml data
@@ -103,7 +118,7 @@ stats_character:
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 45
   procedural items:
-    - inject calculate_base_stats
+    - inject update_stats
   definitions:
     filler: <item[gui_invisible_item]>
     gui_top: <item[gui_stats_top]>
@@ -126,7 +141,7 @@ stats_inventory_handler:
           - yaml id:player.<player.uuid> set stats.stat_points_spent.<context.item.script.yaml_key[assigned_stat].replace[.max].with[]>:+:1
           - yaml id:player.<player.uuid> set stats.stat_points:--
           - inventory open d:stats_character
-          - inject calculate_base_stats
+          - inject update_stats
 
 damage_stats_icon:
   type: item

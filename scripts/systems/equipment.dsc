@@ -99,7 +99,7 @@ equipment_inventory_handler:
               - stop
             - wait 1t
             - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.inventory.slot[<context.slot>]>
-      - inject calculate_base_stats
+      - inject update_stats
 
 invisible_placeholder:
   type: item
@@ -157,7 +157,7 @@ rare_ring:
   type: item
   material: gold_ingot
   category: ring
-  equipment_rating: 0
+  equipment_rating: 10
   weight: 10
   slots: 3
   equipment_modifiers:
@@ -173,7 +173,21 @@ rare_ring:
     weight: 100
   display name: "<&c>Rare Ring"
   lore:
-    - "<script.yaml_key[equipment_modifiers.speed]>"
+    - "Something something ring,",
+    - "Something rare something",
+    - " "
+    - "   <&9>Melee Damage: <&a>+<script.yaml_key[equipment_modifiers.melee_damage]>%",
+    - "   <&9>Constitution: <&a>+<script.yaml_key[equipment_modifiers.constitution]>",
+    - "   <&9>Speed: <&a>+<script.yaml_key[equipment_modifiers.speed]>",
+    - "   <&9>Health: <&a>+<script.yaml_key[equipment_modifiers.health]>",
+    - "   <&9>Power: <&a>+<script.yaml_key[equipment_modifiers.power]>",
+    - "   <&9>Food: <&a>+<script.yaml_key[equipment_modifiers.Food]>",
+    - "   <&9>Thirst: <&a>+<script.yaml_key[equipment_modifiers.thirst]>",
+    - "   <&9>Carry Weight: <&a>+<script.yaml_key[equipment_modifiers.weight]>",
+    - "   <&9>Experience Multiplier: <&a>+<script.yaml_key[equipment_modifiers.experience_multiplier]>%",
+    - "   <&9>Drop Rate Multiplier: <&a>+<script.yaml_key[equipment_modifiers.drop_rate_multiplier]>%",
+    - " ",
+    - "   <&9>Slots: <&7>[] [] []"
   drops_on_death: true
 
 basic_ring:

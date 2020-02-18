@@ -105,13 +105,13 @@ survival_stats_thirst_hunger_periodic_drain:
 survival_stats_weight_calculate:
   type: task
   script:
-    - inject calculate_base_stats
+    - inject update_stats
 
 survival_stats_weight_impact:
   type: task
   debug: false
   script:
-    - inject calculate_base_stats
+    - inject update_stats
 
 survival_stats_weight_events:
   type: world
