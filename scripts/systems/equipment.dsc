@@ -67,7 +67,6 @@ equipment_death_handler:
             - if <[item].script.yaml_key[drops_on_death]>:
               - yaml id:player.<player.uuid> set equipment.<[equipment]>:<item[air]>
               - drop <[item]> <player.location>
-            
 
 equipment_inventory_handler:
   type: world
@@ -94,6 +93,7 @@ equipment_inventory_handler:
                 - stop
             - wait 1t
             - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
+            - inject update_stats
         - else:
           - if <context.raw_slot> > 54:
             - determine passively cancelled
@@ -106,6 +106,7 @@ equipment_inventory_handler:
                     - inventory set d:<player.open_inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
                     - wait 1t
                     - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<[slot].split[/].get[1]>]>:<player.open_inventory.slot[<[slot].split[/].get[1]>]>
+                    - inject update_stats
                     - define found:true
           - else:
             - if <[slotmap].map_get[<context.slot>]||null> == null:
@@ -113,7 +114,7 @@ equipment_inventory_handler:
               - stop
             - wait 1t
             - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.inventory.slot[<context.slot>]>
-      - inject update_stats
+            - inject update_stats
 
 invisible_placeholder:
   type: item
@@ -187,6 +188,7 @@ rare_ring:
     weight: 100
   display name: "<&c>Rare Ring"
   lore:
+    - announce test
     - "Something something ring,"
     - "Something rare something lore"
     - " "
