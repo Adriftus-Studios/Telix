@@ -7,16 +7,7 @@ abilities_check:
 abilities_reload:
   type: world
   debug: true
-  abilities_reload:
-      - yaml create id:server.skills_by_level
-      - foreach <server.list_scripts>:
-        - if <[value].name.starts_with[ability]>:
-          - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
-  events:
-    on server start:
-      - inject locally abilities_reload
-    on script reload:
-      - inject locally abilities_reload
+  # check systems/script_reload.dsc
   script:
       - if <yaml[server.skills_by_level].read[<[ability_tree]>.<yaml[player.<player.uuid>].read[skills.<[ability_tree]>.level]>]||null> != null:
         - narrate "<&e>You have unlocked new <&b><[ability_tree]><&e> abilities<&co>"

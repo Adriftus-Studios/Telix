@@ -19,11 +19,13 @@ ability_ender_world:
         - adjust <[value]> show_entity:<player>
         - adjust <player> show_entity:<[value]>
       - flag <player> ender_world:true
+      - playsound <player.location> sound:magic.vanish volume:0.5 pitch:1.0 custom
     - else:
       - adjust <player> vision
       - foreach <server.list_online_players_flagged[ender_world]>:
         - adjust <player> hide_entity:<[value]>
       - flag <player> ender_world:!
       - adjust <player> show_to_players:true
+      - playsound <player.location> sound:magic.teleport volume:0.5 pitch:1.0 custom
 
     
