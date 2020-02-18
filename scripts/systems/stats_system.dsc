@@ -38,7 +38,7 @@ update_stats_command:
 
 calculate_base_stats:
   type: task
-  debug: false
+  debug: true
   script:
   # calculate base stats
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
