@@ -40,7 +40,7 @@ update_stats:
   debug: true
   script:
   # calculate base stats
-    - foreach <script[default_stats].yaml_key[stats.default]> as:stat:
+    - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - narrate 1
       - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]||null>> != null:
         - narrate 2
