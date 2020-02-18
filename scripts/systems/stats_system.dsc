@@ -35,8 +35,10 @@ update_stats:
       - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]||null>> != null:
         - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
           - if !<list[speed|constitution].contains[stat]>:
+            - narrate <[stat]>1
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
           - else:
+            - narrate <[stat]>2
             - yaml id:player.<player.uuid> set stats.<[stat]>:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
     - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 49:
