@@ -26,4 +26,5 @@ ability_fire_blast:
         - stop
       - if <[number].%[4]> == 0:
         - wait 1t
+    - modifyblock <[points].get[<[number]>].find.surface_blocks.within[2.5].parse[above]> fire
     
