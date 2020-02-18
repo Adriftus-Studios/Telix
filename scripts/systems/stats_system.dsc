@@ -35,7 +35,7 @@ update_stats_command:
   script:
   - while true:
     - wait 1t
-    - inject update_stats
+    - inject calculate_base_stats
 
 calculate_base_stats:
   type: task
