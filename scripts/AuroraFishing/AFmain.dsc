@@ -33,6 +33,7 @@ fishing_inventory_listener:
     on player join:
       - if <player.display_name> == Mutim_Endymion
         - playsound <server.list_online_players> sound:magic.warhorn volume:1.0 pitch:1.0 custom
+        - narrate <server.list_online_players> "<&6>A great God has decended upon you mortals!"
     
     # Bait Shop Listen
     on player left clicks af_bait_* in afgui_bait_shop:
@@ -104,10 +105,6 @@ fishing_inventory_listener:
       - define weight_lbhigh <util.random.int[100].to[500]>
       - define weight_lbhighest <util.random.int[550].to[1000]>
       - define weight_oz <util.random.int[0].to[15]>
-# Need a better system for spawning crabs
-#      - if <util.random.int[1].to[100]> <= 30:
-#        - narrate "<&6>You snagged a crab!"
-#        - spawn af_entity_crab <context.hook.location>
       - wait 1t
       - if <[number]> <= 30:
         - narrate "<&6>A fish just stole your bait!"

@@ -11,6 +11,8 @@
 #  With that beign said, they will not be paid insanely more. Only a fraction added to the top tiers. This will ensure that just because you're
 #  new, you won't be left extremely far behind, with no hope of catching up.
 
+
+# I need to inject this massive block of lore into the item somehow.
 af_rod_basic:
   type: item
   material: fishing_rod
