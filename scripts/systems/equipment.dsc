@@ -175,7 +175,7 @@ rare_ring:
   lore:
     - "Something something ring,",
     - "Something rare something",
-    - " "
+    - " ",
     - "   <&9>Melee Damage: <&a>+<script.yaml_key[equipment_modifiers.melee_damage]>%",
     - "   <&9>Constitution: <&a>+<script.yaml_key[equipment_modifiers.constitution]>",
     - "   <&9>Speed: <&a>+<script.yaml_key[equipment_modifiers.speed]>",
