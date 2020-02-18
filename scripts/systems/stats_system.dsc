@@ -32,7 +32,7 @@ update_stats:
   debug: true
   script:
   # calculate base stats
-    - foreach <yaml[player.<player.uuid>].list_keys[stats.stat_points_spent]> as:stat:
+    - foreach <script[default_stats].yaml_key[stats.default]> as:stat:
       - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]||null>> != null:
         - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
           - if !<list[speed|constitution].contains[<[stat]>]>:
@@ -80,6 +80,10 @@ default_stats:
       weight: 100
       power: 20
       constitution: 0
+      experience_multiplier: 0
+      drop_rate_multiplier: 0
+      melee_damage: 100
+      equipment_rating: 0
     increments:
       speed: 1
       health: 1
