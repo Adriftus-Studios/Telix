@@ -40,6 +40,7 @@ update_stats:
             - yaml id:player.<player.uuid> set stats.<[stat]>:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
     - foreach <yaml[player.<player.uuid>].list_keys[equipment]>:
       - if <yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.material.name> != air:
+        - narrate <yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.list_keys[equipment_modifiers]>
         - foreach <yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.list_keys[equipment_modifiers]> as:item:
           - narrate <[item]>
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
