@@ -10,7 +10,7 @@ abilities_cost:
     - if <yaml[player.<player.uuid>].read[stats.power.current]> < <queue.script.yaml_key[power_cost]>:
       - stop
     - yaml id:player.<player.uuid> set stats.power.current:-:<queue.script.yaml_key[power_cost]>
-    - adjust <player> food_level:<yaml[player.<player.uuid>].read[stats.power.max]./[<yaml[player.<player.uuid>].read[stats.power.current]>].*[20]>
+    - adjust <player> food_level:<yaml[player.<player.uuid>].read[stats.power.current]./[<yaml[player.<player.uuid>].read[stats.power.max]>].*[20]>
 
 abilities_reload:
   type: world
