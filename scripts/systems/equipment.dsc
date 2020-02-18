@@ -55,6 +55,20 @@ equipment_boots_slot:
   lore:
   - "<&e>Click to open your skills and abilities menu."
 
+equipment_death_handler:
+  type: world
+  debug: false
+  events:
+    on entity death:
+      - if <player||null> != null:
+        - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
+          - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
+          - if <[item].material.name> != air:
+            - if <[item].script.yaml_key[drops_on_death]>:
+              - yaml id:player.<player.uuid> set equipment.<[equipment]>:<item[air]>
+              - drop <[item]> <player.location>
+            
+
 equipment_inventory_handler:
   type: world
   debug: false
