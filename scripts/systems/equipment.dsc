@@ -133,7 +133,6 @@ basic_pendant:
   material: snow
   category: pendant
   equipment_rating: 0
-  number: <util.random.int[0].to[100]>
   display name: "<&c>Basic Pendant"
   drops_on_death: true
 
