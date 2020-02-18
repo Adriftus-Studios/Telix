@@ -19,7 +19,7 @@ ability_fire_blast:
     - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[0.5]>
     - repeat <[points].size> as:number:
       - playeffect flame at:<[points].get[<[number]>]> quantity:5 offset:0.1
-      - light <[points].get[<[number]>]> 15 duration:3t
+      - light <[points].get[<[number]>]> 15 duration:7t
       - if !<[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>].is_empty>:
         - inject locally apply_damage
         - stop
