@@ -33,13 +33,11 @@ update_stats_command:
   description: update_stats
   usage: /update_stat
   script:
-  - while true:
-    - wait 1t
-    - inject calculate_base_stats
+  - inject calculate_base_stats
 
 calculate_base_stats:
   type: task
-  debug: true
+  debug: false
   script:
   # calculate base stats
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
