@@ -32,6 +32,7 @@ update_stats:
   debug: true
   script:
     - foreach <yaml[player.<player.uuid>].list_keys[stats.stat_points_spent]> as:stat:
+      - narrate <[stat]>
       - if <<yaml[player.<player.uuid>].read[stats.<[stat]>.max]>||null> != null:
         - narrate <[stat]>
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
