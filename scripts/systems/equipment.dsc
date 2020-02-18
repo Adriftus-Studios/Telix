@@ -136,8 +136,6 @@ basic_pendant:
   category: pendant
   equipment_rating: 0
   display name: "<&c>Basic Pendant"
-  equipment_modifiers:
-    speed: 100
   drops_on_death: true
 
 basic_trinket:
@@ -161,6 +159,8 @@ rare_ring:
   material: gold_ingot
   category: ring
   equipment_rating: 0
+  equipment_modifiers:
+    speed: 100
   display name: "<&c>Rare Ring"
   drops_on_death: true
 
@@ -169,6 +169,8 @@ basic_ring:
   material: snow
   category: ring
   equipment_rating: 0
+  equipment_modifiers:
+    speed: 100
   display name: "<&c>Basic Ring"
   drops_on_death: true
 
