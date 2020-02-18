@@ -63,7 +63,6 @@ update_stats:
   script:
   - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
   - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
-  - define speed:
   - adjust <player> walk_speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]>
 
 damage_stats_icon:
