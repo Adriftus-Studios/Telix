@@ -12,7 +12,7 @@ reload_scripts:
             - if <[value].name.starts_with[ability]>:
                 - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
             - if <[value].yaml_key[ore]||null> != null:
-                - yaml id:server.ore_rates set <[value].yaml_key[ore.block]>.<[value].yaml_key[biome]>.<[value].yaml_key[chance]>:<[value].name>
+                - yaml id:server.ore_rates set <[value].yaml_key[ore.block]>.<[value].yaml_key[ore.biome]>.<[value].yaml_key[ore.chance]>:<[value].name>
             - if <[value].yaml_key[category]||null> != null:
                 - yaml id:server.ore_rates set <[value].yaml_key[category]>:|:<[value].name>
     events:
