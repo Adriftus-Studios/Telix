@@ -64,7 +64,7 @@ equipment_death_handler:
         - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
           - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
           - if <[item].material.name> != air:
-            - if <[item].script.yaml_key[drops_on_death]>:
+            - if <[item].script.yaml_key[drops_on_death]||true>:
               - yaml id:player.<player.uuid> set equipment.<[equipment]>:<item[air]>
               - drop <[item]> <player.location>
 
@@ -188,7 +188,6 @@ rare_ring:
     weight: 100
   display name: "<&c>Rare Ring"
   lore:
-    - announce test
     - "Something something ring,"
     - "Something rare something lore"
     - " "
