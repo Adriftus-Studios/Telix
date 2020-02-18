@@ -1,5 +1,14 @@
 ability_double_strike:
   type: task
+  name: double_strike
+  ability_tree: Fisticuffs
+  ability_type: slotted
+  points_to_unlock: 10
+  power_cost: 12
+  description: Strike twice with the slotted weapon.
+  icon:
+    material: iron_nugget
+    custom_model_data: 5
   script:
     - if <player.target.distance[<player.location>]||5> <= 3:
       - stop
