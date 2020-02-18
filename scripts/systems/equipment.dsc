@@ -162,6 +162,15 @@ rare_ring:
   weight: 10
   equipment_modifiers:
     speed: 100
+    constitution: 100
+    melee_damage: 100
+    experience_multiplier: 100
+    drop_rate_multiplier: 100
+    health: 100
+    power: 100
+    food: 100
+    thirst: 100
+    weight: 100
   display name: "<&c>Rare Ring"
   drops_on_death: true
 
