@@ -59,7 +59,7 @@ equipment_death_handler:
   type: world
   debug: false
   events:
-    on entity death:
+    on player death:
       - if <player||null> != null:
         - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
           - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
@@ -67,6 +67,7 @@ equipment_death_handler:
             - if <[item].script.yaml_key[drops_on_death]||true>:
               - yaml id:player.<player.uuid> set equipment.<[equipment]>:<item[air]>
               - drop <[item]> <player.location>
+        - inject update_stats
 
 equipment_inventory_handler:
   type: world
