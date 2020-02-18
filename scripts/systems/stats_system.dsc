@@ -33,17 +33,18 @@ update_stats_command:
   description: update_stats
   usage: /update_stat
   script:
-  - inject update_stats
+  - while true:
+    - inject update_stats
 
 calculate_base_stats:
   type: task
-  debug: true
+  debug: false
   script:
   # calculate base stats
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]||null>> != null:
         - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
-          - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier].contains[<[stat]>]>:
+          - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
@@ -56,7 +57,7 @@ calculate_base_stats:
         - define weight:|:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item.script.yaml_key[weight]>
         - foreach <yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item.script.list_keys[equipment_modifiers]> as:stat:
           - define value:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item.script.yaml_key[equipment_modifiers.<[stat]>]>
-          - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier].contains[<[stat]>]>:
+          - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
