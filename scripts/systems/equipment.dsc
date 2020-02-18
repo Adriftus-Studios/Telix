@@ -60,13 +60,12 @@ equipment_death_handler:
   debug: false
   events:
     on player death:
-      - if <player||null> != null:
-        - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
-          - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
-          - if <[item].material.name> != air:
-            - if <[item].script.yaml_key[drops_on_death]||true>:
-              - yaml id:player.<player.uuid> set equipment.<[equipment]>:<item[air]>
-              - drop <[item]> <player.location>
+      - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
+        - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
+        - if <[item].material.name> != air:
+          - if <[item].script.yaml_key[drops_on_death]||true>:
+            - yaml id:player.<player.uuid> set equipment.<[equipment]>:<item[air]>
+            - drop <[item]> <player.location>
         - inject update_stats
 
 equipment_inventory_handler:
