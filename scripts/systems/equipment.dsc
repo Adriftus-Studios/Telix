@@ -65,7 +65,7 @@ equipment_death_handler:
         - if <[item].material.name> != air:
           - if <[item].script.yaml_key[drops_on_death]||true>:
             - yaml id:player.<player.uuid> set equipment.<[equipment]>:<item[air]>
-            - drop <[item]> <player.location>
+            - determine <context.drops.include[<[item]>]>
         - inject update_stats
 
 equipment_inventory_handler:
