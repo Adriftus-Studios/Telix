@@ -8,4 +8,4 @@ actionbar_stats:
 actionbar_stats_update:
   type: task
   script:
-    - actionbar "<&c>Health<&co> <player.health><&fs><player.max_health> <&e>------ <&b>Power<&co> <yaml[player.<player.uuid>].read[stats.power.current]><&fs><yaml[player.<player.uuid>].read[stats.power.max]>" targets:<player>
+    - actionbar "<&c>Health<&co> <player.health>/<player.max_health> <&e>------ <&b>Power<&co> <yaml[player.<player.uuid>].read[stats.power.current]>/<yaml[player.<player.uuid>].read[stats.power.max]>" targets:<player>
