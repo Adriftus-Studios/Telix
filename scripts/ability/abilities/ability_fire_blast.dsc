@@ -20,7 +20,7 @@ ability_fire_blast:
     - repeat <[points].size> as:number:
       - playeffect flame at:<[points].get[<[number]>]> quantity:5 offset:0.1 visibility:40
       - if !<[points].get[<[number]>].find.surface_blocks.within[2.5].is_empty>:
-        - modifyblock <[points].get[<[number]>].find.surface_blocks.within[1.5].prase[above]> fire
+        - modifyblock <[points].get[<[number]>].find.surface_blocks.within[1.5].parse[above]> fire
       - if !<[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>].is_empty>:
         - inject locally apply_damage
         - stop
