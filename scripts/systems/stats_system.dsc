@@ -38,6 +38,9 @@ update_stats:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
+    - foreach <yaml[player.<player.uuid>].list_keys[equipment]>:
+      - narrate <yaml[player.<player.uuid>].read[equipment.<[value]>]>
+    
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
     - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 49:
       - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>

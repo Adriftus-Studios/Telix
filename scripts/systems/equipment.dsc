@@ -135,7 +135,7 @@ basic_pendant:
   category: pendant
   equipment_rating: 0
   display name: "<&c>Basic Pendant"
-  modifiers:
+  equipment_modifiers:
     speed: 100
   drops_on_death: true
 
