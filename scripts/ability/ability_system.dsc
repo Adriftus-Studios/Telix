@@ -4,6 +4,14 @@ abilities_check:
     - if <yaml[player.<player.uuid>].read[skills.<queue.script.yaml_key[ability_tree]>.current]> < <queue.script.yaml_key[points_to_unlock]>:
       - stop
 
+abilities_cost:
+  type: task
+  script:
+    - if <yaml[player.<player.uuid>].read[stats.power.current]> < <queue.script.yaml_key[power_cost]>:
+      - stop
+    - yaml id:player.<player.uuid> set stats.power.current:-:<queue.script.yaml_key[power_cost]>
+    - adjust <player> food_level:<yaml[player.<player.uuid>].read[stats.power.current]./[<yaml[player.<player.uuid>].read[stats.power.max]>].*[20]>
+
 abilities_reload:
   type: world
   debug: true
@@ -44,6 +52,7 @@ abilites_item_use:
   events:
     on player right clicks with abilities_item:
       - determine passively cancelled
+      - ratelimit <player> 1s
       - if <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_tree]> != Ender && <player.has_flag[ender_world]>:
         - stop
       - run ability_<context.item.nbt[skillname]>
@@ -52,8 +61,8 @@ abilities_item_buildLore:
   type: task
   script:
     - define "lore:!|:<&e>-------------------------"
-    - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
-    - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
+    - define "lore:|:<&b><script[ability_<context.item.nbt[skillname]>].yaml_key[description]>"
+    - define "lore:|:<&c>Power Cost<&co> <script[ability_<context.item.nbt[skillname]>].yaml_key[power_cost]>"
     - define "lore:|:<&e>-------------------------"
 
 abilityTree_inventory:
@@ -85,7 +94,7 @@ abilities_GUIitem_buildLore:
     - define "lore:!|:<&e>-------------------------"
     - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
     - define "lore:|:<&a>Ability Type<&co> <script[ability_<[ability]>].yaml_key[ability_type].to_titlecase>"
-    - if <script[ability_<[ability]>].yaml_key[ability_type]> == command:
+    - if <script[ability_<[ability]>]>].yaml_key[ability_type]> == command:
       - define "lore:|:<&a>Usage<&co> <&e>/<script[ability_<[ability]>].yaml_key[command_usage]>"
     - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
     - define "lore:|:<&e>-------------------------"

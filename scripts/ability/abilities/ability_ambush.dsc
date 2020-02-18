@@ -13,6 +13,7 @@ ability_ambush:
     - inject abilities_check
     - if <player.target||null> == null:
       - stop
+    - inject abilities_cost
     - playeffect smoke <player.location> quantity:120 offset:1
     - teleport <player.target.location.backward_flat[1]>
     

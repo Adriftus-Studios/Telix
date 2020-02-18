@@ -14,6 +14,8 @@ ability_teleport_strike:
   script:
     - if <player.target||null> == null:
       - stop
+    - inject abilities_check
+    - inject abilities_cost
     - define target:<player.target>
     - teleport <[target].location.find.blocks[air].within[16].exclude[<[target].location.find.blocks[air].within[8]>].filter[y.is[MORE].than[<[target].location.y>]].random>
     - while !<player.can_see[<[target]>]>:
