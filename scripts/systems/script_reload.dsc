@@ -26,7 +26,7 @@ reload_scripts:
             - yaml id:custom_materials set custom_<[material].name>.type:item
             - yaml id:custom_materials set custom_<[material].name>.material:<[material].name>
             - yaml id:custom_materials set custom_<[material].name>.weight:1
-            - yaml id:custom_materials set custom_<[material].name>.display<&sp>name:<&7><[material].name>
+            - yaml id:custom_materials set custom_<[material].name>.display<&sp>name:<&lt>&7<&gt><[material].name>
             
         - yaml id:custom_materials savefile:something/custom_materials.yml
 
