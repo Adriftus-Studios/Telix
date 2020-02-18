@@ -33,7 +33,7 @@ fishing_inventory_listener:
     on player join:
       - if <player.display_name> == Mutim_Endymion
         - playsound <server.list_online_players> sound:magic.warhorn volume:1.0 pitch:1.0 custom
-        - narrate <server.list_online_players> "<&6>A great God has decended upon you mortals!"
+        - narrate "<&6>A great God has decended upon you mortals!" targets:<server.list_online_players>
     
     # Bait Shop Listen
     on player left clicks af_bait_* in afgui_bait_shop:
