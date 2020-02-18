@@ -1,13 +1,3 @@
-ore_rates:
-    type: yaml data
-    stone:
-        all:
-            50:
-                - "custom_iron_ore"
-        plains:
-            25:
-                - "custom_coal_ore"
-
 ore_drop_events:
     type: world
     debug: true
