@@ -64,42 +64,41 @@ equipment_inventory_handler:
         - if <context.raw_slot> < 55:
           - determine passively cancelled
     on player clicks item in equipment_character with item:
-      - if <player.open_inventory.script_name> != "equipment_character":
-        - stop
-      - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
-      - if !<context.is_shift_click>:
-        - if <context.raw_slot> < 55:
-          - if <[slotmap].map_get[<context.slot>]||null> == null:
-            - determine passively cancelled
-            - stop
-          - if <context.cursor_item.material.name> != air:
-            - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
+      - if <player.open_inventory.script_name> == "equipment_character":
+        - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
+        - if !<context.is_shift_click>:
+          - if <context.raw_slot> < 55:
+            - if <[slotmap].map_get[<context.slot>]||null> == null:
               - determine passively cancelled
               - stop
-            - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
-              - determine passively cancelled
-              - stop
-          - wait 1t
-          - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
-      - else:
-        - if <context.raw_slot> > 54:
-          - determine passively cancelled
-          - define found:false
-          - foreach <[slotmap]> as:slot:
-            - if !<[found]>:
-              - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
-                - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]>:
-                  - inventory adjust slot:<context.slot> quantity:<player.inventory.slot[<context.slot>].quantity.-[1]>
-                  - inventory set d:<player.open_inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
-                  - wait 1t
-                  - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<[slot].split[/].get[1]>]>:<player.open_inventory.slot[<[slot].split[/].get[1]>]>
-                  - define found:true
+            - if <context.cursor_item.material.name> != air:
+              - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
+                - determine passively cancelled
+                - stop
+              - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
+                - determine passively cancelled
+                - stop
+            - wait 1t
+            - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
         - else:
-          - if <[slotmap].map_get[<context.slot>]||null> == null:
+          - if <context.raw_slot> > 54:
             - determine passively cancelled
-            - stop
-          - wait 1t
-          - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.inventory.slot[<context.slot>]>
+            - define found:false
+            - foreach <[slotmap]> as:slot:
+              - if !<[found]>:
+                - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
+                  - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]>:
+                    - inventory adjust slot:<context.slot> quantity:<player.inventory.slot[<context.slot>].quantity.-[1]>
+                    - inventory set d:<player.open_inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
+                    - wait 1t
+                    - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<[slot].split[/].get[1]>]>:<player.open_inventory.slot[<[slot].split[/].get[1]>]>
+                    - define found:true
+          - else:
+            - if <[slotmap].map_get[<context.slot>]||null> == null:
+              - determine passively cancelled
+              - stop
+            - wait 1t
+            - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.inventory.slot[<context.slot>]>
       - inject update_stats
 
 invisible_placeholder:
@@ -160,6 +159,7 @@ rare_ring:
   category: ring
   equipment_rating: 0
   weight: 10
+  slots: 3
   equipment_modifiers:
     speed: 100
     constitution: 100
