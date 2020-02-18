@@ -35,9 +35,8 @@ update_stats:
       - if <<yaml[player.<player.uuid>].read[stats.<[stat]>.max]>||null> != null:
         - narrate <[stat]>
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
-    - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 49:
-      - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
-      - adjust <player> walk_speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]>
+    - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
+    - adjust <player> walk_speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]>
 
 default_stats:
   type: yaml data
@@ -51,7 +50,7 @@ default_stats:
       power: 20
       constitution: 0
     increments:
-      speed:1
+      speed: 1
       health: 1
       constitution: 1
       weight: 10
