@@ -34,6 +34,7 @@ update_stats_command:
   usage: /update_stat
   script:
   - while true:
+    - wait 1t
     - inject update_stats
 
 calculate_base_stats:
