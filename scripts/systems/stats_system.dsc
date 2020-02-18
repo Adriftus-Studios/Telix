@@ -24,7 +24,7 @@ stats_setup:
     - yaml id:player.<player.uuid> set lessons.current:1000
     - yaml id:player.<player.uuid> set lessons.lifetime:0
     - wait 1t
-    - foreach <script[abilitytrees].list_keys[skill_trees]>:
+    - foreach <script[abilitytrees].list_keys[trees]>:
       - yaml id:player.<player.uuid> set skills.<[value]>.current:100
 
 update_stats:
