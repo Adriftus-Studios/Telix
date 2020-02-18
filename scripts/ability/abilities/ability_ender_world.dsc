@@ -12,6 +12,7 @@ ability_ender_world:
     custom_model_data: 6
   script:
     - inject abilities_check
+    - inject abilities_cost
     - if !<player.has_flag[ender_world]>:
       - adjust <player> hide_from_players:true
       - adjust <player> vision:enderman

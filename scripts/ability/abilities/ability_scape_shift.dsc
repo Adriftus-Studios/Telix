@@ -23,6 +23,7 @@ ability_scape_shift:
     - if <[block_target]> == null:
       - narrate "<&c>Unsuitable Target Location"
       - stop
+    - inject abilities_cost
     - repeat 10:
       - playeffect blockdust_<[firstblock]> at:<player.location.above> quantity:10 offset:0.25
       - teleport <player.location.below[0.2]>

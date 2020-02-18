@@ -14,6 +14,7 @@ ability_false_door:
     - inject abilities_check
     - if <player.location.forward_flat> == air:
       - stop
+    - inject abilities_cost
     - flag <player> no_suffocate:true
     - showfake air <player.location.forward_flat>|<player.location.forward_flat.above> duration:10s
     - playeffect crit at:<player.location.forward_flat.center.above[1]> quantity:30 offset:0.5 targets:<player>

@@ -16,6 +16,7 @@ ability_sand_cacoon:
     - if !<cuboid[<player.location.below.with_yaw[<player.location.yaw.round_to_precision[90]>].forward_flat.right>|<player.location.below[10].with_yaw[<player.location.yaw.round_to_precision[90]>].backward_flat.left>].blocks[air].is_empty>:
       - narrate "<&c>Nope"
       - stop
+    - inject abilities_cost
     - flag player no_suffocate:true duration:30s
     - showfake air <cuboid[<player.location.below.with_yaw[<player.location.yaw.round_to_precision[90]>].forward_flat.right>|<player.location.below[10].with_yaw[<player.location.yaw.round_to_precision[90]>].backward_flat.left>].blocks>  players:<player> duration:31s
     - wait 1t

@@ -13,6 +13,7 @@ ability_ground_slam:
     #/ex teleport <[value]> <[value].location.with_pitch[0]>
     #/ex shoot <player> speed:-2.0 height:2.5
     - inject abilities_check
+    - inject abilities_cost
     - adjust <player> velocity:0,1,0
     - wait 18t
     - teleport <player> <player.location.with_pitch[75]>
