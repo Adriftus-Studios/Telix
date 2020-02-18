@@ -26,5 +26,6 @@ ability_ender_world:
         - adjust <player> hide_entity:<[value]>
       - flag <player> ender_world:!
       - adjust <player> show_to_players:true
+      - playsound <player.location> sound:magic.teleport volume:0.5 pitch:1.0 custom
 
     
