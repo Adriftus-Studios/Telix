@@ -35,7 +35,7 @@ fish:
   script:
   - inject update_stats
 
-update_stats:
+calculate_base_stats:
   type: task
   debug: true
   script:
@@ -47,11 +47,10 @@ update_stats:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
-  # calculate inventory weight
+  # calculate weight + equipment stats
     - foreach <player.inventory.list_contents> as:item:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
       - define weight:|:<[this_item_weight].*[<[item].quantity>]>
-  # calculate equipment stats + weight
     - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
       - if <yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item.material.name> != air:
         - define weight:|:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item.script.yaml_key[weight]>
@@ -104,7 +103,7 @@ stats_character:
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 45
   procedural items:
-    - inject update_stats
+    - inject calculate_base_stats
   definitions:
     filler: <item[gui_invisible_item]>
     gui_top: <item[gui_stats_top]>
@@ -127,7 +126,7 @@ stats_inventory_handler:
           - yaml id:player.<player.uuid> set stats.stat_points_spent.<context.item.script.yaml_key[assigned_stat].replace[.max].with[]>:+:1
           - yaml id:player.<player.uuid> set stats.stat_points:--
           - inventory open d:stats_character
-          - inject update_stats
+          - inject calculate_base_stats
 
 damage_stats_icon:
   type: item

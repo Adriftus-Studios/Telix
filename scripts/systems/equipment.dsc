@@ -99,7 +99,7 @@ equipment_inventory_handler:
               - stop
             - wait 1t
             - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.inventory.slot[<context.slot>]>
-      - inject update_stats
+      - inject calculate_base_stats
 
 invisible_placeholder:
   type: item
