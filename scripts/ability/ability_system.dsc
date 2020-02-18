@@ -53,8 +53,8 @@ abilities_item_buildLore:
   type: task
   script:
     - define "lore:!|:<&e>-------------------------"
-    - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
-    - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
+    - define "lore:|:<&b><script[ability_<context.item.nbt[skillname]>].yaml_key[description]>"
+    - define "lore:|:<&c>Power Cost<&co> <script[ability_<context.item.nbt[skillname]>].yaml_key[power_cost]>"
     - define "lore:|:<&e>-------------------------"
 
 abilityTree_inventory:
@@ -84,11 +84,11 @@ abilities_GUIitem_buildLore:
   type: task
   script:
     - define "lore:!|:<&e>-------------------------"
-    - define "lore:|:<&b><script[ability_<context.item.nbt[skillname]>].yaml_key[description]>"
-    - define "lore:|:<&a>Ability Type<&co> <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_type].to_titlecase>"
-    - if <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_type]> == command:
-      - define "lore:|:<&a>Usage<&co> <&e>/<script[ability_<context.item.nbt[skillname]>].yaml_key[command_usage]>"
-    - define "lore:|:<&c>Power Cost<&co> <script[ability_<context.item.nbt[skillname]>].yaml_key[power_cost]>"
+    - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
+    - define "lore:|:<&a>Ability Type<&co> <script[ability_<[ability]>].yaml_key[ability_type].to_titlecase>"
+    - if <script[ability_<[ability]>]>].yaml_key[ability_type]> == command:
+      - define "lore:|:<&a>Usage<&co> <&e>/<script[ability_<[ability]>].yaml_key[command_usage]>"
+    - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
     - define "lore:|:<&e>-------------------------"
         
 
