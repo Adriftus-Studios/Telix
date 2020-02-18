@@ -31,6 +31,7 @@ update_stats:
   type: task
   debug: true
   script:
+  # calculate base stats
     - foreach <yaml[player.<player.uuid>].list_keys[stats.stat_points_spent]> as:stat:
       - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]||null>> != null:
         - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
@@ -38,14 +39,22 @@ update_stats:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
+  # calculate inventory weight
+    - foreach <player.inventory.list_contents> as:item:
+      - define this_item_weight:<[item].script.yaml_key[weight]||1>
+      - define weight:|:<[this_item_weight].*[<[item].quantity>]>
+  # calculate equipment stats + weight
     - foreach <yaml[player.<player.uuid>].list_keys[equipment]>:
       - if <yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.material.name> != air:
+        - define weight:|:<yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.yaml_key[weight]>
         - foreach <yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.list_keys[equipment_modifiers]> as:stat:
           - define value:<yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.yaml_key[equipment_modifiers.<[stat]>]>
           - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier].contains[<[stat]>]>:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
+    - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
+  # calculate health + speed
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
     - if <[encumberance]> > 100:

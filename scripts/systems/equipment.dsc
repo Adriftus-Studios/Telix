@@ -159,6 +159,7 @@ rare_ring:
   material: gold_ingot
   category: ring
   equipment_rating: 0
+  weight: 10
   equipment_modifiers:
     speed: 100
   display name: "<&c>Rare Ring"
@@ -169,6 +170,7 @@ basic_ring:
   material: snow
   category: ring
   equipment_rating: 0
+  weight: 10
   equipment_modifiers:
     speed: 100
   display name: "<&c>Basic Ring"

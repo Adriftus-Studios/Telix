@@ -105,22 +105,12 @@ survival_stats_thirst_hunger_periodic_drain:
 survival_stats_weight_calculate:
   type: task
   script:
-    - foreach <player.inventory.list_contents> as:item:
-      - define this_item_weight:<[item].script.yaml_key[weight]||1>
-      - define weight:|:<[this_item_weight].*[<[item].quantity>]>
-    - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
-    - inject survival_stats_weight_impact
+    - inject update_stats
 
 survival_stats_weight_impact:
   type: task
   debug: false
   script:
-    - if <player.has_flag[cheatmode]>:
-      - stop
-    - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
-    - if <[encumberance]> > 100:
-      - define encumberance:100
-    - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
     - inject update_stats
 
 survival_stats_weight_events:
