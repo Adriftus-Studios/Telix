@@ -5,7 +5,7 @@ fish:
   name: fish
   description: Opens the Fish menu.
   usage: /fish
-  permission: custom.fish
+#  permission: custom.fish
   script:
     - if <context.arg.is_empty||true>:
       - inventory open d:<inventory[afgui_main]>
