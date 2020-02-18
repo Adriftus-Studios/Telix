@@ -52,7 +52,6 @@ update_stats:
           - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier].contains[<[stat]>]>:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
           - else:
-            - narrate <[stat]>:<[value]>
             - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
     - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
   # apply encumberance effects and calculate health + speed
