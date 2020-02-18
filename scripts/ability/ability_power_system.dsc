@@ -10,8 +10,8 @@ power_regain_tick:
   type: task
   script:
     - if <yaml[player.<player.uuid>].read[stats.power.max]> > <yaml[player.<player.uuid>].read[stats.power.current]>:
-      - if <yaml[player.<player.uuid>].read[stats.power.max]./[20].+[<yaml[player.<player.uuid>].read[stats.power.current]>]> > 20:
-        - yaml id:player.<player.uuid> set stats.power.current:20
+      - if <yaml[player.<player.uuid>].read[stats.power.max]./[20].+[<yaml[player.<player.uuid>].read[stats.power.current]>]> > <yaml[player.<player.uuid>].read[stats.power.max]>:
+        - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]>
         - stop
       - yaml id:player.<player.uuid> set stats.power.current:+:<yaml[player.<player.uuid>].read[stats.power.max]./[20]>
       - adjust <player> food_level:<yaml[player.<player.uuid>].read[stats.power.current]./[<yaml[player.<player.uuid>].read[stats.power.max]>].*[20]>
