@@ -54,14 +54,14 @@ update_stats:
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
     - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
-  # calculate health + speed
+  # apply encumberance effects and calculate health + speed
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
     - if <[encumberance]> > 100:
       - define encumberance:100
     - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
     - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
-    - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 49:
+    - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 69:
       - adjust <player> walk_speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]>
     - else:
       - adjust <player> walk_speed:<[speed]>
