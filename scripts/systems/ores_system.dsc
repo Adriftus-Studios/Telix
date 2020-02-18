@@ -6,8 +6,8 @@ ore_drop_events:
             - yaml create id:location
             - yaml id:location savefile:DONT_PUT_SHIT_IN_HERE/_<context.location>_.yml
             - define roll:<util.random.int[1].to[100]>
-            - define drop_num:<script[ore_rates].list_keys[<context.material.name>.<context.location.biome.name>].include[<script[ore_rates].list_keys[<context.material.name>.all]>].filter[is[OR_LESS].than[<[roll]>]].highest||<script[ore_rates].list_keys[<context.material.name>.all].filter[is[OR_LESS].than[<[roll]>]].highest>>
-            - define to_drop:<script[ore_rates].yaml_key[<context.material.name>.<context.location.biome.name>.<[drop_num]>].random||<script[ore_rates].yaml_key[<context.material.name>.all.<[drop_num]>].random>>
+            - define drop_num:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>].include[<yaml[server.ore_rates].list_keys[<context.material.name>.all]>].filter[is[OR_LESS].than[<[roll]>]].highest||<yaml[server.ore_rates].list_keys[<context.material.name>.all].filter[is[OR_LESS].than[<[roll]>]].highest>>
+            - define to_drop:<yaml[server.ore_rates].yaml_key[<context.material.name>.<context.location.biome.name>.<[drop_num]>].random||<yaml[server.ore_rates].yaml_key[<context.material.name>.all.<[drop_num]>].random>>
             - narrate <[drop_num]>
             - narrate <[to_drop]>
             - determine <[to_drop]>
