@@ -10,7 +10,7 @@ ore_drop_events:
             - define to_drop:<yaml[server.ore_rates].yaml_key[<context.material.name>.<context.location.biome.name>.<[drop_num]>].random||<yaml[server.ore_rates].yaml_key[<context.material.name>.all.<[drop_num]>].random>>
             - narrate <[drop_num]>
             - narrate <yaml[server.ore_rates].yaml_key[<context.material.name>.<context.location.biome.name>]>
-            - narrate <[to_drop]>
+            # - narrate <[to_drop]>
             - determine <[to_drop]>
 
 custom_iron_ore:
