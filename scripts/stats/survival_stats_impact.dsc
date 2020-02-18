@@ -125,23 +125,23 @@ survival_stats_weight_impact:
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[full_encumbered]>:
           - inject debuff_full_encumbered
       - case 100:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.99]>]>
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.99]>].*[0.002]>
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
           - inject debuff_encumbered
       - case 90:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.85]>]>
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.85]>].*[0.002]>
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
           - inject debuff_encumbered
       - case 80:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.5]>]>
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.5]>].*[0.002]>
       - case 70:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.2]>]>
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.2]>].*[0.002]>
       - case 60:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.1]>]>
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.1]>].*[0.002]>
       - case 50:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.1]>]>
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].-[<yaml[player.<player.uuid>].read[stats.speed].*[0.1]>].*[0.002]>
       - default:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed]>
+        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].*[0.002]>
 
 survival_stats_weight_events:
   type: world
