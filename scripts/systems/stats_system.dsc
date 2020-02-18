@@ -41,8 +41,11 @@ update_stats:
   script:
   # calculate base stats
     - foreach <script[default_stats].yaml_key[stats.default]> as:stat:
+      - narrate 1
       - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]||null>> != null:
+        - narrate 2
         - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
+          - narrate 3
           - if !<list[speed|constitution].contains[<[stat]>]>:
             - narrate stats.<[stat]>.max:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]>]>]>
