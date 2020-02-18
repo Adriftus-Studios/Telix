@@ -32,9 +32,9 @@ update_stats:
   debug: true
   script:
     - foreach <yaml[player.<player.uuid>].list_keys[stats.stat_points_spent]> as:stat:
-      - narrate <[stat]>
       - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]||null>> != null:
-        - narrate <[stat]>
+        - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
+          - narrate <[stat]>
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
     - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 49:
       - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
