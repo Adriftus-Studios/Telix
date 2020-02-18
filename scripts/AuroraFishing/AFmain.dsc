@@ -89,6 +89,7 @@ fishing_inventory_listener:
         - narrate "<&c>You can only remove bait with an empty hand!"
       - else:
         - narrate "<&c>This rod does not have any bait attached."
+
     on player fishes while bite:
       - playeffect bubble_column_up <context.hook.location> targets:<player> quantity:60
       - narrate "<&6>HOOKED!"
@@ -103,11 +104,13 @@ fishing_inventory_listener:
 #      - if <util.random.int[1].to[100]> <= 30:
 #        - narrate "<&6>You snagged a crab!"
 #        - spawn af_entity_crab <context.hook.location>
+      - wait 1t
+      - if <[number]> <= 30:
+        - narrate "<&6>A fish just stole your bait!"
+        - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
+        - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
+        - stop
 
-      - if <[number]> <= 100:
-        - firework <context.hook.location> power:0.5 star primary:yellow fade:white flicker
-        - give af_fish_token
-        - narrate "<&6>You have recieved a shiney new <&a>Fish Token<&6>!"
       - if <[number]> <= 20:
         - narrate "<&6>You caught a <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
       - else if <[number]> <= 50:
@@ -115,7 +118,7 @@ fishing_inventory_listener:
       - else if <[number]> <= 99:
         - narrate "<&6>You caught a <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
       - else:
-        - firework <player.location> star primary:yellow fade:white
+        - firework <context.hook.location> power:0.5 star primary:yellow fade:white flicker
         - give af_fish_token
         - narrate "<&6>You have recieved a shiney new <&a>Fish Token<&6>!"
 
@@ -123,7 +126,3 @@ fishing_inventory_listener:
       - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[value]> > <[number]>:
           - determine passively caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random.as_item||<yaml[fish_info].read[general.fallback.<[value]>].random.as_item>>
-      - wait 1t
-      - if <[number]> <= 30:
-        - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
-        - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
