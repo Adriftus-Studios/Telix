@@ -174,7 +174,7 @@ rare_ring:
   display name: "<&c>Rare Ring"
   lore:
     - "Something something ring,"
-    - "Something rare something"
+    - "Something rare something lore"
     - " "
     - "   <&9>Health: <&a>+<script.yaml_key[equipment_modifiers.health]>"
     - "   <&9>Speed: <&a>+<script.yaml_key[equipment_modifiers.speed]>"
@@ -187,7 +187,7 @@ rare_ring:
     - "   <&9>Experience Multiplier: <&a>+<script.yaml_key[equipment_modifiers.experience_multiplier]>%"
     - "   <&9>Drop Rate Multiplier: <&a>+<script.yaml_key[equipment_modifiers.drop_rate_multiplier]>%"
     - " "
-    - "   <&9>Slots: <&7>[] [] []"
+    - "   <&9>Sockets: <&7>[] [] []"
   drops_on_death: true
 
 basic_ring:
