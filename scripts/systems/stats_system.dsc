@@ -66,6 +66,7 @@ update_stats:
   - narrate <[speed]>
   - define speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.002]>]>]>
   - narrate <[speed]>
+  - narrate <yaml[player.<player.uuid>].read[stats.encumberance]>
   - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
 
 damage_stats_icon:
