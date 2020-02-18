@@ -58,6 +58,7 @@ update_stats:
         - foreach <yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item.script.list_keys[equipment_modifiers]> as:stat:
           - define value:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item.script.yaml_key[equipment_modifiers.<[stat]>]>
           - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier].contains[<[stat]>]>:
+            - narrate <[stat]>
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
