@@ -27,7 +27,7 @@ stats_setup:
     - foreach <script[abilitytrees].list_keys[trees]>:
       - yaml id:player.<player.uuid> set skills.<[value]>.current:100
 
-fish:
+update_stats_command:
   type: command
   name: update_stats
   description: update_stats
