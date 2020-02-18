@@ -20,9 +20,23 @@ reload_scripts:
         - inject locally reload
 
         # - stop
-        
+
         - yaml create id:custom_materials
         - foreach <server.list_material_types> as:material:
-            - if <[material].is_block>:
-                - yaml id:custom_materials set custom_<[material].name>.type:item
+            - yaml id:custom_materials set custom_<[material].name>.type:item
+            - yaml id:custom_materials set custom_<[material].name>.material:<[material].name>
+            - yaml id:custom_materials set custom_<[material].name>.weight:1
+            - yaml id:custom_materials set custom_<[material].name>.display<&sp>name:<&7><[material].name>
+            
         - yaml id:custom_materials savefile:something/custom_materials.yml
+
+
+damage_stats_icondfsaaf:
+  type: item
+  material: snow
+  assigned_stat: melee_damage
+  display name: "<green><&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
+  lore:
+  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>%"
+  - "This Stat cannot be increased with Skill Points."
+  drops_on_death: false
