@@ -65,7 +65,6 @@ equipment_inventory_handler:
     on player clicks item in equipment_character with item:
       - if <player.open_inventory.script_name> != "equipment_character":
         - stop
-      - narrate <context.raw_slot>
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
       - if !<context.is_shift_click>:
         - if <context.raw_slot> < 55:
@@ -134,6 +133,7 @@ basic_pendant:
   material: snow
   category: pendant
   equipment_rating: 0
+  number: <util.random.int[0].to[100]>
   display name: "<&c>Basic Pendant"
   drops_on_death: true
 
