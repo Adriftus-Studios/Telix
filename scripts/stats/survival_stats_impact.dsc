@@ -118,30 +118,10 @@ survival_stats_weight_impact:
     - if <player.has_flag[cheatmode]>:
       - stop
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
-    - if <[encumberance]> > 110:
-      - define encumberance:110
-    - choose <[encumberance]>:
-      - case 110:
-        - if !<yaml[player.<player.uuid>].read[debuffs].contains[full_encumbered]>:
-          - inject debuff_full_encumbered
-      - case 100:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.99]>]>
-        - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
-          - inject debuff_encumbered
-      - case 90:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.85]>]>
-        - if !<yaml[player.<player.uuid>].read[debuffs].contains[encumbered]>:
-          - inject debuff_encumbered
-      - case 80:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.5]>]>
-      - case 70:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.2]>]>
-      - case 60:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.1]>]>
-      - case 50:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed].-[<yaml[player.<player.uuid>].read[stats.basespeed].*[0.1]>]>
-      - default:
-        - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.basespeed]>
+    - if <[encumberance]> > 100:
+      - define encumberance:100
+    - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
+    - inject update_stats
 
 survival_stats_weight_events:
   type: world

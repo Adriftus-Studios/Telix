@@ -27,6 +27,38 @@ stats_setup:
     - foreach <yaml[ability_trees].list_keys[skill_trees]>:
       - yaml id:player.<player.uuid> set skills.<[value]>.current:100
 
+update_stats:
+  type: task
+  debug: true
+  script:
+    - foreach <yaml[player.<player.uuid>].read[stats.stat_points_spent]> as:stat:
+      - if <<yaml[player.<player.uuid>].read[stats.<[stat]>.max]>||null> != null:
+        - narrate <[stat]>
+    - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
+    - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 49:
+      - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
+      - adjust <player> walk_speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]>
+
+default_stats:
+  type: yaml data
+  stats:
+    default:
+      speed: 100
+      food: 100
+      thirst: 100
+      health: 20
+      weight: 100
+      power: 20
+      constitution: 0
+    increments:
+      speed: 1
+      health: 1
+      constitution: 1
+      weight: 10
+      thirst: 10
+      food: 10
+      power: 10
+
 stats_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
@@ -56,13 +88,6 @@ stats_inventory_handler:
           - yaml id:player.<player.uuid> set stats.stat_points:--
           - inventory open d:stats_character
           - inject update_stats
-
-update_stats:
-  type: task
-  debug: true
-  script:
-  - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
-  - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
 
 damage_stats_icon:
   type: item
@@ -130,7 +155,7 @@ speed_stats_icon:
   type: item
   material: snow
   assigned_stat: speed
-  assigned_stat_increment: 2
+  assigned_stat_increment: 1
   display name: "<green><&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
