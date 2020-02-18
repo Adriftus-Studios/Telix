@@ -8,6 +8,7 @@ ore_drop_events:
             - define roll:<util.random.int[1].to[100]>
             - define drop_num:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>].include[<yaml[server.ore_rates].list_keys[<context.material.name>.all]>].filter[is[OR_LESS].than[<[roll]>]].highest||<yaml[server.ore_rates].list_keys[<context.material.name>.all].filter[is[OR_LESS].than[<[roll]>]].highest>>
             - define to_drop:<yaml[server.ore_rates].read[<context.material.name||<all>>.<context.location.biome.name||<all>>.<[drop_num]>]>
+            - narrate <[to_drop]>
             - determine <[to_drop]>
 
 custom_iron_ore:
@@ -17,7 +18,7 @@ custom_iron_ore:
     ore:
         biome: all
         block: stone
-        chance: 50
+        chance: 5
 
 custom_coal:
     type: item
@@ -26,4 +27,4 @@ custom_coal:
     ore:
         biome: all
         block: stone
-        chance: 30
+        chance: 2
