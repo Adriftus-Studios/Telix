@@ -13,6 +13,7 @@ ability_rising_palm:
     - inject abilties_check
     - if <player.target||null> == null || <player.has_flag[no_move]>:
       - stop
+    - inject abilities_cost
     - define target:<player.target>
     - playeffect crit <[target].eye_location> quantity:30 offset:0.15
     - narrate "<&c>STUNNED." players:<[target]>

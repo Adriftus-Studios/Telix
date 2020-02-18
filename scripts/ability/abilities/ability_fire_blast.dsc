@@ -15,6 +15,7 @@ ability_fire_blast:
     - burn <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> <script.yaml_key[duration]>
   script:
     - inject abilities_check
+    - inject abilities_cost
     - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[0.5]>
     - repeat <[points].size> as:number:
       - playeffect flame at:<[points].get[<[number]>]> quantity:5 offset:0.1

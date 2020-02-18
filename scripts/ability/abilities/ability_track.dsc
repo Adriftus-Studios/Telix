@@ -12,6 +12,7 @@ ability_find:
     custom_model_data: 12
   script:
     - inject abilties_check
+    - inject abilities_cost
     - define target:<server.match_player[<context.args.get[1]>]||null>
     - if <[target]> == null:
       - narrate "Unknown Target."

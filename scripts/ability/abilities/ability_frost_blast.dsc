@@ -16,6 +16,7 @@ ability_frost_blast:
     - showfake ice <[points].get[<[number]>].find.blocks.within[4].filter[material.name.contains[water]]> players:<server.list_online_players> duration:10s
   script:
     - inject abilities_check
+    - inject abilities_cost
     - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[0.5]>
     - repeat <[points].size> as:number:
       - playeffect snowball at:<[points].get[<[number]>]> quantity:10 offset:0.1

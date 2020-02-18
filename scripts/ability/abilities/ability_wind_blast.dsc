@@ -15,6 +15,7 @@ ability_wind_blast:
       - adjust <[value]> velocity:<[loc].direction.vector.with_y[0.25]>
   script:
     - inject abilities_check
+    - inject abilities_cost
     - define loc:<player.location>
     - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[1]>
     - repeat <[points].size> as:number:

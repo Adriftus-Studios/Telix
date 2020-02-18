@@ -4,19 +4,18 @@ abilities_check:
     - if <yaml[player.<player.uuid>].read[skills.<queue.script.yaml_key[ability_tree]>.current]> < <queue.script.yaml_key[points_to_unlock]>:
       - stop
 
+abilities_cost:
+  type: task
+  script:
+    - if <yaml[player.<player.uuid>].read[stats.power.current]> < <queue.script.yaml_key[power_cost]>:
+      - stop
+    - yaml id:player.<player.uuid> set stats.power.current:-:<queue.script.yaml_key[power_cost]>
+    - adjust <player> food_level:<yaml[player.<player.uuid>].read[stats.power.max]./[<yaml[player.<player.uuid>].read[stats.power.current]>].*[20]>
+
 abilities_reload:
   type: world
   debug: true
-  abilities_reload:
-      - yaml create id:server.skills_by_level
-      - foreach <server.list_scripts>:
-        - if <[value].name.starts_with[ability]>:
-          - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
-  events:
-    on server start:
-      - inject locally abilities_reload
-    on script reload:
-      - inject locally abilities_reload
+  # check systems/script_reload.dsc
   script:
       - if <yaml[server.skills_by_level].read[<[ability_tree]>.<yaml[player.<player.uuid>].read[skills.<[ability_tree]>.level]>]||null> != null:
         - narrate "<&e>You have unlocked new <&b><[ability_tree]><&e> abilities<&co>"
@@ -53,6 +52,7 @@ abilites_item_use:
   events:
     on player right clicks with abilities_item:
       - determine passively cancelled
+      - ratelimit <player> 1s
       - if <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_tree]> != Ender && <player.has_flag[ender_world]>:
         - stop
       - run ability_<context.item.nbt[skillname]>
@@ -61,8 +61,8 @@ abilities_item_buildLore:
   type: task
   script:
     - define "lore:!|:<&e>-------------------------"
-    - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
-    - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
+    - define "lore:|:<&b><script[ability_<context.item.nbt[skillname]>].yaml_key[description]>"
+    - define "lore:|:<&c>Power Cost<&co> <script[ability_<context.item.nbt[skillname]>].yaml_key[power_cost]>"
     - define "lore:|:<&e>-------------------------"
 
 abilityTree_inventory:
@@ -94,7 +94,7 @@ abilities_GUIitem_buildLore:
     - define "lore:!|:<&e>-------------------------"
     - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
     - define "lore:|:<&a>Ability Type<&co> <script[ability_<[ability]>].yaml_key[ability_type].to_titlecase>"
-    - if <script[ability_<[ability]>].yaml_key[ability_type]> == command:
+    - if <script[ability_<[ability]>]>].yaml_key[ability_type]> == command:
       - define "lore:|:<&a>Usage<&co> <&e>/<script[ability_<[ability]>].yaml_key[command_usage]>"
     - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
     - define "lore:|:<&e>-------------------------"

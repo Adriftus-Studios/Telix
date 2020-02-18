@@ -29,7 +29,7 @@ equipment_leg_slot:
   display name: <&c>Stats
   GUI_Inventory: stats_character
   mechanisms:
-    custom_model_data: 0
+    custom_model_data: -2
   drops_on_death: false
   weight: 0
   lore:
@@ -56,34 +56,49 @@ equipment_boots_slot:
 
 equipment_inventory_handler:
   type: world
-  debug: true
+  debug: false
   events:
     on player drags item in equipment_character:
-      - determine passively cancelled
+      - if <player.open_inventory.script_name> == "equipment_character":
+        - if <context.raw_slot> < 55:
+          - determine passively cancelled
     on player clicks item in equipment_character with item:
+      - if <player.open_inventory.script_name> != "equipment_character":
+        - stop
       - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
       - if !<context.is_shift_click>:
-        - if <context.clicked_inventory.script_name> != "equipment_character":
-        - stop
-        - if <[slotmap].map_get[<context.slot>]||null> == null:
-          - determine passively cancelled
-          - stop
-        - if <context.cursor_item> != <item[air]>:
-          - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
+        - if <context.raw_slot> < 55:
+          - if <[slotmap].map_get[<context.slot>]||null> == null:
             - determine passively cancelled
             - stop
-          - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
-            - determine passively cancelled
-            - stop
-        - wait 1t
-        - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.clicked_inventory.slot[<context.slot>]>
+          - if <context.cursor_item.material.name> != air:
+            - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
+              - determine passively cancelled
+              - stop
+            - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
+              - determine passively cancelled
+              - stop
+          - wait 1t
+          - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
       - else:
-        - determine <item[air]>
-        - foreach <[slotmap]> as:slot:
-          - if <[slot].matches[(\d\d/<context.item.script.yaml_key[category]>.)]>:
-            - narrate <[slot].split[/].get[1]>
-            
-            
+        - if <context.raw_slot> > 54:
+          - determine passively cancelled
+          - define found:false
+          - foreach <[slotmap]> as:slot:
+            - if !<[found]>:
+              - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
+                - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]>:
+                  - inventory adjust slot:<context.slot> quantity:<player.inventory.slot[<context.slot>].quantity.-[1]>
+                  - inventory set d:<player.open_inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
+                  - wait 1t
+                  - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<[slot].split[/].get[1]>]>:<player.open_inventory.slot[<[slot].split[/].get[1]>]>
+                  - define found:true
+        - else:
+          - if <[slotmap].map_get[<context.slot>]||null> == null:
+            - determine passively cancelled
+            - stop
+          - wait 1t
+          - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.inventory.slot[<context.slot>]>
 
 invisible_placeholder:
   type: item

@@ -11,6 +11,8 @@
 #  With that beign said, they will not be paid insanely more. Only a fraction added to the top tiers. This will ensure that just because you're
 #  new, you won't be left extremely far behind, with no hope of catching up.
 
+
+# I need to inject this massive block of lore into the item somehow.
 af_rod_basic:
   type: item
   material: fishing_rod
@@ -96,6 +98,14 @@ af_gutting_station_button:
   display name: <&a>Gutting Station
   lore:
   - "<&b>Gut and prepare your catch for market"
+
+af_fish_token:
+  type: item
+  material: paper
+  display name: <&a>Fishing Token
+  lore:
+  - "<&b>General admission ticket to the"
+  - "<&b>monthly fishing event!"
 
 ### Info Icons ###
 af_bait_shop_info:

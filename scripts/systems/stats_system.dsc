@@ -52,6 +52,7 @@ stats_inventory_handler:
       - if <context.item.script.yaml_key[assigned_stat_increment]||null> != null:
         - if <yaml[player.<player.uuid>].read[stats.stat_points]> > 0:
           - yaml id:player.<player.uuid> set stats.<context.item.script.yaml_key[assigned_stat]>:+:<context.item.script.yaml_key[assigned_stat_increment]>
+          - yaml id:player.<player.uuid> set stats.stat_points_spent.<context.item.script.yaml_key[assigned_stat].replace[.max].with[]>:+:1
           - yaml id:player.<player.uuid> set stats.stat_points:--
           - inventory open d:stats_character
           - inject update_stats
