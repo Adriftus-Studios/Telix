@@ -19,7 +19,7 @@ reload_scripts:
         on script reload:
         - inject locally reload
 
-        # - stop
+        - stop
 
         - yaml create id:custom_materials
         - foreach <server.list_material_types> as:material:
