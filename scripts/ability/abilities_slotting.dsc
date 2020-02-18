@@ -61,10 +61,12 @@ abilities_usage_slotting:
 abilities_slotting_inventory:
   type: inventory
   title: <&a>Ability Slots
+  definitions:
+    gii: <item[gui_invisible_item]>
   slots:
-    - "[gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item]"
-    - "[] [] [gui_invisible_item] [] [] [gui_invisible_item] [] [] [gui_invisible_item]"
-    - "[gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item]"
-    - "[] [] [gui_invisible_item] [] [] [gui_invisible_item] [] [] [gui_invisible_item]"
-    - "[] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item]"
-    - "[] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item] [gui_invisible_item]"
+    - "[gii] [gii] [gii] [gii] [gii] [gii] [gii] [gii] [gii]"
+    - "[] [] [gii] [] [] [gii] [] [] [gii]"
+    - "[gii] [gii] [gii] [gii] [gii] [gii] [gii] [gii] [gii]"
+    - "[] [] [gii] [] [] [gii] [] [] [gii]"
+    - "[] [gii] [gii] [gii] [gii] [gii] [gii] [gii] [gii]"
+    - "[] [gii] [gii] [gii] [gii] [gii] [gii] [gii] [gii]"

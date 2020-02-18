@@ -12,15 +12,17 @@ abilities_cost:
     - yaml id:player.<player.uuid> set stats.power.current:-:<queue.script.yaml_key[power_cost]>
     - adjust <player> food_level:<yaml[player.<player.uuid>].read[stats.power.current]./[<yaml[player.<player.uuid>].read[stats.power.max]>].*[20]>
 
-abilities_reload:
-  type: world
-  debug: true
-  # check systems/script_reload.dsc
-  script:
-      - if <yaml[server.skills_by_level].read[<[ability_tree]>.<yaml[player.<player.uuid>].read[skills.<[ability_tree]>.level]>]||null> != null:
-        - narrate "<&e>You have unlocked new <&b><[ability_tree]><&e> abilities<&co>"
-        - foreach <yaml[server.skills_by_level].read[<[ability_tree]>.<[level]>]>:
-          - narrate "<&a><[value].replace[_].with[<&sp>].to_titlecase>"
+
+# check systems/script_reload.dsc
+
+#abilities_reload:
+#  type: world
+#  debug: true
+#  events:
+#      - if <yaml[server.skills_by_level].read[<[ability_tree]>.<yaml[player.<player.uuid>].read[skills.<[ability_tree]>.level]>]||null> != null:
+#        - narrate "<&e>You have unlocked new <&b><[ability_tree]><&e> abilities<&co>"
+#        - foreach <yaml[server.skills_by_level].read[<[ability_tree]>.<[level]>]>:
+#          - narrate "<&a><[value].replace[_].with[<&sp>].to_titlecase>"
 
 abilities_characterAbilityTrees:
   type: inventory
