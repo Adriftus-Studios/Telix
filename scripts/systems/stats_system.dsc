@@ -64,7 +64,7 @@ update_stats:
   - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
   - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
   - narrate <[speed]>
-  - define speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.002]>]>]>
+  - define speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]>
   - narrate <[speed]>
   - narrate <yaml[player.<player.uuid>].read[stats.encumberance]>
   - adjust <player> walk_speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
