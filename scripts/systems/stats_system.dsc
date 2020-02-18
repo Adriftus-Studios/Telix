@@ -42,7 +42,7 @@ update_stats:
       - if <yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.material.name> != air:
         - foreach <yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.list_keys[equipment_modifiers]> as:stat:
           - define value:<yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.yaml_key[equipment_modifiers.<[stat]>]>
-          - narrate <[stat]>
+          - narrate <[stat]>:<[value]>
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
     - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 49:
       - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
