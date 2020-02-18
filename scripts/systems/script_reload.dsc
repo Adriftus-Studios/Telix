@@ -18,3 +18,11 @@ reload_scripts:
         - inject locally reload
         on script reload:
         - inject locally reload
+
+        # - stop
+        
+        - yaml create id:custom_materials
+        - foreach <server.list_material_types> as:material:
+            - if <[material].is_block>:
+                - yaml id:custom_materials set custom_<[material].name>.type:item
+        - yaml id:custom_materials savefile:something/custom_materials.yml
