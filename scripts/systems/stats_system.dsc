@@ -91,6 +91,8 @@ stats_character:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 45
+  procedural items:
+    - inject update_stats
   definitions:
     filler: <item[gui_invisible_item]>
     gui_top: <item[gui_stats_top]>
