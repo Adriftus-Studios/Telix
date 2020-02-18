@@ -121,7 +121,6 @@ survival_stats_weight_impact:
     - if <[encumberance]> > 100:
       - define encumberance:100
     - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
-    - narrate <[encumberance]>
     - choose <[encumberance]>:
       - case 110:
         - if !<yaml[player.<player.uuid>].read[debuffs].contains[full_encumbered]>:
