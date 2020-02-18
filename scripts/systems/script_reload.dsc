@@ -9,7 +9,7 @@ reload_scripts:
         - yaml create id:server.equipment
         - yaml create id:server.ore_rates
         - foreach <server.list_scripts>:
-            - if <[value].name.starts_with[ability]>:
+            - if <[value].name.starts_with[ability_]>:
                 - if <[value].yaml_key[ability_tree]||null> == null:
                     - announce to_ops "<[value].name> is not properly defined. (<[value].filename>)"
                 - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
