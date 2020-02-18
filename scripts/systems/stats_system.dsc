@@ -44,11 +44,11 @@ update_stats:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
       - define weight:|:<[this_item_weight].*[<[item].quantity>]>
   # calculate equipment stats + weight
-    - foreach <yaml[player.<player.uuid>].list_keys[equipment]>:
-      - if <yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.material.name> != air:
-        - define weight:|:<yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.yaml_key[weight]>
-        - foreach <yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.list_keys[equipment_modifiers]> as:stat:
-          - define value:<yaml[player.<player.uuid>].read[equipment.<[value]>].as_item.script.yaml_key[equipment_modifiers.<[stat]>]>
+    - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
+      - if <yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item.material.name> != air:
+        - define weight:|:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item.script.yaml_key[weight]>
+        - foreach <yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item.script.list_keys[equipment_modifiers]> as:stat:
+          - define value:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item.script.yaml_key[equipment_modifiers.<[stat]>]>
           - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier].contains[<[stat]>]>:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
           - else:
