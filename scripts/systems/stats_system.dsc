@@ -35,7 +35,7 @@ update_stats:
       - if <<yaml[player.<player.uuid>].read[stats.<[stat]>.max]>||null> != null:
         - narrate <[stat]>
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
-    - if <yaml[player.<player.uuid>].read[stats.encumberance]> > <ElementTag[49]>:
+    - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 49:
       - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
       - adjust <player> walk_speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]>
 
