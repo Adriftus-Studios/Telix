@@ -172,6 +172,8 @@ rare_ring:
     thirst: 100
     weight: 100
   display name: "<&c>Rare Ring"
+  lore:
+    - "<script.yaml_key[equipment_modifiers.speed]>"
   drops_on_death: true
 
 basic_ring:
