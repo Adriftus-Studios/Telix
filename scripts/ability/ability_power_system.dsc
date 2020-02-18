@@ -3,7 +3,7 @@ abilities_power_system_tick:
   events:
     on delta time secondly:
       - foreach <server.list_online_players.filter[has_flag[no_power_regain].not]>:
-        - adjust <queue> attached_player:<[value]>
+        - adjust <queue> linked_player:<[value]>
         - inject power_regain_tick
 
 power_regain_tick:
