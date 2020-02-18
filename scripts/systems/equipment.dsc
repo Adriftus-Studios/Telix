@@ -20,6 +20,7 @@ equipment_chest_slot:
   lore:
   - "<&e>Click to open your equipment window."
   mechanisms:
+    nbt_attributes: generic.armor/chest/0/0
     unbreakable: true
     flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
 
