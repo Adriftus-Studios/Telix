@@ -120,16 +120,16 @@ rare_ring:
   max_stars: 10
   sockets: 3
   equipment_modifiers:
+    health: 100
     speed: 100
+    weight: 100
+    power: 100
+    food: 100
+    thirst: 100
     constitution: 100
     melee_damage: 100
     experience_multiplier: 100
     drop_rate_multiplier: 100
-    health: 100
-    power: 100
-    food: 100
-    thirst: 100
-    weight: 100
   display name: "<&c>Rare Ring"
   lore:
     - "Something something ring,"
