@@ -155,6 +155,7 @@ build_item:
       - foreach <[stats]> as:stat:
         - define modifier:<[stat].split[-].get[1]>
         - define value:<[stat].split[-].get[2]>
+        - narrate <[value]>
         - foreach <[item].nbt_keys> as:stat2:
           - if <[stat2].starts_with[star.]>:
             - if <[stat2].ends_with[<[modifier]>]>:
