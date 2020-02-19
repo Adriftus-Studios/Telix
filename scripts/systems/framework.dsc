@@ -83,7 +83,7 @@ build_item_command:
     - inject build_item
     - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
 
-build_item_command:
+socket_item_command:
   type: command
   name: socket_item
   description: socket_item
