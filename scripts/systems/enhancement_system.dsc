@@ -73,15 +73,15 @@ enhancement_gui_handler:
             - define item:<item[diamond]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val1]>]> slot:39
             - wait 10t
-            - define val2:<util.random.int[1].to[<[val1]>]>
+            - define val2:<util.random.int[8].to[<[val1]>]>
             - define item:<item[diamond]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val2]>]> slot:40
             - wait 10t
-            - define val3:<util.random.int[1].to[<[val2]>]>
+            - define val3:<util.random.int[6].to[<[val2]>]>
             - define item:<item[diamond]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val3]>]> slot:41
             - wait 10t
-            - define val4:<util.random.int[1].to[<[val3]>]>
+            - define val4:<util.random.int[4].to[<[val3]>]>
             - define item:<item[diamond]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val4]>]> slot:42
             - wait 10t
