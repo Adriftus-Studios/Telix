@@ -54,6 +54,7 @@ system_override:
   type: world
   events:
     on player clicks in enhancement_inventory_gui:
+    on player clicks in upgrade_star_force_inventory_gui:
       - if <context.raw_slot> < 46:
         - if !<list[21|23|25].contains[<context.raw_slot>]>:
           - determine passively cancelled
@@ -63,4 +64,3 @@ system_override:
           - if <context.cursor_item.script.yaml_key[max_stars]>:
             - narrate a
           
-    on player clicks in upgrade_star_force_inventory_gui:
