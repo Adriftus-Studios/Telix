@@ -67,8 +67,8 @@ calculate_weight_equipment_stats:
       - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
       - if <[item].material.nam> != air:
         - define weight:|:<[item].script.yaml_key[weight]>
-        - foreach <[item].script.list_keys[equipment_modifiers]> as:stat:
-          - define value:<[item].script.yaml_key[equipment_modifiers.<[stat]>]>
+        - foreach <[item].nbt_keys[modifier]> as:stat:
+          - define value:<[item].nbt[<[stat]>]>
           - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
           - else:
