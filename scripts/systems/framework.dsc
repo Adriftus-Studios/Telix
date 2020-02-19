@@ -112,8 +112,8 @@ socket_item_command:
 build_item:
   type: task
   script:
-    - if <[item].script.yaml_key[category]||null> != null
-      - if <[item].script.yaml_key[max_stars]||null> != null
+    - if <[item].script.yaml_key[category]||null> != null:
+      - if <[item].script.yaml_key[max_stars]||null> != null:
         - if <[item].nbt[stars]||null> == null:
           - adjust def:item nbt:stars/0
         - define line:<&7>
