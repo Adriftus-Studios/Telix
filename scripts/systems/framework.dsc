@@ -124,7 +124,7 @@ build_item:
       - define lore:|:<[line]>
     - define lore:|:<&9>
     - if <[item].script.yaml_key[weight]||null> != null:
-      - define lore:|:<&9>Weight:<[item].script.yaml_key[weight]>
+      - define lore:|:<&9>Weight:<&sp><[item].script.yaml_key[weight]>
     - define lore:|:<&9>
     - define stat_names:<list[thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
     - define lore:|:<&9>When<&sp>Worn:<&co>
