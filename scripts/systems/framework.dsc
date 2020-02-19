@@ -98,6 +98,18 @@ build_item:
       - define lore:|:<[line]>
     - define lore:|:<[item].script.yaml_key[lore]>
     - define lore:|:<&9>
+    - if <[item].script.yaml_key[sockets]||null> != null:
+      - if <[item].nbt[used_sockets]||null> == null:
+        - adjust def:item nbt:used_sockets/0
+      - define i:0
+      - define line:<&7>
+      - while <[i]> < <[item].script.yaml_key[sockets]>:
+        - if <[i]> < <[item].nbt[used_sockets]>:
+          - define line:<[line]><&6>[<&sp>]
+        - else:
+          - define line:<[line]><&9>[<&chr[2B24]>]
+        - define i:++
+      - define lore:|:<[line]>
     - if <[item].script.yaml_key[weight]||null> != null:
       - define lore:|:<&9>Weight: <[item].script.yaml_key[weight]>
     - define lore:|:<&9>
@@ -108,8 +120,6 @@ build_item:
       - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]||null> != null:
         - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]||null> != null:
           - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]>]>
-      - adjust def:item nbt:<[item].nbt.include[<[modifier]>/<[value]>]>
+      - adjust def:item nbt:<[modifier]>/<[value]>
       - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
     - adjust def:item lore:<[lore]>
-
-    
