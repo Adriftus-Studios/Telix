@@ -70,8 +70,8 @@ calculate_weight_equipment_stats:
         - narrate <[item].script.name>
         - foreach <[item].nbt_keys> as:stat:
           - narrate <[stat]>
-          - if <[stat].starts_with[base_stat_]>:
-            - define stat:<[stat].replace[base_stat_].with[]>
+          - if <[stat].starts_with[base_stats_]>:
+            - define stat:<[stat].replace[base_stats_].with[]>
             - define value:<[item].nbt[<[stat]>]>
             - narrate <[stat]>
             - narrate <[value]>
