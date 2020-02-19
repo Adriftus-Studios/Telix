@@ -101,6 +101,5 @@ build_item:
       - adjust def:item nbt:<[item].nbt.include[<[modifier]>/<[value]>]>
       - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
     - adjust def:item lore:<[lore]>
-    - define item:<[item]>
 
     
