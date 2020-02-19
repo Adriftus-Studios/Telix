@@ -68,7 +68,8 @@ enhancement_gui_handler:
               - determine passively cancelled
               - stop
             - else:
-
+              - inventory set d:<player.open_inventory> o:<context.cursor_item.with[quantity=1]> slot:21
+              - adjust <player> item_on_cursor:<context.cursor_item.with[quantity=<context.cursor_item.quantity.sub[1]>]>
         - if <context.raw_slot> == 23:
           - determine passively cancelled
           - if <player.open_inventory.slot[25].material.name> != air:
