@@ -33,7 +33,7 @@ enhance_upgrade_btn:
 
 upgrade_star_force_inventory_gui:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Enhancement Menu<&r> <&6>◆
+  title: <green><&6>◆ <&a><&n><&l>Upgrade Star Force<&r> <&6>◆
   size: 45
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -55,11 +55,11 @@ system_override:
   events:
     on player clicks in enhancement_inventory_gui:
     on player clicks in upgrade_star_force_inventory_gui:
+      - narrate <context.raw_slot>
       - if <context.raw_slot> < 46:
         - if !<list[21|23|25].contains[<context.raw_slot>]>:
           - determine passively cancelled
           - stop
-        - narrate <context.raw_slot>
         - if <context.raw_slot> == 21:
           - if <context.cursor_item.script.yaml_key[max_stars]>:
             - narrate a
