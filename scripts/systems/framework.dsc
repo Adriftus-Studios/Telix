@@ -67,7 +67,7 @@ system_override:
       - inject system_equipment_set
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
-        # for more inventory buttons for 2x2 crafting grid
+        - narrate <context.slot>:<context.raw_slot>
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
         - wait 1t
@@ -81,35 +81,35 @@ build_item_command:
   script:
     - define item:<player.item_in_hand>
     - inject build_item
-    - inventory set d:<player.inventory> o:<[item]> slot:1
+    - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
 
 build_item:
   type: task
   script:
-    - define lore:|:""
+    - define lore:<[item].lore>
+    - define lore:|:" "
     - if <[item].script.yaml_key[weight]||null> != null:
-      - define lore:|:"<&9>Weight:<&sp><[item].script.yaml_key[weight]>"
-    - define lore:|:""
+      - define lore:|:"<&9>Weight: <[item].script.yaml_key[weight]>"
+    - define lore:|:" "
     - if <[item].script.yaml_key[equipment_modifiers.health]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.health]><&sp>Health"
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.health]> Health"
     - if <[item].script.yaml_key[equipment_modifiers.speed]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.speed]><&sp>Movement<&sp>Speed"
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.speed]> Movement Speed"
     - if <[item].script.yaml_key[equipment_modifiers.weight]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.weight]><&sp>Carry<&sp>Weight"
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.weight]> Carry Weight"
     - if <[item].script.yaml_key[equipment_modifiers.power]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.power]><&sp>Power"
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.power]> Power"
     - if <[item].script.yaml_key[equipment_modifiers.food]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.Food]><&sp>Max<&sp>Food"
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.Food]> Max Food"
     - if <[item].script.yaml_key[equipment_modifiers.thirst]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.thirst]><&sp>Max<&sp>Thirst"
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.thirst]> Max Thirst"
     - if <[item].script.yaml_key[equipment_modifiers.constitution]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.constitution]><&sp>Constitution"
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.constitution]> Constitution"
     - if <[item].script.yaml_key[equipment_modifiers.melee_damage]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.melee_damage]>%<&sp>Damage"
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.melee_damage]>% Damage"
     - if <[item].script.yaml_key[equipment_modifiers.experience_multiplier]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.experience_multiplier]>%<&sp>Experience"
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.experience_multiplier]>% Experience"
     - if <[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]>%<&sp>Drop<&sp>Rate"
-    - adjust <[item]> lore:<[lore]>
-    - narrate <[lore]>
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]>% Drop Rate"
+    - adjust def:item lore:<[lore]>
     - define item:<[item]>
