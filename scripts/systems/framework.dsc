@@ -159,5 +159,6 @@ build_item:
           - if <[stat2].starts_with[star.]>:
             - if <[stat2].ends_with[<[modifier]>]>:
               - define value:<[value].add[<[stat2].split[-].get[2]>]>
+        - narrate <[value]>
         - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
       - adjust def:item lore:<[lore]>
