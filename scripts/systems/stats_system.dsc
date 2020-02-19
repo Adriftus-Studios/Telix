@@ -71,8 +71,8 @@ calculate_weight_equipment_stats:
         - foreach <[item].nbt_keys> as:stat:
           - narrate <[stat]>
           - if <[stat].starts_with[base_stats_]>:
-            - define stat:<[stat].replace[base_stats_].with[]>
             - define value:<[item].nbt[<[stat]>]>
+            - define stat:<[stat].replace[base_stats_].with[]>
             - narrate <[stat]>
             - narrate <[value]>
             - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
