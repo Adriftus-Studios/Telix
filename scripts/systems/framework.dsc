@@ -111,14 +111,12 @@ build_item:
     - if <[item].script.yaml_key[sockets]||null> != null:
       - if <[item].nbt[used_sockets]||null> == null:
         - adjust def:item nbt:used_sockets/0
-      - define i:0
       - define line:<&7>
-      - while <[i]> < <[item].script.yaml_key[sockets]>:
+      - repeat <[item].script.yaml_key[sockets]>:
         - if <[i]> >= <[item].nbt[used_sockets]>:
           - define line:<[line]><&7>[<&sp>]
         - else:
           - define line:<[line]><&9>[<&chr[25CF]>]
-        - define i:++
       - define lore:|:<[line]>
     - define lore:|:<&9>
     - if <[item].script.yaml_key[weight]||null> != null:
