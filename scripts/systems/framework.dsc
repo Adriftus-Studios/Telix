@@ -86,14 +86,17 @@ build_item_command:
 build_item:
   type: task
   script:
-    - define star:⛤
-    - if <[item].nbt[stars]||null> != null:
-    - define lore:<[item].lore>
+    - if <[item].script.yaml_key[max_stars]||null> != null:
+      - define i:0
+      - while <[i]> < <[item].script.yaml_key[max_stars]>:
+        - if <[i]> < <[item].nbt[stars]>:
+          - define line:<[line]><&7>⛤
+        - else:
+          - define line:<[line]><&6>⛤
+        - define i:++
+      - define lore:|:<[line]>
+    - define lore:|:<[item].lore>
     - define lore:|:<&9>
-    - define i:0
-    - while <[i]> < 10:
-      - narrate <[1]>
-      - define i:++
     - if <[item].script.yaml_key[weight]||null> != null:
       - define lore:|:<&9>Weight: <[item].script.yaml_key[weight]>
     - define lore:|:<&9>
