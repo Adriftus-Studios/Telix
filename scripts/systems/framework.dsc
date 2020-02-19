@@ -87,30 +87,30 @@ build_item:
   type: task
   script:
     - define lore:<[item].lore>
-    - define lore:|:
+    - define lore:|:""
     - if <[item].script.yaml_key[weight]||null> != null:
-      - define lore:|:<&9>Weight:<&sp><[item].script.yaml_key[weight]>
-    - define lore:|:
+      - define lore:|:"<&9>Weight:<&sp><[item].script.yaml_key[weight]>"
+    - define lore:|:""
     - if <[item].script.yaml_key[equipment_modifiers.health]||null><&sp>!=<&sp>null:
-      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.health]><&sp>Health
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.health]><&sp>Health"
     - if <[item].script.yaml_key[equipment_modifiers.speed]||null><&sp>!=<&sp>null:
-      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.speed]><&sp>Movement<&sp>Speed
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.speed]><&sp>Movement<&sp>Speed"
     - if <[item].script.yaml_key[equipment_modifiers.weight]||null><&sp>!=<&sp>null:
-      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.weight]><&sp>Carry<&sp>Weight
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.weight]><&sp>Carry<&sp>Weight"
     - if <[item].script.yaml_key[equipment_modifiers.power]||null><&sp>!=<&sp>null:
-      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.power]><&sp>Power
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.power]><&sp>Power"
     - if <[item].script.yaml_key[equipment_modifiers.food]||null><&sp>!=<&sp>null:
-      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.Food]><&sp>Max<&sp>Food
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.Food]><&sp>Max<&sp>Food"
     - if <[item].script.yaml_key[equipment_modifiers.thirst]||null><&sp>!=<&sp>null:
-      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.thirst]><&sp>Max<&sp>Thirst
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.thirst]><&sp>Max<&sp>Thirst"
     - if <[item].script.yaml_key[equipment_modifiers.constitution]||null><&sp>!=<&sp>null:
-      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.constitution]><&sp>Constitution
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.constitution]><&sp>Constitution"
     - if <[item].script.yaml_key[equipment_modifiers.melee_damage]||null><&sp>!=<&sp>null:
-      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.melee_damage]>%<&sp>Damage
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.melee_damage]>%<&sp>Damage"
     - if <[item].script.yaml_key[equipment_modifiers.experience_multiplier]||null><&sp>!=<&sp>null:
-      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.experience_multiplier]>%<&sp>Experience
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.experience_multiplier]>%<&sp>Experience"
     - if <[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]||null><&sp>!=<&sp>null:
-      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]>%<&sp>Drop<&sp>Rate
+      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]>%<&sp>Drop<&sp>Rate"
     - adjust <[item]> lore:<[lore]>
     - narrate <[lore]>
     - define new_item:<[item]>
