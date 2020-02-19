@@ -112,4 +112,5 @@ build_item:
     - if <[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]||null> != null:
       - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]>% Drop Rate"
     - adjust <[item]> lore:<[lore]>
+    - narrate <[lore]>
     - define new_item:<[item]>
