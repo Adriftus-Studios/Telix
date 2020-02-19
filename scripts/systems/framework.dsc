@@ -112,39 +112,40 @@ socket_item_command:
 build_item:
   type: task
   script:
-    - if <[item].script.yaml_key[max_stars]||null> != null:
-      - if <[item].nbt[stars]||null> == null:
-        - adjust def:item nbt:stars/0
-      - define line:<&7>
-      - repeat <[item].script.yaml_key[max_stars]>:
-        - if <[value]> <= <[item].nbt[stars]>:
-          - define line:<[line]><&6><&chr[2B50]>
-        - else:
-          - define line:<[line]><&7><&chr[2B50]>
-      - define lore:|:<[line]>
-    - define lore:|:<[item].script.yaml_key[lore]>
-    - if <[item].script.yaml_key[sockets]||null> != null:
-      - if <[item].nbt[used_sockets]||null> == null:
-        - adjust def:item nbt:used_sockets/0
-      - define line:<&7>
-      - repeat <[item].script.yaml_key[sockets]>:
-        - if <[value]> <= <[item].nbt[used_sockets]>:
-          - define line:<[line]><&9>[<&chr[25CF]>]
-        - else:
-          - define line:<[line]><&7>[<&sp>]
-      - define lore:|:<[line]>
-    - define lore:|:<&9>
-    - if <[item].script.yaml_key[weight]||null> != null:
-      - define lore:|:<&9>Weight:<&sp><[item].script.yaml_key[weight]>
-    - define lore:|:<&9>
-    - define stat_names:<list[thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
-    - define lore:|:<&9>When<&sp>Equipped:<&co>
-    - foreach <[item].script.list_keys[equipment_modifiers]> as:modifier:
-      - define value:<[item].nbt[base_stats.<[modifier]>]||<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>>
-      - if <[item].nbt[base_stats.<[modifier]>]||null> == null:
-        - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]||null> != null:
-          - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]||null> != null:
-            - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]>]>
-      - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
-      - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
-    - adjust def:item lore:<[lore]>
+    - if <[item].script.yaml_key[category]||null> != null
+      - if <[item].script.yaml_key[max_stars]||null> != null:
+        - if <[item].nbt[stars]||null> == null:
+          - adjust def:item nbt:stars/0
+        - define line:<&7>
+        - repeat <[item].script.yaml_key[max_stars]>:
+          - if <[value]> <= <[item].nbt[stars]>:
+            - define line:<[line]><&6><&chr[2B50]>
+          - else:
+            - define line:<[line]><&7><&chr[2B50]>
+        - define lore:|:<[line]>
+      - define lore:|:<[item].script.yaml_key[lore]>
+      - if <[item].script.yaml_key[sockets]||null> != null:
+        - if <[item].nbt[used_sockets]||null> == null:
+          - adjust def:item nbt:used_sockets/0
+        - define line:<&7>
+        - repeat <[item].script.yaml_key[sockets]>:
+          - if <[value]> <= <[item].nbt[used_sockets]>:
+            - define line:<[line]><&9>[<&chr[25CF]>]
+          - else:
+            - define line:<[line]><&7>[<&sp>]
+        - define lore:|:<[line]>
+      - define lore:|:<&9>
+      - if <[item].script.yaml_key[weight]||null> != null:
+        - define lore:|:<&9>Weight:<&sp><[item].script.yaml_key[weight]>
+      - define lore:|:<&9>
+      - define stat_names:<list[thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
+      - define lore:|:<&9>When<&sp>Equipped:<&co>
+      - foreach <[item].script.list_keys[equipment_modifiers]> as:modifier:
+        - define value:<[item].nbt[base_stats.<[modifier]>]||<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>>
+        - if <[item].nbt[base_stats.<[modifier]>]||null> == null:
+          - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]||null> != null:
+            - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]||null> != null:
+              - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]>]>
+        - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
+        - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
+      - adjust def:item lore:<[lore]>
