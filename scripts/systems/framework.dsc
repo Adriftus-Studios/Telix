@@ -83,6 +83,19 @@ build_item_command:
     - inject build_item
     - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
 
+build_item_command:
+  type: command
+  name: socket_item
+  description: socket_item
+  usage: /socket_item
+  script:
+    - define item:<player.item_in_hand>
+    - if <[item].nbt[used_sockets]||null> == null:
+      - adjust def:item nbt:used_sockets/0
+    - adjust def:item nbt:used_sockets/<[item].nbt[used_sockets].add[1]>
+    - inject build_item
+    - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
+
 build_item:
   type: task
   script:
