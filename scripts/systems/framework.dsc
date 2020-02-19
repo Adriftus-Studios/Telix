@@ -60,7 +60,7 @@ system_equipment_set:
   script:
     - equip head:<item[equipment_head_slot]> chest:<item[equipment_chest_slot]> legs:<item[equipment_leg_slot]> boots:<item[equipment_boots_slot]>
 
-system_equipment_override:
+system_override:
   type: world
   events:
     on player clicks in inventory:
