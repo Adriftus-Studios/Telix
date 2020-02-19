@@ -34,7 +34,7 @@ enhance_upgrade_btn:
 upgrade_star_force_inventory_gui:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Upgrade Star Force<&r> <&6>◆
-  size: 45
+  size: 54
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
