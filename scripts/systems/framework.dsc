@@ -91,9 +91,9 @@ build_item:
       - define line:<&7>
       - while <[i]> < <[item].script.yaml_key[max_stars]>:
         - if <[i]> < <[item].nbt[stars]>:
-          - define line:<[line]><&7><&chr[9956]>
+          - define line:<[line]><&7><&chr[26E4]>
         - else:
-          - define line:<[line]><&6><&chr[9956]>
+          - define line:<[line]><&6><&chr[26E4]>
         - define i:++
       - define lore:|:<[line]>
     - define lore:|:<[item].lore>
