@@ -56,6 +56,6 @@ system_override:
     on player clicks in enhancement_inventory_gui:
       - if <context.raw_slot> < 46:
         - if <context.item> != <item[gui_invisible_item]> && <context.item> != <item[gui_close_btn]>:
-          - narrate 1
+          - narrate <context.raw_slot>
           
     on player clicks in upgrade_star_force_inventory_gui:
