@@ -71,4 +71,5 @@ enhancement_gui_handler:
             - determine passively cancelled
             - stop
         - if <context.raw_slot> == 23:
-          - if <player.open_inventory>
+          - if <player.open_inventory.slot[21].nbt[stars]||0> < <player.open_inventory.slot[21].script.yaml_key[max_stars]>:
+            - narrate a
