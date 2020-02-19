@@ -63,7 +63,7 @@ system_equipment_set:
 system_equipment_override:
   type: world
   events:
-    on tick every:20:
+    on every:20 tick:
       - foreach <server.list_players> as:player:
         - narrate 1
     on player respawns:
