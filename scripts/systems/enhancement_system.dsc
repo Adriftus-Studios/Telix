@@ -55,7 +55,10 @@ enhancement_gui_handler:
   type: world
   events:
     on player clicks in enhancement_inventory_gui:
+    on player closes upgrade_star_force_inventory_gui:
+
     on player clicks in upgrade_star_force_inventory_gui:
+      - narrate <player.open_inventory>
       - if <context.raw_slot> < 46:
         - if !<list[21|23|25].contains[<context.raw_slot>]>:
           - determine passively cancelled
@@ -67,8 +70,10 @@ enhancement_gui_handler:
                 - stop
         - if <context.raw_slot> == 23:
           - determine passively cancelled
-          - if <player.open_inventory.slot[21].nbt[stars]||0> < <player.open_inventory.slot[21].script.yaml_key[max_stars]>:
+          - if <player.open_inventory.slot[21].nbt[stars]||1> <= <player.open_inventory.slot[21].script.yaml_key[max_stars]>:
             - define item:<item[diamond]>
+            - if <player.open_inventory.script_name>:
+              
             - wait 15t
             - define val1:<util.random.int[15].to[30]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val1]>]> slot:39
@@ -84,3 +89,9 @@ enhancement_gui_handler:
             - wait 15t
             - define val5:<util.random.int[1].to[<[val4]>]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val5]>]> slot:43
+            - define item:<player.open_inventory.slot[21]>
+            - adjust def:item nbt:star_<player.open_inventory.slot[21].nbt[stars]||1>:<[val5]>
+            - adjust def:item nbt:stars/<[item].nbt[stars].add[1]>
+            - inject build_item
+            - inventory set d:<player.open_inventory> o:<item[air]> slot:21
+            - inventory set d:<player.open_inventory> o:<[item]> slot:25
