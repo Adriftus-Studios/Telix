@@ -100,14 +100,12 @@ build_item:
   type: task
   script:
     - if <[item].script.yaml_key[max_stars]||null> != null:
-      - define i:0
       - define line:<&7>
-      - while <[i]> < <[item].script.yaml_key[max_stars]>:
+      - repeat <[item].script.yaml_key[max_stars]>:
         - if <[i]> < <[item].nbt[stars]>:
           - define line:<[line]><&6><&chr[2B50]>
         - else:
           - define line:<[line]><&7><&chr[2B50]>
-        - define i:++
       - define lore:|:<[line]>
     - define lore:|:<[item].script.yaml_key[lore]>
     - if <[item].script.yaml_key[sockets]||null> != null:
