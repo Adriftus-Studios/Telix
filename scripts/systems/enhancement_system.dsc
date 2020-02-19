@@ -41,8 +41,9 @@ upgrade_star_force_inventory_gui:
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [] [w_filler] [upgrade_btn] [w_filler] [] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [] [] [] [] [] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 upgrade_btn:
@@ -56,12 +57,18 @@ enhancement_gui_handler:
     on player clicks in enhancement_inventory_gui:
     on player clicks in upgrade_star_force_inventory_gui:
       - narrate <context.raw_slot>
+      - narrate <context.slot>
       - if <context.raw_slot> < 46:
         - if !<list[21|23|25].contains[<context.raw_slot>]>:
           - determine passively cancelled
           - stop
         - if <context.raw_slot> == 21:
-          - narrate <context.cursor_item>
           - if <context.cursor_item.script.yaml_key[max_stars]||null> != null:
-            - narrate a
-          
+            - wait 10t
+            - define val1:<util.random.int[20].to[5]>
+            
+          - else:
+            - determine passively cancelled
+            - stop
+        - if <context.raw_slot> == 23:
+          - if <player.open_inventory>
