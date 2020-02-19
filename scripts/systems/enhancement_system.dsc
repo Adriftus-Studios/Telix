@@ -55,6 +55,7 @@ enhancement_gui_handler:
   type: world
   events:
     on player clicks in enhancement_inventory_gui:
+      - narrate <context.inventory.slot[21]>
       - inventory add d:<player.inventory> o:<context.inventory.slot[21]>
       - inventory add d:<player.inventory> o:<context.inventory.slot[25]>
     on player closes upgrade_star_force_inventory_gui:
