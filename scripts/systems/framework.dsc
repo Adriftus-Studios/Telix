@@ -104,7 +104,7 @@ build_item:
       - define i:0
       - define line:<&7>
       - while <[i]> < <[item].script.yaml_key[sockets]>:
-        - if <[i]> > <[item].nbt[used_sockets]>:
+        - if <[i]> >= <[item].nbt[used_sockets]>:
           - define line:<[line]><&7>[<&sp>]
         - else:
           - define line:<[line]><&9>[<&chr[25CF]>]
