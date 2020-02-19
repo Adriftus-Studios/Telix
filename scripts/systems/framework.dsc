@@ -118,7 +118,7 @@ build_item:
       - define line:<&7>
       - repeat <[item].script.yaml_key[max_stars]>:
         - narrate <[value]>
-        - if <[value]> < <[item].nbt[stars]>:
+        - if <[value]> <= <[item].nbt[stars]>:
           - define line:<[line]><&6><&chr[2B50]>
         - else:
           - define line:<[line]><&7><&chr[2B50]>
