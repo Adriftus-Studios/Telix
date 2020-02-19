@@ -3,7 +3,7 @@
 
 afgui_main:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Fishing Menu<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Fishing Menu<&r> <&6>◆
   size: 45
   definitions:
     gui_top: <item[fish_main_top]>
@@ -23,7 +23,7 @@ afgui_main:
 
 afgui_bait_shop:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Bait Shop<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Bait Shop<&r> <&6>◆
   size: 45
   definitions:
     gui_top: <item[fish_main_top]>
@@ -42,7 +42,7 @@ afgui_bait_shop:
 
 afgui_rod_shop:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Rod Shop<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Rod Shop<&r> <&6>◆
   size: 45
   definitions:
     gui_top: <item[fish_main_top]>
