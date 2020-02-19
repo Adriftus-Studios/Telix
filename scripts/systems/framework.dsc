@@ -88,11 +88,12 @@ build_item:
   script:
     - if <[item].script.yaml_key[max_stars]||null> != null:
       - define i:0
+      - define line:<&7>
       - while <[i]> < <[item].script.yaml_key[max_stars]>:
         - if <[i]> < <[item].nbt[stars]>:
-          - define line:<[line]><&7>⛤
+          - define line:<[line]><&7><&chr[9956]>
         - else:
-          - define line:<[line]><&6>⛤
+          - define line:<[line]><&6><&chr[9956]>
         - define i:++
       - define lore:|:<[line]>
     - define lore:|:<[item].lore>
