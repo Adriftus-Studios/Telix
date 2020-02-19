@@ -64,8 +64,8 @@ enhancement_gui_handler:
           - determine passively cancelled
           - stop
         - if <context.raw_slot> == 21:
-          - if !<context.cursor_item.script.yaml_key[max_stars]||null> != null:
-            - if <context.cursor_item.material.name> != air:
+          - if <context.cursor_item.material.name> != air:
+            - if <context.cursor_item.script.yaml_key[max_stars]||null> != null:
                 - determine passively cancelled
                 - stop
         - if <context.raw_slot> == 23:
