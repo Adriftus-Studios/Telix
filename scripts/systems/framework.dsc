@@ -92,7 +92,7 @@ build_item:
     - if <[item].script.yaml_key[weight]||null> != null:
       - define lore:|:<&9>Weight: <[item].script.yaml_key[weight]>
     - define lore:|:<&9>
-    - define lore:|:<&9>When<&sp>Worn<&co>
+    - define lore:|:<&9>When<&sp>Worn:<&co>
     - foreach <[item].script.list_keys[equipment_modifiers]> as:modifier:
       - define value:<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>
       - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]||null> != null:
