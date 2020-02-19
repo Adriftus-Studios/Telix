@@ -113,6 +113,8 @@ build_item:
   type: task
   script:
     - if <[item].script.yaml_key[max_stars]||null> != null:
+      - if <[item].nbt[stars]||null> == null:
+        - adjust def:item nbt:stars/0
       - define line:<&7>
       - repeat <[item].script.yaml_key[max_stars]>:
         - if <[value]> < <[item].nbt[stars]>:
