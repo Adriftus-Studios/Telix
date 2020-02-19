@@ -69,4 +69,4 @@ enhancement_gui_handler:
           - if <player.open_inventory.slot[21].nbt[stars]||0> < <player.open_inventory.slot[21].script.yaml_key[max_stars]>:
             - define val1:<util.random.int[5].to[20]>
             - define item:<item[diamond]>
-            - inventory set d:<player.open_inventory> o:<[item].with[amount=<[val1]>]> slot:39
+            - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val1]>]> slot:39
