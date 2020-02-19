@@ -33,16 +33,18 @@ new_civ_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [new_civ_btn] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
   
 civilization_gui_events:
   type: world
   debug: false
   events:
+    on player clicks in inventory:
+    - narrate <player.open_inventory>
     on player clicks in new_civ_gui:
     - determine passively cancelled
-    - narrate <context.raw_slot>
+    on player clicks new_civ_btn in new_civ_gui:
 
 civilization_command:
   type: command
@@ -51,3 +53,9 @@ civilization_command:
   usage: /civ
   script:
     - inventory open d:new_civ_gui
+
+new_civ_btn:
+  type: item
+  material: snow
+  equipment_rating: 0
+  display name: "<&c>Create a new Civilization"
