@@ -81,6 +81,7 @@ build_item_command:
   script:
     - define item:<player.item_in_hand>
     - inject build_item
+    - give <[new_item]>
 
 build_item:
   type: task
