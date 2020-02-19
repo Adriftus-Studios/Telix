@@ -68,6 +68,23 @@ enhancement_gui_handler:
         - if <context.raw_slot> == 23:
           - determine passively cancelled
           - if <player.open_inventory.slot[21].nbt[stars]||0> < <player.open_inventory.slot[21].script.yaml_key[max_stars]>:
-            - define val1:<util.random.int[5].to[20]>
+            - wait 10t
+            - define val1:<util.random.int[10].to[20]>
             - define item:<item[diamond]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val1]>]> slot:39
+            - wait 10t
+            - define val2:<util.random.int[1].to[<[val1]>]>
+            - define item:<item[diamond]>
+            - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val2]>]> slot:40
+            - wait 10t
+            - define val3:<util.random.int[1].to[<[val2]>]>
+            - define item:<item[diamond]>
+            - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val3]>]> slot:41
+            - wait 10t
+            - define val4:<util.random.int[1].to[<[val3]>]>
+            - define item:<item[diamond]>
+            - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val4]>]> slot:42
+            - wait 10t
+            - define val5:<util.random.int[1].to[<[val4]>]>
+            - define item:<item[diamond]>
+            - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val5]>]> slot:43
