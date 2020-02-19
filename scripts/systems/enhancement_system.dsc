@@ -50,7 +50,7 @@ upgrade_btn:
   material: anvil
   display name: <&c>Enhance
 
-system_override:
+enhancement_gui_handler:
   type: world
   events:
     on player clicks in enhancement_inventory_gui:
