@@ -62,6 +62,6 @@ enhancement_gui_handler:
           - stop
         - if <context.raw_slot> == 21:
           - narrate <context.cursor_item>
-          - if <context.cursor_item.script.yaml_key[max_stars]>:
+          - if <context.cursor_item.script.yaml_key[max_stars]||null> != null:
             - narrate a
           
