@@ -55,7 +55,12 @@ system_override:
   events:
     on player clicks in enhancement_inventory_gui:
       - if <context.raw_slot> < 46:
-        - if <context.item> != <item[gui_invisible_item]> && <context.item> != <item[gui_close_btn]>:
-          - narrate <context.raw_slot>
+        - if !<list[21|23|25].contains[<context.raw_slot>]>:
+          - determine passively cancelled
+          - stop
+        - narrate <context.raw_slot>
+        - if <context.raw_slot> == 21:
+          - if <context.cursor_item.script.yaml_key[max_stars]>:
+            - narrate a
           
     on player clicks in upgrade_star_force_inventory_gui:
