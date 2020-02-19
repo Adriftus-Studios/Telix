@@ -93,7 +93,15 @@ build_item:
     - define lore:|:
     - foreach <[item].script.list_keys[equipment_modifiers]> as:modifier:
       - adjust def:item nbt:<[item].nbt.include[<[modifier]>/<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>]>
+      - define line:<&9>+<[item].nbt[<[modifier]>]>
       - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]||null> != null:
         - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]||null> != null:
+          - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]>]>
+          - adjust def:item nbt:<[item].nbt.include[<[modifier]>/<[value]>>
+          - define line:<&9>+<[value]><&sp><[modifier]>
+      - define lore:|:<[line]>
     - adjust def:item lore:<[lore]>
     - define item:<[item]>
+
+    
+    - "<&9>+<script.yaml_key[equipment_modifiers.health]> Health"
