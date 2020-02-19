@@ -65,6 +65,7 @@ enhancement_gui_handler:
             - determine passively cancelled
             - stop
         - if <context.raw_slot> == 23:
+          - determine passively cancelled
           - if <player.open_inventory.slot[21].nbt[stars]||0> < <player.open_inventory.slot[21].script.yaml_key[max_stars]>:
             - define val1:<util.random.int[5].to[20]>
             - define item:<item[diamond]>
