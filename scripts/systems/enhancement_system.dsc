@@ -62,8 +62,9 @@ enhancement_gui_handler:
           - stop
         - if <context.raw_slot> == 21:
           - if !<context.cursor_item.script.yaml_key[max_stars]||null> != null:
-            - determine passively cancelled
-            - stop
+            - if <context.cursor_item.material.name> != air:
+                - determine passively cancelled
+                - stop
         - if <context.raw_slot> == 23:
           - determine passively cancelled
           - if <player.open_inventory.slot[21].nbt[stars]||0> < <player.open_inventory.slot[21].script.yaml_key[max_stars]>:
