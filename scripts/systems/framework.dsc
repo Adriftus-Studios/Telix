@@ -87,10 +87,10 @@ build_item:
   type: task
   script:
     - define lore:<[item].lore>
-    - define lore:|:" "
+    - define lore:|:""
     - if <[item].script.yaml_key[weight]||null> != null:
-    - define lore:|:"<&9>Weight:<&sp><[item].script.yaml_key[weight]>"
-    - define lore:|:"<&sp>"
+      - define lore:|:"<&9>Weight:<&sp><[item].script.yaml_key[weight]>"
+    - define lore:|:""
     - if <[item].script.yaml_key[equipment_modifiers.health]||null><&sp>!=<&sp>null:
       - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.health]><&sp>Health"
     - if <[item].script.yaml_key[equipment_modifiers.speed]||null><&sp>!=<&sp>null:
