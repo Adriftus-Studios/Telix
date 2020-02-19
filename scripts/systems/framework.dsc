@@ -67,7 +67,7 @@ system_override:
       - inject system_equipment_set
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
-        - narrate <context.slot>:<context.raw_slot>
+        # for more inventory buttons for 2x2 crafting grid
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
         - wait 1t
@@ -86,7 +86,6 @@ build_item_command:
 build_item:
   type: task
   script:
-    - define lore:<[item].lore>
     - define lore:|:""
     - if <[item].script.yaml_key[weight]||null> != null:
       - define lore:|:"<&9>Weight:<&sp><[item].script.yaml_key[weight]>"
