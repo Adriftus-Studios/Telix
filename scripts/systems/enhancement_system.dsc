@@ -54,7 +54,6 @@ enhancement_gui_handler:
   type: world
   events:
     on player clicks in enhancement_inventory_gui:
-      - narrate <context.raw_slot>
     on player clicks in upgrade_star_force_inventory_gui:
       - narrate <context.raw_slot>
       - if <context.raw_slot> < 46:
@@ -62,6 +61,7 @@ enhancement_gui_handler:
           - determine passively cancelled
           - stop
         - if <context.raw_slot> == 21:
+          - narrate <context.cursor_item>
           - if <context.cursor_item.script.yaml_key[max_stars]>:
             - narrate a
           
