@@ -58,18 +58,19 @@ enhancement_gui_handler:
     on player closes upgrade_star_force_inventory_gui:
 
     on player clicks in upgrade_star_force_inventory_gui:
-      - narrate <player.open_inventory>
       - if <context.raw_slot> < 46:
         - if !<list[21|23|25].contains[<context.raw_slot>]>:
           - determine passively cancelled
           - stop
         - if <context.raw_slot> == 21:
           - if <context.cursor_item.material.name> != air:
-            - if <context.cursor_item.script.yaml_key[max_stars]||null> != null:
+            - if <context.cursor_item.script.yaml_key[max_stars]||null> == null:
                 - determine passively cancelled
                 - stop
         - if <context.raw_slot> == 23:
           - determine passively cancelled
+          - if <player.open_inventory.slot[25].material.name> != air:
+            - stop
           - if <player.open_inventory.slot[21].nbt[stars]||1> <= <player.open_inventory.slot[21].script.yaml_key[max_stars]>:
             - define item:<item[diamond]>
             - wait 15t
