@@ -96,7 +96,7 @@ build_item:
           - define line:<[line]><&7><&chr[2B50]>
         - define i:++
       - define lore:|:<[line]>
-    - define lore:|:<[item].lore>
+    - define lore:|:<[item].script.yaml_key[lore]>
     - define lore:|:<&9>
     - if <[item].script.yaml_key[weight]||null> != null:
       - define lore:|:<&9>Weight: <[item].script.yaml_key[weight]>
