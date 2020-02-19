@@ -83,6 +83,19 @@ build_item_command:
     - inject build_item
     - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
 
+star_item_command:
+  type: command
+  name: star_item
+  description: star_item
+  usage: /star_item
+  script:
+    - define item:<player.item_in_hand>
+    - if <[item].nbt[used_sockets]||null> == null:
+      - adjust def:item nbt:stars/0
+    - adjust def:item nbt:stars/<[item].nbt[stars].add[1]>
+    - inject build_item
+    - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
+
 socket_item_command:
   type: command
   name: socket_item
@@ -113,10 +126,10 @@ build_item:
         - adjust def:item nbt:used_sockets/0
       - define line:<&7>
       - repeat <[item].script.yaml_key[sockets]>:
-        - if <[i]> >= <[item].nbt[used_sockets]>:
-          - define line:<[line]><&7>[<&sp>]
-        - else:
+        - if <[i]> < <[item].nbt[used_sockets]>:
           - define line:<[line]><&9>[<&chr[25CF]>]
+        - else:
+          - define line:<[line]><&7>[<&sp>]
       - define lore:|:<[line]>
     - define lore:|:<&9>
     - if <[item].script.yaml_key[weight]||null> != null:
