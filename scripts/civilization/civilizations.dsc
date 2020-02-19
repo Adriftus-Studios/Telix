@@ -26,7 +26,7 @@ my_civ_gui:
 new_civ_gui:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>No Civilization<&r> <&6>◆
-  size: 54
+  size: 27
   procedural items:
   definitions:
     w_filler: <item[gui_invisible_item]>
