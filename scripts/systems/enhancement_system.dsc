@@ -54,12 +54,10 @@ upgrade_btn:
 enhancement_gui_handler:
   type: world
   events:
-    on player clicks in enhancement_inventory_gui:
+    on player closes upgrade_star_force_inventory_gui:
       - narrate <context.inventory.slot[21]>
       - inventory add d:<player.inventory> o:<context.inventory.slot[21]>
       - inventory add d:<player.inventory> o:<context.inventory.slot[25]>
-    on player closes upgrade_star_force_inventory_gui:
-
     on player clicks in upgrade_star_force_inventory_gui:
       - if <context.raw_slot> < 46:
         - if !<list[21|23|25].contains[<context.raw_slot>]>:
