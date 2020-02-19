@@ -126,10 +126,10 @@ build_item:
         - adjust def:item nbt:used_sockets/0
       - define line:<&7>
       - repeat <[item].script.yaml_key[sockets]>:
-        - if <[value]> < <[item].nbt[used_sockets]>:
-          - define line:<[line]><&9>[<&chr[25CF]>]
-        - else:
+        - if <[value]> >= <[item].nbt[used_sockets]>:
           - define line:<[line]><&7>[<&sp>]
+        - else:
+          - define line:<[line]><&9>[<&chr[25CF]>]
       - define lore:|:<[line]>
     - define lore:|:<&9>
     - if <[item].script.yaml_key[weight]||null> != null:
