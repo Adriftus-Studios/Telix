@@ -54,5 +54,6 @@ system_override:
   type: world
   events:
     on player clicks in enhancement_inventory_gui:
-      - narrate <context.raw_slot>
+      - if <context.raw_slot> < 46:
+        - narrate t
     on player clicks in upgrade_star_force_inventory_gui:
