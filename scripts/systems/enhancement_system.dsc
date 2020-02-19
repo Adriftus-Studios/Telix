@@ -103,7 +103,8 @@ enhancement_gui_handler:
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val5]>]> slot:43
             - define item:<player.open_inventory.slot[21]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[item].quantity.sub[1]>]> slot:21
-            - narrate <[item].nbt[stars]>
+            - narrate <[item].nbt[stars]||1>/<[val5]>
+            - narrate <[item].nbt[stars].add[1]>
             - adjust def:item nbt:star.<[item].nbt[stars]||1>/<[val5]>
             - adjust def:item nbt:stars/<[item].nbt[stars].add[1]>
             - inject build_item
