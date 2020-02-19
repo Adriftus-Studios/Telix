@@ -86,6 +86,7 @@ build_item_command:
 build_item:
   type: task
   script:
+    - define stat_names:<list[thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
     - define lore:<[item].lore>
     - define lore:|:
     - if <[item].script.yaml_key[weight]||null> != null:
@@ -97,9 +98,8 @@ build_item:
         - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]||null> != null:
           - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]>]>
       - adjust def:item nbt:<[item].nbt.include[<[modifier]>/<[value]>]>
-      - define lore:|:<&9>+<[value]><&sp><[modifier]>
+      - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
     - adjust def:item lore:<[lore]>
     - define item:<[item]>
 
     
-    - "<&9>+<script.yaml_key[equipment_modifiers.health]> Health"
