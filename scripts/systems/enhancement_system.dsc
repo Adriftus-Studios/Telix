@@ -55,7 +55,6 @@ enhancement_gui_handler:
   type: world
   events:
     on player closes upgrade_star_force_inventory_gui:
-      - narrate <context.inventory.slot[21]>
       - inventory add d:<player.inventory> o:<context.inventory.slot[21]>
       - inventory add d:<player.inventory> o:<context.inventory.slot[25]>
     on player clicks in upgrade_star_force_inventory_gui:
@@ -66,8 +65,10 @@ enhancement_gui_handler:
         - if <context.raw_slot> == 21:
           - if <context.cursor_item.material.name> != air:
             - if <context.cursor_item.script.yaml_key[max_stars]||null> == null:
-                - determine passively cancelled
-                - stop
+              - determine passively cancelled
+              - stop
+            - else:
+
         - if <context.raw_slot> == 23:
           - determine passively cancelled
           - if <player.open_inventory.slot[25].material.name> != air:
