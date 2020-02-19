@@ -63,9 +63,6 @@ system_equipment_set:
 system_equipment_override:
   type: world
   events:
-    on every 20 tick:
-      - foreach <server.list_players> as:player:
-        - narrate 1
     on player respawns:
       - inject system_equipment_set
     on player clicks in inventory:
