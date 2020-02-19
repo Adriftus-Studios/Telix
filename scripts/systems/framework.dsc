@@ -115,7 +115,7 @@ build_item:
     - if <[item].script.yaml_key[max_stars]||null> != null:
       - define line:<&7>
       - repeat <[item].script.yaml_key[max_stars]>:
-        - if <[i]> < <[item].nbt[stars]>:
+        - if <[value]> < <[item].nbt[stars]>:
           - define line:<[line]><&6><&chr[2B50]>
         - else:
           - define line:<[line]><&7><&chr[2B50]>
@@ -126,7 +126,7 @@ build_item:
         - adjust def:item nbt:used_sockets/0
       - define line:<&7>
       - repeat <[item].script.yaml_key[sockets]>:
-        - if <[i]> < <[item].nbt[used_sockets]>:
+        - if <[value]> < <[item].nbt[used_sockets]>:
           - define line:<[line]><&9>[<&chr[25CF]>]
         - else:
           - define line:<[line]><&7>[<&sp>]
