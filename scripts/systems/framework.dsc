@@ -81,7 +81,7 @@ build_item_command:
   script:
     - define item:<player.item_in_hand>
     - inject build_item
-    - give <[new_item]>
+    - give <[item]>
 
 build_item:
   type: task
@@ -113,4 +113,4 @@ build_item:
       - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]>%<&sp>Drop<&sp>Rate"
     - adjust <[item]> lore:<[lore]>
     - narrate <[lore]>
-    - define new_item:<[item]>
+    - define item:<[item]>
