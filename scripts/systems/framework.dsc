@@ -87,29 +87,29 @@ build_item:
   type: task
   script:
     - define lore:<[item].lore>
-    - define lore:|:" "
+    - define lore:|:
     - if <[item].script.yaml_key[weight]||null> != null:
-      - define lore:|:"<&9>Weight: <[item].script.yaml_key[weight]>"
-    - define lore:|:" "
+      - define lore:|:<&9>Weight: <[item].script.yaml_key[weight]>
+    - define lore:|:
     - if <[item].script.yaml_key[equipment_modifiers.health]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.health]> Health"
+      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.health]> Health
     - if <[item].script.yaml_key[equipment_modifiers.speed]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.speed]> Movement Speed"
+      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.speed]> Movement Speed
     - if <[item].script.yaml_key[equipment_modifiers.weight]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.weight]> Carry Weight"
+      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.weight]> Carry Weight
     - if <[item].script.yaml_key[equipment_modifiers.power]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.power]> Power"
+      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.power]> Power
     - if <[item].script.yaml_key[equipment_modifiers.food]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.Food]> Max Food"
+      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.Food]> Max Food
     - if <[item].script.yaml_key[equipment_modifiers.thirst]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.thirst]> Max Thirst"
+      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.thirst]> Max Thirst
     - if <[item].script.yaml_key[equipment_modifiers.constitution]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.constitution]> Constitution"
+      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.constitution]> Constitution
     - if <[item].script.yaml_key[equipment_modifiers.melee_damage]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.melee_damage]>% Damage"
+      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.melee_damage]>% Damage
     - if <[item].script.yaml_key[equipment_modifiers.experience_multiplier]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.experience_multiplier]>% Experience"
+      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.experience_multiplier]>% Experience
     - if <[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]||null> != null:
-      - define lore:|:"<&9>+<[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]>% Drop Rate"
+      - define lore:|:<&9>+<[item].script.yaml_key[equipment_modifiers.drop_rate_multiplier]>% Drop Rate
     - adjust def:item lore:<[lore]>
     - define item:<[item]>
