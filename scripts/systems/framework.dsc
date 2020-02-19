@@ -81,7 +81,7 @@ build_item_command:
   script:
     - define item:<player.item_in_hand>
     - inject build_item
-    - give <[item]>
+    - inventory set d:<player.inventory> o:<[item]> slot:1
 
 build_item:
   type: task
