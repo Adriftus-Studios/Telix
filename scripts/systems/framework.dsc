@@ -155,11 +155,11 @@ build_item:
       - foreach <[stats]> as:stat:
         - define modifier:<[stat].split[-].get[1]>
         - define value:<[stat].split[-].get[2]>
-        - narrate <[value]>
+        - narrate <[stat]>
         - foreach <[item].nbt_keys> as:stat2:
           - if <[stat2].starts_with[star.]>:
             - if <[stat2].ends_with[<[modifier]>]>:
+              - narrate <[stat2]>
               - define value:<[value].add[<[stat2].split[-].get[2]>]>
-        - narrate <[value]>
         - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
       - adjust def:item lore:<[lore]>
