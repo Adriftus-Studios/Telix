@@ -56,20 +56,16 @@ enhancement_gui_handler:
   events:
     on player clicks in enhancement_inventory_gui:
     on player clicks in upgrade_star_force_inventory_gui:
-      - narrate <context.raw_slot>
-      - narrate <context.slot>
       - if <context.raw_slot> < 46:
         - if !<list[21|23|25].contains[<context.raw_slot>]>:
           - determine passively cancelled
           - stop
         - if <context.raw_slot> == 21:
-          - if <context.cursor_item.script.yaml_key[max_stars]||null> != null:
-            - wait 10t
-            - define val1:<util.random.int[20].to[5]>
-            
-          - else:
+          - if !<context.cursor_item.script.yaml_key[max_stars]||null> != null:
             - determine passively cancelled
             - stop
         - if <context.raw_slot> == 23:
           - if <player.open_inventory.slot[21].nbt[stars]||0> < <player.open_inventory.slot[21].script.yaml_key[max_stars]>:
-            - narrate a
+            - define val1:<util.random.int[5].to[20]>
+            - define item:<item[diamond]>
+            - inventory set d:<player.open_inventory> o:<[item].with[amount=<[val1]>]> slot:39
