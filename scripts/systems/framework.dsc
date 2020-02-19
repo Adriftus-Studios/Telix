@@ -88,10 +88,11 @@ build_item:
   script:
     - define stat_names:<list[thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
     - define lore:<[item].lore>
-    - define lore:|:
+    - define lore:|:<&9>
     - if <[item].script.yaml_key[weight]||null> != null:
       - define lore:|:<&9>Weight: <[item].script.yaml_key[weight]>
-    - define lore:|:
+    - define lore:|:<&9>
+    - define lore:|:<&9>When<&sp>Worn:
     - foreach <[item].script.list_keys[equipment_modifiers]> as:modifier:
       - define value:<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>
       - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]||null> != null:
