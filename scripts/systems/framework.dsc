@@ -110,7 +110,6 @@ build_item:
         - define i:++
       - define lore:|:<[line]>
     - define lore:|:<[item].script.yaml_key[lore]>
-    - define lore:|:<&9>
     - if <[item].script.yaml_key[sockets]||null> != null:
       - if <[item].nbt[used_sockets]||null> == null:
         - adjust def:item nbt:used_sockets/0
@@ -123,6 +122,7 @@ build_item:
           - define line:<[line]><&9>[<&chr[25CF]>]
         - define i:++
       - define lore:|:<[line]>
+    - define lore:|:<&9>
     - if <[item].script.yaml_key[weight]||null> != null:
       - define lore:|:<&9>Weight: <[item].script.yaml_key[weight]>
     - define lore:|:<&9>
