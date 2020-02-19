@@ -107,7 +107,7 @@ build_item:
         - if <[i]> < <[item].nbt[used_sockets]>:
           - define line:<[line]><&6>[<&sp>]
         - else:
-          - define line:<[line]><&9>[<&chr[2B24]>]
+          - define line:<[line]><&9>[<&chr[25CF]>]
         - define i:++
       - define lore:|:<[line]>
     - if <[item].script.yaml_key[weight]||null> != null:
