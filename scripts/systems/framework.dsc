@@ -139,7 +139,6 @@ build_item:
         - define lore:|:<&9>Weight:<&sp><[item].script.yaml_key[weight]>
       - define lore:|:<&9>
       - define stat_names:<list[thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
-      
       - define lore:|:<&9>When<&sp>Equipped:<&co>
       - foreach <[item].script.list_keys[equipment_modifiers]> as:modifier:
         - define value:<[item].nbt[base_stats.<[modifier]>]||<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>>
@@ -148,5 +147,17 @@ build_item:
             - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]||null> != null:
               - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]>]>
         - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
+        - define stats:|:<[modifier]>/<[value]>
+        - define modifiers:|:<[modifier]>
+      - foreach <[item].nbt_keys> as:stat:
+        - if <[stat].starts_with[star.]>:
+          - adjust def:item nbt:<[stat]>/<[modifiers].random>-<[item].nbt[stat]>
+      - foreach <[stats]> as:stat:
+        - define modifier:<[stat].split[-].get[1]>
+        - define value:<[stat].split[-].get[2]>
+        - foreach <[item].nbt_keys> as:stat2:
+          - if <[stat2].starts_with[star.]>:
+            - if <[stat2].ends_with[<[modifier]>]>:
+              - define value:<[value].add[<[stat2].split[-].get[2]>]>
         - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
       - adjust def:item lore:<[lore]>
