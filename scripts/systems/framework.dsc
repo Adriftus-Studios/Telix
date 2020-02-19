@@ -151,8 +151,8 @@ build_item:
         - define modifiers:|:<[modifier]>
       - foreach <[item].nbt_keys> as:stat:
         - if <[stat].starts_with[star.]>:
-          - adjust def:item nbt:<[stat]>/<[modifiers].random>-<[item].nbt[base_stats.<[stat]>]>
-          - narrate <[stat]>/<[modifiers].random>-<[item].nbt[base_stats.<[stat]>]>
+          - adjust def:item nbt:<[stat]>/<[modifiers].random>-<[item].nbt[<[stat]>]>
+          - narrate <[stat]>/<[modifiers].random>-<[item].nbt[<[stat]>]>
       - foreach <[stats]> as:stat:
         - define modifier:<[stat].split[-].get[1]>
         - define value:<[stat].split[-].get[2]>
