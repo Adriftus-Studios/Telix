@@ -139,6 +139,7 @@ build_item:
         - define lore:|:<&9>Weight:<&sp><[item].script.yaml_key[weight]>
       - define lore:|:<&9>
       - define stat_names:<list[thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
+      
       - define lore:|:<&9>When<&sp>Equipped:<&co>
       - foreach <[item].script.list_keys[equipment_modifiers]> as:modifier:
         - define value:<[item].nbt[base_stats.<[modifier]>]||<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>>

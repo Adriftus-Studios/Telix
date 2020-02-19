@@ -55,6 +55,8 @@ enhancement_gui_handler:
   type: world
   events:
     on player clicks in enhancement_inventory_gui:
+      - inventory add d:<player.inventory> o:<context.inventory.slot[21]>
+      - inventory add d:<player.inventory> o:<context.inventory.slot[25]>
     on player closes upgrade_star_force_inventory_gui:
 
     on player clicks in upgrade_star_force_inventory_gui:
@@ -79,23 +81,27 @@ enhancement_gui_handler:
               - stop
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val1]>]> slot:39
             - wait 15t
+            - if <player.open_inventory.script_name> != upgrade_star_force_inventory_gui:
               - stop
             - define val2:<util.random.int[12].to[<[val1]>]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val2]>]> slot:40
             - wait 15t
+            - if <player.open_inventory.script_name> != upgrade_star_force_inventory_gui:
               - stop
             - define val3:<util.random.int[9].to[<[val2]>]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val3]>]> slot:41
             - wait 15t
+            - if <player.open_inventory.script_name> != upgrade_star_force_inventory_gui:
               - stop
             - define val4:<util.random.int[5].to[<[val3]>]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val4]>]> slot:42
             - wait 15t
+            - if <player.open_inventory.script_name> != upgrade_star_force_inventory_gui:
               - stop
             - define val5:<util.random.int[1].to[<[val4]>]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val5]>]> slot:43
             - define item:<player.open_inventory.slot[21]>
-            - adjust def:item nbt:star_<player.open_inventory.slot[21].nbt[stars]||1>:<[val5]>
+            - adjust def:item nbt:star.<player.open_inventory.slot[21].nbt[stars]||1>/<[val5]>
             - adjust def:item nbt:stars/<[item].nbt[stars].add[1]>
             - inject build_item
             - inventory set d:<player.open_inventory> o:<item[air]> slot:21
