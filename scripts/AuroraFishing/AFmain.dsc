@@ -111,6 +111,7 @@ fishing_inventory_listener:
         - narrate "<&6>That was one hungry fish!"
         - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
         - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
+        - determin cancelled
         - stop
 
       - if <[number]> <= 5:
