@@ -1,13 +1,13 @@
 
-civilization_events:
+guilds_events:
   type: world
   debug: false
   events:
     on server stars:
 
-my_civ_gui:
+my_guilds_gui:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>My Civilization<&r> <&6>◆
+  title: <green><&6>◆ <&a><&n><&l>My guilds<&r> <&6>◆
   size: 54
   procedural items:
   definitions:
@@ -23,9 +23,9 @@ my_civ_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
   
-new_civ_gui:
+new_guilds_gui:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>No Civilization<&r> <&6>◆
+  title: <green><&6>◆ <&a><&n><&l>No guilds<&r> <&6>◆
   size: 27
   procedural items:
   definitions:
@@ -33,36 +33,38 @@ new_civ_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [new_civ_btn] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [new_guilds_btn] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
   
-civilization_gui_events:
+guilds_gui_events:
   type: world
   debug: false
   events:
-    on player clicks in new_civ_gui:
-    - determine passively cancelled
-    - narrate <context.raw_slot>
-    on player clicks new_civ_btn in new_civ_gui:
-    - inventory add d:<player.inventory> o:<item[new_civ_book]>
+    on player clicks in new_guilds_gui:
+    - if <context.raw_slot> > 27:
+      - determine passively cancelled
+    on player clicks new_guilds_btn in new_guilds_gui:
+    - if <context.raw_slot> > 27:
+      - inventory add d:<player.inventory> o:<item[new_guilds_book]>
     on player signs book:
-    - if <context.book> == <item[new_civ_book]>:
+    - if <context.book> == <item[new_guilds_book]>:
       - narrate <context.title>
+      # create guilds with title as name and page 1 as description
 
-civilization_command:
+guilds_command:
   type: command
-  name: civ
-  description: civ
-  usage: /civ
+  name: guilds
+  description: guilds
+  usage: /guilds
   script:
-    - inventory open d:new_civ_gui
+    - inventory open d:new_guilds_gui
 
-new_civ_btn:
+new_guilds_btn:
   type: item
   material: snow
   equipment_rating: 0
-  display name: "<&c>Create a new Civilization"
+  display name: "<&c>Create a new guilds"
 
-new_civ_book:
+new_guilds_book:
   type: item
   material: writable_book
