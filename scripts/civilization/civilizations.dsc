@@ -42,6 +42,7 @@ civilization_gui_events:
   events:
     on player clicks in new_civ_gui:
     - determine passively cancelled
+    - narrate <context.raw_slot>
     on player clicks new_civ_btn in new_civ_gui:
     - inventory add d:<player.inventory> o:<item[new_civ_book]>
     on player signs book:
