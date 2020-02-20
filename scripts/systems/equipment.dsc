@@ -111,7 +111,52 @@ basic_earrings:
   display name: "<&c>Basic Earrings"
   drops_on_death: true
 
-rare_ring:
+test_hat:
+  type: item
+  material: gold_ingot
+  category: hat
+  equipment_rating: 5
+  weight: 15
+  max_stars: 5
+  sockets: 1
+  equipment_modifiers:
+    health:
+      max: 100
+      min: 10
+    speed:
+      max: 100
+      min: 10
+    weight:
+      max: 100
+      min: 10
+    power:
+      max: 100
+      min: 10
+    food:
+      max: 100
+      min: 10
+    thirst:
+      max: 100
+      min: 10
+    constitution:
+      max: 100
+      min: 10
+    melee_damage:
+      max: 100
+      min: 10
+    experience_multiplier:
+      max: 100
+      min: 10
+    drop_rate_multiplier:
+      max: 100
+      min: 10
+  display name: "<&c>Test Hat"
+  lore:
+    - "Something something Hat,"
+    - "Something rare something lore"
+  drops_on_death: true
+
+test_ring:
   type: item
   material: gold_ingot
   category: ring
@@ -130,7 +175,7 @@ rare_ring:
     melee_damage: 100
     experience_multiplier: 100
     drop_rate_multiplier: 100
-  display name: "<&c>Rare Ring"
+  display name: "<&c>Test Ring"
   lore:
     - "Something something ring,"
     - "Something rare something lore"

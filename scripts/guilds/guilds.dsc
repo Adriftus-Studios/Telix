@@ -45,9 +45,9 @@ guilds_gui_events:
       - determine passively cancelled
     on player clicks new_guild_btn in new_guilds_gui:
     - if <context.raw_slot> > 27:
-      - inventory add d:<player.inventory> o:<item[new_guilds_book]>
+      - inventory add d:<player.inventory> o:<item[new_guild_book]>
     on player signs book:
-    - if <context.book> == <item[new_guilds_book]>:
+    - if <context.book> == <item[new_guild_book]>:
       - narrate <context.title>
       # create guilds with title as name and page 1 as description
 
@@ -65,6 +65,6 @@ new_guild_btn:
   equipment_rating: 0
   display name: "<&c>Create a new Guild"
 
-new_guilds_book:
+new_guild_book:
   type: item
   material: writable_book
