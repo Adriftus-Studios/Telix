@@ -7,7 +7,7 @@ guilds_events:
 
 my_guilds_gui:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
   size: 54
   procedural items:
   definitions:
@@ -25,7 +25,7 @@ my_guilds_gui:
   
 new_guilds_gui:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
   size: 27
   procedural items:
   definitions:
