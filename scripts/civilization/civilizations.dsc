@@ -43,7 +43,10 @@ civilization_gui_events:
     on player clicks in new_civ_gui:
     - determine passively cancelled
     on player clicks new_civ_btn in new_civ_gui:
-    - inventory open d:in@generic[holder=ANVIL;title=Name<&sp>your<&sp>Civilization]
+    - inventory add d:<player.inventory> o:<item[new_civ_book]>
+    on player signs book:
+    - if <context.book> == <item[new_civ_book]>:
+      - narrate <context.title>
 
 civilization_command:
   type: command
@@ -58,3 +61,7 @@ new_civ_btn:
   material: snow
   equipment_rating: 0
   display name: "<&c>Create a new Civilization"
+
+new_civ_book:
+  type: item
+  material: writable_book
