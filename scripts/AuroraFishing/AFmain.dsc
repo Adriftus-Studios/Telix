@@ -53,9 +53,10 @@ fishing_inventory_listener:
 
 ### Debug Message - Disable after testing
     on player fishes:
-      - narrate "state<&co> <context.state>"
-      - narrate "biome<&co> <context.hook.location.biome.name>"
-      - narrate "material<&co> <context.hook.location.material.name>"
+      - narrate "State<&co> <&a><context.state>"
+      - narrate "Biome<&co> <&a><context.hook.location.biome.name>"
+      - narrate "Material<&co> <&a><context.hook.location.material.name>"
+      - narrate "Bait<&co> <&a><context.item.nbt[baited]>"
 ############################################################################################
 
     on player right clicks with af_rod_*:
@@ -107,7 +108,7 @@ fishing_inventory_listener:
       - define weight_oz <util.random.int[0].to[15]>
       - wait 1t
       - if <[number]> <= 30:
-        - narrate "<&6>A fish just stole your bait!"
+        - narrate "<&6>That was one hungry fish!"
         - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
         - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
         - stop
@@ -115,7 +116,7 @@ fishing_inventory_listener:
       - if <[number]> <= 5:
         - narrate "<&6>You caught a massive <&3><[weight_lbhighest]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.2
-      - if <[number]> <= 20:
+      - if <[number]> <= 15:
         - narrate "<&6>You caught a giant <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.8
       - else if <[number]> <= 50:
@@ -123,11 +124,11 @@ fishing_inventory_listener:
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:1.2
       - else if <[number]> <= 99:
         - narrate "<&6>You caught a tiny <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
-        - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:1.6
+        - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:2.0
       - else:
         - firework <context.hook.location> power:0.5 star primary:yellow fade:white flicker
         - give af_fish_token
-        - narrate "<&6>You have recieved a shiney new <&a>Fish Token<&6>!"
+        - narrate "<&6>You have recieved a shiny new <&a>Fish Token<&6>!"
         - playsound <player> sound:entity_generic_explode volume:1.0 pitch:1.5
         - playsound <player> sound:block_anvil_hit volume:0.3 pitch:2.0
 
