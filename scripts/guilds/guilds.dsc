@@ -7,7 +7,7 @@ guilds_events:
 
 my_guilds_gui:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>My guilds<&r> <&6>◆
+  title: <green><&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
   size: 54
   procedural items:
   definitions:
@@ -25,7 +25,7 @@ my_guilds_gui:
   
 new_guilds_gui:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>No guilds<&r> <&6>◆
+  title: <green><&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
   size: 27
   procedural items:
   definitions:
@@ -63,7 +63,7 @@ new_guilds_btn:
   type: item
   material: snow
   equipment_rating: 0
-  display name: "<&c>Create a new guilds"
+  display name: "<&c>Create a new Guild"
 
 new_guilds_book:
   type: item
