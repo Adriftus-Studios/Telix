@@ -69,6 +69,7 @@ calculate_weight_equipment_stats:
         - define weight:|:<[item].script.yaml_key[weight]>
         - foreach <[item].nbt_keys> as:stat:
           - if <[stat].starts_with[base_stats.]>:
+            - narrate <[stat]>
             - define value:<[item].nbt[base_stats.<[stat]>]>
             - define stat:<[stat].replace[base_stats.].with[]>
             - narrate <[stat]>:<[value]>
