@@ -33,7 +33,7 @@ new_guilds_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [new_guilds_btn] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [new_guild_btn] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
   
 guilds_gui_events:
@@ -43,7 +43,7 @@ guilds_gui_events:
     on player clicks in new_guilds_gui:
     - if <context.raw_slot> > 27:
       - determine passively cancelled
-    on player clicks new_guilds_btn in new_guilds_gui:
+    on player clicks new_guild_btn in new_guilds_gui:
     - if <context.raw_slot> > 27:
       - inventory add d:<player.inventory> o:<item[new_guilds_book]>
     on player signs book:
@@ -59,7 +59,7 @@ guilds_command:
   script:
     - inventory open d:new_guilds_gui
 
-new_guilds_btn:
+new_guild_btn:
   type: item
   material: snow
   equipment_rating: 0
