@@ -106,18 +106,12 @@ fishing_inventory_listener:
       - define weight_lbhigh <util.random.int[100].to[500]>
       - define weight_lbhighest <util.random.int[550].to[1000]>
       - define weight_oz <util.random.int[0].to[15]>
-      - wait 1t
-      - if <[number]> <= 30:
-        - narrate "<&6>That was one hungry fish!"
-        - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
-        - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
-        - determine cancelled
-        - stop
 
 # Need a system for determining fish caught with each bait. Will probably be a YAML key deeper with bait type, following [baited] key item.
       - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[value]> > <[number]>:
           - determine caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random.as_item||<yaml[fish_info].read[general.fallback.<[value]>].random.as_item>>
+      - wait 1t
 
       - if <[number]> <= 5:
         - narrate "<&6>You caught a massive <&3><[weight_lbhighest]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
@@ -125,6 +119,10 @@ fishing_inventory_listener:
       - if <[number]> <= 15:
         - narrate "<&6>You caught a giant <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.8
+      - if <[number]> <= 30:
+        - narrate "<&6>That was one hungry fish!"
+        - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
+        - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
       - else if <[number]> <= 50:
         - narrate "<&6>You caught a decent <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:1.2
