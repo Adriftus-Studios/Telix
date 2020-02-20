@@ -56,7 +56,7 @@ fishing_inventory_listener:
       - narrate "State<&co> <&a><context.state>"
       - narrate "Biome<&co> <&a><context.hook.location.biome.name>"
       - narrate "Material<&co> <&a><context.hook.location.material.name>"
-      - narrate "Bait<&co> <&a><context.item.nbt[baited]>"
+      - narrate "Bait<&co> <&a><context.item.nbt[baited].as_script.yaml_key[display<&sp>name].parsed>"
 ############################################################################################
 
     on player right clicks with af_rod_*:
