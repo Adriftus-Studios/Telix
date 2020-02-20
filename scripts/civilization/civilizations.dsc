@@ -44,8 +44,6 @@ civilization_gui_events:
     - determine passively cancelled
     on player clicks new_civ_btn in new_civ_gui:
     - inventory open d:in@generic[holder=ANVIL;title=Name<&sp>your<&sp>Civilization]
-    on player prepares anvil craft item:
-    - narrate <context.new_name>
 
 civilization_command:
   type: command
