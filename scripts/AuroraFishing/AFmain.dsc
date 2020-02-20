@@ -109,20 +109,22 @@ fishing_inventory_listener:
 
 
       - if <[number]> <= 5:
-        - narrate "<&6>You caught a massive <&3><[weight_lbhighest]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
-        - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.2
-      - if <[number]> <= 15:
-        - narrate "<&6>You caught a giant <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
-        - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.8
-      - if <[number]> <= 30:
-        - narrate "<&6>That was one hungry fish!"
+        - narrate "<&6>You caught a massive <&3><[weight_lbhighest]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
+        - narrate "<&6>    and it stole your bait!"
         - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
         - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
+        - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.2
+      - else if <[number]> <= 15:
+        - narrate "<&6>You caught a giant <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
+        - narrate "<&6>    and it stole your bait!"
+        - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
+        - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
+        - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.8
       - else if <[number]> <= 50:
-        - narrate "<&6>You caught a decent <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
+        - narrate "<&6>You caught a decent <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:1.2
       - else if <[number]> <= 99:
-        - narrate "<&6>You caught a tiny <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a>(Fish from file)"
+        - narrate "<&6>You caught a tiny <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:2.0
       - else:
         - firework <context.hook.location> power:0.5 star primary:yellow fade:white flicker
