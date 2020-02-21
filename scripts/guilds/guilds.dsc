@@ -70,6 +70,7 @@ guild_flag_indicator:
   entity_type: armor_stand
   gravity: false
   visible: false
+  custom_name: <&6><yaml[guild.<[guild]>].read[name]>
   custom_name_visible: true
   
 my_guild_gui:
