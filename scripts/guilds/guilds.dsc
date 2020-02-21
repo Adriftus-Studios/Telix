@@ -76,8 +76,9 @@ place_guild_flag:
   script:
   - if <[guild]||<[location]||null>> == null:
     - stop
-  - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> save:test
-  - narrate <[test]>
+  - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]>
+  - define flag:<[location].add[<l@0.5,0,0.5,<[location].world.name>>].find.entities[guild_flag_indicator].within[0.1]>
+  - narrate <[flag]>
   - yaml id:guild.<[guild]> set flags:|:<[location].add[<l@0,0,0,<[location].world.name>>]>
 
 guild_flag_indicator:
