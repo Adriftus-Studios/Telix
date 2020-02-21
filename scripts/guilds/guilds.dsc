@@ -57,6 +57,8 @@ place_guild_flag:
     - stop
   - modifyblock <[location]> oak_fence
   - modifyblock <[location].add[<l@0,1,0,<[location].world.name>>]> oak_fence
+  - modifyblock <[location].add[<l@0,2,0,<[location].world.name>>]> oak_fence
+  - modifyblock <[location].add[<l@0,2,1,<[location].world.name>>]> white_wall_banner.with[direction=north]
 
 my_guild_gui:
   type: inventory
