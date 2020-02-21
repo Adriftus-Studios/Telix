@@ -44,6 +44,12 @@ guild_events:
       - else:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
+    - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
+    - foreach <[nearby_flags]> as:flag:
+      - if <[flag].custom_name.strip_color> != <[guild]>:
+        - narrate "<&6>You cannot build in another guilds territory."
+        - determine cancelled
+        - stop
     on player clicks in new_guilds_gui:
     - if <context.raw_slot> > 27:
       - determine passively cancelled
