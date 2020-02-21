@@ -15,7 +15,7 @@ view_equipment_command:
 
 view_equipment:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
+  title: <green><&6>◆ <&a><&n><&l>Stuff<&r> <&6>◆
   size: 54
   procedural items:
   - define mat:<material[<player.flag[context].split[/].get[1]>]>
