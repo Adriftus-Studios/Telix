@@ -9,7 +9,8 @@ create_guild:
   - yaml id:guild.<[guild]> set name:<[guild_name]>
   - yaml id:guild.<[guild]> set leader:<[guild_leader]>
   - yaml id:guild.<[guild]> set description:<[guild_description]>
-  - foreach <list[manage_claim_flags|edit_ranks|view_members|change_settings]> as:perm:
+  - yaml id:guild.<[guild]> set flag:i@white_banner
+  - foreach <list[manage_claim_flags|edit_ranks|view_members|change_settings|place_flag|remove_flag]> as:perm:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
 
@@ -40,7 +41,7 @@ guild_events:
             - narrate "<&6>You are to close to another guilds flag."
             - determine cancelled
             - stop
-        - inject place_guild_flag
+        - if <yaml[guild.<[guild]>].read[ranks.leader.permissions]>
       - else:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
@@ -48,6 +49,13 @@ guild_events:
     - foreach <[nearby_flags]> as:flag:
       - if <[flag].custom_name.strip_color> != <[guild]>:
         - narrate "<&6>You cannot build in another guilds territory."
+        - determine cancelled
+        - stop
+    on player breaks block:
+    - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
+    - foreach <[nearby_flags]> as:flag:
+      - if <[flag].custom_name.strip_color> != <[guild]>:
+        - narrate "<&6>You cannot break blocks in another guilds territory."
         - determine cancelled
         - stop
     on player clicks in new_guilds_gui:
@@ -71,15 +79,8 @@ place_guild_flag:
   - if <[guild]||<[location]||null>> == null:
     - stop
   - modifyblock <[location]> oak_fence
-  - modifyblock <[location].add[<l@0,1,0,<[location].world.name>>]> oak_fence
-  - modifyblock <[location].add[<l@0,2,0,<[location].world.name>>]> oak_fence
-  - modifyblock <[location].add[<l@0,3,0,<[location].world.name>>]> oak_pressure_plate
-  - modifyblock <[location].add[<l@0,2,-1,<[location].world.name>>]> <m@white_wall_banner.with[direction=north]>
-  - modifyblock <[location].add[<l@0,2,1,<[location].world.name>>]> <m@white_wall_banner.with[direction=south]>
-  - modifyblock <[location].add[<l@-1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=west]>
-  - modifyblock <[location].add[<l@1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=east]>
-  - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,1.5,0.5,<[location].world.name>>]>
-  - yaml id:guild.<[guild]> set flags:|:<[location].add[<l@0.5,1.5,0.5,<[location].world.name>>]>
+  - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]>
+  - yaml id:guild.<[guild]> set flags:|:<[location].add[<l@0,0,0,<[location].world.name>>]>
 
 guild_flag_indicator:
   type: entity
@@ -111,6 +112,11 @@ guild_flag:
   type: item
   material: white_banner
   display name: <&7>Guild Flag
+
+guilds_leave_btn:
+  type: item
+  material: snow
+  display name: <&9>Leave Guild
 
 guilds_manage_claim_flags:
   type: item
