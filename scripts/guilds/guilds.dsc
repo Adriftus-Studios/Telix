@@ -38,7 +38,7 @@ guild_events:
         - foreach <[nearby_flags]> as:flag:
           - if <[flag].custom_name.strip_color> != <[guild]>:
         - if <context.location.find.entities[guild_flag_indicator].within[200].is_empty>:
-          - inject place_guild_flag
+        - inject place_guild_flag
       - else:
         - determine passively cancelled
     on player clicks in new_guilds_gui:
