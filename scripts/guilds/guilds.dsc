@@ -101,7 +101,7 @@ guild_events:
         - narrate 1
         - define guild:<yaml[player.<player.uuid>].read[guild]>
         - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>:
-          - narrate 2
+          - narrate <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions]>
           - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].include[manage_flags]>:
             - narrate yes
     on player signs book:
