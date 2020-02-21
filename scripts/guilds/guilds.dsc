@@ -10,8 +10,10 @@ create_guild:
   - yaml id:guild.<[guild]> set leader:<[guild_leader]>
   - yaml id:guild.<[guild]> set description:<[guild_description]>
   - yaml id:guild.<[guild]> set flag:i@white_banner
+  - yaml id:guild.<[guild]> set members:|:<player>
   - foreach <list[manage_claim_flags|edit_ranks|view_members|change_settings|place_flag|remove_flag]> as:perm:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
+  - yaml id:guild.<[guild]> set ranks.leader.title:Leader
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
 
 guild_events:
@@ -111,6 +113,10 @@ my_guild_gui:
 guild_gui_events:
   type: world
   events:
+    on player clicks in my_guild_gui:
+    - narrate <context.raw_slot>
+    - if <context.raw_slot> > 27:
+      - narrate 1
     on player clicks in new_guilds_gui:
     - if <context.raw_slot> > 27:
       - determine passively cancelled
