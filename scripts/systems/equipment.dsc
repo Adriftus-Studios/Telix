@@ -104,10 +104,9 @@ equipment_inventory_handler:
     on player clicks item in equipment_character with item:
       - if <player.open_inventory.script_name> == "equipment_character":
         - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
-        - foreach <list[hat|gloves|shirt|shoes|pants|cape]>:
-          - narrate <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>]>
-          - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].script.name.ends_with[_shadow]>:
-            - narrate 1
+        - narrate <context.raw_slot>
+        - narrate <context.slot>
+        - narrate <context.item>
         - if !<context.is_shift_click>:
           - if <context.raw_slot> < 55:
             - if <[slotmap].map_get[<context.slot>]||null> == null:
