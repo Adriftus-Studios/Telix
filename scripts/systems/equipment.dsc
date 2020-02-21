@@ -1,3 +1,12 @@
+
+view_equipment_command:
+  type: command
+  name: view_equipment
+  description: view_equipment
+  usage: /view_equipment
+  script:
+  - narrate <context.args>
+
 equipment_death_handler:
   type: world
   debug: false
