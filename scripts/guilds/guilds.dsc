@@ -4,6 +4,8 @@ guilds_events:
   debug: false
   events:
     on server stars:
+    - foreach <server.list_files[data/globalLiveData/guilds/<server.flag[server.name]>]> as:guild:
+      - yaml load:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]> id:guild.<[guild]>
 
 my_guilds_gui:
   type: inventory
@@ -18,24 +20,11 @@ my_guilds_gui:
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [guilds_view_info_btn] [guilds_edit_ranks_btn] [guilds_manage_claim_flags] [guilds_view_members_btn] [guilds_settings_btn] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-  
-new_guilds_gui:
-  type: inventory
-  title: <&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
-  size: 27
-  procedural items:
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    closeitem: <item[gui_close_btn]>
-  slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [new_guild_btn] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-  
+
 guilds_gui_events:
   type: world
   debug: false
@@ -49,15 +38,59 @@ guilds_gui_events:
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
       - narrate <context.title>
+      - yaml id:player.<player.uuid> set guild:<context.title.replace[<&sp>].with[_]>
       # create guilds with title as name and page 1 as description
 
+guilds_manage_claim_flags:
+  type: item
+  material: snow
+  guild_permission: manage_claim_flags
+  display name: <&9>Manage Claim Flags
+
+guilds_edit_ranks_btn:
+  type: item
+  material: snow
+  guild_permission: edit_ranks
+  display name: <&9>Edit Guild Ranks
+  
+guilds_view_info_btn:
+  type: item
+  material: snow
+  display name: <&9>View Information
+
+guilds_view_members_btn:
+  type: item
+  material: snow
+  guild_permission: view_members
+  display name: <&9>View Members
+
+guilds_settings_btn:
+  type: item
+  material: snow
+  guild_permission: change_settings
+  display name: <&9>Change Settings
+
+new_guilds_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
+  size: 27
+  procedural items:
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [new_guild_btn] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+  
 guilds_command:
   type: command
   name: guilds
   description: guilds
   usage: /guilds
   script:
-    - inventory open d:new_guilds_gui
+    - if <yaml[player.<player.uuid>].read[guild]||null> != null:
+      - 
 
 new_guild_btn:
   type: item
