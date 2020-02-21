@@ -48,55 +48,49 @@ hat_shadow:
   type: item
   material: diamond_pickaxe
   category: hat
-  display name: No Hat Equipped
   mechanisms:
     custom_model_data: -1
-  display name: <&7>
+  display name: "No Hat Equipped"
 
 shirt_shadow:
   type: item
   material: diamond_pickaxe
   category: shirt
-  display name: No Shirt Equipped
   mechanisms:
     custom_model_data: -2
-  display name: <&7>
+  display name: "No Shirt Equipped"
 
 pants_shadow:
   type: item
   material: diamond_pickaxe
   category: pants
-  display name: No Pants Equipped
   mechanisms:
     custom_model_data: -3
-  display name: <&7>
+  display name: "No Pants Equipped"
 
 shoes_shadow:
   type: item
   material: diamond_pickaxe
   category: shoes
-  display name: No Shoes Equipped
   mechanisms:
     custom_model_data: -4
-  display name: <&7>
+  display name: "No Shoes Equipped"
 
 cape_shadow:
   type: item
   material: diamond_pickaxe
   category: cape
-  display name: No Cape Equipped
   mechanisms:
     custom_model_data: -5
-  display name: <&7>
+  display name: "No Cape Equipped"
 
 gloves_shadow:
   type: item
   material: diamond_pickaxe
   category: gloves
-  display name: No Gloves Equipped
   mechanisms:
     custom_model_data: -6
-  display name: <&7>
+  display name: "No Gloves Equipped"
 
 equipment_inventory_handler:
   type: world
