@@ -11,7 +11,7 @@ create_guild:
   - yaml id:guild.<[guild]> set description:<[guild_description]>
   - yaml id:guild.<[guild]> set flag:i@white_banner
   - yaml id:guild.<[guild]> set members:|:<player>
-  - foreach <list[manage_claim_flags|edit_ranks|view_members|change_settings|place_flag|remove_flag]> as:perm:
+  - foreach <list[manage_flags|edit_ranks|view_members|change_settings|place_flag|remove_flag|kick_members|invite_members]> as:perm:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - yaml id:guild.<[guild]> set ranks.leader.title:Leader
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
@@ -43,7 +43,7 @@ guild_events:
             - narrate "<&6>You are too close to another guild's flag."
             - determine cancelled
             - stop
-        - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[place_flag]>:
+        - if <yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[place_flag]>:
           - inject place_guild_flag
       - else:
         - narrate "<&6>You are not in a guild."
@@ -90,7 +90,6 @@ guild_flag_indicator:
   gravity: false
   visible: false
   custom_name_visible: true
-  invulnerable: true
   
 my_guild_gui:
   type: inventory
