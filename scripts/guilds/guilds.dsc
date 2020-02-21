@@ -40,9 +40,9 @@ guild_events:
             - determine cancelled
             - narrate <&6>You are to close to another guilds flag.
             - stop
-        - if <context.location.find.entities[guild_flag_indicator].within[200].is_empty>:
         - inject place_guild_flag
       - else:
+        - narrate <&6>You are not in a guild.
         - determine passively cancelled
     on player clicks in new_guilds_gui:
     - if <context.raw_slot> > 27:
