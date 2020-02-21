@@ -23,8 +23,8 @@ disband_guild:
   - if <[guild]||null> == null:
     - stop
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:armorstand:
-    - remove <entity[<[armorstand]>]>
     - narrate <entity[<[armorstand]>].location>
+    - remove <entity[<[armorstand]>]>
     - break <entity[<[armorstand]>].location>
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
     - yaml id:player.<<[player]>.uuid> set guild:!
