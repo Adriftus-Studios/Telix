@@ -232,6 +232,7 @@ guild_flag_gui:
   size: 27
   procedural items:
     - define flag:<player.flag[guild_flag]>
+    - flag <player> guild_flag:!
     - narrate <[flag]>
   definitions:
     w_filler: <item[gui_invisible_item]>
