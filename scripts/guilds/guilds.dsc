@@ -25,7 +25,10 @@ disband_guild:
     - remove <entity[<[armorstand]>]>
     - yaml id:guild.<[guild]> set flags.<[armorstand]>:!
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
-    - narrate <[player].inventory>
+    - yaml id:player.<<[player]>.uuid> set guild:!
+  - yaml id:guild.<[guild]> set members:!
+  - adjust server delete_file:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]>.yml
+  
 
 guild_disband_command:
   type: command
