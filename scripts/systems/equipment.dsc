@@ -20,6 +20,7 @@ view_equipment:
   procedural items:
   - define mat:<material[<player.flag[context].split[/].get[1]>]>
   - define page:<player.flag[context].split[/].get[2]>
+  - narrate <[mat].name>
   - repeat 63:
     - define list:|:<item[mat].with[custom_model_data=<[value].mul[<[page]>]>]>
   - determine <[list]>
