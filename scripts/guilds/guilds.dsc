@@ -22,7 +22,7 @@ disband_guild:
   script:
   - if <[guild]||null> == null:
     - stop
-  - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:armorstand:
+  - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:flag:
     - inject remove_guild_flag
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
     - yaml id:player.<<[player]>.uuid> set guild:!
@@ -32,11 +32,11 @@ disband_guild:
 remove_guild_flag:
   type: task
   script:
-    - define loc:<entity[<[armorstand]>].location.sub[l@0.5,0,0.5,entity[<[armorstand]>].location.world.name]>
+    - define loc:<entity[<[flag]>].location.sub[l@0.5,0,0.5,entity[<[flag]>].location.world.name]>
     - modifyblock <[loc]> air
-    - remove <entity[<[armorstand]>]>
+    - remove <entity[<[flag]>]>
     - foreach <yaml[guild.<[guild]>].read[members]> as:player:
-      - narrate "<&6><yaml[guild.<[guild]>].read[flags.<[armorstand]>.name]> at <[loc].simple.formatted.split[ in world].get[1]> was destroyed!"
+      - narrate "<&6><yaml[guild.<[guild]>].read[flags.<[flag]>.name]> at <[loc].simple.formatted.split[ in world].get[1]> was destroyed!"
 
 guild_disband_command:
   type: command
@@ -136,6 +136,7 @@ my_guild_gui:
   - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
   - foreach <[btns]> as:btn:
     - define items:|:<[btn]>
+  - narrate <queue.definitions>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
