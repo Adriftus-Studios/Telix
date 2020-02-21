@@ -134,43 +134,6 @@ guild_flag_indicator:
   invulnerable: true
   visible: false
   
-my_guild_gui:
-  type: inventory
-  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
-  size: 36
-  procedural items:
-  - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
-  - foreach <[btns]> as:btn:
-    - define items:|:<[btn]>
-  - narrate <queue.definitions>
-  - determine <[items]>
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    closeitem: <item[gui_close_btn]>
-  slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-
-guild_gui_events:
-  type: world
-  events:
-    on player clicks in my_guild_gui:
-    - if <context.raw_slot> > 36:
-      - determine passively cancelled
-    on player clicks guilds_view_info_btn in my_guild_gui:
-    - if <context.raw_slot> > 36:
-    on player clicks in new_guild_gui:
-    - if <context.raw_slot> > 27:
-      - determine passively cancelled
-    on player clicks in guild_flag_gui:
-    - if <context.raw_slot> > 27:
-      - determine passively cancelled
-    on player clicks new_guild_btn in new_guild_gui:
-    - if <context.raw_slot> > 27:
-      - inventory add d:<player.inventory> o:<item[new_guild_book]>
-
 guild_flag:
   type: item
   material: white_banner
@@ -210,6 +173,16 @@ guilds_settings_btn:
   guild_permission: change_settings
   display name: <&9>Change Settings
 
+new_guild_book:
+  type: item
+  material: writable_book
+
+new_guild_btn:
+  type: item
+  material: snow
+  equipment_rating: 0
+  display name: "<&c>Create a new Guild"
+
 new_guild_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
@@ -223,11 +196,24 @@ new_guild_gui:
   - "[w_filler] [new_guild_btn] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
   
-new_guild_btn:
-  type: item
-  material: snow
-  equipment_rating: 0
-  display name: "<&c>Create a new Guild"
+my_guild_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
+  size: 36
+  procedural items:
+  - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
+  - foreach <[btns]> as:btn:
+    - define items:|:<[btn]>
+  - narrate <queue.definitions>
+  - determine <[items]>
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_flag_gui:
   type: inventory
@@ -235,8 +221,8 @@ guild_flag_gui:
   size: 27
   procedural items:
     - define flag:<player.flag[guild_flag]>
-    - flag <player> guild_flag:!
-    - narrate <[flag]>
+    - define items:|:<item[guild_flag_health_icon].with[lore=<yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[flags.<[flag]>.health]>]>
+    - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -244,7 +230,39 @@ guild_flag_gui:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-  
+
+guild_flag_health_icon:
+  type: item
+  material: snow
+
+guild_flag_rename_btn:
+  type: item
+  material: snow
+  display name: <&6>Rename Flag
+
+guild_flag_destroy_btn:
+  type: item
+  material: snow
+  display name: <&6>Destroy Flag
+
+guild_gui_events:
+  type: world
+  events:
+    on player clicks in my_guild_gui:
+    - if <context.raw_slot> > 36:
+      - determine passively cancelled
+    on player clicks guilds_view_info_btn in my_guild_gui:
+    - if <context.raw_slot> > 36:
+    on player clicks in new_guild_gui:
+    - if <context.raw_slot> > 27:
+      - determine passively cancelled
+    on player clicks in guild_flag_gui:
+    - if <context.raw_slot> > 27:
+      - determine passively cancelled
+    on player clicks new_guild_btn in new_guild_gui:
+    - if <context.raw_slot> > 27:
+      - inventory add d:<player.inventory> o:<item[new_guild_book]>
+
 guild_command:
   type: command
   name: guild
@@ -258,7 +276,3 @@ guild_command:
       - inventory open d:my_guild_gui
     - else:
       - inventory open d:new_guild_gui
-
-new_guild_book:
-  type: item
-  material: writable_book
