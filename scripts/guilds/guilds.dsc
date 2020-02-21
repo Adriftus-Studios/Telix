@@ -217,12 +217,13 @@ my_guild_gui:
 
 guild_flag_gui:
   type: inventory
-  title: <&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Manage Flag<&r> <&6>◆
   size: 27
   procedural items:
     - define flag:<player.flag[guild_flag]>
     - define flag_health:<yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[flags.<[flag]>.health]>
-    - define items:|:<item[guild_flag_health_icon].with[lore=<&c><&chr[2764]><[flag_health]>]>
+    - define flag_name:<yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[flags.<[flag]>.name]>
+    - define items:|:<item[guild_flag_health_icon].with[lore=<&c><&chr[2764]><&sp><[flag_health]>].with[display_name=<[flag_name]>]>
     - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
