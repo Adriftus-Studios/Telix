@@ -29,6 +29,12 @@ guilds_events:
       - foreach <yaml.list>:
         - if <def[value].substring[1,5]> == guild:
           - yaml savefile:data/globalLiveData/guilds/<server.flag[server.name]>/<[value].replace[guild.].with[]>.yml id:<[value]>
+    on player places block:
+    - if <context.item_in_hand.script.name> == guild_flag:
+      - if <yaml[player.<player.uuid>].read[guild]||null> != null:
+        - define guild:<yaml[player.<player.uuid>].read[guild]>
+        - define location:<context.location>
+        - inject place_guild_flag
     on player clicks in new_guilds_gui:
     - if <context.raw_slot> > 27:
       - determine passively cancelled
@@ -43,6 +49,14 @@ guilds_events:
       - define guild_leader:<player>
       - define guild_description:<context.pages.get[1]>
       - inject create_guild
+
+place_guild_flag:
+  type: task
+  script:
+  - if <[guild]||<[location]||null>> == null:
+    - stop
+  - modifyblock <[location]> oak_fence
+  - modifyblock <[location].add[<l@0,1,0,<[location].world.name>>]> oak_fence
 
 my_guild_gui:
   type: inventory
@@ -61,6 +75,11 @@ my_guild_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+guild_flag:
+  type: item
+  material: white_banner
+  display name: <&7>Guild Flag
 
 guilds_manage_claim_flags:
   type: item
