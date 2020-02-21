@@ -222,7 +222,7 @@ guild_flag_gui:
   procedural items:
     - define flag:<player.flag[guild_flag]>
     - define flag_health:<yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[flags.<[flag]>.health]>
-    - define items:|:<item[guild_flag_health_icon].with[lore=<&r>Flag<&sp>Health:<&sp><&c><[flag_health]>]>
+    - define items:|:<item[guild_flag_health_icon].with[lore=<&c><&char[2764]><[flag_health]>]>
     - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
