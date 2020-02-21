@@ -19,7 +19,7 @@ create_guild:
 disband_guild:
   type: task
   script:
-  
+
 
 guild_events:
   type: world
@@ -84,7 +84,7 @@ place_guild_flag:
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]>
   - define flag:<[location].add[<l@0.5,0,0.5,<[location].world.name>>].find.entities[guild_flag_indicator].within[0.1].get[1]>
   - narrate <[flag]>
-  - yaml id:guild.<[guild]> set flags:|:<[location]>/<[flag]>
+  - yaml id:guild.<[guild]> set flags.<[flag].uuid>.location:<[location].simple>
 
 guild_flag_indicator:
   type: entity
