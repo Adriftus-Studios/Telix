@@ -96,7 +96,14 @@ guild_events:
     on player clicks block:
     - define flags:<context.location.add[<l@0.5,0,0.5,<context.location.world.name>>].find.entities[guild_flag_indicator].within[0.1]>
     - if !<[flags].is_empty>:
-      - narrate <[flags].get[1]>
+      - define flag:<[flags].get[1]>
+      - if <yaml[player.<player.uuid>].read[guild]||null> != null:
+        - narrate 1
+        - define guild:<yaml[player.<player.uuid>].read[guild]>
+        - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>
+          - narrate 2
+          - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].include[manage_flags]>:
+            - narrate yes
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
       - if <yaml[player.<player.uuid>].read[guild]||null> == null:
@@ -161,6 +168,7 @@ guild_gui_events:
     on player clicks new_guild_btn in new_guild_gui:
     - if <context.raw_slot> > 27:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
+
 guild_flag:
   type: item
   material: white_banner
@@ -213,24 +221,40 @@ new_guild_gui:
   - "[w_filler] [new_guild_btn] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
   
-guilds_command:
-  type: command
-  name: guilds
-  description: guilds
-  usage: /guilds
-  script:
-    - define a:b
-    - if <yaml[player.<player.uuid>].read[guild]||null> != null:
-      - narrate <yaml[player.<player.uuid>].read[guild]>
-      - inventory open d:my_guild_gui
-    - else:
-      - inventory open d:new_guild_gui
-
 new_guild_btn:
   type: item
   material: snow
   equipment_rating: 0
   display name: "<&c>Create a new Guild"
+
+guild_flag_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
+  size: 27
+  procedural items:
+    - define flag:<player.flag[flag]>
+    - narrate <[flag]>
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+  
+guild_command:
+  type: command
+  name: guild
+  description: guild
+  usage: /guild
+  aliases:
+  - "g"
+  script:
+    - if <yaml[player.<player.uuid>].read[guild]||null> != null:
+      - narrate <yaml[player.<player.uuid>].read[guild]>
+      - inventory open d:my_guild_gui
+    - else:
+      - inventory open d:new_guild_gui
 
 new_guild_book:
   type: item
