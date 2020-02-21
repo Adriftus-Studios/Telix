@@ -19,7 +19,19 @@ create_guild:
 disband_guild:
   type: task
   script:
+  - if <[guild]||null> == null:
+    - stop
+  - define flags:<yaml[guild.<[guild]>].list_keys[flags]>
+  - narrate <[flags]>
 
+guild_disband_command:
+  type: command
+  name: disband
+  description: disband
+  usage: /disband
+  script:
+  - define guild:<yaml[player.<player.uuid>].read[guild]>
+  - inject disband_guild
 
 guild_events:
   type: world
