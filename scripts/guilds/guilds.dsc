@@ -28,6 +28,7 @@ disband_guild:
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
     - yaml id:player.<<[player]>.uuid> set guild:!
   - yaml id:guild.<[guild]> set members:!
+  - yaml unload id:guild.<[guild]>
   - adjust server delete_file:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]>.yml
   
 
