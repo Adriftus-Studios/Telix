@@ -38,10 +38,11 @@ guild_events:
         - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[200]>
         - foreach <[nearby_flags]> as:flag:
           - if <[flag].custom_name.strip_color> != <[guild]>:
-            - narrate "<&6>You are to close to another guilds flag."
+            - narrate "<&6>You are to close to another guilds territory."
             - determine cancelled
             - stop
-        - if <yaml[guild.<[guild]>].read[ranks.leader.permissions]>
+        - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[place_flag]>:
+          - inject place_guild_flag
       - else:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
@@ -78,7 +79,6 @@ place_guild_flag:
   script:
   - if <[guild]||<[location]||null>> == null:
     - stop
-  - modifyblock <[location]> oak_fence
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]>
   - yaml id:guild.<[guild]> set flags:|:<[location].add[<l@0,0,0,<[location].world.name>>]>
 
@@ -95,7 +95,7 @@ my_guild_gui:
   title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
   size: 36
   procedural items:
-  - define btns:<list[guilds_settings_btn|guilds_view_members_btn|guilds_view_info_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags]>
+  - define btns:<list[guilds_settings_btn|guilds_view_members_btn|guilds_view_info_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_leave_btn]>
   - foreach <[btns]> as:btn:
     - define items:|:<[btn]>
   - determine <[items]>
@@ -107,6 +107,16 @@ my_guild_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+guild_gui_events:
+  type: world
+  events:
+    on player clicks in new_guilds_gui:
+    - if <context.raw_slot> > 27:
+      - determine passively cancelled
+    on player clicks new_guild_btn in new_guilds_gui:
+    - if <context.raw_slot> > 27:
+      - inventory add d:<player.inventory> o:<item[new_guild_book]>
 
 guild_flag:
   type: item
