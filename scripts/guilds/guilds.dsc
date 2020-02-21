@@ -204,7 +204,6 @@ my_guild_gui:
   - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
   - foreach <[btns]> as:btn:
     - define items:|:<[btn]>
-  - narrate <queue.definitions>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -251,18 +250,18 @@ guild_gui_events:
   type: world
   events:
     on player clicks in my_guild_gui:
-    - if <context.raw_slot> > 36:
+    - if <context.raw_slot> < 36:
       - determine passively cancelled
     on player clicks guilds_view_info_btn in my_guild_gui:
-    - if <context.raw_slot> > 36:
+    - if <context.raw_slot> < 36:
     on player clicks in new_guild_gui:
-    - if <context.raw_slot> > 27:
+    - if <context.raw_slot> < 27:
       - determine passively cancelled
     on player clicks in guild_flag_gui:
     - if <context.raw_slot> < 27:
       - determine passively cancelled
     on player clicks new_guild_btn in new_guild_gui:
-    - if <context.raw_slot> > 27:
+    - if <context.raw_slot> < 27:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
 
 guild_command:
