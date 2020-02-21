@@ -129,6 +129,7 @@ my_guild_gui:
   - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
   - foreach <[btns]> as:btn:
     - define items:|:<[btn]>
+  - narrate <[w_filler]>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
