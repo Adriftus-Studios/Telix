@@ -223,7 +223,7 @@ guild_flag_gui:
     - define flag:<player.flag[guild_flag]>
     - define flag_health:<yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[flags.<[flag]>.health]>
     - define flag_name:<yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[flags.<[flag]>.name]>
-    - define items:|:<item[guild_flag_health_icon].with[lore=<&c><&chr[2764]><&sp><[flag_health]>].with[display_name=<&r><[flag_name]>]>
+    - define items:|:<item[guild_flag_health_icon].with[lore=<&c><&chr[2764]><&sp><[flag_health]>].with[display_name=<&r><[flag_name]>]>|<item[guild_flag_rename_btn]>|<item[guild_flag_destroy_btn]>
     - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
