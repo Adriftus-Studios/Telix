@@ -28,6 +28,7 @@ disband_guild:
     - yaml id:player.<<[player]>.uuid> set guild:!
   - yaml unload id:guild.<[guild]>
   - adjust server delete_file:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]>.yml
+  - announce "<&6>The Guild <yaml[guild.<[guild]>].read[name]> has been disbanded!"
 
 remove_guild_flag:
   type: task
@@ -35,8 +36,6 @@ remove_guild_flag:
     - define loc:<entity[<[flag]>].location.sub[l@0.5,0,0.5,entity[<[flag]>].location.world.name]>
     - modifyblock <[loc]> air
     - remove <entity[<[flag]>]>
-    - foreach <yaml[guild.<[guild]>].read[members]> as:player:
-      - narrate "<&6><yaml[guild.<[guild]>].read[flags.<[flag]>.name]> at <[loc].simple.formatted.split[ in world].get[1]> was destroyed!"
 
 guild_disband_command:
   type: command
@@ -263,6 +262,12 @@ guild_gui_events:
     on player clicks new_guild_btn in new_guild_gui:
     - if <context.raw_slot> < 27:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
+    on player clicks guild_flag_destroy_btn in guild_flag_gui:
+    - if <yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[destroy_flag]>:
+      - if 
+    
+    - foreach <yaml[guild.<[guild]>].read[members]> as:player:
+      - narrate "<&6><yaml[guild.<[guild]>].read[flags.<[flag]>.name]> at <[loc].simple.formatted.split[ in world].get[1]> was destroyed!"
 
 guild_command:
   type: command

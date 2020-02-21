@@ -103,7 +103,12 @@ enhancement_gui_handler:
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val5]>]> slot:43
             - define item:<player.open_inventory.slot[21]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[item].quantity.sub[1]>]> slot:21
-            - adjust def:item nbt:star.<[item].nbt[stars]||1>/<[val5]>
             - adjust def:item nbt:stars/<[item].nbt[stars].+1||1>
+            - foreach <[item].nbt_keys> as:stat:
+              - if <[stat].starts_with[base_stats.]>:
+                - define stat:<[stat].replace[base_stats.].with[]>
+                - if <util.random.int[1].to[3]> == 1:
+                  - define value:<[item].nbt[star_stat.<[stat]>]||0>
+                  - adjust def:item nbt:star_stat.<[stat]>:<[value].add[val5]>
             - inject build_item
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=1]> slot:25

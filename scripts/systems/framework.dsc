@@ -150,4 +150,5 @@ build_item:
         - define stats:|:<[modifier]>/<[value]>
         - define modifiers:|:<[modifier]>
         - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
+      
       - adjust def:item lore:<[lore]>
