@@ -73,6 +73,7 @@ calculate_weight_equipment_stats:
             - define stat:<[stat].replace[base_stats.].with[]>
             - if <[item].nbt[star_stat.<[stat]>]||null> != null:
               - define value:<[value].add[<[item].nbt[star_stat.<[stat]>]>]>
+              - narrate <[value]>
             - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
               - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
               - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]> < <yaml[player.<player.uuid>].read[stats.<[stat]>.current]>:
