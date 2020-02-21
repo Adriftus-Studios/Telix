@@ -3,7 +3,9 @@ create_guild:
   script:
   - if <[guild]||<[guild_name]||<[guild_leader]||<[guild_description]||null>>>> == null:
     - stop
+  - yaml create id:guild.<[guild]>
   - yaml id:player.<player.uuid> set guild:<[guild]>
+  - yaml id:player.<player.uuid> set guild_rank:leader
   - yaml id:guild.<[guild]> set name:<[guild_name]>
   - yaml id:guild.<[guild]> set leader:<[guild_leader]>
   - yaml id:guild.<[guild]> set description:<[guild_description]>
@@ -14,13 +16,18 @@ guilds_events:
   type: world
   debug: false
   events:
-    on server stars:
+    on server starts:
+    - yaml create id:server.guilds
     - foreach <server.list_files[data/globalLiveData/guilds/<server.flag[server.name]>]> as:guild:
       - yaml load:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]> id:guild.<[guild]>
     on shutdown:
       - foreach <yaml.list>:
         - if <def[value].substring[1,5]> == guild:
-          - yaml savefile:data/globalLiveDataplayers/<def[value].substring[8]>.yml id:<def[value]>
+          - yaml savefile:data/globalLiveData/guilds/<server.flag[server.name]>/<[value].replace[guild.].with[]>.yml id:<[value]>
+    on script reload:
+      - foreach <yaml.list>:
+        - if <def[value].substring[1,5]> == guild:
+          - yaml savefile:data/globalLiveData/guilds/<server.flag[server.name]>/<[value].replace[guild.].with[]>.yml id:<[value]>
     on player clicks in new_guilds_gui:
     - if <context.raw_slot> > 27:
       - determine passively cancelled
@@ -39,7 +46,7 @@ guilds_events:
 my_guild_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
-  size: 54
+  size: 36
   procedural items:
   - define btns:<list[guilds_settings_btn|guilds_view_members_btn|guilds_view_info_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags]>
   - foreach <[btns]> as:btn:
@@ -47,11 +54,10 @@ my_guild_gui:
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
-    gui_top: <item[gui_equipment_top]>
-    gui_bottom: <item[gui_equipment_bottom]>
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
