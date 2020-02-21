@@ -24,7 +24,7 @@ disband_guild:
     - stop
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:armorstand:
     - narrate <entity[<[armorstand]>].location.sub[l@0.5,0,0.5,entity[<[armorstand]>].location.world.name]>
-    - break <entity[<[armorstand]>].location.sub[l@0.5,0,0.5,entity[<[armorstand]>].location.world.name]>
+    - modifyblock <entity[<[armorstand]>].location.sub[l@0.5,0,0.5,entity[<[armorstand]>].location.world.name]> air
     - remove <entity[<[armorstand]>]>
   - stop
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
