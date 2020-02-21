@@ -172,7 +172,7 @@ equipment_character:
 test_hat:
   type: item
   material: gold_ingot
-  category: hat
+  category: pants
   equipment_rating: 5
   weight: 15
   max_stars: 5
