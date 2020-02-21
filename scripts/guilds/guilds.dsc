@@ -18,6 +18,7 @@ create_guild:
 
 disband_guild:
   type: task
+  debug: true
   script:
   - if <[guild]||null> == null:
     - stop
