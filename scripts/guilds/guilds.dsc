@@ -219,6 +219,7 @@ guilds_command:
   description: guilds
   usage: /guilds
   script:
+    - define a:b
     - if <yaml[player.<player.uuid>].read[guild]||null> != null:
       - narrate <yaml[player.<player.uuid>].read[guild]>
       - inventory open d:my_guild_gui
