@@ -98,12 +98,11 @@ guild_events:
     - if !<[flags].is_empty>:
       - define flag:<[flags].get[1].uuid>
       - if <yaml[player.<player.uuid>].read[guild]||null> != null:
-        - narrate 1
         - define guild:<yaml[player.<player.uuid>].read[guild]>
         - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>:
-          - narrate <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions]>
           - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[manage_flags]>:
-            - narrate yes
+            - flag <player> guild_flag:<[flag]>
+            - inventory open d:guild_flag_gui
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
       - if <yaml[player.<player.uuid>].read[guild]||null> == null:
@@ -232,7 +231,7 @@ guild_flag_gui:
   title: <&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
   size: 27
   procedural items:
-    - define flag:<player.flag[flag]>
+    - define flag:<player.flag[guild_flag]>
     - narrate <[flag]>
   definitions:
     w_filler: <item[gui_invisible_item]>
