@@ -62,7 +62,12 @@ place_guild_flag:
   - modifyblock <[location].add[<l@0,2,1,<[location].world.name>>]> <m@white_wall_banner.with[direction=south]>
   - modifyblock <[location].add[<l@-1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=west]>
   - modifyblock <[location].add[<l@1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=east]>
-  - spawn armor_stand[gravity=false|custom_name=<[guild]>|custom_name_visible=true] <[location].add[<l@0.5,2,0.5,<[location].world.name>>]>
+  - spawn <entity[armor_stand]> <[location].add[<l@0.5,2,0.5,<[location].world.name>>]>
+  - define armor_stand:<[location].add[<l@0.5,2,0.5,<[location].world.name>>].find.entities[armor_stand].within[0.1]>
+  - adjust def:armor_stand gravity:false
+  - adjust def:armor_stand custom_name:<&6><yaml[guild.<[guild]>].read[name]>
+  - adjust def:armor_stand custom_name_visible:true
+
 my_guild_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
