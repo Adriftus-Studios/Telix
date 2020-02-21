@@ -36,7 +36,7 @@ remove_guild_flag:
     - modifyblock <[loc]> air
     - remove <entity[<[armorstand]>]>
     - foreach <yaml[guild.<[guild]>].read[members]> as:player:
-      - narrate "<&6><yaml[guild.<[guild]>].read[flags.<[armorstand]>.name]> at <[loc].simple.formatted.split[in world].get[1]> was destroyed!"
+      - narrate "<&6><yaml[guild.<[guild]>].read[flags.<[armorstand]>.name]> at <[loc].simple.formatted.split[ in world].get[1]> was destroyed!"
 
 guild_disband_command:
   type: command
