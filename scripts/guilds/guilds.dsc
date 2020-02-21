@@ -63,7 +63,7 @@ place_guild_flag:
   - modifyblock <[location].add[<l@-1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=west]>
   - modifyblock <[location].add[<l@1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=east]>
   - spawn <entity[armor_stand]> <[location].add[<l@0.5,2,0.5,<[location].world.name>>]>
-  - define armor_stand:<[location].add[<l@0.5,2,0.5,<[location].world.name>>].find.entities[armor_stand].within[1]>
+  - define armor_stand:<[location].add[<l@0.5,2,0.5,<[location].world.name>>].find.entities[armor_stand].within[0.1]>
   - narrate <[armor_stand]>
 
 my_guild_gui:
