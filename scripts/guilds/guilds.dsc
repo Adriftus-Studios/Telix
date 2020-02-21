@@ -66,6 +66,7 @@ place_guild_flag:
   - define armor_stand:<[location].add[<l@0.5,2,0.5,<[location].world.name>>].find.entities[armor_stand].within[0.1]>
   - adjust def:armor_stand gravity:false
   - adjust def:armor_stand custom_name:<[guild]>
+  - adjust def:armor_stand custom_name_visible:true
 
 my_guild_gui:
   type: inventory
