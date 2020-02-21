@@ -21,11 +21,10 @@ disband_guild:
   script:
   - if <[guild]||null> == null:
     - stop
-  - define flags:<yaml[guild.<[guild]>].list_keys[flags]>
-  - foreach <[flags]> as:armorstand:
+  - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:armorstand:
     - remove <entity[<[armorstand]>]>
     - yaml id:guild.<[guild]> set flags.<[armorstand]>:!
-  - foreach <yaml[guild.<[guild]>].read[members]>
+  - foreach <yaml[guild.<[guild]>].read[members]> as:player:
     - narrate <[value]>
 
 guild_disband_command:
