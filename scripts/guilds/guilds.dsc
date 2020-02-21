@@ -13,7 +13,7 @@ create_guild:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
 
-guilds_events:
+guild_events:
   type: world
   debug: false
   events:
@@ -34,7 +34,13 @@ guilds_events:
       - if <yaml[player.<player.uuid>].read[guild]||null> != null:
         - define guild:<yaml[player.<player.uuid>].read[guild]>
         - define location:<context.location>
-        - inject place_guild_flag
+        - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[200]>
+        - foreach <[nearby_flags]> as:flag:
+          - if <[flag].custom_name.strip_color> != <[guild]>:
+        - if <context.location.find.entities[guild_flag_indicator].within[200].is_empty>:
+          - inject place_guild_flag
+      - else:
+        - determine passively cancelled
     on player clicks in new_guilds_gui:
     - if <context.raw_slot> > 27:
       - determine passively cancelled
@@ -64,6 +70,7 @@ place_guild_flag:
   - modifyblock <[location].add[<l@-1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=west]>
   - modifyblock <[location].add[<l@1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=east]>
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,1.5,0.5,<[location].world.name>>]>
+  - yaml id:guild.<[guild]> set flags:|:<[location].add[<l@0.5,1.5,0.5,<[location].world.name>>]>
 
 guild_flag_indicator:
   type: entity
@@ -71,6 +78,7 @@ guild_flag_indicator:
   gravity: false
   visible: false
   custom_name_visible: true
+  invulnerable: true
   
 my_guild_gui:
   type: inventory
