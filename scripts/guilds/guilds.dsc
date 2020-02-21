@@ -28,7 +28,7 @@ disband_guild:
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
     - yaml id:player.<<[player]>.uuid> set guild:!
   - yaml id:guild.<[guild]> set members:!
-  - adjust server delete_file:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild].to_uppercase>.yml
+  - adjust server delete_file:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]>.yml
   
 
 guild_disband_command:
@@ -52,11 +52,11 @@ guild_events:
     on shutdown:
       - foreach <yaml.list>:
         - if <def[value].substring[1,5]> == guild:
-          - yaml savefile:data/globalLiveData/guilds/<server.flag[server.name]>/<[value].replace[guild.].with[]>.yml id:<[value]>
+          - yaml savefile:data/globalLiveData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
     on script reload:
       - foreach <yaml.list>:
         - if <def[value].substring[1,5]> == guild:
-          - yaml savefile:data/globalLiveData/guilds/<server.flag[server.name]>/<[value].replace[guild.].with[]>.yml id:<[value]>
+          - yaml savefile:data/globalLiveData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
     on player places block:
     - if <context.item_in_hand.script.name> == guild_flag:
       - if <yaml[player.<player.uuid>].read[guild]||null> != null:
