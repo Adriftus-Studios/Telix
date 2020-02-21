@@ -83,8 +83,8 @@ place_guild_flag:
     - stop
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]>
   - define flag:<[location].add[<l@0.5,0,0.5,<[location].world.name>>].find.entities[guild_flag_indicator].within[0.1].get[1]>
-  - narrate <[flag]>
   - yaml id:guild.<[guild]> set flags.<[flag].uuid>.location:<[location].simple>
+  - narrate <yaml[guild.<[guild]>].list_keys[flags]>
 
 guild_flag_indicator:
   type: entity
