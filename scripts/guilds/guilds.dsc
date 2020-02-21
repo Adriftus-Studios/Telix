@@ -41,6 +41,10 @@ my_guild_gui:
   title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
   size: 54
   procedural items:
+  - define btns:<list[guilds_settings_btn|guilds_view_members_btn|guilds_view_info_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags]>
+  - foreach <[btns]> as:btn:
+    - define items:|:<[btn]>
+  - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
     gui_top: <item[gui_equipment_top]>
@@ -48,9 +52,6 @@ my_guild_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [guilds_view_info_btn] [guilds_edit_ranks_btn] [guilds_manage_claim_flags] [guilds_view_members_btn] [guilds_settings_btn] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
