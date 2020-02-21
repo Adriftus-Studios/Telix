@@ -110,5 +110,5 @@ enhancement_gui_handler:
                 - if <util.random.int[1].to[3]> == 1:
                   - define value:<[item].nbt[star_stat.<[stat]>]||0>
                   - adjust def:item nbt:star_stat.<[stat]>:<[value].add[val5]>
-            - inject build_item
+            #- inject build_item
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=1]> slot:25
