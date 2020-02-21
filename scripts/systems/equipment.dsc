@@ -44,6 +44,54 @@ equipment_death_handler:
             - determine <context.drops.include[<[item]>]>
         - inject update_stats
 
+hat_shadow:
+  type: item
+  material: diamond_pickaxe
+  category: hat
+  mechanisms:
+    custom_model_data: -1
+  display name: <&7>
+
+shirt_shadow:
+  type: item
+  material: diamond_pickaxe
+  category: shirt
+  mechanisms:
+    custom_model_data: -2
+  display name: <&7>
+
+pants_shadow:
+  type: item
+  material: diamond_pickaxe
+  category: pants
+  mechanisms:
+    custom_model_data: -3
+  display name: <&7>
+
+shoes_shadow:
+  type: item
+  material: diamond_pickaxe
+  category: shoes
+  mechanisms:
+    custom_model_data: -4
+  display name: <&7>
+
+cape_shadow:
+  type: item
+  material: diamond_pickaxe
+  category: cape
+  mechanisms:
+    custom_model_data: -5
+  display name: <&7>
+
+gloves_shadow:
+  type: item
+  material: diamond_pickaxe
+  category: gloves
+  mechanisms:
+    custom_model_data: -6
+  display name: <&7>
+
 equipment_inventory_handler:
   type: world
   debug: false
@@ -106,7 +154,7 @@ equipment_character:
   size: 54
   procedural items:
   - foreach <list[necklace|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
-    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[air]>>
+    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[<[value]>_shadow]>||<item[air]>>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
