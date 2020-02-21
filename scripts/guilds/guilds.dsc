@@ -61,12 +61,6 @@ guild_events:
         - narrate "<&6>You cannot break blocks in another guild's territory."
         - determine cancelled
         - stop
-    on player clicks in new_guilds_gui:
-    - if <context.raw_slot> > 27:
-      - determine passively cancelled
-    on player clicks new_guild_btn in new_guilds_gui:
-    - if <context.raw_slot> > 27:
-      - inventory add d:<player.inventory> o:<item[new_guild_book]>
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
       - narrate <context.title>
