@@ -9,7 +9,8 @@ create_guild:
   - yaml id:guild.<[guild]> set name:<[guild_name]>
   - yaml id:guild.<[guild]> set leader:<[guild_leader]>
   - yaml id:guild.<[guild]> set description:<[guild_description]>
-  - yaml id:guild.<[guild]> set ranks.leader.permissions:manage_claim_flags|edit_ranks|view_members|change_settings
+  - foreach <list[manage_claim_flags|edit_ranks|view_members|change_settings]> as:perm:
+    - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
 
 guilds_events:
