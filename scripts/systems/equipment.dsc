@@ -6,8 +6,8 @@ view_equipment_command:
   usage: /view_equipment
   tab complete:
   - foreach <server.list_material_types> as:mat:
-    - if <[mat].starts_with[<context.args.get[1]>]>:
-      - define list:|:<[mat]>
+    - if <[mat].name.starts_with[<context.args.get[1]>]>:
+      - define list:|:<[mat].name>
   - determine <[list]>
   script:
   - flag <player> context:<context.args.get[1]>/<context.args.get[2]>
