@@ -21,7 +21,7 @@ view_equipment:
   - define mat:<material[<player.flag[context].split[/].get[1]>]>
   - define page:<player.flag[context].split[/].get[2]>
   - repeat 63:
-    - define list:|:<item[<[mat]>].with[custom_model_data=<[value].mul[<[page]>]>].with[display<&sp>name=<[value].mul[<[page]>]>]>
+    - define list:|:<item[<[mat]>].with[custom_model_data=<[value].mul[<[page]>]>].with[lore=<[value].mul[<[page]>]>]>
   - determine <[list]>
   slots:
   - "[] [] [] [] [] [] [] [] []"
