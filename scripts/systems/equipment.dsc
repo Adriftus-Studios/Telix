@@ -46,10 +46,10 @@ equipment_inventory_handler:
   debug: false
   events:
     on player drags item in equipment_character:
-      - narrate <context.raw_slot>
       - if <player.open_inventory.script_name> == "equipment_character":
-        - if <context.raw_slot> < 55:
-          - determine passively cancelled
+        - foreach <context.raw_slots> as:slot:
+          - if <[slot]> < 55:
+            - determine passively cancelled
     on player clicks item in equipment_character with item:
       - if <player.open_inventory.script_name> == "equipment_character":
         - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
