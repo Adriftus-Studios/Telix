@@ -39,7 +39,7 @@ guild_events:
         - define location:<context.location>
         - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[200]>
         - foreach <[nearby_flags]> as:flag:
-          - if <[flag].custom_name.strip_color> != <[guild]>:
+          - if <[flag].custom_name.strip_color> != <yaml[guild.<[guild]>].read[name]>:
             - narrate "<&6>You are too close to another guild's flag."
             - determine cancelled
             - stop
@@ -50,14 +50,14 @@ guild_events:
         - determine passively cancelled
     - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
     - foreach <[nearby_flags]> as:flag:
-      - if <[flag].custom_name.strip_color> != <[guild]>:
+      - if <[flag].custom_name.strip_color> != <yaml[guild.<[guild]>].read[name]>:
         - narrate "<&6>You cannot build in another guild's territory."
         - determine cancelled
         - stop
     on player breaks block:
     - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
     - foreach <[nearby_flags]> as:flag:
-      - if <[flag].custom_name.strip_color> != <[guild]>:
+      - if <[flag].custom_name.strip_color> != <yaml[guild.<[guild]>].read[name]>:
         - narrate "<&6>You cannot break blocks in another guild's territory."
         - determine cancelled
         - stop
