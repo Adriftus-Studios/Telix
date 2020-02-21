@@ -82,7 +82,6 @@ guild_flag_indicator:
   type: entity
   entity_type: armor_stand
   gravity: false
-  visible: false
   custom_name_visible: true
   
 my_guild_gui:
