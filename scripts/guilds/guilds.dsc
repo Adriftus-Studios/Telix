@@ -58,6 +58,8 @@ guild_events:
     - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
     - foreach <[nearby_flags]> as:flag:
       - if <[flag].custom_name.strip_color> != <yaml[guild.<[guild]>].read[name]>:
+        - narrate <[flag].custom_name.strip_color>
+        - narrate <yaml[guild.<[guild]>].read[name]>
         - narrate "<&6>You cannot break blocks in another guild's territory."
         - determine cancelled
         - stop
