@@ -120,7 +120,7 @@ default_stats:
 
 stats_character:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 45
   procedural items:
     - inject update_stats
@@ -152,7 +152,7 @@ damage_stats_icon:
   type: item
   material: snow
   assigned_stat: melee_damage
-  display name: "<green><&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
+  display name: "<&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>%"
   - "This Stat cannot be increased with Skill Points."
@@ -162,7 +162,7 @@ equipment_rating_stats_icon:
   type: item
   material: snow
   assigned_stat: equipment_rating
-  display name: "<green><&6>◆ <&a><&n><&l>Equipment Rating<&r> <&6>◆"
+  display name: "<&6>◆ <&a><&n><&l>Equipment Rating<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   - "This Stat cannot be increased with Skill Points."
@@ -172,7 +172,7 @@ drop_rate_multiplier_stats_icon:
   type: item
   material: snow
   assigned_stat: drop_rate_multiplier
-  display name: "<green><&6>◆ <&a><&n><&l>Drop Rate Multiplier<&r> <&6>◆"
+  display name: "<&6>◆ <&a><&n><&l>Drop Rate Multiplier<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>%"
   - "This Stat cannot be increased with Skill Points."
@@ -182,7 +182,7 @@ experience_multiplier_stats_icon:
   type: item
   material: snow
   assigned_stat: experience_multiplier
-  display name: "<green><&6>◆ <&a><&n><&l>Experience Multiplier<&r> <&6>◆"
+  display name: "<&6>◆ <&a><&n><&l>Experience Multiplier<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>%"
   - "This Stat cannot be increased with Skill Points."
@@ -193,7 +193,7 @@ health_stats_icon:
   material: snow
   assigned_stat: health.max
   assigned_stat_increment: 1
-  display name: "<green><&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
+  display name: "<&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script.yaml_key[assigned_stat_increment]>]>"
@@ -204,7 +204,7 @@ constitution_stats_icon:
   material: snow
   assigned_stat: constitution
   assigned_stat_increment: 1
-  display name: "<green><&6>◆ <&a><&n><&l>Constitution<&r> <&6>◆"
+  display name: "<&6>◆ <&a><&n><&l>Constitution<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script.yaml_key[assigned_stat_increment]>]>"
@@ -215,7 +215,7 @@ speed_stats_icon:
   material: snow
   assigned_stat: speed
   assigned_stat_increment: 1
-  display name: "<green><&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
+  display name: "<&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script.yaml_key[assigned_stat_increment]>]>"
@@ -226,7 +226,7 @@ carry_weight_stats_icon:
   material: snow
   assigned_stat: weight.max
   assigned_stat_increment: 10
-  display name: "<green><&6>◆ <&a><&n><&l>Carry Weight<&r> <&6>◆"
+  display name: "<&6>◆ <&a><&n><&l>Carry Weight<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script.yaml_key[assigned_stat_increment]>]>"
@@ -237,7 +237,7 @@ thirst_stats_icon:
   material: snow
   assigned_stat: thirst.max
   assigned_stat_increment: 10
-  display name: "<green><&6>◆ <&a><&n><&l>Thirst<&r> <&6>◆"
+  display name: "<&6>◆ <&a><&n><&l>Thirst<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script.yaml_key[assigned_stat_increment]>]>"
@@ -248,7 +248,7 @@ food_stats_icon:
   material: snow
   assigned_stat: food.max
   assigned_stat_increment: 10
-  display name: "<green><&6>◆ <&a><&n><&l>Food<&r> <&6>◆"
+  display name: "<&6>◆ <&a><&n><&l>Food<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script.yaml_key[assigned_stat_increment]>]>"
@@ -259,7 +259,7 @@ power_stats_icon:
   material: snow
   assigned_stat: power.max
   assigned_stat_increment: 2
-  display name: "<green><&6>◆ <&a><&n><&l>Power<&r> <&6>◆"
+  display name: "<&6>◆ <&a><&n><&l>Power<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
   - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script.yaml_key[assigned_stat_increment]>]>"
