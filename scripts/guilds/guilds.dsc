@@ -100,7 +100,7 @@ guild_events:
       - if <yaml[player.<player.uuid>].read[guild]||null> != null:
         - narrate 1
         - define guild:<yaml[player.<player.uuid>].read[guild]>
-        - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>
+        - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>:
           - narrate 2
           - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].include[manage_flags]>:
             - narrate yes
