@@ -16,6 +16,11 @@ create_guild:
   - yaml id:guild.<[guild]> set ranks.leader.title:Leader
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
 
+disband_guild:
+  type: task
+  script:
+  
+
 guild_events:
   type: world
   debug: false
