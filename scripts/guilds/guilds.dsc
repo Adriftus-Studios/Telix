@@ -273,7 +273,6 @@ guild_command:
   - "g"
   script:
     - if <yaml[player.<player.uuid>].read[guild]||null> != null:
-      - narrate <yaml[player.<player.uuid>].read[guild]>
       - inventory open d:my_guild_gui
     - else:
       - inventory open d:new_guild_gui
