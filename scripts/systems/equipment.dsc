@@ -5,7 +5,28 @@ view_equipment_command:
   description: view_equipment
   usage: /view_equipment
   script:
-  - narrate <context.args>
+  - flag <player> context:<context.args.get[1]>/<context.args.get[2]>
+  - inventory open d:view_equipment
+
+view_equipment:
+  type: inventory
+  title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
+  size: 54
+  procedural items:
+  - define mat:<material[<player.flag[context].split[/].get[1]>]>
+  - define page:<player.flag[context].split[/].get[2]>
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    gui_top: <item[gui_equipment_top]>
+    gui_bottom: <item[gui_equipment_bottom]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
 
 equipment_death_handler:
   type: world
@@ -25,12 +46,13 @@ equipment_inventory_handler:
   debug: false
   events:
     on player drags item in equipment_character:
+      - narrate <context.raw_slot>
       - if <player.open_inventory.script_name> == "equipment_character":
         - if <context.raw_slot> < 55:
           - determine passively cancelled
     on player clicks item in equipment_character with item:
       - if <player.open_inventory.script_name> == "equipment_character":
-        - define slotmap:<list[11/pendant|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
+        - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|32/pants|43/shoes]>
         - if !<context.is_shift_click>:
           - if <context.raw_slot> < 55:
             - if <[slotmap].map_get[<context.slot>]||null> == null:
@@ -80,7 +102,7 @@ equipment_character:
   title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
   size: 54
   procedural items:
-  - foreach <list[pendant|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
+  - foreach <list[necklace|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
     - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[air]>>
   - determine <[items]>
   definitions:
@@ -95,30 +117,6 @@ equipment_character:
   - "[gui_top] [] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
   - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-
-basic_pendant:
-  type: item
-  material: snow
-  category: pendant
-  equipment_rating: 0
-  display name: "<&c>Basic Pendant"
-  drops_on_death: true
-
-basic_trinket:
-  type: item
-  material: snow
-  category: trinket
-  equipment_rating: 0
-  display name: "<&c>Basic Trinket"
-  drops_on_death: true
-
-basic_earrings:
-  type: item
-  material: snow
-  category: earrings
-  equipment_rating: 0
-  display name: "<&c>Basic Earrings"
-  drops_on_death: true
 
 test_hat:
   type: item
@@ -188,63 +186,4 @@ test_ring:
   lore:
     - "Something something ring,"
     - "Something rare something lore"
-  drops_on_death: true
-
-basic_ring:
-  type: item
-  material: snow
-  category: ring
-  equipment_rating: 0
-  weight: 10
-  equipment_modifiers:
-    speed: 100
-  display name: "<&c>Basic Ring"
-  drops_on_death: true
-
-basic_shoes:
-  type: item
-  material: snow
-  category: shoes
-  equipment_rating: 0
-  display name: "<&c>Basic Shoes"
-  drops_on_death: true
-
-basic_pants:
-  type: item
-  material: snow
-  category: pants
-  equipment_rating: 0
-  display name: "<&c>Basic Pants"
-  drops_on_death: true
-
-basic_shirt:
-  type: item
-  material: snow
-  category: shirt
-  equipment_rating: 0
-  display name: "<&c>Basic Shirt"
-  drops_on_death: true
-
-basic_gloves:
-  type: item
-  material: snow
-  category: gloves
-  equipment_rating: 0
-  display name: "<&c>Basic Gloves"
-  drops_on_death: true
-
-basic_cape:
-  type: item
-  material: snow
-  category: cape
-  equipment_rating: 0
-  display name: "<&c>Basic Cape"
-  drops_on_death: true
-
-basic_hat:
-  type: item
-  material: snow
-  category: hat
-  equipment_rating: 0
-  display name: "<&c>Basic Hat"
   drops_on_death: true
