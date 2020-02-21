@@ -4,6 +4,11 @@ view_equipment_command:
   name: view_equipment
   description: view_equipment
   usage: /view_equipment
+  tab complete:
+  - foreach <server.list_material_types> as:mat:
+    - if <[mat].starts_with[<context.args.get[1]>]>:
+      - define list:|:<[mat]>
+  - determine <[list]>
   script:
   - flag <player> context:<context.args.get[1]>/<context.args.get[2]>
   - inventory open d:view_equipment
@@ -15,11 +20,9 @@ view_equipment:
   procedural items:
   - define mat:<material[<player.flag[context].split[/].get[1]>]>
   - define page:<player.flag[context].split[/].get[2]>
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    gui_top: <item[gui_equipment_top]>
-    gui_bottom: <item[gui_equipment_bottom]>
-    closeitem: <item[gui_close_btn]>
+  - repeat 63:
+    - define list:|:<item[mat].with[custom_model_data=<[value].mul[<[page]>]>]>
+  - determine <[list]>
   slots:
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
