@@ -37,6 +37,8 @@ guild_events:
         - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[200]>
         - foreach <[nearby_flags]> as:flag:
           - if <[flag].custom_name.strip_color> != <[guild]>:
+            - narrate <[flag].custom_name.strip_color>
+            - stop
         - if <context.location.find.entities[guild_flag_indicator].within[200].is_empty>:
         - inject place_guild_flag
       - else:
