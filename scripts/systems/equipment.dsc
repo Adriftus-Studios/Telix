@@ -22,7 +22,7 @@ view_equipment:
   - define page:<player.flag[context].split[/].get[2]>
   - repeat 63
     - define list:|:<item[mat].with[custom_model_data=<[value].mul[<[page]>]>]>
-  - narrate <[list].size>
+    - narrate <item[mat].with[custom_model_data=<[value].mul[<[page]>]>]>
   - determine <[list]>
   slots:
   - "[] [] [] [] [] [] [] [] []"
