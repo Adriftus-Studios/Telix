@@ -39,6 +39,7 @@ guild_events:
         - foreach <[nearby_flags]> as:flag:
           - if <[flag].custom_name.strip_color> != <[guild]>:
             - narrate "<&6>You are to close to another guilds territory."
+            
             - determine cancelled
             - stop
         - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[place_flag]>:
