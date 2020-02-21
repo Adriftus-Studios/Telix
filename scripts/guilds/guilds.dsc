@@ -67,6 +67,10 @@ guild_events:
         - narrate "<&6>You cannot break blocks in another guild's territory."
         - determine cancelled
         - stop
+    on player clicks block:
+    - define flags:<context.location.add[<l@0.5,0,0.5,<context.location.world.name>>].find.entities[guild_flag_indicator].within[0.1]>
+    - if !<[flags].is_empty>:
+      - narrate <[flags]>
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
       - narrate <context.title>
@@ -91,6 +95,8 @@ guild_flag_indicator:
   entity_type: armor_stand
   gravity: false
   custom_name_visible: true
+  invulnerable: true
+  visible: false
   
 my_guild_gui:
   type: inventory
