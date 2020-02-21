@@ -102,7 +102,7 @@ guild_events:
         - define guild:<yaml[player.<player.uuid>].read[guild]>
         - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>:
           - narrate <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions]>
-          - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].include[manage_flags]>:
+          - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[manage_flags]>:
             - narrate yes
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
