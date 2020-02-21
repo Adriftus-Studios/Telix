@@ -26,13 +26,11 @@ disband_guild:
     - narrate <entity[<[armorstand]>].location.sub[l@0.5,0,0.5,entity[<[armorstand]>].location.world.name]>
     - modifyblock <entity[<[armorstand]>].location.sub[l@0.5,0,0.5,entity[<[armorstand]>].location.world.name]> air
     - remove <entity[<[armorstand]>]>
-  - stop
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
     - yaml id:player.<<[player]>.uuid> set guild:!
   - yaml unload id:guild.<[guild]>
   - adjust server delete_file:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]>.yml
   
-
 guild_disband_command:
   type: command
   name: disband
@@ -94,7 +92,10 @@ guild_events:
       - narrate <[flags].get[1]>
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
-      - narrate <context.title>
+      - if <yaml[player.<player.uuid>].read[guild]||null> == null:
+        - narrate <&6>You are already in a guild.
+        - determine NOT_SIGNING
+        - stop
       - define guild:<context.title.to_lowercase.replace[<&sp>].with[_]>
       - define guild_name:<context.title>
       - define guild_leader:<player>
@@ -110,6 +111,7 @@ place_guild_flag:
   - define flag:<[location].add[<l@0.5,0,0.5,<[location].world.name>>].find.entities[guild_flag_indicator].within[0.1].get[1]>
   - yaml id:guild.<[guild]> set flags.<[flag].uuid>.location:<[location].simple>
   - yaml id:guild.<[guild]> set flags.<[flag].uuid>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
+  - yaml id:guild.<[guild]> set flags.<[flag].uuid>.health:5000
 
 guild_flag_indicator:
   type: entity
