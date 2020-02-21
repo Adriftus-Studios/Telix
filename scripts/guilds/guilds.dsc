@@ -23,7 +23,7 @@ disband_guild:
     - stop
   - define flags:<yaml[guild.<[guild]>].list_keys[flags]>
   - foreach <[flags]> as:armorstand:
-    - narrate <e@<[armorstand]>>
+    - narrate <<[armorstand]>>
 
 guild_disband_command:
   type: command
