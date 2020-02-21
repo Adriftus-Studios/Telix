@@ -62,7 +62,7 @@ place_guild_flag:
   - modifyblock <[location].add[<l@0,2,1,<[location].world.name>>]> <m@white_wall_banner.with[direction=south]>
   - modifyblock <[location].add[<l@-1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=west]>
   - modifyblock <[location].add[<l@1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=east]>
-  - spawn <e@armor_stand> <[location].add[<l@0,2,0,<[location].world.name>>]>
+  - spawn <e@armor_stand> <[location].add[<l@0.5,2,0.5,<[location].world.name>>]>
 
 my_guild_gui:
   type: inventory
