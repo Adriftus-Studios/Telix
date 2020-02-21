@@ -63,14 +63,13 @@ place_guild_flag:
   - modifyblock <[location].add[<l@0,2,1,<[location].world.name>>]> <m@white_wall_banner.with[direction=south]>
   - modifyblock <[location].add[<l@-1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=west]>
   - modifyblock <[location].add[<l@1,2,0,<[location].world.name>>]> <m@white_wall_banner.with[direction=east]>
-  - spawn guild_flag_indicator <[location].add[<l@0.5,1.5,0.5,<[location].world.name>>]>
+  - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,1.5,0.5,<[location].world.name>>]>
 
 guild_flag_indicator:
   type: entity
   entity_type: armor_stand
   gravity: false
   visible: false
-  custom_name: <&6><yaml[guild.<[guild]>].read[name]>
   custom_name_visible: true
   
 my_guild_gui:
