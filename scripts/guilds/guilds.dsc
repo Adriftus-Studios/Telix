@@ -24,6 +24,7 @@ guild_events:
     - yaml create id:server.guilds
     - foreach <server.list_files[data/globalLiveData/guilds/<server.flag[server.name]>]> as:guild:
       - yaml load:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]> id:guild.<[guild]>
+      - yaml id:server.guilds set all_guilds:|:<[guild]>
     on shutdown:
       - foreach <yaml.list>:
         - if <def[value].substring[1,5]> == guild:
@@ -75,7 +76,8 @@ place_guild_flag:
   script:
   - if <[guild]||<[location]||null>> == null:
     - stop
-  - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]>
+  - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> save:test
+  - narrate <[test]>
   - yaml id:guild.<[guild]> set flags:|:<[location].add[<l@0,0,0,<[location].world.name>>]>
 
 guild_flag_indicator:
@@ -89,7 +91,7 @@ my_guild_gui:
   title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
   size: 36
   procedural items:
-  - define btns:<list[guilds_settings_btn|guilds_view_members_btn|guilds_view_info_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_leave_btn]>
+  - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
   - foreach <[btns]> as:btn:
     - define items:|:<[btn]>
   - determine <[items]>
@@ -106,16 +108,16 @@ guild_gui_events:
   type: world
   events:
     on player clicks in my_guild_gui:
-    - narrate <context.raw_slot>
-    - if <context.raw_slot> > 27:
-      - narrate 1
+    - if <context.raw_slot> > 36:
+      - determine passively cancelled
+    on player clicks guilds_view_info_btn in my_guild_gui:
+    - if <context.raw_slot> > 36:
     on player clicks in new_guild_gui:
     - if <context.raw_slot> > 27:
       - determine passively cancelled
     on player clicks new_guild_btn in new_guild_gui:
     - if <context.raw_slot> > 27:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
-
 guild_flag:
   type: item
   material: white_banner
