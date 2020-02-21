@@ -23,7 +23,9 @@ disband_guild:
     - stop
   - define flags:<yaml[guild.<[guild]>].list_keys[flags]>
   - foreach <[flags]> as:armorstand:
-    - narrate <entity[<[armorstand]>].custom_name>
+    - remove <entity[<[armorstand]>]>
+  - foreach <yaml[guild.<[guild]>].list_keys[members]>
+    - narrate <[value]>
 
 guild_disband_command:
   type: command
