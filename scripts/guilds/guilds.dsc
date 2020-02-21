@@ -82,9 +82,9 @@ guild_events:
         - determine cancelled
         - stop
     on player clicks block:
-    - define flags:<context.location.add[<l@0.5,0,0.5,<context.location.world.name>>].find.entities[guild_flag_indicator].within[0.1].get[1]>
-    - if <[flags]||null> != null:
-      - narrate <[flags]>
+    - define flags:<context.location.add[<l@0.5,0,0.5,<context.location.world.name>>].find.entities[guild_flag_indicator].within[0.1]>
+    - if !<[flags].is_empty>:
+      - narrate <[flags].get[1]>
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
       - narrate <context.title>
