@@ -96,7 +96,7 @@ guild_events:
     on player clicks block:
     - define flags:<context.location.add[<l@0.5,0,0.5,<context.location.world.name>>].find.entities[guild_flag_indicator].within[0.1]>
     - if !<[flags].is_empty>:
-      - define flag:<[flags].get[1]>
+      - define flag:<[flags].get[1].uuid>
       - if <yaml[player.<player.uuid>].read[guild]||null> != null:
         - narrate 1
         - define guild:<yaml[player.<player.uuid>].read[guild]>
