@@ -10,7 +10,7 @@ ability_sonar:
     material: stone
     custom_model_data: 1
   script:
-    - if <player.location.find.entities.within[50].size> == 0:
+    - if <player.location.find.entities.within[50].exclude[<player>].size> == 0:
       - narrate "<&6>There are no entities within 50 blocks of you."
       - stop
     - inject abilities_check
