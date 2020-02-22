@@ -21,9 +21,9 @@ define_sphere:
   type: procedure
   definitions: location|radius
   script:
-  - repeat 360:
+  - repeat <[radius].sub[360]>:
     - define yaw:<[value]>
-    - repeat 180:
+    - repeat <[radius].sub[180]>:
       - define pitch:<[value].sub[90]>
       - define point:<[location].with_pose[<[pitch]>,<[yaw]>].relative[0,0,<[radius]>]>
       - if !<[points].contains[<[point]>]>:
@@ -34,9 +34,9 @@ define_block_sphere:
   type: procedure
   definitions: location|radius
   script:
-  - repeat 360:
+  - repeat <[radius].sub[360]>:
     - define yaw:<[value]>
-    - repeat 180:
+    - repeat <[radius].sub[180]>:
       - define pitch:<[value].sub[90]>
       - define point:<[location].with_pose[<[pitch]>,<[yaw]>].relative[0,0,<[radius]>].block>
       - if !<[points].contains[<[point]>]>:
