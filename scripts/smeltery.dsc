@@ -19,6 +19,8 @@ smeltery_events:
   type: world
   events:
     on player clicks furnace:
+      - if <context.location.mater>
+      - narrate <context.location.material>
       - determine passively cancelled
       - note <in@smeltery_inventory> as:testing
       - inventory open d:<inventory[testing]>
