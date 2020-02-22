@@ -83,7 +83,7 @@ build_items_command:
   script:
     - yaml load:data/globalLiveData/test/<server.flag[server.name]>/custom_items.yml id:custom_items
     - foreach <server.list_material_types> as:mat:
-      - if <yaml[custom_items].read[custom_<[mat].name>]||null> == null:
+      - if <yaml[custom_items].read[custom_<[mat].name>.lore]||null> == null:
         - yaml id:custom_items set custom_<[mat].name>.type:item
         - yaml id:custom_items set custom_<[mat].name>.material:<[mat].name>
         - yaml id:custom_items set custom_<[mat].name>.weight:1
