@@ -198,7 +198,7 @@ health_stats_icon:
   display name: "<&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <script[default_stats].yaml_key[stats.increments.<[stat]>]>"
+  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.default.<[stat]>]>]>"
   drops_on_death: false
 
 constitution_stats_icon:
@@ -209,7 +209,7 @@ constitution_stats_icon:
   display name: "<&6>◆ <&a><&n><&l>Constitution<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <script[default_stats].yaml_key[stats.increments.<[stat]>]>"
+  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.default.<[stat]>]>]>"
   drops_on_death: false
 
 speed_stats_icon:
@@ -220,7 +220,7 @@ speed_stats_icon:
   display name: "<&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <script[default_stats].yaml_key[stats.increments.<[stat]>]>"
+  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.default.<[stat]>]>]>"
   drops_on_death: false
 
 carry_weight_stats_icon:
@@ -231,7 +231,7 @@ carry_weight_stats_icon:
   display name: "<&6>◆ <&a><&n><&l>Carry Weight<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <script[default_stats].yaml_key[stats.increments.<[stat]>]>"
+  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.default.<[stat]>]>]>"
   drops_on_death: false
 
 thirst_stats_icon:
@@ -242,7 +242,7 @@ thirst_stats_icon:
   display name: "<&6>◆ <&a><&n><&l>Thirst<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <script[default_stats].yaml_key[stats.increments.<[stat]>]>"
+  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.default.<[stat]>]>]>"
   drops_on_death: false
 
 food_stats_icon:
@@ -253,7 +253,7 @@ food_stats_icon:
   display name: "<&6>◆ <&a><&n><&l>Food<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <script[default_stats].yaml_key[stats.increments.<[stat]>]>"
+  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.default.<[stat]>]>]>"
   drops_on_death: false
 
 power_stats_icon:
@@ -264,7 +264,7 @@ power_stats_icon:
   display name: "<&6>◆ <&a><&n><&l>Power<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <script[default_stats].yaml_key[stats.increments.<[stat]>]>"
+  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.default.<[stat]>]>]>"
   drops_on_death: false
 
 create_player_stats:
