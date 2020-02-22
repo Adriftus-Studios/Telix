@@ -72,7 +72,8 @@ system_override:
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory]>
     on player chats:
       - if <player.has_permission[*]>:
-        - determine <context.message.parsed>
+        - if <player.flag[parsed_chat]>:
+          - determine <context.message.parsed>
 
 build_item_command:
   type: command
