@@ -113,6 +113,10 @@ equipment_inventory_handler:
         - foreach <list[hat|gloves|shirt|shoes|pants|cape]>:
           - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].script.name.ends_with[_shadow]>:
             - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[air]>
+        - if <list[hat|gloves|shirt|shoes|pants|cape].contains[<context.item.script.yaml_key[category]>]>:
+          - if <player.open_inventory.slot[<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>].material.name> == air:
+            - wait 1t
+            - inventory set d:<player.open_inventory> o:<item[air]> slot:<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>
         - if !<context.is_shift_click>:
           - if <context.raw_slot> < 55:
             - if <[slotmap].map_get[<context.slot>]||null> == null:
@@ -127,14 +131,6 @@ equipment_inventory_handler:
                 - stop
             - wait 1t
             - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
-          - else:
-            - narrate <context.item.script.yaml_key[category]>
-            - if <list[hat|gloves|shirt|shoes|pants|cape].contains[<context.item.script.yaml_key[category]>]>:
-              - narrate <player.open_inventory.slot[<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>]>
-              - if <player.open_inventory.slot[<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>].material.name> == air:
-                - wait 1t
-                - inventory set d:<player.open_inventory> o:<item[air]> slot:<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>
-                - stop
         - else:
           - if <context.raw_slot> > 54:
             - determine passively cancelled
