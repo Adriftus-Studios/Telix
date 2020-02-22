@@ -127,6 +127,8 @@ equipment_inventory_handler:
                 - stop
             - wait 1t
             - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
+          - else:
+            - narrate <context.item>
         - else:
           - if <context.raw_slot> > 54:
             - determine passively cancelled
