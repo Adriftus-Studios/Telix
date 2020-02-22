@@ -19,6 +19,7 @@ smeltery_events:
   type: world
   events:
     on player clicks furnace:
+      - determine passively cancelled
       - note <in@smeltery_inventory> as:testing
       - inventory open d:<inventory[testing]>
     on player drags in smeltery_inventory:
