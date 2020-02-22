@@ -40,12 +40,11 @@ smeltery_events:
       - else:
         - if <context.raw_slot> > 54:
           - determine passively cancelled
-          - narrate <context.raw_slot>
           - define found:false
           - foreach <[slotmap]> as:slot:
             - if !<[found]>:
               - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]>:
-                - if <[slot].split[/].get[1]> == in:
+                - if <[slot].split[/].get[2]> == in:
                   - inventory adjust slot:<context.slot> quantity:0
                   - inventory set d:<player.open_inventory> o:<context.item> slot:<[slot].split[/].get[1]>
                   - wait 1t
