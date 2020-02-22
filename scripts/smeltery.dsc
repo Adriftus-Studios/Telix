@@ -28,6 +28,9 @@ smeltery_events:
             - if <context.cursor_item.material.name> != air:
               - determine passively cancelled
               - stop
+          - if <[slotmap].map_get[<context.raw_slot>]||null> == null:
+            - determine passively cancelled
+            - stop
       - else:
         - if <context.raw_slot> > 54:
           - determine passively cancelled
