@@ -133,7 +133,8 @@ equipment_inventory_handler:
               - narrate <player.open_inventory.slot[<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>]>
               - if <player.open_inventory.slot[<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>].material.name> == air:
                 - wait 1t
-                - inventory set d:<player.open_inventory> slot
+                - inventory set d:<player.open_inventory> o:<item[air]> slot:<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>
+                - stop
         - else:
           - if <context.raw_slot> > 54:
             - determine passively cancelled
