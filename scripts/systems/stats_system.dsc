@@ -64,7 +64,7 @@ calculate_weight_equipment_stats:
       - define weight:|:<[this_item_weight].*[<[item].quantity>]>
     - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
       - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
-      - if <[item].material.nam> != air:
+      - if <[item].material.name> != air:
         - if <[item].nbt[built]||null> != null:
           - define weight:|:<[item].script.yaml_key[weight]>
           - foreach <[item].nbt_keys> as:stat:
