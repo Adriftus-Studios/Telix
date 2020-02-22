@@ -113,8 +113,6 @@ equipment_inventory_handler:
         - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].script.name.ends_with[_shadow]>:
           - if <context.item.script.yaml_key[category]> == <[value]>:
             - wait 1t
-            - narrate <[slotmap].map_find_key[<[value]>]>
-            - narrate <context.item.script.yaml_key[category]>
             - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[air]>
     on player clicks item in equipment_character with item:
       - if <player.open_inventory.script_name> == "equipment_character":
