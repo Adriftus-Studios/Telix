@@ -5,7 +5,7 @@ smeltery_inventory:
   size: 54
   procedural items:
     - narrate <queue.id>
-    - narrate <queue.script]>
+    - narrate <queue.script>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
