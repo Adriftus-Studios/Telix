@@ -85,6 +85,9 @@ build_items_command:
     - foreach <server.list_material_types> as:mat:
       - if <yaml[custom_items].read[custom_<[mat].name>]||null> == null:
         - yaml id:custom_items set custom_<[mat].name>.type:item
+        - yaml id:custom_items set custom_<[mat].name>.material:<[mat].name>
+        - yaml id:custom_items set custom_<[mat].name>.weight:1
+        - yaml id:custom_items set custom_<[mat].name>.display<&sp>name:<&lt>&7<&gt><[mat].name.substring[1,2].to_uppercase><[mat].name.substring[2].to_lowercase>
     - yaml savefile:data/globalLiveData/test/<server.flag[server.name]>/custom_items.yml id:custom_items
 
 build_item_command:
