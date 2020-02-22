@@ -4,6 +4,8 @@ smeltery_inventory:
   title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
   size: 54
   procedural items:
+  - narrate <context.inventory>
+  - narrate <inventory>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
