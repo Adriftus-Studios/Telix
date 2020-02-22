@@ -109,7 +109,6 @@ fishing_inventory_listener:
 
       - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[value]> > <[number]>:
-          - determine caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random.as_item||<yaml[fish_info].read[general.fallback.<[value]>].random.as_item>>
           - if <[number]> <= 5:
             - narrate "<&6>You caught a massive <&3><[weight_lbhighest]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
             - narrate "<&6>    and it stole your bait!"
@@ -134,5 +133,6 @@ fishing_inventory_listener:
             - narrate "<&6>You have recieved a shiny new <&a>Fish Token<&6>!"
             - playsound <player> sound:entity_generic_explode volume:1.0 pitch:1.5
             - playsound <player> sound:block_anvil_hit volume:0.3 pitch:2.0
+          - determine caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random.as_item||<yaml[fish_info].read[general.fallback.<[value]>].random.as_item>>
 # Need a system for determining fish caught with each bait. Will probably be a YAML key deeper with bait type, following [baited] key item.
 #      - wait 1t
