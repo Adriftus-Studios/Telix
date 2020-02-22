@@ -19,6 +19,8 @@ smeltery_inventory:
 smeltery_events:
   type: world
   events:
+    on player opens inventory:
+      - narrate <context.inventory>
     on player clicks furnace:
       - if <context.location.material.name> == furnace:
         - if <context.location.up[1].material.name> == cobblestone_wall:
