@@ -44,6 +44,7 @@ af_bait_chum:
   type: item
   material: brown_dye
   display name: <&a>Chum
+  yaml_name: chum
   weight: 0.25
   lore:
   - "<&b>Drag and drop this bait on any"
@@ -55,6 +56,7 @@ af_bait_honeycomb:
   type: item
   material: honeycomb
   display name: <&a>Honeycomb
+  yaml_name: honeycomb
   weight: 0.25
   lore:
   - "<&b>Drag and drop this bait on any"
@@ -135,7 +137,25 @@ af_fish_1:
   material: cod
   display name: <&a>Redfish
   mechanisms:
-    custom_model_data: 0
+    custom_model_data: 18
+  weight: 0.20
+  lore:
+  - "<&8>Item Weight: <script.yaml_key[weight]>"
+af_fish_2:
+  type: item
+  material: cod
+  display name: <&a>Coi
+  mechanisms:
+    custom_model_data: 1
+  weight: 0.20
+  lore:
+  - "<&8>Item Weight: <script.yaml_key[weight]>"
+af_fish_3:
+  type: item
+  material: cod
+  display name: <&a>Mackeral
+  mechanisms:
+    custom_model_data: 2
   weight: 0.20
   lore:
   - "<&8>Item Weight: <script.yaml_key[weight]>"

@@ -52,11 +52,11 @@ fishing_inventory_listener:
         - narrate "<&6>You have just purchased a <&a><context.item.display><&6>."
 
 ### Debug Message - Disable after testing
-    on player fishes:
-      - narrate "State<&co> <&a><context.state>"
-      - narrate "Biome<&co> <&a><context.hook.location.biome.name>"
-      - narrate "Material<&co> <&a><context.hook.location.material.name>"
-      - narrate "Bait<&co> <&a><player.item_in_hand.nbt[baited].as_script.yaml_key[display<&sp>name].parsed||None>"
+#    on player fishes:
+#      - narrate "State<&co> <&a><context.state>"
+#      - narrate "Biome<&co> <&a><context.hook.location.biome.name>"
+#      - narrate "Material<&co> <&a><context.hook.location.material.name>"
+#      - narrate "Bait<&co> <&a><player.item_in_hand.nbt[baited].as_script.yaml_key[display<&sp>name].parsed||None>"
 ############################################################################################
 
     on player right clicks with af_rod_*:
@@ -106,34 +106,34 @@ fishing_inventory_listener:
       - define weight_lbhigh <util.random.int[100].to[500]>
       - define weight_lbhighest <util.random.int[550].to[1000]>
       - define weight_oz <util.random.int[0].to[15]>
-
-
+  # It's only reading from the 80 list. Will have to look into why it's not looking for the right one.
+      - foreach <yaml[fish_info].list_keys[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
+        - define caught_fish <yaml[fish_info].read[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>>
+        - if <[value]> < <[number]>:
+          - determine passively caught:<[caught_fish]>
+      - wait 1t
       - if <[number]> <= 5:
-        - narrate "<&6>You caught a massive <&3><[weight_lbhighest]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
-        - narrate "<&6>    and it stole your bait!"
         - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
         - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.2
-      - else if <[number]> <= 15:
-        - narrate "<&6>You caught a giant <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
+        - narrate "<&6>You caught a massive <&3><[weight_lbhighest]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish].display>"
         - narrate "<&6>    and it stole your bait!"
+      - else if <[number]> <= 15:
         - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
         - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.8
+        - narrate "<&6>You caught a giant <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish].display>"
+        - narrate "<&6>    and it stole your bait!"
       - else if <[number]> <= 50:
-        - narrate "<&6>You caught a decent <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:1.2
+        - narrate "<&6>You caught a decent <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish].display>"
       - else if <[number]> <= 99:
-        - narrate "<&6>You caught a tiny <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:2.0
+        - narrate "<&6>You caught a tiny <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish].display>"
       - else:
         - firework <context.hook.location> power:0.5 star primary:yellow fade:white flicker
         - give af_fish_token
-        - narrate "<&6>You have recieved a shiny new <&a>Fish Token<&6>!"
         - playsound <player> sound:entity_generic_explode volume:1.0 pitch:1.5
         - playsound <player> sound:block_anvil_hit volume:0.3 pitch:2.0
+        - narrate "<&6>You have recieved a shiny new <&a>Fish Token<&6>!"
 # Need a system for determining fish caught with each bait. Will probably be a YAML key deeper with bait type, following [baited] key item.
-      - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
-        - if <[value]> > <[number]>:
-          - determine caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random.as_item||<yaml[fish_info].read[general.fallback.<[value]>].random.as_item>>
-      - wait 1t
