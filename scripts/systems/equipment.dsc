@@ -159,7 +159,10 @@ equipment_character:
   size: 54
   procedural items:
   - foreach <list[necklace|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
-    - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[<[value]>_shadow]||<item[air]>>>
+    - if <yaml[player.<player.uuid>].read[equipment.<[value]>].material.name> != air:
+      - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[<[value]>_shadow]||<item[air]>>>
+    - else:
+      - define items:|:<item[<[value]>_shadow]||<item[air]>>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
