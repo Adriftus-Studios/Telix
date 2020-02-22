@@ -75,6 +75,17 @@ system_override:
         - if <player.flag[parsed_chat]>:
           - determine <context.message.parsed>
 
+build_items_command:
+  type: command
+  name: build_items
+  description: build_items
+  usage: /build_items
+  script:
+    - yaml load:data/globalLiveData/test/<server.flag[server.name]>/custom_items.yml id:custom_items
+    - foreach <server.list_material_types> as:mat:
+
+    #- yaml savefile:data/globalLiveData/test/<server.flag[server.name]>/custom_items.yml id:custom_items
+
 build_item_command:
   type: command
   name: build_item
