@@ -52,11 +52,11 @@ fishing_inventory_listener:
         - narrate "<&6>You have just purchased a <&a><context.item.display><&6>."
 
 ### Debug Message - Disable after testing
-    on player fishes:
-      - narrate "State<&co> <&a><context.state>"
-      - narrate "Biome<&co> <&a><context.hook.location.biome.name>"
-      - narrate "Material<&co> <&a><context.hook.location.material.name>"
-      - narrate "Bait<&co> <&a><player.item_in_hand.nbt[baited].as_script.yaml_key[display<&sp>name].parsed||None>"
+#    on player fishes:
+#      - narrate "State<&co> <&a><context.state>"
+#      - narrate "Biome<&co> <&a><context.hook.location.biome.name>"
+#      - narrate "Material<&co> <&a><context.hook.location.material.name>"
+#      - narrate "Bait<&co> <&a><player.item_in_hand.nbt[baited].as_script.yaml_key[display<&sp>name].parsed||None>"
 ############################################################################################
 
     on player right clicks with af_rod_*:
