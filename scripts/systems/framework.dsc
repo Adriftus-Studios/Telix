@@ -70,6 +70,9 @@ system_override:
         - determine passively cancelled
         - wait 1t
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory]>
+    on player chats:
+      - if <player.has_permission[*]>:
+        - determine <context.message.parsed>
 
 build_item_command:
   type: command
