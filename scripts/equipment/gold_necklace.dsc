@@ -4,7 +4,7 @@ gold_necklace_blue:
   material: diamond_pickaxe
   category: necklace
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -18,7 +18,7 @@ gold_necklace_cyan:
   material: diamond_pickaxe
   category: necklace
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -32,7 +32,7 @@ gold_necklace_empty:
   material: diamond_pickaxe
   category: necklace
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -46,7 +46,7 @@ gold_necklace_green:
   material: diamond_pickaxe
   category: necklace
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -60,7 +60,7 @@ gold_necklace_purple:
   material: diamond_pickaxe
   category: necklace
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -74,7 +74,7 @@ gold_necklace_red:
   material: diamond_pickaxe
   category: necklace
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -88,7 +88,7 @@ gold_necklace_yellow:
   material: diamond_pickaxe
   category: necklace
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:

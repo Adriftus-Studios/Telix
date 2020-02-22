@@ -4,7 +4,7 @@ silver_trinket_blue:
   material: diamond_pickaxe
   category: trinket
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -18,7 +18,7 @@ silver_trinket_cyan:
   material: diamond_pickaxe
   category: trinket
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -32,7 +32,7 @@ silver_trinket_empty:
   material: diamond_pickaxe
   category: trinket
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -46,7 +46,7 @@ silver_trinket_green:
   material: diamond_pickaxe
   category: trinket
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -60,7 +60,7 @@ silver_trinket_purple:
   material: diamond_pickaxe
   category: trinket
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -74,7 +74,7 @@ silver_trinket_red:
   material: diamond_pickaxe
   category: trinket
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -88,7 +88,7 @@ silver_trinket_yellow:
   material: diamond_pickaxe
   category: trinket
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:

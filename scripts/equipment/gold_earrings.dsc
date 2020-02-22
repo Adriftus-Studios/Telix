@@ -4,7 +4,7 @@ gold_earrings_blue:
   material: diamond_pickaxe
   category: earrings
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -18,7 +18,7 @@ gold_earrings_cyan:
   material: diamond_pickaxe
   category: earrings
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -32,7 +32,7 @@ gold_earrings_empty:
   material: diamond_pickaxe
   category: earrings
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -46,7 +46,7 @@ gold_earrings_green:
   material: diamond_pickaxe
   category: earrings
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -60,7 +60,7 @@ gold_earrings_purple:
   material: diamond_pickaxe
   category: earrings
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -74,7 +74,7 @@ gold_earrings_red:
   material: diamond_pickaxe
   category: earrings
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -88,7 +88,7 @@ gold_earrings_yellow:
   material: diamond_pickaxe
   category: earrings
   equipment_rating: 5
-  weight: 15
+  weight: 1
   max_stars: 5
   sockets: 1
   equipment_modifiers:
