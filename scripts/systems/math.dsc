@@ -10,9 +10,9 @@ define_circle:
 
 relative_point:
   type: procedure
-  definitions: location|radius|angle
+  definitions: location|radius|pitch|yaw
   script:
-  - determine <[location].with_pose[<[angle].pitch>,<[angle].yaw>].relative[0,0,<[radius]>]>
+  - determine <[location].with_pose[<[pitch]>,<[yaw]>].relative[0,0,<[radius]>]>
 
 circle_command:
   type: command
@@ -20,6 +20,6 @@ circle_command:
   script:
     - repeat 100:
       - define y:<[value].cos.mul[10]>
-      - define point:<proc[relative_point].context[<player.location>|3|<location[0,0,0].with_pitch[<[y]>].with_yaw[<[value].mul[15]>]>]>
+      - define point:<proc[relative_point].context[<player.location>|3|<[y]>|<[value].mul[15]>]>]>
       - playeffect flame at:<[point]> quantity:5 offset:0.1 visibility:40
       - wait 1t
