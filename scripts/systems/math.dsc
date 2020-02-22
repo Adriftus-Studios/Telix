@@ -7,3 +7,13 @@ define_circle:
     - if !<[points].contains[<[point]>]>:
       - define points:|:<[point]>
   - determine <[points]>
+
+circle_command:
+  type: command
+  name: circle
+  script:
+  - repeat 10:
+    - define points:<proc[define_circle].context[<player.location>|<[value]>]>
+    - foreach <[points]> as:point:
+      - strike <[point].highest>
+    - wait 2t
