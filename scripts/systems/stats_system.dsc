@@ -55,7 +55,8 @@ calculate_base_stats:
             - yaml id:player.<player.uuid> set stats.<[stat]>.max:<[value]>
           - else:
             - yaml id:player.<player.uuid> set stats.<[stat]>:<[value]>
-          - narrate <[stat]>:<[value]>
+      - else:
+        - narrate <[stat]>
 
 calculate_weight_equipment_stats:
   type: task
