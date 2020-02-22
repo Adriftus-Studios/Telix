@@ -40,3 +40,7 @@ smeltery_events:
         - if <context.raw_slot> > 54:
           - determine passively cancelled
           - narrate <context.raw_slot>
+          - define found:false
+          - foreach <[slotmap]> as:slot:
+            - if !<[found]>:
+              
