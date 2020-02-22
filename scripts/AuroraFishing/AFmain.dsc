@@ -108,8 +108,8 @@ fishing_inventory_listener:
       - define weight_oz <util.random.int[0].to[15]>
   # Added a way to read the bait? Possibly. It's late.
 # <player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>
-      - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
-        - define caught_fish <yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>>
+      - foreach <yaml[fish_info].list_keys[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
+        - define caught_fish <yaml[fish_info].read[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>>
         - if <[value]> > <[number]>:
           - determine passively caught:<[caught_fish]>
       - wait 1t
