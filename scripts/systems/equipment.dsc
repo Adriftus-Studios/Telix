@@ -130,8 +130,10 @@ equipment_inventory_handler:
           - else:
             - narrate <context.item.script.yaml_key[category]>
             - if <list[hat|gloves|shirt|shoes|pants|cape].contains[<context.item.script.yaml_key[category]>]>:
+              - narrate <player.open_inventory.slot[<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>]>
               - if <player.open_inventory.slot[<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>].material.name> == air:
-                - narrate 1
+                - wait 1t
+                - inventory set d:<player.open_inventory> slot
         - else:
           - if <context.raw_slot> > 54:
             - determine passively cancelled
