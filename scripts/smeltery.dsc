@@ -19,7 +19,10 @@ smeltery_events:
   type: world
   events:
     on player clicks furnace:
-      - if <context.location.mater>
+      - if <context.location.material.name> == furnace:
+        - if <context.location.up[1].material.name> == cobblestone_wall:
+          - if <context.location.down[1].material.name> == lava || <context.location.down[1].material.name> == fire:
+            - narrate 1
       - narrate <context.location.material>
       - determine passively cancelled
       - note <in@smeltery_inventory> as:testing
