@@ -19,7 +19,7 @@ circle_command:
   name: circle
   script:
     - repeat 100:
-      - define y:<[value].cos.mul[50]>
-      - define point:<proc[relative_point].context[<player.location>|3|<location[0,0,0].with_pitch[<[y]>].with_yaw[<[value].mul[5]>]>]>
+      - define y:<[value].cos.mul[10]>
+      - define point:<proc[relative_point].context[<player.location>|3|<location[0,0,0].with_pitch[<[y]>].with_yaw[<[value].mul[15]>]>]>
       - playeffect flame at:<[point]> quantity:5 offset:0.1 visibility:40
       - wait 1t
