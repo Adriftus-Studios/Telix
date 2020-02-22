@@ -87,7 +87,9 @@ build_items_command:
         - yaml id:custom_items set custom_<[mat].name>.type:item
         - yaml id:custom_items set custom_<[mat].name>.material:<[mat].name>
         - yaml id:custom_items set custom_<[mat].name>.weight:1
-        - yaml id:custom_items set custom_<[mat].name>.display<&sp>name:<&lt>&7<&gt><[mat].name.substring[1,2].to_uppercase><[mat].name.substring[2].to_lowercase>
+        - yaml id:custom_items set custom_<[mat].name>.display<&sp>name:<&lt>&7<&gt><[mat].name.substring[1,1].to_uppercase><[mat].name.substring[2].to_lowercase>
+        - yaml id:custom_items set custom_<[mat].name>.lore:<&lt>&6<&gt>
+        - yaml id:custom_items set custom_<[mat].name>.lore:|:"Item Weight: <&lt>script.yaml_key[weight]<&gt>"
     - yaml savefile:data/globalLiveData/test/<server.flag[server.name]>/custom_items.yml id:custom_items
 
 build_item_command:
