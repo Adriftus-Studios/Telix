@@ -20,10 +20,8 @@ rotate_pitch:
   definitions: location|roll
   script:
   - define roll:<[roll].to_radians>
-  - narrate <[location].x.mul[<[roll].cos>]>
-  - narrate <[location].y.mul[<[roll].sin>]>
-  - define new_location:<[location].add[<location[<[location].x.mul[<[roll].cos>].+<[location].y.mul[<[roll].sin>]>>,0,z,<[location].world.name>]>]>
-  - determine <[location].y.mul[<[roll].sin>]>
+  - define new_location:<[location].add[<location[<[location].x.mul[<[roll].cos>].+<[location].y.mul[<[roll].sin>]>>,0,0,<[location].world.name>]>]>
+  - determine <[new_location]>
 
 rotate_yaw:
   type: procedure
