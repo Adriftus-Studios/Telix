@@ -113,6 +113,7 @@ equipment_inventory_handler:
         - foreach <list[hat|gloves|shirt|shoes|pants|cape]>:
           - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].script.name.ends_with[_shadow]>:
             - if <context.item.script.yaml_key[category]> == <[value]>:
+              - narrate <[slotmap].map_find_key[<[value]>]>
               - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[air]>
         - if !<context.is_shift_click>:
           - if <context.raw_slot> < 55:
