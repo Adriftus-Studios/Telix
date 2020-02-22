@@ -198,7 +198,7 @@ health_stats_icon:
   display name: "<&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
   lore:
   - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script.yaml_key[assigned_stat_increment]>]>"
+  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.increments.power]>]>"
   drops_on_death: false
 
 constitution_stats_icon:
