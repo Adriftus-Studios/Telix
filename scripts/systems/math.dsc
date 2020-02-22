@@ -12,9 +12,9 @@ circle_command:
   type: command
   name: circle
   script:
-  - repeat 20:
+  - repeat 50:
     - define points:<proc[define_circle].context[<player.location>|<[value]>]>
     - foreach <[points]> as:point:
-      - if <util.random.int[1].to[2]> == 1:
+      - if <util.random.int[1].to[4]> == 1:
         - strike <[point].highest>
     - wait 1t
