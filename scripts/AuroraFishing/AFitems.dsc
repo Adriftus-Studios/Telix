@@ -44,6 +44,7 @@ af_bait_chum:
   type: item
   material: brown_dye
   display name: <&a>Chum
+  yaml_name: chum
   weight: 0.25
   lore:
   - "<&b>Drag and drop this bait on any"
@@ -55,6 +56,7 @@ af_bait_honeycomb:
   type: item
   material: honeycomb
   display name: <&a>Honeycomb
+  yaml_name: honeycomb
   weight: 0.25
   lore:
   - "<&b>Drag and drop this bait on any"
