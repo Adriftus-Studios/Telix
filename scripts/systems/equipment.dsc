@@ -159,7 +159,6 @@ equipment_character:
   procedural items:
   - foreach <list[necklace|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
     - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[<[value]>_shadow]||<item[air]>>>
-    - give <item[<[value]>_shadow]>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
