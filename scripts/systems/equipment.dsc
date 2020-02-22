@@ -128,7 +128,9 @@ equipment_inventory_handler:
             - wait 1t
             - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
           - else:
-            - narrate <context.item>
+            - narrate <context.item.script.yaml_key[category]>
+            - if <list[hat|gloves|shirt|shoes|pants|cape].contains[<context.item.script.yaml_key[category]>]>:
+              - narrate <player.open_inventory.slot[<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>]>
         - else:
           - if <context.raw_slot> > 54:
             - determine passively cancelled
