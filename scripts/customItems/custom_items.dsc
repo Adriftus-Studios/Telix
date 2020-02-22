@@ -574,6 +574,10 @@ custom_emerald:
   display name: <&7>Emerald
   weight: '1'
   type: item
+  ore:
+      biome: all
+      block: stone
+      chance: 5
 custom_bricks:
   material: bricks
   lore:
@@ -2291,6 +2295,10 @@ custom_redstone:
   display name: <&7>Redstone
   weight: '1'
   type: item
+  ore:
+      biome: all
+      block: stone
+      chance: 3
 custom_cyan_glazed_terracotta:
   material: cyan_glazed_terracotta
   lore:
@@ -3188,6 +3196,10 @@ custom_iron_ore:
   display name: <&7>Iron_ore
   weight: '1'
   type: item
+  ore:
+      biome: all
+      block: stone
+      chance: 2
 custom_white_terracotta:
   material: white_terracotta
   lore:
