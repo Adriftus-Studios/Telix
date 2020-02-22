@@ -4,8 +4,7 @@ smeltery_inventory:
   title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
   size: 54
   procedural items:
-  - narrate <context.inventory>
-  - narrate <inventory>
+    - narrate <player.flag[context]>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -27,9 +26,11 @@ smeltery_events:
             - determine passively cancelled
             - if <inventory[smeltery_<context.location.simple>]||null> != null:
               - inventory open d:<inventory[smeltery_<context.location.simple>]>
+              - flag <player> context:smeltery_<context.location.simple>
             - else:
               - note <inventory[smeltery_inventory]> as:smeltery_<context.location.simple>
               - inventory open d:<inventory[smeltery_<context.location.simple>]>
+              - flag <player> context:smeltery_<context.location.simple>
     on player drags in smeltery_inventory:
       - foreach <context.raw_slots> as:slot:
         - if <[slot]> < 55:
