@@ -106,7 +106,7 @@ fishing_inventory_listener:
       - define weight_lbhigh <util.random.int[100].to[500]>
       - define weight_lbhighest <util.random.int[550].to[1000]>
       - define weight_oz <util.random.int[0].to[15]>
-      - define caught_fish <yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>>
+      - define caught_fish yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>
 
       - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[value]> > <[number]>:
