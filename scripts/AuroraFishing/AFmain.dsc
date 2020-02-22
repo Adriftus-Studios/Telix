@@ -110,30 +110,29 @@ fishing_inventory_listener:
       - foreach <yaml[fish_info].list_keys[general.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[value]> > <[number]>:
           - determine passively caught:<yaml[fish_info].read[general.<context.hook.location.biome.name>.<[value]>].random.as_item||<yaml[fish_info].read[general.fallback.<[value]>].random.as_item>>
-
-      - if <[number]> <= 5:
-        - narrate "<&6>You caught a massive <&3><[weight_lbhighest]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
-        - narrate "<&6>    and it stole your bait!"
-        - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
-        - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
-        - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.2
-      - else if <[number]> <= 15:
-        - narrate "<&6>You caught a giant <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
-        - narrate "<&6>    and it stole your bait!"
-        - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
-        - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
-        - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.8
-      - else if <[number]> <= 50:
-        - narrate "<&6>You caught a decent <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
-        - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:1.2
-      - else if <[number]> <= 99:
-        - narrate "<&6>You caught a tiny <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
-        - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:2.0
-      - else:
-        - firework <context.hook.location> power:0.5 star primary:yellow fade:white flicker
-        - give af_fish_token
-        - narrate "<&6>You have recieved a shiny new <&a>Fish Token<&6>!"
-        - playsound <player> sound:entity_generic_explode volume:1.0 pitch:1.5
-        - playsound <player> sound:block_anvil_hit volume:0.3 pitch:2.0
+        - if <[number]> <= 5:
+          - narrate "<&6>You caught a massive <&3><[weight_lbhighest]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
+          - narrate "<&6>    and it stole your bait!"
+          - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
+          - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
+          - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.2
+        - else if <[number]> <= 15:
+          - narrate "<&6>You caught a giant <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
+          - narrate "<&6>    and it stole your bait!"
+          - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
+          - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
+          - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.8
+        - else if <[number]> <= 50:
+          - narrate "<&6>You caught a decent <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
+          - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:1.2
+        - else if <[number]> <= 99:
+          - narrate "<&6>You caught a tiny <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a><context.item>"
+          - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:2.0
+        - else:
+          - firework <context.hook.location> power:0.5 star primary:yellow fade:white flicker
+          - give af_fish_token
+          - narrate "<&6>You have recieved a shiny new <&a>Fish Token<&6>!"
+          - playsound <player> sound:entity_generic_explode volume:1.0 pitch:1.5
+          - playsound <player> sound:block_anvil_hit volume:0.3 pitch:2.0
 # Need a system for determining fish caught with each bait. Will probably be a YAML key deeper with bait type, following [baited] key item.
 #      - wait 1t
