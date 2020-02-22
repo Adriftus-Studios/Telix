@@ -102,6 +102,7 @@ equipment_inventory_handler:
           - if <[slot]> < 55:
             - determine passively cancelled
     on player opens equipment_character:
+      - wait 1t
       - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
       - foreach <list[hat|gloves|shirt|shoes|pants|cape]>:
         - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].material.name> = air:
