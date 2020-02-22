@@ -135,7 +135,25 @@ af_fish_1:
   material: cod
   display name: <&a>Redfish
   mechanisms:
-    custom_model_data: 0
+    custom_model_data: 18
+  weight: 0.20
+  lore:
+  - "<&8>Item Weight: <script.yaml_key[weight]>"
+af_fish_2:
+  type: item
+  material: cod
+  display name: <&a>Coi
+  mechanisms:
+    custom_model_data: 1
+  weight: 0.20
+  lore:
+  - "<&8>Item Weight: <script.yaml_key[weight]>"
+af_fish_3:
+  type: item
+  material: cod
+  display name: <&a>Mackeral
+  mechanisms:
+    custom_model_data: 2
   weight: 0.20
   lore:
   - "<&8>Item Weight: <script.yaml_key[weight]>"
