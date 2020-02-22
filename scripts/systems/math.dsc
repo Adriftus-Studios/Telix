@@ -3,7 +3,7 @@ define_circle:
   definitions: location|radius
   script:
   - repeat 360:
-    - define point:<[location].with_pose[0,<[value]>].relative[0,0,<[radius]>].block>
+    - define point:<[location].with_pose[0,<[value]>].relative[0,0,<[radius]>]>
     - if !<[points].contains[<[point]>]>:
       - define points:|:<[point]>
   - determine <[points]>
@@ -12,7 +12,7 @@ relative_point:
   type: procedure
   definitions: location|radius|angle
   script:
-  - determine <[location].with_pose[<[angle].pitch>,<[angle].yaw>].relative[0,0,<[radius]>].block>
+  - determine <[location].with_pose[<[angle].pitch>,<[angle].yaw>].relative[0,0,<[radius]>]>
 
 circle_command:
   type: command
