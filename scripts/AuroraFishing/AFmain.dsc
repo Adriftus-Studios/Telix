@@ -117,20 +117,20 @@ fishing_inventory_listener:
         - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
         - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.2
-        - narrate "<&6>You caught a massive <&3><[weight_lbhighest]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish]>"
+        - narrate "<&6>You caught a massive <&3><[weight_lbhighest]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish].display>"
         - narrate "<&6>    and it stole your bait!"
       - else if <[number]> <= 15:
         - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
         - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:0.8
-        - narrate "<&6>You caught a giant <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish]>"
+        - narrate "<&6>You caught a giant <&3><[weight_lbhigh]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish].display>"
         - narrate "<&6>    and it stole your bait!"
       - else if <[number]> <= 50:
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:1.2
-        - narrate "<&6>You caught a decent <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish]>"
+        - narrate "<&6>You caught a decent <&3><[weight_lbmid]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish].display>"
       - else if <[number]> <= 99:
         - playsound <player> sound:ambient_underwater_exit volume:1.0 pitch:2.0
-        - narrate "<&6>You caught a tiny <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish]>"
+        - narrate "<&6>You caught a tiny <&3><[weight_lblow]>lb<&6>, <&3><[weight_oz]>oz <&a><[caught_fish].display>"
       - else:
         - firework <context.hook.location> power:0.5 star primary:yellow fade:white flicker
         - give af_fish_token
