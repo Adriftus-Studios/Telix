@@ -138,7 +138,7 @@ equipment_inventory_handler:
             - foreach <[slotmap]> as:slot:
               - if !<[found]>:
                 - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
-                  - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]>:
+                  - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]> || <context.inventory.slot[<[slot].split[/].get[1]>].script.name.ends_with[_shadow]>:
                     - inventory adjust slot:<context.slot> quantity:<player.inventory.slot[<context.slot>].quantity.-[1]>
                     - inventory set d:<player.open_inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
                     - wait 1t
