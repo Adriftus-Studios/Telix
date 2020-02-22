@@ -1,9 +1,11 @@
 
 smeltery_inventory:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
+  title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
   size: 54
   procedural items:
+    - narrate <queue.id>
+    - narrate <queue.script]>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -31,8 +33,6 @@ smeltery_events:
           - stop
       - if !<context.is_shift_click>:
         - if <context.raw_slot> < 55:
-          - narrate <context.item>
-          - narrate <context.cursor_item>
           - if <[slotmap].map_get[<context.raw_slot>].starts_with[out]>:
             - if <context.cursor_item.material.name> != air:
               - determine passively cancelled
