@@ -4,8 +4,6 @@ smeltery_inventory:
   title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
   size: 54
   procedural items:
-    - narrate <queue.id>
-    - narrate <queue.script>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -20,6 +18,9 @@ smeltery_inventory:
 smeltery_events:
   type: world
   events:
+    on player clicks furnace:
+      - note <in@smeltery_inventory> as:testing
+      - inventory open d:<inventory[testing]>
     on player drags in smeltery_inventory:
       - foreach <context.raw_slots> as:slot:
         - if <[slot]> < 55:
