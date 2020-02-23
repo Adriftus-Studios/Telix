@@ -92,7 +92,6 @@ smeltery_events:
                   - define time:<[time].replace[s].with[]>
                 - if <[time].ends_with[m]>:
                   - define time:<[time].replace[m].with[].mul[60]>
-                - narrate <[time]>
                 - if <[time]> > 60:
                   - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].div[60].add[1]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
@@ -112,6 +111,7 @@ smeltery_events:
                         - define amount_to_add:<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
                         - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>
                         - define amount_needed:<[amount_needed].sub[<[amount_to_add]>]>
+              - narrate <[amount_needed]>
               - if <[out].map_get[<[crafting]>]||null> == null:
           - else:
             - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
