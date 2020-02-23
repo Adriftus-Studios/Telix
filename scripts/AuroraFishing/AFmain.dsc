@@ -106,6 +106,7 @@ fishing_inventory_listener:
       - foreach <yaml[fish_info].list_keys[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[value]> <= <[number]>:
           - define caught_fish:|:<yaml[fish_info].read[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>>
+          - narrate <[caught_fish]>
       - determine passively CAUGHT:<[caught_fish].last>
       - narrate <[caught_fish].last>
       - wait 1t
