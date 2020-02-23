@@ -27,17 +27,18 @@ smeltery_events:
     on player opens inventory:
     on player clicks furnace:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
-        - if <context.location.material.name> == furnace:
-          - if <context.location.up[1].material.name> == cobblestone_wall:
-            - if <context.location.down[1].material.name> == lava || <context.location.down[1].material.name> == fire:
-              - determine passively cancelled
-              - if <inventory[smeltery_<context.location.simple>]||null> != null:
-                - inventory open d:<inventory[smeltery_<context.location.simple>]>
-                - flag <player> context:smeltery_<context.location.simple>
-              - else:
-                - note <inventory[smeltery_inventory]> as:smeltery_<context.location.simple>
-                - inventory open d:<inventory[smeltery_<context.location.simple>]>
-                - flag <player> context:smeltery_<context.location.simple>
+        - if !<player.is_sneaking>:
+          - if <context.location.material.name> == furnace:
+            - if <context.location.up[1].material.name> == cobblestone_wall:
+              - if <context.location.down[1].material.name> == lava || <context.location.down[1].material.name> == fire:
+                - determine passively cancelled
+                - if <inventory[smeltery_<context.location.simple>]||null> != null:
+                  - inventory open d:<inventory[smeltery_<context.location.simple>]>
+                  - flag <player> context:smeltery_<context.location.simple>
+                - else:
+                  - note <inventory[smeltery_inventory]> as:smeltery_<context.location.simple>
+                  - inventory open d:<inventory[smeltery_<context.location.simple>]>
+                  - flag <player> context:smeltery_<context.location.simple>
     on player drags in smeltery_inventory:
       - foreach <context.raw_slots> as:slot:
         - if <[slot]> < 55:
