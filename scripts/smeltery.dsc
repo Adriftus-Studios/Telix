@@ -109,7 +109,6 @@ smeltery_events:
                       - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>]>
                       - define amount_needed:<[amount_needed].sub[<[amount_to_add]>]>
                       - narrate <[amount_needed]>
-                      - foreach stop
               - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
           - else:
             - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
