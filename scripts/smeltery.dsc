@@ -49,11 +49,12 @@ smeltery_events:
                 - define contents:|:<[item]>/<[inventory].slot[<[slot].split[/].get[1]>].quantity>
           - define contents:<[contents].exclude[air/0]>
           - foreach <yaml[server.smeltery_recipes].list_keys[]> as:recipe:
-            - define found:false
+            - define found:0
             - if !<[found]>:
               - foreach <yaml[server.smeltery_recipes].read[<[recipe]>.input]> as:input:
                 - if <[input].split[/].get[2]> <= <[contents].map_get[<[input].split[/].get[1]>]>:
-                  - announce <[input].split[/].get[1]>
+                  - define found:++
+            - announce <[found]>
               
     on player breaks furnace:
       - if <inventory[smeltery_<context.location.simple>]||null> != null:
