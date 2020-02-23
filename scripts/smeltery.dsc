@@ -42,8 +42,12 @@ smeltery_events:
           - foreach <[slotmap]> as:slot:
             - if <[slot].split[/].get[2].starts_with[in]>:
               - define item:<[inventory].slot[<[slot].split[/].get[1]>].script.name||<[inventory].slot[<[slot].split[/].get[1]>].material.name>>
-              - define contents:|:<[item]>/<[contents].map_get[<[item]>].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]||<[inventory].slot[<[slot].split[/].get[1]>].quantity>>
-          - announce <[contents]>
+              - if <[contents].map_get[<[item]>]||null> != null:
+                - define entry:<[item]>/<[contents].map_get[<[item]>].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
+                - define contents:<[contents].exclude[<[item]>/<[contents].map_get[<[item]>]>]>
+                - define contents:|:<[entry]>
+              - else:
+                - define contents:|:<[item]>/<[inventory].slot[<[slot].split[/].get[1]>].quantity>
     on player breaks furnace:
       - if <inventory[smeltery_<context.location.simple>]||null> != null:
         - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
