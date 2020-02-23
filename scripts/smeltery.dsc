@@ -48,6 +48,7 @@ smeltery_events:
               - else:
                 - define contents:|:<[item]>/<[inventory].slot[<[slot].split[/].get[1]>].quantity>
           - define contents:<[contents].exclude[air/0]>
+          - announce <[contents]>
     on player breaks furnace:
       - if <inventory[smeltery_<context.location.simple>]||null> != null:
         - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
