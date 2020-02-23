@@ -109,7 +109,6 @@ fishing_inventory_listener:
           - determine passively CAUGHT:<[caught_fish]>
           - narrate <[caught_fish]>
           - foreach stop
-      - wait 1t
       - if <[number]> <= 5:
         - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
         - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
