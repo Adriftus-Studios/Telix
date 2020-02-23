@@ -113,6 +113,20 @@ player_reset_command:
   - kick <player> reason:Standby<&sp>while<&sp>we<&sp>reset<&sp>your<&sp>player<&sp>data.
   - yaml id:player.<player.uuid> unload
 
+test_command:
+  type: command
+  name: player_reset
+  description: player_reset
+  usage: /player_reset
+  script:
+  - define has:32
+  - define remaining:0
+  - define remaining:<[amount_needed].sub[<[has]>]>
+  - narrate needed:<[amount_needed]>
+  - narrate has:<[has]>
+  - narrate remaining:<[remaining]>
+  - define amount_needed:<[remaining]>
+
 build_item_command:
   type: command
   name: build_item
