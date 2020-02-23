@@ -110,7 +110,7 @@ player_reset_command:
   description: player_reset
   usage: /player_reset
   script:
-  - kick <player>
+  - kick <player> reason:"Standby while we reset your player data."
   - yaml id:player.<player.uuid> unload
 
 build_item_command:
