@@ -106,10 +106,7 @@ smeltery_events:
                       - wait 1t
                       - define has:<[inventory].slot[<[slot].split[/].get[1]>].quantity||0>
                       - define remaining:0
-                      - if <[amount_needed].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]> > 64:
-                        - define remaining:<[amount_needed].add[<[has]>].sub[64]>
-                      - else:
-                        - define remaining:<[amount_needed].sub[<[has]>]>
+                      - define remaining:<[amount_needed].sub[<[has]>]>
                       - narrate needed:<[amount_needed]>
                       - narrate has:<[has]>
                       - narrate remaining:<[remaining]>
