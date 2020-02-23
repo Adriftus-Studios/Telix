@@ -63,6 +63,7 @@ smeltery_events:
             - if <[found]> == <yaml[server.smeltery_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
           - if <[crafting]||null> != null && <[crafting]> != air:
+            # countdown smelting timer
             - if <[clock]||null> == null:
               - define time:<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>
               - if <[time].ends_with[s]>:
@@ -80,6 +81,8 @@ smeltery_events:
                 - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].div[60]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].div[60].round_up><&sp>Minutes]>
               - else:
                 - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].round><&sp>Seconds]>
+            - if <[time]> < 1:
+              # craft item and remove required ingredients
           - else:
             - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
               
