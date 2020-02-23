@@ -74,7 +74,6 @@ reload_scripts:
                     - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
                 - if <[value].yaml_key[recipes]||null> != null:
                   - foreach <[value].list_keys[recipes]> as:recipe:
-                    - announce <[value].yaml_key[recipes.<[recipe]>]>
                     - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
                       - announce <[recipe]>
     events:
