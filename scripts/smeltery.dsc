@@ -74,7 +74,7 @@ smeltery_events:
             - if <[amount_needed]> <= 0:
               - stop
             # countdown smelting timer
-            - define time:<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>
+            - define time:<[clock].nbt[time].sub[1]||<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>>
             - if <[time]> > 2:
               - if <[clock]||null> == null:
                 - if <[time].ends_with[s]>:
