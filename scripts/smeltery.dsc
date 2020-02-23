@@ -21,7 +21,9 @@ smeltery_events:
   events:
     on player breaks furnace:
       - if <inventory[smeltery_<context.location.simple>]||null> != null:
+        - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
         - narrate 1
+        - note remove smeltery_<context.location.simple>
     on player opens inventory:
     on player clicks furnace:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
@@ -42,7 +44,7 @@ smeltery_events:
           - determine passively cancelled
           - stop
     on player clicks in smeltery_inventory:
-      - define slotmap:<list[11/in1|12/in2|16/out1|17/out2|20/in3|21/in4|25/out3|26/out4|29/in5|30/in6|34/out5|35/out6]>
+      - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
       - if <context.raw_slot> < 55:
         - if <[slotmap].map_get[<context.raw_slot>]||null> == null:
           - determine passively cancelled
