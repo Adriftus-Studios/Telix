@@ -106,6 +106,7 @@ smeltery_events:
                       - wait 1t
                       - define amount_to_add:<el@64.sub[<[amount_needed].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>]||<[amount_needed]>>
                       - narrate add:<[amount_to_add]>
+                      - narrate adding:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>
                       - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>]>
                       - define amount_needed:<[amount_needed].sub[<[amount_to_add]>]>
                       - narrate <[amount_needed]>
