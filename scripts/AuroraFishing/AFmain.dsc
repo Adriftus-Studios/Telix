@@ -107,8 +107,7 @@ fishing_inventory_listener:
         - define caught_fish <yaml[fish_info].read[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>>
         - if <[value]> <= <[number]>:
           - determine passively caught:<[caught_fish]>
-          - wait 1t
-      
+      - wait 1t
       - if <[number]> <= 5:
         - inventory adjust slot:<player.held_item_slot> remove_nbt:baited
         - inventory adjust slot:<player.held_item_slot> "lore:<player.item_in_hand.lore.replace[regex:(.*)Baited with(.*)].with[<&6>Baited with<&co> <&7>Nothing]>"
