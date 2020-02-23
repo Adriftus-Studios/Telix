@@ -123,6 +123,7 @@ test_command:
   - define has:32
   - define remaining:0
   - define remaining:<[amount_needed].sub[<[has]>]>
+  - define add:<[amount_needed].sub[<[remaining]>]>
   - narrate needed:<[amount_needed]>
   - narrate has:<[has]>
   - narrate remaining:<[remaining]>
