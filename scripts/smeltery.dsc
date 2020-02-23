@@ -57,7 +57,7 @@ smeltery_events:
               - foreach <yaml[server.smeltery_recipes].read[<[recipe]>.input]> as:input:
                 - if <[input].split[/].get[2]> <= <[contents].map_get[<[input].split[/].get[1]>]>:
                   - define found:++
-            - announce <yaml[server.smeltery_recipes].read[<[recipe]>.input]>:<[found]>
+            - announce <yaml[server.smeltery_recipes].read[<[recipe]>.input].as_list.size>:<[found]>
             - if <[found]> == <yaml[server.smeltery_recipes].read[<[recipe]>.input].size>:
               - define crafting:<[recipe]>
           - announce <[crafting]>
