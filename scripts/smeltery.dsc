@@ -14,10 +14,22 @@ smeltery_inventory:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [smeltery_timer] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+test_smeltery_recipe:
+  type: item
+  material: leather
+  recipes:
+    '1':
+      cook_time: 2s
+      input: custom_leather
+      recipe_id: test_smeltery_recipe
+      output_quantity: 2
+      type: blast
+      experience: 0
+
 smeltery_timer:
   type: item
   material: clock
-  display name: <&7>
+  display name: <&7>Not Smelting
 
 smeltery_events:
   type: world
