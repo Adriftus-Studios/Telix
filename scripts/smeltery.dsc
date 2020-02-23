@@ -23,7 +23,7 @@ test_smeltery_recipe:
       input: custom_leather
       recipe_id: test_smeltery_recipe
       output_quantity: 2
-      type: blast
+      type: smeltery
       experience: 0
 
 smeltery_timer:
