@@ -104,7 +104,7 @@ system_override:
         - if <player.flag[parsed_chat]>:
           - determine <context.message.parsed>
 
-reset_command:
+player_reset_command:
   type: command
   name: player_reset
   description: player_reset
