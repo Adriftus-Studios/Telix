@@ -3,8 +3,6 @@ smeltery_inventory:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
   size: 54
-  procedural items:
-    - narrate <player.flag[context]>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -25,7 +23,6 @@ smeltery_events:
         - foreach <[slotmap]> as:slot:
           - drop <inventory[smeltery_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
         - note remove as:smeltery_<context.location.simple>
-    on player opens inventory:
     on player clicks furnace:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:
@@ -33,13 +30,9 @@ smeltery_events:
             - if <context.location.up[1].material.name> == cobblestone_wall:
               - if <context.location.down[1].material.name> == lava || <context.location.down[1].material.name> == fire:
                 - determine passively cancelled
-                - if <inventory[smeltery_<context.location.simple>]||null> != null:
-                  - inventory open d:<inventory[smeltery_<context.location.simple>]>
-                  - flag <player> context:smeltery_<context.location.simple>
-                - else:
+                - if <inventory[smeltery_<context.location.simple>]||null> == null:
                   - note <inventory[smeltery_inventory]> as:smeltery_<context.location.simple>
-                  - inventory open d:<inventory[smeltery_<context.location.simple>]>
-                  - flag <player> context:smeltery_<context.location.simple>
+                - inventory open d:<inventory[smeltery_<context.location.simple>]>
     on player drags in smeltery_inventory:
       - foreach <context.raw_slots> as:slot:
         - if <[slot]> < 55:
