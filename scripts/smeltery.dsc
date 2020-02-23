@@ -20,7 +20,7 @@ test_smeltery_recipe:
   display name: <&7>Test Item
   recipes:
     '1':
-      cook_time: 2m
+      cook_time: 10s
       input: coal/5|iron_ingot/2
       recipe_id: test_smeltery_recipe
       output_quantity: 63
@@ -75,24 +75,25 @@ smeltery_events:
               - stop
             - narrate 2
             # countdown smelting timer
-            - if <[clock]||null> == null:
-              - define time:<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>
-              - if <[time].ends_with[s]>:
-                - define time:<[time].replace[s].with[]>
-              - if <[time].ends_with[m]>:
-                - define time:<[time].replace[m].with[].mul[60]>
-              - if <[time]> > 60:
-                - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].div[60].add[1]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+            - if <[time]> >= 1:
+              - if <[clock]||null> == null:
+                - define time:<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>
+                - if <[time].ends_with[s]>:
+                  - define time:<[time].replace[s].with[]>
+                - if <[time].ends_with[m]>:
+                  - define time:<[time].replace[m].with[].mul[60]>
+                - if <[time]> > 60:
+                  - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].div[60].add[1]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                - else:
+                  - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].add[1]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].round_up><&sp>Seconds]>
               - else:
-                - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].add[1]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].round_up><&sp>Seconds]>
+                - define crafting:<[clock].nbt[crafting]>
+                - define time:<[clock].nbt[time].sub[1]>
+                - if <[time]> > 60:
+                  - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].div[60].add[1]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                - else:
+                  - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].add[1]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].round_up><&sp>Seconds]>
             - else:
-              - define crafting:<[clock].nbt[crafting]>
-              - define time:<[clock].nbt[time].sub[1]>
-              - if <[time]> > 60:
-                - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].div[60].add[1]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].div[60].round_up><&sp>Minutes]>
-              - else:
-                - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].add[1]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].round_up><&sp>Seconds]>
-            - if <[time]> < 1:
               # craft item and remove required ingredients
               - define amount_needed:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
               - foreach <[slotmap]> as:slot:
