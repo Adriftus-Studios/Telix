@@ -104,13 +104,10 @@ fishing_inventory_listener:
       - define weight_oz <util.random.int[0].to[15]>
   # It's only reading from the 80 list. Will have to look into why it's not looking for the right one.
       - foreach <yaml[fish_info].list_keys[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
-        - if <[number]> <= <[value]>:
+        - if <[value]> <= <[number]>:
           - define caught_fish <yaml[fish_info].read[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>>
           - determine passively caught:<[caught_fish]>
-          - foreach stop
-        - else:
-          - define caught_fish <yaml[fish_info].read[general.fallback.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>>
-          - determine passively caught:<[caught_fish]>
+          - narrate <[caught_fish].script.name>
           - foreach stop
       - wait 1t
       - if <[number]> <= 5:
