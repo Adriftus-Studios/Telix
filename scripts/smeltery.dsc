@@ -99,6 +99,7 @@ smeltery_events:
             - else:
               # craft item and remove required ingredients
               - define amount_needed:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
+              - narrate a
               - foreach <[slotmap]> as:slot:
                 - if <[amount_needed]> <= 0:
                   - narrate 1
