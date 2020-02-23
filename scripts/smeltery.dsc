@@ -73,7 +73,7 @@ smeltery_events:
                       - define amount:0
                     - else:
                       - define amount:<[amount].sub[<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>]>
-            - narrate 1
+            - narrate <[amount]>
             - if <[amount]> != 0:
               - stop
             - narrate 2
