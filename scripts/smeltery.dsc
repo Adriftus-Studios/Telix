@@ -77,11 +77,8 @@ smeltery_events:
                     - else:
                       - define add:<[amount_needed]>
                       - define remaining:0
-                    - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>]>
-                    - wait 1t
-                    - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[add].add[<[has]>]>
                     - define amount_needed:<[remaining]>
-            - if <[amount_needed]> <= 0:
+            - if <[amount_needed]> == 0:
               - stop
             # countdown smelting timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>>
