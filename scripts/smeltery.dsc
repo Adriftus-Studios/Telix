@@ -17,7 +17,7 @@ smeltery_inventory:
 smeltery_events:
   type: world
   events:
-    on delta time every 1:
+    on delta time secondly every:1:
       - announce 1
     on player breaks furnace:
       - if <inventory[smeltery_<context.location.simple>]||null> != null:
