@@ -12,7 +12,12 @@ smeltery_inventory:
   - "[w_filler] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
   - "[w_filler] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [smeltery_timer] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+smeltery_timer:
+  type: item
+  material: clock
+  display name: <&7>
 
 smeltery_events:
   type: world
