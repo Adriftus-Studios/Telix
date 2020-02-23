@@ -63,7 +63,11 @@ smeltery_events:
                 - define crafting:<[recipe]>
             - if <[crafting]||null> != null:
               - define time:<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>
-              - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>]>
+              - if <[time].ends_with[s]>:
+                - define time:<[time].replace[s].with[]>
+              - if <[time].ends_with[m]>:
+                - define time:<[time].replace[m].with[].mul[60]>
+              - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time]>]>
           - else:
             #TODO
     on player breaks furnace:
