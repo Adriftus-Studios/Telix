@@ -111,6 +111,7 @@ smeltery_events:
                       - narrate needed:<[amount_needed]>
                       - narrate has:<[has]>
                       - narrate remaining:<[remaining]>
+                      - define amount_needed:<[remaining]>
               - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
           - else:
             - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
