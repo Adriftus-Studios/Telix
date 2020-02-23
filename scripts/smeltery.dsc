@@ -104,7 +104,7 @@ smeltery_events:
                   - if <[slot].split[/].get[2].starts_with[out]> && <[inventory].slot[<[slot].split[/].get[1]>].quantity> != 64:
                     - if <[inventory].slot[<[slot].split[/].get[1]>].script.name||air> == <[crafting]> || <[inventory].slot[<[slot].split[/].get[1]>].material.name> == air:
                       - wait 1t
-                      - define amount_to_add:<el@64.sub[<[amount_needed].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>]||<[amount_needed]>>
+                      - define amount_to_add:<el@64.sub[<[amount_needed]>]>
                       - narrate add:<[amount_to_add]>
                       - narrate adding:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>
                       - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>]>
