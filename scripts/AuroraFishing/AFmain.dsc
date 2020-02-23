@@ -109,7 +109,7 @@ fishing_inventory_listener:
           - determine passively caught:<[caught_fish]>
           - foreach stop
         - else:
-          - define caught_fish <yaml[fish_info].read[fish_info].read[general.fallback.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>>
+          - define caught_fish <yaml[fish_info].read[fish_info].read[general.fallback.<[value]>].random.as_item>
           - determine passively caught:<[caught_fish]>
           - foreach stop
       - wait 1t
