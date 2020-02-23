@@ -67,7 +67,7 @@ smeltery_events:
             - foreach <[slotmap]> as:slot:
               - if <[amount]> != 0:
                 - if <[slot].split[/].get[2].starts_with[out]>:
-                  - if <[inventory].slot[<[slot].split[/].get[1]>].script.name> == <[crafting]>:
+                  - if <[inventory].slot[<[slot].split[/].get[1]>].script.name||air> == <[crafting]>:
                     - if <[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount]>]> <= 64:
                       - define amount:0
                     - else:
@@ -98,7 +98,7 @@ smeltery_events:
               - foreach <[slotmap]> as:slot:
                 - if <[amount]> != 0:
                   - if <[slot].split[/].get[2].starts_with[out]>:
-                    - if <[inventory].slot[<[slot].split[/].get[1]>].script.name> == <[crafting]>:
+                    - if <[inventory].slot[<[slot].split[/].get[1]>].script.name||air> == <[crafting]>:
                       - if <[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount]>]> <= 64:
                         - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount]>]>
                         - define amount:0
