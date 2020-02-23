@@ -100,8 +100,8 @@ smeltery_events:
               # craft item and remove required ingredients
               - define amount_needed:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
               - narrate a
-              - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
               - foreach <[slotmap]> as:slot:
+                - narrate 0
                 - if <[amount_needed]> <= 0:
                   - narrate 1
                   - if <[slot].split[/].get[2].starts_with[out]> && <[inventory].slot[<[slot].split[/].get[1]>].quantity> != 64:
