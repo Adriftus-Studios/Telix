@@ -50,7 +50,7 @@ smeltery_events:
           - define contents:<[contents].exclude[air/0]>
           - foreach <yaml[server.smeltery_recipes].list_keys[]> as:recipe:
             - define found:false
-            - if !<[found]>
+            - if !<[found]>:
               - foreach <[recipe].read[input]> as:input:
                 - announce <[recipe].read[input].map_get[<[input].split[/].get[1]>]>
                 - announce <[contents].map_get[<[input].split[/].get[1]>]>
