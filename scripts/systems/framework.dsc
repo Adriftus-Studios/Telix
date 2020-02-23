@@ -54,13 +54,14 @@ equipment_boots_slot:
   weight: 0
   lore:
   - "<&e>Click to open your skills and abilities menu."
-  
+
 reload_scripts:
     type: world
     reload:
         - yaml create id:server.skills_by_level
         - yaml create id:server.equipment
         - yaml create id:server.ore_rates
+        - yaml create id:server.smeltery_recipes
         - foreach <server.list_scripts>:
             - if <[value].name.starts_with[ability_]>:
                 - if <[value].yaml_key[ability_tree]||null> == null:
@@ -71,6 +72,9 @@ reload_scripts:
             - if <[value].yaml_key[type]> == item:
                 - if <[value].yaml_key[category]||null> != null:
                     - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
+                - if <[value].yaml_key[recipes]||null> != null:
+                  - foreach <[value].yaml_key[recipes]> as:recipe:
+                    - announce <[recipe]>
     events:
         on server start:
         - inject locally reload
