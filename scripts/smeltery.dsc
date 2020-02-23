@@ -67,17 +67,10 @@ smeltery_events:
           - if <[crafting]||null> != null && <[crafting]> != air:
             - define amount_needed:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
             - foreach <[slotmap]> as:slot:
-              - if <[amount_needed]> > 0:
-                - if <[slot].split[/].get[2].starts_with[out]> && <[inventory].slot[<[slot].split[/].get[1]>].quantity> != 64:
-                  - if <[inventory].slot[<[slot].split[/].get[1]>].script.name||air> == <[crafting]> || <[inventory].slot[<[slot].split[/].get[1]>].material.name> == air:
-                    - define has:<[inventory].slot[<[slot].split[/].get[1]>].quantity>
-                    - if <[amount_needed].add[<[has]>]> > 64:
-                      - define add:<el@64.sub[<[has]>]>
-                      - define remaining:<[amount_needed].sub[<[add]>]>
-                    - else:
-                      - define add:<[amount_needed]>
-                      - define remaining:0
-                    - define amount_needed:<[remaining]>
+              - if <[amount_needed]> != 0:
+                - if <[slot].split[/].get[2].starts_with[out]>:
+                  - if <[inventory].slot[<[slot].split[/].get[1]>].script.name||air> == <[crafting]>:
+                    - define amount_needed:<[amount_needed].sub[<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>]>
             - if <[amount_needed]> <= 0:
               - stop
             # countdown smelting timer
