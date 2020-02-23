@@ -108,14 +108,11 @@ smeltery_events:
                       - narrate b<[amount_needed]>
                       - narrate 1a:<[inventory].slot[<[slot].split[/].get[1]>].quantity>
                       - narrate 2a:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_needed]>]||64>
-                      - if <[inventory].slot[<[slot].split[/].get[1]>].material.name> == air:
-                        - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[amount_needed]>]>
-                        - define amount_needed:0
-                      - else:
-                        - define amount_to_add:<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
-                        - narrate add:<[amount_to_add]>
-                        - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>
-                        - define amount_needed:<[amount_needed].sub[<[amount_to_add]>]>
+                      - define amount_to_add:<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
+                      - narrate add:<[amount_to_add]>
+                      - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>]>
+                      - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>
+                      - define amount_needed:<[amount_needed].sub[<[amount_to_add]>]>
               - if <[out].map_get[<[crafting]>]||null> == null:
           - else:
             - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
