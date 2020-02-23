@@ -52,6 +52,7 @@ smeltery_events:
             - define found:false
             - if !<[found]>:
               - foreach <[recipe].read[input]> as:input:
+                - announce <[input].split[/].get[1]>
                 - announce <[recipe].read[input].map_get[<[input].split[/].get[1]>]>
                 - announce <[contents].map_get[<[input].split[/].get[1]>]>
               
