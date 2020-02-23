@@ -101,8 +101,11 @@ smeltery_events:
               - define amount_needed:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
               - foreach <[slotmap]> as:slot:
                 - if <[amount_needed]> <= 0:
+                  - narrate 1
                   - if <[slot].split[/].get[2].starts_with[out]> && <[inventory].slot[<[slot].split[/].get[1]>].quantity> != 64:
+                    - narrate 2
                     - if <[inventory].slot[<[slot].split[/].get[1]>].script.name||air> == <[crafting]> || <[inventory].slot[<[slot].split[/].get[1]>].material.name> == air:
+                      - narrate 3
                       - define has:<[inventory].slot[<[slot].split[/].get[1]>].quantity>
                       - define remaining:<[amount_needed].sub[<[has]>]||0>
                       - define add:<[amount_needed].sub[<[remaining]>]>
