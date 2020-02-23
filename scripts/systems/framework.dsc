@@ -110,10 +110,8 @@ player_reset_command:
   description: player_reset
   usage: /player_reset
   script:
-  - inject stats_setup
-  - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
-    - yaml id:player.<player.uuid> set <[equipment]>:!
-  - inject update_stats
+  - kick <player>
+  - yaml id:player.<player.uuid> unload
 
 build_item_command:
   type: command
