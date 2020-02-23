@@ -110,6 +110,7 @@ smeltery_events:
                         - define amount_needed:0
                       - else:
                         - define amount_to_add:<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
+                        - narrate add:<[amount_to_add]>
                         - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>
                         - define amount_needed:<[amount_needed].sub[<[amount_to_add]>]>
               - narrate <[amount_needed]>
