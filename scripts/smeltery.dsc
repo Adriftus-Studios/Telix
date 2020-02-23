@@ -54,6 +54,7 @@ smeltery_events:
           - define contents:<[contents].exclude[air/0]>
           # find what item is going to be crafted
           - define crafting:air
+          - narrate 1
           - foreach <yaml[server.smeltery_recipes].list_keys[]> as:recipe:
             - define found:0
             - if <[crafting]> == air:
