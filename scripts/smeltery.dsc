@@ -62,8 +62,7 @@ smeltery_events:
                   - define found:++
             - if <[found]> == <yaml[server.smeltery_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
-          - if <[crafting]||null> != null:
-            - announce <[crafting]>
+          - if <[crafting]||null> != null && <[crafting]> != air:
             - if <[clock]||null> == null:
               - define time:<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>
               - if <[time].ends_with[s]>:
