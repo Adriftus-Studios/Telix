@@ -20,7 +20,7 @@ test_smeltery_recipe:
   display name: <&7>Test Item
   recipes:
     '1':
-      cook_time: 1m
+      cook_time: 2m
       input: coal/5|iron_ingot/2
       recipe_id: test_smeltery_recipe
       output_quantity: 1
@@ -68,9 +68,9 @@ smeltery_events:
               - if <[time].ends_with[m]>:
                 - define time:<[time].replace[m].with[].mul[60]>
               - if <[time]> > 60:
-                - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].div[60]>].with[nbt=time/<[time]>].with[lore=<&f><[time].div[60]><&sp>Minutes]>
+                - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].div[60]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].div[60]><&sp>Minutes]>
               - else:
-                - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time]>].with[nbt=time/<[time]>].with[lore=<&f><[time]><&sp>Seconds]>
+                - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time]><&sp>Seconds]>
           - else:
             #TODO
     on player breaks furnace:
