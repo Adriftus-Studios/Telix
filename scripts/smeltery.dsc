@@ -64,17 +64,13 @@ smeltery_events:
             - if <[found]> == <yaml[server.smeltery_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
           - if <[crafting]||null> != null && <[crafting]> != air:
-            - define amount:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
+            - define amount_needed:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
             - foreach <[slotmap]> as:slot:
-              - if <[amount]> != 0:
+              - if <[amount_needed]> != 0:
                 - if <[slot].split[/].get[2].starts_with[out]>:
                   - if <[inventory].slot[<[slot].split[/].get[1]>].script.name||air> == <[crafting]>:
-                    - if <[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount]>]> <= 64:
-                      - define amount:0
-                    - else:
-                      - define amount:<[amount].sub[<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>]>
-            - narrate <[amount]>
-            - if <[amount]> != 0:
+                    - define amount_needed:<[amount_needed].sub[<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>]>
+            - if <[amount_needed]> <= 0:
               - stop
             - narrate 2
             # countdown smelting timer
