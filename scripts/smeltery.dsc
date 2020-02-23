@@ -20,9 +20,9 @@ test_smeltery_recipe:
   recipes:
     '1':
       cook_time: 2s
-      input: custom_leather
+      input: coal/5|iron_ingot/2
       recipe_id: test_smeltery_recipe
-      output_quantity: 2
+      output_quantity: 1
       type: smeltery
       experience: 0
 

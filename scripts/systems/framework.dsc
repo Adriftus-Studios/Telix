@@ -75,7 +75,9 @@ reload_scripts:
                 - if <[value].yaml_key[recipes]||null> != null:
                   - foreach <[value].list_keys[recipes]> as:recipe:
                     - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
-                      - announce <[recipe]>
+                      - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
+                      - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
+                      - yaml id:server.smeltery_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
     events:
         on server start:
         - inject locally reload
