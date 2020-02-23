@@ -55,7 +55,7 @@ smeltery_events:
           - define contents:<[contents].exclude[air/0]>
           - if <[contents].is_empty>:
             - foreach next
-          # find what item is going to be crafted
+          # find what items are needed for crafting
           - define crafting:air
           - foreach <yaml[server.smeltery_recipes].list_keys[]> as:recipe:
             - define found:0
@@ -65,7 +65,7 @@ smeltery_events:
                   - define found:++
             - if <[found]> == <yaml[server.smeltery_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
-          - narrate <[crafting]>
+          # find if resulting items can fit in output slots
           - if <[crafting]||null> != null && <[crafting]> != air:
             - define amount_needed:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
             - foreach <[slotmap]> as:slot:
@@ -82,6 +82,7 @@ smeltery_events:
                     - define amount_needed:<[remaining]>
             - if <[amount_needed]> == 0:
               - stop
+            - narrate 1
             # countdown smelting timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>>
             - if <[time]> > 0:
