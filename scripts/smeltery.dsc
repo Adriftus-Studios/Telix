@@ -51,9 +51,8 @@ smeltery_events:
           - foreach <yaml[server.smeltery_recipes].list_keys[]> as:recipe:
             - define found:false
             - if !<[found]>:
-              - announce <[recipe]>
-              - foreach <[recipe].read[input]> as:input:
-                - announce <[recipe].read[input].map_get[<[input].split[/].get[1]>]>
+              - foreach <yaml[server.smeltery_recipes].read[<[recipe]>.input]> as:input:
+                - announce <yaml[server.smeltery_recipes].read[<[recipe]>.input].map_get[<[input].split[/].get[1]>]>
                 - announce <[contents].map_get[<[input].split[/].get[1]>]>
               
     on player breaks furnace:
