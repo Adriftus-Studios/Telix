@@ -106,6 +106,7 @@ smeltery_events:
                       - define has:<[inventory].slot[<[slot].split[/].get[1]>].quantity||0>
                       - define remaining:<[has].sub[<[amount_needed]>]>
                       - define add:<[amount_needed].sub[<[remaining]>]>
+                      - define add:<[add].add[<[remaining]>]>
                       - narrate needed:<[amount_needed]>
                       - narrate has:<[has]>
                       - narrate add:<[add]>
