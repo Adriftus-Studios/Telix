@@ -106,6 +106,9 @@ smeltery_events:
                       - define has:30
                       - define add:<[amount_needed].sub[<[has]>]>
                       - define remaining:<[has].sub[<[amount_needed]>]>
+                      - if <[amount_needed].add[<[has]>]> > 64:
+                        - narrate overflow
+                        - define remaining:<[amount_needed].sub[<[has]>]>
                       - narrate needed:<[amount_needed]>
                       - narrate has:<[has]>
                       - narrate add:<[add]>
