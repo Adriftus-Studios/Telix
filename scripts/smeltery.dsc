@@ -12,7 +12,7 @@ smeltery_inventory:
   - "[w_filler] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
   - "[w_filler] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [smeltery_timer] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [smeltery_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 test_smeltery_recipe:
   type: item
