@@ -63,7 +63,7 @@ smeltery_events:
             - if <[found]> == <yaml[server.smeltery_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
           - if <[crafting]||null> != null && <[crafting]> != air:
-            - define amount:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity>
+            - define amount:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
             - foreach <[slotmap]> as:slot:
               - if <[amount]> != 0:
                 - if <[slot].split[/].get[2].starts_with[out]>:
@@ -94,7 +94,7 @@ smeltery_events:
                 - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].round><&sp>Seconds]>
             - if <[time]> < 1:
               # craft item and remove required ingredients
-              - define amount:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity>
+              - define amount:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
               - foreach <[slotmap]> as:slot:
                 - if <[amount]> != 0:
                   - if <[slot].split[/].get[2].starts_with[out]>:
