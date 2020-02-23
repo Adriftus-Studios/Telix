@@ -23,7 +23,7 @@ test_smeltery_recipe:
       cook_time: 2m
       input: coal/5|iron_ingot/2
       recipe_id: test_smeltery_recipe
-      output_quantity: 1
+      output_quantity: 63
       type: smeltery
       experience: 0
 
@@ -63,7 +63,16 @@ smeltery_events:
             - if <[found]> == <yaml[server.smeltery_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
           - if <[crafting]||null> != null && <[crafting]> != air:
-            - if <[inventory].slot[16].material.name> != air && <[inventory].slot[17].material.name> != air && <[inventory].slot[25].material.name> != air && <[inventory].slot[26].material.name> != air && <[inventory].slot[34].material.name> != air && <[inventory].slot[35].material.name> != air:
+            - define amount:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity>
+            - foreach <[slotmap]> as:slot:
+              - if <[amount]> != 0:
+                - if <[slot].split[/].get[2].starts_with[out]>:
+                  - if <[inventory].slot[<[slot].split[/].get[1]>].script.name> == <[crafting]>:
+                    - if <[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount]>]> <= 64:
+                      - define amount:0
+                    - else:
+                      - define amount:<[amount].sub[<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>]>
+            - if <[amount]> != 0:
               - stop
             # countdown smelting timer
             - if <[clock]||null> == null:
@@ -85,16 +94,18 @@ smeltery_events:
                 - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].round><&sp>Seconds]>
             - if <[time]> < 1:
               # craft item and remove required ingredients
-              
+              - define amount:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity>
               - foreach <[slotmap]> as:slot:
-                - if <[slot].split[/].get[2].starts_with[out]>:
-                  - define item:<[inventory].slot[<[slot].split[/].get[1]>].script.name||<[inventory].slot[<[slot].split[/].get[1]>].material.name>>
-                  - if <[contents].map_get[<[item]>]||null> != null:
-                    - define entry:<[item]>/<[contents].map_get[<[item]>].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
-                    - define out:<[contents].exclude[<[item]>/<[contents].map_get[<[item]>]>]>
-                    - define out:|:<[entry]>
-                  - else:
-                    - define out:|:<[item]>/<[inventory].slot[<[slot].split[/].get[1]>].quantity>
+                - if <[amount]> != 0:
+                  - if <[slot].split[/].get[2].starts_with[out]>:
+                    - if <[inventory].slot[<[slot].split[/].get[1]>].script.name> == <[crafting]>:
+                      - if <[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount]>]> <= 64:
+                        - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount]>]>
+                        - define amount:0
+                      - else:
+                        - define amount_to_add:<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
+                        - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>
+                        - define amount:<[amount].sub[<[amount_to_add]>]>
               - if <[out].map_get[<[crafting]>]||null> == null:
           - else:
             - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
