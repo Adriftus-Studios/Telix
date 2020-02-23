@@ -17,6 +17,7 @@ smeltery_inventory:
 test_smeltery_recipe:
   type: item
   material: leather
+  display name: <&7>Test Item
   recipes:
     '1':
       cook_time: 2s
@@ -62,7 +63,7 @@ smeltery_events:
                 - define crafting:<[recipe]>
             - if <[crafting]||null> != null:
               - define time:<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>
-              - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].display_name>]>
+              - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name]>]>
           - else:
             #TODO
     on player breaks furnace:
