@@ -54,7 +54,7 @@ smeltery_events:
                 - define contents:|:<[item]>/<[inventory].slot[<[slot].split[/].get[1]>].quantity>
           - define contents:<[contents].exclude[air/0]>
           - if <[contents].is_empty>:
-            - stop
+            - foreach next
           # find what item is going to be crafted
           - define crafting:air
           - foreach <yaml[server.smeltery_recipes].list_keys[]> as:recipe:
