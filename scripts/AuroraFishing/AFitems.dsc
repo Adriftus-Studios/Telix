@@ -159,3 +159,20 @@ af_fish_3:
   weight: 0.20
   lore:
   - "<&8>Item Weight: <script.yaml_key[weight]>"
+
+debug_item_1:
+  type: item
+  material: dirt
+  display name: <&a>Debug 1
+debug_item_2:
+  type: item
+  material: dirt
+  display name: <&a>Debug 2
+debug_item_3:
+  type: item
+  material: dirt
+  display name: <&a>Debug 3
+debug_item_4:
+  type: item
+  material: dirt
+  display name: <&a>Debug 4

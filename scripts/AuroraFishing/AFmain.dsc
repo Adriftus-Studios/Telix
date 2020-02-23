@@ -30,10 +30,6 @@ fishing_inventory_listener:
       - inventory open d:<inventory[afgui_rod_shop]>
     on player clicks gui_close_btn in afgui_*:
       - inventory close
-    on player join:
-      - if <player.display_name> == Mutim_Endymion
-        - playsound <server.list_online_players> sound:magic.warhorn volume:1.0 pitch:1.0 custom
-        - narrate "<&6>A great God has decended upon you mortals!" targets:<server.list_online_players>
     
     # Bait Shop Listen
     on player left clicks af_bait_* in afgui_bait_shop:
@@ -109,7 +105,7 @@ fishing_inventory_listener:
   # It's only reading from the 80 list. Will have to look into why it's not looking for the right one.
       - foreach <yaml[fish_info].list_keys[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - define caught_fish <yaml[fish_info].read[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>>
-        - if <[value]> < <[number]>:
+        - if <[value]> <= <[number]>:
           - determine passively caught:<[caught_fish]>
       - wait 1t
       - if <[number]> <= 5:
