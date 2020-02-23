@@ -103,7 +103,7 @@ smeltery_events:
                 - if <[amount_needed]> > 0:
                   - if <[slot].split[/].get[2].starts_with[out]> && <[inventory].slot[<[slot].split[/].get[1]>].quantity> != 64:
                     - if <[inventory].slot[<[slot].split[/].get[1]>].script.name||air> == <[crafting]> || <[inventory].slot[<[slot].split[/].get[1]>].material.name> == air:
-                      - define has:30
+                      - define has:<[inventory].slot[<[slot].split[/].get[1]>].quantity>
                       - if <[amount_needed].add[<[has]>]> > 64:
                         - narrate overflow
                         - define add:<el@64.sub[<[has]>]>
