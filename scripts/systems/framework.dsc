@@ -106,9 +106,9 @@ system_override:
 
 reset_command:
   type: command
-  name: reset
-  description: reset
-  usage: /reset
+  name: player_reset
+  description: player_reset
+  usage: /player_reset
   script:
   - inject stats_setup
   - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
