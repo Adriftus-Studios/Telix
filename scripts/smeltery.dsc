@@ -104,12 +104,13 @@ smeltery_events:
                   - if <[slot].split[/].get[2].starts_with[out]> && <[inventory].slot[<[slot].split[/].get[1]>].quantity> != 64:
                     - if <[inventory].slot[<[slot].split[/].get[1]>].script.name||air> == <[crafting]> || <[inventory].slot[<[slot].split[/].get[1]>].material.name> == air:
                       - wait 1t
-                      - define amount_to_add:<el@64.sub[<[amount_needed]>]>
-                      - narrate add:<[amount_to_add]>
-                      - narrate adding:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>
-                      - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>]>
-                      - define amount_needed:<[amount_needed].sub[<[amount_to_add]>]>
-                      - narrate <[amount_needed]>
+                      - define has:32
+                      - define remaining:0
+                      - if <[amount_needed].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]> > 64:
+                        - define remaining:<[amount_needed].add[<[has]>].sub[64]>
+                      - narrate needed:<[amount_needed]>
+                      - narrate has:<[has]>
+                      - narrate remaining:<[remaining]>
               - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
           - else:
             - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
