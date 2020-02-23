@@ -75,7 +75,7 @@ smeltery_events:
               - stop
             # countdown smelting timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>>
-            - if <[time]> > 2:
+            - if <[time]> > 0:
               - if <[clock]||null> == null:
                 - if <[time].ends_with[s]>:
                   - define time:<[time].replace[s].with[]>
@@ -97,7 +97,6 @@ smeltery_events:
                   - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time].div[60].add[1]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
                   - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].round_up><&sp>Seconds]>
-                  - narrate <item[smeltery_timer].with[quantity=<[time]>].with[nbt=time/<[time]>]>
             - else:
               # craft item and remove required ingredients
               - define amount_needed:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
