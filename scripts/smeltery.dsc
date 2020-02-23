@@ -83,6 +83,18 @@ smeltery_events:
                 - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].round><&sp>Seconds]>
             - if <[time]> < 1:
               # craft item and remove required ingredients
+              
+              - foreach <[slotmap]> as:slot:
+                - if <[slot].split[/].get[2].starts_with[out]>:
+                  - define item:<[inventory].slot[<[slot].split[/].get[1]>].script.name||<[inventory].slot[<[slot].split[/].get[1]>].material.name>>
+                  - if <[contents].map_get[<[item]>]||null> != null:
+                    - define entry:<[item]>/<[contents].map_get[<[item]>].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
+                    - define out:<[contents].exclude[<[item]>/<[contents].map_get[<[item]>]>]>
+                    - define out:|:<[entry]>
+                  - else:
+                    - define out:|:<[item]>/<[inventory].slot[<[slot].split[/].get[1]>].quantity>
+              - if <[out].map_get[<[crafting]>]||null> == null:
+                - define 
           - else:
             - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
               

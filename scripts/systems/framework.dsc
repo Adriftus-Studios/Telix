@@ -104,6 +104,17 @@ system_override:
         - if <player.flag[parsed_chat]>:
           - determine <context.message.parsed>
 
+reset_command:
+  type: command
+  name: reset
+  description: reset
+  usage: /reset
+  script:
+  - inject stats_setup
+  - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
+    - yaml id:player.<player.uuid> set <[equipment]>:!
+  - inject update_stats
+
 build_item_command:
   type: command
   name: build_item
