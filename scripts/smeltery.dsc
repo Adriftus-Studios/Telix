@@ -80,9 +80,8 @@ smeltery_events:
                       - define add:<[amount_needed]>
                       - define remaining:0
                     - define amount_needed:<[remaining]>
-            - if <[amount_needed]> == 0:
+            - if <[amount_needed]> != 0:
               - stop
-            - narrate 1
             # countdown smelting timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>>
             - if <[time]> > 0:
