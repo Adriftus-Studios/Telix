@@ -119,6 +119,7 @@ test_command:
   description: test
   usage: /test
   script:
+  - define amount_needed:63
   - define has:32
   - define remaining:0
   - define remaining:<[amount_needed].sub[<[has]>]>
