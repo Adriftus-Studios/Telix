@@ -20,7 +20,7 @@ test_smeltery_recipe:
   display name: <&7>Test Item
   recipes:
     '1':
-      cook_time: 2s
+      cook_time: 1m
       input: coal/5|iron_ingot/2
       recipe_id: test_smeltery_recipe
       output_quantity: 1
