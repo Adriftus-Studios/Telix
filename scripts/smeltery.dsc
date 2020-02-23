@@ -34,6 +34,7 @@ smeltery_timer:
 
 smeltery_events:
   type: world
+  debug: false
   events:
     on delta time secondly every:1:
       - foreach <server.list_notables[inventories]> as:inventory:
@@ -93,18 +94,19 @@ smeltery_events:
                 - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>].with[quantity=<[time]>].with[nbt=time/<[time]>].with[nbt=crafting/<[crafting]>].with[lore=<&f><[time].round><&sp>Seconds]>
             - if <[time]> < 1:
               # craft item and remove required ingredients
-              - define amount:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
+              - define amount_needed:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
               - foreach <[slotmap]> as:slot:
-                - if <[amount]> != 0:
+                - if <[amount_needed]> != 0:
                   - if <[slot].split[/].get[2].starts_with[out]>:
                     - if <[inventory].slot[<[slot].split[/].get[1]>].script.name||air> == <[crafting]>:
-                      - if <[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount]>]> <= 64:
-                        - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount]>]>
-                        - define amount:0
+                    - define amount_needed:<[amount_needed].sub[<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>]>
+                      - if <[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_needed]>]> <= 64:
+                        - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_needed]>]>
+                        - define amount_needed:0
                       - else:
                         - define amount_to_add:<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
                         - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[inventory].slot[<[slot].split[/].get[1]>].quantity.add[<[amount_to_add]>]>
-                        - define amount:<[amount].sub[<[amount_to_add]>]>
+                        - define amount_needed:<[amount_needed].sub[<[amount_to_add]>]>
               - if <[out].map_get[<[crafting]>]||null> == null:
           - else:
             - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
