@@ -115,9 +115,9 @@ player_reset_command:
 
 test_command:
   type: command
-  name: player_reset
-  description: player_reset
-  usage: /player_reset
+  name: test
+  description: test
+  usage: /test
   script:
   - define has:32
   - define remaining:0
