@@ -65,6 +65,7 @@ smeltery_events:
                   - define found:++
             - if <[found]> == <yaml[server.smeltery_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
+          - narrate <[crafting]>
           - if <[crafting]||null> != null && <[crafting]> != air:
             - define amount_needed:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
             - foreach <[slotmap]> as:slot:
