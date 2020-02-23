@@ -73,8 +73,10 @@ smeltery_events:
                       - define amount:0
                     - else:
                       - define amount:<[amount].sub[<el@64.sub[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>]>
+            - narrate 1
             - if <[amount]> != 0:
               - stop
+            - narrate 2
             # countdown smelting timer
             - if <[clock]||null> == null:
               - define time:<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>
