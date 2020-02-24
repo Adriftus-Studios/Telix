@@ -93,7 +93,8 @@ system_override:
   type: world
   events:
     on player breaks block priority:-10:
-      - determine <item[custom_<context.material.name>]>
+      - if <player.gamemode> == SURVIVAL:
+        - determine <item[custom_<context.material.name>]>
     on player respawns:
       - inject system_equipment_set
     on player clicks in inventory:
