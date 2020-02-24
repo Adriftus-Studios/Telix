@@ -125,14 +125,6 @@ player_reset_command:
   - kick <player> reason:Standby<&sp>while<&sp>we<&sp>reset<&sp>your<&sp>player<&sp>data.
   - yaml id:player.<player.uuid> unload
 
-test_command:
-  type: command
-  name: test
-  description: test
-  usage: /test
-  script:
-  - narrate 'this does nothing right now. its just a placeholder'
-
 build_item_command:
   type: command
   name: build_item
