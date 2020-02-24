@@ -71,10 +71,9 @@ test_command:
   - repeat <[a].size.sub[1]>:
     - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>]>
     - define t:<proc[math_stuff].context[<[f]>|<[value].mul[6]>]>
-    - define points:|:<[pos].relative[<[t].get[1]>,<[t].get[2]>,0]>
-    - narrate <[f]>
+    - define points:|:<[pos].relative[<[t].get[1]>,<[t].get[2]>,<[a].mul[1.0]>]>
   - narrate <[max]>
-  - playeffect smoke at:<[points]> offset:0
+  - playeffect smoke at:<[points]> offset:0 amount:5
 
 math_stuff:
   type: procedure
