@@ -64,12 +64,14 @@ test_command:
   description: test
   usage: /test
   script:
-  - define end:<player.location.relative[0,0,10]>
-  - define start:<player.location>
-  - define mid:<[start].relative[0,0,<[start].distance[<[end]>].div[2]>]>
-  - define points:|:<[mid].points_between[<[mid].with_pitch[0].with_yaw[<[mid].yaw.add[90]>].relative[0,0,5]>].distance[0.1]>
-  - define points:|:<[mid].points_between[<[mid].with_pitch[0].with_yaw[<[mid].yaw.sub[90]>].relative[0,0,5]>].distance[0.1]>
-  - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.add[90]>].relative[0,0,5]>].distance[0.1]>
-  - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.sub[90]>].relative[0,0,5]>].distance[0.1]>
-  - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch>].with_yaw[<[mid].yaw.div[2]>].relative[0,0,5]>].distance[0.1]>
-  - playeffect smoke at:<[points]> quantity:1 offset:0
+  - define pos:<player.location.relative[0,0,10]>
+  - repeat 360:
+    -
+
+math_stuff:
+  type: procedure
+  definitions: C|degrees
+  script:
+  - define hyp:<el@<[degrees]>.to_radians.sin.mul[<[C]>]>
+  - define adj:<[C].power[2].sub[<[hyp].power[2]>].sqrt>
+  - determine <el@[hyp],[adj]>
