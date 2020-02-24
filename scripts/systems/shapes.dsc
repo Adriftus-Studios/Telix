@@ -65,12 +65,15 @@ test_command:
   usage: /test
   script:
   - define pos:<player.location.relative[0,0,10]>
-  - repeat 60:
+  - define a:<player.location.points_between[<player.location.relative[0,0,10]>].distance[0.2]>
+  - repeat <[a].size>:
     - define t:<proc[math_stuff].context[2|<[value].mul[6]>]>
     - define points:|:<[pos].relative[<[t].get[1]>,<[t].get[2]>,0]>
     - define amp:1
-    - define f:<[amp].add[<[value].sub[30].power[2].div[<[amp].mul[4]>]>]>
+    - define max:<[amp].add[<[<[a].size.div[2]>].sub[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>
+    - define f:<[amp].add[<[value].sub[[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>
     - narrate <[f]>
+  - narrate <[max]>
   - playeffect smoke at:<[points]> offset:0
 
 math_stuff:
