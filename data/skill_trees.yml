@@ -40,8 +40,8 @@ abilitytrees:
       custom_model_data: 1
     Stealth:
       available_check: true
-      GUIItem: sand
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -3
     Acrobatics:
       available_check: true
       GUIItem: sand
