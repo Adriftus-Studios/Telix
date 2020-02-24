@@ -128,7 +128,7 @@ test_command:
   description: test
   usage: /test
   script:
-  - narrate 'this does nothing right now.'
+  - narrate 'this does nothing right now. its just a placeholder'
 
 build_item_command:
   type: command
