@@ -73,7 +73,9 @@ test_command:
     - define t:<proc[math_stuff].context[<[f]>|<[value].mul[6]>]>
     - define points:|:<[pos].relative[<[t].get[1]>,<[t].get[2]>,<[a].mul[1.0]>]>
   - narrate <[max]>
-  - playeffect smoke at:<[points]> offset:0 amount:5
+  - foreach <[points]> as:point:
+    - playeffect smoke at:<[point]> offset:0 amount:5
+    - wait 1t
 
 math_stuff:
   type: procedure
