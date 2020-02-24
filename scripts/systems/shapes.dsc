@@ -68,6 +68,9 @@ test_command:
   - repeat 60:
     - define t:<proc[math_stuff].context[2|<[value].mul[6]>]>
     - define points:|:<[pos].relative[<[t].get[1]>,<[t].get[2]>,0]>
+    - define amp:1
+    - define f:<[amp].add[<[value].power[2].div[<[amp].mul[4]>]>]>
+    - narrate <[f]>
   - playeffect smoke at:<[points]> offset:0
 
 math_stuff:
@@ -79,3 +82,7 @@ math_stuff:
   - if <[degrees]> > 89:
     - define adj:<[adj].mul[-1]>
   - determine <list[<[hyp]>|<[adj]>]>
+
+  (X +0)^2 = 4(Y +1)
+  ((X)^2)/4 = Y+1
+  1+(((X)^2)/4) = Y
