@@ -30,9 +30,10 @@ define_star:
   script:
   - define location:<[location].with_pose[0,<[rotation]>]>
   - repeat <[num]>:
-    - define points:|:<[location].with_yaw[<el@360.div[<[num]>].mul[<[value]>]>].relative[0,0,<[radius]>]>
-    - define new_points:|:<[location].with_yaw[<el@360.div[<[num]>].mul[<[value]>]>].relative[0,0,<[radius]>]>
-    - define location:<[location].with_yaw[<[location].yaw.add[<el@360.div[<[num]>]>]>]>
+    - define t:<el@360.div[<[num]>]>
+    - define points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
+    - define new_points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
+    - define location:<[location].with_yaw[<[location].yaw.add[<[t]>]>]>
   - repeat <[num]>:
     - define a:<[points].get[<[value]>]>
     - define b:<[points].get[<[value].add[1]>]||<[points].get[1]>>
