@@ -16,7 +16,7 @@ smeltery_inventory:
 
 test_smeltery_recipe:
   type: item
-  material: leather
+  material: iron_ingot
   display name: <&7>Steel Ingot
   recipes:
     '1':
@@ -77,7 +77,6 @@ smeltery_events:
                       - define add:<el@64.sub[<[has]>]>
                       - define remaining:<[amount_needed].sub[<[add]>]>
                     - else:
-                      - define add:<[amount_needed]>
                       - define remaining:0
                     - define amount_needed:<[remaining]>
             - if <[amount_needed]> != 0:
@@ -119,9 +118,8 @@ smeltery_events:
                       - else:
                         - define add:<[amount_needed]>
                         - define remaining:0
-                      - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>]>
                       - wait 1t
-                      - inventory adjust d:<[inventory]> slot:<[slot].split[/].get[1]> quantity:<[add].add[<[has]>]>
+                      - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[add].add[<[has]>]>]>
                       - define amount_needed:<[remaining]>
               - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
           - else:
