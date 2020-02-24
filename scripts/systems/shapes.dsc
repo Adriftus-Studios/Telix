@@ -66,7 +66,7 @@ test_command:
   script:
   - define pos:<player.location.relative[0,0,10]>
   - repeat 360:
-    - define points:|:<[pos].relative[<proc[hyp].context[5|<[value]>]>]>
+    - define points:|:<[pos].relative[<proc[math_stuff].context[5|<[value]>]>]>
   - playeffect smoke at:<[points]> offset:0
 
 math_stuff:
