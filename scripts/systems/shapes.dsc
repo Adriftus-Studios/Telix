@@ -73,6 +73,7 @@ test_command:
   - define t:<proc[math_stuff].context[<[f]>|45]>
   - define first:<[f]>
   - define value:++
+  - define count:0
   - while <[f]> >= <[first]>:
     - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>]>
     - define t:<proc[math_stuff].context[<[f]>|45]>
@@ -80,11 +81,14 @@ test_command:
     - wait 1t
     - narrate <[t].get[1]>,<[t].get[2]>
     - define value:++
+    - if <[t].get[1]> > 0:
+      - define count:++
   - narrate done
   - narrate <[max]>
   - narrate <[value]>
   - narrate <[first]>
   - narrate <[a].size>
+  - narrate <[count]>
 
 math_stuff:
   type: procedure
