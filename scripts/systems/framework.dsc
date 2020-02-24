@@ -100,7 +100,7 @@ system_override:
     on player respawns:
       - inject system_equipment_set
     on player clicks in inventory:
-      - if <player.open_inventory||null> == null:
+      - if <player.open_inventory> == <player.inventory>:
         - narrate <context.raw_slot>
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
