@@ -14,19 +14,6 @@ smeltery_inventory:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [smeltery_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
 
-test_smeltery_recipe:
-  type: item
-  material: iron_ingot
-  display name: <&7>Steel Ingot
-  recipes:
-    '1':
-      cook_time: 10s
-      input: coal/5|iron_ingot/2
-      recipe_id: test_smeltery_recipe
-      output_quantity: 2
-      type: smeltery
-      experience: 0
-
 smeltery_timer:
   type: item
   material: clock
@@ -62,6 +49,7 @@ smeltery_events:
             - if <[crafting]> == air:
               - foreach <yaml[server.smeltery_recipes].read[<[recipe]>.input]> as:input:
                 - if <[input].split[/].get[2]> <= <[contents].map_get[<[input].split[/].get[1]>]||0>:
+                  - define ingredients:|:<[input]>
                   - define found:++
             - if <[found]> == <yaml[server.smeltery_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
@@ -121,7 +109,7 @@ smeltery_events:
                       - wait 1t
                       - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[add].add[<[has]>]>]>
                       - define amount_needed:<[remaining]>
-              - foreach <yaml[server.smeltery_recipes].read[<[crafting]>.input]> as:input
+              - foreach <[ingredients]> as:input
                 - narrate <item[<[input].split[/].get[1]>].with[quantity=<[input].split[/].get[2]>]>
                 - inventory remove d:<[inventory]> o:<item[<[input].split[/].get[1]>].with[quantity=<[input].split[/].get[2]>]>
               - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
@@ -174,3 +162,15 @@ smeltery_events:
                   - wait 1t
                   - define found:true
               
+test_smeltery_recipe:
+  type: item
+  material: iron_ingot
+  display name: <&7>Steel Ingot
+  recipes:
+    '1':
+      cook_time: 10s
+      input: coal/5|iron_ingot/2
+      recipe_id: test_smeltery_recipe
+      output_quantity: 2
+      type: smeltery
+      experience: 0
