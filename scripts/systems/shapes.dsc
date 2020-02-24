@@ -31,7 +31,7 @@ define_star:
   - define location:<[location].with_pose[0,<[rotation]>]>
   - repeat <[num]>:
     - define t:<el@360.div[<[num]>]>
-    - define t:<[t].mul[<[value].div[2].round_down.mul[2]>]>
+    - define t:<[t].mul[<[value].div[2].mul[2]>]>
     - define points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
     - define new_points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
     - define location:<[location].with_yaw[<[location].yaw.add[<[t]>]>]>
