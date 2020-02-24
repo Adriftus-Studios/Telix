@@ -577,7 +577,7 @@ custom_emerald:
   ore:
       biome: all
       block: stone
-      chance: 5
+      chance: 95
 custom_bricks:
   material: bricks
   lore:
@@ -2298,7 +2298,7 @@ custom_redstone:
   ore:
       biome: all
       block: stone
-      chance: 3
+      chance: 70
 custom_cyan_glazed_terracotta:
   material: cyan_glazed_terracotta
   lore:
@@ -3199,7 +3199,7 @@ custom_iron_ore:
   ore:
       biome: all
       block: stone
-      chance: 2
+      chance: 20
 custom_white_terracotta:
   material: white_terracotta
   lore:
@@ -7519,6 +7519,10 @@ custom_coal:
   display name: <&7>Refined Coal
   weight: 0.5
   type: item
+  ore:
+      biome: all
+      block: stone
+      chance: 10
 custom_silverfish_spawn_egg:
   material: silverfish_spawn_egg
   lore:
