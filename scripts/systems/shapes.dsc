@@ -66,7 +66,7 @@ test_command:
   script:
   - define pos:<player.location.relative[0,0,10]>
   - repeat 60:
-    - define t:<proc[math_stuff].context[1|<[value].mul[4]>]>
+    - define t:<proc[math_stuff].context[1|<[value].mul[6]>]>
     - define points:|:<[pos].relative[<[t].get[1]>,<[t].get[2]>,0]>
   - playeffect smoke at:<[points]> offset:0
 
