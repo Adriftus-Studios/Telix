@@ -81,6 +81,4 @@ math_stuff:
   script:
   - define hyp:<[degrees].to_radians.sin.mul[<[C]>]>
   - define adj:<[C].power[2].sub[<[hyp].power[2]>].sqrt>
-  - if <[degrees]> > 89:
-    - define adj:<[adj].mul[-1]>
   - determine <list[<[hyp]>|<[adj]>]>
