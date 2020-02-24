@@ -62,7 +62,7 @@ reload_scripts:
         - yaml create id:server.equipment
         - yaml create id:server.ore_rates
         - yaml create id:server.smeltery_recipes
-        - yaml load:data/skill_trees.yml id:system.skill_trees
+        - yaml load:data/skill_trees.yml id:server.skill_trees
         - foreach <server.list_scripts>:
             - if <[value].name.starts_with[ability_]>:
                 - if <[value].yaml_key[ability_tree]||null> == null:
