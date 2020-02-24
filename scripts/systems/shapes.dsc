@@ -30,7 +30,7 @@ define_star:
   script:
   - define location:<[location].with_pose[0,<[rotation]>]>
   - repeat 5:
-    - define points:|:<[location].with_yaw[<el@146.mul[<[value]>]>]>
+    - define points:|:<[location].with_yaw[<el@146.mul[<[value]>]>].relative[0,0,<[radius]>]>
     - define location:<[location].with_yaw[<[location].yaw.add[146]>]>
   - determine <[points]>
 
