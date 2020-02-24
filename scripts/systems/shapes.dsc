@@ -68,12 +68,14 @@ test_command:
   - define a:<player.location.points_between[<player.location.relative[0,0,15]>].distance[0.2]>
   - define amp:20
   - define max:<[amp].add[<el@1.sub[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>
-  - repeat <[a].size.sub[1]>:
+  - define value:0
+  - while <player.item_in_hand.material.name> == air
     - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>]>
     - narrate <[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>
     - define t:<proc[math_stuff].context[<[f]>|45]>
     - playeffect smoke at:<[pos].relative[<[t].get[1]>,<[t].get[2]>,2]> offset:0
     - wait 1t
+    - define value:++
   - narrate <[max]>
 
 math_stuff:
