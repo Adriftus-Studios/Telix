@@ -49,7 +49,7 @@ define_curve:
   - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.sub[90]>].relative[0,0,5]>]>
   - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.add[90]>].relative[0,0,5]>]>
   - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.sub[90]>].relative[0,0,5]>]>
-  - determine <[mid]>
+  - determine <[start]>
 
 shape_events:
   type: world
