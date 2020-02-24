@@ -3,7 +3,6 @@ ore_drop_events:
     debug: true
     events:
         on player breaks block:
-            - narrate 2
             - yaml create id:location
             - yaml id:location savefile:DONT_PUT_SHIT_IN_HERE/_<context.location>_.yml
             - define roll:<util.random.int[1].to[100]>
