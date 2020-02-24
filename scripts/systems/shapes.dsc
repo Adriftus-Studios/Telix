@@ -31,7 +31,7 @@ define_star:
   - define location:<[location].with_pose[0,<[rotation]>]>
   - repeat <[num]>:
     - define t:<el@360.div[<[num]>]>
-    - define t:<[t].mul[3]>
+    - define t:<[t].mul[4]>
     - define points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
     - define new_points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
     - define location:<[location].with_yaw[<[location].yaw.add[<[t]>]>]>
@@ -48,4 +48,4 @@ shape_events:
   events:
     on delta time secondly every:1:
       - foreach <server.list_online_players> as:player:
-        - playeffect smoke <proc[define_star].context[<[player].location>|3|0|5]> quantity:1 offset:0.1
+        - playeffect smoke <proc[define_star].context[<[player].location>|3|0|7]> quantity:1 offset:0.1
