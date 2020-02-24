@@ -67,8 +67,8 @@ test_command:
   - define end:<player.location.relative[0,0,10]>
   - define start:<player.location>
   - define mid:<[start].relative[0,0,<[start].distance[<[end]>].div[2]>]>
-  - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.add[90]>].relative[0,0,5]>].distance[0.1]>
-  - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.sub[90]>].relative[0,0,5]>].distance[0.1]>
-  - define points:|:<[mid].points_between[<[mid].with_yaw[0].with_pitch[<[mid].pitch.add[90]>].relative[0,0,5]>].distance[0.1]>
-  - define points:|:<[mid].points_between[<[mid].with_yaw[0].with_pitch[<[mid].pitch.sub[90]>].relative[0,0,5]>].distance[0.1]>
+  - define points:|:<[mid].points_between[<[mid].with_pitch[0].with_yaw[<[mid].yaw.add[90]>].relative[0,0,5]>].distance[0.1]>
+  - define points:|:<[mid].points_between[<[mid].with_pitch[0].with_yaw[<[mid].yaw.sub[90]>].relative[0,0,5]>].distance[0.1]>
+  - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.add[90]>].relative[0,0,5]>].distance[0.1]>
+  - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.sub[90]>].relative[0,0,5]>].distance[0.1]>
   - playeffect smoke at:<[points]> quantity:1 offset:0
