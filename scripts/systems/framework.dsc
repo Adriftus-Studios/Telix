@@ -102,7 +102,6 @@ system_override:
     on player clicks in inventory:
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
-        - wait 1t
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory]>
     on player chats:
       - if <player.has_permission[*]>:
