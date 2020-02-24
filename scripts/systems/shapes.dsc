@@ -68,7 +68,7 @@ test_command:
   - define player:<player>
 
   - define start:<[player].location>
-  - define end:<<[player]>.location.relative[0,0,10]>
+  - define end:<[player].location.relative[0,0,10]>
   - define start:<[start].facing[<[end]>]>
   - narrate <[start]>
   - narrate <[end]>
