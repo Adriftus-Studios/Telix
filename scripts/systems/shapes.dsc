@@ -26,14 +26,14 @@ relative_point:
 
 define_star:
   type: procedure
-  definitions: location|radius|rotation
+  definitions: location|radius|rotation|num
   script:
   - define location:<[location].with_pose[0,<[rotation]>]>
-  - repeat 5:
-    - define points:|:<[location].with_yaw[<el@146.mul[<[value]>]>].relative[0,0,<[radius]>]>
-    - define new_points:|:<[location].with_yaw[<el@146.mul[<[value]>]>].relative[0,0,<[radius]>]>
-    - define location:<[location].with_yaw[<[location].yaw.add[146]>]>
-  - repeat 5:
+  - repeat <[num]>:
+    - define points:|:<[location].with_yaw[<el@360.div[<[num]>].mul[2].mul[<[value]>]>].relative[0,0,<[radius]>]>
+    - define new_points:|:<[location].with_yaw[<el@360.div[<[num]>].mul[2].mul[<[value]>]>].relative[0,0,<[radius]>]>
+    - define location:<[location].with_yaw[<[location].yaw.add[<el@360.div[<[num]>].mul[2]>]>]>
+  - repeat <[num]>:
     - define a:<[points].get[<[value]>]>
     - define b:<[points].get[<[value].add[1]>]||<[points].get[1]>>
     - foreach <[a].points_between[<[b]>].distance[0.1]> as:point:
