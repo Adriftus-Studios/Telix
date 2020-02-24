@@ -66,12 +66,12 @@ test_command:
   script:
   - define pos:<player.location.relative[0,0,10]>
   - define a:<player.location.points_between[<player.location.relative[0,0,10]>].distance[0.2]>
-  - define amp:1
+  - define amp:0.1
   - define max:<[amp].add[<el@1.sub[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>
   - repeat <[a].size.sub[1]>:
     - define t:<proc[math_stuff].context[2|<[value].mul[6]>]>
     - define points:|:<[pos].relative[<[t].get[1]>,<[t].get[2]>,0]>
-    - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[2]>].power[2].div[<[amp]>]>]>]>
+    - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>]>
     - narrate <[f]>
   - narrate <[max]>
   - playeffect smoke at:<[points]> offset:0
