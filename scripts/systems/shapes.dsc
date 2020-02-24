@@ -74,7 +74,7 @@ test_command:
     - define points:|:<[pos].relative[<[t].get[1]>,<[t].get[2]>,<[value]>]>
   - narrate <[max]>
   - foreach <[points]> as:point:
-    - playeffect smoke at:<[point]> offset:0 amount:5
+    - playeffect smoke at:<[point]> offset:0
     - wait 1t
 
 math_stuff:
