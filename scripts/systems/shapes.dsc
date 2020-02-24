@@ -53,9 +53,9 @@ define_curve:
 
 shape_events:
   type: world
-  debug: true
+  debug: false
   events:
     on delta time secondly every:1:
       - foreach <server.list_online_players> as:player:
         - narrate <proc[define_curve].context[<[player].location>|<<[player]>.location.relative[0,0,10]>|50|0]>
-        - playeffect smoke at:<proc[define_curve].context[<[player].location>|<<[player]>.location.relative[0,0,10]>|50|0]> quantity:1 targets:<[player]>
+        #- playeffect smoke at:<proc[define_curve].context[<[player].location>|<<[player]>.location.relative[0,0,10]>|50|0]> quantity:1 targets:<[player]>
