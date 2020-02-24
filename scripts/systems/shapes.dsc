@@ -75,10 +75,10 @@ test_command:
   - define value:++
   - while <[f]> >= <[first]>:
     - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>]>
-    - narrate <[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>
     - define t:<proc[math_stuff].context[<[f]>|45]>
     - playeffect smoke at:<[pos].relative[<[t].get[1]>,<[t].get[2]>,2]> offset:0
     - wait 1t
+    - narrate <[t].get[1]>,<[t].get[2]>
     - define value:++
   - narrate done
   - narrate <[max]>
