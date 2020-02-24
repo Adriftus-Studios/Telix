@@ -65,4 +65,4 @@ test_command:
   description: test
   usage: /test
   script:
-    - playeffect smoke at:<proc[define_curve].context[<player.location>|<player.location.relative[0,0,10]>|50|0]> quantity:1 targets:<[player]>
+    - playeffect smoke at:<proc[define_curve].context[<player.location>|<player.location.relative[0,0,10]>|50|0]> quantity:1
