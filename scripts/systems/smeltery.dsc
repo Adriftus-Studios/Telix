@@ -32,25 +32,10 @@ test_smeltery_recipe:
       type: smeltery
       experience: 0
 
-load_smeltery_recipes:
-    type: world
 smeltery_events:
   type: world
   debug: false
-  reload:
-    - yaml create id:server.smeltery_recipes
-      - if <[value].yaml_key[type]> == item:
-          - if <[value].yaml_key[recipes]||null> != null:
-            - foreach <[value].list_keys[recipes]> as:recipe:
-              - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
-                - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
-                - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
-                - yaml id:server.smeltery_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
   events:
-    on server start:
-    - inject locally reload
-    on script reload:
-    - inject locally reload
     on delta time secondly every:1:
       - foreach <server.list_notables[inventories]> as:inventory:
         - if <[inventory].script_name> == SMELTERY_INVENTORY:
