@@ -64,8 +64,8 @@ test_command:
   description: test
   usage: /test
   script:
-  - define pos:<player.location.relative[0,0,30]>
-  - define a:<player.location.points_between[<player.location.relative[0,0,10]>].distance[0.2]>
+  - define pos:<player.location.relative[0,0,0]>
+  - define a:<player.location.points_between[<player.location.relative[0,0,15]>].distance[0.2]>
   - define amp:20
   - define max:<[amp].add[<el@1.sub[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>
   - repeat <[a].size.sub[1]>:
