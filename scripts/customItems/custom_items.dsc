@@ -318,6 +318,7 @@ custom_mycelium:
   display name: <&7>Mycelium
   weight: '1'
   type: item
+  default_drop: custom_dirt
 custom_glowstone_dust:
   material: glowstone_dust
   lore:
@@ -1388,6 +1389,7 @@ custom_grass_block:
   display name: <&7>Grass_block
   weight: '1'
   type: item
+  default_drop: custom_dirt
 custom_jungle_sapling:
   material: jungle_sapling
   lore:
@@ -4561,6 +4563,7 @@ custom_podzol:
   display name: <&7>Podzol
   weight: '1'
   type: item
+  default_drop: custom_dirt
 custom_mule_spawn_egg:
   material: mule_spawn_egg
   lore:
@@ -5833,6 +5836,7 @@ custom_stone:
   display name: <&7>Stone
   weight: 3
   type: item
+  default_drop: custom_cobblestone
 custom_birch_fence:
   material: birch_fence
   lore:
