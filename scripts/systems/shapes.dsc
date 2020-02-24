@@ -66,7 +66,7 @@ test_command:
   script:
   - define pos:<player.location.relative[0,0,10]>
   - repeat 360:
-    - define points:|:a
+    - define points:|:<[pos].relative[<proc[hyp].context[5|<[value]>]>]>
 
 math_stuff:
   type: procedure
@@ -74,4 +74,6 @@ math_stuff:
   script:
   - define hyp:<[degrees].to_radians.sin.mul[<[C]>]>
   - define adj:<[C].power[2].sub[<[hyp].power[2]>].sqrt>
+  - if <[degrees]> > 89:
+    - define adj:<[adj].mul[-1]>
   - determine <list[<[hyp]>|<[adj]>]>
