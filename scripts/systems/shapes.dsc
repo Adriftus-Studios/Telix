@@ -81,6 +81,7 @@ test_command:
     - define value:++
   - narrate <[max]>
   - narrate <[value]>
+  - narrate <[first]>
 
 math_stuff:
   type: procedure
