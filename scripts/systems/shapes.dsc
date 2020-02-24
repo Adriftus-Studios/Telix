@@ -30,17 +30,26 @@ define_star:
   script:
   - define location:<[location].with_pose[0,<[rotation]>]>
   - repeat <[num]>:
-    - define t:<el@360.div[<[num]>]>
-    - define t:<[t].mul[<[num].div[2].round_up>].add[<[rotation]>]>
+    - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>]>
     - define points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
     - define new_points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
     - define location:<[location].with_yaw[<[location].yaw.add[<[t]>]>]>
   - repeat <[num]>:
-    - define a:<[points].get[<[value]>]>
-    - define b:<[points].get[<[value].add[1]>]||<[points].get[1]>>
-    - foreach <[a].points_between[<[b]>].distance[0.3]> as:point:
+    - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
       - define new_points:|:<[point]>
   - determine <[new_points]>
+
+define_curve:
+  type: procedure
+  definitions: start|end|curve|angle
+  script:
+  - define start:<[start].facing[<[end]>]>
+  - define mid:<[start].relative[0,0,<[start].distance[<[end]>].div[2]>]>
+  - define points:|:<[mid].between[<[mid].with_yaw[<[mid].yaw.add[90]>].relative[0,0,5]>]>
+  - define points:|:<[mid].between[<[mid].with_yaw[<[mid].yaw.sub[90]>].relative[0,0,5]>]>
+  - define points:|:<[mid].between[<[mid].with_pitch[<[mid].pitch.add[90]>].relative[0,0,5]>]>
+  - define points:|:<[mid].between[<[mid].with_pitch[<[mid].pitch.sub[90]>].relative[0,0,5]>]>
+  - determine <[points]>
 
 shape_events:
   type: world
@@ -48,4 +57,4 @@ shape_events:
   events:
     on delta time secondly every:1:
       - foreach <server.list_online_players> as:player:
-        - playeffect smoke <proc[define_star].context[<[player].location>|3|0|7]> quantity:1 offset:0 targets:<[player]> data:0.1
+        - playeffect smoke <proc[define_curve].context[<player.location>|<player.location.relative[0,0,10]>|50|0]> quantity:1 offset:0 targets:<[player]> data:0.1
