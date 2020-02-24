@@ -82,7 +82,3 @@ math_stuff:
   - if <[degrees]> > 89:
     - define adj:<[adj].mul[-1]>
   - determine <list[<[hyp]>|<[adj]>]>
-
-  (X +0)^2 = 4(Y +1)
-  ((X)^2)/4 = Y+1
-  1+(((X)^2)/4) = Y
