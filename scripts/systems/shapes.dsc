@@ -73,7 +73,7 @@ test_command:
   - define t:<proc[math_stuff].context[<[f]>|45]>
   - define first:<[f]>
   - define value:++
-  - while <[f]> > <[first]>:
+  - while <[f]> >= <[first]>:
     - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>]>
     - narrate <[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>
     - define t:<proc[math_stuff].context[<[f]>|45]>
