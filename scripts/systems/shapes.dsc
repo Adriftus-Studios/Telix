@@ -53,7 +53,7 @@ define_curve:
 
 shape_events:
   type: world
-  debug: false
+  debug: true
   events:
     on delta time secondly every:1:
       - foreach <server.list_online_players> as:player:
