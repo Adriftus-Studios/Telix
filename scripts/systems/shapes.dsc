@@ -66,7 +66,7 @@ test_command:
   script:
   - define pos:<player.location.relative[0,0,10]>
   - repeat 360:
-    -
+    - define points:|:a
 
 math_stuff:
   type: procedure
