@@ -164,14 +164,17 @@ debug_item_1:
   type: item
   material: dirt
   display name: <&a>Debug 1
+
 debug_item_2:
   type: item
   material: dirt
   display name: <&a>Debug 2
+
 debug_item_3:
   type: item
   material: dirt
   display name: <&a>Debug 3
+  
 debug_item_4:
   type: item
   material: dirt
