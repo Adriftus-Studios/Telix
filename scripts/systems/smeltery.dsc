@@ -36,6 +36,8 @@ smeltery_events:
   type: world
   debug: false
   events:
+    on player breaks block priority:-10:
+      - narrate 1
     on delta time secondly every:1:
       - foreach <server.list_notables[inventories]> as:inventory:
         - if <[inventory].script_name> == SMELTERY_INVENTORY:
