@@ -67,7 +67,7 @@ test_command:
   script:
   - define player:<player>
 
-  - define start:<player.location>
+  - define start:<[player].location>
   - define end:<[player].location.relative[0,0,10]>
   - narrate <[start]>
   - narrate <[end]>
