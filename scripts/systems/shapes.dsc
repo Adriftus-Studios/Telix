@@ -59,7 +59,7 @@ shape_events:
       
 test_command:
   type: command
-  debug: true
+  debug: false
   name: test
   description: test
   usage: /test
@@ -71,10 +71,8 @@ test_command:
   - repeat <[a].size.sub[1]>:
     - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>]>
     - define t:<proc[math_stuff].context[<[f]>|45]>
-    - define points:|:<[pos].relative[<[t].get[1]>,<[t].get[2]>,<[value]>]>
-    - narrate <[t].get[2]>
-  - foreach <[points]> as:point:
-    - playeffect smoke at:<[point]> offset:0
+    - narrate <[value]>
+    - playeffect smoke at:<[pos].relative[<[t].get[1]>,<[t].get[2]>,<[value]>]> offset:0
     - wait 1t
 
 math_stuff:
