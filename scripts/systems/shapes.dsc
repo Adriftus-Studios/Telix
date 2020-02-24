@@ -45,8 +45,11 @@ define_curve:
   script:
   - define start:<[start].facing[<[end]>]>
   - define mid:<[start].relative[0,0,<[start].distance[<[end]>].div[2]>]>
-  - define points:|:<[mid].with_yaw[<[mid].yaw.add[90]>].relative[0,0,5]>
-  - determine <[points]>
+  - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.add[90]>].relative[0,0,5]>]>
+  - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.sub[90]>].relative[0,0,5]>]>
+  - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.add[90]>].relative[0,0,5]>]>
+  - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.sub[90]>].relative[0,0,5]>]>
+  - determine <[mid]>
 
 shape_events:
   type: world
@@ -54,5 +57,5 @@ shape_events:
   events:
     on delta time secondly every:1:
       - foreach <server.list_online_players> as:player:
-        - narrate <proc[define_curve].context[<player.location>|<player.location.relative[0,0,10]>|50|0].get[1]>
+        - narrate <proc[define_curve].context[<player.location>|<player.location.relative[0,0,10]>|50|0]>
         #- playeffect smoke at:<proc[define_curve].context[<player.location>|<player.location.relative[0,0,10]>|50|0]> quantity:1 targets:<[player]>
