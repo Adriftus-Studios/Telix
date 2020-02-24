@@ -61,6 +61,7 @@ shape_events:
         
 test_command:
   type: command
+  debug: true
   name: test
   description: test
   usage: /test
