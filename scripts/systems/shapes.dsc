@@ -72,7 +72,7 @@ test_command:
     - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>]>
     - define t:<proc[math_stuff].context[<[f]>|45]>
     - define points:|:<[pos].relative[<[t].get[1]>,<[t].get[2]>,<[value]>]>
-    - narrate <[t].get[1]>
+    - narrate <[t].get[2]>
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> offset:0
     - wait 1t
