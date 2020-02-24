@@ -102,11 +102,9 @@ system_override:
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
         - if <context.raw_slot> < 6:
-          - define slotmap:<list[1/abilities_characterAbilityTrees|2/crafting|3/citadels|4/guilds|5/settings]>
+          - define slotmap:<list[1/null|2/recipe_book_inventory|3/citadels|4/guilds|5/settings]>
           - if <inventory[<[slotmap].map_get[<context.raw_slot>]>]||null> != null:
-            - narrate 1
-          - else:
-            - narrate 2
+            - inventory open d:<inventory[<[slotmap].map_get[<context.raw_slot>]>]>
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory]>
