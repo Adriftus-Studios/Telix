@@ -72,6 +72,7 @@ test_command:
   - define end:<[player].location.relative[0,0,10]>
   - narrate <[start]>
   - narrate <[end]>
+  - stop
   - define mid:<[start].relative[0,0,<[start].distance[<[end]>].div[2]>]>
   - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.add[90]>].relative[0,0,5]>]>
   - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.sub[90]>].relative[0,0,5]>]>
