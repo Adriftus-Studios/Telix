@@ -84,7 +84,7 @@ test_command:
   - narrate <[max]>
   - narrate <[value]>
   - narrate <[first]>
-  - narrate <[a]>
+  - narrate <[a].size>
 
 math_stuff:
   type: procedure
