@@ -67,6 +67,7 @@ test_command:
   - define pos:<player.location.relative[0,0,10]>
   - repeat 360:
     - define points:|:<[pos].relative[<proc[hyp].context[5|<[value]>]>]>
+  - playeffect smoke at:<[points]> offset:0
 
 math_stuff:
   type: procedure
