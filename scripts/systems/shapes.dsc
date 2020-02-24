@@ -77,6 +77,7 @@ test_command:
     - wait 1t
     - define value:++
   - narrate <[max]>
+  - narrate <[value]>
 
 math_stuff:
   type: procedure
