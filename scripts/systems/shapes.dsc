@@ -70,7 +70,7 @@ test_command:
   - define max:<[amp].add[<el@1.sub[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>
   - repeat <[a].size.sub[1]>:
     - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>]>
-    - narrate <[f]>
+    - narrate <[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>
     - define t:<proc[math_stuff].context[<[f]>|45]>
     - playeffect smoke at:<[pos].relative[<[t].get[1]>,<[t].get[2]>,2]> offset:0
     - wait 1t
