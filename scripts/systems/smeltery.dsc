@@ -19,10 +19,38 @@ smeltery_timer:
   material: clock
   display name: <&7>Not Smelting
 
+test_smeltery_recipe:
+  type: item
+  material: iron_ingot
+  display name: <&7>Steel Ingot
+  recipes:
+    '1':
+      cook_time: 10s
+      input: coal/5|iron_ingot/2
+      recipe_id: test_smeltery_recipe
+      output_quantity: 2
+      type: smeltery
+      experience: 0
+
+load_smeltery_recipes:
+    type: world
 smeltery_events:
   type: world
   debug: false
+  reload:
+    - yaml create id:server.smeltery_recipes
+      - if <[value].yaml_key[type]> == item:
+          - if <[value].yaml_key[recipes]||null> != null:
+            - foreach <[value].list_keys[recipes]> as:recipe:
+              - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
+                - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
+                - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
+                - yaml id:server.smeltery_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
   events:
+    on server start:
+    - inject locally reload
+    on script reload:
+    - inject locally reload
     on delta time secondly every:1:
       - foreach <server.list_notables[inventories]> as:inventory:
         - if <[inventory].script_name> == SMELTERY_INVENTORY:
@@ -133,8 +161,9 @@ smeltery_events:
                   - note <inventory[smeltery_inventory]> as:smeltery_<context.location.simple>
                 - inventory open d:<inventory[smeltery_<context.location.simple>]>
     on player drags in smeltery_inventory:
+      - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
       - foreach <context.raw_slots> as:slot:
-        - if <[slot]> < 55:
+        - if <[slotmap].map_get[<[raw_slot]>].starts_with[out]>
           - determine passively cancelled
           - stop
     on player clicks in smeltery_inventory:
@@ -163,15 +192,3 @@ smeltery_events:
                   - wait 1t
                   - define found:true
               
-test_smeltery_recipe:
-  type: item
-  material: iron_ingot
-  display name: <&7>Steel Ingot
-  recipes:
-    '1':
-      cook_time: 10s
-      input: coal/5|iron_ingot/2
-      recipe_id: test_smeltery_recipe
-      output_quantity: 2
-      type: smeltery
-      experience: 0
