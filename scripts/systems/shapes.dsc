@@ -38,7 +38,7 @@ define_star:
   - repeat <[num]>:
     - define a:<[points].get[<[value]>]>
     - define b:<[points].get[<[value].add[1]>]||<[points].get[1]>>
-    - foreach <[a].points_between[<[b]>].distance[0.1]> as:point:
+    - foreach <[a].points_between[<[b]>].distance[0.3]> as:point:
       - define new_points:|:<[point]>
   - determine <[new_points]>
 
