@@ -94,7 +94,9 @@ system_override:
   events:
     on player breaks block priority:-10:
       - if <player.gamemode> == SURVIVAL:
-        - determine <item[custom_<context.material.name>]>
+        - foreach <context.location.drops[<player.item_in_hand>]> as:drop:
+          - define drops:|:<item[custom_<[drop]>]>
+        - determine <[drops]>
     on player respawns:
       - inject system_equipment_set
     on player clicks in inventory:
