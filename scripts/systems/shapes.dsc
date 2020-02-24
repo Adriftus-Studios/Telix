@@ -74,6 +74,7 @@ test_command:
     - define t:<proc[math_stuff].context[<[f]>|45]>
     - playeffect smoke at:<[pos].relative[<[t].get[1]>,<[t].get[2]>,<[value].div[10]>]> offset:0
     - wait 1t
+  - narrate <[max]>
 
 math_stuff:
   type: procedure
