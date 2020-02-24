@@ -164,18 +164,26 @@ debug_item_1:
   type: item
   material: dirt
   display name: <&a>Debug 1
+  lore:
+  - "<&8>Item Weight: ERROR"
 
 debug_item_2:
   type: item
   material: dirt
   display name: <&a>Debug 2
+  lore:
+  - "<&8>Item Weight: ERROR"
 
 debug_item_3:
   type: item
   material: dirt
   display name: <&a>Debug 3
+  lore:
+  - "<&8>Item Weight: ERROR"
   
 debug_item_4:
   type: item
   material: dirt
   display name: <&a>Debug 4
+  lore:
+  - "<&8>Item Weight: ERROR"
