@@ -45,7 +45,7 @@ define_curve:
   script:
   - define start:<[start].facing[<[end]>]>
   - define mid:<[start].relative[0,0,<[start].distance[<[end]>].div[2]>]>
-  - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.add[90]>].relative[0,0,5]>]>
+  - define points:|:<[mid].with_yaw[<[mid].yaw.add[90]>].relative[0,0,5]>
   - determine <[points]>
 
 shape_events:
