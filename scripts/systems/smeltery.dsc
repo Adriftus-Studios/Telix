@@ -71,7 +71,6 @@ smeltery_events:
               - stop
             # countdown smelting timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.smeltery_recipes].read[<[crafting]>.cook_time]>>
-            - narrate <yaml[server.smeltery_recipes].read[<[crafting]>.input]>
             - if <[time]> > 0:
               - if <[clock]||null> == null:
                 - if <[time].ends_with[s]>:
@@ -110,8 +109,9 @@ smeltery_events:
                       - wait 1t
                       - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[add].add[<[has]>]>]>
                       - define amount_needed:<[remaining]>
-              - foreach <[ingredients]> as:input
+              - foreach <yaml[server.smeltery_recipes].read[<[crafting]>.input]> as:input
                 - narrate <item[<[input].split[/].get[1]>].with[quantity=<[input].split[/].get[2]>]>
+                - narrate <[input].split[/].get[1]>:<[input].split[/].get[2]>
                 - inventory remove d:<[inventory]> o:<item[<[input].split[/].get[1]>].with[quantity=<[input].split[/].get[2]>]>
               - inventory set d:<[inventory]> slot:50 o:<item[gui_invisible_item]>
           - else:
