@@ -55,10 +55,9 @@ shape_events:
   type: world
   debug: false
   events:
-    on delta time secondly every:1:
-        #- playeffect smoke at:<proc[define_curve].context[<[player].location>|<<[player]>.location.relative[0,0,10]>|50|0]> quantity:1 targets:<[player]>
+    on delta time secondly every:1:c
 
-        
+      
 test_command:
   type: command
   debug: true
@@ -66,14 +65,4 @@ test_command:
   description: test
   usage: /test
   script:
-  - define player:<player>
-  - stop
-  - define start:<[player].location>
-  - define end:<[player].location.relative[0,0,10]>
-  - narrate <[start]>
-  - narrate <[end]>
-  - define mid:<[start].relative[0,0,<[start].distance[<[end]>].div[2]>]>
-  - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.add[90]>].relative[0,0,5]>]>
-  - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.sub[90]>].relative[0,0,5]>]>
-  - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.add[90]>].relative[0,0,5]>]>
-  - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.sub[90]>].relative[0,0,5]>]>
+    - playeffect smoke at:<proc[define_curve].context[<player.location>|<player.location.relative[0,0,10]>|50|0]> quantity:1 targets:<[player]>
