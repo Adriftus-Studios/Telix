@@ -66,7 +66,7 @@ test_command:
   script:
   - define pos:<player.location.relative[0,0,0]>
   - define a:<player.location.points_between[<player.location.relative[0,0,15]>].distance[0.2]>
-  - define amp:200
+  - define amp:20
   - define max:<[amp].add[<el@1.sub[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>
   - repeat <[a].size.sub[1]>:
     - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[3]>].power[2].div[<[amp].mul[4]>]>]>]>
