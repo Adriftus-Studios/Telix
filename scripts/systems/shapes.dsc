@@ -74,4 +74,4 @@ math_stuff:
   script:
   - define hyp:<[degrees].to_radians.sin.mul[<[C]>]>
   - define adj:<[C].power[2].sub[<[hyp].power[2]>].sqrt>
-  - determine <el@[hyp],[adj]>
+  - determine <[hyp],[adj]>
