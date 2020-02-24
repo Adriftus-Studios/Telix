@@ -101,7 +101,12 @@ system_override:
       - inject system_equipment_set
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
-        - narrate <context.raw_slot>
+        - if <context.raw_slot> < 6:
+          - define slotmap:<list[1/abilities_characterAbilityTrees|2/crafting|3/citadels|4/guilds|5/settings]>
+          - if <inventory[<[slotmap].map_get[<context.raw_slot>]>]||null> != null:
+            - narrate 1
+          - else:
+            - narrate 2
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory]>
