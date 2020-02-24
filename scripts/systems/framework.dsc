@@ -107,7 +107,7 @@ system_override:
           - if <inventory[<[slotmap].map_get[<context.raw_slot>]>]||null> != null:
             - inventory open d:<inventory[<[slotmap].map_get[<context.raw_slot>]>]>
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
-        - determine cancelled
+        - determine passively cancelled
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory]>
     on player chats:
       - if <player.has_permission[*]>:
