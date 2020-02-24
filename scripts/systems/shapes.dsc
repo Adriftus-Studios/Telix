@@ -72,13 +72,14 @@ test_command:
   - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>]>
   - define t:<proc[math_stuff].context[<[f]>|45]>
   - define first:<[f]>
+  - define value:++
   - while <[f]> > <[first]>:
-    - define value:++
     - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>]>
     - narrate <[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>
     - define t:<proc[math_stuff].context[<[f]>|45]>
     - playeffect smoke at:<[pos].relative[<[t].get[1]>,<[t].get[2]>,2]> offset:0
     - wait 1t
+    - define value:++
   - narrate <[max]>
   - narrate <[value]>
   - narrate <[first]>
