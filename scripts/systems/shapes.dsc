@@ -80,9 +80,11 @@ test_command:
     - playeffect smoke at:<[pos].relative[<[t].get[1]>,<[t].get[2]>,2]> offset:0
     - wait 1t
     - define value:++
+  - narrate done
   - narrate <[max]>
   - narrate <[value]>
   - narrate <[first]>
+  - narrate <[a]>
 
 math_stuff:
   type: procedure
