@@ -48,6 +48,4 @@ shape_events:
   events:
     on delta time secondly every:1:
       - foreach <server.list_online_players> as:player:
-        - repeat 20:
-          - playeffect smoke <proc[define_star].context[<[player].location>|3|<[value]>|7]> quantity:1 offset:0
-          - wait 1t
+        - playeffect smoke <proc[define_star].context[<[player].location>|3|<[value]>|7]> quantity:1 offset:0 targets:<[player]>
