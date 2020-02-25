@@ -66,8 +66,11 @@ test_command:
   script:
   - define pos:<player.location.relative[0,0,0]>
   - define a:<player.location.points_between[<player.location.relative[0,0,15]>].distance[0.2]>
+  - define increment:<el@40.div[<[a].size>]>
   - repeat <[a].size>:
-    - 
+    - define b:<el@e.add[<el@1.div[200].mul[<[value].mul[<[increment]>]>].power[2]>].add[2]>
+    - narrate <[b]>
+    - wait 1t
   
 math_stuff:
   type: procedure
