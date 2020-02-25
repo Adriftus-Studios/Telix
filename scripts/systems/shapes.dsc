@@ -68,7 +68,15 @@ test_command:
       - playeffect smoke at:<[points]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == star:
-    - define points:<proc[define_star2].context[<player.location.forward[5]>|3|0|5]>
+    - define location:<player.location.forward[5]>
+    - define radius:3
+    - define rotation:0
+    - define num:5
+    - repeat <[num]>:
+      - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>].add[90]>
+      - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
+      - narrate <[t].mul[<[value]>]>
+      - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
     - playeffect smoke at:<[points]> quantity:5 offset:0
 
 math_stuff:
