@@ -143,10 +143,10 @@ test_attack:
   - repeat 100:
     - if !<[target].is_living>:
       - stop
-    - define points:<proc[define_curve].context[<[current_point]>|<[target].location>|5|<util.random.int[70].to[110]>|0.7]>
+    - define points:<proc[define_curve].context[<[current_point]>|<[target].location>|5|90|0.7]>
     - playeffect flame at:<[points].get[2]> quantity:15 offset:0.3
     - define current_point:<[points].get[2]>
-    - wait 1t
+    - wait 5t
     - if <[current_point].distance[<[target].location>]> < 1:
       - define hit:true
       - stop
