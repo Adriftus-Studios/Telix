@@ -108,7 +108,7 @@ system_override:
         - if <context.raw_slot> < 6:
           - determine passively cancelled
           - define slotmap:<list[1/crafting|2/recipe_book_inventory|3/citadels|4/guilds|5/settings]>
-          - if <inventory[<[slotmap].map_get[<context.raw_slot>]>]||null> != null:
+          - if <inventory[<[slotmap].map_get[<context.raw_slot>]||null>]||null> != null:
             - inventory open d:<inventory[<[slotmap].map_get[<context.raw_slot>]>]>
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
