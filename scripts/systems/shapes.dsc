@@ -41,22 +41,20 @@ define_star:
 
 define_curve:
   type: procedure
-  definitions: start|end|curve|angle
+  definitions: start|end|intensity|angle
   script:
-  - define start:<[start].facing[<[end]>]>
-  - define mid:<[start].relative[0,0,<[start].distance[<[end]>].div[2]>]>
-  - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.add[90]>].relative[0,0,5]>]>
-  - define points:|:<[mid].points_between[<[mid].with_yaw[<[mid].yaw.sub[90]>].relative[0,0,5]>]>
-  - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.add[90]>].relative[0,0,5]>]>
-  - define points:|:<[mid].points_between[<[mid].with_pitch[<[mid].pitch.sub[90]>].relative[0,0,5]>]>
+  - define a:<[start].points_between[<[end]>].distance[0.2]>
+  - define increment:<el@40.div[<[a].size>]>
+  - repeat <[a].size>:
+    - define b:<el@2.add[<el@1.div[20].mul[<[value].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
+    - define point:<proc[math_stuff].context[<[b]>|<[angle]>]>
+    - define points:|:<[point]>
   - determine <[points]>
-
 shape_events:
   type: world
   debug: false
   events:
 
-      
 test_command:
   type: command
   debug: false
@@ -64,16 +62,11 @@ test_command:
   description: test
   usage: /test
   script:
-  - define pos:<player.location.relative[0,0,0]>
-  - define a:<player.location.points_between[<player.location.relative[0,0,15]>].distance[0.2]>
-  - define increment:<el@40.div[<[a].size>]>
-  - define angle:<util.random.int[0].to[360]>
-  - repeat <[a].size>:
-    - define b:<el@2.add[<el@1.div[20].mul[<[value].mul[<[increment]>].sub[20]>].power[2].mul[-1]>]>
-    - define point:<proc[math_stuff].context[<[b]>|<[angle]>]>
-    - playeffect smoke at:<[pos].relative[<[point].get[1]>,<[point].get[2]>,<[value].mul[0.2]>]> offset:0
+  - define points:<proc[define_curve].context[<player.location>|<player.location.relative[0,0,10]>|2|45]>
+  - foreach <[points]> as:point:
+    - playeffect smoke at:<[point]> quantity:5 offset:0
     - wait 1t
-  
+
 math_stuff:
   type: procedure
   definitions: C|degrees
