@@ -80,6 +80,7 @@ test_command:
     - define points:<proc[define_circle].context[<player.location.forward[4]>|2]>
     - foreach <[points]>:
       - playeffect smoke at:<[value]> quantity:5 offset:0
+      - wait 1t
 
 math_stuff:
   type: procedure
