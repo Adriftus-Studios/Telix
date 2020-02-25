@@ -68,9 +68,10 @@ test_command:
   description: test_effects
   usage: /test_effects
   tab complete:
-  - narrate <context.raw_args.split[].count[<&sp>]>
-  - narrate <context.raw_args.split[<&sp>].size>
-  - determine <list[curve|star1|star2|circle|spiral]>
+  - if <context.raw_args.split[].count[<&sp>]> == 0:
+    - determine <list[curve|star1|star2|circle|spiral]>
+  - else if <context.raw_args.split[].count[<&sp>]> == 1:
+    - determine <server.list_effects>
   script:
   - define particle:<context.args.get[2]||smoke>
   - if <context.args.get[1]> == curve:
