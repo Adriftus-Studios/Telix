@@ -71,7 +71,6 @@ test_command:
     - define points:<proc[define_star].context[<player.location.forward[5]>|3|0|5]>
     - playeffect smoke at:<[points]> quantity:5 offset:0
 
-
 math_stuff:
   type: procedure
   definitions: C|degrees
