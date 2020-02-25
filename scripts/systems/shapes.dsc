@@ -65,6 +65,9 @@ test_command:
   - define points:<proc[define_curve].context[<player.location>|<player.location.relative[0,0,40]>|5|45|1]>
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> quantity:5 offset:0
+    - wait 1t
+  - foreach <[points]> as:point:
+    - playeffect smoke at:<[point]> quantity:5 offset:0
     - wait 0.1t
 
 math_stuff:
