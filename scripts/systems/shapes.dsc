@@ -43,7 +43,7 @@ define_curve:
   type: procedure
   definitions: start|end|intensity|angle|between
   script:
-  - define a:<[start].points_between[<[end]>].distance[0.2]>
+  - define a:<[start].points_between[<[end]>].distance[<[between]>]>
   - define increment:<el@40.div[<[a].size>]>
   - repeat <[a].size>:
     - define b:<el@1.add[<el@1.div[20].mul[<[value].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
