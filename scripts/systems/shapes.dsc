@@ -64,6 +64,11 @@ test_command:
   script:
   - define angle:<util.random.int[0].to[180]>
   - narrate <[angle]>
+  - repeat 90:
+    - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<[value]>|1]>
+    - playeffect smoke at:<[points]> quantity:5 offset:0
+    - wait 1t
+  - stop
   - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<[angle]>|1]>
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> quantity:5 offset:0 distance:100
