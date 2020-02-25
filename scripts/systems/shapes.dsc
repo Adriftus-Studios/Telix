@@ -78,12 +78,12 @@ test_command:
       - playeffect smoke at:<[points]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == star1:
-    - define points:<proc[define_star].context[<player.location.forward[4]>|3|0|5]>
+    - define points:<proc[define_star].context[<player.location.forward[4]>|3|90|5]>
     - repeat <[points].size>:
       - playeffect smoke at:<[points].get[<[value]>]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == star2:
-    - define points:<proc[define_star2].context[<player.location.forward[4]>|3|0|5]>
+    - define points:<proc[define_star2].context[<player.location.forward[4]>|3|90|5]>
     - repeat <[points].size.div[5]>:
       - playeffect smoke at:<[points].get[<[value].mul[5].add[1]>]> quantity:5 offset:0
       - playeffect smoke at:<[points].get[<[value].mul[5].add[2]>]> quantity:5 offset:0
