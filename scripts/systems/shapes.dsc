@@ -87,9 +87,9 @@ test_effects_command:
   usage: /test_effects
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
-    - determine <list[curve|star1|star2|circle|spiral|zigzag]>
+    - determine <list[curve|star1|star2|circle|spiral|zigzag].filter[starts_with[<context.args.get[2]>]]||<list[curve|star1|star2|circle|spiral|zigzag]>>
   - else if <context.raw_args.split[].count[<&sp>]> == 1:
-    - determine <server.list_particles.parse[to_lowercase].filter[starts_with[<context.args.get[2]||smoke>]]>
+    - determine <server.list_particles.parse[to_lowercase].filter[starts_with[<context.args.get[2]||<server.list_particles>>]]>
   script:
   - define particle:<context.args.get[2]||smoke>
   - if <context.args.get[1]> == zigzag:
