@@ -67,6 +67,7 @@ test_command:
   - define pos:<player.location.relative[0,0,0]>
   - define a:<player.location.points_between[<player.location.relative[0,0,15]>].distance[0.2]>
   - define increment:<el@40.div[<[a].size>]>
+  - narrate <[increment]>
   - narrate <[value].mul[<[increment]>]>
   - narrate <el@1.div[200].mul[<[value].mul[<[increment]>]>].power[2]>
   - narrate <el@e.add[<el@1.div[200].mul[<[value].mul[<[increment]>]>].power[2]>].add[2]>
