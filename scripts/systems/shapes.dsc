@@ -56,7 +56,7 @@ define_spiral:
   script:
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
-  - foreach <[start].points_between[<[end]>].distance[<[between]>]> as:point:
+  - foreach <[start].points_between[<[end]>].distance[0.4]> as:point:
     - define offset:<proc[math_stuff].context[<[radius]>|<[between].mul[<[loop_index]>]>]>
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
@@ -97,7 +97,7 @@ test_command:
       - playeffect smoke at:<[value]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == spiral:
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.3|1]>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.3|0.4]>
     - foreach <[points]> as:point:
       - playeffect smoke at:<[point]> quantity:5 offset:0
       - wait 1t
