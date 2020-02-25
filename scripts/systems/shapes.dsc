@@ -1,4 +1,17 @@
-define_circle:
+
+define_curve:
+  type: procedure
+  definitions: start|end|intensity|angle|between
+  script:
+  - define a:<[start].face[<[end]>].points_between[<[end]>].distance[<[between]>]>
+  - define increment:<el@40.div[<[a].size>]>
+  - foreach <[a]> as:point:
+    - define b:<el@1.add[<el@1.div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
+    - define offset:<proc[math_stuff].context[<[b]>|<[angle]>]>
+    - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+  - determine <[points]>
+  
+  define_circle:
   type: procedure
   definitions: location|radius
   script:
@@ -22,6 +35,7 @@ define_star:
   type: procedure
   definitions: location|radius|rotation|num
   script:
+  - define rotation:<[rotation].add[90]>
   - define location:<[location].with_pose[0,<[rotation]>]>
   - repeat <[num]>:
     - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>]>
@@ -29,18 +43,6 @@ define_star:
     - define new_points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[new_points]>
 
-define_curve:
-  type: procedure
-  definitions: start|end|intensity|angle|between
-  script:
-  - define a:<[start].face[<[end]>].points_between[<[end]>].distance[<[between]>]>
-  - define increment:<el@40.div[<[a].size>]>
-  - foreach <[a]> as:point:
-    - define b:<el@1.add[<el@1.div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
-    - define offset:<proc[math_stuff].context[<[b]>|<[angle]>]>
-    - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-  - determine <[points]>
-  
 test_command:
   type: command
   debug: true
