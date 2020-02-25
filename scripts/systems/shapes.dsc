@@ -54,6 +54,7 @@ define_spiral:
   type: procedure
   definitions: start|end|radius
   script:
+  - define start:<[start].face[<[end]>]>s
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
   - foreach <[start].points_between[<[end]>].distance[0.4]> as:point:
@@ -73,8 +74,8 @@ test_command:
   - else if <context.raw_args.split[].count[<&sp>]> == 1:
     - determine <server.list_effects.parse[to_lowercase].filter[starts_with[<context.args.get[2]||smoke>]]>
   script:
-#  - define particle:<context.args.get[2]||smoke>
-  - define particle:smoke
+  - define particle:<context.args.get[2]||smoke>
+#  - define particle:smoke
   - if <context.args.get[1]> == curve:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
