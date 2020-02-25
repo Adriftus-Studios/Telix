@@ -144,7 +144,7 @@ test_attack:
     - if !<[target].is_living>:
       - stop
     - narrate <[current_point].distance[<[target]>].verticle>
-    - narrate <[target]>
+    - narrate <[current_point]>
     - if <[current_point].distance[<[target]>].verticle> > 5:
       - define points:<proc[define_curve].context[<[current_point]>|<[target].location>|5|90|0.7]>
     - else:
