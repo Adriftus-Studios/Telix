@@ -143,11 +143,11 @@ test_attack:
   - repeat 100:
     - if !<[target].is_living>:
       - stop
-    - if <[current_point].distance[<[target].location>].verticle> > 5:
+    - if <[current_point].distance[<[target].location>]> > 5:
       - define points:<proc[define_curve].context[<[current_point]>|<[target].location>|5|90|0.7]>
     - else:
       - define points:<[current_point].points_between[<[target].location>].distance[0.5]>
-    - playeffect flame at:<[points].get[2]> quantity:15 offset:0.3
+    - playeffect flame at:<[points].get[1]> quantity:15 offset:0.3
     - define current_point:<[points].get[1]>
     - wait 5t
     - if <[current_point].distance[<[target].location>]> < 1:
