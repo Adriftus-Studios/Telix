@@ -77,7 +77,7 @@ test_command:
       - playeffect smoke at:<[points].get[<[value].mul[5].add[5]>]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == circle:
-    - define points:<proc[define_circle].context[<player.location.forward[4]>|2>
+    - define points:<proc[define_circle].context[<player.location.forward[4]>|2]>
     - foreach <[points]>:
       - playeffect smoke at:<[value]> quantity:5 offset:0
 
