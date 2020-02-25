@@ -75,7 +75,7 @@ test_command:
     - repeat <[num]>:
       - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>].add[90]>
       - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
-      - narrate <[t].mul[<[value]>]>
+      - narrate <[t]>
       - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
     - playeffect smoke at:<[points]> quantity:5 offset:0
 
