@@ -66,6 +66,8 @@ test_command:
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> quantity:5 offset:0
     - define loop_index:++
+    - define loop_index:++
+    - define loop_index:++
     - wait 1t
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> quantity:5 offset:0
