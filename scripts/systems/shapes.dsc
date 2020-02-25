@@ -53,11 +53,11 @@ define_star:
 test_command:
   type: command
   debug: true
-  name: test
-  description: test
-  usage: /test
+  name: test_effects
+  description: test_effects
+  usage: /test_effects
   tab complete:
-  - determine <list[curve|star1|star2|circle]>
+  - determine <list[curve|star1|star2|circle|spiral]>
   script:
   - if <context.args.get[1]> == curve:
     - define start:<player.location>
@@ -84,6 +84,18 @@ test_command:
     - define points:<proc[define_circle].context[<player.location.forward[4]>|3]>
     - foreach <[points]>:
       - playeffect smoke at:<[value]> quantity:5 offset:0
+      - wait 1t
+  - if <context.args.get[1]> == spiral:
+    - define start:<player.location.forward[3]>
+    - define end:<player.location.forward[15]>
+    - define radius:3
+    - define angle:0
+    - foreach <[start].points_between[<[end]>].distance[0.1]> as:point:
+      - define offset:<proc[math_stuff].context[<[radius]>|<[angle]>]>
+      - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+      - define angle:<[angle].add[10]>
+    - foreach <[points]> as:point:
+      - playeffect smoke at:<[point]> quantity:5 offset:0
       - wait 1t
 
 math_stuff:
