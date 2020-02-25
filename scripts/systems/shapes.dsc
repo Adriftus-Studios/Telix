@@ -62,7 +62,7 @@ test_command:
   description: test
   usage: /test
   script:
-  - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|45|1]>
+  - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<util.random.int[0].to[360]>|1]>
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> quantity:5 offset:0 distance:100
     - wait 1t
