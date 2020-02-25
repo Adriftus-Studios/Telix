@@ -102,6 +102,7 @@ guild_events:
           - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[manage_flags]>:
             - flag <player> guild_flag:<[flag]>
             - inventory open d:guild_flag_gui
+            - determine passively cancelled
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
       - if <yaml[player.<player.uuid>].read[guild]||null> == null:
