@@ -41,7 +41,7 @@ define_star:
 
 define_curve:
   type: procedure
-  definitions: start|end|intensity|angle
+  definitions: start|end|intensity|angle|between
   script:
   - define a:<[start].points_between[<[end]>].distance[0.2]>
   - define increment:<el@40.div[<[a].size>]>
@@ -62,7 +62,7 @@ test_command:
   description: test
   usage: /test
   script:
-  - define points:<proc[define_curve].context[<player.location>|<player.location.relative[0,0,20]>|5|45]>
+  - define points:<proc[define_curve].context[<player.location>|<player.location.relative[0,0,20]>|5|45|0.5]>
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> quantity:5 offset:0
     - wait 1t
