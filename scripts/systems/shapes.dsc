@@ -142,14 +142,14 @@ test_attack:
   - define current_point:<[player].location>
   - define points:<proc[define_curve].context[<[current_point]>|<[target].location>|3|90|0.7]>
   - repeat <[points].size>:
-    - playeffect flame at:<[points].get[<[value]>]> quantity:15 offset:0.3
+    - playeffect flame at:<[points].get[<[value]>]> quantity:15 offset:0.3 visibility:100
     - define current_point:<[points].get[<[value]>]>
     - wait 2t
   - repeat 100:
     - if !<[target].is_living>:
       - stop
     - define points:<[current_point].points_between[<[target].location>].distance[0.5]>
-    - playeffect flame at:<[points].get[1]> quantity:15 offset:0.3
+    - playeffect flame at:<[points].get[1]> quantity:15 offset:0.3 visibility:100
     - define current_point:<[points].get[1]>
     - wait 2t
     - if <[current_point].distance[<[target].location>]> < 1:
