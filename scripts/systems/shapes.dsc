@@ -94,11 +94,21 @@ test_effects_command:
   - define particle:<context.args.get[2]||smoke>
   - if <context.args.get[1]> == zigzag:
     - define points:<proc[define_zigzag].context[<player.location>|<player.location.forward[20]>|5]>
+    - define start:<player.location>
     - define end:<player.location.forward[20]>
     - define radius:5
     - define start:<[start].face[<[end]>]>
     - define current:<[start]>
     - define distance_needed:<[start].distance[<[end]>]>
+    - while true:
+      - define new_point:<[current].forward[<util.random.int[5].to[10]>]>
+      - if <[start].distance[<[new_point]>]> > <[distance_needed]>:
+        - define points:|:<[current].points_between[<[end]>].distance[0.4]>
+        - while stop
+      - else:
+        - define offset:<proc[math_stuff].context[<[radius]>|<util.random.int[0].to[360]>]>
+        - define new_point:<[new_point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+        - define points:|:<[current].points_between[<[new_point]>].distance[0.4]>
     - foreach <[points]>:
       - playeffect <[particle]> at:<[value]> quantity:5 offset:0
       - wait 1t
