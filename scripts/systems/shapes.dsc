@@ -56,7 +56,7 @@ define_spiral:
   script:
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
-  - foreach <[start].points_between[<[end]>].distance[0.4]> as:point:
+  - foreach <[start].points_between[<[end]>].distance[<[between]>]> as:point:
     - define offset:<proc[math_stuff].context[<[radius]>|<[between].mul[<[loop_index]>]>]>
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
