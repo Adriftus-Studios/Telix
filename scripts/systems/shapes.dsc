@@ -97,7 +97,7 @@ test_command:
       - playeffect smoke at:<[value]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == spiral:
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.3|0.4]>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.3|1]>
     - foreach <[points]> as:point:
       - playeffect smoke at:<[point]> quantity:5 offset:0
       - wait 1t
