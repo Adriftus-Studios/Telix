@@ -68,7 +68,7 @@ test_command:
     - wait 1t
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> quantity:5 offset:0
-    - wait 0.1t
+    - wait 0.01t
 
 math_stuff:
   type: procedure
