@@ -64,13 +64,18 @@ test_command:
   name: test
   description: test
   usage: /test
+  tab complete:
+  - foreach <list[curve|star1|star2>:
+    - if <[value].starts_with[<context.args.get[1]>]>
+      - define list:|:<[value]>
+  - determine <[list]>
   script:
   - if <context.args.get[1]> == curve:
     - repeat 360:
       - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<[value]>|1]>
       - playeffect smoke at:<[points]> quantity:5 offset:0
       - wait 1t
-  - if <context.args.get[1]> == star:
+  - if <context.args.get[1]> == star1:
     - define points:<proc[define_star].context[<player.location.forward[4]>|3|0|5]>
     - repeat <[points].size>:
       - playeffect smoke at:<[points].get[<[value]>]> quantity:5 offset:0
@@ -83,6 +88,7 @@ test_command:
       - playeffect smoke at:<[points].get[<[value].mul[5].add[3]>]> quantity:5 offset:0
       - playeffect smoke at:<[points].get[<[value].mul[5].add[4]>]> quantity:5 offset:0
       - playeffect smoke at:<[points].get[<[value].mul[5].add[5]>]> quantity:5 offset:0
+      - wait 1t
 
 math_stuff:
   type: procedure
