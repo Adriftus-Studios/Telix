@@ -68,7 +68,7 @@ test_command:
   - define a:<player.location.points_between[<player.location.relative[0,0,15]>].distance[0.2]>
   - define increment:<el@40.div[<[a].size>]>
   - repeat <[a].size>:
-    - define b:<el@2.add[<el@1.div[20].mul[<[value].mul[<[increment]>].sub[20]>].power[2].mul[-1]>]>
+    - define b:<el@2.add[<el@1.div[15].mul[<[value].mul[<[increment]>].sub[20]>].power[2].mul[-1]>]>
     - narrate b<[b]>
     - wait 1t
   
