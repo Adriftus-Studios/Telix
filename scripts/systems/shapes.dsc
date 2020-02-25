@@ -81,10 +81,7 @@ test_command:
   - if <context.args.get[1]> == circle:
     - define location:<player.location.forward[4]>
     - define radius:3
-    - define cir:<[radius].mul[<util.pi>].mul[2]>
-    - narrate <[cir]>
-    - narrate <el@360.div[<[cir].div[0.2]>]>
-    - define between:<el@360.div[<[cir].div[0.2]>]>
+    - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
     - repeat <[cir].div[0.2].round>:
       - define offset:<proc[math_stuff].context[<[radius]>|<[value].mul[<[between]>]>]>
       - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
