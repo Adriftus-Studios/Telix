@@ -129,8 +129,7 @@ test__command:
   description: test
   usage: /test
   script:
-  - define targets:<player.target.location.find.living_entities.within[10]>
-  - narrate <[targets]>
+  - define targets:<player.target.location.find.living_entities.within[10].exclude[<player>]>
   - foreach <[targets]> as:target:
     - run test_attack def:<player>|<[target]>
 
