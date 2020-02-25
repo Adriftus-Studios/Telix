@@ -54,7 +54,7 @@ define_spiral:
   type: procedure
   definitions: start|end|radius
   script:
-  - define start:<[start].face[<[end]>]>s
+  - define start:<[start].face[<[end]>]>
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
   - foreach <[start].points_between[<[end]>].distance[0.4]> as:point:
@@ -99,15 +99,6 @@ test_effects_command:
     - define start:<[start].face[<[end]>]>
     - define current:<[start]>
     - define distance_needed:<[start].distance[<[end]>]>
-    - while true:
-      - define new_point:<[current].forward[<util.random.int[5].to[10]>]>
-      - if <[start].distance[<[new_point]>]> > <[distance_needed]>:
-        - define points:|:<[current].points_between[<[end]>].distance[0.4]>
-        - while stop
-      - else:
-        - define offset:<proc[math_stuff].context[<[radius]>|<util.random.int[0].to[360]>]>
-        - define new_point:<[new_point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-        - define points:|:<[current].points_between[<[new_point]>].distance[0.4]>
     - foreach <[points]>:
       - playeffect <[particle]> at:<[value]> quantity:5 offset:0
       - wait 1t
