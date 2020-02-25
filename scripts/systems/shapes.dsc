@@ -123,7 +123,7 @@ math_stuff:
     - define adj:<[adj]>
   - determine <list[<[hyp]>|<[adj]>]>
 
-test_command:
+test__command:
   type: command
   name: test
   description: test
