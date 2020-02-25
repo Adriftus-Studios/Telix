@@ -128,7 +128,7 @@ kill_queue_command:
   - determine <[list]>
   script:
   - foreach <script[<context.args.get[1]>].list_queues>:
-    - stop <[value]>
+    - queue <[value]> stop
 
 player_reset_command:
   type: command
