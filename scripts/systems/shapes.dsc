@@ -51,7 +51,7 @@ define_star:
   script:
   - repeat <[num]>:
     - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>]>
-    - define offset:<proc[math_stuff].context[<[radius]>|<[t]>]>
+    - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
