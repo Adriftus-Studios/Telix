@@ -67,9 +67,11 @@ test_command:
   - define pos:<player.location.relative[0,0,0]>
   - define a:<player.location.points_between[<player.location.relative[0,0,15]>].distance[0.2]>
   - define increment:<el@40.div[<[a].size>]>
+  - define angle:<util.random.int[0].to[360]>
   - repeat <[a].size>:
-    - define b:<el@2.add[<el@1.div[15].mul[<[value].mul[<[increment]>].sub[20]>].power[2].mul[-1]>]>
-    - narrate b<[b]>
+    - define b:<el@2.add[<el@1.div[20].mul[<[value].mul[<[increment]>].sub[20]>].power[2].mul[-1]>]>
+    - define point:<proc[math_stuff].context[<[b]>|<[angle]>]>
+    - playeffect smoke at:<[pos].relative[<[point].get[1]>,<[point].get[2]>,<[value].mul[0.2]>]>
     - wait 1t
   
 math_stuff:
@@ -79,5 +81,3 @@ math_stuff:
   - define hyp:<[degrees].to_radians.sin.mul[<[C]>]>
   - define adj:<[C].power[2].sub[<[hyp].power[2]>].sqrt>
   - determine <list[<[hyp]>|<[adj]>]>
-
-# <[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>
