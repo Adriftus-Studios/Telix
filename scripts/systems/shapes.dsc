@@ -151,7 +151,7 @@ test_attack:
     - define points:<[current_point].points_between[<[target].location>].distance[0.5]>
     - playeffect flame at:<[points].get[1]> quantity:15 offset:0.3
     - define current_point:<[points].get[1]>
-    - wait 5t
+    - wait 2t
     - if <[current_point].distance[<[target].location>]> < 1:
       - define hit:true
       - stop
