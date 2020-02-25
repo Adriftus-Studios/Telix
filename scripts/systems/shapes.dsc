@@ -83,7 +83,6 @@ test_command:
       - playeffect smoke at:<[points].get[<[value].mul[5].add[3]>]> quantity:5 offset:0
       - playeffect smoke at:<[points].get[<[value].mul[5].add[4]>]> quantity:5 offset:0
       - playeffect smoke at:<[points].get[<[value].mul[5].add[5]>]> quantity:5 offset:0
-      - wait 1t
 
 math_stuff:
   type: procedure
