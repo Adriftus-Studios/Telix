@@ -62,12 +62,9 @@ test_command:
   description: test
   usage: /test
   script:
-  - define points:<proc[define_curve].context[<player.location>|<player.location.relative[0,0,100]>|5|45|1]>
+  - define points:<proc[define_curve].context[<player.location>|<player.location.relative[0,0,100]>|5|45|10]>
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> quantity:5 offset:0
-    - define loop_index:++
-    - define loop_index:++
-    - define loop_index:++
     - wait 1t
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> quantity:5 offset:0
