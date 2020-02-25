@@ -38,7 +38,7 @@ define_star:
   - define rotation:<[rotation].add[90]>
   - define location:<[location].with_pose[0,<[rotation]>]>
   - repeat <[num]>:
-    - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>]>
+    - define t:<el@360.div[<[num]>].add[<[rotation]>]>
     - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
     - define new_points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[new_points]>
