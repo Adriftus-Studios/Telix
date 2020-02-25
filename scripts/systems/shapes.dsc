@@ -67,7 +67,7 @@ test_command:
   - define intensity:5
   - define angle:45
   - define between: 0.5
-  - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|45|0.5]>
+  #- define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|45|0.5]>
   - define a:<[start].points_between[<[end]>].distance[<[between]>]>
   - define increment:<el@40.div[<[a].size>]>
   - narrate <[a].size>
