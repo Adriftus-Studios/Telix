@@ -58,12 +58,15 @@ equipment_boots_slot:
 reload_scripts:
     type: world
     reload:
+        - yaml create id:server.executable_scripts
         - yaml create id:server.skills_by_level
         - yaml create id:server.equipment
         - yaml create id:server.ore_rates
         - yaml create id:server.smeltery_recipes
         - yaml load:data/skill_trees.yml id:server.skill_trees
         - foreach <server.list_scripts>:
+            - if <[value].yaml_key[script]||<[value].yaml_key[events]||null>> != null:
+              - yaml id:server.executable_scripts set scripts:|:<[value].name>
             - if <[value].name.starts_with[ability_]>:
                 - if <[value].yaml_key[ability_tree]||null> == null:
                     - announce to_ops "<[value].name> is not properly defined. (<[value].filename>)"
@@ -115,6 +118,12 @@ system_override:
       - if <player.has_permission[*]>:
         - if <player.flag[parsed_chat]>:
           - determine <context.message.parsed>
+
+kill_queue_command:
+  type: command
+  name: kill_queue
+  tab complete:
+  - foreach <server.list_scripts.filter[]>
 
 player_reset_command:
   type: command
