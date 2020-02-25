@@ -71,7 +71,7 @@ test_command:
   - repeat <[a].size>:
     - define b:<el@2.add[<el@1.div[20].mul[<[value].mul[<[increment]>].sub[20]>].power[2].mul[-1]>]>
     - define point:<proc[math_stuff].context[<[b]>|<[angle]>]>
-    - playeffect smoke at:<[pos].relative[<[point].get[1]>,<[point].get[2]>,<[value].mul[0.2]>]>
+    - playeffect smoke at:<[pos].relative[<[point].get[1]>,<[point].get[2]>,<[value].mul[0.2]>]> offset:0
     - wait 1t
   
 math_stuff:
