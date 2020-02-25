@@ -50,10 +50,13 @@ define_star:
   definitions: location|radius|rotation|num
   script:
   - repeat <[num]>:
-    - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>].add[90]>
+    - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_down>]>
     - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-  - determine <[points]>
+  - repeat <[num]>:
+    - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
+      - define new_points:|:<[point]>
+  - determine <[new_points]>
 
 test_command:
   type: command
