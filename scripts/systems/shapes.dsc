@@ -135,6 +135,7 @@ test__command:
 
 test_attack:
   type: task
+  debug: true
   definitions: player|target
   script:
   - define hit:false
