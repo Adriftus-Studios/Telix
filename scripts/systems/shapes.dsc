@@ -72,10 +72,9 @@ test_effects_command:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
     - determine <list[curve|star1|star2|circle|spiral]>
   - else if <context.raw_args.split[].count[<&sp>]> == 1:
-    - determine <server.list_effects.parse[to_lowercase].filter[starts_with[<context.args.get[2]||smoke>]]>
+    - determine <server.list_particles.parse[to_lowercase].filter[starts_with[<context.args.get[2]||smoke>]]>
   script:
   - define particle:<context.args.get[2]||smoke>
-  - define particle:smoke
   - if <context.args.get[1]> == curve:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
