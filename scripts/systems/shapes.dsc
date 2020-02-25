@@ -77,7 +77,9 @@ test_command:
       - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
       - narrate <[t]>
       - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-    - playeffect smoke at:<[points]> quantity:5 offset:0
+       
+      - playeffect smoke at:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]> quantity:5 offset:0
+      - wait 10t
 
 math_stuff:
   type: procedure
