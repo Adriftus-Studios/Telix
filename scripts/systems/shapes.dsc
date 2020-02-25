@@ -87,8 +87,8 @@ test_command:
       - wait 1t
   - if <context.args.get[1]> == spiral:
     - define start:<player.location.forward[3]>
-    - define end:<player.location.forward[15]>
-    - define radius:3
+    - define end:<player.location.forward[20]>
+    - define radius:1
     - define cir:<[radius].mul[<util.pi>].mul[2]>
     - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
     - foreach <[start].points_between[<[end]>].distance[0.1]> as:point:
