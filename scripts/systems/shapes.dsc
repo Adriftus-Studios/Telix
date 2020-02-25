@@ -46,7 +46,7 @@ define_curve:
   - define a:<[start].points_between[<[end]>].distance[0.2]>
   - define increment:<el@40.div[<[a].size>]>
   - repeat <[a].size>:
-    - define b:<el@2.add[<el@1.div[20].mul[<[value].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
+    - define b:<el@1.add[<el@1.div[20].mul[<[value].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
     - define point:<proc[math_stuff].context[<[b]>|<[angle]>]>
     - define points:|:<[start].relative[<[point].get[1]>,<[point].get[2]>,<[value].mul[0.2]>]>
   - determine <[points]>
