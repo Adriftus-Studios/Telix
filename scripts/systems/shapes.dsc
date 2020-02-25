@@ -77,7 +77,7 @@ test_command:
       - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
       - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
     - repeat <[num]>:
-      - foreach <[points].get[<[num]>].points_between[<[points].get[<[num].add[1]>]||<[points].get[1]>>]> as:point:
+      - foreach <[points].get[<[num]>].points_between[<[points].get[<[num].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
         - define new_points:|:<[point]>
   - playeffect smoke at:<[new_points]> quantity:5 offset:0
 
