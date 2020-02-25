@@ -122,3 +122,19 @@ math_stuff:
   - else if <[degrees]> > 269 && <[degrees]> < 360:
     - define adj:<[adj]>
   - determine <list[<[hyp]>|<[adj]>]>
+
+test_command:
+  type: command
+  name: test
+  description: test
+  usage: /test
+  definitions: player|target
+  attack:
+  - define points:<proc[define_curve].context[<[player].location>|<[target].location>|5|<util.random.int[70].to[110]>|1]>
+  - foreach <[points]> as:point:
+    - playeffect flame at:<[point]> quantity:5 offset:0
+    - wait 1t
+  script:
+  - define targets:<player.target.location.find.living_entities.within[10]>
+  - foreach <[targets]> as:target:
+    - run locally attack def:<player>|<[target]>
