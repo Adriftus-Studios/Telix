@@ -66,30 +66,9 @@ test_command:
   script:
   - define pos:<player.location.relative[0,0,0]>
   - define a:<player.location.points_between[<player.location.relative[0,0,15]>].distance[0.2]>
-  - define amp:20
-  - define max:<[amp].add[<el@1.sub[<[a].size.div[2]>].power[2].div[<[amp].mul[4]>]>]>
-  - define value:0
-  - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>]>
-  - define t:<proc[math_stuff].context[<[f]>|45]>
-  - define first:<[f]>
-  - define value:++
-  - define count:0
   - repeat <[a].size>:
-    - define f:<[max].sub[<[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>].add[<[first]>]>
-    - define t:<proc[math_stuff].context[<[f]>|45]>
-    - playeffect smoke at:<[pos].relative[<[t].get[1]>,<[t].get[2]>,2]> offset:0
-    - wait 1t
-    - narrate <[t].get[1]>,<[t].get[2]>
-    - define value:++
-    - if <[t].get[1]> > 0:
-      - define count:++
-  - narrate done
-  - narrate <[max]>
-  - narrate <[value]>
-  - narrate <[first]>
-  - narrate <[a].size>
-  - narrate <[count]>
-
+    - 
+  
 math_stuff:
   type: procedure
   definitions: C|degrees
@@ -97,3 +76,5 @@ math_stuff:
   - define hyp:<[degrees].to_radians.sin.mul[<[C]>]>
   - define adj:<[C].power[2].sub[<[hyp].power[2]>].sqrt>
   - determine <list[<[hyp]>|<[adj]>]>
+
+# <[amp].add[<[value].sub[<[a].size.div[1]>].power[2].div[<[amp].mul[4]>]>]>
