@@ -65,17 +65,15 @@ test_command:
   - define start:<player.location>
   - define end:<player.location.forward[20]>
   - define intensity:5
-  - define angle:45
+  - define angle:75
   - define between:0.5
   #- define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|45|0.5]>
   - define a:<[start].points_between[<[end]>].distance[<[between]>]>
   - define increment:<el@40.div[<[a].size>]>
-  - narrate <[a].size>
-  - stop
   - foreach <[a]> as:point:
     - define b:<el@1.add[<el@1.div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
     - define offset:<proc[math_stuff].context[<[b]>|<[angle]>]>
-    - define points:|:<[start].relative[<[offset].get[1]>,<[offset].get[2]>,<[point]>]>
+    - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> quantity:5 offset:0
     - wait 1t
