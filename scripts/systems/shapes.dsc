@@ -64,6 +64,7 @@ test_command:
   name: test
   description: test
   usage: /test
+  
   script:
   - if <context.args.get[1]> == curve:
     - repeat 360:

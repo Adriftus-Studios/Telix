@@ -5,23 +5,25 @@ view_equipment_command:
   description: view_equipment
   usage: /view_equipment
   tab complete:
-  - foreach <server.list_material_types> as:mat:
-    - if <[mat].name.starts_with[<context.args.get[1]>]>:
-      - define list:|:<[mat].name>
-  - determine <[list]>
+  - if <player.permission[*]>:
+    - foreach <server.list_material_types> as:mat:
+      - if <[mat].name.starts_with[<context.args.get[1]>]>:
+        - define list:|:<[mat].name>
+    - determine <[list]>
   script:
-  - flag <player> context:<context.args.get[1]>/<context.args.get[2]>
-  - inventory open d:view_equipment
+  - if <player.permission[*]>:
+    - flag <player> context:<context.args.get[1]>/<context.args.get[2]>
+    - inventory open d:view_equipment
 
 view_equipment:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Stuff<&r> <&6>◆
   size: 54
   procedural items:
-  - define mat:<material[<player.flag[context].split[/].get[1]>]>
+  - define mat:<material[<player.flag[context].split[/].get[1]>]||air>
   - define page:<player.flag[context].split[/].get[2]>
   - repeat 63:
-    - define list:|:<item[<[mat]>].with[custom_model_data=<[value].add[<[page].mul[53].sub[53]>]>].with[lore=<[value].add[<[page].mul[53].sub[53]>]>]>
+    - define list:|:<item[<[mat]>].with[custom_model_data=<[value].add[<[page].mul[53].sub[53]>]>].with[lore=<[value].add[<[page].mul[53].sub[53]>]>]||<item[air]>>
   - determine <[list]>
   slots:
   - "[] [] [] [] [] [] [] [] []"
