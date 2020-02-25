@@ -79,31 +79,31 @@ test_command:
     - define end:<player.location.forward[20]>
     - repeat 90:
       - define points:<proc[define_curve].context[<[start]>|<[end]>|5|<[value].mul[4]>|1]>
-      - playeffect smoke at:<[points]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[points]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == star1:
     - define points:<proc[define_star].context[<player.location.forward[4]>|3|90|5]>
     - repeat <[points].size>:
-      - playeffect smoke at:<[points].get[<[value]>]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[points].get[<[value]>]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == star2:
     - define points:<proc[define_star2].context[<player.location.forward[4]>|3|90|5]>
     - repeat <[points].size.div[5]>:
-      - playeffect smoke at:<[points].get[<[value].mul[5].add[1]>]> quantity:5 offset:0
-      - playeffect smoke at:<[points].get[<[value].mul[5].add[2]>]> quantity:5 offset:0
-      - playeffect smoke at:<[points].get[<[value].mul[5].add[3]>]> quantity:5 offset:0
-      - playeffect smoke at:<[points].get[<[value].mul[5].add[4]>]> quantity:5 offset:0
-      - playeffect smoke at:<[points].get[<[value].mul[5].add[5]>]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[points].get[<[value].mul[5].add[1]>]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[points].get[<[value].mul[5].add[2]>]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[points].get[<[value].mul[5].add[3]>]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[points].get[<[value].mul[5].add[4]>]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[points].get[<[value].mul[5].add[5]>]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == circle:
     - define points:<proc[define_circle].context[<player.location.forward[4]>|3]>
     - foreach <[points]>:
-      - playeffect smoke at:<[value]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[value]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == spiral:
     - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.5]>
     - foreach <[points]> as:point:
-      - playeffect smoke at:<[point]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[point]> quantity:5 offset:0
       - wait 1t
 
 math_stuff:
