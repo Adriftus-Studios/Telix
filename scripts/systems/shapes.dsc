@@ -79,6 +79,7 @@ test_command:
     - repeat <[num]>:
       - foreach <[points].get[<[num]>].points_between[<[points].get[<[num].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
         - define new_points:|:<[point]>
+    - narrate <[new_points].size>
   - playeffect smoke at:<[new_points]> quantity:5 offset:0
 
 math_stuff:
