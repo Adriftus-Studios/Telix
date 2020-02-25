@@ -84,8 +84,9 @@ test_command:
     - define cir:<[radius].mul[<util.pi>].mul[2]>
     - narrate <[cir]>
     - narrate <el@360.div[<[cir].div[0.2]>]>
-    - repeat 90:
-      - define offset:<proc[math_stuff].context[<[radius]>|<[value].mul[4]>]>
+    - define between:<el@360.div[<[cir].div[0.2]>]>
+    - repeat <[cir].div[0.2].round>:
+      - define offset:<proc[math_stuff].context[<[radius]>|<[between]>]>
       - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
     - foreach <[points]>:
       - playeffect smoke at:<[value]> quantity:5 offset:0
