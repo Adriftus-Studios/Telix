@@ -15,8 +15,8 @@ define_circle:
   type: procedure
   definitions: location|radius
   script:
-  - repeat 360:
-    - define offset:<proc[math_stuff].context[<[radius]>|<[value]>]>
+  - repeat 90:
+    - define offset:<proc[math_stuff].context[<[radius]>|<[value].mul[4]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
