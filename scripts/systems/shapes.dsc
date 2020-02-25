@@ -52,7 +52,7 @@ define_star:
 
 define_spiral:
   type: procedure
-  definitions: start|end|radius|between
+  definitions: start|end|radius
   script:
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
@@ -97,7 +97,7 @@ test_command:
       - playeffect smoke at:<[value]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == spiral:
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.3|0.4]>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.3]>
     - foreach <[points]> as:point:
       - playeffect smoke at:<[point]> quantity:5 offset:0
       - wait 1t
