@@ -103,6 +103,11 @@ system_override:
         - determine <[drops]>
     on player respawns:
       - inject system_equipment_set
+    on player drags in inventory:
+      - if <player.open_inventory> == <player.inventory>:
+        - foreach <context.raw_slots>:
+          - if <[value]> < 6:
+            - determine cancelled
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
         - if <context.raw_slot> < 6:
