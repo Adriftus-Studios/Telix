@@ -1,6 +1,6 @@
 ore_drop_events:
     type: world
-    debug: true
+    debug: false
     events:
         on player breaks block:
             - yaml create id:location
