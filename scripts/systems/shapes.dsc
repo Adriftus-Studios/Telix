@@ -68,8 +68,10 @@ test_command:
   description: test_effects
   usage: /test_effects
   tab complete:
+  - narrate <context.args.size>
   - determine <list[curve|star1|star2|circle|spiral]>
   script:
+  - define particle:<context.args.get[2]||smoke>
   - if <context.args.get[1]> == curve:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
