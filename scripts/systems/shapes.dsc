@@ -64,7 +64,7 @@ test_command:
   script:
   - define angle:<util.random.int[0].to[180]>
   - narrate <[angle]>
-  - repeat 180:
+  - repeat 360:
     - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<[value]>|1]>
     - playeffect smoke at:<[points]> quantity:5 offset:0
     - wait 1t
@@ -78,8 +78,15 @@ math_stuff:
   type: procedure
   definitions: C|degrees
   script:
+  - while <[degrees]> > 360:
+    - define degrees:<[degrees].sub[360]>
   - define hyp:<[degrees].to_radians.sin.mul[<[C]>]>
   - define adj:<[C].power[2].sub[<[hyp].power[2]>].sqrt>
-  - if <[degrees]> > 89:
+  - if <[degrees]> > 90 && <[degrees]> < 179:
     - define adj:<[adj].mul[-1]>
+  - if <[degrees]> > 180 && <[degrees]> < 269:
+    - define hyp:<[hyp].mul[-1]>
+  - if <[degrees]> > 270 && <[degrees]> < 360:
+    - define adj:<[adj].mul[-1]>
+    - define hyp:<[hyp].mul[-1]>
   - determine <list[<[hyp]>|<[adj]>]>
