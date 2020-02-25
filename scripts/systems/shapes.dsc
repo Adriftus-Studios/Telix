@@ -88,11 +88,16 @@ test_effects_command:
   usage: /test_effects
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
-    - determine <list[curve|star1|star2|circle|spiral]>
+    - determine <list[curve|star1|star2|circle|spiral|zigzag]>
   - else if <context.raw_args.split[].count[<&sp>]> == 1:
     - determine <server.list_particles.parse[to_lowercase].filter[starts_with[<context.args.get[2]||smoke>]]>
   script:
   - define particle:<context.args.get[2]||smoke>
+  - if <context.args.get[1]> == zigzag:
+    - define points:<proc[define_zigzag].context[<player.location>|<player.location.forward[20]>|5]>
+    - foreach <[points]>:
+      - playeffect <[particle]> at:<[value]> quantity:5 offset:0
+      - wait 1t
   - if <context.args.get[1]> == curve:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
