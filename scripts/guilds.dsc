@@ -114,6 +114,10 @@ guild_events:
       - define guild_description:<context.pages.get[1]>
       - inject create_guild
 
+new_guild_book:
+  type: item
+  material: writable_book
+
 place_guild_flag:
   type: task
   script:
@@ -137,6 +141,19 @@ guild_flag:
   type: item
   material: white_banner
   display name: <&7>Guild Flag
+
+guild_command:
+  type: command
+  name: guild
+  description: guild
+  usage: /guild
+  aliases:
+  - "g"
+  script:
+    - if <yaml[player.<player.uuid>].read[guild]||null> != null:
+      - inventory open d:my_guild_gui
+    - else:
+      - inventory open d:new_guild_gui
 
 guilds_leave_btn:
   type: item
@@ -171,10 +188,6 @@ guilds_settings_btn:
   material: snow
   guild_permission: change_settings
   display name: <&9>Change Settings
-
-new_guild_book:
-  type: item
-  material: writable_book
 
 new_guild_btn:
   type: item
@@ -268,16 +281,3 @@ guild_gui_events:
     
     - foreach <yaml[guild.<[guild]>].read[members]> as:player:
       - narrate "<&6><yaml[guild.<[guild]>].read[flags.<[flag]>.name]> at <[loc].simple.formatted.split[ in world].get[1]> was destroyed!"
-
-guild_command:
-  type: command
-  name: guild
-  description: guild
-  usage: /guild
-  aliases:
-  - "g"
-  script:
-    - if <yaml[player.<player.uuid>].read[guild]||null> != null:
-      - inventory open d:my_guild_gui
-    - else:
-      - inventory open d:new_guild_gui
