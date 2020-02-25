@@ -69,9 +69,7 @@ test_command:
       - wait 1t
   - if <context.args.get[1]> == star:
     - define points:<proc[define_star].context[<player.location.forward[5]>|3|0|5]>
-    - repeat 1:
-      - playeffect smoke at:<[points]> quantity:5 offset:0
-      - wait 5t
+    - playeffect smoke at:<[points]> quantity:5 offset:0
 
 math_stuff:
   type: procedure
