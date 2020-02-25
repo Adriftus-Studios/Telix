@@ -110,6 +110,7 @@ test_effects_command:
         - define offset:<proc[math_stuff].context[<[radius]>|<util.random.int[0].to[360]>]>
         - define new_point:<[new_point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
         - define points:|:<[current].points_between[<[new_point]>].distance[0.4]>
+      - define current:<[new_point]>
     - foreach <[points]>:
       - playeffect <[particle]> at:<[value]> quantity:5 offset:0
       - wait 1t
