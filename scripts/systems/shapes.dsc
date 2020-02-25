@@ -89,11 +89,11 @@ test_command:
     - define start:<player.location.forward[3]>
     - define end:<player.location.forward[15]>
     - define radius:3
-    - define angle:0
+    - define cir:<[radius].mul[<util.pi>].mul[2]>
+    - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
     - foreach <[start].points_between[<[end]>].distance[0.1]> as:point:
-      - define offset:<proc[math_stuff].context[<[radius]>|<[angle]>]>
+      - define offset:<proc[math_stuff].context[<[radius]>|<[between].mul[<[loop_index]>]>]>
       - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-      - define angle:<[angle].add[10]>
     - foreach <[points]> as:point:
       - playeffect smoke at:<[point]> quantity:5 offset:0
       - wait 1t
