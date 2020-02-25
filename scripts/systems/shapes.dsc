@@ -143,7 +143,9 @@ test_attack:
     - define new_point:<[current].forward[<util.random.int[3].to[8]>]>
     - define offset:<proc[math_stuff].context[<util.random.int[0].to[3]>|<util.random.int[0].to[360]>]>
     - define new_point:<[new_point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-    - playeffect flash at:<[current].points_between[<[new_point]>].distance[0.4]> quantity:1 offset:0 visibility:100
+    - foreach <[current].points_between[<[new_point]>].distance[0.4]> as:point:
+      - playeffect flame at:<[point]> quantity:1 offset:0 visibility:100
+      - wait 1t
     - define current:<[new_point]>
     
 test_attack1:
