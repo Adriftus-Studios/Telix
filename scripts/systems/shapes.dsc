@@ -70,10 +70,11 @@ test_command:
   - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|45|0.5]>
   - define a:<[start].points_between[<[end]>].distance[<[between]>]>
   - define increment:<el@40.div[<[a].size>]>
+  - narrate <[a].size>
+  - stop
   - foreach <[a]> as:point:
     - define b:<el@1.add[<el@1.div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
     - define offset:<proc[math_stuff].context[<[b]>|<[angle]>]>
-    - narrate <[offset]>
     - define points:|:<[start].relative[<[offset].get[1]>,<[offset].get[2]>,<[point]>]>
   - foreach <[points]> as:point:
     - playeffect smoke at:<[point]> quantity:5 offset:0
