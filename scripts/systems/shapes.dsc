@@ -77,13 +77,11 @@ test_command:
       - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
       - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
     - repeat <[num]>:
-      - narrate <[value]>:<[value].add[1]||1>
       - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
         - define new_points:|:<[point]>
-    - narrate <[new_points].size>
-  - repeat 5:
+  - repeat <[new_points].size>:
     - playeffect smoke at:<[new_points]> quantity:5 offset:0
-    - wait 10t
+    - wait 1t
 
 math_stuff:
   type: procedure
