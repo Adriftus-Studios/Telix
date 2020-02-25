@@ -145,7 +145,6 @@ test_attack:
     - define new_point:<[new_point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
     - playeffect flash at:<[current].points_between[<[new_point]>].distance[0.4]> quantity:1 offset:0 visibility:100
     - define current:<[new_point]>
-    - wait 5t
     
 test_attack1:
   type: task
