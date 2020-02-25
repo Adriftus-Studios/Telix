@@ -35,14 +35,17 @@ define_star:
   type: procedure
   definitions: location|radius|rotation|num
   script:
-  - define rotation:<[rotation].add[90]>
   - define location:<[location].with_pose[0,<[rotation]>]>
   - repeat <[num]>:
-    - define t:<el@360.div[<[num]>].add[<[rotation]>]>
-    - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
-    - define new_points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+    - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>]>
+    - define points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
+    - define new_points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
+    - define location:<[location].with_yaw[<[location].yaw.add[<[t]>]>]>
+  - repeat <[num]>:
+    - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
+      - define new_points:|:<[point]>
   - determine <[new_points]>
-
+  
 test_command:
   type: command
   debug: true
