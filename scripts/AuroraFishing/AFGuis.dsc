@@ -57,3 +57,21 @@ afgui_rod_shop:
   - "[gui_bottom] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [closeitem] [] [] [] []"
 
+
+afgui_gutting_station:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Gutting Station<&r> <&6>◆
+  size: 45
+  definitions:
+    gui_top: <item[fish_main_top]>
+    gui_bottom: <item[fish_main_bottom]>
+    closeitem: <item[gui_close_btn]>
+    station_info: <item[af_gutting_station_info]>
+    rod_basic: <item[af_rod_basic]>
+  slots:
+  - "[] [] [] [] [station_info] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[gui_top] [] [] [] [] [] [] [] []"
+  - "[gui_bottom] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [closeitem] [] [] [] []"
+
