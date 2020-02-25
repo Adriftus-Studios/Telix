@@ -69,14 +69,18 @@ define_zigzag:
   - define start:<[start].face[<[end]>]>
   - define current:<[start]>
   - define distance_needed:<[start].distance[<[end]>]>
-  - while <[start].distance[<[current]>]> < <[distance_needed]>:
+  - while true:
     - define new_point:<[current].forward[<util.random.int[5].to[10]>]>
+    - narrate a<[start].distance[<[new_point]>]>
+    - narrate b<[start].distance[<[end]>]>
     - if <[start].distance[<[new_point]>]> > <[distance_needed]>:
       - define points:|:<[current].points_between[<[end]>].distance[0.4]>
+      - while stop
     - else:
       - define offset:<proc[math_stuff].context[<[radius]>|<util.random.int[0].to[360]>]>
       - define new_point:<[new_point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
       - define points:|:<[current].points_between[<[new_point]>].distance[0.4]>
+    - define current:<[new_point]>
   - determine <[points]>
 
 test_effects_command:
@@ -93,24 +97,7 @@ test_effects_command:
   script:
   - define particle:<context.args.get[2]||smoke>
   - if <context.args.get[1]> == zigzag:
-    - define start:<player.location>
-    - define end:<player.location.forward[20]>
-    - define radius:5
-    - define start:<[start].face[<[end]>]>
-    - define current:<[start]>
-    - define distance_needed:<[start].distance[<[end]>]>
-    - while true:
-      - define new_point:<[current].forward[<util.random.int[5].to[10]>]>
-      - narrate a<[start].distance[<[new_point]>]>
-      - narrate b<[start].distance[<[end]>]>
-      - if <[start].distance[<[new_point]>]> > <[distance_needed]>:
-        - define points:|:<[current].points_between[<[end]>].distance[0.4]>
-        - while stop
-      - else:
-        - define offset:<proc[math_stuff].context[<[radius]>|<util.random.int[0].to[360]>]>
-        - define new_point:<[new_point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-        - define points:|:<[current].points_between[<[new_point]>].distance[0.4]>
-      - define current:<[new_point]>
+    - define points:<proc[define_zigzag].context[<player.location>|<player.location.forward[20]>|2]>
     - foreach <[points]>:
       - playeffect <[particle]> at:<[value]> quantity:5 offset:0
       - wait 1t
