@@ -129,11 +129,25 @@ test__command:
   description: test
   usage: /test
   script:
-  - define targets:<player.target.location.find.living_entities.within[10].exclude[<player>]>
   - foreach <[targets]> as:target:
-    - run test_attack def:<player>|<[target]>
+    - run test_attack def:<player>|<player.cursor_on[50]>
 
 test_attack:
+  type: task
+  debug: true
+  definitions: player|target
+  script:
+  - define start:<[player].location>
+  - define current:<[player].location>
+  - repeat 100:
+    - define new_point:<[current].forward[<util.random.int[3].to[8]>]>
+    - define offset:<proc[math_stuff].context[<util.random.int[0].to[3]>|<util.random.int[0].to[360]>]>
+    - define new_point:<[new_point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+    - playeffect flash at:<[current].points_between[<[new_point]>].distance[0.4]> quantity:1 offset:0 visibility:100
+    - define current:<[new_point]>
+    - wait 5t
+    
+test_attack1:
   type: task
   debug: true
   definitions: player|target
