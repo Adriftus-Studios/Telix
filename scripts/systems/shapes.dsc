@@ -66,7 +66,7 @@ test_command:
   usage: /test
   tab complete:
   - foreach <list[curve|star1|star2>:
-    - if <[value].starts_with[<context.args.get[1]>]>
+    - if <[value].starts_with[<context.args.get[1]>]> || <context.args.get[1]||null> == null:
       - define list:|:<[value]>
   - determine <[list]>
   script:
