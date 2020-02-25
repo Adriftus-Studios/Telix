@@ -101,6 +101,8 @@ test_effects_command:
     - define distance_needed:<[start].distance[<[end]>]>
     - while true:
       - define new_point:<[current].forward[<util.random.int[5].to[10]>]>
+      - narrate a<[start].distance[<[new_point]>]>
+      - narrate b<[start].distance[<[end]>]>
       - if <[start].distance[<[new_point]>]> > <[distance_needed]>:
         - define points:|:<[current].points_between[<[end]>].distance[0.4]>
         - while stop
