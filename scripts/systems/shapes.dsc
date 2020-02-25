@@ -58,8 +58,10 @@ test_command:
   - determine <list[curve|star1|star2|circle]>
   script:
   - if <context.args.get[1]> == curve:
+    - define start:<player.location>
+    - define end:<player.location.forward[20]>
     - repeat 90:
-      - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<[value].mul[4]>|1]>
+      - define points:<proc[define_curve].context[<[start]>|<[end]>|5|<[value].mul[4]>|1]>
       - playeffect smoke at:<[points]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == star1:
