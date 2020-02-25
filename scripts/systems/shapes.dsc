@@ -35,14 +35,14 @@ define_star2:
   definitions: location|radius|rotation|num
   script:
   - repeat <[num]>:
-    - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>]>
+    - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_down>]>
     - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-    - define new_points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-    - define location:<[location].with_yaw[<[location].yaw.add[<[t]>]>]>
-  - repeat <[num]>:
-    - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
-      - define new_points:|:<[point]>
+  - define distance:<[points].get[1].points_between[<[points].get[2]>].distance[0.2].size>
+  - repeat <[distance]>:
+    - define x:<[value]>
+    - repeat <[num]>:
+      - define new_points:|:<[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2].get[<[x]>]>
   - determine <[new_points]>
 
 define_star:
@@ -71,20 +71,15 @@ test_command:
       - playeffect smoke at:<[points]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == star:
-    - define location:<player.location.forward[5]>
-    - define radius:3
-    - define rotation:0
-    - define num:5
-    - repeat <[num]>:
-      - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_down>]>
-      - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
-      - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-    - repeat <[num]>:
-      - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
-        - define new_points:|:<[point]>
-  - repeat <[new_points].size>:
-    - playeffect smoke at:<[new_points].get[<[value]>]> quantity:5 offset:0
-    - wait 1t
+    - define points:<proc[define_star].context[<player.location.forward[4]>|3|0|5]>
+    - repeat <[points].size>:
+      - playeffect smoke at:<[points].get[<[value]>]> quantity:5 offset:0
+      - wait 1t
+  - if <context.args.get[1]> == star2:
+    - define points:<proc[define_star2].context[<player.location.forward[4]>|3|0|5]>
+    - repeat <[points].size>:
+      - playeffect smoke at:<[points].get[<[value]>]> quantity:5 offset:0
+      - wait 1t
 
 math_stuff:
   type: procedure
