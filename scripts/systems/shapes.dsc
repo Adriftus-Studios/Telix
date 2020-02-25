@@ -45,10 +45,10 @@ define_curve:
   script:
   - define a:<[start].points_between[<[end]>].distance[<[between]>]>
   - define increment:<el@40.div[<[a].size>]>
-  - repeat <[a].size>:
-    - define b:<el@1.add[<el@1.div[20].mul[<[value].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
+  - foreach <[a]> as:point:
+    - define b:<el@1.add[<el@1.div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
     - define point:<proc[math_stuff].context[<[b]>|<[angle]>]>
-    - define points:|:<[start].relative[<[point].get[1]>,<[point].get[2]>,<[value].mul[0.2]>]>
+    - define points:|:<[start].relative[<[point].get[1]>,<[point].get[2]>,<[loop_index].mul[0.2]>]>
   - determine <[points]>
 shape_events:
   type: world
