@@ -73,7 +73,7 @@ test_command:
     - define rotation:0
     - define num:5
     - repeat <[num]>:
-      - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>].add[90]>
+      - define t:<el@360.div[<[num]>]>
       - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
       - narrate <[t]>
       - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
