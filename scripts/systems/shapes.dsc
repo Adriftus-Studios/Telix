@@ -62,7 +62,7 @@ define_spiral:
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
-test_command:
+test_effects_command:
   type: command
   debug: false
   name: test_effects
