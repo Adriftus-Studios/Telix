@@ -22,6 +22,17 @@ define_circle:
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
+define_spiral:
+  type: procedure
+  definitions: start|end|radius
+  script:
+  - define cir:<[radius].mul[<util.pi>].mul[2]>
+  - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
+  - foreach <[start].points_between[<[end]>].distance[0.1]> as:point:
+    - define offset:<proc[math_stuff].context[<[radius]>|<[between].mul[<[loop_index]>]>]>
+    - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+  - determine <[points]>
+
 define_star2:
   type: procedure
   definitions: location|radius|rotation|num
@@ -86,14 +97,7 @@ test_command:
       - playeffect smoke at:<[value]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == spiral:
-    - define start:<player.location.forward[3]>
-    - define end:<player.location.forward[20]>
-    - define radius:1
-    - define cir:<[radius].mul[<util.pi>].mul[2]>
-    - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
-    - foreach <[start].points_between[<[end]>].distance[0.1]> as:point:
-      - define offset:<proc[math_stuff].context[<[radius]>|<[between].mul[<[loop_index]>]>]>
-      - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|1]>
     - foreach <[points]> as:point:
       - playeffect smoke at:<[point]> quantity:5 offset:0
       - wait 1t
