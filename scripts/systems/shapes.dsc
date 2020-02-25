@@ -137,7 +137,12 @@ test_attack:
   type: task
   definitions: player|target
   script:
-  - define points:<proc[define_curve].context[<[player].location>|<[target].location>|5|<util.random.int[70].to[110]>|0.7]>
-  - foreach <[points]> as:point:
-    - playeffect flame at:<[point]> quantity:15 offset:0.3
+  - define hit:false
+  - define current_point:<[player].location>
+  - while !<[hit]>
+    - define points:<proc[define_curve].context[<[current_point]>|<[target].location>|5|<util.random.int[70].to[110]>|0.7]>
+    - playeffect flame at:<[points].get[2]> quantity:15 offset:0.3
+    - define current_point:<[points].get[2]>
     - wait 1t
+    - if <[current_point].distance[<[target].location>]> < 1:
+      - define hit:true
