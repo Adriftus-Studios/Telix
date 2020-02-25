@@ -93,7 +93,6 @@ test_effects_command:
   script:
   - define particle:<context.args.get[2]||smoke>
   - if <context.args.get[1]> == zigzag:
-    - define points:<proc[define_zigzag].context[<player.location>|<player.location.forward[20]>|5]>
     - define start:<player.location>
     - define end:<player.location.forward[20]>
     - define radius:5
