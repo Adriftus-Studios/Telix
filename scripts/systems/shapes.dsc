@@ -62,6 +62,24 @@ define_spiral:
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
+define_zigzag:
+  type: procedure
+  definitions: start|end|radius
+  script:
+  - define start:<[start].face[<[end]>]>
+  - define current:<[start]>
+  - define distance_needed:<[start].distance[<[end]>]>
+  - define distance:0
+  - while <[start].distance[<[current]>]> < <[distance_needed]>:
+    - define new_point:<[current].forward[<util.random.int[5].to[10]>]>
+    - if <[start].distance[<[new_point]>]> > <[distance_needed]>:
+      - define points:|:<[current].points_between[<[end]>].distance[0.4]>
+    - else:
+      - define offset:<proc[math_stuff].context[<[radius]>|<util.random.int[0].to[360]>]>
+      - define new_point:<[new_point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+      - define points:|:<[current].points_between[<[new_point]>].distance[0.4]>
+  - determine <[points]>
+
 test_effects_command:
   type: command
   debug: false
