@@ -129,6 +129,14 @@ af_rod_shop_info:
   lore:
   - "<&b>Left Click - Purchase fishing rod"
 
+af_gutting_station_info:
+  type: item
+  material: minecart
+  display name: <&a>Gutting Station Info
+  lore:
+  - "<&b>Gut and prepare your catch for market"
+  - "<&b>You can only sell prepared fish on the market"
+
 
 ### Fish being Caught ###
 
