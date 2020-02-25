@@ -18,12 +18,6 @@ define_block_circle:
       - define points:|:<[point]>
   - determine <[points]>
   
-relative_point:
-  type: procedure
-  definitions: location|distance|pitch|yaw
-  script:
-  - determine <[location].with_pose[<[pitch]||0>,<[yaw]||0>].relative[0,0,<[distance]>]>
-
 define_star:
   type: procedure
   definitions: location|radius|rotation|num
@@ -31,30 +25,22 @@ define_star:
   - define location:<[location].with_pose[0,<[rotation]>]>
   - repeat <[num]>:
     - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>]>
-    - define points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
-    - define new_points:|:<[location].with_yaw[<[t].mul[<[value]>]>].relative[0,0,<[radius]>]>
-    - define location:<[location].with_yaw[<[location].yaw.add[<[t]>]>]>
-  - repeat <[num]>:
-    - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
-      - define new_points:|:<[point]>
+    - define offset:<proc[math_stuff].context[<[radius]>|<[t]>]>
+    - define new_points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[new_points]>
 
 define_curve:
   type: procedure
   definitions: start|end|intensity|angle|between
   script:
-  - define a:<[start].points_between[<[end]>].distance[<[between]>]>
+  - define a:<[start].face[<[end]>].points_between[<[end]>].distance[<[between]>]>
   - define increment:<el@40.div[<[a].size>]>
   - foreach <[a]> as:point:
     - define b:<el@1.add[<el@1.div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
     - define offset:<proc[math_stuff].context[<[b]>|<[angle]>]>
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
-shape_events:
-  type: world
-  debug: false
-  events:
-
+  
 test_command:
   type: command
   debug: true
@@ -62,17 +48,16 @@ test_command:
   description: test
   usage: /test
   script:
-  - define angle:<util.random.int[0].to[180]>
-  - narrate <[angle]>
-  - repeat 360:
-    - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<[value]>|1]>
-    - playeffect smoke at:<[points]> quantity:5 offset:0
-    - wait 1t
-  - stop
-  - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<[angle]>|1]>
-  - foreach <[points]> as:point:
-    - playeffect smoke at:<[point]> quantity:5 offset:0 distance:100
-    - wait 1t
+  - if <context.args.get[1]> == curve:
+    - repeat 360:
+      - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<[value]>|1]>
+      - playeffect smoke at:<[points]> quantity:5 offset:0
+      - wait 1t
+  - if <context.args.get[1]> == star:
+    - repeat 5:
+      - define points:<proc[define_star].context[<player.location.forward[5]>|3|0|5]>
+      - playeffect smoke at:<[points]> quantity:5 offset:0
+      - wait 5t
 
 math_stuff:
   type: procedure
