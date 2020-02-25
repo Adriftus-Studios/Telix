@@ -86,6 +86,6 @@ math_stuff:
     - define adj:<[adj].mul[-1]>
   - else if <[degrees]> > 180 && <[degrees]> < 269:
     - define adj:<[adj].mul[-1]>
-  - else if <[degrees]> > 270 && <[degrees]> < 360:
     - define hyp:<[hyp].mul[-1]>
+  - else if <[degrees]> > 270 && <[degrees]> < 360:
   - determine <list[<[hyp]>|<[adj]>]>
