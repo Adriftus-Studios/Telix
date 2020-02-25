@@ -128,13 +128,16 @@ test__command:
   name: test
   description: test
   usage: /test
+  script:
+  - define targets:<player.target.location.find.living_entities.within[10]>
+  - foreach <[targets]> as:target:
+    - run test_attack def:<player>|<[target]>
+
+test_attack:
+  type: task
   definitions: player|target
-  attack:
+  script:
   - define points:<proc[define_curve].context[<[player].location>|<[target].location>|5|<util.random.int[70].to[110]>|1]>
   - foreach <[points]> as:point:
     - playeffect flame at:<[point]> quantity:5 offset:0
     - wait 1t
-  script:
-  - define targets:<player.target.location.find.living_entities.within[10]>
-  - foreach <[targets]> as:target:
-    - run locally attack def:<player>|<[target]>
