@@ -63,7 +63,7 @@ define_spiral:
 
 test_command:
   type: command
-  debug: true
+  debug: false
   name: test_effects
   description: test_effects
   usage: /test_effects
