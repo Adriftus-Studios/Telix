@@ -97,19 +97,19 @@ test_effects_command:
   - if <context.args.get[1]> == zigzag:
     - define points:<proc[define_zigzag].context[<player.location>|<player.location.forward[20]>|2]>
     - foreach <[points]>:
-      - playeffect <[particle]> at:<[value]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[value]> quantity:5 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == curve:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
     - repeat 90:
       - define points:<proc[define_curve].context[<[start]>|<[end]>|5|<[value].mul[4]>|1]>
-      - playeffect <[particle]> at:<[points]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[points]> quantity:5 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == star1:
     - define points:<proc[define_star].context[<player.location.forward[4]>|3|90|5]>
     - repeat <[points].size>:
-      - playeffect <[particle]> at:<[points].get[<[value]>]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[points].get[<[value]>]> quantity:5 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == star2:
     - define num:5
@@ -117,17 +117,17 @@ test_effects_command:
     - define points:<proc[define_star2].context[<player.location.forward[4]>|3|90|<[num]>]>
     - repeat <[points].size.div[<[num]>]>:
       - repeat <[num]>:
-        - playeffect <[particle]> at:<[points].get[<[value].mul[<[num]>].add[<[value]>]>]> quantity:5 offset:0
+        - playeffect <[particle]> at:<[points].get[<[value].mul[<[num]>].add[<[value]>]>]> quantity:5 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == circle:
     - define points:<proc[define_circle].context[<player.location.forward[4]>|3]>
     - foreach <[points]>:
-      - playeffect <[particle]> at:<[value]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[value]> quantity:5 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == spiral:
     - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.5]>
     - foreach <[points]> as:point:
-      - playeffect <[particle]> at:<[point]> quantity:5 offset:0
+      - playeffect <[particle]> at:<[point]> quantity:5 offset:0 visibility:100
       - wait 1t
 
 math_stuff:
