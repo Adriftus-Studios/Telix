@@ -80,7 +80,7 @@ test_command:
       - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
         - define new_points:|:<[point]>
   - repeat <[new_points].size>:
-    - playeffect smoke at:<[new_points]> quantity:5 offset:0
+    - playeffect smoke at:<[new_points].get[<[value]>]> quantity:5 offset:0
     - wait 1t
 
 math_stuff:
