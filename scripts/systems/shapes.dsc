@@ -77,8 +77,8 @@ test_command:
       - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
       - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
     - repeat <[num]>:
+      - narrate <[num]>:<[num].add[1]||1>
       - foreach <[points].get[<[num]>].points_between[<[points].get[<[num].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
-        - narrate <[num]>:<[num].add[1]||1>
         - define new_points:|:<[point]>
     - narrate <[new_points].size>
   - repeat 5:
