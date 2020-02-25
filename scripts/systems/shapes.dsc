@@ -139,5 +139,5 @@ test_attack:
   script:
   - define points:<proc[define_curve].context[<[player].location>|<[target].location>|5|<util.random.int[70].to[110]>|0.7]>
   - foreach <[points]> as:point:
-    - playeffect flame at:<[point]> quantity:5 offset:0
+    - playeffect flame at:<[point]> quantity:15 offset:1
     - wait 1t
