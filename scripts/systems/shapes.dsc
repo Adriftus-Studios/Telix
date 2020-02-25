@@ -130,6 +130,7 @@ test__command:
   usage: /test
   script:
   - define targets:<player.target.location.find.living_entities.within[10]>
+  - narrate <[targets]>
   - foreach <[targets]> as:target:
     - run test_attack def:<player>|<[target]>
 
