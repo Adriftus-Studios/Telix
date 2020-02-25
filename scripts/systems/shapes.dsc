@@ -47,8 +47,8 @@ define_curve:
   - define increment:<el@40.div[<[a].size>]>
   - foreach <[a]> as:point:
     - define b:<el@1.add[<el@1.div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
-    - define point:<proc[math_stuff].context[<[b]>|<[angle]>]>
-    - define points:|:<[start].relative[<[point].get[1]>,<[point].get[2]>,<[loop_index].mul[0.2]>]>
+    - define offset:<proc[math_stuff].context[<[b]>|<[angle]>]>
+    - define points:|:<[start].relative[<[offset].get[1]>,<[offset].get[2]>,<[point]>]>
   - determine <[points]>
 shape_events:
   type: world
