@@ -139,7 +139,7 @@ test_attack:
   script:
   - define hit:false
   - define current_point:<[player].location>
-  - while !<[hit]>
+  - while !<[hit]>:
     - define points:<proc[define_curve].context[<[current_point]>|<[target].location>|5|<util.random.int[70].to[110]>|0.7]>
     - playeffect flame at:<[points].get[2]> quantity:15 offset:0.3
     - define current_point:<[points].get[2]>
