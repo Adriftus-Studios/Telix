@@ -69,7 +69,8 @@ test_command:
   - define increment:<el@40.div[<[a].size>]>
   - repeat <[a].size>:
     - define b:<el@2.add[<el@1.div[20].mul[<[value].mul[<[increment]>]>].power[2].mul[-1]>]>
-    - narrate <[b]>
+    - narrate a<[value].mul[<[increment]>]>
+    - narrate b<[b]>
     - wait 1t
   
 math_stuff:
