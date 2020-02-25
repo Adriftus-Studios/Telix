@@ -11,14 +11,13 @@ define_curve:
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
   
-  define_circle:
+define_circle:
   type: procedure
   definitions: location|radius
   script:
   - repeat 360:
-    - define point:<[location].with_pose[0,<[value]>].relative[0,0,<[radius]>]>
-    - if !<[points].contains[<[point]>]>:
-      - define points:|:<[point]>
+    - define offset:<proc[math_stuff].context[<[radius]>|<[value]>]>
+    - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
 define_block_circle:
@@ -50,8 +49,9 @@ define_star:
   type: procedure
   definitions: location|radius|rotation|num
   script:
-  - repeat 360:
-    - define offset:<proc[math_stuff].context[<[radius]>|<[value]>]>
+  - repeat <[num]>:
+    - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>]>
+    - define offset:<proc[math_stuff].context[<[radius]>|<[t]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
