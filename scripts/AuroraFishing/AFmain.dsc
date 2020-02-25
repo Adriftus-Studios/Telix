@@ -28,6 +28,8 @@ fishing_inventory_listener:
       - inventory open d:<inventory[afgui_bait_shop]>
     on player clicks af_rod_shop_button in afgui_*:
       - inventory open d:<inventory[afgui_rod_shop]>
+    on player clicks af_gutting_station_button in afgui_*:
+      - inventory open d:<inventory[afgui_gutting_station]>
     on player clicks gui_close_btn in afgui_*:
       - inventory close
     
@@ -46,6 +48,8 @@ fishing_inventory_listener:
       - if <context.clicked_inventory.script_name> == "afgui_rod_shop":
         - give <context.item>
         - narrate "<&6>You have just purchased a <&a><context.item.display><&6>."
+    
+    # Gutting Station Listen
 
 ### Debug Message - Disable after testing
 #    on player fishes:
@@ -102,7 +106,6 @@ fishing_inventory_listener:
       - define weight_lbhigh <util.random.int[100].to[500]>
       - define weight_lbhighest <util.random.int[550].to[1000]>
       - define weight_oz <util.random.int[0].to[15]>
-  # It's only reading from the 80 list. Will have to look into why it's not looking for the right one.
       - foreach <yaml[fish_info].list_keys[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>].numerical||<yaml[fish_info].list_keys[general.fallback].numerical>>:
         - if <[number]> <= <[value]>:
           - define caught_fish <yaml[fish_info].read[general.<player.item_in_hand.nbt[baited].as_script.yaml_key[yaml_name]>.<context.hook.location.biome.name>.<[value]>].random.as_item||yaml<[fish_info].read[general.fallback.<[value]>].random.as_item>>
@@ -133,4 +136,3 @@ fishing_inventory_listener:
         - playsound <player> sound:entity_generic_explode volume:1.0 pitch:1.5
         - playsound <player> sound:block_anvil_hit volume:0.3 pitch:2.0
         - narrate "<&6>You have recieved a shiny new <&a>Fish Token<&6>!"
-# Need a system for determining fish caught with each bait. Will probably be a YAML key deeper with bait type, following [baited] key item.
