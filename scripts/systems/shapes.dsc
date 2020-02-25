@@ -13,7 +13,7 @@ define_curve:
   
 define_circle:
   type: procedure
-  definitions: location|radius
+  definitions: location|radius|between
   script:
   - repeat 90:
     - define offset:<proc[math_stuff].context[<[radius]>|<[value].mul[4]>]>
@@ -79,7 +79,13 @@ test_command:
       - playeffect smoke at:<[points].get[<[value].mul[5].add[5]>]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == circle:
-    - define points:<proc[define_circle].context[<player.location.forward[4]>|2]>
+    - define location:<player.location.forward[4]>
+    - define radius:3
+    - define cir:<[radius].mul[<util.pi>].mul[2]>
+    - narrate <[cir]>
+    - repeat 90:
+      - define offset:<proc[math_stuff].context[<[radius]>|<[value].mul[4]>]>
+      - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
     - foreach <[points]>:
       - playeffect smoke at:<[value]> quantity:5 offset:0
       - wait 1t
