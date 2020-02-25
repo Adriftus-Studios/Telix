@@ -49,6 +49,7 @@ define_star:
   type: procedure
   definitions: location|radius|rotation|num
   script:
+  - define rotation:<[rotation].add[90]>
   - repeat <[num]>:
     - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_up>].add[<[rotation]>]>
     - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
