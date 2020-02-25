@@ -22,17 +22,6 @@ define_circle:
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
-define_spiral:
-  type: procedure
-  definitions: start|end|radius
-  script:
-  - define cir:<[radius].mul[<util.pi>].mul[2]>
-  - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
-  - foreach <[start].points_between[<[end]>].distance[0.1]> as:point:
-    - define offset:<proc[math_stuff].context[<[radius]>|<[between].mul[<[loop_index]>]>]>
-    - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-  - determine <[points]>
-
 define_star2:
   type: procedure
   definitions: location|radius|rotation|num
@@ -60,6 +49,17 @@ define_star:
     - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
       - define new_points:|:<[point]>
   - determine <[new_points]>
+
+define_spiral:
+  type: procedure
+  definitions: start|end|radius|between
+  script:
+  - define cir:<[radius].mul[<util.pi>].mul[2]>
+  - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
+  - foreach <[start].points_between[<[end]>].distance[<[between]>]> as:point:
+    - define offset:<proc[math_stuff].context[<[radius]>|<[between].mul[<[loop_index]>]>]>
+    - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+  - determine <[points]>
 
 test_command:
   type: command
