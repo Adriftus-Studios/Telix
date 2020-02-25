@@ -55,6 +55,23 @@ define_star:
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
+test_command:
+  type: command
+  debug: true
+  name: test
+  description: test
+  usage: /test
+  script:
+  - if <context.args.get[1]> == curve:
+    - repeat 360:
+      - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<[value]>|1]>
+      - playeffect smoke at:<[points]> quantity:5 offset:0
+      - wait 1t
+  - if <context.args.get[1]> == star:
+    - define points:<proc[define_star].context[<player.location.forward[5]>|3|0|5]>
+    - repeat 5:
+      - playeffect smoke at:<[points]> quantity:5 offset:0
+      - wait 5t
 
 math_stuff:
   type: procedure
