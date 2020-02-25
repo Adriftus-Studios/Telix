@@ -75,7 +75,7 @@ test_command:
     - determine <server.list_effects.parse[to_lowercase].filter[starts_with[<context.args.get[2]||smoke>]]>
   script:
   - define particle:<context.args.get[2]||smoke>
-#  - define particle:smoke
+  - define particle:smoke
   - if <context.args.get[1]> == curve:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
