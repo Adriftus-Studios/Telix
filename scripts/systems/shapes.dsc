@@ -82,7 +82,7 @@ test_command:
     - define location:<player.location.forward[4]>
     - define radius:3
     - define cir:<[radius].mul[<util.pi>].mul[2]>
-    - narrate <[cir]>
+    - narrate <[cir].div[0.2]>
     - repeat 90:
       - define offset:<proc[math_stuff].context[<[radius]>|<[value].mul[4]>]>
       - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
