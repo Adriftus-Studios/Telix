@@ -20,16 +20,6 @@ define_circle:
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
-define_block_circle:
-  type: procedure
-  definitions: location|radius
-  script:
-  - repeat 360:
-    - define point:<[location].with_pose[0,<[value]>].relative[0,0,<[radius]>].block>
-    - if !<[points].contains[<[point]>]>:
-      - define points:|:<[point]>
-  - determine <[points]>
-  
 define_star2:
   type: procedure
   definitions: location|radius|rotation|num
@@ -65,11 +55,11 @@ test_command:
   description: test
   usage: /test
   tab complete:
-  - determine <list[curve|star1|star2]>
+  - determine <list[curve|star1|star2|circle]>
   script:
   - if <context.args.get[1]> == curve:
-    - repeat 360:
-      - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<[value]>|1]>
+    - repeat 90:
+      - define points:<proc[define_curve].context[<player.location>|<player.location.forward[20]>|5|<[value].mul[4]>|1]>
       - playeffect smoke at:<[points]> quantity:5 offset:0
       - wait 1t
   - if <context.args.get[1]> == star1:
@@ -86,6 +76,10 @@ test_command:
       - playeffect smoke at:<[points].get[<[value].mul[5].add[4]>]> quantity:5 offset:0
       - playeffect smoke at:<[points].get[<[value].mul[5].add[5]>]> quantity:5 offset:0
       - wait 1t
+  - if <context.args.get[1]> == circle:
+    - define points:<proc[define_circle].context[<player.location.forward[4]>|2>
+    - foreach <[points]>:
+      - playeffect smoke at:<[value]> quantity:5 offset:0
 
 math_stuff:
   type: procedure
