@@ -145,7 +145,7 @@ test_attack:
       - stop
     - narrate <[current_point].distance[<[target]>].verticle>
     - narrate <[current_point]>
-    - define points:<proc[define_curve].context[<[current_point]>|<[target].location>|5|90|0.7]>
+    - define points:<[current_point].points_between[<[target]>].distance[0.5]>
     - playeffect flame at:<[points].get[2]> quantity:15 offset:0.3
     - define current_point:<[points].get[1]>
     - wait 5t
