@@ -69,14 +69,14 @@ guild_command:
               - narrate "<&c>Not enough arguments."
             - else:
               - if <context.args.size> == 3:
+                - define rank:<context.args.get[2]>
                 - choose <context.args.get[3]>:
-                  - case new:
-                    - narrate <context.args.get[2]>
+                  - case create:
           - case kick:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
               - if <server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]||null>> != null:
                 - define kicked:<server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]>>
-                - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>]> > <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>]>:
+                - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.priority]> > <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>.priority]>:
                   - run kick_from_guild def:<player.flag[guild]>|<player>|<[kicked]>
                 - else:
                   - narrate "<&c>You cannot kick that player."
@@ -100,6 +100,15 @@ guild_command:
               - narrate "<&c>You do not have permission to run that command."
           - default:
             - narrate "<&c>That is not a valid option"
+
+create_guild_rank:
+  type: task
+  definitions: guild|rank
+  script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.title:<[rank]>
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.priority:1
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.permissions:|:view_members
 
 edit_guild_rank:
   type: task
