@@ -138,7 +138,7 @@ kick_from_guild:
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - narrate <yaml[guild.<[guild]>].read[members].exclude[<[kicked]>]>
-  - yaml id:guild.<[guild]> set members:<yaml[guild.<[guild]>].read[members].exclude[<[kicked]>]>
+  - yaml id:guild.<[guild]> set members:-:<[kicked]>
   - flag <[kicked]> guild_rank:!
   - flag <[kicked]> guild:!
   - if <[kicked].is_online>:
