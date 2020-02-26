@@ -37,7 +37,7 @@ guild_command:
           - case accept:
             - if <yaml[player.<player.uuid>].read[pending_guild_invitations]||null> != null:
               - narrate <yaml[guild.<yaml[player.<player.uuid>].read[pending_guild_invitations]>].read[pending_invitations]>
-              - if <yaml[guild.<yaml[player.<player.uuid>].read[pending_invitations]>].contains[<player>]>:
+              - if <yaml[guild.<yaml[player.<player.uuid>].read[pending_guild_invitations]>].read[pending_invitations].contains[<player>]>
                 - narrate 1
       - else:
         - choose <context.args.get[1]>:
