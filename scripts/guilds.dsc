@@ -13,11 +13,7 @@ guild_command:
         - determine <list[]>
       - case 1:
         - define list:<list[invite|disband]>
-        - choose <[list].filter[starts_with[<context.args.get[1]>]]>:
-          - case invite:
-            - narrate 1
-          - case disband:
-            - narrate 2
+        - determine <[list].filter[starts_with[<context.args.get[1]>]]>
   script:
     - if <context.args.get[1]||null> == null:
       - if <player.flag[guild]||null> != null:
