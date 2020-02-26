@@ -169,7 +169,7 @@ accept_guild_invitation:
   - yaml id:player.<player.uuid> set guild:<[guild]>
   - yaml id:player.<player.uuid> set guild_rank:<yaml[guild.<[guild]>].read[default_rank]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
-    - narrate player:<[member]> "<&6><[invited]> has joined the guild."
+    - narrate player:<[member]> "<&6><[player].name> has joined the guild."
 
 create_guild:
   type: task
