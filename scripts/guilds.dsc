@@ -56,7 +56,7 @@ create_guild:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - yaml id:guild.<[guild]> set ranks.leader.title:Leader
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
-  - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
+  - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[guild]>.yml id:<[value]>
 
 disband_guild:
   type: task
