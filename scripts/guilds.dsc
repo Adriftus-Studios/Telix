@@ -72,7 +72,7 @@ disband_guild:
     - flag <[player]> guild_rank:!
   - announce "<&6>The Guild <yaml[guild.<[guild]>].read[name]> has been disbanded!"
   - yaml unload id:guild.<[guild]>
-  - adjust server delete_file:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]>.yml
+  - adjust server delete_file:data/globalData/guilds/<server.flag[server.name]>/<[guild]>.yml
 
 remove_guild_flag:
   type: task
