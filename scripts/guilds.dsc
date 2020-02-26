@@ -28,7 +28,8 @@ guild_command:
         - choose <context.args.get[1]>:
           - case rank:
             - if <context.args.size> == 2:
-              - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].list_keys[ranks].filter[starts_with[<context.args.get[2]>]]>
+              - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].list_keys[ranks].include[new].filter[starts_with[<context.args.get[2]>]]>
+            - else if <context.args.size> == 3:
           - case invite:
             - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
           - case kick:
@@ -108,7 +109,7 @@ toggle_guild_rank_permission:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - if !<yaml[guild.<[guild]>].list_keys[ranks].contains[<[rank]>]>:
     - stop
-  - if !<list[title|priority].contains[<[property]>]>:
+  - if !<script[guild_settings].yaml_key[permissions].contains[<[permission]>]>
     - stop
   - yaml id:guild.<[guild]> set ranks.<[rank]>.<[property]>:<[value]>
 
@@ -162,7 +163,7 @@ create_guild:
   - yaml id:guild.<[guild]> set description:<[guild_description]>
   - yaml id:guild.<[guild]> set flag:i@white_banner
   - yaml id:guild.<[guild]> set members:|:<player>
-  - foreach <list[manage_flags|edit_ranks|view_members|change_settings|place_flag|remove_flag|kick_members|invite_members]> as:perm:
+  - foreach <script[guild_settings].yaml_key[permissions]> as:perm:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - yaml id:guild.<[guild]> set ranks.leader.title:Leader
   - yaml id:guild.<[guild]> set ranks.leader.priority:1000
