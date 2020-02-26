@@ -5,8 +5,8 @@ create_guild:
   - if <[guild]||<[guild_name]||<[guild_leader]||<[guild_description]||null>>>> == null:
     - stop
   - yaml create id:guild.<[guild]>
-  - yaml id:player.<player.uuid> set guild:<[guild]>
-  - yaml id:player.<player.uuid> set guild_rank:leader
+  - flag <player> guild:<[guild_name]>
+  - flag <player> guild_rank:leader
   - yaml id:guild.<[guild]> set name:<[guild_name]>
   - yaml id:guild.<[guild]> set leader:<[guild_leader]>
   - yaml id:guild.<[guild]> set description:<[guild_description]>
@@ -20,14 +20,15 @@ create_guild:
 disband_guild:
   type: task
   debug: true
-  definitions: guild|player
+  definitions: guild
   script:
   - if <[guild]||null> == null:
     - stop
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:flag:
     - inject remove_guild_flag
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
-    - yaml id:player.<[player].uuid> set guild:!
+    - flag <[player]> guild:!
+    - flag <[player]> guild_rank:!
   - yaml unload id:guild.<[guild]>
   - adjust server delete_file:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]>.yml
   - announce "<&6>The Guild <yaml[guild.<[guild]>].read[name]> has been disbanded!"
@@ -46,7 +47,7 @@ guild_disband_command:
   description: disband
   usage: /disband
   script:
-  - run disband_guild def:<yaml[player.<player.uuid>].read[guild]>|<player>
+  - run disband_guild def:<yaml[player.<player.uuid>].read[guild]>
 
 guild_events:
   type: world
@@ -67,8 +68,8 @@ guild_events:
           - yaml savefile:data/globalLiveData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
     on player places block:
     - if <context.item_in_hand.script.name> == guild_flag:
-      - if <yaml[player.<player.uuid>].read[guild]||null> != null:
-        - define guild:<yaml[player.<player.uuid>].read[guild]>
+      - if <player.flag[guild]||null> != null:
+        - define guild:<player.flag[guild]>
         - define location:<context.location>
         - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[200]>
         - foreach <[nearby_flags]> as:flag:
@@ -76,21 +77,21 @@ guild_events:
             - narrate "<&6>You are too close to another guild's flag."
             - determine cancelled
             - stop
-        - if <yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[place_flag]>:
+        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[place_flag]>:
           - run place_guild_flag def:<[guild]>|<[location]>
       - else:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
     - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
     - foreach <[nearby_flags]> as:flag:
-      - if <[flag].custom_name.strip_color> != <yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[name]>:
+      - if <[flag].custom_name.strip_color> != <yaml[guild.<player.flag[guild]>].read[name]>:
         - narrate "<&6>You cannot build in another guild's territory."
         - determine cancelled
         - stop
     on player breaks block:
     - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
     - foreach <[nearby_flags]> as:flag:
-      - if <[flag].custom_name.strip_color> != <yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[name]>:
+      - if <[flag].custom_name.strip_color> != <yaml[guild.<player.flag[guild]>].read[name]>:
         - narrate "<&6>You cannot break blocks in another guild's territory."
         - determine cancelled
         - stop
@@ -98,17 +99,16 @@ guild_events:
     - define flags:<context.location.add[<l@0.5,0,0.5,<context.location.world.name>>].find.entities[guild_flag_indicator].within[0.1]>
     - if !<[flags].is_empty>:
       - define flag:<[flags].get[1].uuid>
-      - if <yaml[player.<player.uuid>].read[guild]||null> != null:
-        - define guild:<yaml[player.<player.uuid>].read[guild]>
+      - if <player.flag[guild]||null> != null:
+        - define guild:<player.flag[guild]>
         - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>:
-          - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[manage_flags]>:
+          - if <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
             - flag <player> context:<[flag]>
             - inventory open d:guild_flag_gui
             - determine passively cancelled
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
-      - narrate <yaml[player.<player.uuid>].read[guild]||null>
-      - if <yaml[player.<player.uuid>].read[guild]||null> != null:
+      - if <player.flag[guild]||null> != null:
         - narrate <&6>You are already in a guild.
         - determine passively NOT_SIGNING
         - stop
@@ -149,7 +149,7 @@ guild_command:
   aliases:
   - "g"
   script:
-    - if <yaml[player.<player.uuid>].read[guild]||null> != null:
+    - if <player.flag[guild]||null> != null:
       - inventory open d:my_guild_gui
     - else:
       - inventory open d:new_guild_gui
@@ -209,7 +209,7 @@ new_guild_gui:
   
 my_guild_gui:
   type: inventory
-  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆ <&a><&n><&l><yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[name]><&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆ <&a><&n><&l><yaml[guild.<player.flag[guild]>].read[name]><&r> <&6>◆
   size: 36
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -239,8 +239,8 @@ guild_flag_gui:
   size: 27
   procedural items:
     - define flag:<player.context[guild_flag]>
-    - define flag_health:<yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[flags.<[flag]>.health]>
-    - define flag_name:<yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[flags.<[flag]>.name]>
+    - define flag_health:<yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>
+    - define flag_name:<yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>
     - define items:|:<item[guild_flag_health_icon].with[lore=<&c><&chr[2764]><&sp><[flag_health]>].with[display_name=<&r><&a><[flag_name]>]>|<item[guild_flag_rename_btn]>|<item[guild_flag_destroy_btn]>
     - determine <[items]>
   definitions:
@@ -287,6 +287,6 @@ guild_gui_events:
     - if <context.raw_slot> < 27:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
     on player clicks guild_flag_destroy_btn in guild_flag_gui:
-    - if <yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[destroy_flag]>:
+    - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[destroy_flag]>:
     - foreach <yaml[guild.<[guild]>].read[members]> as:player:
       - narrate "<&6><yaml[guild.<[guild]>].read[flags.<[flag]>.name]> at <[loc].simple.formatted.split[ in world].get[1]> was destroyed!"
