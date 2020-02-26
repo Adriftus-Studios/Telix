@@ -6,7 +6,11 @@ guild_command:
   aliases:
   - "g"
   tab complete:
-    - determine <list[a|b]>
+  - narrate <context.args.size>
+  - narrate <context.args.get[<context.args.size>]>
+  - choose <context.args.size>:
+    - case 1:
+      
   script:
     - if <context.args.get[1]||null> == null:
       - if <player.flag[guild]||null> != null:
