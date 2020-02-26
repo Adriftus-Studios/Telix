@@ -5,6 +5,8 @@ guild_command:
   usage: /guild
   aliases:
   - "g"
+  tab completion:
+    - determine <list[a|b]>
   script:
     - if <context.args.get[1]||null> == null:
       - if <player.flag[guild]||null> != null:
@@ -14,7 +16,6 @@ guild_command:
     - else:
       - choose <context.args.get[1]>:
         - case invite:
-          - narrate 1
 
 create_guild:
   type: task
