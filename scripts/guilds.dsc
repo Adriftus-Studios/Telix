@@ -211,7 +211,7 @@ new_guild_gui:
   
 my_guild_gui:
   type: inventory
-  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆ <yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[name]>
+  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆ <&a><&n><&l><yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[name]><&r> <&6>◆
   size: 36
   procedural items:
   - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
