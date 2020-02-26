@@ -50,7 +50,9 @@ guild_command:
           - case kick:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
               - if <server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]||null>> != null:
-                - 
+                - define kicked:<server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]>>
+                - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>]> > <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>]>:
+                  - run kick_from_guild def:<player.flag[guild]>|<player>|<[kicked]>
           - case invite:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite_members]>:
               - foreach <context.args.remove[1]> as:player:
@@ -69,7 +71,7 @@ edit_guild_rank:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - if !<yaml[guild.<[guild]>].list_keys[ranks].contains[<[rank]>]>:
     - stop
-  - if !<list[title].contains[<[property]>]>:
+  - if !<list[title|priority].contains[<[property]>]>:
     - stop
   - yaml id:guild.<[guild]> set ranks.<[rank]>.<[property]>:<[value]>
 
@@ -126,8 +128,10 @@ create_guild:
   - foreach <list[manage_flags|edit_ranks|view_members|change_settings|place_flag|remove_flag|kick_members|invite_members]> as:perm:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - yaml id:guild.<[guild]> set ranks.leader.title:Leader
+  - yaml id:guild.<[guild]> set ranks.leader.priority:1000
   - yaml id:guild.<[guild]> set default_rank:Peasent
   - yaml id:guild.<[guild]> set ranks.peasent.title:Peasent
+  - yaml id:guild.<[guild]> set ranks.leader.priority:1
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
   - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[guild]>.yml id:guild.<[guild]>
 
