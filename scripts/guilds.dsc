@@ -89,7 +89,7 @@ guild_disband_command:
   description: disband
   usage: /disband
   script:
-  - if <yaml[guild.<[guild]>]||null> != null:
+  - if <player.flag[guild]||null> != null:
     - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
   - else:
     - narrate <&6>You are not in a guild.
