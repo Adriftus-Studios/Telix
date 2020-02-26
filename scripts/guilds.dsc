@@ -41,11 +41,11 @@ guild_command:
         - case invite:
           - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite_members]>:
             - foreach <context.args.remove[1]> as:player:
-              - define player:<server.list_online_players.filter[name.is[==].to[<[player]>]]>
+              - define player:<server.match_player[<[player]>]>
               - narrate <[player]>
         - case disband:
           - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
-            - narrate 1
+            - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
 
 invite_to_guild:
   type: task
@@ -104,17 +104,6 @@ remove_guild_flag:
     - define loc:<entity[<[flag]>].location.sub[l@0.5,0,0.5,entity[<[flag]>].location.world.name]>
     - modifyblock <[loc]> air
     - remove <entity[<[flag]>]>
-
-guild_disband_command:
-  type: command
-  name: disband
-  description: disband
-  usage: /disband
-  script:
-  - if <player.flag[guild]||null> != null:
-    - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
-  - else:
-    - narrate "<&6>You are not in a guild."
 
 guild_events:
   type: world
