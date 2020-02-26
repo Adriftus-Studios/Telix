@@ -12,7 +12,9 @@ guild_command:
       - else:
         - inventory open d:new_guild_gui
     - else:
-      
+      - choose <context.args.get[1]>:
+        - case invite:
+          - narrate 1
 
 create_guild:
   type: task
