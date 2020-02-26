@@ -276,7 +276,7 @@ guild_flag_gui:
   title: <&6>◆ <&a><&n><&l>Manage Flag<&r> <&6>◆
   size: 27
   procedural items:
-    - define flag:<player.context[guild_flag]>
+    - define flag:<player.flag[context]>
     - define flag_health:<yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>
     - define flag_name:<yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>
     - define items:|:<item[guild_flag_health_icon].with[lore=<&c><&chr[2764]><&sp><[flag_health]>].with[display_name=<&r><&a><[flag_name]>]>|<item[guild_flag_rename_btn]>|<item[guild_flag_destroy_btn]>
