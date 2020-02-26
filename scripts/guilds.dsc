@@ -41,8 +41,8 @@ guild_command:
         - case invite:
           - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite_members]>:
             - foreach <context.args.remove[1]> as:player:
-              - define player:<server.match_player[<[player]>]>
-              - narrate <[player]>
+              - define invited:<server.match_player[<[player]>]>
+              - run invite_to_guild def:<player.flag[guild]>|<player>|<[invited]>
         - case disband:
           - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
             - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
