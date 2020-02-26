@@ -5,7 +5,7 @@ guild_command:
   usage: /guild
   aliases:
   - "g"
-  tab completion:
+  tab complete:
     - determine <list[a|b]>
   script:
     - if <context.args.get[1]||null> == null:
