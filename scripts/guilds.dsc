@@ -56,6 +56,7 @@ create_guild:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - yaml id:guild.<[guild]> set ranks.leader.title:Leader
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
+  - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
 
 disband_guild:
   type: task
@@ -65,7 +66,7 @@ disband_guild:
   - if <[guild]||null> == null:
     - stop
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:flag:
-    - inject remove_guild_flag
+    - run remove_guild_flag def:<[flag]>
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
     - flag <[player]> guild:!
     - flag <[player]> guild_rank:!
@@ -95,17 +96,17 @@ guild_events:
   events:
     on server starts:
     - yaml create id:server.guilds
-    - foreach <server.list_files[data/globalLiveData/guilds/<server.flag[server.name]>]> as:guild:
-      - yaml load:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]> id:guild.<[guild]>
+    - foreach <server.list_files[data/globalData/guilds/<server.flag[server.name]>]> as:guild:
+      - yaml load:data/globalData/guilds/<server.flag[server.name]>/<[guild]> id:guild.<[guild]>
       - yaml id:server.guilds set all_guilds:|:<[guild]>
     on shutdown:
       - foreach <yaml.list>:
         - if <def[value].substring[1,5]> == guild:
-          - yaml savefile:data/globalLiveData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
+          - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
     on script reload:
       - foreach <yaml.list>:
         - if <def[value].substring[1,5]> == guild:
-          - yaml savefile:data/globalLiveData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
+          - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
     on player places block:
     - if <context.item_in_hand.script.name> == guild_flag:
       - if <player.flag[guild]||null> != null:
