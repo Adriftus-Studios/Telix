@@ -8,12 +8,13 @@ guild_command:
   - "g"
   tab complete:
   - if <context.args.size||-1> != -1:
-    - choose <context.args.size>:
-      - case 0:
+    - define list:<list[invite|disband]>
+    - determine <[list].filter[starts_with[<context.args.get[1]>]]>
+    - choose <context.args.get[1]>:
+      - case invite:
+        - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<context.args.get[2].to_lowercase>]]>
+      - default:
         - determine <list[]>
-      - case 1:
-        - define list:<list[invite|disband]>
-        - determine <[list].filter[starts_with[<context.args.get[1]>]]>
   script:
     - if <context.args.get[1]||null> == null:
       - if <player.flag[guild]||null> != null:
