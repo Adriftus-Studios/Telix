@@ -76,8 +76,6 @@ guild_command:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
               - if <server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]||null>> != null:
                 - define kicked:<server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]>>
-                - narrate <[kicked].as_player.flag[guild]>
-                - narrate <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].list_keys[]>
                 - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.priority]> > <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>.priority]>:
                   - run kick_from_guild def:<player.flag[guild]>|<player>|<[kicked]>
                 - else:
@@ -139,6 +137,7 @@ kick_from_guild:
   definitions: guild|kicker|kicked
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - narrate <yaml[guild.<[guild]>].read[members].exclude[<[kicked]>]>
   - yaml id:guild.<[guild]> set members:<yaml[guild.<[guild]>].read[members].exclude[<[kicked]>]>
   - flag <[kicked]> guild_rank:!
   - flag <[kicked]> guild:!
