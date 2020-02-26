@@ -166,8 +166,8 @@ accept_guild_invitation:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml id:guild.<[guild]> set members:|:<[player]>
   - yaml id:player.<player.uuid> set pending_guild_invitation:!
-  - yaml id:player.<player.uuid> set guild:<[guild]>
-  - yaml id:player.<player.uuid> set guild_rank:<yaml[guild.<[guild]>].read[default_rank]>
+  - flag <[player]> guild:<[guild]>
+  - flag <[player]> guild_rank:<yaml[guild.<[guild]>].read[default_rank]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&6><[player].name> has joined the guild."
 
