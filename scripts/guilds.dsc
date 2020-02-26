@@ -1,3 +1,15 @@
+guild_settings:
+  type: yaml data
+  permissions:
+  - manage_flags
+  - edit_ranks
+  - view_members
+  - change_settings
+  - place_flag
+  - remove_flags
+  - kick_members
+  - invite_members
+
 guild_command:
   type: command
   name: guild
@@ -45,6 +57,8 @@ guild_command:
                 - narrate "<&c>Your invitation has expired."
             - else:
               - narrate "<&c>You have no pending invitations."
+          - default:
+            - narrate "<&c>That is not a valid option"
       - else:
         - choose <context.args.get[1]>:
           - case kick:
@@ -53,6 +67,12 @@ guild_command:
                 - define kicked:<server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]>>
                 - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>]> > <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>]>:
                   - run kick_from_guild def:<player.flag[guild]>|<player>|<[kicked]>
+                - else:
+                  - narrate "<&c>You cannot kick that player."
+              - else:
+                - narrate "<&c>Player not found."
+            - else:
+              - narrate "<&c>You do not have permission to run that command."
           - case invite:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite_members]>:
               - foreach <context.args.remove[1]> as:player:
@@ -60,13 +80,30 @@ guild_command:
                   - run invite_to_guild def:<player.flag[guild]>|<player>|<server.match_player[<[player]>]>
                 - else:
                   - narrate "<&c><[player].name> has already been invited."
+            - else:
+              - narrate "<&c>You do not have permission to run that command."
           - case disband:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
               - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
+            - else:
+              - narrate "<&c>You do not have permission to run that command."
+          - default:
+            - narrate "<&c>That is not a valid option"
 
 edit_guild_rank:
   type: task
   definitions: guild|rank|property|value
+  script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - if !<yaml[guild.<[guild]>].list_keys[ranks].contains[<[rank]>]>:
+    - stop
+  - if !<list[title|priority].contains[<[property]>]>:
+    - stop
+  - yaml id:guild.<[guild]> set ranks.<[rank]>.<[property]>:<[value]>
+
+toggle_guild_rank_permission:
+  type: task
+  definitions: guild|rank|permission
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - if !<yaml[guild.<[guild]>].list_keys[ranks].contains[<[rank]>]>:
