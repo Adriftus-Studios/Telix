@@ -17,7 +17,7 @@ guild_command:
           - case invite:
             - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<context.args.get[2].to_lowercase>]].parse[name]>
           - case kick:
-            - determine <yaml[guild.<player.flag[guild].replace[<&sp>].with[_]]>].read[members]>
+            - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]]>].read[members]>
           - default:
             - determine <list[]>
       - else:
@@ -33,7 +33,12 @@ guild_command:
       - else:
         - inventory open d:new_guild_gui
     - else:
+      - if <player.flag[guild]||null> == null:
+        - narrate "<&6>You are not in a guild."
+        - stop
       - choose <context.args.get[1]>:
+        - case kick:
+
         - case invite:
         - case disband:
           - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
