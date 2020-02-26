@@ -8,6 +8,7 @@ guild_command:
   - "g"
   tab complete:
   - define args:<context.raw_args.split[<&sp>]>
+  - define size:<context.raw_args.split[].count[<&sp>]>
   - if <[args].size||-1> != -1:
     - narrate <[args].size>
     - if <[args].size> == 1:
