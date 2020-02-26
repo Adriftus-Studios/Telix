@@ -9,14 +9,25 @@ guild_command:
   tab complete:
   - if <context.args.size||-1> != -1:
     - if <context.args.size> == 1:
-      - define list:<list[invite|disband]>
+      - define list:<list[invite|disband|kick|create]>
       - determine <[list].filter[starts_with[<context.args.get[1]>]]>
     - else:
-      - choose <context.args.get[1]>:
-        - case invite:
-          - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<context.args.get[2].to_lowercase>]].parse[name]>
-        - default:
-          - determine <list[]>
+      - if <player.flag[guild]||null> != null:
+        - choose <context.args.get[1]>:
+          - case invite:
+            - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<context.args.get[2].to_lowercase>]].parse[name]>
+          - case disband:
+
+          - case kick:
+            - determine <yaml[guild.<player.flag[guild]>].read[members].filter[name.to_lowercase.starts_with[<context.args.get[2].to_lowercase>]].parse[name]>
+          - default:
+            - determine <list[]>
+      - else:
+        - choose <context.args.get[1]>:
+          - case create:
+          - default:
+            - determine <list[]>
+      
   script:
     - if <context.args.get[1]||null> == null:
       - if <player.flag[guild]||null> != null:
