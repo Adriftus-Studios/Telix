@@ -15,9 +15,9 @@ guild_command:
       - if <player.flag[guild]||null> != null:
         - choose <context.args.get[1]>:
           - case invite:
-            - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<context.args.get[2].to_lowercase>]].parse[name]>
+            - determine <server.list_online_players.filter[is[=].to[<player>]].filter[name.to_lowercase.starts_with[<context.args.get[2].to_lowercase>]].parse[name]>
           - case kick:
-            - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].parse[name]>
+            - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[=].to[<player>]].parse[name]>
           - default:
             - determine <list[]>
       - else:
@@ -25,7 +25,6 @@ guild_command:
           - case create:
           - default:
             - determine <list[]>
-      
   script:
     - if <context.args.get[1]||null> == null:
       - if <player.flag[guild]||null> != null:
@@ -38,11 +37,28 @@ guild_command:
         - stop
       - choose <context.args.get[1]>:
         - case kick:
-
+          - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick]>:
         - case invite:
+          - foreach <context.args.remove[1].filter[is_online]>:
+            - narrate <[value]>
+          - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite]>:
+            
         - case disband:
           - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
             - narrate 1
+
+invite_to_guild:
+  type: task
+  definitions: guild|inviter|invited
+  script:
+  - if <[guild]||<[inviter]||<[invited]||null>>> == null:
+    - stop
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - yaml id:guild.<[guild]> set pending_invitations:|:<[invited]>
+  - if <[invited].is_online>:
+    - narrate player:<[player]> "<&6>You were invited to the guild '<yaml[guild.<[guild]>].read[name]>'."
+  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
+    - narrate player:<[member]> "<&6><[inviter].name> has invited <[invited].name> to the guild."
 
 create_guild:
   type: task
