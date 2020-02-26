@@ -77,7 +77,7 @@ guild_events:
             - determine cancelled
             - stop
         - if <yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[place_flag]>:
-          - inject place_guild_flag
+          - run place_guild_flag def:<[guild]>|<[location]>
       - else:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
@@ -102,7 +102,7 @@ guild_events:
         - define guild:<yaml[player.<player.uuid>].read[guild]>
         - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>:
           - if <yaml[guild.<[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[manage_flags]>:
-            - flag <player> guild_flag:<[flag]>
+            - flag <player> context:<[flag]>
             - inventory open d:guild_flag_gui
             - determine passively cancelled
     on player signs book:
@@ -120,9 +120,8 @@ new_guild_book:
 
 place_guild_flag:
   type: task
+  definitions: guild|location
   script:
-  - if <[guild]||<[location]||null>> == null:
-    - stop
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]>
   - define flag:<[location].add[<l@0.5,0,0.5,<[location].world.name>>].find.entities[guild_flag_indicator].within[0.1].get[1]>
   - yaml id:guild.<[guild]> set flags.<[flag].uuid>.location:<[location].simple>
@@ -210,13 +209,21 @@ new_guild_gui:
   
 my_guild_gui:
   type: inventory
-  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆ <&a><&n><&l><yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[name]><&r> <&6>◆w
+  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆ <&a><&n><&l><yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[name]><&r> <&6>◆
   size: 36
-  procedural items:
-  - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
-  - foreach <[btns]> as:btn:
-    - define items:|:<[btn]>
-  - determine <[items]>
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+edit_guild_ranks_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Guild Ranks<&r> <&6>◆
+  size: 36
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -231,7 +238,7 @@ guild_flag_gui:
   title: <&6>◆ <&a><&n><&l>Manage Flag<&r> <&6>◆
   size: 27
   procedural items:
-    - define flag:<player.flag[guild_flag]>
+    - define flag:<player.context[guild_flag]>
     - define flag_health:<yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[flags.<[flag]>.health]>
     - define flag_name:<yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[flags.<[flag]>.name]>
     - define items:|:<item[guild_flag_health_icon].with[lore=<&c><&chr[2764]><&sp><[flag_health]>].with[display_name=<&r><&a><[flag_name]>]>|<item[guild_flag_rename_btn]>|<item[guild_flag_destroy_btn]>
@@ -261,6 +268,10 @@ guild_flag_destroy_btn:
 guild_gui_events:
   type: world
   events:
+    on player opens edit_guild_ranks_gui:
+    - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
+    - foreach <[btns]> as:btn:
+      - inventory add d:<context.inventory> o:<item[<[btn]>]>
     on player clicks in my_guild_gui:
     - if <context.raw_slot> < 36:
       - determine passively cancelled
@@ -277,7 +288,5 @@ guild_gui_events:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
     on player clicks guild_flag_destroy_btn in guild_flag_gui:
     - if <yaml[guild.<yaml[player.<player.uuid>].read[guild]>].read[ranks.<yaml[player.<player.uuid>].read[guild_rank]>.permissions].contains[destroy_flag]>:
-      - if 
-    
     - foreach <yaml[guild.<[guild]>].read[members]> as:player:
       - narrate "<&6><yaml[guild.<[guild]>].read[flags.<[flag]>.name]> at <[loc].simple.formatted.split[ in world].get[1]> was destroyed!"
