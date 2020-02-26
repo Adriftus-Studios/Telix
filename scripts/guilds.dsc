@@ -9,6 +9,7 @@ guild_command:
   tab complete:
   - if <context.args.size||-1> != -1:
     - define args:<context.raw_args.split[<&sp>]>
+    - narrate <[args].size>
     - if <[args].size> == 1:
       - define list:<list[invite|disband]>
       - determine <[list].filter[starts_with[<[args].get[1]>]]>
