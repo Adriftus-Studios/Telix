@@ -35,6 +35,9 @@ guild_command:
     - else:
       - choose <context.args.get[1]>:
         - case invite:
+        - case disband:
+          - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
+            - narrate 1
 
 create_guild:
   type: task
@@ -61,7 +64,7 @@ disband_guild:
   debug: true
   definitions: guild
   script:
-  - define guild:<[guild].replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - if <[guild]||null> == null:
     - stop
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:flag:
