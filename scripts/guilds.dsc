@@ -29,7 +29,9 @@ guild_command:
           - case rank:
             - if <context.args.size> == 2:
               - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].list_keys[ranks].include[new].filter[starts_with[<context.args.get[2]>]]>
-            - else if <context.args.size> == 3:
+            - else:
+              - if <context.args.size> == 3:
+                - if <context.args.get[2]> == new:
           - case invite:
             - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
           - case kick:
@@ -62,6 +64,14 @@ guild_command:
             - narrate "<&c>That is not a valid option"
       - else:
         - choose <context.args.get[1]>:
+          - case rank:
+            - if <context.args.size> == 2:
+              - narrate "<&c>Not enough arguments."
+            - else:
+              - if <context.args.size> == 3:
+                - choose <context.args.get[3]>:
+                  - case new:
+                    - narrate <context.args.get[2]>
           - case kick:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
               - if <server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]||null>> != null:
