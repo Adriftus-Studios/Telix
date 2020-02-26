@@ -1,5 +1,6 @@
 create_guild:
   type: task
+  definitions: guild|guild_name|guild_leader|guild_description
   script:
   - if <[guild]||<[guild_name]||<[guild_leader]||<[guild_description]||null>>>> == null:
     - stop
@@ -19,6 +20,7 @@ create_guild:
 disband_guild:
   type: task
   debug: true
+  definitions: guild
   script:
   - if <[guild]||null> == null:
     - stop
@@ -32,6 +34,7 @@ disband_guild:
 
 remove_guild_flag:
   type: task
+  definitions: flag
   script:
     - define loc:<entity[<[flag]>].location.sub[l@0.5,0,0.5,entity[<[flag]>].location.world.name]>
     - modifyblock <[loc]> air
@@ -43,8 +46,7 @@ guild_disband_command:
   description: disband
   usage: /disband
   script:
-  - define guild:<yaml[player.<player.uuid>].read[guild]>
-  - inject disband_guild
+  - run disband_guild def:<yaml[player.<player.uuid>].read[guild]>
 
 guild_events:
   type: world
@@ -110,11 +112,7 @@ guild_events:
         - narrate <&6>You are already in a guild.
         - determine passively NOT_SIGNING
         - stop
-      - define guild:<context.title.to_lowercase.replace[<&sp>].with[_]>
-      - define guild_name:<context.title>
-      - define guild_leader:<player>
-      - define guild_description:<context.pages.get[1]>
-      - inject create_guild
+      - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.get[1]>
 
 new_guild_book:
   type: item
