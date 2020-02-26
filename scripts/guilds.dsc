@@ -78,7 +78,7 @@ guild_command:
                 - define kicked:<server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]>>
                 - narrate <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>.priority]>
                 - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.priority]> > <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>.priority]>:
-                  - run kick_from_guild def:<player.flag[guild]>|<player>|<[kicked]>
+                  #- run kick_from_guild def:<player.flag[guild]>|<player>|<[kicked]>
                 - else:
                   - narrate "<&c>You cannot kick that player."
               - else:
