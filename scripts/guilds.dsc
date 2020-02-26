@@ -170,7 +170,7 @@ guild_events:
         - stop
     on player clicks block:
     - define flags:<context.location.add[<l@0.5,0,0.5,<context.location.world.name>>].find.entities[guild_flag_indicator].within[0.1]>
-    - if !<[flags].is_empty>:s
+    - if !<[flags].is_empty>:
       - define flag:<[flags].get[1].uuid>:
       - if <player.flag[guild]||null> != null:
         - define guild:<player.flag[guild]>
