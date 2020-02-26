@@ -15,7 +15,7 @@ guild_command:
       - if <player.flag[guild]||null> != null:
         - choose <context.args.get[1]>:
           - case invite:
-            - determine <server.list_online_players.filter[is[=].to[<player>]].filter[!name.to_lowercase.starts_with[<context.args.get[2].to_lowercase>]].parse[name]>
+            - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
           - case kick:
             - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[=].to[<player>]].parse[name]>
           - default:
