@@ -1,3 +1,19 @@
+guild_command:
+  type: command
+  name: guild
+  description: guild
+  usage: /guild
+  aliases:
+  - "g"
+  script:
+    - if <context.args.get[1]||null> == null:
+      - if <player.flag[guild]||null> != null:
+        - inventory open d:my_guild_gui
+      - else:
+        - inventory open d:new_guild_gui
+    - else:
+      
+
 create_guild:
   type: task
   definitions: guild|guild_name|guild_leader|guild_description
@@ -140,19 +156,6 @@ guild_flag:
   type: item
   material: white_banner
   display name: <&7>Guild Flag
-
-guild_command:
-  type: command
-  name: guild
-  description: guild
-  usage: /guild
-  aliases:
-  - "g"
-  script:
-    - if <player.flag[guild]||null> != null:
-      - inventory open d:my_guild_gui
-    - else:
-      - inventory open d:new_guild_gui
 
 guilds_leave_btn:
   type: item
