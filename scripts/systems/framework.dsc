@@ -96,6 +96,18 @@ system_equipment_set:
 system_override:
   type: world
   events:
+    on shutdown:
+      - foreach <yaml.list>:
+        - if <[value].starts_with[player.]>:
+          - yaml savefile:data/globalData/players/<[value].substring[8]>.yml id:<[value]>
+
+    on player quit priority:2000 bukkit_priority:HIGHEST:
+      - yaml id:player.<player.uuid> savefile:data/globalData/players/<player.uuid>.yml
+    on player logs in priority:-2000 bukkit_priority:LOWEST:
+      - if <server.has_file[data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml]>:
+        - yaml load:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml id:player.<player.uuid>
+      - else:
+        - yaml create id:player.<player.uuid>
     on player breaks block priority:-10:
       - if <player.gamemode> == SURVIVAL:
         - foreach <context.location.drops[<player.item_in_hand>]> as:drop:
