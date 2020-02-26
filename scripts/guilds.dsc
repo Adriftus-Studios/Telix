@@ -171,7 +171,7 @@ guild_events:
     on player clicks block:
     - define flags:<context.location.add[<l@0.5,0,0.5,<context.location.world.name>>].find.entities[guild_flag_indicator].within[0.1]>
     - if !<[flags].is_empty>:s
-      - define flag:<[flags].get[1].uuid>
+      - define flag:<[flags].get[1].uuid>:
       - if <player.flag[guild]||null> != null:
         - define guild:<player.flag[guild]>
         - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>:
