@@ -6,11 +6,17 @@ guild_command:
   aliases:
   - "g"
   tab complete:
-  - narrate <context.args.size>
-  - narrate <context.args.get[<context.args.size>]>
-  - choose <context.args.size>:
-    - case 0:
-      - determine <list[]>
+  - if <context.args.size||-1> != -1:
+    - choose <context.args.size>:
+      - case 0:
+        - determine <list[]>
+      - case 1:
+        - define list:<list[invite|disband]>
+        - choose <[list].filter[starts_with[<context.args.get[1]>]]>:
+          - case invite:
+            - narrate 1
+          - case disband:
+            - narrate 2
   script:
     - if <context.args.get[1]||null> == null:
       - if <player.flag[guild]||null> != null:
