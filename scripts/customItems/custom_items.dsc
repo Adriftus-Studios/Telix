@@ -1,3 +1,21 @@
+custom_money_gold:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: -4
+  display name: <&6>Gold Piece
+custom_money_silver:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: -3
+  display name: <&6>Silver Piece
+custom_money_copper:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: -2
+  display name: <&6>Copper Piece
 custom_damaged_anvil:
   material: damaged_anvil
   lore:
