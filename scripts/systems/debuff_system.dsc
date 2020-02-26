@@ -67,5 +67,5 @@ debuffs_on_join:
   type: world
   events:
     on player join:
-      - foreach <yaml[player.<player.uuid>].read[debuffs]>:
+      - foreach <yaml[player.<player.uuid>].read[debuffs]||<list[]>>:
         - run debuff_<[value]>

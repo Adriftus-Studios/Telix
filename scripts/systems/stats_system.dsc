@@ -49,7 +49,7 @@ calculate_base_stats:
   script:
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
-        - define value:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]||>]||0>]>
+        - define value:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]||1>]||0>]>
         - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
           - yaml id:player.<player.uuid> set stats.<[stat]>.max:<[value]>
         - else:
@@ -62,7 +62,7 @@ calculate_weight_equipment_stats:
     - foreach <player.inventory.list_contents> as:item:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
       - define weight:|:<[this_item_weight].*[<[item].quantity>]>
-    - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
+    - foreach <yaml[player.<player.uuid>].list_keys[equipment]||<list[]>> as:equipment:
       - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
       - if <[item].material.name> != air:
         - if <[item].nbt[built]||null> != null:
