@@ -35,7 +35,7 @@ guild_command:
           - case invite:
             - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
           - case kick:
-            - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[=].to[<player>]].parse[name]>
+            - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[!=].to[<player>]].parse[name]>
           - default:
             - determine <list[]>
       - else:
