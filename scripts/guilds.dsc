@@ -29,9 +29,9 @@ disband_guild:
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
     - flag <[player]> guild:!
     - flag <[player]> guild_rank:!
+  - announce "<&6>The Guild <yaml[guild.<[guild]>].read[name]> has been disbanded!"
   - yaml unload id:guild.<[guild]>
   - adjust server delete_file:data/globalLiveData/guilds/<server.flag[server.name]>/<[guild]>.yml
-  - announce "<&6>The Guild <yaml[guild.<[guild]>].read[name]> has been disbanded!"
 
 remove_guild_flag:
   type: task
