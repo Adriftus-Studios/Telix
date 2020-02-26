@@ -33,19 +33,25 @@ guild_command:
         - inventory open d:new_guild_gui
     - else:
       - if <player.flag[guild]||null> == null:
-        - narrate "<&6>You are not in a guild."
-        - stop
-      - choose <context.args.get[1]>:
-        - case kick:
-          - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
-        - case invite:
-          - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite_members]>:
-            - foreach <context.args.remove[1]> as:player:
-              - define invited:<server.match_player[<[player]>]>
-              - run invite_to_guild def:<player.flag[guild]>|<player>|<[invited]>
-        - case disband:
-          - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
-            - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
+        - choose <context.args.get[1]>:
+          - case accept:
+            - if <yaml[player.<player.uuid>].read[pending_guild_invitations]||null> != null:
+              - if <yaml[player.<player.uuid>].read[pending_guild_invitations].size> == 1:
+                
+              - else:
+
+      - else:
+        - choose <context.args.get[1]>:
+          - case kick:
+            - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
+          - case invite:
+            - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite_members]>:
+              - foreach <context.args.remove[1]> as:player:
+                - define invited:<server.match_player[<[player]>]>
+                - run invite_to_guild def:<player.flag[guild]>|<player>|<[invited]>
+          - case disband:
+            - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
+              - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
 
 invite_to_guild:
   type: task
@@ -55,10 +61,19 @@ invite_to_guild:
     - stop
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml id:guild.<[guild]> set pending_invitations:|:<[invited]>
+  - yaml id:player.<[invited].uuid> set pending_guild_invitations:|:<[guild]>
   - if <[invited].is_online>:
     - narrate player:<[invited]> "<&6>You were invited to the guild '<yaml[guild.<[guild]>].read[name]>'."
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&6><[inviter].name> has invited <[invited].name> to the guild."
+
+accept_guild_invitation:
+  type: task
+  definitions: player|guild
+  script:
+  - if <[guild]||<[player]||null>> == null:
+    - stop
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
 
 create_guild:
   type: task
@@ -153,14 +168,13 @@ guild_events:
         - stop
     on player clicks block:
     - define flags:<context.location.add[<l@0.5,0,0.5,<context.location.world.name>>].find.entities[guild_flag_indicator].within[0.1]>
-    - if !<[flags].is_empty>:
+    - if !<[flags].is_empty>:s
       - define flag:<[flags].get[1].uuid>
       - if <player.flag[guild]||null> != null:
         - define guild:<player.flag[guild]>
         - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>:
           - if <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
-            - flag <player> context:<[flag]>
-            - inventory open d:guild_flag_gui
+            - inventory open d:<inventory[guild_flag_<[guild]>_<context.location>]>
             - determine passively cancelled
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
@@ -179,7 +193,7 @@ place_guild_flag:
   definitions: guild|location
   script:
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]>
-  - note <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> as:guild_flag_<[guild]>_<[location]>
+  - note <inventory[guild_flag_gui]> as:guild_flag_<[guild]>_<[location]>
   - yaml id:guild.<[guild]> set flags.<[guild]>_flag_<[location]>.location:<[location].simple>
   - yaml id:guild.<[guild]> set flags.<[guild]>_flag_<[location]>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
   - yaml id:guild.<[guild]> set flags.<[guild]>_flag_<[location]>.health:5000
