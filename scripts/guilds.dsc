@@ -7,17 +7,14 @@ guild_command:
   aliases:
   - "g"
   tab complete:
-  - define args:<context.raw_args.split[<&sp>]>
-  - define size:<context.raw_args.split[].count[<&sp>]>
-  - if <[args].size||-1> != -1:
-    - narrate <[args].size>
-    - if <[args].size> == 1:
+  - if <context.args.size||-1> != -1:
+    - if <context.args.size> == 1:
       - define list:<list[invite|disband]>
-      - determine <[list].filter[starts_with[<[args].get[1]>]]>
+      - determine <[list].filter[starts_with[<context.args.get[1]>]]>
     - else:
-      - choose <[args].get[1]>:
+      - choose <context.args.get[1]>:
         - case invite:
-          - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<[args].get[2].to_lowercase>]].parse[name]>
+          - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<context.args.get[2].to_lowercase>]].parse[name]>
         - default:
           - determine <list[]>
   script:
