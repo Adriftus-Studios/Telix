@@ -4,18 +4,27 @@ custom_money_gold:
   mechanisms:
     custom_model_data: -4
   display name: <&6>Gold Piece
+  lore:
+    - <&6>The <&c>M<&6> piece is equal to
+    - <&b>1,000 <&6>pieces of copper.
 custom_money_silver:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -3
   display name: <&6>Silver Piece
+  lore:
+    - <&6>The <&c>C<&6> piece is equal to
+    - <&b>100 <&6>pieces of copper.
 custom_money_copper:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -2
   display name: <&6>Copper Piece
+  lore:
+    - <&6>The <&c>I<&6> piece is the base
+    - <&6>currency for all trade.
 custom_damaged_anvil:
   material: damaged_anvil
   lore:
