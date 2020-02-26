@@ -7,9 +7,9 @@ guild_command:
   aliases:
   - "g"
   tab complete:
-  - if <context.args.size||-1> != -1:
-    - define args:<context.raw_args.split[<&sp>]>
-    - narrate <context.raw_args>a
+  - define args:<context.raw_args.split[<&sp>]>
+  - if <[args].size||-1> != -1:
+    - narrate <[args].size>
     - if <[args].size> == 1:
       - define list:<list[invite|disband]>
       - determine <[list].filter[starts_with[<[args].get[1]>]]>
