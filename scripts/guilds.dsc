@@ -63,12 +63,13 @@ disband_guild:
   debug: true
   definitions: guild
   script:
-  - narrate <[guild]>
+  - define guild:<[guild].replace[<&sp>].with[_]>
   - if <[guild]||null> == null:
     - stop
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:flag:
     - run remove_guild_flag def:<[flag]>
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
+    - announce <[player].as_player>
     - flag <[player].as_player> guild:!
     - flag <[player].as_player> guild_rank:!
   - announce "<&6>The Guild <yaml[guild.<[guild]>].read[name]> has been disbanded!"
@@ -89,7 +90,7 @@ guild_disband_command:
   description: disband
   usage: /disband
   script:
-  - run disband_guild def:<player.flag[guild]>
+  - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
 
 guild_events:
   type: world
@@ -165,10 +166,10 @@ place_guild_flag:
   definitions: guild|location
   script:
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]>
-  - define flag:<[location].add[<l@0.5,0,0.5,<[location].world.name>>].find.entities[guild_flag_indicator].within[0.1].get[1]>
-  - yaml id:guild.<[guild]> set flags.<[flag].uuid>.location:<[location].simple>
-  - yaml id:guild.<[guild]> set flags.<[flag].uuid>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
-  - yaml id:guild.<[guild]> set flags.<[flag].uuid>.health:5000
+  - note <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> as:<[guild]>_flag_<[location]>
+  - yaml id:guild.<[guild]> set flags.<[guild]>_flag_<[location]>.location:<[location].simple>
+  - yaml id:guild.<[guild]> set flags.<[guild]>_flag_<[location]>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
+  - yaml id:guild.<[guild]> set flags.<[guild]>_flag_<[location]>.health:5000
 
 guild_flag_indicator:
   type: entity
