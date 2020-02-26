@@ -9,8 +9,8 @@ guild_command:
   - narrate <context.args.size>
   - narrate <context.args.get[<context.args.size>]>
   - choose <context.args.size>:
-    - case 1:
-      
+    - case 0:
+      - determine <list[]>
   script:
     - if <context.args.get[1]||null> == null:
       - if <player.flag[guild]||null> != null:
