@@ -42,20 +42,22 @@ guild_command:
               - if <yaml[guild.<yaml[player.<player.uuid>].read[pending_guild_invitation]>].read[pending_invitations].contains[<player>]>:
                 - run accept_guild_invitation def:<player>|<yaml[player.<player.uuid>].read[pending_guild_invitation]>
               - else:
-                - narrate "<&6>Your invitation has expired."
+                - narrate "<&c>Your invitation has expired."
             - else:
-              - narrate "<&6>You have no pending invitations."
+              - narrate "<&c>You have no pending invitations."
       - else:
         - choose <context.args.get[1]>:
           - case kick:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
+              - if <server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]||null>> != null:
+                - 
           - case invite:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite_members]>:
               - foreach <context.args.remove[1]> as:player:
                 - if !<yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[pending_invitations].contains[<player>]>:
                   - run invite_to_guild def:<player.flag[guild]>|<player>|<server.match_player[<[player]>]>
                 - else:
-                  - narrate "<&6><[player].name> has already been invited."
+                  - narrate "<&c><[player].name> has already been invited."
           - case disband:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
               - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
@@ -64,8 +66,6 @@ edit_guild_rank:
   type: task
   definitions: guild|rank|property|value
   script:
-  - if <[guild]||<[rank]||<[property]||null>>> == null:
-    - stop
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - if !<yaml[guild.<[guild]>].list_keys[ranks].contains[<[rank]>]>:
     - stop
@@ -73,12 +73,23 @@ edit_guild_rank:
     - stop
   - yaml id:guild.<[guild]> set ranks.<[rank]>.<[property]>:<[value]>
 
+kick_from_guild:
+  type: task
+  definitions: guild|kicker|kicked
+  script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - yaml id:guild.<[guild]> set members:<yaml[guild.<[guild]>].read[members].exclude[<[kicked]>]>
+  - flag <[kicked]> guild_rank:!
+  - flag <[kicked]> guild:!
+  - if <[kicked].is_online>:
+    - narrate player:<[kicked]> "<&c>You were kicked from the guild."
+  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
+    - narrate player:<[member]> "<&c><[kicker].name> has invited <[kicked].name> to the guild."
+
 invite_to_guild:
   type: task
   definitions: guild|inviter|invited
   script:
-  - if <[guild]||<[inviter]||<[invited]||null>>> == null:
-    - stop
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml id:guild.<[guild]> set pending_invitations:|:<[invited]>
   - yaml id:player.<[invited].uuid> set pending_guild_invitation:<[guild]>
@@ -92,22 +103,18 @@ accept_guild_invitation:
   type: task
   definitions: player|guild
   script:
-  - if <[guild]||<[player]||null>> == null:
-    - stop
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml id:guild.<[guild]> set members:|:<[player]>
   - yaml id:player.<player.uuid> set pending_guild_invitation:!
   - yaml id:player.<player.uuid> set guild:<[guild]>
   - yaml id:player.<player.uuid> set guild_rank:<yaml[guild.<[guild]>].read[default_rank]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
-    - narrate player:<[member]> "<&6><[invited].name> has joined the guild."
+    - narrate player:<[member]> "<&6><[invited].as_player.name> has joined the guild."
 
 create_guild:
   type: task
   definitions: guild|guild_name|guild_leader|guild_description
   script:
-  - if <[guild]||<[guild_name]||<[guild_leader]||<[guild_description]||null>>>> == null:
-    - stop
   - yaml create id:guild.<[guild]>
   - flag <player> guild:<[guild_name]>
   - flag <player> guild_rank:leader
