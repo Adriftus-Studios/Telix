@@ -20,7 +20,7 @@ create_guild:
 disband_guild:
   type: task
   debug: true
-  definitions: guild
+  definitions: guild|player
   script:
   - if <[guild]||null> == null:
     - stop
@@ -46,7 +46,7 @@ guild_disband_command:
   description: disband
   usage: /disband
   script:
-  - run disband_guild def:<yaml[player.<player.uuid>].read[guild]>
+  - run disband_guild def:<yaml[player.<player.uuid>].read[guild]>|<player>
 
 guild_events:
   type: world
