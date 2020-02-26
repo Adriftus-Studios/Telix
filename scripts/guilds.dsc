@@ -63,13 +63,14 @@ disband_guild:
   debug: true
   definitions: guild
   script:
+  - if <yaml[guild.<[guild]>]||null> == null:
+    - stop
   - define guild:<[guild].replace[<&sp>].with[_]>
   - if <[guild]||null> == null:
     - stop
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:flag:
     - run remove_guild_flag def:<[flag]>
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
-    - announce <[player].as_player.uuid>
     - flag <[player].as_player> guild:!
     - flag <[player].as_player> guild_rank:!
   - announce "<&6>The Guild <yaml[guild.<[guild]>].read[name]> has been disbanded!"
