@@ -107,7 +107,7 @@ guild_events:
     - if <context.book> == <item[new_guild_book]>:
       - if <yaml[player.<player.uuid>].read[guild]||null> != null:
         - narrate <&6>You are already in a guild.
-        - determine NOT_SIGNING
+        - determine passively NOT_SIGNING
         - stop
       - define guild:<context.title.to_lowercase.replace[<&sp>].with[_]>
       - define guild_name:<context.title>
