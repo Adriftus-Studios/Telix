@@ -122,7 +122,7 @@ remove_guild_flag:
 
 guild_events:
   type: world
-  debug: false
+  debug: true
   events:
     on server starts:
     - yaml create id:server.guilds
