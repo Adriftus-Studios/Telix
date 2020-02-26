@@ -92,7 +92,7 @@ guild_disband_command:
   - if <player.flag[guild]||null> != null:
     - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
   - else:
-    - narrate <&6>You are not in a guild.
+    - narrate "<&6>You are not in a guild."
 
 guild_events:
   type: world
