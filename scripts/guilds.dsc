@@ -17,7 +17,7 @@ guild_command:
           - case invite:
             - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<context.args.get[2].to_lowercase>]].parse[name]>
           - case kick:
-            - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]]>].read[members]>
+            - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members]>
           - default:
             - determine <list[]>
       - else:
@@ -247,7 +247,7 @@ new_guild_gui:
   
 my_guild_gui:
   type: inventory
-  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆ <&a><&n><&l><yaml[guild.<player.flag[guild]>].read[name]><&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆ <&a><&n><&l><yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[name]><&r> <&6>◆
   size: 36
   definitions:
     w_filler: <item[gui_invisible_item]>
