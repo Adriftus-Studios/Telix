@@ -15,7 +15,7 @@ guild_command:
     - else:
       - choose <[args].get[1]>:
         - case invite:
-          - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<[args].get[2].to_lowercase>]]>
+          - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<[args].get[2].to_lowercase>]].parse[name]>
         - default:
           - determine <list[]>
   script:
