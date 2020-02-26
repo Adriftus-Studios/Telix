@@ -9,11 +9,14 @@ guild_command:
   tab complete:
   - if <context.args.size||-1> != -1:
     - if <context.args.size> == 1:
-      - define list:<list[invite|disband|kick|create]>
+      - define list:<list[invite|disband|kick|create|rank|accept]>
       - determine <[list].filter[starts_with[<context.args.get[1]>]]>
     - else:
       - if <player.flag[guild]||null> != null:
         - choose <context.args.get[1]>:
+          - case rank:
+            - if <context.args.size> == 2:
+              - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].list_keys[ranks].filter[starts_with[<context.args.get[2]>]]>
           - case invite:
             - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
           - case kick:
@@ -35,10 +38,13 @@ guild_command:
       - if <player.flag[guild]||null> == null:
         - choose <context.args.get[1]>:
           - case accept:
-            - if <yaml[player.<player.uuid>].read[pending_guild_invitations]||null> != null:
-              - narrate <yaml[guild.<yaml[player.<player.uuid>].read[pending_guild_invitations]>].read[pending_invitations]>
-              - if <yaml[guild.<yaml[player.<player.uuid>].read[pending_guild_invitations]>].read[pending_invitations].contains[<player>]>:
-                - narrate 1
+            - if <yaml[player.<player.uuid>].read[pending_guild_invitation]||null> != null:
+              - if <yaml[guild.<yaml[player.<player.uuid>].read[pending_guild_invitation]>].read[pending_invitations].contains[<player>]>:
+                - run accept_guild_invitation def:<player>|<yaml[player.<player.uuid>].read[pending_guild_invitation]>
+              - else:
+                - narrate "<&6>Your invitation has expired."
+            - else:
+              - narrate "<&6>You have no pending invitations."
       - else:
         - choose <context.args.get[1]>:
           - case kick:
@@ -47,13 +53,25 @@ guild_command:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite_members]>:
               - foreach <context.args.remove[1]> as:player:
                 - if !<yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[pending_invitations].contains[<player>]>:
-                  - define invited:<server.match_player[<[player]>]>
-                  - run invite_to_guild def:<player.flag[guild]>|<player>|<[invited]>
+                  - run invite_to_guild def:<player.flag[guild]>|<player>|<server.match_player[<[player]>]>
                 - else:
                   - narrate "<&6><[player].name> has already been invited."
           - case disband:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
               - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
+
+edit_guild_rank:
+  type: task
+  definitions: guild|rank|property|value
+  script:
+  - if <[guild]||<[rank]||<[property]||null>>> == null:
+    - stop
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - if !<yaml[guild.<[guild]>].list_keys[ranks].contains[<[rank]>]>:
+    - stop
+  - if !<list[title].contains[<[property]>]>:
+    - stop
+  - yaml id:guild.<[guild]> set ranks.<[rank]>.<[property]>:<[value]>
 
 invite_to_guild:
   type: task
@@ -63,10 +81,10 @@ invite_to_guild:
     - stop
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml id:guild.<[guild]> set pending_invitations:|:<[invited]>
-  - yaml id:player.<[invited].uuid> set pending_guild_invitations:<[guild]>
+  - yaml id:player.<[invited].uuid> set pending_guild_invitation:<[guild]>
   - if <[invited].is_online>:
     - narrate player:<[invited]> "<&6>You were invited to the guild '<yaml[guild.<[guild]>].read[name]>'."
-    - narrate player:<[invited]> "<&6>To accept this invitation, type /g accept"
+    - narrate player:<[invited]> "<&6>To accept this invitation, type /guild accept"
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&6><[inviter].name> has invited <[invited].name> to the guild."
 
@@ -78,6 +96,7 @@ accept_guild_invitation:
     - stop
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml id:guild.<[guild]> set members:|:<[player]>
+  - yaml id:player.<player.uuid> set pending_guild_invitation:!
   - yaml id:player.<player.uuid> set guild:<[guild]>
   - yaml id:player.<player.uuid> set guild_rank:<yaml[guild.<[guild]>].read[default_rank]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
