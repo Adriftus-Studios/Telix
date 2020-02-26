@@ -14,8 +14,6 @@ guild_command:
     - else:
       - if <player.flag[guild]||null> != null:
         - choose <context.args.get[1]>:
-          - case accept:
-            - determine <yaml[player.<player.uuid>].read[pending_guild_invitations]||<list[]>>
           - case invite:
             - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
           - case kick:
@@ -24,6 +22,8 @@ guild_command:
             - determine <list[]>
       - else:
         - choose <context.args.get[1]>:
+          - case accept:
+            - determine <yaml[player.<player.uuid>].read[pending_guild_invitations]||<list[]>>
           - case create:
           - default:
             - determine <list[]>
