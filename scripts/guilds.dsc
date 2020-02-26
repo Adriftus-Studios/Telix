@@ -36,6 +36,7 @@ guild_command:
         - choose <context.args.get[1]>:
           - case accept:
             - if <yaml[player.<player.uuid>].read[pending_guild_invitations]||null> != null:
+              - narrate <yaml[guild.<yaml[player.<player.uuid>].read[pending_guild_invitations]>].read[pending_invitations]>
               - if <yaml[guild.<yaml[player.<player.uuid>].read[pending_invitations]>].contains[<player>]>:
                 - narrate 1
       - else:
@@ -45,8 +46,11 @@ guild_command:
           - case invite:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite_members]>:
               - foreach <context.args.remove[1]> as:player:
-                - define invited:<server.match_player[<[player]>]>
-                - run invite_to_guild def:<player.flag[guild]>|<player>|<[invited]>
+                - if !<yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[pending_invitations].contains[<player>]>:
+                  - define invited:<server.match_player[<[player]>]>
+                  - run invite_to_guild def:<player.flag[guild]>|<player>|<[invited]>
+                - else:
+                  - narrate "<&6><[player].name> has already been invited."
           - case disband:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
               - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
