@@ -56,7 +56,7 @@ invite_to_guild:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml id:guild.<[guild]> set pending_invitations:|:<[invited]>
   - if <[invited].is_online>:
-    - narrate player:<[player]> "<&6>You were invited to the guild '<yaml[guild.<[guild]>].read[name]>'."
+    - narrate player:<[invited]> "<&6>You were invited to the guild '<yaml[guild.<[guild]>].read[name]>'."
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&6><[inviter].name> has invited <[invited].name> to the guild."
 
