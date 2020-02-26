@@ -22,8 +22,6 @@ guild_command:
             - determine <list[]>
       - else:
         - choose <context.args.get[1]>:
-          - case accept:
-            - determine <yaml[player.<player.uuid>].read[pending_guild_invitations]||<list[]>>
           - case create:
           - default:
             - determine <list[]>
@@ -38,7 +36,8 @@ guild_command:
         - choose <context.args.get[1]>:
           - case accept:
             - if <yaml[player.<player.uuid>].read[pending_guild_invitations]||null> != null:
-              - narrate <yaml[player.<player.uuid>].read[pending_guild_invitations]>
+              - if <yaml[guild.<yaml[player.<player.uuid>].read[pending_invitations]>].contains[<player>]>:
+                - narrate 1
       - else:
         - choose <context.args.get[1]>:
           - case kick:
