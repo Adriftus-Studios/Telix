@@ -37,9 +37,9 @@ guild_command:
         - stop
       - choose <context.args.get[1]>:
         - case kick:
-          - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick]>:
+          - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
         - case invite:
-          - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite]>:
+          - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite_members]>:
             - foreach <context.args.remove[1]> as:player:
               - define player:<server.list_online_players.filter[name.is[==].to[<[player]>]]>
               - narrate <[player]>
