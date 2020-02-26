@@ -204,3 +204,29 @@ build_item:
         - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
       - adjust def:item lore:<[lore]>
       - adjust def:item nbt:built/true
+
+playerData_events:
+  type: world
+  debug: false
+  events:
+    on player logs in priority:-2000 bukkit_priority:LOWEST:
+      - if <server.has_file[data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml]>:
+        - yaml load:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml id:player.<player.uuid>
+      - else:
+        - yaml create id:player.<player.uuid>
+      - if <server.has_file[data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml]>:
+        - yaml load:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml id:global.player.<player.uuid>
+      - else:
+        - yaml create id:player.<player.uuid>
+        - yaml savefile:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml id:global.player.<player.uuid>
+    on player quit priority:2000 bukkit_priority:HIGHEST:
+      - if <yaml.list.contains[player.<player.uuid>]>:
+        - yaml savefile:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml id:player.<player.uuid>
+        - yaml unload id:player.<player.uuid>
+      - if <yaml.list.contains[player.<player.uuid>]>:
+        - yaml savefile:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml id:global.player.<player.uuid>
+        - yaml unload id:player.<player.uuid>
+    on shutdown:
+      - foreach <yaml.list>:
+        - if <def[value].substring[1,6]> == player:
+          - yaml savefile:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml id:<def[value]>
