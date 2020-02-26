@@ -88,7 +88,7 @@ guild_disband_command:
   description: disband
   usage: /disband
   script:
-  - run disband_guild def:<yaml[player.<player.uuid>].read[guild]>
+  - run disband_guild def:<player.flag[guild]>
 
 guild_events:
   type: world
