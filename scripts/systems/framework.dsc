@@ -99,10 +99,9 @@ system_override:
     on shutdown:
       - foreach <yaml.list>:
         - if <[value].starts_with[player.]>:
-          - yaml savefile:data/globalData/players/<[value].substring[8]>.yml id:<[value]>
-
+          - yaml savefile:data/globalData/players/<server.flag[server.name]>/<[value].substring[8]>.yml id:<[value]>
     on player quit priority:2000 bukkit_priority:HIGHEST:
-      - yaml id:player.<player.uuid> savefile:data/globalData/players/<player.uuid>.yml
+      - yaml id:player.<player.uuid> savefile:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml
     on player logs in priority:-2000 bukkit_priority:LOWEST:
       - if <server.has_file[data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml]>:
         - yaml load:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml id:player.<player.uuid>
