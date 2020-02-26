@@ -105,6 +105,7 @@ guild_events:
             - determine passively cancelled
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
+      - narrate <yaml[player.<player.uuid>].read[guild]||null>
       - if <yaml[player.<player.uuid>].read[guild]||null> != null:
         - narrate <&6>You are already in a guild.
         - determine passively NOT_SIGNING
