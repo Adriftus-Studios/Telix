@@ -63,6 +63,7 @@ disband_guild:
   debug: true
   definitions: guild
   script:
+  - narrate <[guild]>
   - if <[guild]||null> == null:
     - stop
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:flag:
