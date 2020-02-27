@@ -121,13 +121,13 @@ guild_command:
                       - if <script[guild_settings].yaml_key[rank_permissions].contains[<context.args.get[5]>]>:
                         - if <context.args.get[4]> == add:
                           - if !<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<context.args.get[4]>]>:
-                            - run edit_guild_rank_permission def:<player.flag[guild]>|<context.args.get[2]>|<context.args[5]>|add
+                            - run edit_guild_rank_permission def:<player.flag[guild]>|<context.args.get[2]>|<context.args.get[5]>|add
                             - narrate "<&6>You gave the permission '<context.args.get[5]>' to '<[rank]>'."
                           - else:
                             - narrate "<&c>The rank '<context.args.get[4]>' already has that permission."
                         - else if <context.args.get[4]> == remove:
                           - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<context.args.get[4]>]>:
-                            - run edit_guild_rank_permission def:<player.flag[guild]>|<context.args.get[2]>|<context.args[5]>|remove
+                            - run edit_guild_rank_permission def:<player.flag[guild]>|<context.args.get[2]>|<context.args.get[5]>|remove
                             - narrate "<&6>You removed the permission '<context.args.get[5]>' from '<[rank]>'."
                           - else:
                             - narrate "<&c>The rank '<context.args.get[4]>' does not have that permission."
