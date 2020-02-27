@@ -103,7 +103,7 @@ guild_command:
                 - choose <context.args.get[3]>:
                   - case title:
                     - if <context.args.get[4]||null> != null:
-                      - run edit_guild_rank_property def:<player.flag[guild]>|<[rank]>|title|<context.args.get[4]>
+                      #- run edit_guild_rank_property def:<player.flag[guild]>|<[rank]>|title|<context.args.get[4]>
                       - narrate "<&6>You set the title for rank '<[rank]>' to <context.args.get[4]>."
                     - else:
                       - narrate "<&c>That is not a valid option."
