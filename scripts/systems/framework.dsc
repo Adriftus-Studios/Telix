@@ -121,7 +121,7 @@ ott_command:
       - else:
         - narrate "<&c>Player not found."
     - else:
-      - narrate "One-Time-Teleport is a perk given to players when they first join, and lasts for 2 hours. It allows you to teleport to a player of your choice within those 2 hours. When you teleport, you won't be able to use OTT again."
+      - narrate "<&6>One-Time-Teleport is a perk given to players when they first join, and lasts for 2 hours. It allows you to teleport to a player of your choice within those 2 hours. When you teleport, you won't be able to use OTT again."
 
 player_setup:
   type: task
