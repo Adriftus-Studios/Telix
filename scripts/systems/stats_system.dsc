@@ -24,7 +24,7 @@ stats_events:
   type: world
   events:
     on player damages player:
-      - yaml id:player.<player.uuid> set values.damage_to_players:+:<context.damage>
+      - yaml id:player.<player.uuid> set values.damage_to_players:+:<context.damage.round>
     on player kills player:
       - if <context.entity.is_player>:
         - yaml id:player.<context.entity.uuid> set values.deaths:++
