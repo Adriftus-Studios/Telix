@@ -68,7 +68,7 @@ guild_command:
       - else:
         - choose <context.args.get[1]>:
           - case leave:
-            - if !<yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
+            - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <player>:
               - run player_leave_guild def:<player.flag[guild]>|<player>
             - else:
               - narrate "<&c>You are the guild leader, you must disband in order to leave."
