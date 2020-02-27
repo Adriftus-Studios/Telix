@@ -88,12 +88,6 @@ reload_scripts:
         on script reload:
         - inject locally reload
         
-stats_setup:
-  type: task
-  script:
-  - announce to_ops "&cThe script <script.name> has used the deprecated task 'stats_setup'. this task has been replaced with 'player_setup'"
-  - inject player_setup
-  
 ott_command:
   type: command
   name: ott

@@ -14,6 +14,26 @@ update_stats:
     - inject calculate_weight_equipment_stats
     - inject calculate_encumberance_speed
 
+stats_setup:
+  type: task
+  script:
+  - announce to_ops "&cThe script <script.name> has used the deprecated task 'stats_setup'. this task has been replaced with 'player_setup'"
+  - inject player_setup
+  
+stats_events:
+  type: world
+  events:
+    on player damages player:
+      - yaml id:player.<player.uuid> set values.damage_to_players:+:<context.damage>
+    on player kills player:
+      - if <context.entity.is_player>:
+        - yaml id:player.<context.entity.uuid> set values.deaths:++
+      - if <context.damager.is_player>:
+        - yaml id:player.<context.damager.uuid> set values.kills:++
+    on player heals:
+      - yaml id:player.<player.uuid> set values.heals:+:<context.amount>
+
+
 calculate_base_stats:
   type: task
   debug: false
