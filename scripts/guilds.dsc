@@ -364,7 +364,6 @@ guild_events:
             - stop
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[place_flag]>:
           - run place_guild_flag def:<[guild]>|<[location]>|<player>
-          - determine passively cancelled
       - else:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
