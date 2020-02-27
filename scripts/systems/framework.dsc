@@ -189,6 +189,9 @@ system_override:
       - else if <context.status> == SUCCESSFULLY_LOADED:
         - narrate "<&6>Thank you for using our resource pack."
         - narrate "<&6>If you are enjoying the server then remember to vote with <&click[/vote]><&a><&l>/vote<&end_click><&6>!"
+      - else:
+        - narrate "<&6>Thank you for using our resource pack."
+        - narrate "<&6>If you are enjoying the server then remember to vote with <&click[/vote]><&a><&l>/vote<&end_click><&6>!"
     on shutdown:
       - foreach <yaml.list>:
         - if <[value].starts_with[player.]>:
