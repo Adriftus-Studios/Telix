@@ -356,6 +356,8 @@ guild_events:
     - if <inventory[flag_<player.flag[guild]>_<context.location>]||null> != null:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
         - inventory open d:<inventory[flag_<player.flag[guild]>_<context.location>]>
+      - else:
+        - narrate "<&c>You do not have permission to manage guild flags."
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
       - if <yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>:
@@ -531,6 +533,4 @@ guild_gui_events:
     - if <context.raw_slot> < 27:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
     on player clicks guild_flag_destroy_btn in guild_flag_gui:
-    - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[destroy_flag]>:
-    - foreach <yaml[guild.<[guild]>].read[members]> as:player:
-      - narrate "<&6><yaml[guild.<[guild]>].read[flags.<[flag]>.name]> at <[loc].simple.formatted.split[ in world].get[1]> was destroyed!"
+    - narrate <context.inventory.notable_name>
