@@ -331,9 +331,12 @@ damage_guild_flag:
   definitions: attacking_guild|defending_guild|location|player
   script:
   - define health:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>
-  - foreach <yaml[guild.<[defending_guild]>].read[members]> as:defender:
-    - narrate player:<[defender]> "<&4>Your flag '<yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>' is under attack by <yaml[guild.<[attacking_guild]>].read[name]||an<&sp>unknown<&sp>enemy>."
+  - define entity:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.entity]>
+  - if <[entity].flag[attacking]||null> == null:
+    - foreach <yaml[guild.<[defending_guild]>].read[members]> as:defender:
+      - narrate player:<[defender]> "<&4>Your flag '<yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>' is under attack by <yaml[guild.<[attacking_guild]>].read[name]||an<&sp>unknown<&sp>enemy>."
   - yaml id:guild.<[guild]> set flags.<[location]>.health:--
+  - flag <[entity]> attacking:<[attacking_guild]>
 
 guild_events:
   type: world
