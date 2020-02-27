@@ -24,7 +24,7 @@ guild_command:
   name: guild
   description: guild
   usage: /guild
-  debug: false
+  debug: true
   aliases:
   - "g"
   tab complete:
