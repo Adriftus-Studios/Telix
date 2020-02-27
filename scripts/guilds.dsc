@@ -374,9 +374,11 @@ guild_events:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
     on player breaks block:
-    - if <server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].size> != 0:
-      - determine passively cancelled
-      - define flag:<server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].get[1]>
+    - if <context.material.name.ends_with[banner]>
+      - if <server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].size> != 0:
+        - determine passively cancelled
+        - define flag:<server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].get[1]>
+        
     on player clicks block:
     - if <inventory[flag_<player.flag[guild]||null>_<context.location||null>]||null> != null:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
