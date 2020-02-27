@@ -164,6 +164,11 @@ guild_command:
                   - narrate "<&c><[player].name> has already been invited."
             - else:
               - narrate "<&c>You do not have permission to run that command."
+          - case flags:
+            - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
+              - inventory open d:guild_flags_gui
+            - else:
+              - narrate "<&c>You do not have permission to run that command."
           - case disband:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
               - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
@@ -488,25 +493,43 @@ edit_guild_ranks_gui:
 
 guild_flag_gui:
   type: inventory
-  title: <&6>◆ <&a><&n><&l>Manage Flag<&r> <&6>◆
-  size: 27
+  title: <&6>◆ <&a><&n><&l>Manage Flags<&r> <&6>◆
+  size: 54
   procedural items:
-    - define flag:<player.flag[context]>
-    - define flag_health:<yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>
-    - define flag_name:<yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>
-    - define items:|:<item[guild_flag_health_icon].with[lore=<&c><&chr[2764]><&sp><[flag_health]>].with[display_name=<&r><&a><[flag_name]>]>|<item[guild_flag_rename_btn]>|<item[guild_flag_destroy_btn]>
-    - determine <[items]>
+  - foreach <yaml[guild.<player.flag[guild]>].list_keys[flags]> as:flag:
+    - define flags:|:<item>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+guild_flag_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Manage Flag<&r> <&6>◆
+  size: 27
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [guild_flag_health_icon] [guild_flag_rename_btn] [guild_flag_destroy_btn] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+guild_flag_btn_icon:
+  type: item
+  material: snow
 guild_flag_health_icon:
   type: item
   material: snow
+  display name: <&r><&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>
+  lore:
+  - "<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>"
 
 guild_flag_rename_btn:
   type: item
