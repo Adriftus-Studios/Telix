@@ -1,5 +1,7 @@
 guild_settings:
   type: yaml data
+  default_stats:
+    flag_health: 5000
   rank_permissions:
   - manage_flags
   - edit_ranks
@@ -495,7 +497,11 @@ guild_flags_gui:
   size: 54
   procedural items:
   - foreach <yaml[guild.<player.flag[guild]>].list_keys[flags]> as:flag:
-    - define flags:|:<item[guild_flag_btn_icon].with[display_name=<&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>;lore=<list[<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>]>]>
+    - define h:<yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>
+    - if <yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]> < <script[guild_settings].yaml_key[default_stats.flag_health]>:
+      - define flags:|:<item[guild_flag_btn_icon].with[display_name=<&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>;lore=<list[<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>]>;nbt=<[flag]>]>
+    - else:
+      - define flags:|:<item[guild_flag_btn_icon].with[display_name=<&c><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>;lore=<list[<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>]>;nbt=<[flag]>]>
   - determine <[flags]>
   definitions:
     w_filler: <item[gui_invisible_item]>
