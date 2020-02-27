@@ -295,13 +295,29 @@ disband_guild:
   - yaml unload id:guild.<[guild]>
   - adjust server delete_file:data/globalData/guilds/<server.flag[server.name]>/<[guild]>.yml
 
+place_guild_flag:
+  type: task
+  definitions: guild|location|player
+  script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> save:indicator
+  - note <inventory[guild_flag_gui]> as:flag_<[guild]>_<[location]>
+  - yaml id:guild.<[guild]> set flags.<[location]>.entity:<entry[indicator].uuid>
+  - yaml id:guild.<[guild]> set flags.<[location]>.location:<[location].simple>
+  - yaml id:guild.<[guild]> set flags.<[location]>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
+  - yaml id:guild.<[guild]> set flags.<[location]>.health:5000
+  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
+    - narrate player:<[player]> "<&c><[player].name> has removed a guild flag."
+
 remove_guild_flag:
   type: task
-  definitions: flag
+  definitions: guild|location|player
   script:
-    - define loc:<entity[<[flag]>].location.sub[l@0.5,0,0.5,entity[<[flag]>].location.world.name]>
-    - modifyblock <[loc]> air
-    - remove <entity[<[flag]>]>
+  - modifyblock <[location]> air
+  - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
+  - yaml id:guild.<[guild]> set flags.<[location]>:!
+  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
+    - narrate player:<[player]> "<&c><[player].name> has removed a guild flag."
 
 guild_events:
   type: world
@@ -341,7 +357,7 @@ guild_events:
             - determine cancelled
             - stop
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[place_flag]>:
-          - run place_guild_flag def:<[guild]>|<[location]>
+          - run place_guild_flag def:<[guild]>|<[location]>|<player>
       - else:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
@@ -374,18 +390,6 @@ guild_events:
 new_guild_book:
   type: item
   material: writable_book
-
-place_guild_flag:
-  type: task
-  definitions: guild|location
-  script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
-  - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> save:indicator
-  - note <inventory[guild_flag_gui]> as:flag_<[guild]>_<[location]>
-  - yaml id:guild.<[guild]> set flags.<[location]>.entity:<entry[indicator].uuid>
-  - yaml id:guild.<[guild]> set flags.<[location]>.location:<[location].simple>
-  - yaml id:guild.<[guild]> set flags.<[location]>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
-  - yaml id:guild.<[guild]> set flags.<[location]>.health:5000
 
 guild_flag_indicator:
   type: entity
@@ -533,4 +537,6 @@ guild_gui_events:
     - if <context.raw_slot> < 27:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
     on player clicks guild_flag_destroy_btn in guild_flag_gui:
-    - narrate <context.inventory.notable_name>
+    - if <player.flag[guild]> == <context.inventory.notable_name.replace[flag_].with[].split[_l@].get[1]>:
+      - if <yaml[guild.<player.flag[guild]>].read[rank.<player.flag[guild_rank]>.permissions].contains[remove_flags]>:
+        - run remove_guild_flag def:<player.flag[guild]>|l@<context.inventory.notable_name.replace[flag_].with[].split[_l@].get[2]>
