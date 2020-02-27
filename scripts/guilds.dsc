@@ -197,6 +197,7 @@ create_guild:
   type: task
   definitions: guild|guild_name|guild_leader|guild_description
   script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml create id:guild.<[guild]>
   - flag <player> guild:<[guild]>
   - flag <player> guild_rank:leader
