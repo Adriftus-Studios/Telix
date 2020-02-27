@@ -116,7 +116,25 @@ ott_command:
       - else:
         - narrate "<&c>Player not found."
     - else:
-      - narrate "<&6>One-Time-Teleport is a perk given to players when they first join, and lasts for 2 hours. It allows you to teleport to a player of your choice within those 2 hours. When you teleport, you won't be able to use OTT again."
+      - narrate "<&a>|--------------------------| <&b>One Time Teleport<&a> |------------------------------|"
+      - narrate "<&6>One-Time-Teleport is a perk given to players when they first join, and lasts for 2 hours."
+      - narrate "<&6>It allows you to teleport to a player of your choice within those 2 hours. When you teleport, you won't be able to use OTT again."
+      - narrate "<&a>|-----------------------------------------------------------------------------|"
+
+rp_command:
+  type: command
+  name: rp
+  description: Immediately sets your current Resource Pack to the servers resources.
+  usage: /rp
+  aliases: resourcepack
+  script:
+  # The resource pack line.
+    - define rp_url https://download.nodecdn.net/containers/nodecraft/minepack/ae75998c4b6ccf5280b745b5da4a0c16.zip
+    - if <context.args.size> >= 1:
+      - narrate "<&c>Simply type <&a>/rp<&c>"
+    - else:
+      - adjust <player> resource_pack:<[rp_url]>
+
 
 player_setup:
   type: task
@@ -160,6 +178,11 @@ system_override:
   events:
     on player first login:
       - flag <player> ott:1 duration:2h
+    on player joins:
+      - adjust <player> resource_pack:<[rp_url]>
+      - narrate "<&6>Please accept the resource pack."
+      - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
+      - narrate "<&6>If you missed the button, click <&click[/rp]><&7>[HERE]<&end_click>"
     on shutdown:
       - foreach <yaml.list>:
         - if <[value].starts_with[player.]>:
