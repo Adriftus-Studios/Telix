@@ -52,7 +52,7 @@ calculate_weight_equipment_stats:
   script:
     - foreach <player.inventory.list_contents> as:item:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
-      - define weight:|:<[this_item_weight].*[<[item].quantity>]>
+      - define weight:|:<[this_item_weight].*[<[item].quantity>]||1>
     - foreach <yaml[player.<player.uuid>].list_keys[equipment]||<list[]>> as:equipment:
       - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
       - if <[item].material.name> != air:
