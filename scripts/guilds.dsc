@@ -118,7 +118,7 @@ guild_command:
                       - narrate "<&c>That is not a valid option."
                   - case permission:
                     - if <context.args.get[4]||null> != null:
-                      - if <script[guild_settings].yaml_key[rank_permissions].contains[<context.args.get[4]>]>:
+                      - if <script[guild_settings].yaml_key[rank_permissions].contains[<context.args.get[5]>]>:
                         - if <context.args.get[4]> == add:
                           - if !<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<context.args.get[4]>]>:
                             - run edit_guild_rank def:<player.flag[guild]>|<[rank]>|<context.args[5]>|add
