@@ -498,6 +498,7 @@ guild_flags_gui:
   procedural items:
   - foreach <yaml[guild.<player.flag[guild]>].list_keys[flags]> as:flag:
     - define flags:|:<item[guild_flag_btn_icon].with[lore=test<&nl>ttt]>
+  - determine <[flags]>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
