@@ -497,7 +497,7 @@ guild_flags_gui:
   size: 54
   procedural items:
   - foreach <yaml[guild.<player.flag[guild]>].list_keys[flags]> as:flag:
-    - define flags:|:<item[guild_flag_btn_icon].with[lore=test<&nl>ttt]>
+    - define flags:|:<item[guild_flag_btn_icon].with[lore=test;lore=ttt]>
   - determine <[flags]>
   definitions:
     w_filler: <item[gui_invisible_item]>
