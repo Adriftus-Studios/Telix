@@ -328,9 +328,10 @@ remove_guild_flag:
 
 damage_guild_flag:
   type: task
-  definitions: attacking_guild|defending_guild|flag|player
+  definitions: attacking_guild|defending_guild|location|player
   script:
   - define health:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>
+  - narrate <[location]>
   - narrate <[health]><&sp><[health].mod[200]>
   - if <[health].mod[200]> == 195:
     - foreach <yaml[guild.<[defending_guild]>].read[members]> as:defender:
