@@ -538,5 +538,5 @@ guild_gui_events:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
     on player clicks guild_flag_destroy_btn in guild_flag_gui:
     - if <player.flag[guild]> == <context.inventory.notable_name.replace[flag_].with[].split[_l@].get[1]>:
-      - if <yaml[guild.<player.flag[guild]>].read[rank.<player.flag[guild_rank]>.permissions].contains[remove_flags]>:
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[remove_flags]>
         - run remove_guild_flag def:<player.flag[guild]>|l@<context.inventory.notable_name.replace[flag_].with[].split[_l@].get[2]>
