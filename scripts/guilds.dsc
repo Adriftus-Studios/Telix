@@ -117,7 +117,7 @@ player_leave_guild:
   definitions: guild|player
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
-  - define id:guild.<[guild]> set members:-:<[player]>
+  - define id:guild.<[guild]> set members:<-:<[player]>
   - flag <[player]> guild:!
   - flag <[player]> guild_rank:!
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
