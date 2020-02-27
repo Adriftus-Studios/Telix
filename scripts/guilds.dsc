@@ -9,6 +9,9 @@ guild_settings:
   - remove_flags
   - kick_members
   - invite_members
+  properties:
+  - title
+  - priority
 
 guild_command:
   type: command
@@ -65,7 +68,7 @@ guild_command:
       - else:
         - choose <context.args.get[1]>:
           - case leave:
-            - if !<yaml[guild.<player.flag[guild]>].read[leader]> == <player>:
+            - if !<yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
               - run player_leave_guild def:<player.flag[guild]>|<player>
             - else:
               - narrate "<&c>You are the guild leader, you must disband in order to leave."
@@ -81,11 +84,13 @@ guild_command:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
               - if <server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]||null>> != null:
                 - define kicked:<server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]>>
-                - narrate <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>.priority]>
-                - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.priority]> > <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>.priority]>:
-                  - run kick_from_guild def:<player.flag[guild]>|<player>|<[kicked]>
+                - if <player.flag[guild]> == <[kicked].flag[guild]>
+                  - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.priority]> > <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>.priority]>:
+                    - run kick_from_guild def:<player.flag[guild]>|<player>|<[kicked]>
+                  - else:
+                    - narrate "<&c>You cannot kick that player."
                 - else:
-                  - narrate "<&c>You cannot kick that player."
+                  - narrate "<&c>That player is not in your guild"
               - else:
                 - narrate "<&c>Player not found."
             - else:
@@ -161,7 +166,7 @@ kick_from_guild:
   - if <[kicked].is_online>:
     - narrate player:<[kicked]> "<&c>You were kicked from the guild."
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
-    - narrate player:<[member]> "<&c><[kicker].name> has invited <[kicked].name> to the guild."
+    - narrate player:<[member]> "<&c><[kicker].name> has kicked <[kicked].name> from the guild."
 
 invite_to_guild:
   type: task
