@@ -556,6 +556,9 @@ guild_gui_events:
       - determine passively cancelled
     on player clicks guilds_view_info_btn in my_guild_gui:
     - if <context.raw_slot> < 36:
+    on player clicks in guild_flags_gui:
+    - if <context.raw_slot> < 54:
+      - determine passively cancelled
     on player clicks in new_guild_gui:
     - if <context.raw_slot> < 27:
       - determine passively cancelled
