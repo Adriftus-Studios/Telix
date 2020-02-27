@@ -539,5 +539,6 @@ guild_gui_events:
     on player clicks guild_flag_destroy_btn in guild_flag_gui:
     - narrate <context.inventory.notable_name>
     - if <player.flag[guild]> == <context.inventory.notable_name.replace[flag_].with[].split[l@].get[1]>:
+      - narrate 1
       - if <yaml[guild.<player.flag[guild]>].read[rank.<player.flag[guild_rank]>.permissions].contains[remove_flags]>:
         - run remove_guild_flag def:<player.flag[guild]>|l@<context.inventory.notable_name.replace[flag_].with[].split[l@].get[2]>
