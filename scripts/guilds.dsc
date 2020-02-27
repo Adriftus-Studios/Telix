@@ -373,7 +373,7 @@ guild_events:
         - determine cancelled
         - stop
     on player clicks block:
-    - if <inventory[flag_<player.flag[guild]||null>_<context.location>]||null> != null:
+    - if <inventory[flag_<player.flag[guild]||null>_<context.location||null>]||null> != null:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
         - inventory open d:<inventory[flag_<player.flag[guild]>_<context.location>]>
       - else:
