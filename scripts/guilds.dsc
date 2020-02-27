@@ -381,7 +381,7 @@ guild_events:
         - narrate "<&c>You are already in a guild."
         - determine passively NOT_SIGNING
         - stop
-      - if !<yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>:
+      - if <yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>:
         - narrate "<&c>That guild already exists"
         - determine passively NOT_SIGNING
         - stop
