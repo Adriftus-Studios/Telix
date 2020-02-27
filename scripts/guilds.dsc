@@ -110,7 +110,7 @@ guild_command:
                   - case priority:
                     - if <context.args.get[4]||null> != null:
                       - if <context.args.get[4].sub[0]||null> != null:
-                        - run edit_guild_rank def:<player.flag[guild]>|<[rank]>|priority|<context.args.get[4]>
+                        - run edit_guild_rank_property def:<player.flag[guild]>|<[rank]>|priority|<context.args.get[4]>
                         - narrate "<&6>You set the priority for rank '<[rank]>' to <context.args.get[4]>."
                       - else:
                         - narrate "<&c>That is not a valid number."
