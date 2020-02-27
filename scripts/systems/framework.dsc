@@ -103,9 +103,9 @@ ott_command:
     - if <context.args.size> >= 1:
       - if <context.args.get[1]> == accept:
         - if <player.flag[ott_request]||null> != null:
-          - if <player.flag[ott_request].is_online>:
-            - teleport <player.flag[ott_request]> <player.location>
-            - flag <player.flag[ott_request]> ott:!
+          - if <player.flag[ott_request].as_player.is_online>:
+            - teleport <player.flag[ott_request].as_player> <player.location>
+            - flag <player.flag[ott_request].as_player> ott:!
             - flag <player> ott_request:!
           - else:
             - narrate "<&c>This player is no longer online."
@@ -161,6 +161,8 @@ system_equipment_set:
 system_override:
   type: world
   events:
+    on player first login:
+      - flag <player> ott:1 duration:2h
     on shutdown:
       - foreach <yaml.list>:
         - if <[value].starts_with[player.]>:
