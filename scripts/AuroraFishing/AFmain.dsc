@@ -58,16 +58,6 @@ fishing_inventory_listener:
 #      - narrate "Material<&co> <&a><context.hook.location.material.name>"
 #      - narrate "Bait<&co> <&a><player.item_in_hand.nbt[baited].as_script.yaml_key[display<&sp>name].parsed||None>"
 ############################################################################################
-    on player fishes:
-      - title "title:<gold>Welcome!" "subtitle:<white>Here is some gear to get you started!"
-      - execute as_op "kit starter"
-      - narrate "<&4>----------------------------"
-      - narrate ""
-      - narrate "<&6>Welcome!"
-      - narrate "<&f>You've been given some gear to get started!"
-      - narrate "<&f>Check back daily for some additional supplies!"
-      - narrate ""
-      - narrate "<&4>----------------------------"
 
     on player right clicks with af_rod_*:
       - if <player.is_sneaking>:
