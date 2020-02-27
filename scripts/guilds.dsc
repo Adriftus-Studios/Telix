@@ -80,7 +80,6 @@ guild_command:
                 - define rank:<context.args.get[2]>
                 - choose <context.args.get[3]>:
                   - case create:
-                  
           - case kick:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
               - if <server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]||null>> != null:
