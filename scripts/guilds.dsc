@@ -1,6 +1,6 @@
 guild_settings:
   type: yaml data
-  permissions:
+  rank_permissions:
   - manage_flags
   - edit_ranks
   - view_members
@@ -9,16 +9,22 @@ guild_settings:
   - remove_flags
   - kick_members
   - invite_members
-  properties:
+  rank_properties:
   - title
   - priority
+  guild_properties:
+  - blocks_owned
+  - total_kills
+  - total_flags_destroyed
+  - total_heads_collected
+  - age
 
 guild_command:
   type: command
   name: guild
   description: guild
   usage: /guild
-  debug: true
+  debug: false
   aliases:
   - "g"
   tab complete:
@@ -31,10 +37,19 @@ guild_command:
         - choose <context.args.get[1]>:
           - case rank:
             - if <context.args.size> == 2:
-              - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].list_keys[ranks].include[new].filter[starts_with[<context.args.get[2]>]]>
+              - determine <yaml[guild.<player.flag[guild]>].list_keys[ranks].filter[starts_with[<context.args.get[2]>]]>
             - else:
               - if <context.args.size> == 3:
-                - if <context.args.get[2]> == new:
+                - determine <list[title|priority|permission]>
+              - else:
+                - if <context.args.get[3]> == permission:
+                  - if <context.args.size> == 4:
+                    - determine <list[add|remove]>
+                  - else:
+                    - if <context.args.get[4]> == add:
+                      - determine <script[guild_settings].yaml_key[rank_permissions]>
+                    - else if <context.args.get[4]> == remove:
+                      - determine <yaml[guild.<player.flag[guild]>].read[rank.<context.args.get[2]>.permissions]>
           - case invite:
             - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
           - case kick:
@@ -64,7 +79,7 @@ guild_command:
             - else:
               - narrate "<&c>You have no pending invitations."
           - default:
-            - narrate "<&c>That is not a valid option"
+            - narrate "<&c>That is not a valid option."
       - else:
         - choose <context.args.get[1]>:
           - case leave:
@@ -78,8 +93,45 @@ guild_command:
             - else:
               - if <context.args.size> == 3:
                 - define rank:<context.args.get[2]>
+                - if <context.args.get[3]> == create:
+                  - run create_guild_rank def:<player.flag[guild]>|<[rank]>
+                  - narrate "<&6>You have successfully created the guild rank '<[rank]>'."
+                - if !<yaml[guild.<player.flag[guild]>].list_keys[ranks].contains[<[rank]>]>:
+                  - narrate "<&c>That rank does not exist."
+                  - stop
                 - choose <context.args.get[3]>:
-                  - case create:
+                  - case title:
+                    - if <context.args.get[4]||null> != null:
+                      - run edit_guild_rank def:<player.flag[guild]>|<[rank]>|title|<context.args.get[4]>
+                    - else:
+                      - narrate "<&c>That is not a valid option."
+                  - case priority:
+                    - if <context.args.get[4]||null> != null:
+                      - if <context.args.get[4].sub[0]||null> != null:
+                        - run edit_guild_rank def:<player.flag[guild]>|<[rank]>|priority|<context.args.get[4]>
+                      - else:
+                        - narrate "<&c>That is not a valid number."
+                    - else:
+                      - narrate "<&c>That is not a valid option."
+                  - case permission:
+                    - if <context.args.get[4]||null> != null:
+                      - if <script[guild_settings].yaml_key[rank_permissions].contains[<context.args.get[4]>]>:
+                        - if <context.args.get[4]> == add:
+                          - if !<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<context.args.get[4]>]>:
+                            - yaml id:guild.<player.flag[guild]> set ranks.<[rank]>.permissions:|:<context.args.get[4]>
+                          - else:
+                            - narrate "<&c>The rank '<context.args.get[4]>' already has that permission."
+                        - else if <context.args.get[4]> == remove:
+                          - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<context.args.get[4]>]>:
+                            - yaml id:guild.<player.flag[guild]> set ranks.<[rank]>.permissions:<-:<context.args.get[4]>
+                          - else:
+                            - narrate "<&c>The rank '<context.args.get[4]>' does not have that permission."
+                        - else:
+                          - narrate "<&c>That is not a valid option."
+                      - else:
+                        - narrate "<&c>That is not a valid permission."
+                  - default:
+                    - narrate "<&c>That is not a valid option."
           - case kick:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
               - if <server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]||null>> != null:
@@ -90,7 +142,7 @@ guild_command:
                   - else:
                     - narrate "<&c>You cannot kick that player."
                 - else:
-                  - narrate "<&c>That player is not in your guild"
+                  - narrate "<&c>That player is not in your guild."
               - else:
                 - narrate "<&c>Player not found."
             - else:
@@ -110,7 +162,7 @@ guild_command:
             - else:
               - narrate "<&c>You do not have permission to run that command."
           - default:
-            - narrate "<&c>That is not a valid option"
+            - narrate "<&c>That is not a valid option."
 
 player_leave_guild:
   type: task
@@ -122,6 +174,7 @@ player_leave_guild:
   - flag <[player]> guild_rank:!
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&c><[player].name> has left the guild."
+  - narrate "<&c>You have left the guild."
 
 create_guild_rank:
   type: task
@@ -152,7 +205,7 @@ toggle_guild_rank_permission:
     - stop
   - if !<script[guild_settings].yaml_key[permissions].contains[<[permission]>]>
     - stop
-  - yaml id:guild.<[guild]> set ranks.<[rank]>.<[property]>:<[value]>
+  - yaml id:guild.<[guild]> set ranks.<[rank]>.permissions:|:<[permission]>
 
 kick_from_guild:
   type: task
@@ -160,7 +213,7 @@ kick_from_guild:
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - narrate <yaml[guild.<[guild]>].read[members].exclude[<[kicked]>]>
-  - yaml id:guild.<[guild]> set members:-:<[kicked]>
+  - yaml id:guild.<[guild]> set members:<-:<[kicked]>
   - flag <[kicked]> guild_rank:!
   - flag <[kicked]> guild:!
   - if <[kicked].is_online>:
@@ -206,7 +259,7 @@ create_guild:
   - yaml id:guild.<[guild]> set description:<[guild_description]>
   - yaml id:guild.<[guild]> set flag:i@white_banner
   - yaml id:guild.<[guild]> set members:|:<player>
-  - foreach <script[guild_settings].yaml_key[permissions]> as:perm:
+  - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - yaml id:guild.<[guild]> set ranks.leader.title:Leader
   - yaml id:guild.<[guild]> set ranks.leader.priority:1000
@@ -245,6 +298,9 @@ guild_events:
   type: world
   debug: true
   events:
+    on delta time minutely every:1:
+    - foreach <yaml.list.filter[starts_with[guild.]]> as:guild:
+      - yaml id:<[guild]> set age:++
     on server starts:
     - yaml create id:server.guilds
     - foreach <server.list_files[data/globalData/guilds/<server.flag[server.name]>]> as:guild:
@@ -299,8 +355,13 @@ guild_events:
             - determine passively cancelled
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
-      - if <player.flag[guild]||null> != null:
-        - narrate <&6>You are already in a guild.
+      - if <yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>:
+        - if <player.flag[guild]||null> != null:
+          - narrate "<&c>You are already in a guild."
+          - determine passively NOT_SIGNING
+          - stop
+      - else:
+        - narrate "<&c>That guild already exists"
         - determine passively NOT_SIGNING
         - stop
       - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.get[1]>
