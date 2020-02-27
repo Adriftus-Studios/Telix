@@ -179,6 +179,7 @@ system_override:
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
+      - define rp_url https://download.nodecdn.net/containers/nodecraft/minepack/ae75998c4b6ccf5280b745b5da4a0c16.zip
       - wait 60t
       - adjust <player> resource_pack:<[rp_url]>
       - if <context.status> == FAILED_DOWNLOAD:
