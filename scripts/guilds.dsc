@@ -198,7 +198,7 @@ create_guild:
   definitions: guild|guild_name|guild_leader|guild_description
   script:
   - yaml create id:guild.<[guild]>
-  - flag <player> guild:<[guild_name]>
+  - flag <player> guild:<[guild]>
   - flag <player> guild_rank:leader
   - yaml id:guild.<[guild]> set name:<[guild_name]>
   - yaml id:guild.<[guild]> set leader:<[guild_leader]>
