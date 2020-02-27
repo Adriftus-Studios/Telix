@@ -375,7 +375,7 @@ guild_events:
         - determine passively cancelled
     on player breaks block:
     - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
-    - narrate <server.list_notables[inventory].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]]>
+    - narrate <server.list_notables[inventory].filter[notable_name.starts_with[flag_]]>
     - foreach <[nearby_flags]> as:flag:
       - if <[flag].custom_name.strip_color> != <yaml[guild.<player.flag[guild]>].read[name]>:
         - narrate "<&6>You cannot break blocks in another guild's territory."
