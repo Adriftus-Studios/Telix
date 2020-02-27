@@ -30,14 +30,14 @@ guild_command:
   tab complete:
   - if <context.args.size||-1> != -1:
     - if <context.args.size> == 1:
-      - define list:<list[invite|disband|kick|create|rank|accept]>
+      - define list:<list[invite|disband|kick|create|rank|accept|leave|accept]>
       - determine <[list].filter[starts_with[<context.args.get[1]>]]>
     - else:
       - if <player.flag[guild]||null> != null:
         - choose <context.args.get[1]>:
           - case rank:
             - if <context.args.size> == 2:
-              - determine <yaml[guild.<player.flag[guild]>].list_keys[ranks].filter[starts_with[<context.args.get[2]>]]>
+              - determine <yaml[guild.<player.flag[guild]>].list_keys[ranks].filter[contains[<context.args.get[2]>]]>
             - else:
               - if <context.args.size> == 3:
                 - determine <list[title|priority|permission]>
@@ -324,6 +324,12 @@ guild_events:
         - if <def[value].substring[1,5]> == guild:
           - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
     on player places block:
+    - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
+    - foreach <[nearby_flags]> as:flag:
+      - if <[flag].custom_name.strip_color> != <yaml[guild.<player.flag[guild]>].read[name]>:
+        - narrate "<&6>You cannot build in another guild's territory."
+        - determine cancelled
+        - stop
     - if <context.item_in_hand.script.name> == guild_flag:
       - if <player.flag[guild]||null> != null:
         - define guild:<player.flag[guild]>
@@ -336,15 +342,10 @@ guild_events:
             - stop
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[place_flag]>:
           - run place_guild_flag def:<[guild]>|<[location]>
+          - narrate 1
       - else:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
-    - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
-    - foreach <[nearby_flags]> as:flag:
-      - if <[flag].custom_name.strip_color> != <yaml[guild.<player.flag[guild]>].read[name]>:
-        - narrate "<&6>You cannot build in another guild's territory."
-        - determine cancelled
-        - stop
     on player breaks block:
     - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
     - foreach <[nearby_flags]> as:flag:
