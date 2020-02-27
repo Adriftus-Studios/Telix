@@ -96,19 +96,22 @@ guild_command:
                 - if <context.args.get[3]> == create:
                   - run create_guild_rank def:<player.flag[guild]>|<[rank]>
                   - narrate "<&6>You have successfully created the guild rank '<[rank]>'."
+                  - stop
                 - if !<yaml[guild.<player.flag[guild]>].list_keys[ranks].contains[<[rank]>]>:
                   - narrate "<&c>That rank does not exist."
                   - stop
                 - choose <context.args.get[3]>:
                   - case title:
                     - if <context.args.get[4]||null> != null:
-                      - run edit_guild_rank def:<player.flag[guild]>|<[rank]>|title|<context.args.get[4]>
+                      - run edit_guild_rank_property def:<player.flag[guild]>|<[rank]>|title|<context.args.get[4]>
+                      - narrate "<&6>You set the title for rank '<[rank]>' to <context.args.get[4]>."
                     - else:
                       - narrate "<&c>That is not a valid option."
                   - case priority:
                     - if <context.args.get[4]||null> != null:
                       - if <context.args.get[4].sub[0]||null> != null:
                         - run edit_guild_rank def:<player.flag[guild]>|<[rank]>|priority|<context.args.get[4]>
+                        - narrate "<&6>You set the priority for rank '<[rank]>' to <context.args.get[4]>."
                       - else:
                         - narrate "<&c>That is not a valid number."
                     - else:
@@ -118,12 +121,14 @@ guild_command:
                       - if <script[guild_settings].yaml_key[rank_permissions].contains[<context.args.get[4]>]>:
                         - if <context.args.get[4]> == add:
                           - if !<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<context.args.get[4]>]>:
-                            - yaml id:guild.<player.flag[guild]> set ranks.<[rank]>.permissions:|:<context.args.get[4]>
+                            - run edit_guild_rank def:<player.flag[guild]>|<[rank]>|<context.args[5]>|add
+                            - narrate "<&6>You gave the permission '<context.args.get[5]>' to '<[rank]>'."
                           - else:
                             - narrate "<&c>The rank '<context.args.get[4]>' already has that permission."
                         - else if <context.args.get[4]> == remove:
                           - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<context.args.get[4]>]>:
-                            - yaml id:guild.<player.flag[guild]> set ranks.<[rank]>.permissions:<-:<context.args.get[4]>
+                            - run edit_guild_rank def:<player.flag[guild]>|<[rank]>|<context.args[5]>|remove
+                            - narrate "<&6>You removed the permission '<context.args.get[5]>' from '<[rank]>'."
                           - else:
                             - narrate "<&c>The rank '<context.args.get[4]>' does not have that permission."
                         - else:
@@ -185,20 +190,20 @@ create_guild_rank:
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.priority:1
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.permissions:|:view_members
 
-edit_guild_rank:
+edit_guild_rank_property:
   type: task
   definitions: guild|rank|property|value
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - if !<yaml[guild.<[guild]>].list_keys[ranks].contains[<[rank]>]>:
     - stop
-  - if !<list[title|priority].contains[<[property]>]>:
+  - if !<script[guild_settings].yaml_key[rank_properties].contains[<[property]>]>:
     - stop
   - yaml id:guild.<[guild]> set ranks.<[rank]>.<[property]>:<[value]>
 
-toggle_guild_rank_permission:
+edit_guild_rank_permission:
   type: task
-  definitions: guild|rank|permission
+  definitions: guild|rank|permission|value
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - if !<yaml[guild.<[guild]>].list_keys[ranks].contains[<[rank]>]>:
