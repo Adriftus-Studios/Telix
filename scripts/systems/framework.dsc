@@ -101,6 +101,7 @@ ott_command:
             - teleport <player.flag[ott_request].as_player> <player.location>
             - flag <player.flag[ott_request].as_player> ott:!
             - flag <player> ott_request:!
+            - yaml id:player.<player.flag[ott_request].as_player.uuid> set teleports_used.ott:++
           - else:
             - narrate "<&c>This player is no longer online."
         - else:
@@ -120,8 +121,10 @@ ott_command:
 player_setup:
   type: task
   script:
-    - yaml id:player.<player.uuid> set teleports.available:1
-    - yaml id:player.<player.uuid> set teleports.used:0
+    - yaml id:player.<player.uuid> set teleports_used.ott:0
+    - yaml id:player.<player.uuid> set values.kills:0
+    - yaml id:player.<player.uuid> set values.deaths:0
+    - yaml id:player.<player.uuid> set values.damage_to_players:0
     - yaml id:player.<player.uuid> set stats.health.current:20
     - yaml id:player.<player.uuid> set stats.health.max:20
     - yaml id:player.<player.uuid> set stats.power.current:20
