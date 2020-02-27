@@ -24,7 +24,6 @@ guild_command:
   name: guild
   description: guild
   usage: /guild
-  debug: true
   aliases:
   - "g"
   tab complete:
@@ -285,7 +284,6 @@ create_guild:
 
 disband_guild:
   type: task
-  debug: true
   definitions: guild
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
@@ -328,7 +326,6 @@ remove_guild_flag:
 
 guild_events:
   type: world
-  debug: true
   events:
     on delta time minutely every:1:
     - foreach <yaml.list.filter[starts_with[guild.]]> as:guild:
@@ -481,12 +478,13 @@ my_guild_gui:
 edit_guild_ranks_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Guild Ranks<&r> <&6>◆
-  size: 36
+  size: 45
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
@@ -525,7 +523,6 @@ guild_flag_gui:
 guild_flag_btn_icon:
   type: item
   material: snow
-
 
 guild_flag_health_icon:
   type: item
