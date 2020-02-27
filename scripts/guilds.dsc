@@ -302,13 +302,13 @@ place_guild_flag:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> save:indicator
   - note <inventory[guild_flag_gui]> as:flag_<[guild]>_<[location]>
-  - narrate <entry[indicator].uuid>
-  - yaml id:guild.<[guild]> set flags.<[location]>.entity:<entry[indicator].uuid>
+  - narrate <entry[indicator].spawned_entity.uuid>
+  - yaml id:guild.<[guild]> set flags.<[location]>.entity:<entry[indicator].spawned_entity.uuid>
   - yaml id:guild.<[guild]> set flags.<[location]>.location:<[location].simple>
   - yaml id:guild.<[guild]> set flags.<[location]>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
   - yaml id:guild.<[guild]> set flags.<[location]>.health:5000
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
-    - narrate player:<[player]> "<&c><[player].name> has placed a guild flag."
+    - narrate player:<[player]> "<&6><[player].name> has placed a guild flag."
 
 remove_guild_flag:
   type: task
