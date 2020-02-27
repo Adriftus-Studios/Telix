@@ -372,10 +372,10 @@ guild_events:
       - if <server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].size> != 0:
         - determine passively cancelled
         - define flag:<server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].get[1]>
-        - narrate <[flag]>
         - define guild:<[flag].notable_name.replace[flag_].with[].split[_l@].get[1]>
         - define location:<location[<[flag].notable_name.replace[flag_].with[].split[_l@].get[2]>]>
         - define health:<yaml[guild.<[guild]>].read[flags.<[location]>.health]>
+        - yaml id:guild.<[guild]> set flags.<[location]>.health:--
         - narrate <[health]>
     on player right clicks block:
     - if <inventory[flag_<player.flag[guild]||null>_<context.location||null>]||null> != null:
