@@ -385,6 +385,7 @@ guild_events:
         - narrate "<&c>That guild already exists"
         - determine passively NOT_SIGNING
         - stop
+      - narrate <context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.get[1]>
       - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.get[1]>
 
 new_guild_book:
