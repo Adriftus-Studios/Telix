@@ -74,7 +74,7 @@ calculate_weight_equipment_stats:
 
 calculate_encumberance_speed:
   type: task
-  debug: false
+  debug: true
   script:
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
