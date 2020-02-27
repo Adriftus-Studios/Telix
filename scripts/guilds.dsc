@@ -376,6 +376,7 @@ guild_events:
         - narrate "<&c>You do not have permission to manage guild flags."
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
+      - narrate <context.title.to_lowercase.replace[<&sp>].with[_]>
       - if <yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>:
         - if <player.flag[guild]||null> != null:
           - narrate "<&c>You are already in a guild."
