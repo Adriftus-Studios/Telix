@@ -206,11 +206,12 @@ edit_guild_rank_permission:
   definitions: guild|rank|permission|value
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
-  - if !<yaml[guild.<[guild]>].list_keys[ranks].contains[<[rank]>]>:
-    - stop
-  - if !<script[guild_settings].yaml_key[permissions].contains[<[permission]>]>
-    - stop
-  - yaml id:guild.<[guild]> set ranks.<[rank]>.permissions:|:<[permission]>
+  - if <list[add|remove].contains[<[value]>]>:
+    - if <[value]> == remove:
+      - yaml id:guild.<[guild]> set ranks.<[rank]>.permissions:<-:<[permission]>
+    - else:
+      - yaml id:guild.<[guild]> set ranks.<[rank]>.permissions:->:<[permission]>
+
 
 kick_from_guild:
   type: task
