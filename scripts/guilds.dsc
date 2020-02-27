@@ -377,16 +377,14 @@ guild_events:
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
       - narrate <context.title.to_lowercase.replace[<&sp>].with[_]>
-      - if <yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>:
-        - if <player.flag[guild]||null> != null:
-          - narrate "<&c>You are already in a guild."
-          - determine passively NOT_SIGNING
-          - stop
-      - else:
+      - if <player.flag[guild]||null> != null:
+        - narrate "<&c>You are already in a guild."
+        - determine passively NOT_SIGNING
+        - stop
+      - if !<yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>:
         - narrate "<&c>That guild already exists"
         - determine passively NOT_SIGNING
         - stop
-      - narrate <context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.get[1]>
       - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.get[1]>
 
 new_guild_book:
