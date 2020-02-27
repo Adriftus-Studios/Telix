@@ -374,7 +374,6 @@ guild_events:
     on player breaks block:
     - if <context.material.name.ends_with[banner]>:
       - if <server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].size> != 0:
-        - define location:<location[<[flag].notable_name.replace[flag_].with[].split[_l@].get[2]>]>
         - if <player.flag[guild]||null> != null:
           - determine passively cancelled
           - define flag:<server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].get[1]>
