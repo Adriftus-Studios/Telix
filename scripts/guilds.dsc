@@ -326,6 +326,12 @@ remove_guild_flag:
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&c><[player].name> has removed a guild flag. (<yaml[guild.<[guild]>].read[flags.<location[<[location]>]>.name]>)"
 
+damage_guild_flag:
+  type: task
+  definitions: attacking_guild|defending_guild|flag|player
+  script:
+
+
 guild_events:
   type: world
   events:
@@ -369,6 +375,7 @@ guild_events:
         - determine passively cancelled
     on player breaks block:
     - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[50]>
+    - narrate <server.list_notables[inventory].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]]>
     - foreach <[nearby_flags]> as:flag:
       - if <[flag].custom_name.strip_color> != <yaml[guild.<player.flag[guild]>].read[name]>:
         - narrate "<&6>You cannot break blocks in another guild's territory."
@@ -567,7 +574,6 @@ guild_gui_events:
       - determine passively cancelled
     on player clicks in guild_flag_gui:
     - if <context.raw_slot> < 27:
-      - narrate <context.inventory.notable_name>
       - determine passively cancelled
     on player clicks new_guild_btn in new_guild_gui:
     - if <context.raw_slot> < 27:
