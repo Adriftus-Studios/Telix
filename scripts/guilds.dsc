@@ -342,7 +342,6 @@ guild_events:
             - stop
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[place_flag]>:
           - run place_guild_flag def:<[guild]>|<[location]>
-          - narrate 1
       - else:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
@@ -356,8 +355,10 @@ guild_events:
     on player clicks block:
     - define flags:<context.location.add[<l@0.5,0,0.5,<context.location.world.name>>].find.entities[guild_flag_indicator].within[0.1]>
     - if !<[flags].is_empty>:
+      - narrate 1
       - define flag:<[flags].get[1].uuid>:
       - if <player.flag[guild]||null> != null:
+        - narrate 2
         - define guild:<player.flag[guild]>
         - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>:
           - if <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
