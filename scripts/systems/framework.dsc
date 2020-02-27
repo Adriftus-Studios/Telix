@@ -87,6 +87,71 @@ reload_scripts:
         - inject locally reload
         on script reload:
         - inject locally reload
+        
+stats_setup:
+  type: task
+  script:
+  - announce to_ops "&cThe script <script.name> has used the deprecated task 'stats_setup'. this task has been replaced with 'player_setup'"
+  - inject player_setup
+  
+ott_command:
+  type: command
+  name: ott
+  description: One-Time-Teleport, available for 2 hours after the player first joins the server.
+  usage: /ott [player]
+  script:
+    - if <context.args.size> >= 1:
+      - if <context.args.get[1]> == accept:
+        - if <player.flag[ott_request]||null> != null:
+          - if <player.flag[ott_request].is_online>:
+            - teleport <player.flag[ott_request]> <player.location>
+            - flag <player.flag[ott_request]> ott:!
+            - flag <player> ott_request:!
+          - else:
+            - narrate "<&c>This player is no longer online."
+        - else:
+          - narrate "<&c>You have no pending teleport requests."
+      - else if <server.match_player[<context.args.get[1]>]||null> != null:
+        - if <player.flag[ott]||null> != null:
+          - flag <server.match_player[<context.args.get[1]>]> ott_request:<player>
+          - narrate "<&6>You have requested to teleport to <context.args.get[1]>."
+          - narrate player:<server.match_player[<context.args.get[1]>]> "<&6><player.name> has requested to teleport to you."
+        - else:
+          - narrate "<&c>You can only use this command once, within 2 hours of when you first joined."
+      - else:
+        - narrate "<&c>Player not found."
+    - else:
+      - narrate "One-Time-Teleport is a perk given to players when they first join, and lasts for 2 hours. It allows you to teleport to a player of your choice within those 2 hours. When you teleport, you won't be able to use OTT again."
+
+player_setup:
+  type: task
+  script:
+    - yaml id:player.<player.uuid> set teleports.available:1
+    - yaml id:player.<player.uuid> set teleports.used:0
+    - yaml id:player.<player.uuid> set stats.health.current:20
+    - yaml id:player.<player.uuid> set stats.health.max:20
+    - yaml id:player.<player.uuid> set stats.power.current:20
+    - yaml id:player.<player.uuid> set stats.power.max:20
+    - yaml id:player.<player.uuid> set stats.food.max:100
+    - yaml id:player.<player.uuid> set stats.food.current:100
+    - yaml id:player.<player.uuid> set stats.thirst.max:100
+    - yaml id:player.<player.uuid> set stats.thirst.current:100
+    - yaml id:player.<player.uuid> set stats.weight.current:0
+    - yaml id:player.<player.uuid> set stats.weight.max:100
+    - yaml id:player.<player.uuid> set stats.constitution:0
+    - yaml id:player.<player.uuid> set stats.melee_damage:100
+    - yaml id:player.<player.uuid> set stats.speed:100
+    - yaml id:player.<player.uuid> set stats.temperature:100
+    - yaml id:player.<player.uuid> set stats.xp:0
+    - yaml id:player.<player.uuid> set stats.level:1
+    - yaml id:player.<player.uuid> set stats.stat_points:1000
+    - yaml id:player.<player.uuid> set stats.experience_multiplier:100
+    - yaml id:player.<player.uuid> set stats.drop_rate_multiplier:100
+    - yaml id:player.<player.uuid> set stats.equipment_rating:0
+    - yaml id:player.<player.uuid> set lessons.current:1000
+    - yaml id:player.<player.uuid> set lessons.lifetime:0
+    - foreach <script[abilitytrees].list_keys[trees]>:
+      - yaml id:player.<player.uuid> set skills.<[value]>.current:100
 
 system_equipment_set:
   type: task

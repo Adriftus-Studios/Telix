@@ -1,32 +1,3 @@
-stats_setup:
-  type: task
-  script:
-    - yaml id:player.<player.uuid> set stats.health.current:20
-    - yaml id:player.<player.uuid> set stats.health.max:20
-    - yaml id:player.<player.uuid> set stats.power.current:20
-    - yaml id:player.<player.uuid> set stats.power.max:20
-    - yaml id:player.<player.uuid> set stats.food.max:100
-    - yaml id:player.<player.uuid> set stats.food.current:100
-    - yaml id:player.<player.uuid> set stats.thirst.max:100
-    - yaml id:player.<player.uuid> set stats.thirst.current:100
-    - yaml id:player.<player.uuid> set stats.weight.current:0
-    - yaml id:player.<player.uuid> set stats.weight.max:100
-    - yaml id:player.<player.uuid> set stats.constitution:0
-    - yaml id:player.<player.uuid> set stats.melee_damage:100
-    - yaml id:player.<player.uuid> set stats.speed:100
-    - yaml id:player.<player.uuid> set stats.temperature:100
-    - yaml id:player.<player.uuid> set stats.xp:0
-    - yaml id:player.<player.uuid> set stats.level:1
-    - yaml id:player.<player.uuid> set stats.stat_points:1000
-    - yaml id:player.<player.uuid> set stats.experience_multiplier:100
-    - yaml id:player.<player.uuid> set stats.drop_rate_multiplier:100
-    - yaml id:player.<player.uuid> set stats.equipment_rating:0
-    - yaml id:player.<player.uuid> set lessons.current:1000
-    - yaml id:player.<player.uuid> set lessons.lifetime:0
-    - wait 1t
-    - foreach <script[abilitytrees].list_keys[trees]>:
-      - yaml id:player.<player.uuid> set skills.<[value]>.current:100
-
 update_stats_command:
   type: command
   name: update_stats
