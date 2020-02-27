@@ -179,10 +179,15 @@ system_override:
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
+      - wait 60t
       - adjust <player> resource_pack:<[rp_url]>
-      - narrate "<&6>Please accept the resource pack."
-      - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
-      - narrate "<&6>If you missed the button, click <&click[/rp]><&7>[HERE]<&end_click>"
+        - if <context.status> == FAILED_DOWNLOAD:
+          - narrate "<&6>Please accept the resource pack."
+          - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
+          - narrate "<&6>If your download failed, click <&click[/rp]><&7>[HERE]<&end_click>"
+        - else if <context.status> == SUCCESSFULLY_LOADED:
+          - narrate "<&6>Thank you for using our resource pack."
+          - narrate "<&6>If you are enjoying the server then remember to vote with <&click[/vote]><&a><&l>/vote<&end_click><&6>!"
     on shutdown:
       - foreach <yaml.list>:
         - if <[value].starts_with[player.]>:
