@@ -64,6 +64,11 @@ guild_command:
             - narrate "<&c>That is not a valid option"
       - else:
         - choose <context.args.get[1]>:
+          - case leave:
+            - if !<yaml[guild.<player.flag[guild]>].read[leader]> == <player>:
+              - run player_leave_guild def:<player.flag[guild]>|<player>
+            - else:
+              - narrate "<&c>You are the guild leader, you must disband in order to leave."
           - case rank:
             - if <context.args.size> == 2:
               - narrate "<&c>Not enough arguments."
@@ -101,6 +106,17 @@ guild_command:
               - narrate "<&c>You do not have permission to run that command."
           - default:
             - narrate "<&c>That is not a valid option"
+
+player_leave_guild:
+  type: task
+  definitions: guild|player
+  script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define id:guild.<[guild]> set members:-:<[player]>
+  - flag <[player]> guild:!
+  - flag <[player]> guild_rank:!
+  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
+    - narrate player:<[member]> "<&c><[player].name> has left the guild."
 
 create_guild_rank:
   type: task
