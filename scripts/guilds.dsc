@@ -567,6 +567,7 @@ guild_gui_events:
       - determine passively cancelled
     on player clicks in guild_flag_gui:
     - if <context.raw_slot> < 27:
+      - narrate <context.inventory.notable_name>
       - determine passively cancelled
     on player clicks new_guild_btn in new_guild_gui:
     - if <context.raw_slot> < 27:
