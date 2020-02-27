@@ -350,7 +350,7 @@ guild_events:
         - narrate "<&6>You cannot build in another guild's territory."
         - determine cancelled
         - stop
-    - if <context.item_in_hand.script.name> == guild_flag:
+    - if <context.item_in_hand.script.name||null> == guild_flag:
       - if <player.flag[guild]||null> != null:
         - define guild:<player.flag[guild]>
         - define location:<context.location>
