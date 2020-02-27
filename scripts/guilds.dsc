@@ -491,7 +491,7 @@ edit_guild_ranks_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
-guild_flag_gui:
+guild_flags_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Manage Flags<&r> <&6>◆
   size: 54
