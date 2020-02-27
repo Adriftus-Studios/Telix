@@ -78,7 +78,7 @@ guild_command:
                 - define kicked:<server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]>>
                 - narrate <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>.priority]>
                 - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.priority]> > <yaml[guild.<[kicked].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<[kicked].flag[guild_rank]>.priority]>:
-                  #- run kick_from_guild def:<player.flag[guild]>|<player>|<[kicked]>
+                  - run kick_from_guild def:<player.flag[guild]>|<player>|<[kicked]>
                 - else:
                   - narrate "<&c>You cannot kick that player."
               - else:
@@ -190,7 +190,7 @@ create_guild:
   - yaml id:guild.<[guild]> set ranks.leader.priority:1000
   - yaml id:guild.<[guild]> set default_rank:Peasent
   - yaml id:guild.<[guild]> set ranks.peasent.title:Peasent
-  - yaml id:guild.<[guild]> set ranks.leader.priority:1
+  - yaml id:guild.<[guild]> set ranks.peasent.priority:1
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
   - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[guild]>.yml id:guild.<[guild]>
 
