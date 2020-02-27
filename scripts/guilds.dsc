@@ -537,7 +537,7 @@ guild_gui_events:
     - if <context.raw_slot> < 27:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
     on player clicks guild_flag_destroy_btn in guild_flag_gui:
-    - narrate <context.inventory.notable_name>
+    - narrate <context.inventory.notable_name.replace[flag_].with[].split[l@].get[1]>
     - if <player.flag[guild]> == <context.inventory.notable_name.replace[flag_].with[].split[l@].get[1]>:
       - narrate 1
       - if <yaml[guild.<player.flag[guild]>].read[rank.<player.flag[guild_rank]>.permissions].contains[remove_flags]>:
