@@ -387,7 +387,7 @@ place_guild_flag:
   script:
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]>
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
-  - note <inventory[guild_flag_gui]> as:<[guild]>_flag_<[location]>
+  - note <inventory[guild_flag_gui]> as:flag_<[guild]>_<[location]>
   - yaml id:guild.<[guild]> set flags.<[location]>.location:<[location].simple>
   - yaml id:guild.<[guild]> set flags.<[location]>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
   - yaml id:guild.<[guild]> set flags.<[location]>.health:5000
