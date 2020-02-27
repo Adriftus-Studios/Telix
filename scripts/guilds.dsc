@@ -353,17 +353,9 @@ guild_events:
         - determine cancelled
         - stop
     on player clicks block:
-    - define flags:<context.location.add[<l@0.5,0,0.5,<context.location.world.name>>].find.entities[guild_flag_indicator].within[0.1]>
-    - if !<[flags].is_empty>:
-      - narrate 1
-      - define flag:<[flags].get[1].uuid>:
-      - if <player.flag[guild]||null> != null:
-        - narrate 2
-        - define guild:<player.flag[guild]>
-        - if <yaml[guild.<[guild]>].list_keys[flags].contains[<[flag]>]>:
-          - if <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
-            - inventory open d:<inventory[guild_flag_<[guild]>_<context.location>]>
-            - determine passively cancelled
+    - if <inventory[flag_<player.flag[guild]>_<context.location>]||null> != null:
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
+        - inventory open d:<inventory[flag_<player.flag[guild]>_<context.location>]>
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
       - if <yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>:
