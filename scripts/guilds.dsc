@@ -540,4 +540,4 @@ guild_gui_events:
     - if <player.flag[guild]> == <context.inventory.notable_name.replace[flag_].with[].split[_l@].get[1]>:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[remove_flags]>:
         - run remove_guild_flag def:<player.flag[guild]>|l@<context.inventory.notable_name.replace[flag_].with[].split[_l@].get[2]>
-        - narrate <yaml[guild.<[guild]>].read[flags.<location[<context.inventory.notable_name.replace[flag_].with[].split[_l@].get[2]>]>.entity]>
+        - narrate <location[<context.inventory.notable_name.replace[flag_].with[].split[_l@].get[2]>]>
