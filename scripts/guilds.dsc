@@ -386,6 +386,7 @@ guild_events:
     - if <inventory[flag_<player.flag[guild]||null>_<context.location||null>]||null> != null:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
         - inventory open d:<inventory[flag_<player.flag[guild]>_<context.location>]>
+        - inventory set d:<inventory[flag_<player.flag[guild]>_<context.location>]> o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>]>
         - determine passively cancelled
       - else:
         - narrate "<&c>You do not have permission to manage guild flags."
@@ -402,6 +403,13 @@ guild_events:
         - stop
       - narrate <context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.get[1]>
       - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.get[1]>
+
+guild_flag_health_icon:
+  type: item
+  material: snow
+  display name: <&r><&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>
+  lore:
+  - "<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>"
 
 new_guild_book:
   type: item
@@ -575,7 +583,6 @@ guild_gui_events:
     - if <context.raw_slot> < 27:
       - determine passively cancelled
     on player clicks in guild_flag_gui:
-    - narrate <context.raw_slot>
     - if <context.raw_slot> < 27:
       - determine passively cancelled
     on player clicks new_guild_btn in new_guild_gui:
