@@ -368,12 +368,13 @@ guild_events:
       - if <player.flag[guild]||null> != null:
         - define guild:<player.flag[guild]>
         - define location:<context.location>
-        - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[200]>
+        - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[100]>
         - foreach <[nearby_flags]> as:flag:
           - if <[flag].custom_name.strip_color> != <yaml[guild.<[guild]>].read[name]>:
             - narrate "<&6>You are too close to another guild's flag."
             - determine cancelled
             - stop
+        - narrate 1
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[place_flag]>:
           - run place_guild_flag def:<[guild]>|<[location]>|<player>
       - else:
