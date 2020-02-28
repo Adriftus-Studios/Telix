@@ -11,6 +11,7 @@ guild_settings:
   - remove_flags
   - kick_members
   - invite_members
+  - manage_relations
   rank_properties:
   - title
   - priority
@@ -55,6 +56,11 @@ guild_command:
             - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
           - case kick:
             - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[!=].to[<player>]].parse[name]>
+          - case relation:
+            - if <context.args.size> == 2:
+              - determine <list[neutral|ally|enemy|truce>
+            - else:
+              - narrate '<context.raw_args.replace[relation<&sp><context.args.get[2]><&sp>]>'
           - default:
             - determine <list[]>
       - else:
@@ -176,6 +182,10 @@ guild_command:
           - case disband:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
               - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
+            - else:
+              - narrate "<&c>You do not have permission to run that command."
+          - case relation:
+            - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_relations]>:
             - else:
               - narrate "<&c>You do not have permission to run that command."
           - default:
@@ -362,6 +372,40 @@ damage_guild_flag:
     - note remove as:flag_<[defending_guild]>_<[location]>
     - foreach <server.list_online_players.filter[open_inventory.notable_name.contains[<[location]>]]>:
       - inventory close d:<[value]>
+
+change_guild_relation:
+  type: task
+  definitions: guild|other|relation
+  script:
+  - choose <[relation]>:
+    - case ally:
+      - yaml id:guild.<[guild]> set relation.enemy:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.enemy:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relation.truce:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.truce:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relation.ally:->:<[other]>
+      - yaml id:guild.<[other]> set relation.ally:->:<[guild]>
+    - case truce:
+      - yaml id:guild.<[guild]> set relation.enemy:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.enemy:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relation.truce:->:<[other]>
+      - yaml id:guild.<[other]> set relation.truce:->:<[guild]>
+      - yaml id:guild.<[guild]> set relation.ally:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.ally:<-:<[guild]>
+    - case enemy:
+      - yaml id:guild.<[guild]> set relation.enemy:->:<[other]>
+      - yaml id:guild.<[other]> set relation.enemy:->:<[guild]>
+      - yaml id:guild.<[guild]> set relation.truce:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.truce:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relation.ally:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.ally:<-:<[guild]>
+    - case neutral:
+      - yaml id:guild.<[guild]> set relation.enemy:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.enemy:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relation.truce:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.truce:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relation.ally:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.ally:<-:<[guild]>
 
 guild_events:
   type: world
