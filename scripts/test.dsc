@@ -39,16 +39,16 @@ ability_test_spell2:
   points_to_unlock: 0
   power_cost: 0
   description: Test Spell 2
-  range: 20
+  range: 50
   icon:
     material: iron_nugget
     custom_model_data: 1000
   script:
     - inject abilities_check
     - inject abilities_cost
-    - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[20]>|0.5|0]>
+    - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[<script.yaml_key[range]>]>|0.5|0]>
     - run run_animation def:<[points].escaped>|spell_instant
-    - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[20]>|0.5|180]>
+    - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[<script.yaml_key[range]>]>|0.5|180]>
     - run run_animation def:<[points].escaped>|spell_instant
 
 run_animation:
