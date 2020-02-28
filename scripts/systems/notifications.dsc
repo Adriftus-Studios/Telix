@@ -10,7 +10,7 @@
 #notification_bb (Run task)
 notification_bb:
   type: task
-  debug: false
+  debug: true
   definitions: title|duration|color|progress|targets
   script:
     #Check for existing definitions and set defaults as necessary
