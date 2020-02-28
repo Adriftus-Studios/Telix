@@ -51,5 +51,5 @@ ability_test_spell2:
       - playeffect spell_witch <[point]> offset:0 visibility:100 quantity:2
       - wait 1t
       - if <[point].find.players.within[0.7].size> != 0:
-        - hurt <[point].find.players.within[0.7].get[1]> 5 cause:<player>
+        - hurt <[point].find.players.within[0.7].get[1]> 5
         - foreach stop
