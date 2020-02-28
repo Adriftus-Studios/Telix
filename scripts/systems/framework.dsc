@@ -190,7 +190,7 @@ system_override:
       - if <context.status> == DECLINED:
         - narrate "<&6>Please accept the resource pack."
         - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
-        - kick <player> "<&c>Testing\nnew\nline"
+        - kick <player> "reason:<&c>Testing\nnew\nline"
       - else if <context.status> == SUCCESSFULLY_LOADED:
         - narrate "<&6>Resource pack successfully loaded"
       - else if <context.status> == ACCEPTED:
