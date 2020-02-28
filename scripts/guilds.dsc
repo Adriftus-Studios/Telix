@@ -414,6 +414,14 @@ guild_events:
               - narrate "<&c>You cannot attack your own guild's flag."
           - else:
             - narrate "<&c>You cannot attack a guild without declaring war"
+    on player right clicks block:
+    - if <inventory[flag_<player.flag[guild]||null>_<context.location||null>]||null> != null:
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
+        - inventory open d:<inventory[flag_<player.flag[guild]>_<context.location>]>
+        - inventory set d:<inventory[flag_<player.flag[guild]>_<context.location>]> slot:11 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<player.flag[guild]>].read[flags.<context.location>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<context.location>.health]>]>
+        - determine passively cancelled
+      - else:
+        - narrate "<&c>You do not have permission to manage guild flags."
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
       - if <player.flag[guild]||null> != null:
