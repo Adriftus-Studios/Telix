@@ -388,6 +388,7 @@ guild_events:
             - if <[guild]> != <player.flag[guild]>:
               - define flag:<server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].get[1]>
               - narrate <[flag].notable_name.replace[flag_].with[].split[_l@].get[1]>
+              - narrate <[guild]>
               - run damage_guild_flag def:<player.flag[guild]>|<[guild]>|<location[<[flag].notable_name.replace[flag_].with[].split[_l@].get[2]>]>|<player>
             - else:
               - narrate "<&c>You cannot attack your own guild's flag."
