@@ -3,8 +3,8 @@ ability_test_spell:
   name: test_spell
   ability_tree: Nether
   ability_type: active
-  points_to_unlock: 10
-  power_cost: 10
+  points_to_unlock: 0
+  power_cost: 0
   description: Test Spell
   range: 20
   icon:
