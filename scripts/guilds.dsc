@@ -374,9 +374,9 @@ guild_events:
             - narrate "<&6>You are too close to another guild's flag."
             - determine cancelled
             - stop
-        - narrate 1
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[place_flag]>:
           - run place_guild_flag def:<[guild]>|<[location]>|<player>
+          - narrate 1
       - else:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
