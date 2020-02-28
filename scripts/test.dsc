@@ -15,14 +15,10 @@ ability_test_spell:
   script:
     - inject abilities_check
     - inject abilities_cost
-    - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[0.5]>
     - repeat 3:
       - define angle:<util.random.int[0].to[360]>
       - define offset:<proc[find_offset].context[2|<[angle]>]>
-      - define start:<player.location.forward[1]>
-      - define end:<player.location.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-      - narrate <player.location.forward[1]>|<player.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>|<[angle]>
-      - run ability_test_spell_animation def:<player.location.forward[1]>|<player.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>|<[angle]>
+      - run ability_test_spell_animation def:<player.location.forward[1]>|<player.location.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>|<[angle]>
 
 ability_test_spell_animation:
   type: task
