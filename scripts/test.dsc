@@ -23,4 +23,4 @@ ability_test_spell:
       - define offset:<proc[find_offset].context[2|<[random]>]>
       - define points:<player.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>
 
-    - run locally path:animation def:
+      - run locally path:animation def:<[points]>
