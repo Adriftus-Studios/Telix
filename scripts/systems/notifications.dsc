@@ -11,7 +11,7 @@
 notification_bb:
   type: task
   debug: true
-  definitions: title|duration|color|progress|targets
+  definitions: title|duration|color|progress|target
   script:
     #Check for existing definitions and set defaults as necessary
     - if <[title]||null> == null:
@@ -26,9 +26,9 @@ notification_bb:
     - else if <[progress]||null> == null:
       - define progress:1.0
       - narrate <[progress]>
-    - else if <[targets]||null> == null:
-      - define targets:<player>
-      - narrate <[targets]>
+    - else if <[target]||null> == null:
+      - define target:<player>
+      - narrate <[target]>
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
     - if <[duration].as_duration.in_seconds> <= 0:
@@ -41,8 +41,8 @@ notification_bb:
       - define progress:1.0
 
     #Define timestamp id and create bossbar
-    - define id:<[targets].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> targets:<[targets]> style:SOLID
+    - define id:<[target].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
+    - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> targets:<[target]> style:SOLID
 
     #Wait for specified duration of time
     - wait <[duration]>
