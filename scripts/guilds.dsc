@@ -386,7 +386,7 @@ guild_events:
     - if <inventory[flag_<player.flag[guild]||null>_<context.location||null>]||null> != null:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
         - inventory open d:<inventory[flag_<player.flag[guild]>_<context.location>]>
-        - inventory set d:<inventory[flag_<player.flag[guild]>_<context.location>]> o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>]>
+        - inventory set d:<inventory[flag_<player.flag[guild]>_<context.location>]> slot:11 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>]>
         - determine passively cancelled
       - else:
         - narrate "<&c>You do not have permission to manage guild flags."
