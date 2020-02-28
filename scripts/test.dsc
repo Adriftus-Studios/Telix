@@ -9,8 +9,6 @@ ability_test_spell:
   icon:
     material: iron_nugget
     custom_model_data: 100
-  animation:
-    - narrate <script.definitions>
   apply_damage:
     - hurt <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> 5
     - burn <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> <script.yaml_key[duration]>
@@ -19,8 +17,18 @@ ability_test_spell:
     - inject abilities_cost
     - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[0.5]>
     - repeat 3:
-      - define random:<util.random.int[0].to[360]>
-      - define offset:<proc[find_offset].context[2|<[random]>]>
-      - define points:<player.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+      - define angle:<util.random.int[0].to[360]>
+      - define offset:<proc[find_offset].context[2|<[angle]>]>
+      - define start:<player.location.forward[1]>
+      - define end:<player.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+      - run ability_test_spell_animation def:<player.location.forward[1]>|<player.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>|<[angle]>
 
-      - run locally path:animation def:<[points]>
+ability_test_spell_animation:
+  type: task
+  definitions: start|end|angle
+  script:
+  - define points:<proc[define_curve].context[<[start]>|<[end]>|1|<[angle]>|0.5]>
+  - foreach <[points]> as:point:
+    - playeffect spell_witch <[point]> offset:0 visibility:100 quantity:2
+    - wait 1t
+#  start|end|intensity|angle|between
