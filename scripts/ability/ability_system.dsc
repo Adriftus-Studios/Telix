@@ -35,7 +35,7 @@ abilities_characterAbilityTrees:
   procedural items:
     - foreach <script[abilitytrees].list_keys[trees].alphabetical> as:value1:
       - if <script[abilitytrees].yaml_key[trees.<[value1]>.available_check].parsed>:
-        - define list:|:<script[abilitytrees].yaml_key[trees.<[value1]>.GUIItem].as_item.with[display_name=<&b><[value1]>;custom_model_data=<script[abilitytrees].yaml_key[skill_trees.<[value1]>.custom_model_data]>;nbt=skillname/<[value1]>]>
+        - define list:|:<script[abilitytrees].yaml_key[trees.<[value1]>.GUIItem].as_item.with[display_name=<&b><[value1]>;custom_model_data=<script[abilitytrees].yaml_key[trees.<[value1]>.custom_model_data]>;nbt=skillname/<[value1]>]>
     - determine <[list]>
   slots:
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
