@@ -214,7 +214,7 @@ guild_command:
                         - if <yaml[guild.<player.flag[guild]>].read[relations.request.truce].contains[<[guild]>]||false>:
                           - run change_guild_relation def:<player.flag[guild]>|<[guild]>|truce|<player>
                         - else:
-                          - yaml id:guild.<player.flag[guild]> set relations.request.truce:->:<player.flag[guild]>
+                          - yaml id:guild.<[guild]> set relations.request.truce:->:<player.flag[guild]>
                           - foreach <yaml[guild.<player.flag[guild]>].read[members].filter[is_online]>:
                             - narrate player:<[value]> "<player.name> has requested a truce with <yaml[guild.<[guild]>].read[name]>"
                           - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
@@ -226,7 +226,7 @@ guild_command:
                         - if <yaml[guild.<player.flag[guild]>].read[relations.request.ally].contains[<[guild]>]||false>:
                           - run change_guild_relation def:<player.flag[guild]>|<[guild]>|ally|<player>
                         - else:
-                          - yaml id:guild.<player.flag[guild]> set relations.request.ally:->:<player.flag[guild]>
+                          - yaml id:guild.<[guild]> set relations.request.ally:->:<player.flag[guild]>
                           - foreach <yaml[guild.<player.flag[guild]>].read[members].filter[is_online]>:
                             - narrate player:<[value]> "<player.name> has requested a alliance with <yaml[guild.<[guild]>].read[name]>"
                           - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
@@ -238,7 +238,7 @@ guild_command:
                         - if <yaml[guild.<player.flag[guild]>].read[relations.request.ally].contains[<[guild]>]||false>:
                           - run change_guild_relation def:<player.flag[guild]>|<[guild]>|neutral|<player>
                         - else:
-                          - yaml id:guild.<player.flag[guild]> set relations.request.neutral:->:<player.flag[guild]>
+                          - yaml id:guild.<[guild]> set relations.request.neutral:->:<player.flag[guild]>
                           - foreach <yaml[guild.<player.flag[guild]>].read[members].filter[is_online]>:
                             - narrate player:<[value]> "<player.name> has requested peace with <yaml[guild.<[guild]>].read[name]>"
                           - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
