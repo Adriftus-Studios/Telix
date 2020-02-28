@@ -101,9 +101,6 @@ smeltery_events:
                 - else:
                   - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
               - else:
-                - narrate <item[<[crafting]>]>
-                - narrate <[clock].nbt[crafting]>
-                - define crafting:<[clock].nbt[crafting]>
                 - if <[time].ends_with[s]>:
                   - define time:<[time].replace[s].with[]>
                 - if <[time].ends_with[m]>:
