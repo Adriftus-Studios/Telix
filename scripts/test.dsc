@@ -24,7 +24,7 @@ ability_test_spell_animation:
   type: task
   definitions: start|end|angle
   script:
-  - define points:<proc[define_curve].context[<[start]>|<[end]>|1|<[angle]>|0.7]>
+  - define points:<proc[define_curve].context[<[start]>|<[end]>|2|<[angle]>|0.7]>
   - foreach <[points]> as:point:
     - playeffect spell_witch <[point]> offset:0 visibility:100 quantity:2
     - wait 1t
