@@ -55,6 +55,9 @@ ability_test_spell2_animation:
   type: task
   definitions: points|damage|player
   script:
+  - narrate <[points]>
+  - narrate <[damage]>
+  - narrate <[player]>
   - foreach <[points]> as:point:
     - playeffect spell <[point]> offset:0 visibility:100 quantity:2
     - wait 1t
