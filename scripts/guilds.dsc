@@ -440,10 +440,7 @@ guild_events:
 guild_flag_health_icon:
   type: item
   material: snow
-  display name: <&r><&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>
-  lore:
-  - "<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>"
-
+  
 new_guild_book:
   type: item
   material: writable_book
