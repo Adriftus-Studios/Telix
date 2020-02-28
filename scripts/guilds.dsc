@@ -341,7 +341,7 @@ damage_guild_flag:
       - narrate player:<[value]> "<&4><yaml[guild.<[defending_guild]>].read[name]> is under attack by <yaml[guild.<[attacking_guild]>].read[name]>"
   - yaml id:guild.<[defending_guild]> set flags.<[location]>.health:--
   - inventory set d:<inventory[flag_<[defending_guild]>_<[location]>]> slot:11 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>]>
-  - flag <[entity]> attacking:<[attacking_guild]> duration:5m
+  - flag <[entity]> attacking:d duration:5m
 
 guild_events:
   type: world
