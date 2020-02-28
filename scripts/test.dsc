@@ -55,7 +55,7 @@ ability_test_spell2_animation:
   type: task
   definitions: points|damage|player
   script:
-  - narrate <[points]>
+  - narrate <[points].size>
   - narrate <[damage]>
   - narrate <[player]>
   - foreach <[points]> as:point:
