@@ -447,12 +447,12 @@ change_guild_relation:
   script:
   - choose <[relation]>:
     - case ally:
-      - yaml id:guild.<[guild]> set relation.enemy:<-:<[other]>
-      - yaml id:guild.<[other]> set relation.enemy:<-:<[guild]>
-      - yaml id:guild.<[guild]> set relation.truce:<-:<[other]>
-      - yaml id:guild.<[other]> set relation.truce:<-:<[guild]>
-      - yaml id:guild.<[guild]> set relation.ally:->:<[other]>
-      - yaml id:guild.<[other]> set relation.ally:->:<[guild]>
+      - yaml id:guild.<[guild]> set relation.enemy:->:<[other]>
+      - yaml id:guild.<[other]> set relation.enemy:->:<[guild]>
+      - yaml id:guild.<[guild]> set relation.truce:->:<[other]>
+      - yaml id:guild.<[other]> set relation.truce:->:<[guild]>
+      - yaml id:guild.<[guild]> set relation.ally:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.ally:<-:<[guild]>
       - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&b>Your guild is now an ally of <yaml[guild.<[guild]>].read[name]>!"
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
