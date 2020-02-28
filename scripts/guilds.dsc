@@ -334,7 +334,9 @@ damage_guild_flag:
   - define entity:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.entity]>
   - if <[entity].flag[attacking]||null> == null:
     - foreach <yaml[guild.<[defending_guild]>].read[members]> as:defender:
-      - narrate player:<[defender]> "<&4>Your flag '<yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>' is under attack by <yaml[guild.<[attacking_guild]>].read[name]||an<&sp>unknown<&sp>enemy>."
+      - narrate player:<[defender]> "<&4>Your flag '<yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>' is under attack by <yaml[guild.<[attacking_guild]>].read[name]>."
+    - foreach <server.list_online_players>:
+      - narrate player:<[value]> "<&4><yaml[guild.<[defending_guild]>].read[name]> is under attack by <yaml[guild.<[attacking_guild]>].read[name]>"
   - yaml id:guild.<[guild]> set flags.<[location]>.health:--
   - flag <[entity]> attacking:<[attacking_guild]> duration:5m
 
@@ -380,10 +382,6 @@ guild_events:
           - determine passively cancelled
           - define flag:<server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].get[1]>
           - run damage_guild_flag def:<player.flag[guild]>|<[flag].notable_name.replace[flag_].with[].split[_l@].get[1]>|<location[<[flag].notable_name.replace[flag_].with[].split[_l@].get[2]>]>|<player>
-          - define entity:<yaml[guild.<[flag].notable_name.replace[flag_].with[].split[_l@].get[1]>].read[flags.<location[<[flag].notable_name.replace[flag_].with[].split[_l@].get[2]>]>.entity]>
-          - if <[entity].flag[attacking]||null> == null:
-            - foreach <server.list_online_players>:
-              - narrate player:<[value]> "<&4><yaml[guild.<player.flag[guild]>].read[name]> is attacking <yaml[guild.<[flag].notable_name.replace[flag_].with[].split[_l@].get[1]>].read[name]>'s flag."
     on player right clicks block:
     - if <inventory[flag_<player.flag[guild]||null>_<context.location||null>]||null> != null:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
