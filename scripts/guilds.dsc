@@ -329,6 +329,7 @@ damage_guild_flag:
   type: task
   definitions: attacking_guild|defending_guild|location|player
   script:
+  - narrate <[defending_guild]>
   - define health:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>
   - define entity:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.entity].as_entity>
   - if <[entity].flag[attacking]||null> == null:
