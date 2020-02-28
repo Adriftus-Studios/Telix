@@ -329,7 +329,6 @@ damage_guild_flag:
   type: task
   definitions: attacking_guild|defending_guild|location|player
   script:
-  - narrate <[defending_guild]>
   - define health:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>
   - define entity:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.entity].as_entity>
   - if <[entity].flag[attacking]||null> == null:
@@ -388,7 +387,7 @@ guild_events:
           - if !<yaml[guild.<player.flag[guild]>].read[relations.war].contains[]>:
             - if <[guild]> != <player.flag[guild]>:
               - define flag:<server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].get[1]>
-              - narrate <[flag]>
+              - narrate <[guild]>
               - run damage_guild_flag def:<player.flag[guild]>|<[guild]>|<location[<[flag].notable_name.replace[flag_].with[].split[_l@].get[2]>]>|<player>
             - else:
               - narrate "<&c>You cannot attack your own guild's flag."
