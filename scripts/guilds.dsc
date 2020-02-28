@@ -383,11 +383,12 @@ guild_events:
     - if <context.material.name.ends_with[banner]>:
       - if <server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].size> != 0:
         - determine passively cancelled
+        - define guild:<[flag].notable_name.replace[flag_].with[].split[_l@].get[1]>
         - if <player.flag[guild]||null> != null:
           - if <yaml[guild.<player.flag[guild]>].read[relations.war].contains[]>:
-            - if <[flag].notable_name.replace[flag_].with[].split[_l@].get[1]> != <player.flag[guild]>:
+            - if <[guild]> != <player.flag[guild]>:
               - define flag:<server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].get[1]>
-              - run damage_guild_flag def:<player.flag[guild]>|<[flag].notable_name.replace[flag_].with[].split[_l@].get[1]>|<location[<[flag].notable_name.replace[flag_].with[].split[_l@].get[2]>]>|<player>
+              - run damage_guild_flag def:<player.flag[guild]>|<[guild]>|<location[<[flag].notable_name.replace[flag_].with[].split[_l@].get[2]>]>|<player>
             - else:
               - narrate "<&c>You cannot attack your own guild's flag."
           - else:
