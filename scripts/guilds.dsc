@@ -316,6 +316,8 @@ place_guild_flag:
   - narrate <[player]>
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> save:indicator
   - note <inventory[guild_flag_gui]> as:flag_<[guild]>_<[location]>
+  - narrate <[location]>
+  - narrate <[guild]>
   - note <item[guild_flag_health_icon]> as:flag_<[guild]>_<[location]>_icon
   - yaml id:guild.<[guild]> set flags.<[location]>.entity:<entry[indicator].spawned_entity.uuid>
   - yaml id:guild.<[guild]> set flags.<[location]>.location:<[location].simple>
@@ -427,7 +429,6 @@ guild_events:
     - if <inventory[flag_<player.flag[guild]||null>_<context.location||null>]||null> != null:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
         - inventory open d:<inventory[flag_<player.flag[guild]>_<context.location>]>
-        - narrate <context.location>
         - inventory set d:<inventory[flag_<player.flag[guild]>_<context.location>]> slot:11 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<player.flag[guild]>].read[flags.<context.location>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<context.location>.health]>]>
         - determine passively cancelled
       - else:
