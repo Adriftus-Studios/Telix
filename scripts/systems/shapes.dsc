@@ -52,13 +52,13 @@ define_star:
 
 define_spiral:
   type: procedure
-  definitions: start|end|radius
+  definitions: start|end|radius|angle_offset
   script:
   - define start:<[start].face[<[end]>]>
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
   - foreach <[start].points_between[<[end]>].distance[0.4]> as:point:
-    - define offset:<proc[find_offset].context[<[radius]>|<[between].mul[<[loop_index]>]>]>
+    - define offset:<proc[find_offset].context[<[radius]>|<[between].mul[<[loop_index]>].add[<[angle_offset]>]>]>
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
@@ -125,7 +125,7 @@ test_effects_command:
       - playeffect <[particle]> at:<[value]> quantity:5 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == spiral:
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.5]>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.5|0]>
     - foreach <[points]> as:point:
       - playeffect <[particle]> at:<[point]> quantity:5 offset:0 visibility:100
       - wait 1t
