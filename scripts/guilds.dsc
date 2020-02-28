@@ -335,8 +335,11 @@ damage_guild_flag:
   - if <[entity].flag[attacking]||null> == null:
     - foreach <yaml[guild.<[defending_guild]>].read[members]> as:defender:
       - narrate player:<[defender]> "<&4>Your flag '<yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>' is under attack by <yaml[guild.<[attacking_guild]>].read[name]>."
+      - playsound <[defender]> sound:magic.warhorn custom
     - foreach <server.list_online_players>:
       - narrate player:<[value]> "<&4><yaml[guild.<[defending_guild]>].read[name]> is under attack by <yaml[guild.<[attacking_guild]>].read[name]>"
+    - foreach <yaml[guild.<[attacking_guld]>].read[members]> as:attacker:
+      - playsound <attacker> sound:magic.warhorn custom
     - flag <[entity]> attacking:d duration:5m
   - yaml id:guild.<[defending_guild]> set flags.<[location]>.health:--
   - inventory set d:<inventory[flag_<[defending_guild]>_<[location]>]> slot:11 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>]>
