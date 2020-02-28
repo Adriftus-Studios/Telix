@@ -220,7 +220,7 @@ guild_command:
                             - foreach <yaml[guild.<player.flag[guild]>].read[members].filter[is_online]>:
                               - narrate player:<[value]> "<player.name> has requested a truce with <yaml[guild.<[guild]>].read[name]>"
                             - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
-                              - narrate player:<[value]> "<yaml[guild.<player.flag[guild]>].read[name]> has requested a truce with your guild."
+                              - narrate player:<[value]> "<yaml[guild.<[guild]>].read[name]> has requested a truce with your guild."
                     - case ally:
                       - if <yaml[guild.<[guild]>].read[relations.ally].contains[<player.flag[guild]>]||false>:
                         - narrate "You already have an alliance with <yaml[guild.<[guild]>].read[name]>"
