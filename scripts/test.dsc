@@ -47,9 +47,9 @@ ability_test_spell2:
     - inject abilities_check
     - inject abilities_cost
     - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[20]>|0.5|0]>
-    - run run_animation def:<[points].escaped>|spell
+    - run run_animation def:<[points].escaped>|spell_instant
     - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[20]>|0.5|180]>
-    - run run_animation def:<[points].escaped>|spell
+    - run run_animation def:<[points].escaped>|spell_instant
 
 run_animation:
   type: task
