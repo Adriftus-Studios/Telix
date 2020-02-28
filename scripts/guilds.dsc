@@ -311,6 +311,9 @@ place_guild_flag:
   definitions: guild|location|player
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - narrate <[guild]>
+  - narrate <[location]>
+  - narrate <[player]>
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> save:indicator
   - note <inventory[guild_flag_gui]> as:flag_<[guild]>_<[location]>
   - note <item[guild_flag_health_icon]> as:flag_<[guild]>_<[location]>_icon
@@ -318,7 +321,7 @@ place_guild_flag:
   - yaml id:guild.<[guild]> set flags.<[location]>.location:<[location].simple>
   - yaml id:guild.<[guild]> set flags.<[location]>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
   - yaml id:guild.<[guild]> set flags.<[location]>.health:5000
-  - give <player> <item[flag_<[guild]>_<[location]>_icon]>
+  - narrate <item[flag_<[guild]>_<[location]>_icon]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&6><[player].name> has placed a guild flag."
 
