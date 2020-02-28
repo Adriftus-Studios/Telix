@@ -1,5 +1,5 @@
 ability_test_spell:
-  type: task
+  type: command
   name: test_spell
   ability_tree: Nether
   ability_type: active
