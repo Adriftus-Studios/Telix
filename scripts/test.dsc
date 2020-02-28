@@ -56,9 +56,8 @@ ability_test_spell2_animation:
   definitions: points|damage|player
   script:
   - foreach <[points]> as:point:
-    - playeffect spell_witch <[point]> offset:0 visibility:100 quantity:2
+    - playeffect spell <[point]> offset:0 visibility:100 quantity:2
     - wait 1t
     - if <[point].find.players.within[0.7].size> != 0:
-      - narrate 1
       - hurt <[point].find.players.within[0.7].get[1]> <[damage]> cause:<[player]>
       - foreach stop
