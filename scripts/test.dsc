@@ -21,6 +21,7 @@ ability_test_spell:
       - define offset:<proc[find_offset].context[2|<[angle]>]>
       - define start:<player.location.forward[1]>
       - define end:<player.location.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+      - narrate <player.location.forward[1]>|<player.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>|<[angle]>
       - run ability_test_spell_animation def:<player.location.forward[1]>|<player.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>|<[angle]>
 
 ability_test_spell_animation:
