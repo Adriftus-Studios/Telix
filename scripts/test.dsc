@@ -47,15 +47,12 @@ ability_test_spell2:
     - inject abilities_check
     - inject abilities_cost
     - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[20]>|0.5|0]>
-    - run ability_test_spell2_animation def:<[points]>|5|<player>
+    - inject ability_test_spell2_animation
 
 ability_test_spell2_animation:
   type: task
   definitions: points|damage|player
   script:
-  - narrate <[points].size>
-  - narrate <[damage]>
-  - narrate <[player]>
   - foreach <[points]> as:point:
     - playeffect spell <[point]> offset:0 visibility:100 quantity:2
     - wait 1t
