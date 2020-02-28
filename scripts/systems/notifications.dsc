@@ -16,14 +16,19 @@ notification_bb:
     #Check for existing definitions and set defaults as necessary
     - if <[title]||null> == null:
       - define title:Notification
+      - narrate <[title]>
     - else if <[duration]||null> == null:
       - define duration:10s
+      - narrate <[duration]>
     - else if <[color]||null> == null:
       - define color:WHITE
+      - narrate <[color]>
     - else if <[progress]||null> == null:
       - define progress:1.0
+      - narrate <[progress]>
     - else if <[targets]||null> == null:
       - define targets:<player>
+      - narrate <[targets]>
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
     - if <[duration].as_duration.in_seconds> <= 0:
