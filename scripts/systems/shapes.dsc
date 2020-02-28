@@ -7,7 +7,7 @@ define_curve:
   - define increment:<el@40.div[<[a].size>]>
   - foreach <[a]> as:point:
     - define b:<el@1.add[<el@1.div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
-    - define offset:<proc[math_stuff].context[<[b]>|<[angle]>]>
+    - define offset:<proc[find_offset].context[<[b]>|<[angle]>]>
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
   
@@ -18,7 +18,7 @@ define_circle:
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
   - repeat <[cir].div[0.2].round>:
-    - define offset:<proc[math_stuff].context[<[radius]>|<[value].mul[<[between]>]>]>
+    - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
@@ -28,7 +28,7 @@ define_star2:
   script:
   - repeat <[num]>:
     - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_down>]>
-    - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
+    - define offset:<proc[find_offset].context[<[radius]>|<[t].mul[<[value]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - define distance:<[points].get[1].points_between[<[points].get[2]>].distance[0.2].size>
   - repeat <[distance]>:
@@ -43,7 +43,7 @@ define_star:
   script:
   - repeat <[num]>:
     - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_down>]>
-    - define offset:<proc[math_stuff].context[<[radius]>|<[t].mul[<[value]>]>]>
+    - define offset:<proc[find_offset].context[<[radius]>|<[t].mul[<[value]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - repeat <[num]>:
     - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
@@ -58,7 +58,7 @@ define_spiral:
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
   - foreach <[start].points_between[<[end]>].distance[0.4]> as:point:
-    - define offset:<proc[math_stuff].context[<[radius]>|<[between].mul[<[loop_index]>]>]>
+    - define offset:<proc[find_offset].context[<[radius]>|<[between].mul[<[loop_index]>]>]>
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
@@ -75,7 +75,7 @@ define_zigzag:
       - define points:|:<[current].points_between[<[end]>].distance[0.4]>
       - while stop
     - else:
-      - define offset:<proc[math_stuff].context[<[radius]>|<util.random.int[0].to[360]>]>
+      - define offset:<proc[find_offset].context[<[radius]>|<util.random.int[0].to[360]>]>
       - define new_point:<[new_point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
       - define points:|:<[current].points_between[<[new_point]>].distance[0.4]>
     - define current:<[new_point]>
@@ -130,7 +130,7 @@ test_effects_command:
       - playeffect <[particle]> at:<[point]> quantity:5 offset:0 visibility:100
       - wait 1t
 
-math_stuff:
+find_offset:
   type: procedure
   definitions: C|degrees
   script:

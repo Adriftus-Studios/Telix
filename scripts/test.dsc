@@ -10,7 +10,7 @@ ability_test_spell:
     material: iron_nugget
     custom_model_data: 100
   animation:
-    - narrate 1
+    - narrate <script.definitions>
   apply_damage:
     - hurt <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> 5
     - burn <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> <script.yaml_key[duration]>
@@ -18,5 +18,9 @@ ability_test_spell:
     - inject abilities_check
     - inject abilities_cost
     - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[0.5]>
-    
-    - run locally path:animation
+    - repeat 3:
+      - define random:<util.random.int[0].to[360]>
+      - define offset:<proc[find_offset].context[2|<[random]>]>
+      - define points:<player.forward[10].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+
+    - run locally path:animation def:
