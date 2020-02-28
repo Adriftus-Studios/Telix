@@ -16,9 +16,8 @@ ability_test_spell:
     - inject abilities_check
     - inject abilities_cost
     - repeat 5:
-      - define angle:<util.random.int[0].to[360]>
-      - define offset:<proc[find_offset].context[2|<[angle]>]>
-      - run ability_test_spell_animation def:<player.eye_location.forward[2]>|<player.eye_location.forward[20].up[<[offset].get[1]>].right[<[offset].get[2]>]>|<[angle]>
+      - define offset:<proc[find_offset].context[2|<util.random.int[0].to[360]>]>
+      - run ability_test_spell_animation def:<player.eye_location.forward[2]>|<player.eye_location.forward[20].up[<[offset].get[1]>].right[<[offset].get[2]>]>|<util.random.int[0].to[360]>
       - wait 2t
 
 ability_test_spell_animation:
