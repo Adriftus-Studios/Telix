@@ -325,11 +325,11 @@ remove_guild_flag:
   - define location:<location[<[location]>]>
   - modifyblock <[location]> air
   - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
-  - narrate <[location]>
-  - narrate <[guild]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&c><[player].name> has removed a guild flag. (<yaml[guild.<[guild]>].read[flags.<[location]>.name]>)"
   - yaml id:guild.<[guild]> set flags.<[location]>:!
+  - foreach <server.list_online_players.filter[open_inventory.notable_name.contains[<[location]>]]>:
+    - inventory close d:<[value]>
 
 damage_guild_flag:
   type: task
@@ -348,8 +348,6 @@ damage_guild_flag:
     - flag <[entity]> attacking:d duration:5m
   - yaml id:guild.<[defending_guild]> set flags.<[location]>.health:--
   - inventory set d:<inventory[flag_<[defending_guild]>_<[location]>]> slot:11 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>]>
-  - narrate <[location]>
-  - narrate <[defending_guild]>
   - if <[health]> < 1:
     - foreach <server.list_online_players>:
       - narrate player:<[value]> "<&4><yaml[guild.<[attacking_guild]>].read[name]> has destroyed <yaml[guild.<[attacking_guild]>].read[name]>'s flag."
