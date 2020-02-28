@@ -316,7 +316,7 @@ place_guild_flag:
   - narrate <[player]>
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> save:indicator
   - note <inventory[guild_flag_gui]> as:flag_<[guild]>_<[location]>
-  - narrate <[location]>
+  - narrate <[location].replace[l@].with[]>
   - narrate <[guild]>
   - note <item[guild_flag_health_icon]> as:flag_<[guild]>_<[location]>_icon
   - yaml id:guild.<[guild]> set flags.<[location]>.entity:<entry[indicator].spawned_entity.uuid>
