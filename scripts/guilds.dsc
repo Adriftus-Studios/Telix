@@ -382,6 +382,7 @@ guild_events:
         - if <player.flag[guild]||null> != null:
           - determine passively cancelled
           - define flag:<server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].get[1]>
+          - narrate <[flag].notable_name.replace[flag_].with[].split[_l@].get[1]>
           - run damage_guild_flag def:<player.flag[guild]>|<[flag].notable_name.replace[flag_].with[].split[_l@].get[1]>|<location[<[flag].notable_name.replace[flag_].with[].split[_l@].get[2]>]>|<player>
     on player right clicks block:
     - if <inventory[flag_<player.flag[guild]||null>_<context.location||null>]||null> != null:
