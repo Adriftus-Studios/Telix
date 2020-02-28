@@ -21,7 +21,7 @@ notification_bb:
     - else if <[color]||null> == null:
       - define color:WHITE
     - else if <[progress]||null> == null:
-      - define progress:1.0
+      - define progress:1
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
     - if <[duration].as_duration.in_seconds> <= 0:
@@ -29,9 +29,9 @@ notification_bb:
     - else if !<[color].contains_any_text[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW]>:
       - define color:WHITE
     - else if <[progress]> < 0:
-      - define progress:0.0
+      - define progress:0
     - else if <[progress]> > 1:
-      - define progress:1.0
+      - define progress:1
 
     #Define timestamp id and create bossbar
     - define id:<player.uuid>.<util.date.time.duration.in_seconds>
