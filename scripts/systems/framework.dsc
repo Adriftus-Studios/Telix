@@ -110,7 +110,7 @@ ott_command:
         - if <player.flag[ott]||null> != null:
           - flag <server.match_player[<context.args.get[1]>]> ott_request:<player>
           - narrate "<&6>You have requested to teleport to <context.args.get[1]>."
-          - narrate player:<server.match_player[<context.args.get[1]>]> "<&6><player.name> has requested to teleport to you."
+          - narrate player:<server.match_player[<context.args.get[1]>]> "<&b><player.name> <&6>has requested to teleport to you. Click <&click[/ott accept]><&a>ACCEPT<&end_click> <&r><&6 to accept the request.>"
         - else:
           - narrate "<&c>You can only use this command once, within 2 hours of when you first joined."
       - else:
@@ -187,7 +187,7 @@ system_override:
         - narrate "<&6>Please accept the resource pack."
         - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
         - narrate "<&6>If your download failed, click <&click[/rp]><&7>[HERE]<&end_click>"
-      - if <context.status> == DECLINED:
+      - else if <context.status> == DECLINED:
         - narrate "<&6>Please accept the resource pack."
         - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
         - kick <player> "reason:<&c>The resource pack is needed in order to play.<&nl>Please enable resource packs in your server list by following these instructions<&nl><&nl><&a>Click on our server, and select <&b>Edit <&a>on the bottom of the screen.<&nl><&a>click <&b>Server Resource Packs<&co> <&a>option until <&b>enabled<&a> is displayed.<&nl><&a>Then get back in on the action!"
