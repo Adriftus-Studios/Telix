@@ -297,6 +297,7 @@ disband_guild:
     - stop
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:flag:
     - run remove_guild_flag def:<[flag]>
+    - note remove as:<server.list_notables[inventories].filter[starts_with[in@flag_]].filter[ends_with[<[flag]>]].get[1]>
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
     - flag <[player].as_player> guild:!
     - flag <[player].as_player> guild_rank:!
@@ -341,16 +342,15 @@ damage_guild_flag:
     - foreach <yaml[guild.<[defending_guild]>].read[members]> as:defender:
       - narrate player:<[defender]> "<&4>Your flag '<yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>' is under attack by <yaml[guild.<[attacking_guild]>].read[name]>."
       - playsound <[defender]> sound:magic.warhorn custom
-    - foreach <server.list_online_players>:
-      - narrate player:<[value]> "<&4><yaml[guild.<[defending_guild]>].read[name]> is under attack by <yaml[guild.<[attacking_guild]>].read[name]>"
     - foreach <yaml[guild.<[attacking_guld]>].read[members]> as:attacker:
       - playsound <[attacker]> sound:magic.warhorn custom
+    - announce "<&4><yaml[guild.<[defending_guild]>].read[name]> is under attack by <yaml[guild.<[attacking_guild]>].read[name]>"
     - flag <[entity]> attacking:d duration:5m
   - yaml id:guild.<[defending_guild]> set flags.<[location]>.health:--
   - inventory set d:<inventory[flag_<[defending_guild]>_<[location]>]> slot:11 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>]>
   - if <[health]> < 1:
+    - announce "<&4><yaml[guild.<[attacking_guild]>].read[name]> has destroyed <yaml[guild.<[attacking_guild]>].read[name]>'s flag."
     - foreach <server.list_online_players>:
-      - narrate player:<[value]> "<&4><yaml[guild.<[attacking_guild]>].read[name]> has destroyed <yaml[guild.<[attacking_guild]>].read[name]>'s flag."
       - yaml id:guild.<[guild]> set flags.<[location]>:!
       - modifyblock <[location]> air
       - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
