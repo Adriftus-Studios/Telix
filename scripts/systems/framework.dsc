@@ -182,16 +182,23 @@ system_override:
       - define rp_url https://download.nodecdn.net/containers/nodecraft/minepack/ae75998c4b6ccf5280b745b5da4a0c16.zip
       - wait 60t
       - adjust <player> resource_pack:<[rp_url]>
+    on resource pack status:
       - if <context.status> == FAILED_DOWNLOAD:
+        - narrate "<&6>Please accept the resource pack."
+        - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
+        - narrate "<&6>If your download failed, click <&click[/rp]><&7>[HERE]<&end_click>"
+      - if <context.status> == DECLINED:
         - narrate "<&6>Please accept the resource pack."
         - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
         - narrate "<&6>If your download failed, click <&click[/rp]><&7>[HERE]<&end_click>"
       - else if <context.status> == SUCCESSFULLY_LOADED:
         - narrate "<&6>Thank you for using our resource pack."
         - narrate "<&6>If you are enjoying the server then remember to vote with <&click[/vote]><&a><&l>/vote<&end_click><&6>!"
-      - else:
+      - else if <context.status> == ACCEPTED:
         - narrate "<&6>Thank you for using our resource pack."
         - narrate "<&6>If you are enjoying the server then remember to vote with <&click[/vote]><&a><&l>/vote<&end_click><&6>!"
+      - else:
+        - narrate to_ops "<&c>Something borked with <&a><player><&c> loading the resource pack! <&4>STATUS<&co><&b> <context.status>"
     on shutdown:
       - foreach <yaml.list>:
         - if <[value].starts_with[player.]>:
