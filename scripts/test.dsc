@@ -9,10 +9,7 @@ ability_test_spell:
   range: 20
   icon:
     material: iron_nugget
-    custom_model_data: 100
-  apply_damage:
-    - hurt <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> 5
-    - burn <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> <script.yaml_key[duration]>
+    custom_model_data: 1000
   script:
     - inject abilities_check
     - inject abilities_cost
@@ -29,6 +26,3 @@ ability_test_spell_animation:
   - foreach <[points]> as:point:
     - playeffect spell_witch <[point]> offset:0 visibility:100 quantity:2
     - wait 1t
-    - if <[point].find.players.within[0.7].size> != 0:
-      - hurt <[point].find.players.within[0.7].get[1]> 3 cause:<[player]>
-      - foreach stop
