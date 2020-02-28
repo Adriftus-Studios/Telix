@@ -27,7 +27,7 @@ test_smeltery_recipe:
   display name: <&7>Steel Ingot
   recipes:
     '1':
-      cook_time: 10s
+      cook_time: 10m
       input: coal/5|iron_ingot/2
       recipe_id: test_smeltery_recipe
       output_quantity: 2
