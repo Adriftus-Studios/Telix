@@ -60,7 +60,7 @@ guild_command:
             - if <context.args.size> == 2:
               - determine <list[neutral|ally|enemy|truce>
             - else:
-              - narrate '<context.raw_args.replace[relation<&sp><context.args.get[2]><&sp>]>'
+              - narrate "'<context.raw_args.replace[relation<&sp><context.args.get[2]><&sp>]>'"
           - default:
             - determine <list[]>
       - else:
