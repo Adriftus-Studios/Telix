@@ -332,7 +332,7 @@ damage_guild_flag:
   script:
   - define health:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>
   - define entity:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.entity]>
-  - narrate <[entity].flag[attacking]>
+  - narrate <[entity]>
   - narrate <[health]>
   - if <[entity].flag[attacking]||null> == null:
     - foreach <yaml[guild.<[defending_guild]>].read[members]> as:defender:
