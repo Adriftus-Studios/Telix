@@ -57,5 +57,5 @@ run_animation:
   script:
   - define points:<[points].unescaped>
   - repeat <[points].size>:
-    - playeffect <[particle]> <[points].get[<[value]>]> offset:0 visibility:100 quantity:2
+    - playeffect <[particle]> <[points].get[<[value]>]> offset:0 visibility:300 quantity:2
     - wait 1t
