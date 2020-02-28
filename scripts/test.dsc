@@ -33,6 +33,7 @@ ability_test_spell1_animation:
 
 ability_test_spell2:
   type: command
+  debug: true
   name: test_spell2
   ability_tree: Nether
   ability_type: active
