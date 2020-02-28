@@ -56,5 +56,5 @@ ability_test_spell2_animation:
   script:
   - define points:<proc[define_spiral].context[<[start]>|<[stop]>|<[radius]>|<[rotation]>]>
   - repeat <[points].size>:
-    - playeffect spell <[point].get[<[value]>]> offset:0 visibility:100 quantity:2
+    - playeffect spell <[points].get[<[value]>]> offset:0 visibility:100 quantity:2
     - wait 1t
