@@ -6,7 +6,7 @@ ability_test_spell1:
   points_to_unlock: 0
   power_cost: 0
   description: Test Spell 1
-  range: 20
+  range: 30
   damage: 3
   icon:
     material: iron_nugget
