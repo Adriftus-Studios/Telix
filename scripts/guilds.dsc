@@ -322,11 +322,9 @@ remove_guild_flag:
   - define location:<location[<[location]>]>
   - modifyblock <[location]> air
   - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
-  - yaml id:guild.<[guild]> set flags.<[location]>:!
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
-    - narrate <yaml[guild.<[guild]>].list_keys[flags]>
-    - narrate <list[<[location]>]>
     - narrate player:<[player]> "<&c><[player].name> has removed a guild flag. (<yaml[guild.<[guild]>].read[flags.<list[<[location]>]>.name]>)"
+  - yaml id:guild.<[guild]> set flags.<[location]>:!
 
 damage_guild_flag:
   type: task
