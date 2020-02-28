@@ -354,6 +354,7 @@ damage_guild_flag:
       - yaml id:guild.<[guild]> set flags.<[location]>:!
       - modifyblock <[location]> air
       - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
+      - note remove as:flag_<[defending_guild]>_<[location]>
     - foreach <server.list_online_players.filter[open_inventory.notable_name.contains[<[location]>]]>:
       - inventory close d:<[value]>
 
