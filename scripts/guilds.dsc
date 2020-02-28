@@ -301,6 +301,7 @@ disband_guild:
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
     - flag <[player].as_player> guild:!
     - flag <[player].as_player> guild_rank:!
+  - note remove as:guild_<[guild]>_flags
   - announce "<&6>The Guild <yaml[guild.<[guild]>].read[name]> has been disbanded!"
   - yaml unload id:guild.<[guild]>
   - adjust server delete_file:data/globalData/guilds/<server.flag[server.name]>/<[guild]>.yml
@@ -312,12 +313,21 @@ place_guild_flag:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> save:indicator
   - note <inventory[guild_flag_gui]> as:flag_<[guild]>_<[location]>
+  - note <item[guild_flag_health_icon]> as:flag_<[guild]>_<[location]>_icon
   - yaml id:guild.<[guild]> set flags.<[location]>.entity:<entry[indicator].spawned_entity.uuid>
   - yaml id:guild.<[guild]> set flags.<[location]>.location:<[location].simple>
   - yaml id:guild.<[guild]> set flags.<[location]>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
   - yaml id:guild.<[guild]> set flags.<[location]>.health:5000
+  - give <player> <item[flag_<[guild]>_<[location]>_icon]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&6><[player].name> has placed a guild flag."
+
+guild_flag_health_icon:
+  type: item
+  material: snow
+  display name: <&r><&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>
+  lore:
+  - "<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>"
 
 remove_guild_flag:
   type: task
@@ -331,6 +341,7 @@ remove_guild_flag:
   - yaml id:guild.<[guild]> set flags.<[location]>:!
   - foreach <server.list_online_players.filter[open_inventory.notable_name.contains[<[location]>]]>:
     - inventory close d:<[value]>
+  - note remove as:flag_<[guild]>_<[location]>
 
 damage_guild_flag:
   type: task
@@ -354,7 +365,7 @@ damage_guild_flag:
       - yaml id:guild.<[guild]> set flags.<[location]>:!
       - modifyblock <[location]> air
       - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
-      - note remove as:flag_<[defending_guild]>_<[location]>
+    - note remove as:flag_<[defending_guild]>_<[location]>
     - foreach <server.list_online_players.filter[open_inventory.notable_name.contains[<[location]>]]>:
       - inventory close d:<[value]>
 
@@ -571,13 +582,6 @@ guild_flag_gui:
 guild_flag_btn_icon:
   type: item
   material: snow
-
-guild_flag_health_icon:
-  type: item
-  material: snow
-  display name: <&r><&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>
-  lore:
-  - "<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>"
 
 guild_flag_rename_btn:
   type: item
