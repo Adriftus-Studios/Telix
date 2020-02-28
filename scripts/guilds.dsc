@@ -354,6 +354,8 @@ damage_guild_flag:
       - yaml id:guild.<[guild]> set flags.<[location]>:!
       - modifyblock <[location]> air
       - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
+    - foreach <server.list_online_players.filter[open_inventory.notable_name.contains[<[location]>]]>:
+      - inventory close d:<[value]>
 
 guild_events:
   type: world
