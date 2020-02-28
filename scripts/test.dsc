@@ -48,13 +48,13 @@ ability_test_spell2:
     - inject abilities_check
     - inject abilities_cost
     - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[20]>|0.5|0]>
-    - run ability_test_spell2_animation def:define_spiral|<list[<player.location.forward[1]>|<player.location.forward[20]>|0.5|0]>
+    - run ability_test_spell2_animation def:<player.location.forward[1]>|<player.location.forward[20]>|0.5|0
 
 ability_test_spell2_animation:
   type: task
-  definitions: shape|context
+  definitions: start|stop|radius|rotation
   script:
-  - define points:<proc[<[shape]>].context[<[context]>]>
+  - define points:<proc[define_spiral].context[<[start]>|<[stop]>|<[radius]>|<[rotation]>]>
   - repeat <[points].size>:
     - playeffect spell <[point].get[<[value]>]> offset:0 visibility:100 quantity:2
     - wait 1t
