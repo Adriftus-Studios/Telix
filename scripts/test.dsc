@@ -48,7 +48,8 @@ ability_test_spell2:
     - inject abilities_check
     - inject abilities_cost
     - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[20]>|0.5|0]>
-    - run ability_test_spell2_animation def:<player.location.forward[1]>|<player.location.forward[20]>|0.5|0
+    # - run ability_test_spell2_animation def:<player.location.forward[1]>|<player.location.forward[20]>|0.5|0
+    - run run_animation def:<[points].escaped>|spell
 
 ability_test_spell2_animation:
   type: task
@@ -57,4 +58,13 @@ ability_test_spell2_animation:
   - define points:<proc[define_spiral].context[<[start]>|<[stop]>|<[radius]>|<[rotation]>]>
   - repeat <[points].size>:
     - playeffect spell <[points].get[<[value]>]> offset:0 visibility:100 quantity:2
+    - wait 1t
+
+run_animation:
+  type: task
+  definitions: points|particle
+  script:
+  - define points:<[points].unescaped>
+  - repeat <[points].size>:
+    - playeffect <[particle]> <[points].get[<[value]>]> offset:0 visibility:100 quantity:2
     - wait 1t
