@@ -532,7 +532,7 @@ guild_flag_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [guild_flag_health_icon] [guild_flag_rename_btn] [guild_flag_destroy_btn] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [guild_flag_rename_btn] [guild_flag_destroy_btn] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_flag_btn_icon:
@@ -575,6 +575,7 @@ guild_gui_events:
     - if <context.raw_slot> < 27:
       - determine passively cancelled
     on player clicks in guild_flag_gui:
+    - narrate <context.raw_slot>
     - if <context.raw_slot> < 27:
       - determine passively cancelled
     on player clicks new_guild_btn in new_guild_gui:
