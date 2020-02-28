@@ -12,4 +12,5 @@ ore_drop_events:
                 - if !<player.item_in_hand.enchantments.contains[silk_touch]>:
                     - if <util.random.int[1].to[20]> != 1:
                         - define to_drop:<item[<item[custom_<context.material.name>].yaml_key[default_drop]>]>
-                - determine <[to_drop]>
+                - if <[to_drop]||null> != null:
+                    - determine <[to_drop]>
