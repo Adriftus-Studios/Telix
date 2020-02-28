@@ -58,9 +58,12 @@ guild_command:
             - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[!=].to[<player>]].parse[name]>
           - case relation:
             - if <context.args.size> == 2:
-              - determine <list[neutral|ally|enemy|truce>
+              - determine <list[neutral|ally|enemy|truce]>
             - else:
-              - narrate "'<context.raw_args.replace[relation<&sp><context.args.get[2]><&sp>]>'"
+              - define g:<context.raw_args.replace[relation<&sp><context.args.get[2]><&sp>]>
+              - foreach <yaml.list.filter[starts_with[guild.]]>:
+                - define list:|:<yaml[<[value]>].read[name]>
+              - determine <[list]>
           - default:
             - determine <list[]>
       - else:
