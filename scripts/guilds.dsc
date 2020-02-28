@@ -196,6 +196,7 @@ guild_command:
                 - narrate 1
               - else:
                 - define guild:<context.raw_args.replace[relation<&sp><context.args.get[2]><&sp>].to_lowercase.replace[<&sp>].with[_]>
+                - narrate <[guild]>
                 - if <yaml[guild.<[guild]>].read[name]||null> != null:
                   - choose <context.args.get[2]>:
                     - case enemy:
