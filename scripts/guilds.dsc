@@ -455,13 +455,6 @@ guild_flag:
   material: white_banner
   display name: <&7>Guild Flag
 
-guild_flag_health_icon:
-  type: item
-  material: snow
-  display name: <&r><&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>
-  lore:
-  - "<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>"
-
 guilds_leave_btn:
   type: item
   material: snow
