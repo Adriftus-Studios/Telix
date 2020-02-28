@@ -10,6 +10,9 @@ ability_test_spell:
   icon:
     material: iron_nugget
     custom_model_data: 100
+  apply_damage:
+    - hurt <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> 5
+    - burn <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> <script.yaml_key[duration]>
   script:
     - inject abilities_check
     - inject abilities_cost
