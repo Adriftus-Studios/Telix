@@ -212,11 +212,11 @@ guild_command:
                       - if <yaml[guild.<[guild]>].read[relations.truce].contains[<player.flag[guild]>]||false>:
                         - narrate "You already have a truce with <yaml[guild.<[guild]>].read[name]>"
                       - else:
-                        - if <yaml[guild.<[guild]>].read[relations.request.truce].contains[<player.flag[guild]>]||false>:
-                          - narrate "You have already requested a truce with <yaml[guild.<[guild]>].read[name]>"
+                        - if <yaml[guild.<player.flag[guild]>].read[relations.request.truce].contains[<[guild]>]||false>:
+                          - run change_guild_relation def:<player.flag[guild]>|<[guild]>|truce|<player>
                         - else:
-                          - if <yaml[guild.<player.flag[guild]>].read[relations.request.truce].contains[<[guild]>]||false>:
-                            - run change_guild_relation def:<player.flag[guild]>|<[guild]>|truce|<player>
+                          - if <yaml[guild.<[guild]>].read[relations.request.truce].contains[<player.flag[guild]>]||false>:
+                            - narrate "You have already requested a truce with <yaml[guild.<[guild]>].read[name]>"
                           - else:
                             - yaml id:guild.<[guild]> set relations.request.truce:->:<player.flag[guild]>
                             - foreach <yaml[guild.<player.flag[guild]>].read[members].filter[is_online]>:
@@ -227,11 +227,11 @@ guild_command:
                       - if <yaml[guild.<[guild]>].read[relations.ally].contains[<player.flag[guild]>]||false>:
                         - narrate "You already have an alliance with <yaml[guild.<[guild]>].read[name]>"
                       - else:
-                        - if <yaml[guild.<[guild]>].read[relations.request.ally].contains[<player.flag[guild]>]||false>:
-                          - narrate "You have already requested a alliance with <yaml[guild.<[guild]>].read[name]>"
+                        - if <yaml[guild.<player.flag[guild]>].read[relations.request.ally].contains[<[guild]>]||false>:
+                          - run change_guild_relation def:<player.flag[guild]>|<[guild]>|ally|<player>
                         - else:
-                          - if <yaml[guild.<player.flag[guild]>].read[relations.request.ally].contains[<[guild]>]||false>:
-                            - run change_guild_relation def:<player.flag[guild]>|<[guild]>|ally|<player>
+                          - if <yaml[guild.<[guild]>].read[relations.request.ally].contains[<player.flag[guild]>]||false>:
+                            - narrate "You have already requested a alliance with <yaml[guild.<[guild]>].read[name]>"
                           - else:
                             - yaml id:guild.<[guild]> set relations.request.ally:->:<player.flag[guild]>
                             - foreach <yaml[guild.<player.flag[guild]>].read[members].filter[is_online]>:
@@ -242,11 +242,11 @@ guild_command:
                       - if <yaml[guild.<[guild]>].read[relations.neutral].contains[<player.flag[guild]>]||false>:
                         - narrate "You are already at peace with <yaml[guild.<[guild]>].read[name]>"
                       - else:
-                        - if <yaml[guild.<[guild]>].read[relations.request.neutral].contains[<player.flag[guild]>]||false>:
-                          - narrate "You have already requested peace with <yaml[guild.<[guild]>].read[name]>"
+                        - if <yaml[guild.<player.flag[guild]>].read[relations.request.ally].contains[<[guild]>]||false>:
+                          - run change_guild_relation def:<player.flag[guild]>|<[guild]>|neutral|<player>
                         - else:
-                          - if <yaml[guild.<player.flag[guild]>].read[relations.request.ally].contains[<[guild]>]||false>:
-                            - run change_guild_relation def:<player.flag[guild]>|<[guild]>|neutral|<player>
+                          - if <yaml[guild.<[guild]>].read[relations.request.neutral].contains[<player.flag[guild]>]||false>:
+                            - narrate "You have already requested peace with <yaml[guild.<[guild]>].read[name]>"
                           - else:
                             - yaml id:guild.<[guild]> set relations.request.neutral:->:<player.flag[guild]>
                             - foreach <yaml[guild.<player.flag[guild]>].read[members].filter[is_online]>:
