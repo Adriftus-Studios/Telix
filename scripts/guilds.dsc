@@ -63,7 +63,10 @@ guild_command:
               - define g:<context.raw_args.replace[relation<&sp><context.args.get[2]><&sp>]>
               - foreach <yaml.list.filter[starts_with[guild.]]>:
                 - define list:|:<yaml[<[value]>].read[name]>
-              - determine <[list]>
+              - if <args.get[3].length> == 1:
+                - determine <[list]>
+              - else:
+                - determine <[list].filter[to_lowercase.starts_with[<[g].to_lowercase>]]>
           - default:
             - determine <list[]>
       - else:
