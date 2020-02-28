@@ -376,7 +376,6 @@ guild_events:
             - stop
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[place_flag]>:
           - run place_guild_flag def:<[guild]>|<[location]>|<player>
-          - narrate 1
       - else:
         - narrate "<&6>You are not in a guild."
         - determine passively cancelled
@@ -404,7 +403,6 @@ guild_events:
         - narrate "<&c>You do not have permission to manage guild flags."
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
-      - narrate <context.title.to_lowercase.replace[<&sp>].with[_]>
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
         - determine passively NOT_SIGNING
@@ -413,7 +411,6 @@ guild_events:
         - narrate "<&c>That guild already exists"
         - determine passively NOT_SIGNING
         - stop
-      - narrate <context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.get[1]>
       - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.get[1]>
 
 guild_flag_health_icon:
