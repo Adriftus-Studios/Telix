@@ -332,7 +332,6 @@ damage_guild_flag:
   script:
   - define health:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>
   - define entity:<yaml[guild.<[defending_guild]>].read[flags.<[location]>.entity].as_entity>
-  - narrate <[entity].flag[attacking]>
   - if <[entity].flag[attacking]||null> == null:
     - foreach <yaml[guild.<[defending_guild]>].read[members]> as:defender:
       - narrate player:<[defender]> "<&4>Your flag '<yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>' is under attack by <yaml[guild.<[attacking_guild]>].read[name]>."
