@@ -197,7 +197,7 @@ guild_command:
               - else:
                 - define guild:<context.raw_args.replace[relation<&sp><context.args.get[2]><&sp>].to_lowercase.replace[<&sp>].with[_]>
                 - if <player.flag[guild]> == <[guild]>:
-                  - narrate "You cannot change the relation to your own guild?"
+                  - narrate "You cannot change the relation to your own guild"
                   - stop
                 - narrate <[guild]>
                 - if <yaml[guild.<[guild]>].read[name]||null> != null:
