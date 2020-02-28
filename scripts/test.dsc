@@ -54,6 +54,6 @@ ability_test_spell2_animation:
   type: task
   definitions: points
   script:
-  - foreach <[points]> as:point:
-    - playeffect spell <[point]> offset:0 visibility:100 quantity:2
+  - repeat <[points].size>:
+    - playeffect spell <[point].get[<[value]>]> offset:0 visibility:100 quantity:2
     - wait 1t
