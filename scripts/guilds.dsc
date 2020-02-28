@@ -321,6 +321,7 @@ remove_guild_flag:
   - define location:<location[<[location]>]>
   - modifyblock <[location]> air
   - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
+  - narrate <yaml[guild.<[guild]>].read[flags.<[location]>.name]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&c><[player].name> has removed a guild flag. (<yaml[guild.<[guild]>].read[flags.<list[<[location]>]>]>)"
   - yaml id:guild.<[guild]> set flags.<[location]>:!
@@ -599,5 +600,4 @@ guild_gui_events:
     on player clicks guild_flag_destroy_btn in guild_flag_gui:
     - if <player.flag[guild]> == <context.inventory.notable_name.replace[flag_].with[].split[_l@].get[1]>:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[remove_flags]>:
-        - narrate l<&sp><context.inventory.notable_name.replace[flag_].with[].split[_l@].get[2]>
         - run remove_guild_flag def:<player.flag[guild]>|<context.inventory.notable_name.replace[flag_].with[].split[_l@].get[2]>
