@@ -69,6 +69,9 @@ smeltery_events:
                   - define found:++
             - if <[found]> == <yaml[server.smeltery_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
+              - foreach stop
+          - if <[crafting]||null> == null:
+            - stop
           # find if resulting items can fit in output slots
           - if <[crafting]||null> != null && <[crafting]> != air:
             - define amount_needed:<yaml[server.smeltery_recipes].read[<[crafting]>.output_quantity]>
@@ -99,6 +102,7 @@ smeltery_events:
                   - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
               - else:
                 - narrate <item[<[crafting]>]>
+                - narrate <[clock].nbt[crafting]>
                 - define crafting:<[clock].nbt[crafting]>
                 - if <[time].ends_with[s]>:
                   - define time:<[time].replace[s].with[]>
