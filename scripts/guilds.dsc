@@ -321,13 +321,14 @@ place_guild_flag:
   - yaml id:guild.<[guild]> set flags.<[location]>.location:<[location].simple>
   - yaml id:guild.<[guild]> set flags.<[location]>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
   - yaml id:guild.<[guild]> set flags.<[location]>.health:5000
+  - give <item[flag_<[guild]>_<[location]>_icon]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&6><[player].name> has placed a guild flag."
 
 guild_flag_health_icon:
   type: item
   material: snow
-  
+
 remove_guild_flag:
   type: task
   definitions: guild|location|player
