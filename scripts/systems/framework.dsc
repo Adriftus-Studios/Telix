@@ -240,7 +240,7 @@ system_override:
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory]>
     on player chats:
       - if <player.has_permission[*]>:
-        - if <player.flag[parsed_chat]>:
+        - if <player.flag[parsed_chat]||null> != null:
           - determine <context.message.parsed>
 
 kill_queue_command:
