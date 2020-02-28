@@ -193,13 +193,12 @@ guild_command:
           - case relation:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_relations]>:
               - if <context.args.size> == 2:
-                - narrate 1
+                - narrate "You must "
               - else:
                 - define guild:<context.raw_args.replace[relation<&sp><context.args.get[2]><&sp>].to_lowercase.replace[<&sp>].with[_]>
                 - if <player.flag[guild]> == <[guild]>:
                   - narrate "You cannot change the relation to your own guild"
                   - stop
-                - narrate <[guild]>
                 - if <yaml[guild.<[guild]>].read[name]||null> != null:
                   - choose <context.args.get[2]>:
                     - case enemy:
@@ -453,6 +452,8 @@ change_guild_relation:
       - yaml id:guild.<[other]> set relations.truce:<-:<[guild]>
       - yaml id:guild.<[guild]> set relations.ally:->:<[other]>
       - yaml id:guild.<[other]> set relations.ally:->:<[guild]>
+      - yaml id:guild.<[guild]> set relations.requests.ally:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.requests.ally:<-:<[guild]>
       - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&b>Your guild is now an ally of <yaml[guild.<[guild]>].read[name]>!"
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
@@ -464,6 +465,8 @@ change_guild_relation:
       - yaml id:guild.<[other]> set relations.truce:->:<[guild]>
       - yaml id:guild.<[guild]> set relations.ally:<-:<[other]>
       - yaml id:guild.<[other]> set relations.ally:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relations.requests.truce:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.requests.truce:<-:<[guild]>
       - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&3>Your guild is now in a truce with <yaml[guild.<[guild]>].read[name]>!"
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
@@ -486,6 +489,8 @@ change_guild_relation:
       - yaml id:guild.<[other]> set relation.truce:<-:<[guild]>
       - yaml id:guild.<[guild]> set relation.ally:<-:<[other]>
       - yaml id:guild.<[other]> set relation.ally:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relations.requests.neutral:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.requests.neutral:<-:<[guild]>
       - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&a>Your guild is now at peace with <yaml[guild.<[guild]>].read[name]>!"
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
