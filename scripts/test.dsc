@@ -46,7 +46,7 @@ ability_test_spell2:
   script:
     - inject abilities_check
     - inject abilities_cost
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.5]>
+    - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[20]>|0.5]>
     - foreach <[points]> as:point:
       - playeffect spell_witch <[point]> offset:0 visibility:100 quantity:2
       - wait 1t
