@@ -47,6 +47,7 @@ ability_test_spell2:
     - inject abilities_check
     - inject abilities_cost
     - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[20]>|0.5|0]>
+    - narrate <[points].size>
     - run ability_test_spell2_animation def:<[points]>|5|<player>
     - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[20]>|0.5|180]>
     - run ability_test_spell2_animation def:<[points]>|5|<player>
