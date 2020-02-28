@@ -190,7 +190,7 @@ system_override:
       - if <context.status> == DECLINED:
         - narrate "<&6>Please accept the resource pack."
         - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
-        - narrate "<&6>If your download failed, click <&click[/rp]><&7>[HERE]<&end_click>"
+        - kick "<&c>Testing\nnew\nline"
       - else if <context.status> == SUCCESSFULLY_LOADED:
         - narrate "<&6>Thank you for using our resource pack."
         - narrate "<&6>If you are enjoying the server then remember to vote with <&click[/vote]><&a><&l>/vote<&end_click><&6>!"
