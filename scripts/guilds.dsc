@@ -141,6 +141,9 @@ guild_command:
                       - narrate "<&c>That is not a valid option."
             - else:
               - narrate "<&c>You do not have permission to run that command."
+          - case flags:
+            - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
+              - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
           - case kick:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
               - if <server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]||null>> != null:
@@ -281,6 +284,7 @@ create_guild:
   - yaml id:guild.<[guild]> set default_rank:Peasent
   - yaml id:guild.<[guild]> set ranks.peasent.title:Peasent
   - yaml id:guild.<[guild]> set ranks.peasent.priority:1
+  - note <inventory[guild_flags_gui]> as:guild_<[guild]>_flags
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
   - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[guild]>.yml id:guild.<[guild]>
 
@@ -321,6 +325,8 @@ remove_guild_flag:
   - define location:<location[<[location]>]>
   - modifyblock <[location]> air
   - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
+  - narrate <[location]>
+  - narrate <[guild]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&c><[player].name> has removed a guild flag. (<yaml[guild.<[guild]>].read[flags.<[location]>.name]>)"
   - yaml id:guild.<[guild]> set flags.<[location]>:!
@@ -342,6 +348,14 @@ damage_guild_flag:
     - flag <[entity]> attacking:d duration:5m
   - yaml id:guild.<[defending_guild]> set flags.<[location]>.health:--
   - inventory set d:<inventory[flag_<[defending_guild]>_<[location]>]> slot:11 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>]>
+  - narrate <[location]>
+  - narrate <[defending_guild]>
+  - if <[health]> < 1:
+    - foreach <server.list_online_players>:
+      - narrate player:<[value]> "<&4><yaml[guild.<[attacking_guild]>].read[name]> has destroyed <yaml[guild.<[attacking_guild]>].read[name]>'s flag."
+      - yaml id:guild.<[guild]> set flags.<[location]>:!
+      - modifyblock <[location]> air
+      - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
 
 guild_events:
   type: world
