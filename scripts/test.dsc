@@ -50,14 +50,11 @@ ability_test_spell2:
     - run ability_test_spell2_animation def:<[points]>|5|<player>
     - define points:<proc[define_spiral].context[<player.location.forward[1]>|<player.location.forward[20]>|0.5|180]>
     - run ability_test_spell2_animation def:<[points]>|5|<player>
-    - foreach <[points]> as:point:
-      - playeffect spell <[point]> offset:0 visibility:100 quantity:2
-      - wait 1t
-      - if <[point].find.players.within[0.7].size> != 0:
-        - hurt <[point].find.players.within[0.7].get[1]> <[damage]> cause:<[player]>
-        - foreach stop
 
 ability_test_spell2_animation:
   type: task
   definitions: points|damage|player
   script:
+  - foreach <[points]> as:point:
+    - playeffect spell <[point]> offset:0 visibility:100 quantity:2
+    - wait 1t
