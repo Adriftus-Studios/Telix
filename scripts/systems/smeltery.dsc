@@ -49,9 +49,10 @@ smeltery_events:
             - if <[slot].split[/].get[2].starts_with[in]>:
               - define item:<[inventory].slot[<[slot].split[/].get[1]>].script.name||<[inventory].slot[<[slot].split[/].get[1]>].material.name>>
               - if <[contents].map_get[<[item]>]||null> != null:
-                - define entry:<[item]>/<[contents].map_get[<[item]>].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
-                - define contents:<[contents].exclude[<[item]>/<[contents].map_get[<[item]>]>]>
-                - define contents:|:<[entry]>
+                - if <[item].material.name> != air:
+                  - define entry:<[item]>/<[contents].map_get[<[item]>].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
+                  - define contents:<[contents].exclude[<[item]>/<[contents].map_get[<[item]>]>]>
+                  - define contents:|:<[entry]>
               - else:
                 - define contents:|:<[item]>/<[inventory].slot[<[slot].split[/].get[1]>].quantity>
           - define contents:<[contents].exclude[air/0]>

@@ -145,3 +145,12 @@ find_offset:
   - else if <[degrees]> > 269 && <[degrees]> < 360:
     - define adj:<[adj]>
   - determine <list[<[hyp]>|<[adj]>]>
+
+play_animation:
+  type: task
+  definitions: points|particle
+  script:
+  - define points:<[points].unescaped>
+  - repeat <[points].size>:
+    - playeffect <[particle]> <[points].get[<[value]>]> offset:0 visibility:300 quantity:2
+    - wait 1t
