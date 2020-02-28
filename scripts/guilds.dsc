@@ -239,6 +239,8 @@ guild_command:
                             - narrate player:<[value]> "<player.name> has requested peace with <yaml[guild.<[guild]>].read[name]>"
                           - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
                             - narrate player:<[value]> "<yaml[guild.<player.flag[guild]>].read[name]> has requested peace with your guild."
+                - else:
+                  - narrate "That guild does not exist."
             - else:
               - narrate "<&c>You do not have permission to run that command."
           - default:
