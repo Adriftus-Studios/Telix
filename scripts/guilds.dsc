@@ -193,7 +193,7 @@ guild_command:
           - case relation:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_relations]>:
               - if <context.args.size> == 2:
-              
+                - narrate 1
               - else:
                 - define g:<context.raw_args.replace[relation<&sp><context.args.get[2]><&sp>]>
                 - narrate <[g]>
