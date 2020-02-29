@@ -262,7 +262,7 @@ player_setup_command:
   description: player_setup
   usage: /player_setup
   tab complete:
-  - determine <server.list_online_players.filter[name.starts_with[<context.args.get[1]>]]>
+  - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<context.args.get[1].to_lowercase>]]>
   script:
   - adjust <queue> linked_player:<server.match_player[<context.args.get[1]>]||<player>>
   - inject player_setup
