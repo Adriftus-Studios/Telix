@@ -16,11 +16,11 @@ bb_notification:
     #Check for existing definitions and set defaults as necessary
     - if <[title]||null> == null || !<[title].exists>:
       - define title:Notification
-    - else if <[duration]||null> == null || !<[duration].exists>:
+    - if <[duration]||null> == null || !<[duration].exists>:
       - define duration:5s
-    - else if <[color]||null> == null || !<[color].exists>:
+    - if <[color]||null> == null || !<[color].exists>:
       - define color:WHITE
-    - else if <[progress]||null> == null || !<[progress].exists>:
+    - if <[progress]||null> == null || !<[progress].exists>:
       - define progress:1
     - narrate <[title]>
     - narrate <[duration]>
@@ -31,9 +31,9 @@ bb_notification:
     - narrate <[duration].as_duration.in_seconds>
     - if <[duration].as_duration.in_seconds> <= 0:
       - define duration:10s
-    - else if !<[color].contains_any_text[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW]>:
+    - if !<[color].contains_any_text[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW]>:
       - define color:WHITE
-    - else if <[progress]> < 0:
+    - if <[progress]> < 0:
       - define progress:0
     - else if <[progress]> > 1:
       - define progress:1
