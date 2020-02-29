@@ -14,13 +14,13 @@ bb_notification:
   definitions: title|duration|color|progress
   script:
     #Check for existing definitions and set defaults as necessary
-    - if <[title]||null> == null:
+    - if <[title]||null> == null || !<[title].exists>:
       - define title:Notification
-    - else if <[duration]||null> == null:
+    - else if <[duration]||null> == null || !<[duration].exists>:
       - define duration:5s
-    - else if <[color]||null> == null:
+    - else if <[color]||null> == null || !<[color].exists>:
       - define color:WHITE
-    - else if <[progress]||null> == null:
+    - else if <[progress]||null> == null || !<[progress].exists>:
       - define progress:1
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
