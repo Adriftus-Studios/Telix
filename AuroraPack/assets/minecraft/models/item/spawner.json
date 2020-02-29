@@ -1,0 +1,17 @@
+{
+	"__comment": "/give @s minecraft:sponge{CustomModelData:1000000[1-7]}",
+	"parent": "block/spawner",
+	"textures": {
+		"layer0": "item/spawner"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": 10000001}, "model": "item/custom/blocks/copper_ore" },
+		{ "predicate": { "custom_model_data": 10000002}, "model": "item/custom/blocks/silver_ore" },
+		{ "predicate": { "custom_model_data": 10000003}, "model": "item/custom/blocks/ruby_ore" },
+		{ "predicate": { "custom_model_data": 10000004}, "model": "item/custom/blocks/black_diamond_ore" },
+		{ "predicate": { "custom_model_data": 10000005}, "model": "item/custom/blocks/mithril_ore" },
+		{ "predicate": { "custom_model_data": 10000006}, "model": "item/custom/blocks/platinum_ore" },
+		{ "predicate": { "custom_model_data": 10000007}, "model": "item/custom/blocks/sulfur_ore" }
+	]
+
+}S

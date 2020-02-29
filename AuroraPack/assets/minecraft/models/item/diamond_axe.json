@@ -1,0 +1,11 @@
+{
+	"__comment": "/minecraft:give @p minecraft:stick{CustomModelData:1}",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "item/diamond_axe"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": 0}, "model": "item/diamond_axe" }
+}
+
+

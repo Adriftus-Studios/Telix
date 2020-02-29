@@ -1,0 +1,12 @@
+{
+	"__comment": "/minecraft:give @p minecraft:stick{CustomModelData:1}",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "item/rabbit_hide"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": 0}, "model": "item/custom/wings/green_wings" }
+	]
+}
+
+

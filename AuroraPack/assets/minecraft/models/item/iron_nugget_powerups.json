@@ -1,0 +1,14 @@
+{
+	"__comment": "/give @s minecraft:sponge{CustomModelData:1}",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "item/iron_nugget"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": 1}, "model": "item/snowball_game/powerups/wall" },
+		{ "predicate": { "custom_model_data": 2}, "model": "item/snowball_game/powerups/rain" },
+		{ "predicate": { "custom_model_data": 3}, "model": "item/snowball_game/powerups/barrage" },
+		{ "predicate": { "custom_model_data": 4}, "model": "item/snowball_game/powerups/limit" }
+	]
+
+}

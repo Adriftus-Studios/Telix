@@ -1,0 +1,11 @@
+{
+	"__comment": "/give @s minecraft:sponge{CustomModelData:1}",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "item/golden_hoe"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": 1}, "model": "item/custom/machines/wrench" }
+	]
+
+}
