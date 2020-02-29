@@ -58,34 +58,34 @@ equipment_boots_slot:
 reload_scripts:
     type: world
     reload:
-        - yaml create id:server.executable_scripts
-        - yaml create id:server.skills_by_level
-        - yaml create id:server.equipment
-        - yaml create id:server.ore_rates
-        - yaml create id:server.smeltery_recipes
-        - yaml load:data/skill_trees.yml id:server.skill_trees
-        - foreach <server.list_scripts>:
-            - if <[value].yaml_key[script]||<[value].yaml_key[events]||null>> != null:
-              - yaml id:server.executable_scripts set scripts:|:<[value].name>
-            - if <[value].name.starts_with[ability_]>:
-                - if <[value].yaml_key[ability_tree]||null> == null:
-                    - announce to_ops "<[value].name> is not properly defined. (<[value].filename>)"
-                - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
-            - if <[value].yaml_key[ore]||null> != null:
-                - yaml id:server.ore_rates set <[value].yaml_key[ore.block]>.<[value].yaml_key[ore.biome]>.<[value].yaml_key[ore.chance]>:<[value].name>
-            - if <[value].yaml_key[type]> == item:
-                - if <[value].yaml_key[category]||null> != null:
-                    - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
-                - if <[value].yaml_key[recipes]||null> != null:
-                  - foreach <[value].list_keys[recipes]> as:recipe:
-                    - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
-                      - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
-                      - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
-                      - yaml id:server.smeltery_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
+      - yaml create id:server.executable_scripts
+      - yaml create id:server.skills_by_level
+      - yaml create id:server.equipment
+      - yaml create id:server.ore_rates
+      - yaml create id:server.smeltery_recipes
+      - yaml load:data/skill_trees.yml id:server.skill_trees
+      - foreach <server.list_scripts>:
+          - if <[value].yaml_key[script]||<[value].yaml_key[events]||null>> != null:
+            - yaml id:server.executable_scripts set scripts:|:<[value].name>
+          - if <[value].name.starts_with[ability_]>:
+              - if <[value].yaml_key[ability_tree]||null> == null:
+                  - announce to_ops "<[value].name> is not properly defined. (<[value].filename>)"
+              - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
+          - if <[value].yaml_key[ore]||null> != null:
+              - yaml id:server.ore_rates set <[value].yaml_key[ore.block]>.<[value].yaml_key[ore.biome]>.<[value].yaml_key[ore.chance]>:<[value].name>
+          - if <[value].yaml_key[type]> == item:
+              - if <[value].yaml_key[category]||null> != null:
+                  - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
+              - if <[value].yaml_key[recipes]||null> != null:
+                - foreach <[value].list_keys[recipes]> as:recipe:
+                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
+                    - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
+                    - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
+                    - yaml id:server.smeltery_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
     events:
-        on server start:
+      on server start:
         - inject locally reload
-        on script reload:
+      on script reload:
         - inject locally reload
         
 ott_command:
