@@ -12,6 +12,7 @@ guild_settings:
   - kick_members
   - invite_members
   - manage_relations
+  - access_bank
   rank_properties:
   - title
   - priority
@@ -30,7 +31,7 @@ guild_command:
   aliases:
   - "g"
   tab complete:
-  - if <context.args.size||-1> != -1:
+  - if <context.args.size||0> != 0:
     - if <context.args.size> == 1:
       - define list:<list[invite|disband|kick|create|rank|accept|leave|accept|bank]>
       - determine <[list].filter[starts_with[<context.args.get[1]>]]>
