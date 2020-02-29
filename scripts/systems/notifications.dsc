@@ -10,7 +10,7 @@
 #bb_notification (Run task)
 bb_notification:
   type: task
-  debug: true
+  debug: false
   definitions: title|duration|color|progress|targets
   script:
     #Check for existing definitions and set defaults as necessary
@@ -24,11 +24,6 @@ bb_notification:
       - define progress:1
     - if <[targets]||null> == null || !<[targets].exists>:
       - define targets:<player>
-    - narrate <[title]>
-    - narrate <[duration]>
-    - narrate <[color]>
-    - narrate <[progress]>
-    - narrate <[targets]>
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
     - if <[duration].as_duration.in_seconds> <= 0:
@@ -42,7 +37,6 @@ bb_notification:
 
     #Define timestamp id and create bossbar
     - define id:<[targets].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - narrate <[id]>
     - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> targets:<[targets]> style:SOLID
 
     #Wait for specified duration of time
