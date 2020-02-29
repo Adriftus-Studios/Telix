@@ -1,7 +1,7 @@
 
 survival_stats_temperature:
   type: world
-  debug: true
+  debug: false
   events:
     on delta time secondly every:15:
       - stop
