@@ -13,6 +13,7 @@ ability_witches_demise:
   script:
     - repeat 5:
       - define offset:<proc[find_offset].context[2|<util.random.int[0].to[360]>]>
+      - narrate <[offset]>
       - define points:<proc[define_curve1].context[<player.eye_location.forward[2]>|<player.eye_location.forward[<script.yaml_key[range]>].up[<[offset].get[1]>].right[<[offset].get[2]>]>|1|<util.random.int[0].to[360]>|1]>
       - run witches_demise_animation def:<[points].escaped>
       - wait 2t
@@ -25,6 +26,9 @@ witches_demise_animation:
   - repeat <[points].size>:
     - playeffect spell_witch <[points].get[<[value]>]> offset:0 visibility:300 quantity:2
     - wait 1t
+    - if <[points].get[<[value]>].find.living_entities.within[0.5].size> != 0:
+      - hurt 3 <[points].get[<[value]>].find.living_entities.within[0.5]>
+      - repeat stop
     
 ability_test_spell2:
   type: task
