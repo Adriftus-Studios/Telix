@@ -25,6 +25,6 @@ witches_demise_animation:
   - repeat <[points].size>:
     - playeffect spell_witch <[points].get[<[value]>]> offset:0 visibility:300 quantity:2
     - wait 1t
-    - if <[points].get[<[value]>].find.living_entities.within[0.5].size> != 0:
-      - hurt 3 <[points].get[<[value]>].find.living_entities.within[0.5]>
+    - if <[points].get[<[value]>].find.living_entities.within[0.7].size> != 0:
+      - hurt 3 <[points].get[<[value]>].find.living_entities.within[0.7]>
       - repeat stop
