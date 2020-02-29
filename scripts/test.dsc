@@ -1,13 +1,12 @@
 ability_test_spell1:
-  type: command
-  name: test_spell1
-  ability_tree: Ender
+  type: task
+  name: test_skill1
+  ability_tree: Nether
   ability_type: active
-  points_to_unlock: 1
-  power_cost: 1
-  description: Test Spell 1
-  range: 30
-  damage: 3
+  duration: 5
+  points_to_unlock: 10
+  power_cost: 10
+  description: Test Skill 1
   icon:
     material: iron_nugget
     custom_model_data: 1000
@@ -33,14 +32,14 @@ ability_test_spell1_animation:
       - foreach stop
 
 ability_test_spell2:
-  type: command
-  name: test_spell2
+  type: task
+  name: test_skill2
   ability_tree: Nether
   ability_type: active
-  points_to_unlock: 1
-  power_cost: 1
-  description: Test Spell 2
-  range: 50
+  duration: 5
+  points_to_unlock: 10
+  power_cost: 10
+  description: Test Skill 2
   icon:
     material: iron_nugget
     custom_model_data: 1000
