@@ -57,6 +57,7 @@ abilites_item_use:
       - narrate 1
       - determine passively cancelled
       - ratelimit <player> 1s
+      - narrate 1.5
       - if <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_tree]> != Ender && <player.has_flag[ender_world]>:
         - stop
       - narrate 2
