@@ -1,5 +1,5 @@
 
-define_curve:
+define_curve1:
   type: procedure
   definitions: start|end|intensity|angle|between
   script:
@@ -89,7 +89,7 @@ test_effects_command:
   usage: /test_effects
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
-    - determine <list[curve|star1|star2|circle|spiral|zigzag].filter[starts_with[<context.args.get[1]>]]||<list[curve|star1|star2|circle|spiral|zigzag]>>
+    - determine <list[curve1|star1|star2|circle|spiral|zigzag].filter[starts_with[<context.args.get[1]>]]||<list[curve|star1|star2|circle|spiral|zigzag]>>
   - else if <context.raw_args.split[].count[<&sp>]> == 1:
     - determine <server.list_particles.parse[to_lowercase].filter[starts_with[<context.args.get[2]||<server.list_particles>>]]>
   script:
@@ -99,11 +99,11 @@ test_effects_command:
     - foreach <[points]>:
       - playeffect <[particle]> at:<[value]> quantity:5 offset:0 visibility:100
       - wait 1t
-  - if <context.args.get[1]> == curve:
+  - if <context.args.get[1]> == curve1:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
     - repeat 90:
-      - define points:<proc[define_curve].context[<[start]>|<[end]>|5|<[value].mul[4]>|1]>
+      - define points:<proc[define_curve1].context[<[start]>|<[end]>|5|<[value].mul[4]>|1]>
       - playeffect <[particle]> at:<[points]> quantity:5 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == star1:
