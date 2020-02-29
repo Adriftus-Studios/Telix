@@ -54,11 +54,13 @@ survival_temperature_impact:
       - hurt 1000
     - else if <yaml[player.<player.uuid>].read[stats.temperature]> <= 70:
       - if <[change]> == decrease:
+        - run bb_notification def:<&c>You<&sp>are<&sp><&b>freezing<&sp><&c>to<&sp>death.|5s|blue
         - actionbar "<&c>You are <&b>freezing <&c>to death."
       - hurt 1
       - yaml id:player.<player.uuid> set stats.food.current:--
     - else if <yaml[player.<player.uuid>].read[stats.temperature]> <= 80:
       - if <[change]> == decrease:
+        - run bb_notification def:<&e>You<&sp>are<&sp>getting<&sp><&b>chilly<&e>.|5s|blue
         - actionbar "<&e>You are getting <&b>chilly<&e>."
       - yaml id:player.<player.uuid> set stats.food.current:--
     - else if <yaml[player.<player.uuid>].read[stats.temperature]> >= 140:
@@ -66,11 +68,13 @@ survival_temperature_impact:
       - hurt 1000
     - else if <yaml[player.<player.uuid>].read[stats.temperature]> >= 120:
       - if <[change]> == increase:
+        - run bb_notification def:<&c>You<&sp>are<&sp><&4>burning<&c><&sp>up.|5s|red
         - actionbar "<&c>You are <&4>burning<&c> up."
       - hurt 1
       - yaml id:player.<player.uuid> set stats.thirst.current:--
     - else if <yaml[player.<player.uuid>].read[stats.temperature]> >= 110:
       - if <[change]> == increase:
+        - run bb_notification def:<&e>You<&sp>are<&sp>getting<&sp><&c>hot<&e>.|5s|red
         - actionbar "<&e>You are getting <&c>hot<&e>."
       - yaml id:player.<player.uuid> set stats.thirst.current:--
     - inject survival_thirst_hunger_impact

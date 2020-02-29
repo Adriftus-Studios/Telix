@@ -1,11 +1,12 @@
 #Notifications - Multi-instanceable player notifications with durations for bossbars
 # Bossbar Definitions:
-# - <[title]> - The notification text. [Default > Notification]
+# - <[title]> - The notification text. You MUST use <&sp> for spaces in titles. [Default > Notification]
 # - <[duration]> - Duration that the notification is shown to players. [Default > 10s]
 # - <[color]> - The colour of the bossbar. BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW. [Default > WHITE]
 # - <[progress]> - Progress (how much of the bossbar is filled) of the bossbar. Decimal number between 0.0 and 1.0. [Default > 1.0]
 # - <[targets]> - List of players the notification will be sent to. [Default > <player>] UNUSED
 # - Style of bossbar notifications are always SOLID.
+# * - run bb_notification def:title|duration|color|progress|targets
 
 #bb_notification (Run task)
 bb_notification:
@@ -47,3 +48,7 @@ bb_notification:
 
 
 #at_notification (Run task)
+at_notification:
+  type: task
+  debug: true
+  definitions: icon|frame|background|targets
