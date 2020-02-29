@@ -10,7 +10,7 @@ survival_stats_temperature:
         - if !<player.is_online>:
           - foreach next
         - define temperature:<player.location.biome.temperature.*[100].+[<server.flag[global_temperature_modifier]>]>
-        - if <player.location.material.name.contains[water]||false>:
+        - if <player.location.material.name.contains[water]||null> != null:
           - define temp:<[temperature].round_to[0].-[10]>
           - if <[temp]> >= 100:
             - define temp:100
