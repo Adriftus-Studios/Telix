@@ -1,7 +1,7 @@
 ability_test_spell1:
   type: task
   name: test_skill1
-  ability_tree: Ender
+  ability_tree: Nether
   ability_type: active
   duration: 5
   points_to_unlock: 10
@@ -22,7 +22,7 @@ ability_test_spell1:
 ability_test_spell2:
   type: task
   name: test_skill2
-  ability_tree: Ender
+  ability_tree: Nether
   ability_type: active
   duration: 5
   points_to_unlock: 10
