@@ -55,10 +55,6 @@ equipment_boots_slot:
   lore:
   - "<&e>Click to open your skills and abilities menu."
 
-data_item:
-  type: item
-  material: cobblestone
-
 reload_scripts:
     type: world
     reload:
