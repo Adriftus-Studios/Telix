@@ -4,11 +4,11 @@
 # - <[duration]> - Duration that the notification is shown to players. [Default > 10s]
 # - <[color]> - The colour of the bossbar. BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW. [Default > WHITE]
 # - <[progress]> - Progress (how much of the bossbar is filled) of the bossbar. Decimal number between 0.0 and 1.0. [Default > 1.0]
-# - <[targets]> - List of players the notification will be sent to. [Default > <player>]
+# - <[targets]> - List of players the notification will be sent to. [Default > <player>] UNUSED
 # - Style of bossbar notifications are always SOLID.
 
-#notification_bb (Run task)
-notification_bb:
+#bb_notification (Run task)
+bb_notification:
   type: task
   debug: true
   definitions: title|duration|color|progress
@@ -17,7 +17,7 @@ notification_bb:
     - if <[title]||null> == null:
       - define title:Notification
     - else if <[duration]||null> == null:
-      - define duration:10s
+      - define duration:5s
     - else if <[color]||null> == null:
       - define color:WHITE
     - else if <[progress]||null> == null:
@@ -44,4 +44,4 @@ notification_bb:
     - bossbar remove <[id]>
 
 
-#notification_at (Run task)
+#at_notification (Run task)
