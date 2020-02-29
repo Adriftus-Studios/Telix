@@ -54,11 +54,14 @@ abilites_item_use:
   type: world
   events:
     on player right clicks with abilities_item:
+      - narrate 1
       - determine passively cancelled
       - ratelimit <player> 1s
       - if <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_tree]> != Ender && <player.has_flag[ender_world]>:
         - stop
+      - narrate 2
       - run ability_<context.item.nbt[skillname]>
+      - narrate 3
 
 abilities_item_buildLore:
   type: task
