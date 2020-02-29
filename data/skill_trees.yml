@@ -1,6 +1,10 @@
 abilitytrees:
   type: yaml data
   trees:
+    Test:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
     # Magic
     Earth:
       available_check: true
