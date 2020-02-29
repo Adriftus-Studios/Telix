@@ -1,7 +1,7 @@
 ability_test_spell1:
   type: task
   name: test_skill1
-  ability_tree: Nether
+  ability_tree: Ender
   ability_type: active
   duration: 5
   points_to_unlock: 10
@@ -19,22 +19,10 @@ ability_test_spell1:
       - run play_animation def:<[points].escaped>|spell_witch
       - wait 3t
 
-ability_test_spell1_animation:
-  type: task
-  definitions: start|end|angle|player|damage
-  script:
-  - define points:<proc[define_curve].context[<[start]>|<[end]>|1|<[angle]>|1]>
-  - foreach <[points]> as:point:
-    - playeffect spell_witch <[point]> offset:0 visibility:100 quantity:2
-    - wait 1t
-    - if <[point].find.players.within[0.7].size> != 0:
-      - hurt <[point].find.players.within[0.7].get[1]> <[damage]> cause:<[player]>
-      - foreach stop
-
 ability_test_spell2:
   type: task
   name: test_skill2
-  ability_tree: Nether
+  ability_tree: Ender
   ability_type: active
   duration: 5
   points_to_unlock: 10
