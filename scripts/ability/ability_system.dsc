@@ -86,7 +86,6 @@ abilityTree_inventory_events:
   type: world
   events:
     on player clicks item in abilityTree_inventory:
-      - narrate <context.raw_slot>
       - if <context.raw_slot> < 46 && <context.raw_slot> != -998:
         - determine passively cancelled
         - if <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_type]||nope> == active:
@@ -109,7 +108,7 @@ abilities_characterAbilities_events:
   type: world
   events:
     on player left clicks item in abilities_characterAbilityTrees:
-      - if <context.raw_slot> < 46:
+      - if <context.raw_slot> < 46 && <context.raw_slot> != -998:
         - determine passively cancelled
         - if <context.item.has_nbt[skillname]>:
           - define inventory:<inventory[abilityTree_inventory]>
@@ -124,7 +123,7 @@ abilities_characterAbilities_events:
           - inventory open d:<[inventory]>
 
     on player shift left clicks item in abilities_characterAbilityTrees priority:10:
-      - if <context.raw_slot> < 46:
+      - if <context.raw_slot> < 46 && <context.raw_slot> != -998:
         - determine passively cancelled
         - ratelimit <player> 2t
         - wait 1t
