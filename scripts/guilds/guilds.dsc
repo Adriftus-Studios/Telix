@@ -693,13 +693,13 @@ guild_flags_gui:
   title: <&6>◆ <&a><&n><&l>Manage Flags<&r> <&6>◆
   size: 54
   procedural items:
-  - foreach <yaml[guild.<player.flag[guild]>].list_keys[flags]> as:flag:
+  - foreach <yaml[guild.<player.flag[guild]>].list_keys[flags]||<list[]>> as:flag:
     - define h:<yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>
     - if <yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]> < <script[guild_settings].yaml_key[default_stats.flag_health]>:
       - define flags:|:<item[guild_flag_btn_icon].with[display_name=<&a><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>;lore=<list[<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>]>;nbt=<[flag]>]>
     - else:
       - define flags:|:<item[guild_flag_btn_icon].with[display_name=<&c><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.name]>;lore=<list[<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[flag]>.health]>]>;nbt=<[flag]>]>
-  - determine <[flags]>
+  - determine <[flags]||<list[]>>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
