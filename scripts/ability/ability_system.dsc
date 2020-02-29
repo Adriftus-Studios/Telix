@@ -102,7 +102,6 @@ abilities_GUIitem_buildLore:
       - define "lore:|:<&a>Usage<&co> <&e>/<script[ability_<[ability]>].yaml_key[command_usage]>"
     - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
     - define "lore:|:<&e>-------------------------"
-        
 
 abilities_characterAbilities_events:
   type: world
