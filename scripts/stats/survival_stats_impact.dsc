@@ -1,7 +1,7 @@
 
 survival_stats_temperature:
   type: world
-  debug: false
+  debug: true
   events:
     on delta time secondly every:15:
       - foreach <server.list_online_players.filter[health.is[OR_MORE].than[0]]>:
