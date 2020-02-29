@@ -139,6 +139,7 @@ rp_command:
 player_setup:
   type: task
   script:
+    - yaml create id:player.<player.uuid>
     - yaml id:player.<player.uuid> set teleports_used.ott:0
     - yaml id:player.<player.uuid> set values.kills:0
     - yaml id:player.<player.uuid> set values.deaths:0
@@ -254,6 +255,17 @@ kill_queue_command:
   - if <player.permission[*]>:
     - foreach <script[<context.args.get[1]>].list_queues>:
       - queue <[value]> stop
+
+player_setup_command:
+  type: command
+  name: player_setup
+  description: player_setup
+  usage: /player_setup
+  tab complete:
+  - determine <server.list_online_players.filter[name.starts_with[<context.args.get[1]>]]>
+  script:
+  - adjust <queue> linked_player:<server.match_player[<context.args.get[1]>]||<player>>
+  - inject player_setup
 
 player_reset_command:
   type: command
