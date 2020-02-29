@@ -746,24 +746,24 @@ guild_gui_events:
     - foreach <[btns]> as:btn:
       - inventory add d:<context.inventory> o:<item[<[btn]>]>
     on player clicks in my_guild_gui:
-    - if <context.raw_slot> < 36:
+    - if <context.raw_slot> <= 36:
       - determine passively cancelled
     on player clicks guilds_view_info_btn in my_guild_gui:
-    - if <context.raw_slot> < 36:
+    - if <context.raw_slot> <= 36:
     on player clicks in guild_bank_gui:
-    - if <context.raw_slot> < 54 && <context.raw_slot> > 45:
+    - if <context.raw_slot> <= 54 && <context.raw_slot> > 45:
       - determine passively cancelled
     on player clicks in guild_flags_gui:
-    - if <context.raw_slot> < 54:
+    - if <context.raw_slot> <= 54:
       - determine passively cancelled
     on player clicks in new_guild_gui:
-    - if <context.raw_slot> < 27:
+    - if <context.raw_slot> <= 27:
       - determine passively cancelled
     on player clicks in guild_flag_gui:
-    - if <context.raw_slot> < 27:
+    - if <context.raw_slot> <= 27:
       - determine passively cancelled
     on player clicks new_guild_btn in new_guild_gui:
-    - if <context.raw_slot> < 27:
+    - if <context.raw_slot> <= 27:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
     on player clicks guild_flag_destroy_btn in guild_flag_gui:
     - if <player.flag[guild]> == <context.inventory.notable_name.replace[flag_].with[].split[_l@].get[1]>:
