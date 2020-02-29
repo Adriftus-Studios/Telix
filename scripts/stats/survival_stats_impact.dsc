@@ -4,6 +4,7 @@ survival_stats_temperature:
   debug: true
   events:
     on delta time secondly every:15:
+      - stop
       - foreach <server.list_online_players.filter[health.is[OR_MORE].than[0]]>:
         - adjust <queue> linked_player:<[value]>
         - define change:none
@@ -49,6 +50,7 @@ survival_stats_temperature:
 survival_temperature_impact:
   type: task
   script:
+    - stop
     - if <yaml[player.<player.uuid>].read[stats.temperature]||80> < 50:
       - narrate "<&c>You have <&b>frozen<&c> to death."
       - hurt 1000
