@@ -1,0 +1,13 @@
+{
+	"__comment": "/give @s minecraft:sponge{CustomModelData:1}",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "item/clay_ball"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": 10000001}, "model": "item/custom/drops/copper_lump" },
+		{ "predicate": { "custom_model_data": 10000002}, "model": "item/custom/drops/silver_lump" },
+		{ "predicate": { "custom_model_data": 10000003}, "model": "item/custom/drops/ruby" }
+	]
+
+}

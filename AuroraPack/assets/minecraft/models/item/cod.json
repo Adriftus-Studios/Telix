@@ -1,0 +1,27 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "item/cod"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": 0}, "model": "item/cod" },
+		{ "predicate": { "custom_model_data": 1}, "model": "item/fish/1" },
+		{ "predicate": { "custom_model_data": 2}, "model": "item/fish/2" },
+		{ "predicate": { "custom_model_data": 3}, "model": "item/fish/3" },
+		{ "predicate": { "custom_model_data": 4}, "model": "item/fish/4" },
+		{ "predicate": { "custom_model_data": 5}, "model": "item/fish/5" },
+		{ "predicate": { "custom_model_data": 6}, "model": "item/fish/6" },
+		{ "predicate": { "custom_model_data": 7}, "model": "item/fish/7" },
+		{ "predicate": { "custom_model_data": 8}, "model": "item/fish/8" },
+		{ "predicate": { "custom_model_data": 9}, "model": "item/fish/9" },
+		{ "predicate": { "custom_model_data": 10}, "model": "item/fish/10" },
+		{ "predicate": { "custom_model_data": 11}, "model": "item/fish/11" },
+		{ "predicate": { "custom_model_data": 12}, "model": "item/fish/12" },
+		{ "predicate": { "custom_model_data": 13}, "model": "item/fish/13" },
+		{ "predicate": { "custom_model_data": 14}, "model": "item/fish/14" },
+		{ "predicate": { "custom_model_data": 15}, "model": "item/fish/15" },
+		{ "predicate": { "custom_model_data": 16}, "model": "item/fish/16" },
+		{ "predicate": { "custom_model_data": 17}, "model": "item/fish/17" },
+		{ "predicate": { "custom_model_data": 18}, "model": "item/fish/0" }
+	]
+}

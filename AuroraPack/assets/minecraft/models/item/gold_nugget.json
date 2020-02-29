@@ -1,0 +1,28 @@
+{
+	"__comment": "/minecraft:give @p minecraft:stick{CustomModelData:1}",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "item/gold_nugget"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": -4}, "model": "item/custom/drops/mnote" },
+		{ "predicate": { "custom_model_data": -3}, "model": "item/custom/drops/cnote" },
+		{ "predicate": { "custom_model_data": -2}, "model": "item/custom/drops/inote" },
+		{ "predicate": { "custom_model_data": -1}, "model": "guis/invis_item" },
+		{ "predicate": { "custom_model_data": 0}, "model": "item/gold_nugget" },
+		{ "predicate": { "custom_model_data": 1}, "model": "guis/template_bottom" },
+		{ "predicate": { "custom_model_data": 2}, "model": "guis/template_top" },
+		{ "predicate": { "custom_model_data": 3}, "model": "guis/blue_lower" },
+		{ "predicate": { "custom_model_data": 4}, "model": "guis/blue_top" },
+		{ "predicate": { "custom_model_data": 5}, "model": "guis/equipment_bottom" },
+		{ "predicate": { "custom_model_data": 6}, "model": "guis/equipment_top" },
+		{ "predicate": { "custom_model_data": 7}, "model": "guis/abilities_bottom" },
+		{ "predicate": { "custom_model_data": 8}, "model": "guis/abilities_top" },
+		{ "predicate": { "custom_model_data": 9}, "model": "guis/stats_bottom" },
+		{ "predicate": { "custom_model_data": 10}, "model": "guis/stats_top" },
+		{ "predicate": { "custom_model_data": 11}, "model": "guis/smeltery_bottom" },
+		{ "predicate": { "custom_model_data": 12}, "model": "guis/smeltery_top" }
+	]
+}
+
+

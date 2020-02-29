@@ -1,0 +1,36 @@
+{
+	"__comment": "Designed by Mutim_Endymion with Cubik Studio - https://cubik.studio",
+	"textures": {
+		"particle": "item/custom/wings/green_wings",
+		"texture": "item/custom/wings/green_wings"
+	},
+	"elements": [ 	 
+		{
+			"__comment": "PlaneY3",
+			"from": [ -16, 0, 4.5 ],
+			"to": [ 8, 0.001, 28.5 ],
+			"rotation": { "origin": [ -16, 0, 4.5 ], "axis": "y", "angle": 22.5 },
+			"faces": {
+				"down": { "uv": [ 0, 16, 16, 0 ], "texture": "#texture" },
+				"up": { "uv": [ 0, 0, 16, 16 ], "texture": "#texture" }
+			}
+		},
+		{
+			"__comment": "PlaneY3",
+			"from": [ 8, 0, -4.75 ],
+			"to": [ 32, 0.001, 19.25 ],
+			"rotation": { "origin": [ 8, 0, -4.75 ], "axis": "y", "angle": -22.5 },
+			"faces": {
+				"down": { "uv": [ 16, 16, 0, 0 ], "texture": "#texture" },
+				"up": { "uv": [ 16, 0, 0, 16 ], "texture": "#texture" }
+			}
+		}
+	],
+	"display": {
+		"head": {
+			"rotation":  [ -90, 180, 0 ],
+			"translation":  [ -1, 22, -4 ],
+			"scale":  [ 2, 1, 2 ]
+		}
+	}
+}

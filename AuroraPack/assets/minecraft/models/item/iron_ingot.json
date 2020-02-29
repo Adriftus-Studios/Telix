@@ -1,0 +1,12 @@
+{
+	"__comment": "/give @s minecraft:sponge{CustomModelData:1}",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "item/iron_ingot"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": 10000001}, "model": "item/custom/ingots/copper_ingot" },
+		{ "predicate": { "custom_model_data": 10000002}, "model": "item/custom/ingots/silver_ingot" }
+	]
+
+}
