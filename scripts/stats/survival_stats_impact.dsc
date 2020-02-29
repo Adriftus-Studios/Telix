@@ -19,23 +19,23 @@ survival_stats_temperature:
           - else if <[temp]> < <yaml[player.<player.uuid>].read[stats.temperature]>:
             - define change:increase
           - yaml id:player.<player.uuid> set stats.temperature:<[temp]>
-        - else if !<player.location.find.blocks[fire|campfire|torch].within[5].is_empty>:
+        - else if !<player.location.find.blocks[fire|campfire|torch].within[5].is_empty||null> != null:
           - if <[temperature].+[20].round_to[0]> > <yaml[player.<player.uuid>].read[stats.temperature]>:
             - if <util.random.int[0].to[100]> <= <yaml[player.<player.uuid>].read[stats.constitution]> && <yaml[player.<player.uuid>].read[stats.temperature]> > 100:
               - foreach next
             - yaml id:player.<player.uuid> set stats.temperature:+:2
             - define change:increase
-          - else if <[temperature].+[20].round_to[0]> < <yaml[player.<player.uuid>].read[stats.temperature]>:
+          - else if <[temperature].+[20].round_to[0]> < <yaml[player.<player.uuid>].read[stats.temperature]||null> != null:
             - if <util.random.int[0].to[100]> <= <yaml[player.<player.uuid>].read[stats.constitution]> && <yaml[player.<player.uuid>].read[stats.temperature]> < 100:
               - foreach next
             - yaml id:player.<player.uuid> set stats.temperature:--
             - define change:decrease
-        - else if <[temperature].round_to[0]> > <yaml[player.<player.uuid>].read[stats.temperature]>:
+        - else if <[temperature].round_to[0]> > <yaml[player.<player.uuid>].read[stats.temperature]||null> != null:
           - if <util.random.int[0].to[100]> <= <yaml[player.<player.uuid>].read[stats.constitution]> && <yaml[player.<player.uuid>].read[stats.temperature]> > 100:
             - foreach next
           - yaml id:player.<player.uuid> set stats.temperature:++
           - define change:increase
-        - else if <[temperature].round_to[0]> < <yaml[player.<player.uuid>].read[stats.temperature]>:
+        - else if <[temperature].round_to[0]> < <yaml[player.<player.uuid>].read[stats.temperature]||null> != null:
           - if <util.random.int[0].to[100]> <= <yaml[player.<player.uuid>].read[stats.constitution]> && <yaml[player.<player.uuid>].read[stats.temperature]> < 100:
             - foreach next
           - yaml id:player.<player.uuid> set stats.temperature:--
