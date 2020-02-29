@@ -24,6 +24,7 @@ bb_notification:
       - define progress:1
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
+    - narrate <[duration].as_duration.in_seconds>
     - if <[duration].as_duration.in_seconds> <= 0:
       - define duration:10s
     - else if !<[color].contains_any_text[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW]>:
