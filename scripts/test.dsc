@@ -11,10 +11,9 @@ ability_test:
     material: iron_nugget
     custom_model_data: 1000
   script:
-    - repeat 5:
       - define offset:<proc[find_offset].context[2|<util.random.int[0].to[360]>]>
-      - define points:<proc[define_curve1].context[<player.eye_location.forward[2]>|<player.eye_location.forward[<script.yaml_key[range]>].up[<[offset].get[1]>].right[<[offset].get[2]>]>|1|<util.random.int[0].to[360]>|1]>
-      - run witches_demise_animation def:<[points].escaped>
+    - define points:<proc[define_curve1].context[<player.eye_location.forward[2]>|<player.eye_location.forward[<script.yaml_key[range]>].up[<[offset].get[1]>].right[<[offset].get[2]>]>|1|<util.random.int[0].to[360]>|1]>
+    - run witches_demise_animation def:<[points].escaped>
       - wait 2t
 
 animation_ability_test:
