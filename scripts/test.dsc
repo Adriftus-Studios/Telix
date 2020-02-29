@@ -1,6 +1,6 @@
 ability_test:
   type: task
-  name: witches_demise
+  name: test_ability
   ability_tree: Test
   ability_type: active
   range: 20
