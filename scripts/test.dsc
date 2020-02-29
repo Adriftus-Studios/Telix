@@ -1,5 +1,5 @@
 ability_test_spell1:
-  type: command
+  type: task
   name: test_spell1
   ability_tree: Nether
   ability_type: active
@@ -33,7 +33,7 @@ ability_test_spell1_animation:
       - foreach stop
 
 ability_test_spell2:
-  type: command
+  type: task
   name: test_spell2
   ability_tree: Nether
   ability_type: active
