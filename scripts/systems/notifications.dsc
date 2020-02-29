@@ -42,6 +42,7 @@ bb_notification:
 
     #Define timestamp id and create bossbar
     - define id:<[targets].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
+    - narrate <[id]>
     - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> targets:<[targets]> style:SOLID
 
     #Wait for specified duration of time
