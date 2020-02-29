@@ -41,7 +41,7 @@ bb_notification:
       - define progress:1
 
     #Define timestamp id and create bossbar
-    - define id:<player.uuid>.<util.date.time.duration.in_seconds>
+    - define id:<[targets].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
     - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> targets:<[targets]> style:SOLID
 
     #Wait for specified duration of time
