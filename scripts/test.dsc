@@ -11,14 +11,14 @@ ability_test:
     material: iron_nugget
     custom_model_data: 1000
   script:
-    - define offset:<proc[find_offset].context[2|<util.random.int[0].to[360]>]>
-    - define points:<proc[define_curve1].context[<player.eye_location.forward[2]>|<player.eye_location.forward[<script.yaml_key[range]>].up[<[offset].get[1]>].right[<[offset].get[2]>]>|1|<util.random.int[0].to[360]>|1]>
-    - run witches_demise_animation def:<[points].escaped>
-    - wait 2t
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.5|0]>
+    - run animation_ability_test def:<[points].escaped>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.5|180]>
+    - run animation_ability_test def:<[points].escaped>
 
 animation_ability_test:
   type: task
-  definitions: points|particle
+  definitions: points
   script:
   - define points:<[points].unescaped>
   - repeat <[points].size>:
