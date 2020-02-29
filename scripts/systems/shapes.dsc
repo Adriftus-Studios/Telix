@@ -11,6 +11,18 @@ define_curve1:
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
   
+define_curve2:
+  type: procedure
+  definitions: start|end|intensity|angle|between
+  script:
+  - define a:<[start].face[<[end]>].points_between[<[end]>].distance[<[between]>]>
+  - define increment:<el@40.div[<[a].size>]>
+  - foreach <[a]> as:point:
+    - define b:<el@1.add[<el@1.div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
+    - define offset:<proc[find_offset].context[<[b]>|<[angle]>]>
+    - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+  - determine <[points]>
+  
 define_circle:
   type: procedure
   definitions: location|radius
@@ -89,7 +101,7 @@ test_effects_command:
   usage: /test_effects
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
-    - determine <list[curve1|star1|star2|circle|spiral|zigzag].filter[starts_with[<context.args.get[1]>]]||<list[curve|star1|star2|circle|spiral|zigzag]>>
+    - determine <list[curve1|curve2|star1|star2|circle|spiral|zigzag].filter[starts_with[<context.args.get[1]>]]||<list[curve|star1|star2|circle|spiral|zigzag]>>
   - else if <context.raw_args.split[].count[<&sp>]> == 1:
     - determine <server.list_particles.parse[to_lowercase].filter[starts_with[<context.args.get[2]||<server.list_particles>>]]>
   script:
@@ -106,6 +118,10 @@ test_effects_command:
       - define points:<proc[define_curve1].context[<[start]>|<[end]>|5|<[value].mul[4]>|1]>
       - playeffect <[particle]> at:<[points]> quantity:5 offset:0 visibility:100
       - wait 1t
+  - if <context.args.get[1]> == curve2:
+    - define start:<player.location>
+    - define end:<player.location.forward[20]>
+    - narrate "not done yet"
   - if <context.args.get[1]> == star1:
     - define points:<proc[define_star].context[<player.location.forward[4]>|3|90|5]>
     - repeat <[points].size>:
