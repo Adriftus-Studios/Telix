@@ -82,16 +82,16 @@ survival_temperature_impact:
 survival_thirst_hunger_impact:
   type: task
   script:
-    - if <yaml[player.<player.uuid>].read[stats.food.current]> <= -50:
+    - if <yaml[player.<player.uuid>].read[stats.food.current]||100> <= -50:
       - hurt 1000
       - narrate "<&c>You have starved to death."
-    - else if <yaml[player.<player.uuid>].read[stats.food.current]> <= 0:
+    - else if <yaml[player.<player.uuid>].read[stats.food.current]||100> <= 0:
       - hurt 1
       - narrate "<&e>You are starving to death."
-    - if <yaml[player.<player.uuid>].read[stats.thirst.current]> <= -50:
+    - if <yaml[player.<player.uuid>].read[stats.thirst.current]||100> <= -50:
       - hurt 1000
       - narrate "<&c>You have died of dehydration."
-    - else if <yaml[player.<player.uuid>].read[stats.thirst.current]> <= 0:
+    - else if <yaml[player.<player.uuid>].read[stats.thirst.current]||100> <= 0:
       - if !<yaml[player.<player.uuid>].read[debuffs].contains[dehydrated]>:
         - yaml id:player.<player.uuid> set debuffs:->:dehydrated
         - run debuff_dehydration
