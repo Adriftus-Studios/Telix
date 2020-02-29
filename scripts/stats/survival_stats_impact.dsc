@@ -49,30 +49,30 @@ survival_stats_temperature:
 survival_temperature_impact:
   type: task
   script:
-    - if <yaml[player.<player.uuid>].read[stats.temperature]> < 50:
+    - if <yaml[player.<player.uuid>].read[stats.temperature]||80> < 50:
       - narrate "<&c>You have <&b>frozen<&c> to death."
       - hurt 1000
-    - else if <yaml[player.<player.uuid>].read[stats.temperature]> <= 70:
+    - else if <yaml[player.<player.uuid>].read[stats.temperature]||80> <= 70:
       - if <[change]> == decrease:
         - run bb_notification def:<&c>You<&sp>are<&sp><&b>freezing<&sp><&c>to<&sp>death.|5s|blue
         - actionbar "<&c>You are <&b>freezing <&c>to death."
       - hurt 1
       - yaml id:player.<player.uuid> set stats.food.current:--
-    - else if <yaml[player.<player.uuid>].read[stats.temperature]> <= 80:
+    - else if <yaml[player.<player.uuid>].read[stats.temperature]||80> <= 80:
       - if <[change]> == decrease:
         - run bb_notification def:<&e>You<&sp>are<&sp>getting<&sp><&b>chilly<&e>.|5s|blue
         - actionbar "<&e>You are getting <&b>chilly<&e>."
       - yaml id:player.<player.uuid> set stats.food.current:--
-    - else if <yaml[player.<player.uuid>].read[stats.temperature]> >= 140:
+    - else if <yaml[player.<player.uuid>].read[stats.temperature]||80> >= 140:
       - narrate "<&c>You have died from <&4>heat<&c> exhaustion."
       - hurt 1000
-    - else if <yaml[player.<player.uuid>].read[stats.temperature]> >= 120:
+    - else if <yaml[player.<player.uuid>].read[stats.temperature]||80> >= 120:
       - if <[change]> == increase:
         - run bb_notification def:<&c>You<&sp>are<&sp><&4>burning<&c><&sp>up.|5s|red
         - actionbar "<&c>You are <&4>burning<&c> up."
       - hurt 1
       - yaml id:player.<player.uuid> set stats.thirst.current:--
-    - else if <yaml[player.<player.uuid>].read[stats.temperature]> >= 110:
+    - else if <yaml[player.<player.uuid>].read[stats.temperature]||80> >= 110:
       - if <[change]> == increase:
         - run bb_notification def:<&e>You<&sp>are<&sp>getting<&sp><&c>hot<&e>.|5s|red
         - actionbar "<&e>You are getting <&c>hot<&e>."
