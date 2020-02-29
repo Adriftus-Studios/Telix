@@ -32,7 +32,7 @@ guild_command:
   tab complete:
   - if <context.args.size||-1> != -1:
     - if <context.args.size> == 1:
-      - define list:<list[invite|disband|kick|create|rank|accept|leave|accept]>
+      - define list:<list[invite|disband|kick|create|rank|accept|leave|accept|bank]>
       - determine <[list].filter[starts_with[<context.args.get[1]>]]>
     - else:
       - if <player.flag[guild]||null> != null:
@@ -153,9 +153,16 @@ guild_command:
                       - narrate "<&c>That is not a valid option."
             - else:
               - narrate "<&c>You do not have permission to run that command."
+          - case bank:
+            - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[access_bank]>:
+              - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
+            - else:
+              - narrate "<&c>You do not have permission to run that command."
           - case flags:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
               - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
+            - else:
+              - narrate "<&c>You do not have permission to run that command."
           - case kick:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[kick_members]>:
               - if <server.match_player[<context.args.get[2]>]||<server.match_offline_player[<context.args.get[2]>]||null>> != null:
@@ -359,6 +366,7 @@ create_guild:
   - yaml id:guild.<[guild]> set ranks.peasent.title:Peasent
   - yaml id:guild.<[guild]> set ranks.peasent.priority:1
   - note <inventory[guild_flags_gui]> as:guild_<[guild]>_flags
+  - note <inventory[guild_bank_gui]> as:guild_<[guild]>_bank
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
   - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[guild]>.yml id:guild.<[guild]>
 
@@ -664,6 +672,21 @@ edit_guild_ranks_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+guild_bank_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Guild Bank<&r> <&6>◆
+  size: 54
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [closeitem]"
 
 guild_flags_gui:
   type: inventory
