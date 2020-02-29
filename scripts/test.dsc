@@ -3,7 +3,7 @@ ability_witches_demise:
   name: witches_demise
   ability_tree: Test
   ability_type: active
-  duration: 5
+  range: 20
   points_to_unlock: 10
   power_cost: 10
   description: Test Skill 1
