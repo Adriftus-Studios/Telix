@@ -19,6 +19,9 @@ equipment_chest_slot:
   weight: 0
   lore:
   - "<&e>Click to open your equipment window."
+  - "<&e>"
+  - "Hat: <yaml[player.<player.uuid>].read[equipment.hat].as_item.display_name||"[None]">"
+  - 11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes
   mechanisms:
     nbt_attributes: generic.armor/chest/0/0
     unbreakable: true
