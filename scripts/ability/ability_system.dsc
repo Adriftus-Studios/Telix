@@ -1,7 +1,7 @@
 abilities_check:
   type: task
   script:
-    - if <yaml[player.<player.uuid>].read[skills.<queue.script.yaml_key[ability_tree]>.current]> < <queue.script.yaml_key[points_to_unlock]>:
+    - if <yaml[player.<player.uuid>].read[skills.<queue.script.yaml_key[ability_tree]>.current]||0> < <queue.script.yaml_key[points_to_unlock]||100>:
       - stop
 
 abilities_cost:
