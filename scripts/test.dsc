@@ -1,4 +1,4 @@
-ability_witches_demise:
+ability_test:
   type: task
   name: witches_demise
   ability_tree: Test
@@ -17,7 +17,7 @@ ability_witches_demise:
       - run witches_demise_animation def:<[points].escaped>
       - wait 2t
 
-witches_demise_animation:
+animation_ability_test:
   type: task
   definitions: points|particle
   script:
