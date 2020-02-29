@@ -22,6 +22,10 @@ bb_notification:
       - define color:WHITE
     - else if <[progress]||null> == null || !<[progress].exists>:
       - define progress:1
+    - narrate <[title]>
+    - narrate <[duration]>
+    - narrate <[color]>
+    - narrate <[progress]>
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
     - narrate <[duration].as_duration.in_seconds>
