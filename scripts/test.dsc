@@ -1,7 +1,7 @@
 ability_test_spell1:
   type: command
   name: test_spell1
-  ability_tree: Nether
+  ability_tree: Ender
   ability_type: active
   points_to_unlock: 1
   power_cost: 1
