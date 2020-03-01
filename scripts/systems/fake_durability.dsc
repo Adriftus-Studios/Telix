@@ -1,6 +1,6 @@
 fake_durability_handler:
     type: world
-    debug: true
+    debug: false
     events:
         on player item takes damage:
         - narrate 1
