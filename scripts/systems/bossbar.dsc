@@ -11,7 +11,7 @@
 #bb_notification (Run task)
 bb_notification:
   type: task
-  debug: true
+  debug: false
   definitions: title|duration|color|progress|targets
   script:
     #Check for existing definitions and set defaults as necessary
@@ -50,7 +50,7 @@ bb_notification:
 #bb_timer (Run task)
 bb_timer:
   type: task
-  debug: true
+  debug: false
   definitions: title|duration|color|targets
   script:
     #Check for existing definitions and set defaults as necessary

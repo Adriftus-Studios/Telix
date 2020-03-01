@@ -31,11 +31,11 @@ ability_parry:
       - if <context.cause||entity_attack> == entity_attack:
         - narrate "<&6>You have <&2>parried <&6>your opponent's attack! Now's your chance to <&c>riposte."
         - flag player ripostable:true duration:2s
+        - flag player parrying:!
         #- midi file:ability/parry/parried <player>
     #Execute Riposte (1.25x - 1.50x damage)
     on player damages entity flagged:ripostable:
       #- midi file:ability/parry/riposte <player.location.forward>
       - playeffect sweep_attack at:<player.location.forward.above> quantity:1
-      - flag player parrying:!
       - flag player ripostable:!
       - determine <player.item_in_hand.damage.*[<util.random.decimal[1.25].to[1.5]>]>
