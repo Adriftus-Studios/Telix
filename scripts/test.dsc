@@ -20,6 +20,8 @@ animation_group_teleport_star:
   definitions: location
   script:
   - repeat 140:
-    - define points:<proc[define_star2].context[<[location]>|3|<[value].mul[2]>|5]>
+    - define points1:<proc[define_star2].context[<[location]>|3|<[value].mul[2]>|5]>
+    - define points2:<proc[define_circle].context[<[location]>|3]>
+    - playeffect redstone <[points1]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
     - playeffect redstone <[points]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
     - wait 1t

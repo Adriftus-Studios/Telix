@@ -46,7 +46,7 @@ define_star2:
   - repeat <[distance]>:
     - define x:<[value]>
     - repeat <[num]>:
-      - define new_points:|:<[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2].get[<[x]>]>
+      - define new_points:|:<[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.4].get[<[x]>]>
   - determine <[new_points]>
 
 define_star:
@@ -55,10 +55,10 @@ define_star:
   script:
   - repeat <[num]>:
     - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_down>]>
-    - define offset:<proc[find_offset].context[<[radius]>|<[t].mul[<[value]>]>]>
+    - define offset:<proc[find_offset].context[<[radius]>|<[t].mul[<[value]>].add[<[rotation]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - repeat <[num]>:
-    - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.2]> as:point:
+    - foreach <[points].get[<[value]>].points_between[<[points].get[<[value].add[1]>]||<[points].get[1]>>].distance[0.4]> as:point:
       - define new_points:|:<[point]>
   - determine <[new_points]>
 
