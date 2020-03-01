@@ -30,7 +30,7 @@ ability_parry:
     #Execute Parry
     on player damaged by entity flagged:parrying:
       - if <context.cause||entity_attack> == entity_attack:
-        - narrate "<&6>You have <&2>parried <&6>your opponent's attack! Now's your chance to <&c>riposte."
+        - narrate "<&6>You have <&a>parried <&6>your opponent's attack!"
         - flag player ripostable:true duration:2s
         - flag player parrying:!
         #- midi file:ability/parry/parried <player>
