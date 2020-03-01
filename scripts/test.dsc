@@ -34,6 +34,6 @@ animation_group_teleport2:
   - repeat 100:
     - define rotation:<[value]>
     - repeat 5:
-      - define offset:<proc[find_offset].context[3|180]>
+      - define offset:<proc[find_offset].context[3|<[value].mul[2]>]>
       - playeffect redstone at:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]> offset:0 visibility:300 quantity:1 special_data:1|<co@255,0,0>
     - wait 1t
