@@ -1,5 +1,6 @@
 fake_durability_handler:
   type: world
+  debug: true
   events:
     on player item takes damage:
       - if <context.item.script.yaml_key[fake_durability]||null> == null:
