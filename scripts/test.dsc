@@ -1,6 +1,6 @@
 ability_group_teleport:
   type: command
-  name: test
+  name: test_spell
   ability_tree: Test
   ability_type: active
   range: 20
