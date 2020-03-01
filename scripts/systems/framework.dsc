@@ -179,7 +179,7 @@ system_override:
   events:
     on item recipe formed:
       - if <context.item.script.name||null> == null:
-        - determine <item[custom_<context.item.material>]>
+        - determine <item[custom_<context.item.material.name>]>
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
