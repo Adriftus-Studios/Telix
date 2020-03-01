@@ -14,6 +14,7 @@ ability_group_teleport:
   script:
     - define location:<player.location.with_pitch[-90]>
     - run animation_group_teleport1 def:<[location]>
+    - wait 40t
     - run animation_group_teleport2 def:<[location]>
 
 animation_group_teleport1:
@@ -34,7 +35,7 @@ animation_group_teleport2:
   - repeat 100:
     - define rotation:<[value]>
     - repeat 4:
-      - define offset:<proc[find_offset].context[3|<[value].mul[90]>]>
+      - define offset:<proc[find_offset].context[3|<[rotation].mul[2].add[<[value].mul[90]>].mul[-1]>]>
       - define point1:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
       - define curve:<proc[define_curve1].context[<[point1]>|<[location].above[5]>|1|90|0.4]>
       - playeffect redstone at:<[curve]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
