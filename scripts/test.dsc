@@ -11,9 +11,9 @@ ability_test:
     material: iron_nugget
     custom_model_data: 1000
   script:
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.5|0]>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.7|0]>
     - run animation_ability_test def:<[points].escaped>
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.5|180]>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.7|180]>
     - run animation_ability_test def:<[points].escaped>
 
 animation_ability_test:
@@ -25,5 +25,5 @@ animation_ability_test:
     - playeffect spell_witch <[points].get[<[value]>]> offset:0 visibility:300 quantity:2
     - wait 1t
     - if <[points].get[<[value]>].find.living_entities.within[0.5].size> != 0:
-      - hurt 3 <[points].get[<[value]>].find.living_entities.within[0.5]>
+      - hurt 5 <[points].get[<[value]>].find.living_entities.within[0.5]>
       - repeat stop
