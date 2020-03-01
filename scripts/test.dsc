@@ -12,7 +12,7 @@ ability_group_teleport:
     material: iron_nugget
     custom_model_data: 1001
   script:
-    - define location:<player.location.with_yaw[-90]>
+    - define location:<player.location.with_pitch[-90]>
     - run animation_group_teleport_star def:<[location]>
 
 animation_group_teleport_star:
