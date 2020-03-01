@@ -1,4 +1,4 @@
-ability_test:
+ability_arcane_strike:
   type: task
   name: Arcane Strike
   ability_tree: Test
@@ -12,11 +12,11 @@ ability_test:
     custom_model_data: 1000
   script:
     - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.7|0]>
-    - run animation_ability_test def:<[points].escaped>
+    - run animation_arcane_strike def:<[points].escaped>
     - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.7|180]>
-    - run animation_ability_test def:<[points].escaped>
+    - run animation_arcane_strike def:<[points].escaped>
 
-animation_ability_test:
+animation_arcane_strike:
   type: task
   definitions: points
   script:
