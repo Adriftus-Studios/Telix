@@ -40,7 +40,7 @@ define_star2:
   script:
   - repeat <[num]>:
     - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_down>]>
-    - define offset:<proc[find_offset].context[<[radius]>|<[t].mul[<[value]>]>]>
+    - define offset:<proc[find_offset].context[<[radius]>|<[t].mul[<[value]>].add[<[rotation]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - define distance:<[points].get[1].points_between[<[points].get[2]>].distance[0.2].size>
   - repeat <[distance]>:
