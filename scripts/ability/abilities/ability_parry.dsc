@@ -24,7 +24,7 @@ ability_parry:
         - inject abilities_check
         - inject abilities_cost
         - flag player parrying:true duration:2s
-        #- run bb_timer def:<&d><&gt><&5>Parrying<&d><&gt>|2s|purple
+        - run bb_timer def:<&d><&gt><&5>Parrying<&d><&gt>|2s|purple
         #- midi file:ability/parry/parry <player.location.forward>
     #Execute Parry
     on player damaged by entity flagged:parrying:

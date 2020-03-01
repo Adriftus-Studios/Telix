@@ -81,5 +81,4 @@ bb_timer:
       - wait 1s
 
     #Remove bossbar
-    - bossbar update <[id]> progress:0
     - bossbar remove <[id]>
