@@ -36,4 +36,6 @@ ability_parry:
     on player damages entity flagged:ripostable:
       #- midi file:ability/parry/riposte <player.location.forward>
       - playeffect sweep_attack at:<player.location.forward.above> quantity:1
+      - flag player parrying:!
+      - flag player ripostable:!
       - determine <player.item_in_hand.damage.*[<util.random.decimal[1.25].to[1.5]>]>
