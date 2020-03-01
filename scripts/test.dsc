@@ -15,7 +15,7 @@ ability_group_teleport:
     - define location:<player.location.with_pitch[-90]>
     - run animation_group_teleport1 def:<[location]>
 
-animation_group_teleport11:
+animation_group_teleport1:
   type: task
   definitions: location
   script:
@@ -26,7 +26,7 @@ animation_group_teleport11:
     - playeffect redstone at:<[points2]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
     - wait 1t
 
-animation_group_teleport12:
+animation_group_teleport2:
   type: task
   definitions: location
   script:
