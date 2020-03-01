@@ -23,8 +23,7 @@ animation_group_teleport1:
   - repeat 140:
     - define points1:<proc[define_star].context[<[location]>|3|<[value].mul[2]>|5]>
     - define points2:<proc[define_circle].context[<[location]>|3]>
-    - playeffect redstone at:<[points1]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
-    - playeffect redstone at:<[points2]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
+    - playeffect redstone at:<[points1]> offset:0 visibility:300 quantity:1 special_data:0.5|<co@91,225,245>
     - wait 1t
 
 animation_group_teleport2:
@@ -36,6 +35,6 @@ animation_group_teleport2:
     - repeat 5:
       - define offset:<proc[find_offset].context[3|<[rotation].mul[2].add[<[value].mul[72]>]>]>
       - define point1:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-      - define curve:<proc[define_curve1].context[<[point1]>|<[location].above[6]>|1|90|0.4]>
-      - playeffect redstone at:<[curve]> offset:0 visibility:300 quantity:1 special_data:0.2|<co@91,225,245>
+      - define curve:<proc[define_curve1].context[<[point1]>|<[location].above[5]>|1|90|0.4]>
+      - playeffect redstone at:<[curve]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
     - wait 1t
