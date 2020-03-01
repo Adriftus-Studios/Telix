@@ -22,7 +22,7 @@ animation_arcane_strike:
   script:
   - define points:<[points].unescaped>
   - repeat <[points].size>:
-    - playeffect spell_witch <[points].get[<[value]>]> offset:0 visibility:300 quantity:2
+    - playeffect spell_witch <[points].get[<[value]>]> offset:0 visibility:300 quantity:1
     - wait 1t
     - if <[points].get[<[value]>].find.living_entities.within[0.5].size> != 0:
       - hurt 5 <[points].get[<[value]>].find.living_entities.within[0.5]>
