@@ -105,14 +105,6 @@ custom_pink_glazed_terracotta:
   display name: <&7>Pink_glazed_terracotta
   weight: '1'
   type: item
-custom_golden_axe:
-  material: golden_axe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_axe
-  weight: '1'
-  type: item
 custom_cut_sandstone_slab:
   material: cut_sandstone_slab
   lore:
@@ -506,14 +498,6 @@ custom_redstone_block:
   display name: <&7>Redstone_block
   weight: '1'
   type: item
-custom_diamond_pickaxe:
-  material: diamond_pickaxe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_pickaxe
-  weight: '1'
-  type: item
 custom_structure_block:
   material: structure_block
   lore:
@@ -560,14 +544,6 @@ custom_black_stained_glass:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Black_stained_glass
-  weight: '1'
-  type: item
-custom_diamond_hoe:
-  material: diamond_hoe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_hoe
   weight: '1'
   type: item
 custom_pink_terracotta:
@@ -1096,14 +1072,6 @@ custom_fox_spawn_egg:
   display name: <&7>Fox_spawn_egg
   weight: '1'
   type: item
-custom_gold_block:
-  material: gold_block
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gold_block
-  weight: '1'
-  type: item
 custom_potted_acacia_sapling:
   material: potted_acacia_sapling
   lore:
@@ -1366,14 +1334,6 @@ custom_smooth_quartz:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Smooth_quartz
-  weight: '1'
-  type: item
-custom_diamond_boots:
-  material: diamond_boots
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_boots
   weight: '1'
   type: item
 custom_orange_terracotta:
@@ -1817,14 +1777,6 @@ custom_blue_wool:
   display name: <&7>Blue_wool
   weight: '1'
   type: item
-custom_golden_chestplate:
-  material: golden_chestplate
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_chestplate
-  weight: '1'
-  type: item
 custom_lime_glazed_terracotta:
   material: lime_glazed_terracotta
   lore:
@@ -1895,14 +1847,6 @@ custom_red_tulip:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Red_tulip
-  weight: '1'
-  type: item
-custom_diamond:
-  material: diamond
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond
   weight: '1'
   type: item
 custom_rabbit_hide:
@@ -2041,22 +1985,6 @@ custom_repeating_command_block:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Repeating_command_block
-  weight: '1'
-  type: item
-custom_golden_hoe:
-  material: golden_hoe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_hoe
-  weight: '1'
-  type: item
-custom_diamond_sword:
-  material: diamond_sword
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_sword
   weight: '1'
   type: item
 custom_cactus:
@@ -2520,14 +2448,6 @@ custom_jungle_wall_sign:
   display name: <&7>Jungle_wall_sign
   weight: '1'
   type: item
-custom_golden_pickaxe:
-  material: golden_pickaxe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_pickaxe
-  weight: '1'
-  type: item
 custom_item_frame:
   material: item_frame
   lore:
@@ -2712,28 +2632,12 @@ custom_cocoa_beans:
   display name: <&7>Cocoa_beans
   weight: '1'
   type: item
-custom_diamond_axe:
-  material: diamond_axe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_axe
-  weight: '1'
-  type: item
 custom_dead_horn_coral_fan:
   material: dead_horn_coral_fan
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Dead_horn_coral_fan
-  weight: '1'
-  type: item
-custom_gold_nugget:
-  material: gold_nugget
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gold_nugget
   weight: '1'
   type: item
 custom_dark_oak_leaves:
@@ -3049,14 +2953,6 @@ custom_glowstone:
   display name: <&7>Glowstone
   weight: '1'
   type: item
-custom_golden_boots:
-  material: golden_boots
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_boots
-  weight: '1'
-  type: item
 custom_birch_boat:
   material: birch_boat
   lore:
@@ -3183,14 +3079,6 @@ custom_beacon:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Beacon
-  weight: '1'
-  type: item
-custom_diamond_leggings:
-  material: diamond_leggings
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_leggings
   weight: '1'
   type: item
 custom_red_terracotta:
@@ -3550,14 +3438,6 @@ custom_dead_fire_coral:
   display name: <&7>Dead_fire_coral
   weight: '1'
   type: item
-custom_golden_apple:
-  material: golden_apple
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_apple
-  weight: '1'
-  type: item
 custom_iron_horse_armor:
   material: iron_horse_armor
   lore:
@@ -3814,22 +3694,6 @@ custom_cooked_mutton:
   display name: <&7>Cooked_mutton
   weight: '1'
   type: item
-custom_diamond_horse_armor:
-  material: diamond_horse_armor
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_horse_armor
-  weight: '1'
-  type: item
-custom_diamond_chestplate:
-  material: diamond_chestplate
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_chestplate
-  weight: '1'
-  type: item
 custom_snow:
   material: snow
   lore:
@@ -3932,14 +3796,6 @@ custom_acacia_button:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Acacia_button
-  weight: '1'
-  type: item
-custom_golden_carrot:
-  material: golden_carrot
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_carrot
   weight: '1'
   type: item
 custom_gray_wall_banner:
@@ -4076,14 +3932,6 @@ custom_stonecutter:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Stonecutter
-  weight: '1'
-  type: item
-custom_gold_ingot:
-  material: gold_ingot
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gold_ingot
   weight: '1'
   type: item
 custom_smithing_table:
@@ -4693,14 +4541,6 @@ custom_drowned_spawn_egg:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Drowned_spawn_egg
-  weight: '1'
-  type: item
-custom_golden_horse_armor:
-  material: golden_horse_armor
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_horse_armor
   weight: '1'
   type: item
 custom_acacia_trapdoor:
@@ -5912,14 +5752,6 @@ custom_birch_log:
   display name: <&7>Birch_log
   weight: '1'
   type: item
-custom_diamond_shovel:
-  material: diamond_shovel
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_shovel
-  weight: '1'
-  type: item
 custom_written_book:
   material: written_book
   lore:
@@ -6514,14 +6346,6 @@ custom_ender_chest:
   display name: <&7>Ender_chest
   weight: '1'
   type: item
-custom_golden_shovel:
-  material: golden_shovel
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_shovel
-  weight: '1'
-  type: item
 custom_turtle_helmet:
   material: turtle_helmet
   lore:
@@ -6682,14 +6506,6 @@ custom_white_tulip:
   display name: <&7>White_tulip
   weight: '1'
   type: item
-custom_diamond_helmet:
-  material: diamond_helmet
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_helmet
-  weight: '1'
-  type: item
 custom_emerald_block:
   material: emerald_block
   lore:
@@ -6794,14 +6610,6 @@ custom_skeleton_spawn_egg:
   display name: <&7>Skeleton_spawn_egg
   weight: '1'
   type: item
-custom_enchanted_golden_apple:
-  material: enchanted_golden_apple
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Enchanted_golden_apple
-  weight: '1'
-  type: item
 custom_polished_granite:
   material: polished_granite
   lore:
@@ -6890,28 +6698,12 @@ custom_light_gray_shulker_box:
   display name: <&7>Light_gray_shulker_box
   weight: '1'
   type: item
-custom_golden_leggings:
-  material: golden_leggings
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_leggings
-  weight: '1'
-  type: item
 custom_stone_brick_wall:
   material: stone_brick_wall
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Stone_brick_wall
-  weight: '1'
-  type: item
-custom_diamond_ore:
-  material: diamond_ore
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_ore
   weight: '1'
   type: item
 custom_beehive:
@@ -7249,14 +7041,6 @@ custom_acacia_sapling:
   display name: <&7>Acacia_sapling
   weight: '1'
   type: item
-custom_golden_helmet:
-  material: golden_helmet
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_helmet
-  weight: '1'
-  type: item
 custom_black_wall_banner:
   material: black_wall_banner
   lore:
@@ -7303,14 +7087,6 @@ custom_blue_concrete_powder:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Blue_concrete_powder
-  weight: '1'
-  type: item
-custom_gold_ore:
-  material: gold_ore
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gold_ore
   weight: '1'
   type: item
 custom_purple_stained_glass_pane:
@@ -7668,14 +7444,6 @@ custom_coal_ore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Coal_ore
-  weight: '1'
-  type: item
-custom_golden_sword:
-  material: golden_sword
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_sword
   weight: '1'
   type: item
 custom_acacia_boat:
