@@ -129,7 +129,6 @@ test_effects_command:
       - wait 1t
   - if <context.args.get[1]> == star2:
     - define num:5
-    # num is how many points are on the star
     - define points:<proc[define_star2].context[<player.location.forward[4]>|3|90|<[num]>]>
     - repeat <[points].size.div[<[num]>]>:
       - repeat <[num]>:

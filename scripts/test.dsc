@@ -1,5 +1,5 @@
-ability_test:
-  type: task
+ability_group_teleport:
+  type: command
   name: test
   ability_tree: Test
   ability_type: active
@@ -7,23 +7,19 @@ ability_test:
   points_to_unlock: 1
   power_cost: 1
   description: Arcane Strike
+  color: <co@91,225,245>
   icon:
     material: iron_nugget
     custom_model_data: 1001
   script:
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.5|0]>
-    - run animation_arcane_strike def:<[points].escaped>
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.5|180]>
-    - run animation_arcane_strike def:<[points].escaped>
+    - define location:<player.location.with_yaw[-90]>
+    - run animation_arcane_strike def:<[location]>
 
-animation_test:
+animation_group_teleport_star:
   type: task
-  definitions: points
+  definitions: location
   script:
-  - define points:<[points].unescaped>
-  - repeat <[points].size>:
-    - playeffect spell_witch <[points].get[<[value]>]> offset:0 visibility:300 quantity:1
+  - repeat 140:
+    - define points:<proc[define_star2].context[<[location]>|3|<[value].mul[5]>|5]>
+    - playeffect redstone <[points]> offset:0 visibility:300 quantity:1 special_data:1|<script[ability_group_teleport].yaml_key[color]>
     - wait 1t
-    - if <[points].get[<[value]>].find.living_entities.within[0.5].size> != 0:
-      - hurt 5 <[points].get[<[value]>].find.living_entities.within[0.5]>
-      - repeat stop
