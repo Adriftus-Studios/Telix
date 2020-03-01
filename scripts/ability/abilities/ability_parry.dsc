@@ -20,7 +20,7 @@ ability_parry:
   events:
     #Start Parry
     on player right clicks entity with:*_sword:
-      - if !<player.has_flag[parrying]> || !<player.has_flag[ripostable]>:
+      - if !<player.has_flag[parrying]> && !<player.has_flag[ripostable]>:
         - inject abilities_check
         - inject abilities_cost
         - flag player parrying:true duration:2s
