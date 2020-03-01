@@ -24,6 +24,7 @@ fake_durability_handler:
 
 fake_durability_modify:
     type: task
+    definitions: item|amount
     script:
     - if <[item].script.yaml_key[fake_durability]||null> != null:
         - adjust def:item nbt:durability/<[item].nbt[durability].+[<[amount]>]||<[item].script.yaml_key[fake_durability].+[<[amount]>]>>
