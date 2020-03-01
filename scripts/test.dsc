@@ -11,9 +11,9 @@ ability_arcane_strike:
     material: iron_nugget
     custom_model_data: 1001
   script:
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.7|0]>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.5|0]>
     - run animation_arcane_strike def:<[points].escaped>
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.7|180]>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.5|180]>
     - run animation_arcane_strike def:<[points].escaped>
 
 animation_arcane_strike:
