@@ -1,19 +1,19 @@
 ability_test:
   type: task
-  name: test_ability
+  name: Arcane Strike
   ability_tree: Test
   ability_type: active
   range: 20
   points_to_unlock: 10
-  power_cost: 10
-  description: Test Skill 1
+  power_cost: 1
+  description: Arcane Strike
   icon:
     material: iron_nugget
     custom_model_data: 1000
   script:
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.7|0]>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.7|0]>
     - run animation_ability_test def:<[points].escaped>
-    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.7|180]>
+    - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.7|180]>
     - run animation_ability_test def:<[points].escaped>
 
 animation_ability_test:
