@@ -180,6 +180,9 @@ system_override:
     on item recipe formed:
       - if <context.item.script.name||null> == null:
         - determine <item[custom_<context.item.material.name>]>
+    on furnace smelts item:
+      - if <context.result_item.script.name||null> == null:
+        - determine <item[custom_<context.result_item.material.name>]>
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
