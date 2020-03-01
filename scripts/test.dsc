@@ -1,6 +1,6 @@
 ability_arcane_strike:
   type: task
-  name: Arcane Strike
+  name: arcane_strike
   ability_tree: Test
   ability_type: active
   range: 20
