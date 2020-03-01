@@ -13,9 +13,9 @@ ability_group_teleport:
     custom_model_data: 1001
   script:
     - define location:<player.location.with_pitch[-90]>
-    - run animation_group_teleport_star def:<[location]>
+    - run animation_group_teleport1 def:<[location]>
 
-animation_group_teleport_star:
+animation_group_teleport11:
   type: task
   definitions: location
   script:
@@ -24,4 +24,16 @@ animation_group_teleport_star:
     - define points2:<proc[define_circle].context[<[location]>|3]>
     - playeffect redstone at:<[points1]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
     - playeffect redstone at:<[points2]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
+    - wait 1t
+
+animation_group_teleport12:
+  type: task
+  definitions: location
+  script:
+  - repeat 100:
+    - define rotation:<[value]>
+    - repeat 5:
+      - define offset: <proc[find_offset].context[3|<[value].mul[72]>]>
+      - playeffect redstone at:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]> offset:0 visibility:300 quantity:1 special_data:1|<co@255,0,0>
+      - define points: <proc[define_curve].context[]>
     - wait 1t
