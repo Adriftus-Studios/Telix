@@ -14,6 +14,7 @@ ability_group_teleport:
   script:
     - define location:<player.location.with_pitch[-90]>
     - run animation_group_teleport1 def:<[location]>
+    - run animation_group_teleport2 def:<[location]>
 
 animation_group_teleport1:
   type: task
