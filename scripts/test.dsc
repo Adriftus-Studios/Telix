@@ -13,7 +13,7 @@ ability_group_teleport:
     custom_model_data: 1001
   script:
     - define location:<player.location.with_yaw[-90]>
-    - run animation_arcane_strike def:<[location]>
+    - run animation_group_teleport_star def:<[location]>
 
 animation_group_teleport_star:
   type: task
