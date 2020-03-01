@@ -28,7 +28,7 @@ bb_notification:
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
     - if <[duration].as_duration.in_seconds> <= 0:
-      - define duration:10s
+      - define duration:5s
     - if !<list[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW].contains[<[color]>]>:
       - define color:WHITE
     - if <[progress]> < 0:
@@ -57,7 +57,7 @@ bb_timer:
     - if <[title]||null> == null || !<[title].exists>:
       - define title:Notification
     - if <[duration]||null> == null || !<[duration].exists>:
-      - define duration:5s
+      - define duration:10s
     - if <[color]||null> == null || !<[color].exists>:
       - define color:YELLOW
     - if <[targets]||null> == null || !<[targets].exists>:
@@ -72,7 +72,7 @@ bb_timer:
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[targets].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
     - bossbar create <[id]> title:<[title]> color:<[color]> targets:<[targets]> style:SOLID
-    - define length:<[duration].as_duration.in_seconds>
+    - define length:<[duration].as_duration.in_seconds.+[1]>
 
     #Wait for specified duration of time
     - repeat <[duration].as_duration.in_seconds>:
