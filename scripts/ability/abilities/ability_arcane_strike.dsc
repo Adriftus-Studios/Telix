@@ -1,6 +1,6 @@
-ability_test:
+ability_arcane_strike:
   type: task
-  name: test
+  name: arcane_strike
   ability_tree: Test
   ability_type: active
   range: 20
@@ -16,7 +16,7 @@ ability_test:
     - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.5|180]>
     - run animation_arcane_strike def:<[points].escaped>
 
-animation_test:
+animation_arcane_strike:
   type: task
   definitions: points
   script:
