@@ -3,12 +3,13 @@ fake_durability_handler:
     debug: true
     events:
         on player item takes damage:
+        - narrate 1
         - if <context.item.script.yaml_key[fake_durability]||null> == null:
             - stop
+        - narrate 2
         - define item:<context.item>
         - define amount:-1
         - if !<[item].enchantments.contains_any[DURABILITY]>:
-            - narrate 1
             - inject fake_durability_modify
             - inventory set slot:<context.slot> d:<player.inventory> o:<[new_item]>
         - else:
