@@ -8,6 +8,7 @@
 #  "parry.mid", "parried.mid", "riposte.mid"
 ability_parry:
   type: world
+  debug: true
   name: parry
   ability_tree: Fisticuffs
   ability_type: slotted
