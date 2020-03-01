@@ -35,5 +35,7 @@ animation_group_teleport2:
     - define rotation:<[value]>
     - repeat 5:
       - define offset:<proc[find_offset].context[3|<[rotation].mul[2].add[<[value].mul[72]>]>]>
-      - playeffect redstone at:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]> offset:0 visibility:300 quantity:1 special_data:1|<co@255,0,0>
+      - define point1:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+      - define curve:<proc[define_curve].context[<[point1]>|<[location].above[3]]>|1|90|0.4]>
+      - playeffect redstone at:<[curve]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
     - wait 1t
