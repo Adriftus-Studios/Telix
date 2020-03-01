@@ -6,6 +6,10 @@ abilitytrees:
       GUIItem: sand
       custom_model_data: 1
     # Magic
+    Electric:
+      available_check: true
+      GUIItem: sand
+      custom_model_data: 1
     Earth:
       available_check: true
       GUIItem: sand

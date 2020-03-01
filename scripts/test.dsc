@@ -4,12 +4,12 @@ ability_arcane_strike:
   ability_tree: Test
   ability_type: active
   range: 20
-  points_to_unlock: 10
+  points_to_unlock: 1
   power_cost: 1
   description: Arcane Strike
   icon:
     material: iron_nugget
-    custom_model_data: 1000
+    custom_model_data: 1001
   script:
     - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[<script.yaml_key[range]>]>|0.7|0]>
     - run animation_arcane_strike def:<[points].escaped>
