@@ -55,7 +55,7 @@ bb_timer:
   script:
     #Check for existing definitions and set defaults as necessary
     - if <[title]||null> == null || !<[title].exists>:
-      - define title:Notification
+      - define title:10s<&sp>Timer
     - if <[duration]||null> == null || !<[duration].exists>:
       - define duration:10s
     - if <[color]||null> == null || !<[color].exists>:
@@ -81,4 +81,5 @@ bb_timer:
       - wait 1s
 
     #Remove bossbar
+    - bossbar update <[id]> progress:0
     - bossbar remove <[id]>
