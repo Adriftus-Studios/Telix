@@ -220,7 +220,7 @@ system_override:
     on player breaks block priority:-10:
       - if <player.gamemode> == SURVIVAL:
         - foreach <context.location.drops[<player.item_in_hand>]> as:drop:
-          - define drops:|:<item[custom_<[drop].material.name>]>
+          - define drops:|:<item[custom_<[drop].material.name>].with[quantity=<[drop].quantity>]>
         - determine <[drops]>
     on player respawns:
       - inject system_equipment_set
