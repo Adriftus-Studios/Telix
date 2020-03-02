@@ -61,6 +61,7 @@ calculate_weight_equipment_stats:
         - if !<[item].script.name.ends_with[_shadow]>:
           - if <[item].nbt[built]||null> = null:
             - inject build_item
+          - narrate <[item]>
           - define weight:|:<[item].script.yaml_key[weight]>
           - foreach <[item].nbt_keys> as:stat:
             - if <[stat].starts_with[base_stats.]>:
