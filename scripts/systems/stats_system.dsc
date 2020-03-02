@@ -57,8 +57,6 @@ calculate_weight_equipment_stats:
     - define inv:<inventory[equipment_<player.uuid>]>
     - foreach <[slotmap]>:
       - define item:<[inv].get[<[value].split[/].get[1]>]||<item[air]>>
-      - narrate <[value]>
-      - narrate <[item]>
       - if <[item].material.name> != air:
         - if !<[item].script.name.ends_with[_shadow]>:
           - if <[item].nbt[built]||null> = null:
