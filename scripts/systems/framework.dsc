@@ -323,16 +323,17 @@ build_item:
         - define lore:|:<&9>Weight:<&sp><[item].script.yaml_key[weight]>
       - define lore:|:<&9>
       - define stat_names:<list[thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
-      - define lore:|:<&9>When<&sp>Equipped:<&co>
-      - foreach <[item].script.list_keys[equipment_modifiers]||<list[]>> as:modifier:
-        - define value:<[item].nbt[base_stats.<[modifier]>]||<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>>
-        - if <[item].nbt[base_stats.<[modifier]>]||null> == null:
-          - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]||null> != null:
-            - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]||null> != null:
-              - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]>]>
-        - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
-        - define stats:|:<[modifier]>/<[value]>
-        - define modifiers:|:<[modifier]>
-        - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
+      - if <[item].script.list_keys[equipment_modifiers]||null> != null:
+        - define lore:|:<&9>When<&sp>Equipped:<&co>
+        - foreach <[item].script.list_keys[equipment_modifiers]> as:modifier:
+          - define value:<[item].nbt[base_stats.<[modifier]>]||<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>>
+          - if <[item].nbt[base_stats.<[modifier]>]||null> == null:
+            - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]||null> != null:
+              - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]||null> != null:
+                - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]>]>
+          - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
+          - define stats:|:<[modifier]>/<[value]>
+          - define modifiers:|:<[modifier]>
+          - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
       - adjust def:item lore:<[lore]>
       - adjust def:item nbt:built/true
