@@ -72,7 +72,7 @@ calculate_weight_equipment_stats:
                 - define enchants:|:<[entry]>
               - else:
                 - define enchants:|:<[enchant]>
-            - else
+            - else:
               - define enchants:|:<[enchant]>
           - define weight:|:<[item].script.yaml_key[weight]>
           - foreach <[item].nbt_keys> as:stat:
