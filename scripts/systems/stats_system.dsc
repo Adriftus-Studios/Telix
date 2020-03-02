@@ -68,6 +68,7 @@ calculate_weight_equipment_stats:
             - if <[enchants]||null> != null:
               - if <[item].enchantments.contains[<[enchant].split[,].get[1]>]>:
                 - define entry:<[enchant]>,<[enchants].filter[starts_with[<[enchant]>]].get[1].split[,].get[2].add[<[item].enchantments.level[<[enchant]>]>]||<[item].enchantments.level[<[enchant]>]>>
+                - define enchants:<[enchants].exclude[<[enchants].filter[starts_with[<[enchant]>]].get[1]>]>
                 - define enchants:|:<[entry]>
               - else:
                 - define enchants:|:<[enchant]>,<[item].enchantments.level[<[enchant]>]>
