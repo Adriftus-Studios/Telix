@@ -245,8 +245,7 @@ system_override:
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
         - wait 1t
-        - define t:<context.item.script.yaml_key[GUI_Inventory].parsed>
-        - narrate <[t]>
+        - inventory open d:<context.item.script.yaml_key[GUI_Inventory].parsed>
     on player chats:
       - if <player.has_permission[*]>:
         - if <player.flag[parsed_chat]||null> != null:
