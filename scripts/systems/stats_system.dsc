@@ -71,8 +71,10 @@ calculate_weight_equipment_stats:
                 - define entry:<[enchant].split[,].get[1]>,<[enchant].split[,].get[2].add[<[enchants].map_get[<[enchant].split[,].get[1]>]>]>
                 - define enchants:<[enchants].exclude[<[enchant].split[,].get[1]>,<[enchants].parse[starts_with[<[enchant].split[,].get[1]>]>].get[1]>
                 - define enchants:|:<[entry]>
+                - narrate 1
             - else
               - define enchants:|:<[enchant]>
+              - narrate 2
           - define weight:|:<[item].script.yaml_key[weight]>
           - foreach <[item].nbt_keys> as:stat:
             - if <[stat].starts_with[base_stats.]>:
