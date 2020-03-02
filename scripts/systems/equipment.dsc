@@ -129,6 +129,8 @@ equipment_inventory_handler:
                 - stop
             - wait 1t
             - narrate 1
+            - if <list[hat|gloves|shirt|shoes|pants|cape].contains[<[slotmap].map_get[<context.raw_slot>]>]>:
+              - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<item[<[slotmap].map_get[<context.raw_slot>]>_shadow]>
             #- yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
         - else:
           - if <context.raw_slot> > 54:
