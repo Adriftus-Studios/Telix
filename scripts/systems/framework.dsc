@@ -307,7 +307,7 @@ build_item:
           - else:
             - define line:<[line]><&7><&chr[2B50]>
         - define lore:|:<[line]>
-      - define lore:|:<[item].script.yaml_key[lore]>
+      - define lore:|:<[item].script.yaml_key[lore]||<list[]>>
       - if <[item].script.yaml_key[sockets]||null> != null:
         - if <[item].nbt[used_sockets]||null> == null:
           - adjust def:item nbt:used_sockets/0
@@ -324,7 +324,7 @@ build_item:
       - define lore:|:<&9>
       - define stat_names:<list[thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
       - define lore:|:<&9>When<&sp>Equipped:<&co>
-      - foreach <[item].script.list_keys[equipment_modifiers]> as:modifier:
+      - foreach <[item].script.list_keys[equipment_modifiers]||<list[]>> as:modifier:
         - define value:<[item].nbt[base_stats.<[modifier]>]||<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>>
         - if <[item].nbt[base_stats.<[modifier]>]||null> == null:
           - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]||null> != null:
