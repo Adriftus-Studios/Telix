@@ -134,7 +134,6 @@ equipment_inventory_handler:
               - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
                 - determine passively cancelled
                 - stop
-            - narrate 1
             - wait 1t
             - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<player.open_inventory.slot[<context.slot>]>
         - else:
@@ -148,7 +147,6 @@ equipment_inventory_handler:
                     - inventory adjust slot:<context.slot> quantity:<player.inventory.slot[<context.slot>].quantity.-[1]>
                     - inventory set d:<player.open_inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
                     - wait 1t
-                    - narrate 2
                     - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<[slot].split[/].get[1]>]>:<player.open_inventory.slot[<[slot].split[/].get[1]>]>
                     - define found:true
           - else:
@@ -156,7 +154,6 @@ equipment_inventory_handler:
               - determine passively cancelled
               - stop
             - wait 1t
-            - narrate 3
             - yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.inventory.slot[<context.slot>]>
         - wait 1t
         - foreach <list[hat|gloves|shirt|shoes|pants|cape]>:

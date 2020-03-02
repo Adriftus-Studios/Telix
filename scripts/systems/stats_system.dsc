@@ -10,6 +10,7 @@ update_stats:
   type: task
   debug: false
   script:
+    - narrate 1
     - inject calculate_base_stats
     - inject calculate_weight_equipment_stats
     - inject calculate_encumberance_speed
