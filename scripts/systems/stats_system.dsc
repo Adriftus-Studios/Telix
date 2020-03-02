@@ -55,14 +55,13 @@ calculate_weight_equipment_stats:
       - define weight:|:<[this_item_weight].*[<[item].quantity>]||1>
     - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
     - define inv:<inventory[equipment_<player.uuid>]>
-    - narrate <[inv]>
     - foreach <[slotmap]>:
       - define item:<[inv].get[<[value].split[/].get[1]>]||<item[air]>>
+      - narrate <[item]>
       - if <[item].material.name> != air:
         - if !<[item].script.name.ends_with[_shadow]>:
           - if <[item].nbt[built]||null> = null:
             - inject build_item
-          - narrate <[item]>
           - define weight:|:<[item].script.yaml_key[weight]>
           - foreach <[item].nbt_keys> as:stat:
             - if <[stat].starts_with[base_stats.]>:
