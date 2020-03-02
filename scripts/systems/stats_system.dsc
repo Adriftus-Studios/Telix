@@ -57,6 +57,8 @@ calculate_weight_equipment_stats:
       - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
       - if <[item].material.name> != air:
         - if <[item].nbt[built]||null> != null:
+          - foreach <[item].enchantments.with_levels> as:enchant:
+            - narrate <[enchant]>
           - define weight:|:<[item].script.yaml_key[weight]>
           - foreach <[item].nbt_keys> as:stat:
             - if <[stat].starts_with[base_stats.]>:
