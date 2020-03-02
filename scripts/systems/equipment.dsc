@@ -112,8 +112,14 @@ equipment_inventory_handler:
     on player clicks item in equipment_character with item:
       - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
       - if !<context.shift_click>:
-        - if <[slotmap].parse[split[/].get[1]].contains[<context.raw_slot>]>:
-          - narrate 1
+        - if !<[slotmap].parse[split[/].get[1]].contains[<context.raw_slot>]>:
+          - determine passively cancelled
+          - stop
+        - if <context.item.material.name> == air:
+          - if <context.cursor_item.script.name||null> != null:
+            - if !<context.cursor_item.script.name.ends_with[_shadow]>:
+              - determine passively cancelled
+              - stop
       - else:
 
       - inject update_stats
