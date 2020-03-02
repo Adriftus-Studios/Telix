@@ -14,7 +14,7 @@ equipment_chest_slot:
   type: item
   material: golden_chestplate
   display name: <&7>Equipment
-  GUI_Inventory: equipment_character
+  GUI_Inventory: equipment_<player.uuid>
   drops_on_death: false
   weight: 0
   lore:
@@ -140,6 +140,7 @@ player_setup:
   type: task
   script:
     - yaml create id:player.<player.uuid>
+    - note <inventory[equipment_character]> as:equipment_<player.uuid>
     - yaml id:player.<player.uuid> set teleports_used.ott:0
     - yaml id:player.<player.uuid> set values.kills:0
     - yaml id:player.<player.uuid> set values.deaths:0

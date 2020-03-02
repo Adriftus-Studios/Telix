@@ -53,6 +53,8 @@ calculate_weight_equipment_stats:
     - foreach <player.inventory.list_contents> as:item:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
       - define weight:|:<[this_item_weight].*[<[item].quantity>]||1>
+    - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
+    - define inv:<inventory[equipment_<player.uuid>]>
     - foreach <yaml[player.<player.uuid>].list_keys[equipment]||<list[]>> as:equipment:
       - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
       - if <[item].material.name> != air:
