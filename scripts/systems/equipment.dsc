@@ -155,7 +155,8 @@ equipment_inventory_handler:
                 - determine passively cancelled
                 - stop
             - else:
-              - narrate 4
+              - determine passively cancelled
+              - stop
           - else:
             - narrate 5
       - inject update_stats
