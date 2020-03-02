@@ -157,8 +157,30 @@ equipment_inventory_handler:
             - else:
               - determine passively cancelled
               - stop
-          - else:
-            - narrate 5
+      - else:
+        - if <context.raw_slot> > 54:
+          - determine passively cancelled
+          - define found:false
+          - foreach <[slotmap]> as:slot:
+            - if !<[found]>:
+              - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
+                - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]> || <context.inventory.slot[<[slot].split[/].get[1]>].script.name.ends_with[_shadow]>:
+                  - wait 1t
+                  - inventory adjust slot:<context.slot> quantity:<player.inventory.slot[<context.slot>].quantity.-[1]>
+                  - inventory set d:<player.open_inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
+                  - define found:true
+        - else:
+          - if <[slotmap].map_get[<context.slot>]||null> == null:
+            - determine passively cancelled
+            - stop
+          - wait 1t
+          - narrate 3
+          #- yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.inventory.slot[<context.slot>]>
+      - foreach <list[hat|gloves|shirt|shoes|pants|cape]>:
+        - if <context.item.script.yaml_key[category]||null> != <[value]>:
+          - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].material.name> == air:
+            - narrate 4
+            - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[<[value]>_shadow]>
       - inject update_stats
 
 invisible_placeholder:
