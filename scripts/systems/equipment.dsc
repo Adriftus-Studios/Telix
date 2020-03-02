@@ -117,8 +117,11 @@ equipment_inventory_handler:
             - determine passively cancelled
             - stop
           - if <context.item.material.name> == air:
+            - narrate 1
             - if <context.cursor_item.script.name||null> != null:
+              - narrate 2
               - if !<context.cursor_item.script.name.ends_with[_shadow]>:
+                - narrate 3
                 - determine passively cancelled
                 - stop
 
