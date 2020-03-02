@@ -111,7 +111,7 @@ equipment_inventory_handler:
           - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[<[value]>_shadow]>
     on player clicks item in equipment_character with item:
       - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
-      - if !<context.shift_click>:
+      - if !<context.is_shift_click>:
         - if !<[slotmap].parse[split[/].get[1]].contains[<context.raw_slot>]>:
           - determine passively cancelled
           - stop
