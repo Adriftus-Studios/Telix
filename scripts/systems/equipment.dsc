@@ -135,7 +135,8 @@ equipment_inventory_handler:
                   - determine passively cancelled
                   - wait 1t
                   - define item:<player.item_on_cursor>
-                  - inject build_item
+                  - if !<[item].has_nbt[built]>:
+                    - inject built_item
                   - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=1]>
                   - adjust <player> item_on_cursor:<[item].with[quantity=<[item].quantity.sub[1]>]>
                 - else:
@@ -148,7 +149,8 @@ equipment_inventory_handler:
                     - determine passively cancelled
                     - wait 1t
                     - adjust <player> item_on_cursor:<[item2]>
-                    - inject build_item
+                    - if !<[item].has_nbt[built]>:
+                      - inject built_item
                     - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item]>
               - else:
                 - determine passively cancelled
@@ -166,7 +168,9 @@ equipment_inventory_handler:
                 - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]> || <context.inventory.slot[<[slot].split[/].get[1]>].script.name.ends_with[_shadow]>:
                   - wait 1t
                   - inventory adjust slot:<context.slot> quantity:<player.inventory.slot[<context.slot>].quantity.-[1]>
-                  - inventory set d:<player.open_inventory> o:<context.item.with[quantity=1]> slot:<[slot].split[/].get[1]>
+                  - define item:<context.item>
+                  - inject build_item
+                  - inventory set d:<player.open_inventory> o:<[item].with[quantity=1]> slot:<[slot].split[/].get[1]>
                   - define found:true
         - else:
           - if <[slotmap].map_get[<context.slot>]||null> == null:
