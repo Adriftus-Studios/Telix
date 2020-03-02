@@ -125,9 +125,6 @@ equipment_inventory_handler:
               - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
                 - determine passively cancelled
                 - stop
-              - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
-                - determine passively cancelled
-                - stop
             - wait 1t
             - narrate 1
             - if <list[hat|gloves|shirt|shoes|pants|cape].contains[<[slotmap].map_get[<context.raw_slot>]>]>:
