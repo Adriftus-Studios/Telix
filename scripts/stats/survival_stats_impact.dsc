@@ -49,7 +49,6 @@ survival_stats_temperature:
 survival_temperature_impact:
   type: task
   script:
-    - stop
     - if <yaml[player.<player.uuid>].read[stats.temperature]||80> < 50:
       - narrate "<&c>You have <&b>frozen<&c> to death."
       - hurt 1000
