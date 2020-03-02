@@ -132,24 +132,25 @@ equipment_inventory_handler:
                 - adjust <player> item_on_cursor:<context.item>
           - if <context.cursor_item.script.yaml_key[category]||null> != null:
             - if <context.item.script.name||null> != null:
-              - if <context.item.script.name.ends_with[_shadow]>:
-                - determine passively cancelled
-                - wait 1t
-                - narrate 2
-                - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<player.item_on_cursor.with[quantity=1]>
-                - adjust <player> item_on_cursor:<player.item_on_cursor.with[quantity=<player.item_on_cursor.quantity.sub[1]>]>
-              - else:
-                - if <context.cursor_item.quantity> > 1:
-                  - determine passively cancelled
-                  - stop
-                - else:
-                  - define item1:<context.cursor_item>
-                  - define item2:<context.item>
+              - if <[slotmap].map_get[<context.raw_slot>].contains[<context.cursor_item.script.yaml_key[category]>]>
+                - if <context.item.script.name.ends_with[_shadow]>:
                   - determine passively cancelled
                   - wait 1t
-                  - narrate 3
-                  - adjust <player> item_on_cursor:<[item2]>
-                  - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item1]>
+                  - narrate 2
+                  - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<player.item_on_cursor.with[quantity=1]>
+                  - adjust <player> item_on_cursor:<player.item_on_cursor.with[quantity=<player.item_on_cursor.quantity.sub[1]>]>
+                - else:
+                  - if <context.cursor_item.quantity> > 1:
+                    - determine passively cancelled
+                    - stop
+                  - else:
+                    - define item1:<context.cursor_item>
+                    - define item2:<context.item>
+                    - determine passively cancelled
+                    - wait 1t
+                    - narrate 3
+                    - adjust <player> item_on_cursor:<[item2]>
+                    - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item1]>
 
       - inject update_stats
 
