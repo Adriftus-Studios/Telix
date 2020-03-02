@@ -57,12 +57,21 @@ calculate_weight_equipment_stats:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
       - define weight:|:<[this_item_weight].*[<[item].quantity>]||1>
     - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
+    - define chestplate:<item[equipment_chest_slot]>
     - foreach <[slotmap]>:
       - define item:<inventory[equipment_<player.uuid>].slot[<[value].split[/].get[1]>]||<item[air]>>
       - if <[item].material.name> != air:
         - if !<[item].script.name.ends_with[_shadow]>:
           - if <[item].nbt[built]||null> = null:
             - announce to_ops "<player.name> tried to update stats with an unbuilt item. (<[item].script.name>)"
+          - foreach <[item].enchantments.with_levels||<list[]>> as:enchant:
+            - if <[enchants]||null> != null:
+              - if <[item].enchantments.contains[<[enchant].split[,].get[1]>]>:
+                - define entry:<[enchant].split[,].get[1]>,<[enchant].split[,].get[2].add[<[enchants].map_get[<[enchant].split[,].get[1]>]>]>
+                - define enchants:<[enchants].exclude[<[enchant].split[,].get[1]>,<[enchants].parse[starts_with[<[enchant].split[,].get[1]>]>].get[1]>
+                - define enchants:|:<[entry]>
+            - else
+              - define enchants:|:<[enchant]>
           - define weight:|:<[item].script.yaml_key[weight]>
           - foreach <[item].nbt_keys> as:stat:
             - if <[stat].starts_with[base_stats.]>:
@@ -76,6 +85,7 @@ calculate_weight_equipment_stats:
                   - yaml id:player.<player.uuid> set stats.<[stat]>.current:+:<[value]>
               - else:
                 - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
+    - narrate <[enchants]>
     - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
 
 calculate_encumberance_speed:
