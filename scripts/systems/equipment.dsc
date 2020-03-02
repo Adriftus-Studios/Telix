@@ -122,6 +122,9 @@ equipment_inventory_handler:
         - if <context.item.script.name.ends_with[_shadow]>:
           - determine passively cancelled
           - stop
+        - if <context.item.script.name||null> == null:
+          - determine cancelled
+          - stop
         - if !<context.is_shift_click>:
           - if <context.raw_slot> < 55:
             - if <[slotmap].map_get[<context.slot>]||null> == null:
