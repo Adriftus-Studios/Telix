@@ -132,7 +132,7 @@ equipment_inventory_handler:
                 - adjust <player> item_on_cursor:<context.item>
           - if <context.cursor_item.script.yaml_key[category]||null> != null:
             - if <context.item.script.name||null> != null:
-              - if <[slotmap].map_get[<context.raw_slot>].contains[<context.cursor_item.script.yaml_key[category]>]>
+              - if <[slotmap].map_get[<context.raw_slot>].contains[<context.cursor_item.script.yaml_key[category]>]>:
                 - if <context.item.script.name.ends_with[_shadow]>:
                   - determine passively cancelled
                   - wait 1t
