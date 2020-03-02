@@ -118,10 +118,10 @@ equipment_inventory_handler:
             - stop
         - if !<context.is_shift_click>:
           - if <context.raw_slot> < 55:
-            - if <[slotmap].map_get[<context.slot>]||null> == null:
-              - determine passively cancelled
-              - stop
             - if <context.cursor_item.material.name> != air:
+              - if <[slotmap].map_get[<context.slot>].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> == false:
+                - determine passively cancelled
+                - stop
               - if <context.item.script.yaml_key[category].starts_with[<context.cursor_item.script.yaml_key[category]>]||false> != false:
                 - determine passively cancelled
                 - stop
