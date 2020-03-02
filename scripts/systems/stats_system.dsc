@@ -88,6 +88,7 @@ calculate_weight_equipment_stats:
                 - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
     - define chestplate:<item[equipment_chest_slot]>
     - adjust def:chestplate enchantments:<[enchants]||<list[]>>
+    - equip chest:<[chestplate]>
     - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
 
 calculate_encumberance_speed:
