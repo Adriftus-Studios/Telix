@@ -120,7 +120,6 @@ equipment_inventory_handler:
             - if !<context.cursor_item.script.name.ends_with[_shadow]>:
               - determine passively cancelled
               - stop
-      - else:
 
       - inject update_stats
 
