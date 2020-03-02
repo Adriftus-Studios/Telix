@@ -10,7 +10,6 @@ update_stats:
   type: task
   debug: false
   script:
-    - narrate 1
     - inject calculate_base_stats
     - inject calculate_weight_equipment_stats
     - inject calculate_encumberance_speed
@@ -57,21 +56,22 @@ calculate_weight_equipment_stats:
     - foreach <yaml[player.<player.uuid>].list_keys[equipment]||<list[]>> as:equipment:
       - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
       - if <[item].material.name> != air:
-        - if <[item].nbt[built]||null> != null:
-          - narrate 2
-          - define weight:|:<[item].script.yaml_key[weight]>
-          - foreach <[item].nbt_keys> as:stat:
-            - if <[stat].starts_with[base_stats.]>:
-              - define value:<[item].nbt[<[stat]>]>
-              - define stat:<[stat].replace[base_stats.].with[]>
-              - if <[item].nbt[star_stat.<[stat]>]||null> != null:
-                - define value:<[value].add[<[item].nbt[star_stat.<[stat]>]>]>
-              - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
-                - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
-                - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]> < <yaml[player.<player.uuid>].read[stats.<[stat]>.current]>:
-                  - yaml id:player.<player.uuid> set stats.<[stat]>.current:+:<[value]>
-              - else:
-                - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
+        - if <[item].nbt[built]||null> = null:
+          - inject build_item
+        - narrate 1
+        - define weight:|:<[item].script.yaml_key[weight]>
+        - foreach <[item].nbt_keys> as:stat:
+          - if <[stat].starts_with[base_stats.]>:
+            - define value:<[item].nbt[<[stat]>]>
+            - define stat:<[stat].replace[base_stats.].with[]>
+            - if <[item].nbt[star_stat.<[stat]>]||null> != null:
+              - define value:<[value].add[<[item].nbt[star_stat.<[stat]>]>]>
+            - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
+              - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
+              - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]> < <yaml[player.<player.uuid>].read[stats.<[stat]>.current]>:
+                - yaml id:player.<player.uuid> set stats.<[stat]>.current:+:<[value]>
+            - else:
+              - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
     - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
 
 calculate_encumberance_speed:
