@@ -173,13 +173,9 @@ equipment_inventory_handler:
           - if <[slotmap].map_get[<context.slot>]||null> == null:
             - determine passively cancelled
             - stop
-          - wait 1t
-          - narrate 3
-          #- yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.inventory.slot[<context.slot>]>
       - foreach <list[hat|gloves|shirt|shoes|pants|cape]>:
         - if <context.item.script.yaml_key[category]||null> != <[value]>:
           - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].material.name> == air:
-            - narrate 4
             - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[<[value]>_shadow]>
       - inject update_stats
 
