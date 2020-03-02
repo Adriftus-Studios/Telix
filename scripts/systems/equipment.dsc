@@ -109,13 +109,6 @@ equipment_inventory_handler:
       - foreach <list[hat|gloves|shirt|shoes|pants|cape]>:
         - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].material.name> = air:
           - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[<[value]>_shadow]>
-    on player clicks in equipment_character with item:
-      - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
-      - foreach <list[hat|gloves|shirt|shoes|pants|cape]>:
-        - if <player.open_inventory.slot[<[slotmap].map_find_key[<context.item.script.yaml_key[category]>]>].script.name.ends_with[_shadow]||false>:
-          - if <context.item.script.yaml_key[category]> == <[value]>:
-            - wait 1t
-            - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[air]>
     on player clicks item in equipment_character with item:
       - if <player.open_inventory.script_name> == "equipment_character":
         - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
