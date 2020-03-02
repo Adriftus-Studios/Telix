@@ -1,7 +1,7 @@
 
 gold_necklace_blue:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: necklace
   equipment_rating: 5
   weight: 1
@@ -15,7 +15,7 @@ gold_necklace_blue:
     
 gold_necklace_cyan:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: necklace
   equipment_rating: 5
   weight: 1
@@ -29,7 +29,7 @@ gold_necklace_cyan:
     
 gold_necklace_empty:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: necklace
   equipment_rating: 5
   weight: 1
@@ -43,7 +43,7 @@ gold_necklace_empty:
     
 gold_necklace_green:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: necklace
   equipment_rating: 5
   weight: 1
@@ -57,7 +57,7 @@ gold_necklace_green:
     
 gold_necklace_purple:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: necklace
   equipment_rating: 5
   weight: 1
@@ -71,7 +71,7 @@ gold_necklace_purple:
     
 gold_necklace_red:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: necklace
   equipment_rating: 5
   weight: 1
@@ -85,7 +85,7 @@ gold_necklace_red:
     
 gold_necklace_yellow:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: necklace
   equipment_rating: 5
   weight: 1

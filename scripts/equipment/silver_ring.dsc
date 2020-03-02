@@ -1,7 +1,7 @@
 
 silver_ring_blue:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: ring
   equipment_rating: 5
   weight: 1
@@ -15,7 +15,7 @@ silver_ring_blue:
     
 silver_ring_cyan:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: ring
   equipment_rating: 5
   weight: 1
@@ -29,7 +29,7 @@ silver_ring_cyan:
     
 silver_ring_empty:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: ring
   equipment_rating: 5
   weight: 1
@@ -43,7 +43,7 @@ silver_ring_empty:
     
 silver_ring_green:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: ring
   equipment_rating: 5
   weight: 1
@@ -57,7 +57,7 @@ silver_ring_green:
     
 silver_ring_purple:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: ring
   equipment_rating: 5
   weight: 1
@@ -71,7 +71,7 @@ silver_ring_purple:
     
 silver_ring_red:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: ring
   equipment_rating: 5
   weight: 1
@@ -85,7 +85,7 @@ silver_ring_red:
     
 silver_ring_yellow:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: ring
   equipment_rating: 5
   weight: 1

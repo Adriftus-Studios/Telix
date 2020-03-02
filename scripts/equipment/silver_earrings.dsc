@@ -1,7 +1,7 @@
 
 silver_earrings_blue:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: earrings
   equipment_rating: 5
   weight: 1
@@ -15,7 +15,7 @@ silver_earrings_blue:
     
 silver_earrings_cyan:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: earrings
   equipment_rating: 5
   weight: 1
@@ -29,7 +29,7 @@ silver_earrings_cyan:
     
 silver_earrings_empty:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: earrings
   equipment_rating: 5
   weight: 1
@@ -43,7 +43,7 @@ silver_earrings_empty:
     
 silver_earrings_green:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: earrings
   equipment_rating: 5
   weight: 1
@@ -57,7 +57,7 @@ silver_earrings_green:
     
 silver_earrings_purple:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: earrings
   equipment_rating: 5
   weight: 1
@@ -71,7 +71,7 @@ silver_earrings_purple:
     
 silver_earrings_red:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: earrings
   equipment_rating: 5
   weight: 1
@@ -85,7 +85,7 @@ silver_earrings_red:
     
 silver_earrings_yellow:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: earrings
   equipment_rating: 5
   weight: 1

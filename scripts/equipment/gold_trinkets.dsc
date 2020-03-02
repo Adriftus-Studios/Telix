@@ -1,7 +1,7 @@
 
 gold_trinket_blue:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: trinket
   equipment_rating: 5
   weight: 1
@@ -15,7 +15,7 @@ gold_trinket_blue:
     
 gold_trinket_cyan:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: trinket
   equipment_rating: 5
   weight: 1
@@ -29,7 +29,7 @@ gold_trinket_cyan:
     
 gold_trinket_empty:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: trinket
   equipment_rating: 5
   weight: 1
@@ -43,7 +43,7 @@ gold_trinket_empty:
     
 gold_trinket_green:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: trinket
   equipment_rating: 5
   weight: 1
@@ -57,7 +57,7 @@ gold_trinket_green:
     
 gold_trinket_purple:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: trinket
   equipment_rating: 5
   weight: 1
@@ -71,7 +71,7 @@ gold_trinket_purple:
     
 gold_trinket_red:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: trinket
   equipment_rating: 5
   weight: 1
@@ -85,7 +85,7 @@ gold_trinket_red:
     
 gold_trinket_yellow:
   type: item
-  material: diamond_pickaxe
+  material: diamond_chestplate
   category: trinket
   equipment_rating: 5
   weight: 1
