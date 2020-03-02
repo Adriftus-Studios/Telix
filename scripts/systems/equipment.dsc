@@ -197,7 +197,7 @@ equipment_character:
 
 test_hat:
   type: item
-  material: gold_ingot
+  material: diamond_chestplate
   category: pants
   equipment_rating: 5
   weight: 15
