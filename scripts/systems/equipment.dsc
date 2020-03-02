@@ -117,13 +117,17 @@ equipment_inventory_handler:
             - determine passively cancelled
             - stop
           - if <context.cursor_item.material.name> == air:
-            - narrate 1
             - if <context.item.script.name||null> != null:
-              - narrate 2
-              - if !<context.item.script.name.ends_with[_shadow]>:
-                - narrate 3
+              - if <context.item.script.name.ends_with[_shadow]>:
                 - determine passively cancelled
                 - stop
+          - if <context.cursor_item.script.yaml_key[category]||null> != null:
+            - if <context.item.script.name||null> != null:
+              - if <context.item.script.name.ends_with[_shadow]>:
+                - determine passively cancelled
+                - wait 1t
+                - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<player.cursor_item>
+                - adjust <player> item_on_cursor:<item[air]>
 
       - inject update_stats
 
