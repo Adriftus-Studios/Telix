@@ -65,6 +65,7 @@ calculate_weight_equipment_stats:
           - if <[item].nbt[built]||null> = null:
             - announce to_ops "<player.name> tried to update stats with an unbuilt item. (<[item].script.name>)"
           - foreach <[item].enchantments.with_levels||<list[]>> as:enchant:
+            - narrate <[enchant]>
             - if <[enchants]||null> != null:
               - if <[item].enchantments.contains[<[enchant].split[,].get[1]>]>:
                 - define entry:<[enchant].split[,].get[1]>,<[enchant].split[,].get[2].add[<[enchants].map_get[<[enchant].split[,].get[1]>]>]>
