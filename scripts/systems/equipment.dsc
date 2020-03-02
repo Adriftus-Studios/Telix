@@ -160,8 +160,8 @@ equipment_inventory_handler:
             #- yaml id:player.<player.uuid> set equipment.<[slotmap].map_get[<context.slot>]>:<context.inventory.slot[<context.slot>]>
         - wait 1t
         - foreach <list[hat|gloves|shirt|shoes|pants|cape]>:
-          - if <context.item.script.yaml_key[category]> != <[value]>:
-            - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].material.name> = air:
+          - if <context.item.script.yaml_key[category]||null> != <[value]>:
+            - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].material.name> == air:
               - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[<[value]>_shadow]>
             - if <inventory[equipment_<player.uuid>].get[<[slotmap].map_find_key[<[value]>]>].script.name.ends_with[_shadow]>
               #- yaml id:player.<player.uuid> set equipment.<[value]>:!
