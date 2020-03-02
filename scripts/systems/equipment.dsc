@@ -126,7 +126,7 @@ equipment_inventory_handler:
               - if <context.item.script.name.ends_with[_shadow]>:
                 - determine passively cancelled
                 - wait 1t
-                - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<player.cursor_item>
+                - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<player.item_on_cursor>
                 - adjust <player> item_on_cursor:<item[air]>
 
       - inject update_stats
