@@ -64,19 +64,17 @@ calculate_weight_equipment_stats:
         - if !<[item].script.name.ends_with[_shadow]>:
           - if <[item].nbt[built]||null> = null:
             - announce to_ops "<player.name> tried to update stats with an unbuilt item. (<[item].script.name>)"
-          - foreach <[item].enchantments.with_levels||<list[]>> as:enchant:
+          - foreach <[item].enchantments||<list[]>> as:enchant:
             - if <[enchants]||null> != null:
               - if <[item].enchantments.contains[<[enchant].split[,].get[1]>]>:
                 - narrate <[enchant]>
-                - define entry:<[enchant].split[,].get[1]>,<[enchant].split[,].get[2].add[<[enchants].map_get[<[enchant].split[,].get[1]>]>]>
-                - define enchants:<[enchants].exclude[<[enchant].split[,].get[1]>,<[enchants].filter[starts_with[<[enchant].split[,].get[1]>].get[1]>]]>
-                - narrate <[enchants].filter[starts_with[<[enchant].split[,].get[1]>]]>
-                - narrate <[entry]>
+                - define entry:<[enchant]>,<[item].enchantments.level[<[enchant]>]>
                 - define enchants:|:<[entry]>
+                - narrate <[enchants].filter[starts_with[<[enchant]>]]>
               - else:
-                - define enchants:|:<[enchant]>
+                - define enchants:|:<[enchant]>,<[item].enchantments.level[<[enchant]>]>
             - else:
-              - define enchants:|:<[enchant]>
+              - define enchants:|:<[enchant]>,<[item].enchantments.level[<[enchant]>]>
           - define weight:|:<[item].script.yaml_key[weight]>
           - foreach <[item].nbt_keys> as:stat:
             - if <[stat].starts_with[base_stats.]>:
