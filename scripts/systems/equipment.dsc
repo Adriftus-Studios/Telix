@@ -151,7 +151,9 @@ equipment_inventory_handler:
                     - narrate 3
                     - adjust <player> item_on_cursor:<[item2]>
                     - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item1]>
-
+              - else:
+                - determine passively cancelled
+                - stop
       - inject update_stats
 
 invisible_placeholder:
