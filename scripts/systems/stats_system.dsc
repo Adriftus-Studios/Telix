@@ -62,7 +62,7 @@ calculate_weight_equipment_stats:
       - if <[item].material.name> != air:
         - if !<[item].script.name.ends_with[_shadow]>:
           - if <[item].nbt[built]||null> = null:
-            - inject build_item
+            - announce to_ops "<player.name> tried to update stats with an unbuilt item. (<[item].script.name>)"
           - define weight:|:<[item].script.yaml_key[weight]>
           - foreach <[item].nbt_keys> as:stat:
             - if <[stat].starts_with[base_stats.]>:
