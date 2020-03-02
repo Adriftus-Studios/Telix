@@ -16,7 +16,6 @@ update_stats:
     - inject calculate_base_stats
     - inject calculate_weight_equipment_stats
     - inject calculate_encumberance_speed
-    - narrate <player>
 
 stats_setup:
   type: task
@@ -58,9 +57,8 @@ calculate_weight_equipment_stats:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
       - define weight:|:<[this_item_weight].*[<[item].quantity>]||1>
     - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
-    - define inv:<inventory[equipment_<player.uuid>]>
     - foreach <[slotmap]>:
-      - define item:<[inv].slot[<[value].split[/].get[1]>]||<item[air]>>
+      - define item:<inventory[equipment_<player.uuid>].slot[<[value].split[/].get[1]>]||<item[air]>>
       - if <[item].material.name> != air:
         - if !<[item].script.name.ends_with[_shadow]>:
           - if <[item].nbt[built]||null> = null:
