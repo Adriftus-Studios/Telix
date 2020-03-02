@@ -124,7 +124,6 @@ equipment_inventory_handler:
               - else:
                 - determine passively cancelled
                 - wait 1t
-                - narrate 1
                 - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<item[<[slotmap].map_get[<context.raw_slot>]>_shadow]||<item[air]>>
                 - adjust <player> item_on_cursor:<context.item>
           - if <context.cursor_item.script.yaml_key[category]||null> != null:
@@ -133,7 +132,6 @@ equipment_inventory_handler:
                 - if <context.item.script.name.ends_with[_shadow]>:
                   - determine passively cancelled
                   - wait 1t
-                  - narrate 2
                   - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<player.item_on_cursor.with[quantity=1]>
                   - adjust <player> item_on_cursor:<player.item_on_cursor.with[quantity=<player.item_on_cursor.quantity.sub[1]>]>
                 - else:
@@ -145,7 +143,6 @@ equipment_inventory_handler:
                     - define item2:<context.item>
                     - determine passively cancelled
                     - wait 1t
-                    - narrate 3
                     - adjust <player> item_on_cursor:<[item2]>
                     - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item1]>
               - else:
