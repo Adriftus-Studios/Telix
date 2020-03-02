@@ -119,7 +119,7 @@ equipment_inventory_handler:
     on player clicks item in equipment_character with item:
       - if <player.open_inventory.script_name> == "equipment_character":
         - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
-        - if <context.item.script.name||null> == null:
+        - if <context.item.script.yaml_key[category]||null> == null:
           - determine cancelled
           - stop
         - if <context.item.script.name.ends_with[_shadow]>:
