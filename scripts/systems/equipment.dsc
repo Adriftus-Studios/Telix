@@ -111,6 +111,8 @@ equipment_inventory_handler:
           - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[<[value]>_shadow]>
     on player clicks item in equipment_character with item:
       - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
+      - if <player.open_inventory.notable_name||null> == null:
+        - inventory close
       - if !<context.is_shift_click>:
         - if <context.raw_slot> < 55:
           - if !<[slotmap].parse[split[/].get[1]].contains[<context.raw_slot>]>:
@@ -171,7 +173,7 @@ equipment_inventory_handler:
         - if <context.item.script.yaml_key[category]||null> != <[value]>:
           - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].material.name> == air:
             - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[<[value]>_shadow]>
-      - inject update_stats
+      - run update_stats defs:<player[<player.open_inventory.notable_name.split[_].get[2]>]>
 
 invisible_placeholder:
   type: item
