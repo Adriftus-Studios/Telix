@@ -180,7 +180,7 @@ system_equipment_set:
 
 custom_item_override:
   type: world
-  debug: true
+  debug: false
   events:
     on entity death:
       - foreach <context.drops>:
