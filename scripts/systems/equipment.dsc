@@ -35,7 +35,7 @@ view_equipment:
 
 equipment_death_handler:
   type: world
-  debug: false
+  debug: true
   events:
     on player death:
       - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
