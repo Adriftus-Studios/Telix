@@ -43,9 +43,9 @@ equipment_death_handler:
       - define drops:<context.drops>
       - foreach <[slotmap]>:
         - define item:<[inv].slot[<[value].split[/].get[1]>]>
-        - narrate <[item]>
-        - define drops:|:<[item]>
-        - inventory set d:<[inv]> slot:<[value].split[/].get[1]> o:<item[<[value].split[/].get[2]>_shadow]||<item[air]>>
+        - if !<[item].script.name.ends_with[_shadow]||false>:
+          - define drops:|:<[item]>
+          - inventory set d:<[inv]> slot:<[value].split[/].get[1]> o:<item[<[value].split[/].get[2]>_shadow]||<item[air]>>
       - determine <[drops]>
       - inject update_stats
 
