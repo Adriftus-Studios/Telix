@@ -40,12 +40,11 @@ equipment_death_handler:
     on player death:
       - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
       - define inv:<inventory[equipment_<player.uuid>]>
-      - narrate <[inv]>
-      - foreach <[slotmap]> as:equipment:
-        - define item:<[inv].slot[<[equipment].split[/].get[1]>]>
+      - foreach <[slotmap]>:
+        - define item:<[inv].slot[<[value].split[/].get[1]>]>
         - narrate <[item]>
-        - determine <context.drops.include[<[item]>]>
-        - inventory set d:<[inv]> slot:<[equipment].split[/].get[1]> o:<item[<[equipment].split[/].get[2]>_shadow]||<item[air]>>
+        #- determine <context.drops.include[<[item]>]>
+        #- inventory set d:<[inv]> slot:<[value].split[/].get[1]> o:<item[<[value].split[/].get[2]>_shadow]||<item[air]>>
       - inject update_stats
 
 hat_shadow:
