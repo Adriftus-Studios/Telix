@@ -35,12 +35,12 @@ view_equipment:
 
 equipment_death_handler:
   type: world
-  debug: true
+  debug: false
   events:
     on player death:
       - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
       - define inv:<inventory[equipment_<player.uuid>]>
-      - define drops:<context.drops>
+      - define drops:<context.drops||<list[]>>
       - foreach <[slotmap]>:
         - define item:<[inv].slot[<[value].split[/].get[1]>]>
         - if !<[item].script.name.ends_with[_shadow]||false>:
