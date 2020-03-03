@@ -55,6 +55,7 @@ hat_shadow:
   category: hat
   mechanisms:
     custom_model_data: -1
+    flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
   display name: "No Hat Equipped"
 
 shirt_shadow:
@@ -63,6 +64,7 @@ shirt_shadow:
   category: shirt
   mechanisms:
     custom_model_data: -2
+    flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
   display name: "No Shirt Equipped"
 
 pants_shadow:
@@ -71,6 +73,7 @@ pants_shadow:
   category: pants
   mechanisms:
     custom_model_data: -3
+    flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
   display name: "No Pants Equipped"
 
 shoes_shadow:
@@ -79,6 +82,7 @@ shoes_shadow:
   category: shoes
   mechanisms:
     custom_model_data: -4
+    flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
   display name: "No Shoes Equipped"
 
 cape_shadow:
@@ -87,6 +91,7 @@ cape_shadow:
   category: cape
   mechanisms:
     custom_model_data: -5
+    flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
   display name: "No Cape Equipped"
 
 gloves_shadow:
@@ -95,6 +100,7 @@ gloves_shadow:
   category: gloves
   mechanisms:
     custom_model_data: -6
+    flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
   display name: "No Gloves Equipped"
 
 equipment_inventory_handler:
