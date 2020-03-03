@@ -180,6 +180,7 @@ system_equipment_set:
 
 custom_item_override:
   type: world
+  debug: true
   events:
     on item recipe formed:
       - if <context.item.script.name||null> == null:
