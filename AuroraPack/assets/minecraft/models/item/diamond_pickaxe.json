@@ -5,12 +5,6 @@
     "layer0": "item/diamond_pickaxe"
 	},
 	"overrides": [
-		{ "predicate": { "custom_model_data": -6}, "model": "item/custom/equipment/gloves/shadow" },
-		{ "predicate": { "custom_model_data": -5}, "model": "item/custom/equipment/cape/shadow" },
-		{ "predicate": { "custom_model_data": -4}, "model": "item/custom/equipment/shoes/shadow" },
-		{ "predicate": { "custom_model_data": -3}, "model": "item/custom/equipment/pants/shadow" },
-		{ "predicate": { "custom_model_data": -2}, "model": "item/custom/equipment/shirt/shadow" },
-		{ "predicate": { "custom_model_data": -1}, "model": "item/custom/equipment/hat/shadow" },
 		{ "predicate": { "custom_model_data": 0}, "model": "item/diamond_pickaxe" },
 		{ "predicate": { "custom_model_data": 1}, "model": "item/custom/equipment/1" },
 		{ "predicate": { "custom_model_data": 2}, "model": "item/custom/equipment/2" },
