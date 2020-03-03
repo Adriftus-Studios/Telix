@@ -184,11 +184,9 @@ custom_item_override:
   events:
     on entity death:
       - foreach <context.drops>:
-        - define drops:|:<item[custom_<[value].material.name>].with[quantity=<[value].quantity>]>
+        - if <[value].script.name||null> == null:
+          - define drops:|:<item[custom_<[value].material.name>].with[quantity=<[value].quantity>]>
       - determine <[drops]||<list[]>>
-    on player drops item:
-      - narrate <context.item>
-      - determine <item[custom_cobblestone].with[quantity=64]>
     on item recipe formed:
       - if <context.item.script.name||null> == null:
         - determine <item[custom_<context.item.material.name>]>
@@ -200,6 +198,9 @@ custom_item_override:
         - foreach <context.location.drops[<player.item_in_hand>]> as:drop:
           - define drops:|:<item[custom_<[drop].material.name>].with[quantity=<[drop].quantity>]>
         - determine <[drops]||>
+    on player picks up item:
+      - if <context.item.script.name||null> == null:
+        - determine <item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
 
 system_override:
   type: world
