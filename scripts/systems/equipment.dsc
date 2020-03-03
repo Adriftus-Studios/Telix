@@ -42,6 +42,7 @@ equipment_death_handler:
       - define inv:<inventory[equipment_<player.uuid>]>
       - foreach <[slotmap]> as:equipment:
         - define item:<[inv].slot[<[equipment].split[/].get[1]>]>
+        - narrate <[item]>
         - determine <context.drops.include[<[item]>]>
         - inventory set d:<[inv]> slot:<[equipment].split[/].get[1]> o:<item[<[equipment].split[/].get[2]>_shadow]||<item[air]>>
       - inject update_stats
