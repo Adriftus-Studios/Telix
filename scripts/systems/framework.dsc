@@ -193,12 +193,6 @@ custom_item_override:
         - foreach <context.location.drops[<player.item_in_hand>]> as:drop:
           - define drops:|:<item[custom_<[drop].material.name>].with[quantity=<[drop].quantity>]>
         - determine <[drops]||>
-    on player clicks in inventory:
-      - if <context.item.script.name||null> == null:
-        - if <context.item.material.name> != air:
-          - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
-          - wait 1t
-          - adjust <player> item_on_cursor:<[item]>
 
 system_override:
   type: world
