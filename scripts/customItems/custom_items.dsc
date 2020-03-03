@@ -466,14 +466,6 @@ custom_dark_oak_button:
   display name: <&7>Dark_oak_button
   weight: '1'
   type: item
-custom_leather_horse_armor:
-  material: leather_horse_armor
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Leather_horse_armor
-  weight: '1'
-  type: item
 custom_black_stained_glass:
   material: black_stained_glass
   lore:
@@ -692,14 +684,6 @@ custom_black_wool:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Black_wool
-  weight: '1'
-  type: item
-custom_leather_chestplate:
-  material: leather_chestplate
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Leather_chestplate
   weight: '1'
   type: item
 custom_redstone_ore:
@@ -1335,14 +1319,6 @@ custom_jukebox:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Jukebox
-  weight: '1'
-  type: item
-custom_chainmail_helmet:
-  material: chainmail_helmet
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chainmail_helmet
   weight: '1'
   type: item
 custom_elytra:
@@ -2601,14 +2577,6 @@ custom_spruce_planks:
   display name: <&7>Spruce Planks
   weight: 2
   type: item
-custom_leather_boots:
-  material: leather_boots
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Leather_boots
-  weight: '1'
-  type: item
 custom_red_concrete_powder:
   material: red_concrete_powder
   lore:
@@ -2871,14 +2839,6 @@ custom_white_terracotta:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>White_terracotta
-  weight: '1'
-  type: item
-custom_leather_leggings:
-  material: leather_leggings
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Leather_leggings
   weight: '1'
   type: item
 custom_fermented_spider_eye:
@@ -4018,14 +3978,6 @@ custom_quartz_pillar:
   display name: <&7>Quartz_pillar
   weight: '1'
   type: item
-custom_chainmail_leggings:
-  material: chainmail_leggings
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chainmail_leggings
-  weight: '1'
-  type: item
 custom_bread:
   material: bread
   lore:
@@ -4064,14 +4016,6 @@ custom_dead_horn_coral_block:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Dead_horn_coral_block
-  weight: '1'
-  type: item
-custom_leather_helmet:
-  material: leather_helmet
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Leather_helmet
   weight: '1'
   type: item
 custom_music_disc_far:
@@ -4114,14 +4058,6 @@ custom_dragon_wall_head:
   display name: <&7>Dragon_wall_head
   weight: '1'
   type: item
-custom_wooden_axe:
-  material: wooden_axe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wooden_axe
-  weight: '1'
-  type: item
 custom_end_stone_bricks:
   material: end_stone_bricks
   lore:
@@ -4136,14 +4072,6 @@ custom_fire:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Fire
-  weight: '1'
-  type: item
-custom_wooden_sword:
-  material: wooden_sword
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wooden_sword
   weight: '1'
   type: item
 custom_chorus_plant:
@@ -4877,14 +4805,6 @@ custom_infested_stone:
   display name: <&7>Infested_stone
   weight: '1'
   type: item
-custom_wooden_pickaxe:
-  material: wooden_pickaxe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wooden_pickaxe
-  weight: '1'
-  type: item
 custom_end_stone:
   material: end_stone
   lore:
@@ -5347,14 +5267,6 @@ custom_cave_spider_spawn_egg:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Cave_spider_spawn_egg
-  weight: '1'
-  type: item
-custom_wooden_shovel:
-  material: wooden_shovel
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wooden_shovel
   weight: '1'
   type: item
 custom_gray_wool:
@@ -6142,14 +6054,6 @@ custom_poppy:
   display name: <&7>Poppy
   weight: '1'
   type: item
-custom_wooden_hoe:
-  material: wooden_hoe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wooden_hoe
-  weight: '1'
-  type: item
 custom_lapis_block:
   material: lapis_block
   lore:
@@ -6390,14 +6294,6 @@ custom_creeper_head:
   display name: <&7>Creeper_head
   weight: '1'
   type: item
-custom_chainmail_chestplate:
-  material: chainmail_chestplate
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chainmail_chestplate
-  weight: '1'
-  type: item
 custom_red_nether_brick_wall:
   material: red_nether_brick_wall
   lore:
@@ -6430,17 +6326,6 @@ custom_beehive:
   display name: <&7>Beehive
   weight: '1'
   type: item
-custom_leather:
-  material: leather
-  lore:
-  - <&b>Raw animal hide
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Raw Hide
-  weight: 1
-  type: item
-  mechanisms:
-    custom_model_data: 1
 custom_pumpkin_stem:
   material: pumpkin_stem
   lore:
@@ -7088,14 +6973,6 @@ custom_sandstone_stairs:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Sandstone_stairs
-  weight: '1'
-  type: item
-custom_chainmail_boots:
-  material: chainmail_boots
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chainmail_boots
   weight: '1'
   type: item
 custom_honeycomb_block:
