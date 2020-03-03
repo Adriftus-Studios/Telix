@@ -38,13 +38,13 @@ equipment_death_handler:
   debug: false
   events:
     on player death:
-      - foreach <yaml[player.<player.uuid>].list_keys[equipment]> as:equipment:
-        - define item:<yaml[player.<player.uuid>].read[equipment.<[equipment]>].as_item>
-        - if <[item].material.name> != air:
-          - if <[item].script.yaml_key[drops_on_death]||true>:
-            - yaml id:player.<player.uuid> set equipment.<[equipment]>:<item[air]>
-            - determine <context.drops.include[<[item]>]>
-        - inject update_stats
+      - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
+      - define inv:<inventory[equipment_<player.uuid>]>
+      - foreach <[slotmap]> as:equipment:
+        - define item:<[inv].slot[<[equipment].split[/].get[1]>]>
+        - determine <context.drops.include[<[item]>]>
+        - inventory set d:<[inv]> slot:<[equipment].split[/].get[1]> o:<item[<[equipment].split[/].get[2]>_shadow]||<item[air]>>
+      - inject update_stats
 
 hat_shadow:
   type: item
