@@ -198,9 +198,6 @@ custom_item_override:
         - foreach <context.location.drops[<player.item_in_hand>]> as:drop:
           - define drops:|:<item[custom_<[drop].material.name>].with[quantity=<[drop].quantity>]>
         - determine <[drops]||>
-    on player picks up item:
-      - if <context.item.script.name||null> == null:
-        - determine <item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
 
 system_override:
   type: world
