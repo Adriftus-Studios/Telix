@@ -77,7 +77,7 @@ reload_scripts:
               - if <[value].yaml_key[category]||null> != null:
                   - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
               - if <[value].yaml_key[recipes]||null> != null:
-                - if <server.list_materials.contains[<[value].name.replace[custom_].with[]>]>:
+                - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
                   - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
                     - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
