@@ -194,8 +194,9 @@ custom_item_override:
         - determine <[drops]||>
     on player clicks in inventory:
       - if <context.item.script.name||null> == null:
-        - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
-        - determine <[item]>
+        - if <context.item.material.name> != air:
+          - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+          - determine <[item]>
 
 system_override:
   type: world
