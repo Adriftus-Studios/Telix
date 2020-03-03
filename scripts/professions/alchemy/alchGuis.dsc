@@ -4,13 +4,14 @@
 alchgui_main:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Alchemy<&r> <&6>◆
-  size: 45
+  size: 54
   definitions:
-    gui_top: <item[fish_main_top]>
-    gui_bottom: <item[fish_main_bottom]>
+    gui_top: <item[alch_main_top]>
+    gui_bottom: <item[alch_main_bottom]>
     closeitem: <item[gui_close_btn]>
     
   slots:
+  - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
   - "[gui_top] [] [] [] [] [] [] [] []"
