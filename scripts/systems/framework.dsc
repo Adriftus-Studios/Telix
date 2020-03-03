@@ -178,6 +178,30 @@ system_equipment_set:
   script:
     - equip head:<item[equipment_head_slot]> chest:<item[equipment_chest_slot]> legs:<item[equipment_leg_slot]> boots:<item[equipment_boots_slot]>
 
+custom_item_override:
+  type: world
+  debug: true
+  events:
+    on entity death:
+      - foreach <context.drops>:
+        - if <[value].script.name||null> == null:
+          - define drops:|:<item[custom_<[value].material.name>].with[quantity=<[value].quantity>]>
+      - determine <[drops]||<list[]>>
+    on item recipe formed:
+      - if <context.item.script.name||null> == null:
+        - determine <item[custom_<context.item.material.name>]>
+    on furnace smelts item:
+      - if <context.result_item.script.name||null> == null:
+        - determine <item[custom_<context.result_item.material.name>]>
+    on player breaks block priority:-10:
+      - if <player.gamemode> == SURVIVAL:
+        - foreach <context.location.drops[<player.item_in_hand>]> as:drop:
+          - define drops:|:<item[custom_<[drop].material.name>].with[quantity=<[drop].quantity>]>
+        - determine <[drops]||>
+    on player picks up item:
+      - if <context.item.script.name||null> == null:
+        - determine <item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+
 system_override:
   type: world
   events:
@@ -238,10 +262,6 @@ system_override:
         - determine passively cancelled
         - wait 1t
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory].parsed>
-    on player chats:
-      - if <player.has_permission[*]>:
-        - if <player.flag[parsed_chat]||null> != null:
-          - determine <context.message.parsed>
 
 kill_queue_command:
   type: command
