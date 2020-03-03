@@ -200,7 +200,7 @@ custom_item_override:
         - determine <[drops]||>
     on player picks up item:
       - if <context.item.script.name||null> == null:
-        - determine <item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+        - determine ITEM:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
 
 system_override:
   type: world
