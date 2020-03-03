@@ -182,6 +182,9 @@ custom_item_override:
   type: world
   debug: true
   events:
+    on player drops item:
+      - narrate <context.item>
+      - determine <item[custom_cobblestone].with[quantity=64]>
     on item recipe formed:
       - if <context.item.script.name||null> == null:
         - determine <item[custom_<context.item.material.name>]>
