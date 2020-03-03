@@ -94,7 +94,7 @@ custom_iron_chestplate:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_copper_chestplate1
+      recipe_id: custom_iron_chestplate1
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_leather_chestplate|custom_iron_ingot
@@ -111,7 +111,7 @@ custom_iron_boots:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_copper_boots1
+      recipe_id: custom_iron_boots1
       output_quantity: 1
       input:
       - custom_iron_ingot|air|custom_iron_ingot
@@ -119,7 +119,7 @@ custom_iron_boots:
       - air|air|air
     2:
       type: shaped
-      recipe_id: custom_copper_boots2
+      recipe_id: custom_iron_boots2
       output_quantity: 1
       input:
       - air|air|air
@@ -136,7 +136,7 @@ custom_iron_leggings:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_copper_leggings1
+      recipe_id: custom_iron_leggings1
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
@@ -153,7 +153,7 @@ custom_iron_helmet:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_copper_helmet1
+      recipe_id: custom_iron_helmet1
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
@@ -161,7 +161,7 @@ custom_iron_helmet:
       - air|air|air
     1:
       type: shaped
-      recipe_id: custom_copper_helmet2
+      recipe_id: custom_iron_helmet2
       output_quantity: 1
       input:
       - air|air|air
