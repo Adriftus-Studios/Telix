@@ -196,7 +196,7 @@ custom_item_override:
       - if <context.item.script.name||null> == null:
         - if <context.item.material.name> != air:
           - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
-          - determine <[item]>
+          - adjust <player> item_on_cursor:<[item]>
 
 system_override:
   type: world
