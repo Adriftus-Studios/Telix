@@ -370,14 +370,6 @@ custom_dried_kelp_block:
   display name: <&7>Dried_kelp_block
   weight: '1'
   type: item
-custom_iron_shovel:
-  material: iron_shovel
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_shovel
-  weight: '1'
-  type: item
 custom_acacia_stairs:
   material: acacia_stairs
   lore:
@@ -590,14 +582,6 @@ custom_lime_concrete:
   display name: <&7>Lime_concrete
   weight: '1'
   type: item
-custom_iron_block:
-  material: iron_block
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_block
-  weight: '1'
-  type: item
 custom_lime_stained_glass_pane:
   material: lime_stained_glass_pane
   lore:
@@ -620,14 +604,6 @@ custom_melon_seeds:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Melon_seeds
-  weight: '1'
-  type: item
-custom_iron_boots:
-  material: iron_boots
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_boots
   weight: '1'
   type: item
 custom_blue_stained_glass:
@@ -852,14 +828,6 @@ custom_music_disc_11:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Music_disc_11
-  weight: '1'
-  type: item
-custom_iron_axe:
-  material: iron_axe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_axe
   weight: '1'
   type: item
 custom_magma_block:
@@ -1697,14 +1665,6 @@ custom_vine:
   display name: <&7>Vine
   weight: '1'
   type: item
-custom_iron_hoe:
-  material: iron_hoe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_hoe
-  weight: '1'
-  type: item
 custom_red_tulip:
   material: red_tulip
   lore:
@@ -1817,14 +1777,6 @@ custom_shulker_box:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Shulker_box
-  weight: '1'
-  type: item
-custom_iron_sword:
-  material: iron_sword
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_sword
   weight: '1'
   type: item
 custom_jigsaw:
@@ -2793,14 +2745,6 @@ custom_pufferfish_bucket:
   display name: <&7>Pufferfish_bucket
   weight: '1'
   type: item
-custom_iron_leggings:
-  material: iron_leggings
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_leggings
-  weight: '1'
-  type: item
 custom_stripped_oak_log:
   material: stripped_oak_log
   lore:
@@ -2921,18 +2865,6 @@ custom_turtle_spawn_egg:
   display name: <&7>Turtle_spawn_egg
   weight: '1'
   type: item
-custom_iron_ore:
-  material: iron_ore
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_ore
-  weight: '1'
-  type: item
-  ore:
-      biome: all
-      block: stone
-      chance: 20
 custom_white_terracotta:
   material: white_terracotta
   lore:
@@ -3252,14 +3184,6 @@ custom_dead_fire_coral:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Dead_fire_coral
-  weight: '1'
-  type: item
-custom_iron_horse_armor:
-  material: iron_horse_armor
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_horse_armor
   weight: '1'
   type: item
 custom_trapped_chest:
@@ -3734,14 +3658,6 @@ custom_zombie_spawn_egg:
   display name: <&7>Zombie_spawn_egg
   weight: '1'
   type: item
-custom_iron_nugget:
-  material: iron_nugget
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_nugget
-  weight: '1'
-  type: item
 custom_stonecutter:
   material: stonecutter
   lore:
@@ -3780,14 +3696,6 @@ custom_stripped_jungle_wood:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Stripped_jungle_wood
-  weight: '1'
-  type: item
-custom_iron_pickaxe:
-  material: iron_pickaxe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_pickaxe
   weight: '1'
   type: item
 custom_black_glazed_terracotta:
@@ -6226,14 +6134,6 @@ custom_brown_wool:
   display name: <&7>Brown_wool
   weight: '1'
   type: item
-custom_iron_helmet:
-  material: iron_helmet
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_helmet
-  weight: '1'
-  type: item
 custom_poppy:
   material: poppy
   lore:
@@ -6945,14 +6845,6 @@ custom_endermite_spawn_egg:
   display name: <&7>Endermite_spawn_egg
   weight: '1'
   type: item
-custom_iron_ingot:
-  material: iron_ingot
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_ingot
-  weight: '1'
-  type: item
 custom_blaze_spawn_egg:
   material: blaze_spawn_egg
   lore:
@@ -6983,14 +6875,6 @@ custom_vex_spawn_egg:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Vex_spawn_egg
-  weight: '1'
-  type: item
-custom_iron_chestplate:
-  material: iron_chestplate
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_chestplate
   weight: '1'
   type: item
 custom_gray_terracotta:
