@@ -198,7 +198,6 @@ custom_item_override:
         - if <context.item.material.name> != air:
           - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
           - narrate <[item]>
-          - determine <[item]>
 
 system_override:
   type: world
