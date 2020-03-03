@@ -182,6 +182,10 @@ custom_item_override:
   type: world
   debug: true
   events:
+    on entity death:
+      - foreach <context.drops>:
+        - define drops:|:<item[custom_<[value].material.name>].with[quantity=<[value].quantity>]>
+      - determine <[drops]||<list[]>>
     on player drops item:
       - narrate <context.item>
       - determine <item[custom_cobblestone].with[quantity=64]>
