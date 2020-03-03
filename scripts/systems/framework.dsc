@@ -178,7 +178,7 @@ system_equipment_set:
   script:
     - equip head:<item[equipment_head_slot]> chest:<item[equipment_chest_slot]> legs:<item[equipment_leg_slot]> boots:<item[equipment_boots_slot]>
 
-system_override:
+custom_item_override:
   type: world
   events:
     on item recipe formed:
@@ -187,6 +187,19 @@ system_override:
     on furnace smelts item:
       - if <context.result_item.script.name||null> == null:
         - determine <item[custom_<context.result_item.material.name>]>
+    on player breaks block priority:-10:
+      - if <player.gamemode> == SURVIVAL:
+        - foreach <context.location.drops[<player.item_in_hand>]> as:drop:
+          - define drops:|:<item[custom_<[drop].material.name>].with[quantity=<[drop].quantity>]>
+        - determine <[drops]||>
+    on player clicks in inventory:
+      - if <context.item.script.name||null> == null:
+        - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+        - determine <[item]>
+
+system_override:
+  type: world
+  events:
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
@@ -220,11 +233,6 @@ system_override:
         - yaml load:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml id:player.<player.uuid>
       - else:
         - yaml create id:player.<player.uuid>
-    on player breaks block priority:-10:
-      - if <player.gamemode> == SURVIVAL:
-        - foreach <context.location.drops[<player.item_in_hand>]> as:drop:
-          - define drops:|:<item[custom_<[drop].material.name>].with[quantity=<[drop].quantity>]>
-        - determine <[drops]>
     on player respawns:
       - inject system_equipment_set
     on player drags in inventory:
