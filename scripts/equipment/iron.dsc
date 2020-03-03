@@ -15,14 +15,6 @@ custom_iron_block:
   display name: <&7>Iron_block
   weight: '1'
   type: item
-custom_iron_boots:
-  material: iron_boots
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_boots
-  weight: '1'
-  type: item
 custom_iron_axe:
   material: iron_axe
   lore:
@@ -45,14 +37,6 @@ custom_iron_sword:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Iron_sword
-  weight: '1'
-  type: item
-custom_iron_leggings:
-  material: iron_leggings
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_leggings
   weight: '1'
   type: item
 custom_iron_ore:
@@ -91,14 +75,6 @@ custom_iron_pickaxe:
   display name: <&7>Iron_pickaxe
   weight: '1'
   type: item
-custom_iron_helmet:
-  material: iron_helmet
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_helmet
-  weight: '1'
-  type: item
 custom_iron_ingot:
   material: iron_ingot
   lore:
@@ -115,3 +91,79 @@ custom_iron_chestplate:
   display name: <&7>Iron_chestplate
   weight: '1'
   type: item
+  recipes:
+    1:
+      type: shaped
+      recipe_id: custom_copper_chestplate1
+      output_quantity: 1
+      input:
+      - custom_iron_ingot|custom_leather_chestplate|custom_iron_ingot
+      - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
+      - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
+custom_iron_boots:
+  material: iron_boots
+  lore:
+  - <&6>
+  - '<&8>Item Weight: <script.yaml_key[weight]>'
+  display name: <&7>Iron_boots
+  weight: '1'
+  type: item
+  recipes:
+    1:
+      type: shaped
+      recipe_id: custom_copper_boots1
+      output_quantity: 1
+      input:
+      - custom_iron_ingot|air|custom_iron_ingot
+      - custom_iron_ingot|air|custom_iron_ingot
+      - air|air|air
+    2:
+      type: shaped
+      recipe_id: custom_copper_boots2
+      output_quantity: 1
+      input:
+      - air|air|air
+      - custom_iron_ingot|air|custom_iron_ingot
+      - custom_iron_ingot|air|custom_iron_ingot
+custom_iron_leggings:
+  material: iron_leggings
+  lore:
+  - <&6>
+  - '<&8>Item Weight: <script.yaml_key[weight]>'
+  display name: <&7>Iron_leggings
+  weight: '1'
+  type: item
+  recipes:
+    1:
+      type: shaped
+      recipe_id: custom_copper_leggings1
+      output_quantity: 1
+      input:
+      - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
+      - custom_iron_ingot|air|custom_iron_ingot
+      - custom_iron_ingot|air|custom_iron_ingot
+custom_iron_helmet:
+  material: iron_helmet
+  lore:
+  - <&6>
+  - '<&8>Item Weight: <script.yaml_key[weight]>'
+  display name: <&7>Iron_helmet
+  weight: '1'
+  type: item
+  recipes:
+    1:
+      type: shaped
+      recipe_id: custom_copper_helmet1
+      output_quantity: 1
+      input:
+      - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
+      - custom_iron_ingot|air|custom_iron_ingot
+      - air|air|air
+    1:
+      type: shaped
+      recipe_id: custom_copper_helmet2
+      output_quantity: 1
+      input:
+      - air|air|air
+      - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
+      - custom_iron_ingot|air|custom_iron_ingot
