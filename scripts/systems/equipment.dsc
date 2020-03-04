@@ -252,8 +252,8 @@ test_hat:
   type: item
   material: gold_ingot
   category: pants
+  weight: 150
   equipment_rating: 5
-  weight: 15
   max_stars: 5
   sockets: 1
   equipment_modifiers:
@@ -298,7 +298,7 @@ test_ring:
   material: gold_ingot
   category: ring
   equipment_rating: 10
-  weight: 10
+  weight: 1000
   max_stars: 10
   sockets: 3
   equipment_modifiers:
