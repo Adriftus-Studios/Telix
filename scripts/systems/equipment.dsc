@@ -107,6 +107,26 @@ equipment_inventory_handler:
   type: world
   debug: false
   events:
+    on player item takes damage:
+      - if <context.item.script.yaml_key[fake_durability]||null> == null:
+        - stop
+      - define item:<context.item>
+      - define amount:-1
+      - if !<[item].enchantments.contains_any[DURABILITY]>:
+        - inject fake_durability_modify def:<[item]>|<[amount]>
+        - inventory set slot:<context.slot> d:<player.inventory> o:<[new_item]>
+        - narrate <[new_item]>
+      - else:
+        - if <util.random.int[0].to[100]> < <util.random.int[100].to[100]./[<[item].enchantments.level[DURABILITY].+[1]>]>:
+          - inject fake_durability_modify def:<[item]>|<[amount]>
+          - inventory set slot:<context.slot> d:<player.inventory> o:<[new_item]>
+    on player mends item:
+      - if <context.item.script.yaml_key[fake_durability]||null> == null:
+        - stop
+      - define item:<context.item>
+      - define amount:<context.repair_amount>
+      - inject fake_durability_modify
+      - inventory set slot:<context.slot> d:<player.inventory> o:<[new_item]>
     on player drags item in equipment_character:
       - if <player.open_inventory.script_name> == "equipment_character":
         - foreach <context.raw_slots> as:slot:
