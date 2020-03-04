@@ -73,6 +73,8 @@ calculate_weight_equipment_stats:
                 - define enchants:|:<[enchant]>,<[item].enchantments.level[<[enchant]>]>
             - else:
               - define enchants:|:<[enchant]>,<[item].enchantments.level[<[enchant]>]>
+          - if <[item].script.yaml_key[armor]||null> != null:
+            - define armor:+:<[item].script.yaml_key[armor]>
           - foreach <[item].nbt_attributes> as:attr:
             - define attr_type:<[attr].split[/].get[1]>
             - define attr_amount:<[attr].split[/].get[4]>
@@ -91,6 +93,7 @@ calculate_weight_equipment_stats:
               - else:
                 - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
     - define chestplate:<item[equipment_chest_slot]>
+    - adjust def:chestplate nbt_attributes:generic.armor/chest/0/<[armor]>
     - adjust def:chestplate enchantments:<[enchants]||<list[]>>
     - equip chest:<[chestplate]>
     - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
