@@ -2,7 +2,6 @@ fake_durability_handler:
   type: world
   events:
     on player breaks block:
-      - narrate <context.event_name>
       - define item:<player.item_in_hand>
       - define amount:-1
       - if <[item].script.yaml_key[fake_durability]||null> == null:
@@ -16,7 +15,6 @@ fake_durability_handler:
           - inject fake_durability_modify
           - inventory set slot:<player.held_item_slot> d:<player.inventory> o:<[new_item]>
     on player item takes damage:
-      - narrate 13
       - if <context.item.script.yaml_key[fake_durability]||null> == null:
         - stop
       - define item:<context.item>
@@ -39,7 +37,6 @@ fake_durability_handler:
 
 fake_durability_modify:
   type: task
-  definitions: item|amount
   script:
     - if <[item].script.yaml_key[fake_durability]||null> != null:
       - adjust def:item nbt:durability/<[item].nbt[durability].+[<[amount]>]||<[item].script.yaml_key[fake_durability].+[<[amount]>]>>
