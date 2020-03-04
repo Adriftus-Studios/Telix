@@ -295,6 +295,15 @@ player_reset_command:
   - kick <player> reason:Standby<&sp>while<&sp>we<&sp>reset<&sp>your<&sp>player<&sp>data.
   - yaml id:player.<player.uuid> unload
 
+resend_recipes_command:
+  type: command
+  name: resend_recipes
+  description: resend_recipes
+  usage: /resend_recipes
+  script:
+  - foreach <server.list_online_players> as:player:
+    - adjust <[player]> resend_recipes
+
 build_item_command:
   type: command
   name: build_item
