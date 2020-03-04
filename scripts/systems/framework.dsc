@@ -318,7 +318,6 @@ build_item_command:
 build_item:
   type: task
   script:
-    - narrate 1
     - if <[item].script.yaml_key[category]||null> != null:
       - if <[item].script.yaml_key[max_stars]||null> != null:
         - if <[item].nbt[stars]||null> == null:
@@ -358,7 +357,6 @@ build_item:
           - define stats:|:<[modifier]>/<[value]>
           - define modifiers:|:<[modifier]>
           - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
-    - narrate 2
     - adjust def:item flags:HIDE_ATTRIBUTES
     - if <[item].script.yaml_key[armor]||null> != null:
       - adjust def:item nbt_attributes:generic.armor/chest/0/<[item].script.yaml_key[armor]>
@@ -370,7 +368,6 @@ build_item:
     - if <[item].script.yaml_key[fake_durability]||null> != null:
       - define line:<&f>Durability:<&sp><[item].nbt[durability]||<[item].script.yaml_key[fake_durability]>><&sp>/<&sp><[item].script.yaml_key[fake_durability]>
       - define lore:|:<[line]>
-    - adjust def:item lore:<[lore]>
-    - narrate 3
+    - adjust def:item lore:<[lore]||<list[]>>
     - adjust def:item nbt:built/true
     - narrate <queue.script>
