@@ -118,7 +118,7 @@ ott_command:
       - else:
         - narrate "<&c>Player not found."
     - else:
-      - narrate "<&a>|-----------------| <&b>One Time Teleport<&a> |--------------------|"
+      - narrate "<&a>|----------------| <&b>One Time Teleport<&a> |-------------------|"
       - narrate "<&6>One-Time-Teleport is a perk given to players when they first join, and lasts for 2 hours."
       - narrate "<&6>It allows you to teleport to a player of your choice within those 2 hours. When you teleport, you won't be able to use OTT again."
       - narrate "<&a>|----------------------------------------------------|"
