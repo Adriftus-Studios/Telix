@@ -18,7 +18,6 @@ custom_iron_sword:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_iron_sword1
       output_quantity: 1
       input:
       - custom_iron_ingot|air|air
@@ -26,7 +25,6 @@ custom_iron_sword:
       - custom_stick|air|air
     2:
       type: shaped
-      recipe_id: custom_iron_sword2
       output_quantity: 1
       input:
       - air|custom_iron_ingot|air
@@ -34,7 +32,6 @@ custom_iron_sword:
       - air|custom_stick|air
     3:
       type: shaped
-      recipe_id: custom_iron_sword3
       output_quantity: 1
       input:
       - air|air|custom_iron_ingot
@@ -52,7 +49,6 @@ custom_iron_pickaxe:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_iron_pickaxe1
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
@@ -70,7 +66,6 @@ custom_iron_axe:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_iron_axe1
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_iron_ingot|air
@@ -78,7 +73,6 @@ custom_iron_axe:
       - air|custom_stick|air
     2:
       type: shaped
-      recipe_id: custom_iron_axe2
       output_quantity: 1
       input:
       - air|custom_iron_ingot|custom_iron_ingot
@@ -86,7 +80,6 @@ custom_iron_axe:
       - air|custom_stick|air
     3:
       type: shaped
-      recipe_id: custom_iron_axe3
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_iron_ingot|air
@@ -94,7 +87,6 @@ custom_iron_axe:
       - custom_stick|air|air
     4:
       type: shaped
-      recipe_id: custom_iron_axe4
       output_quantity: 1
       input:
       - air|custom_iron_ingot|custom_iron_ingot
@@ -112,7 +104,6 @@ custom_iron_shovel:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_iron_shovel1
       output_quantity: 1
       input:
       - custom_iron_ingot|air|air
@@ -120,7 +111,6 @@ custom_iron_shovel:
       - custom_stick|air|air
     2:
       type: shaped
-      recipe_id: custom_iron_shovel2
       output_quantity: 1
       input:
       - air|custom_iron_ingot|air
@@ -128,7 +118,6 @@ custom_iron_shovel:
       - air|custom_stick|air
     3:
       type: shaped
-      recipe_id: custom_iron_shovel3
       output_quantity: 1
       input:
       - air|air|custom_iron_ingot
@@ -146,7 +135,6 @@ custom_iron_hoe:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_iron_hoe1
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_iron_ingot|air
@@ -154,7 +142,6 @@ custom_iron_hoe:
       - air|custom_stick|air
     2:
       type: shaped
-      recipe_id: custom_iron_hoe2
       output_quantity: 1
       input:
       - air|custom_iron_ingot|custom_iron_ingot
@@ -170,7 +157,6 @@ custom_iron_hoe:
       - custom_stick|air|air
     4:
       type: shaped
-      recipe_id: custom_iron_hoe4
       output_quantity: 1
       input:
       - air|custom_iron_ingot|custom_iron_ingot
@@ -187,7 +173,6 @@ custom_iron_nugget:
   recipes:
     1:
       type: shapeless
-      recipe_id: custom_iron_nugget
       output_quantity: 9
       input: custom_iron_ingot
 custom_iron_ingot:
@@ -206,7 +191,6 @@ custom_iron_ingot:
       input: custom_iron_ore
     2:
       type: shaped
-      recipe_id: custom_iron_ingot1
       output_quantity: 1
       input:
       - custom_iron_nugget|custom_iron_nugget|custom_iron_nugget
@@ -214,7 +198,6 @@ custom_iron_ingot:
       - custom_iron_nugget|custom_iron_nugget|custom_iron_nugget
     3:
       type: shapeless
-      recipe_id: custom_iron_ingot2
       output_quantity: 9
       input: custom_iron_block
 custom_iron_block:
@@ -228,7 +211,6 @@ custom_iron_block:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_iron_block1
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
@@ -259,7 +241,6 @@ custom_iron_boots:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_iron_boots1
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_leather_boots|custom_iron_ingot
@@ -267,7 +248,6 @@ custom_iron_boots:
       - air|air|air
     2:
       type: shaped
-      recipe_id: custom_iron_boots2
       output_quantity: 1
       input:
       - air|air|air
@@ -286,7 +266,6 @@ custom_iron_leggings:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_iron_leggings1
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
@@ -305,7 +284,6 @@ custom_iron_chestplate:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_iron_chestplate1
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_leather_chestplate|custom_iron_ingot
@@ -324,7 +302,6 @@ custom_iron_helmet:
   recipes:
     1:
       type: shaped
-      recipe_id: custom_iron_helmet1
       output_quantity: 1
       input:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
@@ -332,7 +309,6 @@ custom_iron_helmet:
       - air|air|air
     1:
       type: shaped
-      recipe_id: custom_iron_helmet2
       output_quantity: 1
       input:
       - air|air|air
