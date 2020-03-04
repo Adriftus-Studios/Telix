@@ -1,6 +1,8 @@
 fake_durability_handler:
   type: world
   events:
+    PlayerBreaksBlock:
+      - narrate 1
     on player breaks block:
       - define item:<player.item_in_hand>
       - define amount:-1
