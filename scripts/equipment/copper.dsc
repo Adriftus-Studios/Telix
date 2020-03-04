@@ -58,32 +58,6 @@ custom_copper_hoe:
       - air|custom_copper_ingot|custom_copper_ingot
       - air|air|custom_stick
       - air|air|custom_stick
-custom_copper_boots:
-  material: iron_boots
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper boots
-  weight: '1'
-  type: item
-  fake_durability: 122
-  recipes:
-    1:
-      type: shaped
-      recipe_id: custom_copper_boots1
-      output_quantity: 1
-      input:
-      - custom_copper_ingot|custom_iron_boots|custom_copper_ingot
-      - custom_copper_ingot|air|custom_copper_ingot
-      - air|air|air
-    2:
-      type: shaped
-      recipe_id: custom_copper_boots2
-      output_quantity: 1
-      input:
-      - air|air|air
-      - custom_copper_ingot|custom_iron_boots|custom_copper_ingot
-      - custom_copper_ingot|air|custom_copper_ingot
 custom_copper_ingot:
   material: iron_ingot
   lore:
@@ -174,6 +148,33 @@ custom_copper_axe:
       - air|custom_copper_ingot|custom_copper_ingot
       - air|custom_copper_ingot|custom_stick
       - air|air|custom_stick
+custom_copper_boots:
+  material: iron_boots
+  lore:
+  - <&6>
+  - '<&8>Item Weight: <script.yaml_key[weight]>'
+  display name: <&7>Copper boots
+  weight: '1'
+  type: item
+  fake_durability: 78
+  armor: 1
+  recipes:
+    1:
+      type: shaped
+      recipe_id: custom_copper_boots1
+      output_quantity: 1
+      input:
+      - custom_copper_ingot|custom_leather_boots|custom_copper_ingot
+      - custom_copper_ingot|air|custom_copper_ingot
+      - air|air|air
+    2:
+      type: shaped
+      recipe_id: custom_copper_boots2
+      output_quantity: 1
+      input:
+      - air|air|air
+      - custom_copper_ingot|custom_leather_boots|custom_copper_ingot
+      - custom_copper_ingot|air|custom_copper_ingot
 custom_copper_leggings:
   material: iron_leggings
   lore:
@@ -182,7 +183,8 @@ custom_copper_leggings:
   display name: <&7>Copper leggings
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 90
+  armor: 3
   recipes:
     1:
       type: shaped
@@ -190,7 +192,7 @@ custom_copper_leggings:
       output_quantity: 1
       input:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_iron_leggings|custom_copper_ingot
+      - custom_copper_ingot|custom_leather_leggings|custom_copper_ingot
       - custom_copper_ingot|air|custom_copper_ingot
 custom_copper_chestplate:
   material: iron_chestplate
@@ -200,16 +202,44 @@ custom_copper_chestplate:
   display name: <&7>Copper chestplate
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 96
+  armor: 3
   recipes:
     1:
       type: shaped
       recipe_id: custom_copper_chestplate1
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_iron_chestplate|custom_copper_ingot
+      - custom_copper_ingot|custom_leather_chestplate|custom_copper_ingot
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
+custom_copper_helmet:
+  material: iron_helmet
+  lore:
+  - <&6>
+  - '<&8>Item Weight: <script.yaml_key[weight]>'
+  display name: <&7>Copper helmet
+  weight: '1'
+  type: item
+  fake_durability: 66
+  armor: 1
+  recipes:
+    1:
+      type: shaped
+      recipe_id: custom_copper_helmet1
+      output_quantity: 1
+      input:
+      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
+      - custom_copper_ingot|custom_leather_helmet|custom_copper_ingot
+      - air|air|air
+    1:
+      type: shaped
+      recipe_id: custom_copper_helmet2
+      output_quantity: 1
+      input:
+      - air|air|air
+      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
+      - custom_copper_ingot|custom_leather_helmet|custom_copper_ingot
 custom_copper_shovel:
   material: iron_shovel
   lore:
@@ -244,32 +274,6 @@ custom_copper_shovel:
       - air|air|custom_copper_ingot
       - air|air|custom_stick
       - air|air|custom_stick
-custom_copper_helmet:
-  material: iron_helmet
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper helmet
-  weight: '1'
-  type: item
-  fake_durability: 122
-  recipes:
-    1:
-      type: shaped
-      recipe_id: custom_copper_helmet1
-      output_quantity: 1
-      input:
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_iron_helmet|custom_copper_ingot
-      - air|air|air
-    1:
-      type: shaped
-      recipe_id: custom_copper_helmet2
-      output_quantity: 1
-      input:
-      - air|air|air
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_iron_helmet|custom_copper_ingot
 custom_copper_ore:
   material: iron_ore
   lore:

@@ -347,5 +347,9 @@ build_item:
           - define stats:|:<[modifier]>/<[value]>
           - define modifiers:|:<[modifier]>
           - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
+      - adjust def:item flags:HIDE_ATTRIBUTES
+      - if <[item].script.yaml_key[armor]||null> != null:
+        - adjust def:item nbt_attributes:generic.armor/chest/0/<[item].script.yaml_key[armor]>
+        - adjust def:item lore:|:<&9>+<[item].script.yaml_key[armor]><&sp>Armor
       - adjust def:item lore:<[lore]>
       - adjust def:item nbt:built/true
