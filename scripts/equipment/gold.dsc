@@ -1,137 +1,306 @@
 
-custom_golden_axe:
-  material: golden_axe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_axe
-  weight: '1'
-  type: item
-custom_gold_block:
-  material: gold_block
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gold_block
-  weight: '1'
-  type: item
-custom_golden_chestplate:
-  material: golden_chestplate
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_chestplate
-  weight: '1'
-  type: item
-custom_golden_hoe:
-  material: golden_hoe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_hoe
-  weight: '1'
-  type: item
-custom_golden_pickaxe:
-  material: golden_pickaxe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_pickaxe
-  weight: '1'
-  type: item
-custom_gold_nugget:
-  material: gold_nugget
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gold_nugget
-  weight: '1'
-  type: item
-custom_golden_boots:
-  material: golden_boots
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_boots
-  weight: '1'
-  type: item
 custom_golden_apple:
   material: golden_apple
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_apple
+  display name: <&7>Golden apple
   weight: '1'
   type: item
 custom_golden_carrot:
   material: golden_carrot
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_carrot
-  weight: '1'
-  type: item
-custom_gold_ingot:
-  material: gold_ingot
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gold_ingot
-  weight: '1'
-  type: item
-custom_golden_horse_armor:
-  material: golden_horse_armor
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_horse_armor
-  weight: '1'
-  type: item
-custom_golden_shovel:
-  material: golden_shovel
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_shovel
+  display name: <&7>Golden carrot
   weight: '1'
   type: item
 custom_enchanted_golden_apple:
   material: enchanted_golden_apple
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Enchanted_golden_apple
   weight: '1'
   type: item
-custom_golden_leggings:
-  material: golden_leggings
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_leggings
+custom_gold_horse_armor:
+  material: golden_horse_armor
+  display name: <&7>Golden horse armor
   weight: '1'
   type: item
-custom_golden_helmet:
-  material: golden_helmet
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_helmet
-  weight: '1'
-  type: item
-custom_gold_ore:
-  material: gold_ore
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gold_ore
-  weight: '1'
-  type: item
-custom_golden_sword:
+custom_gold_sword:
   material: golden_sword
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Golden_sword
+  display name: <&7>Golden sword
   weight: '1'
   type: item
+  fake_durability: 32
+  damage: 4
+  attack_speed: 4
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|air|air
+      - custom_gold_ingot|air|air
+      - custom_stick|air|air
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|custom_gold_ingot|air
+      - air|custom_gold_ingot|air
+      - air|custom_stick|air
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|air|custom_gold_ingot
+      - air|air|custom_gold_ingot
+      - air|air|custom_stick
+custom_gold_pickaxe:
+  material: golden_pickaxe
+  display name: <&7>Golden pickaxe
+  weight: '1'
+  type: item
+  fake_durability: 32
+  damage: 2
+  attack_speed: 4
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
+      - air|custom_stick|air
+      - air|custom_stick|air
+custom_gold_axe:
+  material: golden_axe
+  display name: <&7>Golden axe
+  weight: '1'
+  type: item
+  fake_durability: 32
+  damage: 3
+  attack_speed: 4
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|custom_gold_ingot|air
+      - custom_gold_ingot|custom_stick|air
+      - air|custom_stick|air
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|custom_gold_ingot|custom_gold_ingot
+      - air|custom_stick|custom_gold_ingot
+      - air|custom_stick|air
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|custom_gold_ingot|air
+      - custom_stick|custom_gold_ingot|air
+      - custom_stick|air|air
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|custom_gold_ingot|custom_gold_ingot
+      - air|custom_gold_ingot|custom_stick
+      - air|air|custom_stick
+custom_gold_shovel:
+  material: golden_shovel
+  display name: <&7>Golden shovel
+  weight: '1'
+  type: item
+  fake_durability: 32
+  damage: 1
+  attack_speed: 4
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|air|air
+      - custom_stick|air|air
+      - custom_stick|air|air
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|custom_gold_ingot|air
+      - air|custom_stick|air
+      - air|custom_stick|air
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|air|custom_gold_ingot
+      - air|air|custom_stick
+      - air|air|custom_stick
+custom_gold_hoe:
+  material: golden_hoe
+  display name: <&7>Golden hoe
+  weight: '1'
+  type: item
+  fake_durability: 32
+  damage: 1
+  attack_speed: 4
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|custom_gold_ingot|air
+      - air|custom_stick|air
+      - air|custom_stick|air
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|custom_gold_ingot|custom_gold_ingot
+      - air|custom_stick|air
+      - air|custom_stick|air
+    3:
+      type: shaped
+      recipe_id: custom_gold_hoe3
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|custom_gold_ingot|air
+      - custom_stick|air|air
+      - custom_stick|air|air
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|custom_gold_ingot|custom_gold_ingot
+      - air|air|custom_stick
+      - air|air|custom_stick
+custom_gold_nugget:
+  material: gold_nugget
+  display name: <&7>Gold nugget
+  weight: '0'
+  type: item
+  recipes:
+    1:
+      type: shapeless
+      output_quantity: 9
+      input: custom_gold_ingot
+custom_gold_ingot:
+  material: golden_ingot
+  display name: <&7>Golden ingot
+  weight: '1'
+  type: item
+  recipes:
+    1:
+      type: furnace
+      cook_time: 10s
+      experience: 5
+      input: custom_gold_ore
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_nugget|custom_gold_nugget|custom_gold_nugget
+      - custom_gold_nugget|custom_gold_nugget|custom_gold_nugget
+      - custom_gold_nugget|custom_gold_nugget|custom_gold_nugget
+    3:
+      type: shapeless
+      output_quantity: 9
+      input: custom_gold_block
+custom_gold_block:
+  material: golden_block
+  display name: <&7>Golden block
+  weight: '9'
+  type: item
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
+      - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
+      - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
+custom_gold_ore:
+  material: golden_ore
+  display name: <&7>Golden ore
+  weight: '1'
+  type: item
+  ore:
+      biome: all
+      block: stone
+      chance: 20
+custom_gold_boots:
+  material: golden_boots
+  lore:
+  display name: <&7>Golden boots
+  category: shoes
+  weight: '1'
+  type: item
+  fake_durability: 429
+  armor: 3
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|custom_iron_boots|custom_gold_ingot
+      - custom_gold_ingot|air|custom_gold_ingot
+      - air|air|air
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|air|air
+      - custom_gold_ingot|custom_iron_boots|custom_gold_ingot
+      - custom_gold_ingot|air|custom_gold_ingot
+custom_gold_leggings:
+  material: golden_leggings
+  display name: <&7>Golden leggings
+  category: pants
+  weight: '1'
+  type: item
+  fake_durability: 495
+  armor: 6
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
+      - custom_gold_ingot|custom_iron_leggings|custom_gold_ingot
+      - custom_gold_ingot|air|custom_gold_ingot
+custom_gold_chestplate:
+  material: golden_chestplate
+  display name: <&7>Golden chestplate
+  category: shirt
+  weight: '1'
+  type: item
+  fake_durability: 528
+  armor: 8
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|custom_iron_chestplate|custom_gold_ingot
+      - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
+      - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
+custom_gold_helmet:
+  material: golden_helmet
+  display name: <&7>Golden helmet
+  category: hat
+  weight: '1'
+  type: item
+  fake_durability: 363
+  armor: 3
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
+      - custom_gold_ingot|custom_iron_helmet|custom_gold_ingot
+      - air|air|air
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|air|air
+      - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
+      - custom_gold_ingot|custom_iron_helmet|custom_gold_ingot
