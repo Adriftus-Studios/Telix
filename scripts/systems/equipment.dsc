@@ -153,9 +153,8 @@ equipment_inventory_handler:
                     - inject built_item
                   - narrate 2
                   - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=1]>
-                  - adjust <player> item_on_cursor:<[item].with[quantity=<[item].quantity.sub[1]>]>
-                  - narrate <[item].with[quantity=1]>
-                  - narrate <[item].with[quantity=<[item].quantity.sub[1]>]>
+                  - adjust def:item quantity:<[item].quantity.sub[1]>
+                  - adjust <player> item_on_cursor:<[item]>
                 - else:
                   - if <context.cursor_item.quantity> > 1:
                     - determine passively cancelled
