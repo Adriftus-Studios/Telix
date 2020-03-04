@@ -21,7 +21,7 @@ equipment_chest_slot:
   - "<&e>Click to open your equipment window."
   mechanisms:
     nbt_attributes: generic.armor/chest/0/0
-    flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
+    flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS
 
 equipment_leg_slot:
   type: item
