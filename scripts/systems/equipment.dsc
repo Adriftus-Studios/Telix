@@ -126,14 +126,12 @@ equipment_inventory_handler:
         - define slot:<[value].split[/].get[1]>
         - if <[item].script.yaml_key[fake_durability]||null> == null:
           - foreach next
-        - narrate <[item]>
         - define amount:-1
+        - inject fake_durability_modify
         - if !<[item].enchantments.contains_any[DURABILITY]>:
-          - inject fake_durability_modify
           - inventory set slot:<[slot]> d:<inventory[equipment_<player.uuid>]> o:<[new_item]>
         - else:
           - if <util.random.int[0].to[100]> < <util.random.int[100].to[100]./[<[item].enchantments.level[DURABILITY].+[1]>]>:
-            - inject fake_durability_modify
             - inventory set slot:<[slot]> d:<inventory[equipment_<player.uuid>]> o:<[new_item]>
         - narrate <[new_item]>
       - run update_stats def:<player>
