@@ -318,6 +318,7 @@ build_item_command:
 build_item:
   type: task
   script:
+    - narrate 1
     - if <[item].script.yaml_key[category]||null> != null:
       - if <[item].script.yaml_key[max_stars]||null> != null:
         - if <[item].nbt[stars]||null> == null:
@@ -357,6 +358,7 @@ build_item:
           - define stats:|:<[modifier]>/<[value]>
           - define modifiers:|:<[modifier]>
           - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
+    - narrate 2
     - adjust def:item flags:HIDE_ATTRIBUTES
     - if <[item].script.yaml_key[armor]||null> != null:
       - adjust def:item nbt_attributes:generic.armor/chest/0/<[item].script.yaml_key[armor]>
