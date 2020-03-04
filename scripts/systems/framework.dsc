@@ -373,4 +373,4 @@ build_item:
     - adjust def:item lore:<[lore]>
     - narrate 3
     - adjust def:item nbt:built/true
-    - narrate <queue.name>
+    - narrate <queue.script>
