@@ -107,8 +107,6 @@ equipment_inventory_handler:
   type: world
   debug: false
   events:
-    on player breaks block:
-      - narrate b
     on player drags item in equipment_character:
       - if <player.open_inventory.script_name> == "equipment_character":
         - foreach <context.raw_slots> as:slot:
