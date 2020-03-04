@@ -1,3 +1,38 @@
+
+custom_copper_sword:
+  material: iron_sword
+  lore:
+  - <&6>
+  - '<&8>Item Weight: <script.yaml_key[weight]>'
+  display name: <&7>Copper sword
+  weight: '1'
+  type: item
+  fake_durability: 122
+  recipes:
+    1:
+      type: shaped
+      recipe_id: custom_copper_sword1
+      output_quantity: 1
+      input:
+      - custom_copper_ingot|air|air
+      - custom_copper_ingot|air|air
+      - custom_stick|air|air
+    2:
+      type: shaped
+      recipe_id: custom_copper_sword2
+      output_quantity: 1
+      input:
+      - air|custom_copper_ingot|air
+      - air|custom_copper_ingot|air
+      - air|custom_stick|air
+    3:
+      type: shaped
+      recipe_id: custom_copper_sword3
+      output_quantity: 1
+      input:
+      - air|air|custom_copper_ingot
+      - air|air|custom_copper_ingot
+      - air|air|custom_stick
 custom_copper_pickaxe:
   material: iron_pickaxe
   lore:
@@ -16,6 +51,82 @@ custom_copper_pickaxe:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
       - air|custom_stick|air
       - air|custom_stick|air
+custom_copper_axe:
+  material: iron_axe
+  lore:
+  - <&6>
+  - '<&8>Item Weight: <script.yaml_key[weight]>'
+  display name: <&7>Copper axe
+  weight: '1'
+  type: item
+  fake_durability: 122
+  recipes:
+    1:
+      type: shaped
+      recipe_id: custom_copper_axe1
+      output_quantity: 1
+      input:
+      - custom_copper_ingot|custom_copper_ingot|air
+      - custom_copper_ingot|custom_stick|air
+      - air|custom_stick|air
+    2:
+      type: shaped
+      recipe_id: custom_copper_axe2
+      output_quantity: 1
+      input:
+      - air|custom_copper_ingot|custom_copper_ingot
+      - air|custom_stick|custom_copper_ingot
+      - air|custom_stick|air
+    3:
+      type: shaped
+      recipe_id: custom_copper_axe3
+      output_quantity: 1
+      input:
+      - custom_copper_ingot|custom_copper_ingot|air
+      - custom_stick|custom_copper_ingot|air
+      - custom_stick|air|air
+    4:
+      type: shaped
+      recipe_id: custom_copper_axe4
+      output_quantity: 1
+      input:
+      - air|custom_copper_ingot|custom_copper_ingot
+      - air|custom_copper_ingot|custom_stick
+      - air|air|custom_stick
+custom_copper_shovel:
+  material: iron_shovel
+  lore:
+  - <&6>
+  - '<&8>Item Weight: <script.yaml_key[weight]>'
+  display name: <&7>Copper shovel
+  weight: '1'
+  type: item
+  fake_durability: 122
+  recipes:
+    1:
+      type: shaped
+      recipe_id: custom_copper_shovel1
+      output_quantity: 1
+      input:
+      - custom_copper_ingot|air|air
+      - custom_stick|air|air
+      - custom_stick|air|air
+    2:
+      type: shaped
+      recipe_id: custom_copper_shovel2
+      output_quantity: 1
+      input:
+      - air|custom_copper_ingot|air
+      - air|custom_stick|air
+      - air|custom_stick|air
+    3:
+      type: shaped
+      recipe_id: custom_copper_shovel3
+      output_quantity: 1
+      input:
+      - air|air|custom_copper_ingot
+      - air|air|custom_stick
+      - air|air|custom_stick
 custom_copper_hoe:
   material: iron_hoe
   lore:
@@ -72,82 +183,18 @@ custom_copper_ingot:
       cook_time: 10s
       experience: 5
       input: custom_copper_ore
-custom_copper_sword:
-  material: iron_sword
+custom_copper_ore:
+  material: iron_ore
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper sword
+  display name: <&7>Copper ore
   weight: '1'
   type: item
-  fake_durability: 122
-  recipes:
-    1:
-      type: shaped
-      recipe_id: custom_copper_sword1
-      output_quantity: 1
-      input:
-      - custom_copper_ingot|air|air
-      - custom_copper_ingot|air|air
-      - custom_stick|air|air
-    2:
-      type: shaped
-      recipe_id: custom_copper_sword2
-      output_quantity: 1
-      input:
-      - air|custom_copper_ingot|air
-      - air|custom_copper_ingot|air
-      - air|custom_stick|air
-    3:
-      type: shaped
-      recipe_id: custom_copper_sword3
-      output_quantity: 1
-      input:
-      - air|air|custom_copper_ingot
-      - air|air|custom_copper_ingot
-      - air|air|custom_stick
-custom_copper_axe:
-  material: iron_axe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper axe
-  weight: '1'
-  type: item
-  fake_durability: 122
-  recipes:
-    1:
-      type: shaped
-      recipe_id: custom_copper_axe1
-      output_quantity: 1
-      input:
-      - custom_copper_ingot|custom_copper_ingot|air
-      - custom_copper_ingot|custom_stick|air
-      - air|custom_stick|air
-    2:
-      type: shaped
-      recipe_id: custom_copper_axe2
-      output_quantity: 1
-      input:
-      - air|custom_copper_ingot|custom_copper_ingot
-      - air|custom_stick|custom_copper_ingot
-      - air|custom_stick|air
-    3:
-      type: shaped
-      recipe_id: custom_copper_axe3
-      output_quantity: 1
-      input:
-      - custom_copper_ingot|custom_copper_ingot|air
-      - custom_stick|custom_copper_ingot|air
-      - custom_stick|air|air
-    4:
-      type: shaped
-      recipe_id: custom_copper_axe4
-      output_quantity: 1
-      input:
-      - air|custom_copper_ingot|custom_copper_ingot
-      - air|custom_copper_ingot|custom_stick
-      - air|air|custom_stick
+  ore:
+      biome: all
+      block: stone
+      chance: 20
 custom_copper_boots:
   material: iron_boots
   lore:
@@ -240,49 +287,3 @@ custom_copper_helmet:
       - air|air|air
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
       - custom_copper_ingot|custom_leather_helmet|custom_copper_ingot
-custom_copper_shovel:
-  material: iron_shovel
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper shovel
-  weight: '1'
-  type: item
-  fake_durability: 122
-  recipes:
-    1:
-      type: shaped
-      recipe_id: custom_copper_shovel1
-      output_quantity: 1
-      input:
-      - custom_copper_ingot|air|air
-      - custom_stick|air|air
-      - custom_stick|air|air
-    2:
-      type: shaped
-      recipe_id: custom_copper_shovel2
-      output_quantity: 1
-      input:
-      - air|custom_copper_ingot|air
-      - air|custom_stick|air
-      - air|custom_stick|air
-    3:
-      type: shaped
-      recipe_id: custom_copper_shovel3
-      output_quantity: 1
-      input:
-      - air|air|custom_copper_ingot
-      - air|air|custom_stick
-      - air|air|custom_stick
-custom_copper_ore:
-  material: iron_ore
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper ore
-  weight: '1'
-  type: item
-  ore:
-      biome: all
-      block: stone
-      chance: 20
