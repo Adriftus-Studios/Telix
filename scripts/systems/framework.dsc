@@ -371,4 +371,6 @@ build_item:
       - define line:<&f>Durability:<&sp><[item].nbt[durability]||<[item].script.yaml_key[fake_durability]>><&sp>/<&sp><[item].script.yaml_key[fake_durability]>
       - define lore:|:<[line]>
     - adjust def:item lore:<[lore]>
+    - narrate 3
     - adjust def:item nbt:built/true
+    - narrate <queue.name>
