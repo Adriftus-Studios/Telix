@@ -195,6 +195,8 @@ equipment_inventory_handler:
         - if <context.raw_slot> > 54:
           - determine passively cancelled
           - define found:false
+          - if <context.item.script.yaml_key[category]||null> == null:
+            - stop
           - foreach <[slotmap]> as:slot:
             - if !<[found]>:
               - if <[slot].contains[/<context.item.script.yaml_key[category]>]>:
