@@ -247,35 +247,8 @@ custom_steel_chestplate:
   sockets: 1
   equipment_modifiers:
     health:
-      max: 100
-      min: 10
-    speed:
-      max: 100
-      min: 10
-    weight:
-      max: 100
-      min: 10
-    power:
-      max: 100
-      min: 10
-    food:
-      max: 100
-      min: 10
-    thirst:
-      max: 100
-      min: 10
-    constitution:
-      max: 100
-      min: 10
-    melee_damage:
-      max: 100
-      min: 10
-    experience_multiplier:
-      max: 100
-      min: 10
-    drop_rate_multiplier:
-      max: 100
-      min: 10
+      max: 20
+      min: 1
   recipes:
     1:
       type: shaped

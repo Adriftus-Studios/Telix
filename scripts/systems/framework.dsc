@@ -194,6 +194,7 @@ custom_item_override:
       - if <context.item.script.name||null> == null:
         - define item:<context.item>
         - inject build_item
+        - narrate 1
         - determine <[item]>
     on furnace smelts item:
       - if <context.result_item.script.name||null> == null:
