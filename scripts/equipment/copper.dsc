@@ -4,7 +4,9 @@ custom_copper_sword:
   display name: <&7>Copper sword
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 175
+  damage: 5
+  attack_speed: 4
   recipes:
     1:
       type: shaped
@@ -32,7 +34,9 @@ custom_copper_pickaxe:
   display name: <&7>Copper pickaxe
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 175
+  damage: 3
+  attack_speed: 4
   recipes:
     1:
       type: shaped
@@ -46,7 +50,9 @@ custom_copper_axe:
   display name: <&7>Copper axe
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 175
+  damage: 4
+  attack_speed: 4
   recipes:
     1:
       type: shaped
@@ -81,7 +87,9 @@ custom_copper_shovel:
   display name: <&7>Copper shovel
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 175
+  damage: 2
+  attack_speed: 4
   recipes:
     1:
       type: shaped
@@ -109,7 +117,9 @@ custom_copper_hoe:
   display name: <&7>Copper hoe
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 175
+  damage: 2
+  attack_speed: 4
   recipes:
     1:
       type: shaped

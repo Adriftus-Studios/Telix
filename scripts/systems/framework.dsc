@@ -360,5 +360,9 @@ build_item:
       - if <[item].script.yaml_key[armor]||null> != null:
         - adjust def:item nbt_attributes:generic.armor/chest/0/<[item].script.yaml_key[armor]>
         - adjust def:item lore:|:<&9>+<[item].script.yaml_key[armor]><&sp>Armor
+      - if <[item].script.yaml_key[damage]||null> != null:
+        - adjust def:item nbt_attributes:generic.attackDamage/hand/0/<[item].script.yaml_key[damage]>
+      - if <[item].script.yaml_key[attack_speed]||null> != null:
+        - adjust def:item nbt_attributes:attackSpeed/hand/0/<[item].script.yaml_key[attack_speed]>
       - adjust def:item lore:<[lore]>
       - adjust def:item nbt:built/true
