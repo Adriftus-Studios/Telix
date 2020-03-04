@@ -7,7 +7,6 @@ fake_durability_handler:
         - stop
       - define item:<context.item>
       - define amount:-1
-      - wait 1t
       - if !<[item].enchantments.contains_any[DURABILITY]>:
         - inject fake_durability_modify
         - inventory set slot:<context.slot> d:<player.inventory> o:<[new_item]>
