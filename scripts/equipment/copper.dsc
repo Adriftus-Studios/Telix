@@ -1,9 +1,6 @@
 
 custom_copper_sword:
   material: iron_sword
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper sword
   weight: '1'
   type: item
@@ -32,9 +29,6 @@ custom_copper_sword:
       - air|air|custom_stick
 custom_copper_pickaxe:
   material: iron_pickaxe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper pickaxe
   weight: '1'
   type: item
@@ -49,9 +43,6 @@ custom_copper_pickaxe:
       - air|custom_stick|air
 custom_copper_axe:
   material: iron_axe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper axe
   weight: '1'
   type: item
@@ -87,9 +78,6 @@ custom_copper_axe:
       - air|air|custom_stick
 custom_copper_shovel:
   material: iron_shovel
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper shovel
   weight: '1'
   type: item
@@ -118,9 +106,6 @@ custom_copper_shovel:
       - air|air|custom_stick
 custom_copper_hoe:
   material: iron_hoe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper hoe
   weight: '1'
   type: item
@@ -157,9 +142,6 @@ custom_copper_hoe:
       - air|air|custom_stick
 custom_copper_nugget:
   material: iron_nugget
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper nugget
   weight: '0'
   type: item
@@ -170,9 +152,6 @@ custom_copper_nugget:
       input: custom_copper_ingot
 custom_copper_ingot:
   material: iron_ingot
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper ingot
   weight: '1'
   type: item
@@ -195,9 +174,6 @@ custom_copper_ingot:
       input: custom_copper_block
 custom_copper_block:
   material: iron_block
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper block
   weight: '9'
   type: item
@@ -211,9 +187,6 @@ custom_copper_block:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
 custom_copper_ore:
   material: iron_ore
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper ore
   weight: '1'
   type: item
@@ -224,8 +197,6 @@ custom_copper_ore:
 custom_copper_boots:
   material: iron_boots
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper boots
   category: shoes
   weight: '1'
@@ -249,9 +220,6 @@ custom_copper_boots:
       - custom_copper_ingot|air|custom_copper_ingot
 custom_copper_leggings:
   material: iron_leggings
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper leggings
   category: pants
   weight: '1'
@@ -268,9 +236,6 @@ custom_copper_leggings:
       - custom_copper_ingot|air|custom_copper_ingot
 custom_copper_chestplate:
   material: iron_chestplate
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper chestplate
   category: shirt
   weight: '1'
@@ -287,9 +252,6 @@ custom_copper_chestplate:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
 custom_copper_helmet:
   material: iron_helmet
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper helmet
   category: hat
   weight: '1'
