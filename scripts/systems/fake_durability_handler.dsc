@@ -1,19 +1,6 @@
 fake_durability_handler:
   type: world
   events:
-    on player breaks block:
-      - define item:<player.item_in_hand>
-      - define amount:-1
-      - if <[item].script.yaml_key[fake_durability]||null> == null:
-        - stop
-      - if !<[item].enchantments.contains_any[DURABILITY]>:
-        - inject fake_durability_modify
-        - inventory set slot:<player.held_item_slot> d:<player.inventory> o:<[new_item]>
-        - narrate <[new_item]>
-      - else:
-        - if <util.random.int[0].to[100]> < <util.random.int[100].to[100]./[<[item].enchantments.level[DURABILITY].+[1]>]>:
-          - inject fake_durability_modify
-          - inventory set slot:<player.held_item_slot> d:<player.inventory> o:<[new_item]>
     on player item takes damage:
       - narrate 1
       - if <context.item.script.yaml_key[fake_durability]||null> == null:
