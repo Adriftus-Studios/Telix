@@ -13,6 +13,19 @@ custom_leather_boots:
   type: item
   fake_durability: 65
   armor: 1
+  equipment_rating: 5
+  max_stars: 1
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 10
+      min: 1
+    weight:
+      max: 20
+      min: 1
+    power:
+      max: 15
+      min: 1
   recipes:
     1:
       type: shaped
@@ -36,6 +49,19 @@ custom_leather_leggings:
   type: item
   fake_durability: 75
   armor: 2
+  equipment_rating: 5
+  max_stars: 1
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 10
+      min: 1
+    weight:
+      max: 20
+      min: 1
+    power:
+      max: 15
+      min: 1
   recipes:
     1:
       type: shaped
@@ -52,6 +78,19 @@ custom_leather_chestplate:
   type: item
   fake_durability: 80
   armor: 3
+  equipment_rating: 5
+  max_stars: 1
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 10
+      min: 1
+    weight:
+      max: 20
+      min: 1
+    power:
+      max: 15
+      min: 1
   recipes:
     1:
       type: shaped
@@ -68,6 +107,19 @@ custom_leather_helmet:
   type: item
   fake_durability: 55
   armor: 1
+  equipment_rating: 5
+  max_stars: 1
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 10
+      min: 1
+    weight:
+      max: 20
+      min: 1
+    power:
+      max: 15
+      min: 1
   recipes:
     1:
       type: shaped

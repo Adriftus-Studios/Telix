@@ -200,6 +200,16 @@ custom_diamond_boots:
   type: item
   fake_durability: 429
   armor: 3
+  equipment_rating: 5
+  max_stars: 6
+  sockets: 1
+  equipment_modifiers:
+    health:
+      max: 5
+      min: 1
+    power:
+      max: 10
+      min: 1
   recipes:
     1:
       type: shaped
@@ -223,6 +233,16 @@ custom_diamond_leggings:
   type: item
   fake_durability: 495
   armor: 6
+  equipment_rating: 5
+  max_stars: 6
+  sockets: 1
+  equipment_modifiers:
+    health:
+      max: 5
+      min: 1
+    power:
+      max: 10
+      min: 1
   recipes:
     1:
       type: shaped
@@ -239,6 +259,16 @@ custom_diamond_chestplate:
   type: item
   fake_durability: 528
   armor: 8
+  equipment_rating: 5
+  max_stars: 6
+  sockets: 1
+  equipment_modifiers:
+    health:
+      max: 5
+      min: 1
+    power:
+      max: 10
+      min: 1
   recipes:
     1:
       type: shaped
@@ -255,6 +285,16 @@ custom_diamond_helmet:
   type: item
   fake_durability: 363
   armor: 3
+  equipment_rating: 5
+  max_stars: 6
+  sockets: 1
+  equipment_modifiers:
+    health:
+      max: 5
+      min: 1
+    power:
+      max: 10
+      min: 1
   recipes:
     1:
       type: shaped

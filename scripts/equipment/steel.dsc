@@ -204,6 +204,16 @@ custom_steel_boots:
   type: item
   fake_durability: 325
   armor: 2
+  equipment_rating: 5
+  max_stars: 7
+  sockets: 1
+  equipment_modifiers:
+    health:
+      max: 4
+      min: 0
+    food:
+      max: 10
+      min: 1
   recipes:
     1:
       type: shaped
@@ -227,6 +237,16 @@ custom_steel_leggings:
   type: item
   fake_durability: 375
   armor: 5
+  equipment_rating: 5
+  max_stars: 7
+  sockets: 1
+  equipment_modifiers:
+    health:
+      max: 4
+      min: 0
+    food:
+      max: 10
+      min: 1
   recipes:
     1:
       type: shaped
@@ -243,11 +263,15 @@ custom_steel_chestplate:
   type: item
   fake_durability: 400
   armor: 6
-  max_stars: 5
+  equipment_rating: 5
+  max_stars: 7
   sockets: 1
   equipment_modifiers:
     health:
-      max: 20
+      max: 4
+      min: 0
+    food:
+      max: 10
       min: 1
   recipes:
     1:
@@ -265,6 +289,16 @@ custom_steel_helmet:
   type: item
   fake_durability: 275
   armor: 2
+  equipment_rating: 5
+  max_stars: 7
+  sockets: 1
+  equipment_modifiers:
+    health:
+      max: 4
+      min: 0
+    food:
+      max: 10
+      min: 1
   recipes:
     1:
       type: shaped

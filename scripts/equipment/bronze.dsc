@@ -204,6 +204,16 @@ custom_bronze_boots:
   type: item
   fake_durability: 195
   armor: 2
+  equipment_rating: 5
+  max_stars: 6
+  sockets: 2
+  equipment_modifiers:
+    constitution:
+      max: 10
+      min: 1
+    melee_damage:
+      max: 5
+      min: 1
   recipes:
     1:
       type: shaped
@@ -227,6 +237,16 @@ custom_bronze_leggings:
   type: item
   fake_durability: 225
   armor: 5
+  equipment_rating: 5
+  max_stars: 6
+  sockets: 2
+  equipment_modifiers:
+    constitution:
+      max: 10
+      min: 1
+    melee_damage:
+      max: 5
+      min: 1
   recipes:
     1:
       type: shaped
@@ -243,6 +263,16 @@ custom_bronze_chestplate:
   type: item
   fake_durability: 240
   armor: 6
+  equipment_rating: 5
+  max_stars: 6
+  sockets: 2
+  equipment_modifiers:
+    constitution:
+      max: 10
+      min: 1
+    melee_damage:
+      max: 5
+      min: 1
   recipes:
     1:
       type: shaped
@@ -259,6 +289,16 @@ custom_bronze_helmet:
   type: item
   fake_durability: 165
   armor: 2
+  equipment_rating: 5
+  max_stars: 6
+  sockets: 2
+  equipment_modifiers:
+    constitution:
+      max: 10
+      min: 1
+    melee_damage:
+      max: 5
+      min: 1
   recipes:
     1:
       type: shaped

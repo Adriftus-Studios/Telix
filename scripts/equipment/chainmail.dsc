@@ -19,6 +19,19 @@ custom_chainmail_boots:
   type: item
   fake_durability: 195
   armor: 1
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 2
+  equipment_modifiers:
+    health:
+      max: 3
+      min: 1
+    power:
+      max: 10
+      min: 1
+    experience_multiplier:
+      max: 5
+      min: 1
   recipes:
     1:
       type: shaped
@@ -42,6 +55,19 @@ custom_chainmail_leggings:
   type: item
   fake_durability: 225
   armor: 4
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 2
+  equipment_modifiers:
+    health:
+      max: 3
+      min: 1
+    power:
+      max: 10
+      min: 1
+    experience_multiplier:
+      max: 5
+      min: 1
   recipes:
     1:
       type: shaped
@@ -58,6 +84,19 @@ custom_chainmail_chestplate:
   type: item
   fake_durability: 240
   armor: 5
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 2
+  equipment_modifiers:
+    health:
+      max: 3
+      min: 1
+    power:
+      max: 10
+      min: 1
+    experience_multiplier:
+      max: 5
+      min: 1
   recipes:
     1:
       type: shaped
@@ -74,6 +113,19 @@ custom_chainmail_helmet:
   type: item
   fake_durability: 165
   armor: 2
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 2
+  equipment_modifiers:
+    health:
+      max: 3
+      min: 1
+    power:
+      max: 10
+      min: 1
+    experience_multiplier:
+      max: 5
+      min: 1
   recipes:
     1:
       type: shaped

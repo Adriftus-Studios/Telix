@@ -213,6 +213,16 @@ custom_copper_boots:
   type: item
   fake_durability: 78
   armor: 1
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 5
+      min: 1
+    constitution:
+      max: 3
+      min: 1
   recipes:
     1:
       type: shaped
@@ -236,6 +246,16 @@ custom_copper_leggings:
   type: item
   fake_durability: 90
   armor: 3
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 5
+      min: 1
+    constitution:
+      max: 3
+      min: 1
   recipes:
     1:
       type: shaped
@@ -252,6 +272,16 @@ custom_copper_chestplate:
   type: item
   fake_durability: 96
   armor: 3
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 5
+      min: 1
+    constitution:
+      max: 3
+      min: 1
   recipes:
     1:
       type: shaped
@@ -268,6 +298,16 @@ custom_copper_helmet:
   type: item
   fake_durability: 66
   armor: 1
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 5
+      min: 1
+    constitution:
+      max: 3
+      min: 1
   recipes:
     1:
       type: shaped

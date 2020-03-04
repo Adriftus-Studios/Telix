@@ -213,6 +213,22 @@ custom_tin_boots:
   type: item
   fake_durability: 104
   armor: 1
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 10
+      min: 1
+    food:
+      max: 10
+      min: 1
+    thirst:
+      max: 5
+      min: 1
+    constitution:
+      max: 2
+      min: 1
   recipes:
     1:
       type: shaped
@@ -236,6 +252,22 @@ custom_tin_leggings:
   type: item
   fake_durability: 120
   armor: 3
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 10
+      min: 1
+    food:
+      max: 10
+      min: 1
+    thirst:
+      max: 5
+      min: 1
+    constitution:
+      max: 2
+      min: 1
   recipes:
     1:
       type: shaped
@@ -252,6 +284,22 @@ custom_tin_chestplate:
   type: item
   fake_durability: 128
   armor: 4
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 10
+      min: 1
+    food:
+      max: 10
+      min: 1
+    thirst:
+      max: 5
+      min: 1
+    constitution:
+      max: 2
+      min: 1
   recipes:
     1:
       type: shaped
@@ -268,6 +316,22 @@ custom_tin_helmet:
   type: item
   fake_durability: 88
   armor: 1
+  equipment_rating: 5
+  max_stars: 3
+  sockets: 1
+  equipment_modifiers:
+    speed:
+      max: 10
+      min: 1
+    food:
+      max: 10
+      min: 1
+    thirst:
+      max: 5
+      min: 1
+    constitution:
+      max: 2
+      min: 1
   recipes:
     1:
       type: shaped

@@ -193,7 +193,6 @@ custom_item_override:
     on player crafts item:
       - define item:<context.item>
       - inject build_item
-      - narrate 1
       - determine <[item]>
     on furnace smelts item:
       - if <context.result_item.script.name||null> == null:

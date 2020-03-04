@@ -234,6 +234,16 @@ custom_gold_boots:
   type: item
   fake_durability: 429
   armor: 3
+  equipment_rating: 5
+  max_stars: 2
+  sockets: 3
+  equipment_modifiers:
+    speed:
+      max: 15
+      min: 1
+    power:
+      max: 20
+      min: 1
   recipes:
     1:
       type: shaped
@@ -257,6 +267,16 @@ custom_gold_leggings:
   type: item
   fake_durability: 495
   armor: 6
+  equipment_rating: 5
+  max_stars: 2
+  sockets: 3
+  equipment_modifiers:
+    speed:
+      max: 15
+      min: 1
+    power:
+      max: 20
+      min: 1
   recipes:
     1:
       type: shaped
@@ -273,6 +293,16 @@ custom_gold_chestplate:
   type: item
   fake_durability: 528
   armor: 8
+  equipment_rating: 5
+  max_stars: 2
+  sockets: 3
+  equipment_modifiers:
+    speed:
+      max: 15
+      min: 1
+    power:
+      max: 20
+      min: 1
   recipes:
     1:
       type: shaped
@@ -289,6 +319,16 @@ custom_gold_helmet:
   type: item
   fake_durability: 363
   armor: 3
+  equipment_rating: 5
+  max_stars: 2
+  sockets: 3
+  equipment_modifiers:
+    speed:
+      max: 15
+      min: 1
+    power:
+      max: 20
+      min: 1
   recipes:
     1:
       type: shaped
