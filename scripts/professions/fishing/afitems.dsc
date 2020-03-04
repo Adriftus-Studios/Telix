@@ -19,6 +19,7 @@ af_rod_basic:
   display name: <&7>Basic Rod
   rod_rarity: <&7>Common
   weight: 5
+  category: fishing_rod
   mechanisms:
   # starting at 1
     custom_model_data: 1
@@ -46,6 +47,7 @@ af_bait_chum:
   display name: <&a>Chum
   yaml_name: chum
   weight: 0.25
+  category: bait
   lore:
   - "<&b>Drag and drop this bait on any"
   - "<&b>rod to apply the bait."
@@ -58,6 +60,7 @@ af_bait_honeycomb:
   display name: <&a>Honeycomb
   yaml_name: honeycomb
   weight: 0.25
+  category: bait
   lore:
   - "<&b>Drag and drop this bait on any"
   - "<&b>rod to apply the bait."
@@ -147,6 +150,7 @@ af_fish_1:
   mechanisms:
     custom_model_data: 18
   weight: 0.20
+  category: fish
   lore:
   - "<&8>Item Weight: <script.yaml_key[weight]>"
 af_fish_2:
@@ -156,6 +160,7 @@ af_fish_2:
   mechanisms:
     custom_model_data: 1
   weight: 0.20
+  category: fish
   lore:
   - "<&8>Item Weight: <script.yaml_key[weight]>"
 af_fish_3:
@@ -165,6 +170,7 @@ af_fish_3:
   mechanisms:
     custom_model_data: 2
   weight: 0.20
+  category: fish
   lore:
   - "<&8>Item Weight: <script.yaml_key[weight]>"
 
