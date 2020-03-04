@@ -155,8 +155,8 @@ custom_diamond_hoe:
       - air|air|custom_stick
       - air|air|custom_stick
 custom_diamond:
-  material: diamond_ingot
-  display name: <&7>Diamond ingot
+  material: diamond
+  display name: <&7>Diamond
   weight: '1'
   type: item
   recipes:
