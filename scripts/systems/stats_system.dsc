@@ -93,7 +93,7 @@ calculate_weight_equipment_stats:
               - else:
                 - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
     - define chestplate:<item[equipment_chest_slot]>
-    - adjust def:chestplate nbt_attributes:generic.armor/chest/0/<[armor]>
+    - adjust def:chestplate nbt_attributes:generic.armor/chest/0/<[armor]||0>
     - adjust def:chestplate enchantments:<[enchants]||<list[]>>
     - equip chest:<[chestplate]>
     - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
