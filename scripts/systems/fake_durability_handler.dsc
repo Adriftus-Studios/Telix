@@ -2,6 +2,7 @@ fake_durability_handler:
   type: world
   events:
     on player breaks block:
+      - narrate a
       - define item:<player.item_in_hand>
       - define amount:-1
       - if <[item].script.yaml_key[fake_durability]||null> == null:
