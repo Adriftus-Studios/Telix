@@ -482,14 +482,6 @@ custom_pink_terracotta:
   display name: <&7>Pink_terracotta
   weight: '1'
   type: item
-custom_diamond_block:
-  material: diamond_block
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diamond_block
-  weight: '1'
-  type: item
 custom_clay:
   material: clay
   lore:
@@ -2046,14 +2038,6 @@ custom_redstone_torch:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Redstone_torch
-  weight: '1'
-  type: item
-custom_torch:
-  material: torch
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Torch
   weight: '1'
   type: item
 custom_dead_tube_coral_block:
@@ -5758,14 +5742,6 @@ custom_quartz_block:
   display name: <&7>Quartz_block
   weight: '1'
   type: item
-custom_map:
-  material: map
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Map
-  weight: '1'
-  type: item
 custom_potted_orange_tulip:
   material: potted_orange_tulip
   lore:
@@ -5876,14 +5852,6 @@ custom_prismarine:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Prismarine
-  weight: '1'
-  type: item
-custom_campfire:
-  material: campfire
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Campfire
   weight: '1'
   type: item
 custom_spruce_wall_sign:
