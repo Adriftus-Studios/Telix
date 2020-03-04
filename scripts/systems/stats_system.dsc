@@ -78,7 +78,6 @@ calculate_weight_equipment_stats:
           - foreach <[item].nbt_attributes> as:attr:
             - define attr_type:<[attr].split[/].get[1]>
             - define attr_amount:<[attr].split[/].get[4]>
-            - narrate <[attr_type]>/<[attr_amount]>
           - define weight:|:<[item].script.yaml_key[weight]>
           - foreach <[item].nbt_keys> as:stat:
             - if <[stat].starts_with[base_stats.]>:
