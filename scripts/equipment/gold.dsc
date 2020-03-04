@@ -204,7 +204,7 @@ custom_gold_ingot:
       output_quantity: 9
       input: custom_gold_block
 custom_gold_block:
-  material: golden_block
+  material: gold_block
   display name: <&7>Golden block
   weight: '9'
   type: item
@@ -217,7 +217,7 @@ custom_gold_block:
       - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
       - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
 custom_gold_ore:
-  material: golden_ore
+  material: gold_ore
   display name: <&7>Golden ore
   weight: '1'
   type: item
