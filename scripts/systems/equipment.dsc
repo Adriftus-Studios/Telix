@@ -123,9 +123,10 @@ equipment_inventory_handler:
       - foreach <[slotmap]>:
         - define item:<inventory[equipment_<player.uuid>].slot[<[value].split[/].get[1]>]||<item[air]>>
         - define slot:<[value].split[/].get[1]>
+        - narrate 1<[item]>
         - if <[item].script.yaml_key[fake_durability]||null> == null:
           - stop
-        - narrate <[item]>
+        - narrate 2<[item]>
         - define amount:-1
         - if !<[item].enchantments.contains_any[DURABILITY]>:
           - inject fake_durability_modify
