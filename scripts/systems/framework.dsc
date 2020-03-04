@@ -302,7 +302,8 @@ resend_recipes_command:
   usage: /resend_recipes
   script:
   - foreach <server.list_online_players> as:player:
-    - adjust <[player]> resend_recipes
+    - adjust <[player]> quietly_discover_recipe:<server.list_recipe_ids>
+    - adjust <[player]> resend_discovered_recipes
 
 build_item_command:
   type: command
