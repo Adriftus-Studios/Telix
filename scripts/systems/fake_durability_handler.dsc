@@ -2,7 +2,7 @@ fake_durability_handler1:
   type: world
   events:
     on player item takes damage:
-      - narrate 1
+      - narrate 13
       - if <context.item.script.yaml_key[fake_durability]||null> == null:
         - stop
       - define item:<context.item>
