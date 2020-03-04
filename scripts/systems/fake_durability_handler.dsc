@@ -35,6 +35,7 @@ fake_durability_modify:
         - adjust def:item lore:<[item].lore.include[<&f>Durability<&co><&sp><[item].nbt[durability]><&sp>/<&sp><[item].script.yaml_key[fake_durability]>]>
       - else:
         - adjust def:item lore:<[item].lore.replace[regex:(.*)Durability<&co><&sp>(.*)].with[<&f>Durability:<&sp><[item].nbt[durability]><&sp>/<&sp><[item].script.yaml_key[fake_durability]>]>
+      - inject build_item
       - if <[item].nbt[durability]> < 0:
         - define new_item:<item[air]>
       - else:
