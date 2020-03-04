@@ -366,6 +366,8 @@ build_item:
       - if <[item].script.yaml_key[attack_speed]||null> != null:
         - adjust def:item nbt_attributes:attackSpeed/hand/0/<[item].script.yaml_key[attack_speed]>
       - if <[item].script.yaml_key[fake_durability]||null> != null:
-        - define lore:|:<&f>Durability:<&sp><[item].nbt[durability]||<[item].script.yaml_key[fake_durability]>><&sp>/<&sp><[item].script.yaml_key[fake_durability]>
+        - define line:<&f>Durability:<&sp><[item].nbt[durability]||<[item].script.yaml_key[fake_durability]>><&sp>/<&sp><[item].script.yaml_key[fake_durability]>
+        - narrate <[line]>
+        - define lore:|:<[line]>
       - adjust def:item lore:<[lore]>
       - adjust def:item nbt:built/true
