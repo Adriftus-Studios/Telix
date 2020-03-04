@@ -137,7 +137,6 @@ rp_command:
     - else:
       - adjust <player> resource_pack:<[rp_url]>
 
-
 player_setup:
   type: task
   script:
@@ -189,6 +188,11 @@ custom_item_override:
     on item recipe formed:
       - if <context.item.script.name||null> == null:
         - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+        - inject build_item
+        - determine <[item]>
+    on player crafts item:
+      - if <context.item.script.name||null> == null:
+        - define item:<context.item>
         - inject build_item
         - determine <[item]>
     on furnace smelts item:
