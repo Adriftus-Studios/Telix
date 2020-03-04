@@ -196,11 +196,6 @@ custom_item_override:
         - define item:<item[custom_<context.result_item.material.name>].with[quantity=<context.result_item.quantity>]>
         - inject build_item
         - determine <[item]>
-    on player breaks block priority:-10:
-      - if <player.gamemode> == SURVIVAL:
-        - foreach <context.location.drops[<player.item_in_hand>]> as:drop:
-          - define drops:|:<item[custom_<[drop].material.name>].with[quantity=<[drop].quantity>]||<[drop]>>
-        - determine <[drops]>
     on player picks up item:
       - if <context.item.script.name||null> == null:
         - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
