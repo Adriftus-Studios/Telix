@@ -1,8 +1,8 @@
-fake_durability_handler:
+fake_durability_handler1:
   type: world
-  debug: true
   events:
     on player item takes damage:
+      - narrate 1
       - if <context.item.script.yaml_key[fake_durability]||null> == null:
         - stop
       - define item:<context.item>
