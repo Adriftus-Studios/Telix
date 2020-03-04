@@ -129,11 +129,11 @@ equipment_inventory_handler:
         - define amount:-1
         - if !<[item].enchantments.contains_any[DURABILITY]>:
           - inject fake_durability_modify
-          - inventory set slot:<[slot]> d:<[inv]> o:<[new_item]>
+          - inventory set slot:<[slot]> d:<inventory[equipment_<player.uuid>]> o:<[new_item]>
         - else:
           - if <util.random.int[0].to[100]> < <util.random.int[100].to[100]./[<[item].enchantments.level[DURABILITY].+[1]>]>:
             - inject fake_durability_modify
-            - inventory set slot:<[slot]> d:<[inv]> o:<[new_item]>
+            - inventory set slot:<[slot]> d:<inventory[equipment_<player.uuid>]> o:<[new_item]>
         - narrate <[new_item]>
       - run update_stats def:<player>
     on player clicks item in equipment_character with item:
