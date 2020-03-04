@@ -211,7 +211,7 @@ custom_copper_ingot:
       output_quantity: 9
       input: custom_copper_block
 custom_copper_block:
-  material: iron_ingot
+  material: iron_block
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
