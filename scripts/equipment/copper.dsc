@@ -169,6 +169,20 @@ custom_copper_hoe:
       - air|custom_copper_ingot|custom_copper_ingot
       - air|air|custom_stick
       - air|air|custom_stick
+custom_copper_nugget:
+  material: iron_nugget
+  lore:
+  - <&6>
+  - '<&8>Item Weight: <script.yaml_key[weight]>'
+  display name: <&7>Copper nugget
+  weight: '0'
+  type: item
+  recipes:
+    1:
+      type: shapeless
+      recipe_id: custom_copper_nugget
+      output_quantity: 9
+      input: custom_copper_ingot
 custom_copper_ingot:
   material: iron_ingot
   lore:
@@ -183,6 +197,36 @@ custom_copper_ingot:
       cook_time: 10s
       experience: 5
       input: custom_copper_ore
+    2:
+      type: shaped
+      recipe_id: custom_copper_ingot1
+      output_quantity: 1
+      input:
+      - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
+      - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
+      - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
+    3:
+      type: shapeless
+      recipe_id: custom_copper_ingot2
+      output_quantity: 9
+      input: custom_copper_block
+custom_copper_block:
+  material: iron_ingot
+  lore:
+  - <&6>
+  - '<&8>Item Weight: <script.yaml_key[weight]>'
+  display name: <&7>Copper block
+  weight: '9'
+  type: item
+  recipes:
+    1:
+      type: shaped
+      recipe_id: custom_copper_block1
+      output_quantity: 1
+      input:
+      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
+      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
+      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
 custom_copper_ore:
   material: iron_ore
   lore:
