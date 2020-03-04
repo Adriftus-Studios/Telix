@@ -374,4 +374,3 @@ build_item:
       - define lore:|:<[line]>
     - adjust def:item lore:<[lore]||<list[]>>
     - adjust def:item nbt:built/true
-    - narrate <queue.script>
