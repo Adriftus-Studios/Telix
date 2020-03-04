@@ -227,6 +227,7 @@ custom_copper_boots:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper boots
+  category: shoes
   weight: '1'
   type: item
   fake_durability: 78
@@ -252,6 +253,7 @@ custom_copper_leggings:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper leggings
+  category: pants
   weight: '1'
   type: item
   fake_durability: 90
@@ -270,6 +272,7 @@ custom_copper_chestplate:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper chestplate
+  category: shirt
   weight: '1'
   type: item
   fake_durability: 96
@@ -288,6 +291,7 @@ custom_copper_helmet:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Copper helmet
+  category: hat
   weight: '1'
   type: item
   fake_durability: 66
