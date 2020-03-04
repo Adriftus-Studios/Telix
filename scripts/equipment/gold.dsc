@@ -182,7 +182,7 @@ custom_gold_nugget:
       output_quantity: 9
       input: custom_gold_ingot
 custom_gold_ingot:
-  material: golden_ingot
+  material: gold_ingot
   display name: <&7>Golden ingot
   weight: '1'
   type: item
