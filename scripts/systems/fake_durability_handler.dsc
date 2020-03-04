@@ -8,7 +8,7 @@ fake_durability_handler:
       - define item:<context.item>
       - define amount:-1
       - if !<[item].enchantments.contains_any[DURABILITY]>:
-        - inject fake_durability_modify
+        - inject fake_durability_modify def:<[item]>|<[amount]>
         - inventory set slot:<context.slot> d:<player.inventory> o:<[new_item]>
       - else:
         - if <util.random.int[0].to[100]> < <util.random.int[100].to[100]./[<[item].enchantments.level[DURABILITY].+[1]>]>:
