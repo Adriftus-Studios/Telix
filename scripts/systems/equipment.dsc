@@ -108,6 +108,7 @@ equipment_inventory_handler:
   debug: false
   events:
     on player item takes damage:
+      - narrate 1
       - if <context.item.script.yaml_key[fake_durability]||null> == null:
         - stop
       - define item:<context.item>
