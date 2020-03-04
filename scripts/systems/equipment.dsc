@@ -147,14 +147,14 @@ equipment_inventory_handler:
               - if <[slotmap].map_get[<context.raw_slot>].contains_text[<context.cursor_item.script.yaml_key[category]>]>:
                 - if <context.item.script.name.ends_with[_shadow]>:
                   - determine passively cancelled
+                  - if <context.cursor_item.quantity> > 1:
+                    - stop
                   - wait 1t
                   - define item:<player.item_on_cursor>
                   - if !<[item].has_nbt[built]>:
                     - inject built_item
-                  - narrate 2
                   - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=1]>
-                  - adjust def:item quantity:<[item].quantity.sub[1]>
-                  - adjust <player> item_on_cursor:<[item]>
+                  - adjust <player> item_on_cursor:<item[air]>
                 - else:
                   - if <context.cursor_item.quantity> > 1:
                     - determine passively cancelled
