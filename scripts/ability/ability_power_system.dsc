@@ -1,5 +1,6 @@
 abilities_power_system_tick:
   type: world
+  debug: false
   events:
     on delta time secondly:
       - stop

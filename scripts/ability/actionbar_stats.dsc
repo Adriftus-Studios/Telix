@@ -1,6 +1,7 @@
 # targets:<[value]>
 actionbar_stats:
   type: world
+  debug: false
   events:
     on delta time secondly:
       - stop
