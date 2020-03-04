@@ -185,22 +185,28 @@ custom_item_override:
     on entity death:
       - foreach <context.drops>:
         - if <[value].script.name||null> == null:
-          - define drops:|:<item[custom_<[value].material.name>].with[quantity=<[value].quantity>]>
+          - define drops:|:<item[custom_<[value].material.name>].with[quantity=<[value].quantity>]||<[value]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
       - if <context.item.script.name||null> == null:
-        - determine <item[custom_<context.item.material.name>]>
+        - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+        - inject build_item
+        - determine <[item]>
     on furnace smelts item:
       - if <context.result_item.script.name||null> == null:
-        - determine <item[custom_<context.result_item.material.name>]>
+        - define item:<item[custom_<context.result_item.material.name>].with[quantity=<context.result_item.quantity>]>
+        - inject build_item
+        - determine <[item]>
     on player breaks block priority:-10:
       - if <player.gamemode> == SURVIVAL:
         - foreach <context.location.drops[<player.item_in_hand>]> as:drop:
-          - define drops:|:<item[custom_<[drop].material.name>].with[quantity=<[drop].quantity>]>
-        - determine <[drops]||>
+          - define drops:|:<item[custom_<[drop].material.name>].with[quantity=<[drop].quantity>]||<[drop]>>
+        - determine <[drops]>
     on player picks up item:
       - if <context.item.script.name||null> == null:
-        - determine ITEM:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+        - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+        - inject build_item
+        - determine ITEM:<[item]>
 
 system_override:
   type: world

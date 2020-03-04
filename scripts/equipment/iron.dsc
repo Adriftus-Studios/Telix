@@ -3,18 +3,17 @@ custom_iron_horse_armor:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_horse_armor
+  display name: <&7>Iron horse armor
   weight: '1'
   type: item
 custom_iron_sword:
   material: iron_sword
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper sword
+  display name: <&7>Iron sword
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 250
+  damage: 5
+  attack_speed: 4
   recipes:
     1:
       type: shaped
@@ -39,13 +38,12 @@ custom_iron_sword:
       - air|air|custom_stick
 custom_iron_pickaxe:
   material: iron_pickaxe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper pickaxe
+  display name: <&7>Iron pickaxe
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 250
+  damage: 3
+  attack_speed: 4
   recipes:
     1:
       type: shaped
@@ -56,13 +54,12 @@ custom_iron_pickaxe:
       - air|custom_stick|air
 custom_iron_axe:
   material: iron_axe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper axe
+  display name: <&7>Iron axe
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 250
+  damage: 4
+  attack_speed: 4
   recipes:
     1:
       type: shaped
@@ -94,13 +91,12 @@ custom_iron_axe:
       - air|air|custom_stick
 custom_iron_shovel:
   material: iron_shovel
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper shovel
+  display name: <&7>Iron shovel
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 250
+  damage: 2
+  attack_speed: 4
   recipes:
     1:
       type: shaped
@@ -125,13 +121,12 @@ custom_iron_shovel:
       - air|air|custom_stick
 custom_iron_hoe:
   material: iron_hoe
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper hoe
+  display name: <&7>Iron hoe
   weight: '1'
   type: item
-  fake_durability: 122
+  fake_durability: 250
+  damage: 2
+  attack_speed: 4
   recipes:
     1:
       type: shaped
@@ -164,10 +159,7 @@ custom_iron_hoe:
       - air|air|custom_stick
 custom_iron_nugget:
   material: iron_nugget
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper nugget
+  display name: <&7>Iron nugget
   weight: '0'
   type: item
   recipes:
@@ -177,10 +169,7 @@ custom_iron_nugget:
       input: custom_iron_ingot
 custom_iron_ingot:
   material: iron_ingot
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper ingot
+  display name: <&7>Iron ingot
   weight: '1'
   type: item
   recipes:
@@ -202,10 +191,7 @@ custom_iron_ingot:
       input: custom_iron_block
 custom_iron_block:
   material: iron_block
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper block
+  display name: <&7>Iron block
   weight: '9'
   type: item
   recipes:
@@ -218,10 +204,7 @@ custom_iron_block:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
 custom_iron_ore:
   material: iron_ore
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper ore
+  display name: <&7>Iron ore
   weight: '1'
   type: item
   ore:
@@ -231,13 +214,12 @@ custom_iron_ore:
 custom_iron_boots:
   material: iron_boots
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper boots
+  display name: <&7>Iron boots
+  category: shoes
   weight: '1'
   type: item
-  fake_durability: 78
-  armor: 1
+  fake_durability: 195
+  armor: 2
   recipes:
     1:
       type: shaped
@@ -255,14 +237,12 @@ custom_iron_boots:
       - custom_iron_ingot|air|custom_iron_ingot
 custom_iron_leggings:
   material: iron_leggings
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper leggings
+  display name: <&7>Iron leggings
+  category: pants
   weight: '1'
   type: item
-  fake_durability: 90
-  armor: 3
+  fake_durability: 225
+  armor: 5
   recipes:
     1:
       type: shaped
@@ -273,14 +253,12 @@ custom_iron_leggings:
       - custom_iron_ingot|air|custom_iron_ingot
 custom_iron_chestplate:
   material: iron_chestplate
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper chestplate
+  display name: <&7>Iron chestplate
+  category: shirt
   weight: '1'
   type: item
-  fake_durability: 96
-  armor: 3
+  fake_durability: 240
+  armor: 6
   recipes:
     1:
       type: shaped
@@ -291,14 +269,12 @@ custom_iron_chestplate:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
 custom_iron_helmet:
   material: iron_helmet
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Copper helmet
+  display name: <&7>Iron helmet
+  category: hat
   weight: '1'
   type: item
-  fake_durability: 66
-  armor: 1
+  fake_durability: 165
+  armor: 2
   recipes:
     1:
       type: shaped
