@@ -122,6 +122,8 @@ equipment_inventory_handler:
       - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
       - if <player.open_inventory.notable_name||null> == null:
         - inventory close
+      - narrate <context.item>
+      - narrate <context.cursor_item>
       - if <context.item.script.name.ends_with[_shadow]>:
         - if <context.cursor_item.script.name||null> == null:
           - determine passively cancelled
