@@ -122,7 +122,7 @@ equipment_inventory_handler:
       - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
       - if <player.open_inventory.notable_name||null> == null:
         - inventory close
-      - if <context.item.script.name.ends_with[_shadow]>:
+      - if <context.item.script.name.ends_with[_shadow]||false>:
         - if <context.cursor_item.script.name||null> == null:
           - determine passively cancelled
           - stop
@@ -146,10 +146,12 @@ equipment_inventory_handler:
             - if <context.item.script.name||null> != null:
               - if <[slotmap].map_get[<context.raw_slot>].contains_text[<context.cursor_item.script.yaml_key[category]>]>:
                 - if <context.item.script.name.ends_with[_shadow]>:
+                  - determine passively cancelled
                   - wait 1t
                   - define item:<player.item_on_cursor>
                   - if !<[item].has_nbt[built]>:
                     - inject built_item
+                  - narrate 2
                   - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=1]>
                   - adjust <player> item_on_cursor:<[item].with[quantity=<[item].quantity.sub[1]>]>
                 - else:
