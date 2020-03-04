@@ -73,7 +73,7 @@ custom_copper_boots:
       recipe_id: custom_copper_boots1
       output_quantity: 1
       input:
-      - custom_copper_ingot|air|custom_copper_ingot
+      - custom_copper_ingot|custom_iron_boots|custom_copper_ingot
       - custom_copper_ingot|air|custom_copper_ingot
       - air|air|air
     2:
@@ -82,7 +82,7 @@ custom_copper_boots:
       output_quantity: 1
       input:
       - air|air|air
-      - custom_copper_ingot|air|custom_copper_ingot
+      - custom_copper_ingot|custom_iron_boots|custom_copper_ingot
       - custom_copper_ingot|air|custom_copper_ingot
 custom_copper_ingot:
   material: iron_ingot
@@ -190,7 +190,7 @@ custom_copper_leggings:
       output_quantity: 1
       input:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|air|custom_copper_ingot
+      - custom_copper_ingot|custom_iron_leggings|custom_copper_ingot
       - custom_copper_ingot|air|custom_copper_ingot
 custom_copper_chestplate:
   material: iron_chestplate
@@ -207,7 +207,7 @@ custom_copper_chestplate:
       recipe_id: custom_copper_chestplate1
       output_quantity: 1
       input:
-      - custom_copper_ingot|air|custom_copper_ingot
+      - custom_copper_ingot|custom_iron_chestplate|custom_copper_ingot
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
 custom_copper_shovel:
@@ -260,7 +260,7 @@ custom_copper_helmet:
       output_quantity: 1
       input:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|air|custom_copper_ingot
+      - custom_copper_ingot|custom_iron_helmet|custom_copper_ingot
       - air|air|air
     1:
       type: shaped
@@ -269,7 +269,7 @@ custom_copper_helmet:
       input:
       - air|air|air
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|air|custom_copper_ingot
+      - custom_copper_ingot|custom_iron_helmet|custom_copper_ingot
 custom_copper_ore:
   material: iron_ore
   lore:
