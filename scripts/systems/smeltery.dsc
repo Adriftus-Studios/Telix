@@ -21,19 +21,6 @@ smeltery_timer:
   material: clock
   display name: <&7>Not Smelting
 
-test_smeltery_recipe:
-  type: item
-  material: iron_ingot
-  display name: <&7>Steel Ingot
-  recipes:
-    '1':
-      cook_time: 10m
-      input: coal/5|iron_ingot/2
-      recipe_id: test_smeltery_recipe
-      output_quantity: 2
-      type: smeltery
-      experience: 0
-
 smeltery_events:
   type: world
   debug: false

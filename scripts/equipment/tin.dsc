@@ -2,9 +2,9 @@
 custom_tin_sword:
   material: iron_sword
   display name: <&7>Tin sword
-  weight: '1'
+  weight: '2'
   type: item
-  fake_durability: 175
+  fake_durability: 200
   damage: 5
   attack_speed: 4
   recipes:
@@ -32,9 +32,9 @@ custom_tin_sword:
 custom_tin_pickaxe:
   material: iron_pickaxe
   display name: <&7>Tin pickaxe
-  weight: '1'
+  weight: '3'
   type: item
-  fake_durability: 175
+  fake_durability: 200
   damage: 3
   attack_speed: 4
   recipes:
@@ -48,9 +48,9 @@ custom_tin_pickaxe:
 custom_tin_axe:
   material: iron_axe
   display name: <&7>Tin axe
-  weight: '1'
+  weight: '3'
   type: item
-  fake_durability: 175
+  fake_durability: 200
   damage: 4
   attack_speed: 4
   recipes:
@@ -87,7 +87,7 @@ custom_tin_shovel:
   display name: <&7>Tin shovel
   weight: '1'
   type: item
-  fake_durability: 175
+  fake_durability: 200
   damage: 2
   attack_speed: 4
   recipes:
@@ -115,9 +115,9 @@ custom_tin_shovel:
 custom_tin_hoe:
   material: iron_hoe
   display name: <&7>Tin hoe
-  weight: '1'
+  weight: '2'
   type: item
-  fake_durability: 175
+  fake_durability: 200
   damage: 2
   attack_speed: 4
   recipes:
@@ -209,9 +209,9 @@ custom_tin_boots:
   lore:
   display name: <&7>Tin boots
   category: shoes
-  weight: '1'
+  weight: '4'
   type: item
-  fake_durability: 78
+  fake_durability: 104
   armor: 1
   recipes:
     1:
@@ -232,9 +232,9 @@ custom_tin_leggings:
   material: iron_leggings
   display name: <&7>Tin leggings
   category: pants
-  weight: '1'
+  weight: '7'
   type: item
-  fake_durability: 90
+  fake_durability: 120
   armor: 3
   recipes:
     1:
@@ -248,10 +248,10 @@ custom_tin_chestplate:
   material: iron_chestplate
   display name: <&7>Tin chestplate
   category: shirt
-  weight: '1'
+  weight: '8'
   type: item
-  fake_durability: 96
-  armor: 3
+  fake_durability: 128
+  armor: 4
   recipes:
     1:
       type: shaped
@@ -264,9 +264,9 @@ custom_tin_helmet:
   material: iron_helmet
   display name: <&7>Tin helmet
   category: hat
-  weight: '1'
+  weight: '5'
   type: item
-  fake_durability: 66
+  fake_durability: 88
   armor: 1
   recipes:
     1:
