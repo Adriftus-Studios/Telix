@@ -78,7 +78,7 @@ reload_scripts:
                   - yaml id:server.ore_rates set <[value].yaml_key[ore.block]>.<[value].yaml_key[ore.biome]>.<[value].yaml_key[ore.chance]>:<[value].name>
               - if <[value].yaml_key[mob_drops]||null> != null:
                 - foreach <[value].list_keys[mob_drops]> as:num:
-                  - yaml id:server.drop_rates set <[value].yaml_key[mob_drops.<[num]>.dropped_by]>.<[value].name>.<[value].yaml_key[mob_drops.<[num]>.chance]>:<[value].yaml_key[mob_drops.<[num]>.amount]>
+                  - yaml id:server.drop_rates set <[value].yaml_key[mob_drops.<[num]>.dropped_by]>.<[value].name>.<[value].yaml_key[mob_drops.<[num]>.chance]>:<[value].yaml_key[mob_drops.<[num]>.amount]>/
               - if <[value].yaml_key[category]||null> != null:
                   - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
               - if <[value].yaml_key[recipes]||null> != null:

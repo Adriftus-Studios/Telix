@@ -11,7 +11,6 @@ mob_drops_events:
         - foreach <yaml[server.drop_rates].list_keys[<context.entity.script_name||<context.entity.entity_type>>.<[value]>]> as:key:
           - define drops:|:<[value]>/<el@1.div[<[key]>]>/<yaml[server.drop_rates].read[<context.entity.script_name||<context.entity.entity_type>>.<[value]>.<[key]>]>
           - define num:+:<el@1.div[<[key]>]>
-      - narrate <[drops]>
       - define num:<[num]>
       - define to_drop:<list[]>
       - foreach <[drops]> as:drop:
@@ -19,8 +18,6 @@ mob_drops_events:
         - define item:<item[<[drop].split[/].get[1]>]>
         - define chance:<[drop].split[/].get[2]>
         - define amount:<util.random.int[0].to[<[drop].split[/].get[3]>]>
-        - narrate <[chance]>
-        - narrate <[random]>
         - if <[chance]> > <[random]>:
           - drop <[item].with[quantity=<[amount]>]> <context.entity.location>
 
@@ -31,8 +28,8 @@ custom_mob_drops_test_item:
   mob_drops:
     1:
       dropped_by: zombie
-      chance: 2
-      amount: 5
+      chance: 1
+      amount: 64
     2:
       dropped_by: spider
       chance: 5
