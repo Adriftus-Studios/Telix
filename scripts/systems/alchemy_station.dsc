@@ -29,7 +29,7 @@ alchemy_station:
       output_quantity: 1
       input:
       - air|custom_magma_cream|air
-      - custom_blaze_rod|custom_brewing_station|custom_blaze_rod
+      - custom_blaze_rod|custom_brewing_stand|custom_blaze_rod
       - custom_iron_ingot|custom_iron_block|custom_iron_ingot
 
 alchemy_station_events:
