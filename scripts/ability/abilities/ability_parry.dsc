@@ -3,9 +3,8 @@
 #Uses Kyu's (2020-03-01) bossbar timer task. (- run bb_timer def:title|duration|color|targets)
 # Flags:
 #  parrying: Duration of the parry window
-#  ripostable: Duration of the riposte window (After a successful parry)
-# MIDI SFX:
-#  "parry.mid", "parried.mid", "riposte.mid"
+# SFX:
+#  "ability/fisticuffs/parry.ogg", "ability/fisticuffs/riposte.ogg"
 ability_parry:
   type: world
   debug: true
@@ -26,12 +25,12 @@ ability_parry:
         - inject abilities_cost
         - flag player parrying:true duration:2s
         - run bb_timer def:<&5>Parrying|2s|purple
-        #- playsound <player.location.forward> sound:parry custom
+        #- playsound <player.location.forward> sound:ability.fisticuffs.parry custom
     #Execute Parry
     on player damaged by entity flagged:parrying:
       - if <context.cause||entity_attack> == entity_attack:
         - look <player> <context.entity>
-        - hurt <player.target> <player.item_in_hand.damage.*[<util.random.decimal[1.5].to[1.75].round>]>
+        - hurt <context.entity> <player.item_in_hand.damage.*[<util.random.decimal[1.5].to[1.75].round>]>
         - playeffect sweep_attack at:<player.location.forward.above> quantity:1
-        #- playsound <player.location> sound:riposte custom
+        #- playsound <player.location> sound:ability.fisticuffs.riposte custom
         - narrate "<&6>You have <&a>parried <&6>your opponent's attack!"
