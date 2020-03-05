@@ -20,9 +20,12 @@ ore_drop_events:
             - narrate <[num]>
             - if <player.gamemode> == SURVIVAL:
                 - if !<player.item_in_hand.enchantments.contains[silk_touch]>:
+                    - narrate aaa
                     - if <util.random.int[0].to[100]> > <[num]>:
+                        - narrate bbb
                         - define to_drop:<item[<item[custom_<context.material.name>].yaml_key[default_drop]||null>]||null>
                     - else:
+                        - narrate ccc
                         - define to_drop:<context.location.drops[<player.item_in_hand>]>
                 - narrate <[to_drop]>
                 - if <[to_drop]||null> != null:
