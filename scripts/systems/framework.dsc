@@ -296,7 +296,7 @@ system_override:
         - narrate "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
         - narrate "<&c> <context.message>"
         - narrate "<&c> Script: <context.script.name>"
-        - narrate "<&c> File: <context.script.filename>"
+        - narrate "<&c> File: <context.script.original_name>"
         - narrate "<&c> Line: <context.line>"
 
 kill_queue_command:
