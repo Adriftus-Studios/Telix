@@ -17,5 +17,5 @@ damage_command:
   script:
     - define damage:<context.args.get[1]>
     - define health:<player.health>
-    - determine <[damage].mul[<[health]>].div[20]>
+    - hurt <[damage].mul[<[health]>].div[20]>
 # 20 / damage = health / X
