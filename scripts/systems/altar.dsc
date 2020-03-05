@@ -176,6 +176,7 @@ altar_events:
           - determine passively cancelled
           - stop
     on player clicks in altar_inventory:
+      - narrate <context.raw_slot>
       - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
       - if <context.raw_slot> < 46:
         - if <[slotmap].map_get[<context.raw_slot>]||null> == null:
