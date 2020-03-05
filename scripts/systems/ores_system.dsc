@@ -18,7 +18,7 @@ ore_drop_events:
             - define num:<[num].mul[100]||100>
             - if <player.gamemode> == SURVIVAL:
                 - if !<player.item_in_hand.enchantments.contains[silk_touch]>:
-                    - if <util.random.int[0].to[100]> > <[num]>:
+                    - if <util.random.decimal[0].to[100]> > <[num]>:
                         - define to_drop:<item[custom_<context.location.drops[<player.item_in_hand>].get[1].material.name>]>
                     - else:
                         - define to_drop:<item[<[to_drop]>]>
