@@ -67,7 +67,7 @@ altar_events:
             # get the contents of all input slots
           - foreach <[slotmap]> as:slot:
             - if <[slot].split[/].get[2].starts_with[in]>:
-              - define item:<[inventory].slot[<[slot].split[/].get[1]>].script.name>
+              - define item:<[inventory].slot[<[slot].split[/].get[1]>].script.name||<item[air]>>
               - if <[contents].map_get[<[item]>]||null> != null:
                 - if <[item]||null> != null && <[item].material.name||air> != air:
                   - define entry:<[item]>/<[contents].map_get[<[item]>].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
