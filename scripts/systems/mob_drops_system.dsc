@@ -16,6 +16,8 @@ mob_drops_events:
         - define item:<item[<[drop].split[/].get[1]>]>
         - define chance:<[drop].split[/].get[2]>
         - define amount:<util.random.int[0].to[<[drop].split[/].get[3]>]>
+        - narrate <[chance]>
+        - narrate <[random]>
         - if <[chance]> > <[random]>:
           - define to_drop:|:<[item].with[quantity=<[amount]>]>
       - determine <context.drops.include[<[to_drop]||<list[]>>]>
