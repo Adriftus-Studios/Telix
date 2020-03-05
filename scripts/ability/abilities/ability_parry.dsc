@@ -11,8 +11,8 @@ ability_parry:
   debug: true
   name: parry
   ability_tree: Fisticuffs
-  ability_type: slotted
-  points_to_unlock: 0
+  ability_type: passive
+  points_to_unlock: 10
   power_cost: 5
   description: Parry your opponent's attack and riposte.
   icon:
@@ -21,22 +21,17 @@ ability_parry:
   events:
     #Start Parry
     on player right clicks entity with:*_sword:
-      - if !<player.has_flag[parrying]> && !<player.has_flag[ripostable]>:
+      - if !<player.has_flag[parrying]>:
         - inject abilities_check
         - inject abilities_cost
         - flag player parrying:true duration:2s
-        - run bb_timer def:<&d><&gt><&5>Parrying<&d><&gt>|2s|purple
-        #- midi file:ability/parry/parry <player.location.forward>
+        - run bb_timer def:<&5>Parrying|2s|purple
+        #- playsound <player.location.forward> sound:parry custom
     #Execute Parry
     on player damaged by entity flagged:parrying:
       - if <context.cause||entity_attack> == entity_attack:
+        - look <player> <context.entity>
+        - hurt <player.target> <player.item_in_hand.damage.*[<util.random.decimal[1.5].to[1.75].round>]>
+        - playeffect sweep_attack at:<player.location.forward.above> quantity:1
+        #- playsound <player.location> sound:riposte custom
         - narrate "<&6>You have <&a>parried <&6>your opponent's attack!"
-        - flag player ripostable:true duration:2s
-        - flag player parrying:!
-        #- midi file:ability/parry/parried <player>
-    #Execute Riposte (1.25x - 1.50x damage)
-    on player damages entity flagged:ripostable:
-      #- midi file:ability/parry/riposte <player.location.forward>
-      - playeffect sweep_attack at:<player.location.forward.above> quantity:1
-      - flag player ripostable:!
-      - determine <player.item_in_hand.damage.*[<util.random.decimal[1.25].to[1.5]>].round>
