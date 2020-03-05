@@ -147,9 +147,7 @@ altar_events:
                       - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[add].add[<[has]>]>]>
                       - define amount_needed:<[remaining]>
               - foreach <yaml[server.altar_recipes].read[<[crafting]>.input]> as:input:
-                - announce <[input]>
-                - inventory remove d:<[inventory]> o:<item[<[input].split[/].get[1]>].with[quantity=<[input].split[/].get[2]>]>
-                - announce <item[<[input].split[/].get[1]>].with[quantity=<[input].split[/].get[2]>]>
+                - inventory remove d:<[inventory]> o:<[inventory].find.scriptname[<[input].split[/].get[1]>].with[quantity=<[input].split[/].get[2]>]>
               - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
           - else:
             - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
