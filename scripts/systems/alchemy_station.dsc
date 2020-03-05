@@ -117,7 +117,7 @@ alchemy_station_events:
                 - if <[time].ends_with[m]>:
                   - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer].with[display_name=<&7>Brewing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer].with[display_name=<&7>Brewing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time].div[60].round_up>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
                   - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer].with[display_name=<&7>Brewing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
               - else:
@@ -126,7 +126,7 @@ alchemy_station_events:
                 - if <[time].ends_with[m]>:
                   - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer].with[display_name=<&7>Brewing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer].with[display_name=<&7>Brewing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time].div[60].round_up>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
                   - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer].with[display_name=<&7>Brewing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
             - else:
