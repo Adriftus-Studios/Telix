@@ -19,26 +19,40 @@ alchemy_station_timer:
   material: clock
   display name: <&7>Not Brewing
 
+alchemy_station:
+  type: item
+  material: brewing_station
+  display name: <&b>Alchemy Station
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|custom_magma_cream|air
+      - custom_blaze_rod|custom_brewing_station|custom_blaze_rod
+      - custom_iron_ingot|custom_iron_block|custom_iron_ingot
+
 alchemy_station_events:
   type: world
   debug: false
   events:
-    on player places block:
-      - narrate <context.hand>
-      - narrate <context.item_in_hand>
+    on player places brewing_stand:
+      - if <context.item_in_hand.script.name||null> == alchemy_station:
+        - inventory open d:<inventory[alchemy_station_<context.location.simple>]>
     on player breaks brewing_stand:
       - if <inventory[alchemy_station_<context.location.simple>]||null> != null:
         - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
         - foreach <[slotmap]> as:slot:
           - drop <inventory[alchemy_station_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
+        - drop <item[alchemy_station]> <context.location>
         - note remove as:smeltery_<context.location.simple>
+        - determine NOTHING
     on player clicks brewing_stand:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:
-          - determine passively cancelled
-          - if <inventory[alchemy_station_<context.location.simple>]||null> == null:
-            - note <inventory[alchemy_station_inventory]> as:alchemy_station_<context.location.simple>
-          - inventory open d:<inventory[alchemy_station_<context.location.simple>]>
+          - if <inventory[alchemy_station_<context.location.simple>]||null> != null:
+            - determine passively cancelled
+            - inventory open d:<inventory[alchemy_station_<context.location.simple>]>
     on player drags in alchemy_station_inventory:
       - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
       - foreach <context.raw_slots> as:slot:
