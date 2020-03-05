@@ -30,7 +30,7 @@ alchemy_station_test_recipe1:
       input: stone/1|dirt/2
       cook_time: 10s
 
-alchemy_station_test_recipe1:
+alchemy_station_test_recipe2:
   type: item
   material: flint
   display name: <&7>Something
