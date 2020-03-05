@@ -91,7 +91,7 @@ altar_events:
               - define crafting:<[recipe]>
               - foreach stop
           - if <[crafting]||null> == null:
-            - stop
+            - foreach next
           # find if resulting items can fit in output slots
           - if <[crafting]||null> != null && <[crafting]> != air:
             - define amount_needed:<yaml[server.altar_recipes].read[<[crafting]>.output_quantity]>
@@ -107,27 +107,29 @@ altar_events:
                       - define remaining:0
                     - define amount_needed:<[remaining]>
             - if <[amount_needed]> != 0:
-              - stop
+              - foreach next
             # countdown brewing timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.altar_recipes].read[<[crafting]>.cook_time]>>
-            - if <[time].ends_with[s]>:
-              - define time:<[time].replace[s].with[]>
-            - if <[time].ends_with[m]>:
-              - define time:<[time].replace[m].with[].mul[60]>
-            - announce <[clock]>
-            - announce <[clock].nbt[time].sub[1]>
-            - announce <[time]>
             - if <[time]> > 0:
               - if <[clock]||null> == null:
+                - if <[time].ends_with[s]>:
+                  - define time:<[time].replace[s].with[]>
+                - if <[time].ends_with[m]>:
+                  - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
                   - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
               - else:
+                - if <[time].ends_with[s]>:
+                  - define time:<[time].replace[s].with[]>
+                - if <[time].ends_with[m]>:
+                  - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
                   - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
+              - announce <[time]>
             - else:
               # craft item and remove required ingredients
               - define amount_needed:<yaml[server.altar_recipes].read[<[crafting]>.output_quantity]>
