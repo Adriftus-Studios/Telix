@@ -45,15 +45,6 @@ alchemy_station:
   type: item
   material: brewing_stand
   display name: <&b>Alchemy Station
-  mob_drops:
-    1:
-      dropped_by: zombie
-      chance: 2
-      amount: 5
-    2:
-      dropped_by: spider
-      chance: 5
-      amount: 2
   recipes:
     1:
       type: shaped

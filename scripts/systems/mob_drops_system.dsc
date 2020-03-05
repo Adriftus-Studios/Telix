@@ -23,3 +23,17 @@ mob_drops_events:
         - narrate <[random]>
         - if <[chance]> > <[random]>:
           - drop <[item].with[quantity=<[amount]>]> <context.entity.location>
+
+custom_mob_drops_test_item:
+  type: item
+  material: dirt
+  display name: <&b>Test Item
+  mob_drops:
+    1:
+      dropped_by: zombie
+      chance: 2
+      amount: 5
+    2:
+      dropped_by: spider
+      chance: 5
+      amount: 2
