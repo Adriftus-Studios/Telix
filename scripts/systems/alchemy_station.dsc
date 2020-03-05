@@ -21,7 +21,7 @@ alchemy_station_timer:
 
 alchemy_station:
   type: item
-  material: brewing_station
+  material: brewing_stand
   display name: <&b>Alchemy Station
   recipes:
     1:
