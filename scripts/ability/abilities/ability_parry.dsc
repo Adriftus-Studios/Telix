@@ -26,11 +26,32 @@ ability_parry:
         - flag player parrying:true duration:2s
         - run bb_timer def:<&5>Parrying|2s|purple
         #- playsound <player.location.forward> sound:ability.fisticuffs.parry custom
+        - inject ability_parry_animation
+        - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]||20>
     #Execute Parry
     on player damaged by entity flagged:parrying:
-      - if <context.cause||entity_attack> == entity_attack:
+      - if <context.cause||entity_attack> == entity_attack && <context.entity.distance[<player.location>]||5> <= 3:
         - look <player> <context.entity>
         - hurt <context.entity> <player.item_in_hand.damage.*[<util.random.decimal[1.5].to[1.75].round>]>
+        - shoot <context.entity> d:<player.location.forward_flat[12]> height:2
         - playeffect sweep_attack at:<player.location.forward.above> quantity:1
         #- playsound <player.location> sound:ability.fisticuffs.riposte custom
         - narrate "<&6>You have <&a>parried <&6>your opponent's attack!"
+
+
+#Injected task. <player>, <context.entity>
+ability_parry_animation:
+  type: task
+  debug: true
+  script:
+    - glow <player>
+    - wait 1.5s
+    - glow <player> false
+    - repeat 4:
+      - wait 0.25s
+      - glow <player>
+      - wait 0.25s
+      - glow <player> false
+
+    
+    
