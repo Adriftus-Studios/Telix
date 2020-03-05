@@ -7,7 +7,7 @@
 #  "ability/fisticuffs/parry.ogg", "ability/fisticuffs/riposte.ogg"
 ability_parry:
   type: world
-  debug: true
+  debug: false
   name: parry
   ability_tree: Fisticuffs
   ability_type: passive
@@ -35,7 +35,6 @@ ability_parry:
         - flag player parrying:!
         - look <player> <context.damager.eye_location>
         - hurt <context.damager> <player.item_in_hand.damage.*[<util.random.decimal[1.5].to[1.75].round>]>
-        #- shoot <context.damager> d:<player.location.forward_flat[2]> height:1
         - playeffect sweep_attack at:<player.location.forward.above> quantity:1
         #- playsound <player.location> sound:ability.fisticuffs.riposte custom
         - narrate "<&6>You have <&a>parried <&6>your opponent's attack!"

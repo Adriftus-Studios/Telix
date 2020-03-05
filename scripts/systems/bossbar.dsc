@@ -71,7 +71,6 @@ bb_timer:
 
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[targets].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - narrate <[id]>
     - bossbar create <[id]> title:<[title]> color:<[color]> style:SOLID
     - define length:<[duration].as_duration.in_seconds.+[1]>
 
