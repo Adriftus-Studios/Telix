@@ -109,7 +109,6 @@ abilities_characterAbilities_events:
     on player drops item:
       - if <player.open_inventory.script_name> == abilities_characterAbilityTrees:
         - if <context.item.has_nbt[skillname]>:
-          - wait 1t
           - remove <context.entity>
     on player left clicks item in abilities_characterAbilityTrees:
       - if <context.raw_slot> < 46:
