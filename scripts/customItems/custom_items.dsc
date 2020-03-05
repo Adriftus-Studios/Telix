@@ -6342,10 +6342,6 @@ custom_cobblestone:
   display name: <&7>Cobblestone
   weight: '1'
   type: item
-  ore:
-      biome: all
-      block: stone
-      chance: 1
 custom_birch_leaves:
   material: birch_leaves
   lore:
