@@ -67,7 +67,7 @@ alchemy_station_events:
             # get the contents of all input slots
           - foreach <[slotmap]> as:slot:
             - if <[slot].split[/].get[2].starts_with[in]>:
-              - define item:<[inventory].slot[<[slot].split[/].get[1]>].script.name||<[inventory].slot[<[slot].split[/].get[1]>].material.name>>
+              - define item:<[inventory].slot[<[slot].split[/].get[1]>].script.name>
               - if <[contents].map_get[<[item]>]||null> != null:
                 - if <[item]||null> != null && <[item].material.name||air> != air:
                   - define entry:<[item]>/<[contents].map_get[<[item]>].add[<[inventory].slot[<[slot].split[/].get[1]>].quantity>]>
@@ -148,7 +148,7 @@ alchemy_station_events:
                       - define amount_needed:<[remaining]>
               - foreach <yaml[server.alchemy_recipes].read[<[crafting]>.input]> as:input:
                 - announce <[inventory].slot[<[inventory].find.scriptname[<[input].split[/].get[1]>]>].with[quantity=<[input].split[/].get[2]>]>
-                - inventory remove d:<[inventory]> o:<[inventory].slot[<[inventory].find.scriptname[<[input].split[/].get[1]>]>].with[quantity=<[input].split[/].get[2]>]||<[inventory].slot[<[inventory].find.material[<[input].split[/].get[1]>]>].with[quantity=<[input].split[/].get[2]>]>>
+                - inventory remove d:<[inventory]> o:<[inventory].slot[<[inventory].find.scriptname[<[input].split[/].get[1]>]>].with[quantity=<[input].split[/].get[2]>]>
               - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer]>
           - else:
             - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer]>
