@@ -41,6 +41,8 @@ calculate_base_stats:
   type: task
   debug: false
   script:
+    - if <yaml[player.<player.uuid>].list_keys[]||null> == null:
+      - inject player_setup
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
         - define value:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]||1>]||0>]>
