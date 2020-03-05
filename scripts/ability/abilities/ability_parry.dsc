@@ -44,14 +44,14 @@ ability_parry_animation:
   type: task
   debug: true
   script:
-    - glow <player>
-    - wait 1.5s
-    - glow <player> false
-    - repeat 4:
+    - repeat 2:
       - wait 0.125s
       - glow <player>
       - wait 0.125s
       - glow <player> false
+    - glow <player>
+    - wait 1.5s
+    - glow <player> false
 
     
     

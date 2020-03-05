@@ -51,7 +51,7 @@ bb_notification:
 bb_timer:
   type: task
   debug: false
-  definitions: title|duration|color
+  definitions: title|duration|color|targets
   script:
     #Check for existing definitions and set defaults as necessary
     - if <[title]||null> == null || !<[title].exists>:
@@ -60,6 +60,8 @@ bb_timer:
       - define duration:10s
     - if <[color]||null> == null || !<[color].exists>:
       - define color:YELLOW
+    - if <[targets]||null> == null || !<[targets].exists>:
+      - define targets:<player>
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
     - if <[duration].as_duration.in_seconds> <= 0:
