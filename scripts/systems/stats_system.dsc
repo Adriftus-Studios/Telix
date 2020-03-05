@@ -45,7 +45,7 @@ calculate_base_stats:
       - inject player_setup
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
-        - define value:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]||1>]||0>]>
+        - define value:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]||0>]||0>]>
         - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
           - yaml id:player.<player.uuid> set stats.<[stat]>.max:<[value]>
         - else:
