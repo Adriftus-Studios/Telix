@@ -28,6 +28,7 @@ alchemy_station_test_recipe:
       type: alchemy
       output_quantity: 2
       input: stone/1|dirt/2
+      cook_time: 10s
 
 alchemy_station:
   type: item
