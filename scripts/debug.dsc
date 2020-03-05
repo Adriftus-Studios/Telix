@@ -22,6 +22,8 @@ debug_command:
   name: dbug
   script:
   - if <player.has_flag[debug]>:
+    - narrate "<&c>Debug Mode enabled for <player.name>"
     - flag <player> debug:!
   - else:
+    - narrate "<&c>Debug Mode disabled for <player.name>"
     - flag <player> debug:true
