@@ -19,7 +19,7 @@ alchemy_station_timer:
   material: clock
   display name: <&7>Not Brewing
 
-smeltery_events:
+alchemy_station_events:
   type: world
   debug: false
   events:
