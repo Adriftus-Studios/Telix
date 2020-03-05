@@ -10,7 +10,7 @@ ore_drop_events:
             - define to_drop:<yaml[server.ore_rates].read[<context.material.name>.<context.location.biome.name>.<[drop_num]>].random||<yaml[server.ore_rates].read[<context.material.name>.all.<[drop_num]>].random||<yaml[server.ore_rates].read[<context.material.name>.<context.location.biome.name>.<[drop_num]>]||<yaml[server.ore_rates].read[<context.material.name>.all.<[drop_num]>]||<item[custom_<context.material.name>]>>>>>
             - foreach <yaml[server.ore_rates].list_keys[stone.all]>:
                 - define num:+:<el@1.div[<[value]>]>
-            - narrate <[num]>
+            - narrate <[num].mul[10]>
             - if <player.gamemode> == SURVIVAL:
                 - if !<player.item_in_hand.enchantments.contains[silk_touch]>:
                     - if <util.random.int[1].to[20]> != 1:
