@@ -28,16 +28,21 @@ ability_parry:
         #- playsound <player.location.forward> sound:ability.fisticuffs.parry custom
         - inject ability_parry_animation
       - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]||20>
-    #Execute Parry
+    #Execute Riposte
     on player damaged by entity flagged:parrying:
       - if <context.damager.location.distance[<player.location>]||5> <= 3:
+        #Remove bossbar and flag
         - bossbar remove <player.uuid>.<player.flag[parrying]>
         - flag player parrying:!
+        #Riposte
         - look <player> <context.damager.eye_location>
         - hurt <context.damager> <player.item_in_hand.damage.*[<util.random.decimal[1.5].to[1.75].round>]>
+        - push <context.damager> d:<player.location.flat_forward[4]> speed:1 duration:1s no_damage
+        #Visual and Auditory
         - playeffect sweep_attack at:<player.location.forward.above> quantity:1
         #- playsound <player.location> sound:ability.fisticuffs.riposte custom
         - narrate "<&6>You have <&a>parried <&6>your opponent's attack!"
+        - determine
 
 
 #Injected task. <player>, <context.entity>
