@@ -5,9 +5,7 @@ debug_events:
     on script generates error:
       - foreach <server.list_online_players> as:player:
         - adjust <queue> linked_player:<[player]>
-        - narrate 1
-        - if <[player].has_flag[debug]>:
-          - narrate 2
+        - if <[player].flag[debug]||null> != null:
           - narrate "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
           - narrate "<&c> <context.message>"
           - narrate "<&c> Script: <context.script.name>"
