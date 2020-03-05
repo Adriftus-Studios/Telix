@@ -109,10 +109,9 @@ abilities_characterAbilities_events:
     on player drops item:
       - if <player.open_inventory.script_name> == abilities_characterAbilityTrees:
         - if <context.item.has_nbt[skillname]>:
-          # doesnt work
-          #- determine passively cancelled
+          - wait 1t
+          - remove <context.entity>
     on player left clicks item in abilities_characterAbilityTrees:
-      - narrate <context.item.script.name>
       - if <context.raw_slot> < 46:
         - determine passively cancelled
         - if <context.item.has_nbt[skillname]>:
