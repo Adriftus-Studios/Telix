@@ -288,16 +288,6 @@ system_override:
         - determine passively cancelled
         - wait 1t
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory].parsed>
-    on script generates error:
-      - foreach <server.list_online_players.filter[has_flag[debug]]> as:player:
-        - if <context.script||null> == null:
-          - stop
-        - adjust <queue> linked_player:<[player]>
-        - narrate "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
-        - narrate "<&c> <context.message>"
-        - narrate "<&c> Script: <context.script.name>"
-        - narrate "<&c> File: <context.script.original_name>"
-        - narrate "<&c> Line: <context.line>"
 
 kill_queue_command:
   type: command
