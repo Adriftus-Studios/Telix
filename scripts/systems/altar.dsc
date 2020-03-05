@@ -50,8 +50,8 @@ altar:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_magma_cream|air
-      - custom_blaze_rod|custom_brewing_stand|custom_blaze_rod
+      - air|custom_beacon|air
+      - custom_diamond|custom_obsidian|custom_diamond
       - custom_iron_ingot|custom_iron_block|custom_iron_ingot
 
 altar_events:
