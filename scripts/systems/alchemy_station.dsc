@@ -44,7 +44,8 @@ alchemy_station_events:
         - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
         - foreach <[slotmap]> as:slot:
           - drop <inventory[alchemy_station_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
-        - drop <item[alchemy_station]> <context.location>
+        - if <player.gamemode> == survival:
+          - drop <item[alchemy_station]> <context.location>
         - note remove as:alchemy_station_<context.location.simple>
         - determine NOTHING
     on player clicks brewing_stand:
