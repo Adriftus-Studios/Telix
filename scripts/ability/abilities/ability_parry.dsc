@@ -30,9 +30,9 @@ ability_parry:
       - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]||20>
     #Execute Parry
     on player damaged by entity flagged:parrying:
-      - if <context.cause||entity_attack> == entity_attack:
+      - if <context.damager.location.distance[<player.location>]||5> <= 3:
         - hurt <context.damager> <player.item_in_hand.damage.*[<util.random.decimal[1.5].to[1.75].round>]>
-        - shoot <context.damager> d:<player.location.forward_flat[12]> height:1
+        - shoot <context.damager> d:<player.location.forward_flat[2]> height:1
         - playeffect sweep_attack at:<player.location.forward.above> quantity:1
         #- playsound <player.location> sound:ability.fisticuffs.riposte custom
         - narrate "<&6>You have <&a>parried <&6>your opponent's attack!"
