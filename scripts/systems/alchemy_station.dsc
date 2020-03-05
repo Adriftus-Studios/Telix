@@ -39,7 +39,7 @@ alchemy_station_test_recipe2:
       type: alchemy
       output_quantity: 4
       input: stone/2|cobblestone/2
-      cook_time: 2m
+      cook_time: 5s
 
 alchemy_station:
   type: item
