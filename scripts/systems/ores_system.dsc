@@ -16,6 +16,7 @@ ore_drop_events:
             - foreach <[all]>:
                 - define num:+:<el@1.div[<[value]>]>
             - define num:<[num].mul[100]||100>
+            - narrate <[num]>
             - if <player.gamemode> == SURVIVAL:
                 - if !<player.item_in_hand.enchantments.contains[silk_touch]>:
                     - if <util.random.int[0].to[100]> < <[num]>:
