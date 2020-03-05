@@ -107,6 +107,9 @@ abilities_characterAbilities_events:
   type: world
   events:
     on player left clicks item in abilities_characterAbilityTrees:
+      - narrate <context.raw_slot>
+      - narrate <context.action>
+      - narrate <context.hotbar_button>
       - if <context.raw_slot> < 46:
         - determine passively cancelled
         - if <context.item.has_nbt[skillname]>:
