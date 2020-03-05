@@ -11,7 +11,7 @@ mob_drops_events:
         - foreach <yaml[server.drop_rates].list_keys[<context.entity.script_name||<context.entity.entity_type>>.<[value]>]> as:key:
           - define drops:|:<[value]>/<el@1.div[<[key]>]>/<yaml[server.drop_rates].read[<context.entity.script_name||<context.entity.entity_type>>.<[value]>.<[key]>]>
           - define num:+:<el@1.div[<[key]>]>
-      - define num:<[num]>
+      - define num:<[num]||0>
       - define to_drop:<list[]>
       - foreach <[drops]||<list[]>> as:drop:
         - define random:<util.random.decimal[0].to[1]>
