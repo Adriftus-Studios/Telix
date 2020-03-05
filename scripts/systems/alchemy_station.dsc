@@ -1,7 +1,7 @@
 
 alchemy_station_inventory:
   type: inventory
-  title: <green><&6>◆<&sp<&a><&n><&l>Alchemy<&r><&sp<&6>◆
+  title: <&a><&6>◆ <&a><&n><&l>Alchemy<&r> <&6>◆
   size: 45
   definitions:
     w_filler: <item[gui_invisible_item]>
