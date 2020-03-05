@@ -177,6 +177,12 @@ player_setup:
     - foreach <script[abilitytrees].list_keys[trees]>:
       - yaml id:player.<player.uuid> set skills.<[value]>.current:100
 
+equipt_command:
+  type: command
+  name: equipt
+  script:
+  - inject system_equipment_set
+
 system_equipment_set:
   type: task
   script:
