@@ -30,7 +30,7 @@ ability_parry:
       - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]||20>
     #Execute Parry
     on player damaged by entity flagged:parrying:
-      - if <context.cause||entity_attack> == entity_attack && <context.entity.distance[<player.location>]||5> <= 3:
+      - if <context.cause||entity_attack> == entity_attack:
         - look <player> <context.entity>
         - hurt <context.entity> <player.item_in_hand.damage.*[<util.random.decimal[1.5].to[1.75].round>]>
         - shoot <context.entity> d:<player.location.forward_flat[12]> height:2
@@ -49,8 +49,9 @@ ability_parry_animation:
       - glow <player>
       - wait 0.125s
       - glow <player> false
+    - wait 0.125s
     - glow <player>
-    - wait 1.5s
+    - wait 1s
     - glow <player> false
 
     
