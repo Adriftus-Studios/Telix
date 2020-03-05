@@ -1,7 +1,7 @@
 
 altar_inventory:
   type: inventory
-  title: <&6>◆ <&a><&n><&l>Alchemy<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Altar<&r> <&6>◆
   size: 45
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -110,6 +110,7 @@ altar_events:
               - stop
             # countdown brewing timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.altar_recipes].read[<[crafting]>.cook_time]>>
+            - announce <[time]>
             - if <[time]> > 0:
               - if <[clock]||null> == null:
                 - if <[time].ends_with[s]>:
