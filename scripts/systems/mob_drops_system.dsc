@@ -13,7 +13,7 @@ mob_drops_events:
           - define num:+:<el@1.div[<[key]>]>
       - define num:<[num]>
       - define to_drop:<list[]>
-      - foreach <[drops]> as:drop:
+      - foreach <[drops]||<list[]>> as:drop:
         - define random:<util.random.decimal[0].to[1]>
         - define item:<item[<[drop].split[/].get[1]>]>
         - define chance:<[drop].split[/].get[2]>
