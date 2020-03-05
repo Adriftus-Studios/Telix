@@ -161,7 +161,7 @@ custom_bronze_nugget:
       output_quantity: 9
       input: custom_bronze_ingot
 custom_bronze_ingot:
-  material: iron_ingot
+  material: brick
   display name: <&7>Bronze ingot
   weight: '1'
   type: item

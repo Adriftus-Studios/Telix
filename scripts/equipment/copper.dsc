@@ -161,7 +161,7 @@ custom_copper_nugget:
       output_quantity: 9
       input: custom_copper_ingot
 custom_copper_ingot:
-  material: iron_ingot
+  material: brick
   display name: <&7>Copper ingot
   weight: '1'
   type: item
