@@ -13,7 +13,11 @@ debug_events:
         - narrate "<&c> File: <context.script.original_name>"
         - narrate "<&c> Line: <context.line>"
     on player clicks in inventory:
-      - narrate <context.raw_slot>
+      - if <player.has_flag[debug]>:
+        - narrate "<&c>|----------------------| <&4>Debug<&c> |-----------------------|"
+        - narrate "<&c>Raw Slot: <context.raw_slot>"
+        - narrate "<&c>Clicked Item: <context.item.script.name||<context.item.material.name>>"
+        
 
 
 
