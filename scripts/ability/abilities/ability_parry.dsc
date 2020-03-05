@@ -27,6 +27,7 @@ ability_parry:
         - run bb_timer def:<&5>Parrying|2s|purple
         #- playsound <player.location.forward> sound:ability.fisticuffs.parry custom
         - inject ability_parry_animation
+        - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]||20>
     #Execute Parry
     on player damaged by entity flagged:parrying:
       - if <context.cause||entity_attack> == entity_attack && <context.entity.distance[<player.location>]||5> <= 3:
