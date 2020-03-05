@@ -31,6 +31,7 @@ ability_parry:
     #Execute Parry
     on player damaged by entity flagged:parrying:
       - if <context.damager.location.distance[<player.location>]||5> <= 3:
+        - flag player parrying:!
         - look <player> <context.damager.eye_location>
         - hurt <context.damager> <player.item_in_hand.damage.*[<util.random.decimal[1.5].to[1.75].round>]>
         #- shoot <context.damager> d:<player.location.forward_flat[2]> height:1
