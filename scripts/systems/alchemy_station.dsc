@@ -38,7 +38,7 @@ alchemy_station_events:
   events:
     on player places brewing_stand:
       - if <context.item_in_hand.script.name||null> == alchemy_station:
-        - inventory open d:<inventory[alchemy_station_<context.location.simple>]>
+        - note <inventory[alchemy_station_inventory]> as:alchemy_station_<context.location.simple>
     on player breaks brewing_stand:
       - if <inventory[alchemy_station_<context.location.simple>]||null> != null:
         - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
