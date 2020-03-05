@@ -318,7 +318,9 @@ player_reset_command:
   description: player_reset
   usage: /player_reset
   script:
+  - kick <player> reason:Standby<&sp>while<&sp>we<&sp>reset<&sp>your<&sp>player<&sp>data.
   - yaml id:player.<player.uuid> unload
+  - stop
   - inject player_setup
   - inject update_stats
 
