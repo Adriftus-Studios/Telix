@@ -22,6 +22,4 @@ mob_drops_events:
         - narrate <[chance]>
         - narrate <[random]>
         - if <[chance]> > <[random]>:
-          - define to_drop:|:<[item].with[quantity=<[amount]>]>
-      - narrate <context.drops.include[<[to_drop]>]>
-      - determine <context.drops.include[<[to_drop]>].parse[as_item]>
+          - drop <[item].with[quantity=<[amount]>]> <context.entity.location>
