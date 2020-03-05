@@ -129,7 +129,6 @@ altar_events:
                   - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time].div[60].round_up>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
                   - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
-              - announce <[time]>
             - else:
               # craft item and remove required ingredients
               - define amount_needed:<yaml[server.altar_recipes].read[<[crafting]>.output_quantity]>
@@ -150,6 +149,7 @@ altar_events:
               - foreach <yaml[server.altar_recipes].read[<[crafting]>.input]> as:input:
                 - announce <[input]>
                 - inventory remove d:<[inventory]> o:<item[<[input].split[/].get[1]>].with[quantity=<[input].split[/].get[2]>]>
+                - announce <item[<[input].split[/].get[1]>].with[quantity=<[input].split[/].get[2]>]>
               - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
           - else:
             - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
