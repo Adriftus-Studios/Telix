@@ -23,5 +23,6 @@ ore_drop_events:
                         - define to_drop:<item[<item[custom_<context.material.name>].yaml_key[default_drop]||null>]||null>
                     - else:
                         - define to_drop:<context.location.drops[<player.item_in_hand>]>
+                - narrate <[to_drop]>
                 - if <[to_drop]||null> != null:
                     - determine <[to_drop]>
