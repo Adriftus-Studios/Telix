@@ -203,7 +203,7 @@ custom_item_override:
   debug: false
   events:
     on entity death:
-      - foreach <context.drops>:
+      - foreach <context.drops||<list[]>>:
         - define drops:|:<item[custom_<[value].material.name>].with[quantity=<[value].quantity>]||<[value]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
