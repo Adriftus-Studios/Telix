@@ -7,6 +7,6 @@ mob_drops_events:
       - foreach <yaml[server.drop_rates].list_keys[<context.entity.script_name||<context.entity.entity_type>>]||<list[]>>:
         - narrate <[value]>
         - narrate <yaml[server.drop_rates].read[<context.entity.script_name||<context.entity.entity_type>>.<[value]>]>
-        - define num:+:<el@1.div[<yaml[server.drop_rates].read[<context.entity.script_name||<context.entity.entity_type>>.<[value]>]>]>
+        #- define num:+:<el@1.div[<yaml[server.drop_rates].read[<context.entity.script_name||<context.entity.entity_type>>.<[value]>]>]>
       - define num:<[num].mul[50]||100>
       - narrate <[num]>
