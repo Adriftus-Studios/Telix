@@ -12,7 +12,7 @@ mob_drops_events:
       - narrate <[drops]>
       - define num:<[num]>
       - foreach <[drops]> as:drop:
-        - define random:<util.random.decimal[0].to[100]>
+        - define random:<util.random.decimal[0].to[1]>
         - define item:<item[<[drop].split[/].get[1]>]>
         - define chance:<[drop].split[/].get[2]>
         - define amount:<util.random.int[0].to[<[drop].split[/].get[3]>]>
