@@ -1,6 +1,6 @@
 mob_drops_events:
     type: world
-    debug: false
+    debug: true
     events:
         on entity death:
             - define roll:<util.random.int[1].to[100]>
