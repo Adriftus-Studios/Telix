@@ -3,6 +3,7 @@ debug_events:
   type: world
   events:
     on script generates error:
+      - announce s
       - foreach <server.list_online_players> as:player:
         - if <[player].has_flag[debug]>:
           - adjust <queue> linked_player:<[player]>
