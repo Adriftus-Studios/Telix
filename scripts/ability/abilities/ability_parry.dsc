@@ -19,7 +19,7 @@ ability_parry:
     custom_model_data: 1
   events:
     #Start Parry
-    on player right clicks entity with:*_sword:
+    on player right clicks block with *_sword:
       - if !<player.has_flag[parrying]>:
         - inject abilities_check
         - inject abilities_cost
