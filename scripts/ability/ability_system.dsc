@@ -106,6 +106,8 @@ abilities_GUIitem_buildLore:
 abilities_characterAbilities_events:
   type: world
   events:
+    on player drops item:
+      - narrate <context.item>
     on player left clicks item in abilities_characterAbilityTrees:
       - narrate <context.raw_slot>
       - narrate <context.action>
