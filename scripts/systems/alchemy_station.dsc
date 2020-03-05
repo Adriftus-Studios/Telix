@@ -48,7 +48,7 @@ alchemy_station:
   mob_drops:
     1:
       dropped_by: zombie
-      chance: 10
+      chance: 2
       amount: 5
     2:
       dropped_by: spider
