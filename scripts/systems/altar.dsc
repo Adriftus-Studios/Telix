@@ -110,22 +110,20 @@ altar_events:
               - stop
             # countdown brewing timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.altar_recipes].read[<[crafting]>.cook_time]>>
+            - if <[time].ends_with[s]>:
+              - define time:<[time].replace[s].with[]>
+            - if <[time].ends_with[m]>:
+              - define time:<[time].replace[m].with[].mul[60]>
+            - announce <[clock]>
+            - announce <[clock].nbt[time].sub[1]>
             - announce <[time]>
             - if <[time]> > 0:
               - if <[clock]||null> == null:
-                - if <[time].ends_with[s]>:
-                  - define time:<[time].replace[s].with[]>
-                - if <[time].ends_with[m]>:
-                  - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
                   - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
                   - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
               - else:
-                - if <[time].ends_with[s]>:
-                  - define time:<[time].replace[s].with[]>
-                - if <[time].ends_with[m]>:
-                  - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
                   - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
