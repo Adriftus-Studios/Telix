@@ -293,7 +293,8 @@ system_override:
         - adjust <queue> linked_player:<[player]>
         - narrate "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
         - narrate "<&c> <context.message>"
-        - narrate "<&c> Script: <context.script>"
+        - narrate "<&c> Script: <context.script.name>"
+        - narrate "<&c> File: <context.script.filename>"
         - narrate "<&c> Line: <context.line>"
 
 kill_queue_command:
