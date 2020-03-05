@@ -24,6 +24,7 @@ ability_parry:
         - inject abilities_check
         - inject abilities_cost
         - flag player parrying:true duration:2s
+        - narrate <util.date.time.duration.in_seconds>
         - run bb_timer def:<&5>Parrying|2s|purple
         #- playsound <player.location.forward> sound:ability.fisticuffs.parry custom
         - inject ability_parry_animation
