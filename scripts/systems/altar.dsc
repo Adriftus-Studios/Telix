@@ -22,23 +22,23 @@ altar_timer:
 altar_test_recipe1:
   type: item
   material: cobblestone
-  display name: <&7>Something
+  display name: <&7>Altar test recipe 1
   recipes:
     1:
       type: altar
       output_quantity: 2
-      input: stone/1|dirt/2
+      input: custom_stone/1|custom_dirt/2
       cook_time: 10s
 
 altar_test_recipe2:
   type: item
-  material: flint
-  display name: <&7>Something
+  material: diamond
+  display name: <&7>Altar test recipe 2
   recipes:
     1:
       type: altar
       output_quantity: 4
-      input: stone/2|cobblestone/2
+      input: custom_gold_ingot/2|custom_cobblestone/2
       cook_time: 2m
 
 altar:
@@ -176,7 +176,6 @@ altar_events:
           - determine passively cancelled
           - stop
     on player clicks in altar_inventory:
-      - narrate <context.raw_slot>
       - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
       - if <context.raw_slot> < 46:
         - if <[slotmap].map_get[<context.raw_slot>]||null> == null:
