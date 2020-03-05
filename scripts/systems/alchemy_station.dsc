@@ -45,7 +45,7 @@ alchemy_station_events:
         - foreach <[slotmap]> as:slot:
           - drop <inventory[alchemy_station_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
         - drop <item[alchemy_station]> <context.location>
-        - note remove as:smeltery_<context.location.simple>
+        - note remove as:alchemy_station_<context.location.simple>
         - determine NOTHING
     on player clicks brewing_stand:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
