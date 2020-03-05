@@ -23,6 +23,9 @@ alchemy_station_events:
   type: world
   debug: false
   events:
+    on player places block:
+      - narrate <context.hand>
+      - narrate <context.item_in_hand>
     on player breaks brewing_stand:
       - if <inventory[alchemy_station_<context.location.simple>]||null> != null:
         - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
