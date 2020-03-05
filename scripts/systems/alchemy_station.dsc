@@ -19,7 +19,7 @@ alchemy_station_timer:
   material: clock
   display name: <&7>Not Brewing
 
-alchemy_station_test_recipe:
+alchemy_station_test_recipe1:
   type: item
   material: cobblestone
   display name: <&7>Something
@@ -29,6 +29,17 @@ alchemy_station_test_recipe:
       output_quantity: 2
       input: stone/1|dirt/2
       cook_time: 10s
+
+alchemy_station_test_recipe1:
+  type: item
+  material: flint
+  display name: <&7>Something
+  recipes:
+    1:
+      type: alchemy
+      output_quantity: 4
+      input: stone/2|cobblestone/2
+      cook_time: 2m
 
 alchemy_station:
   type: item
