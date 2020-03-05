@@ -14,7 +14,7 @@ mob_drops_events:
       - foreach <[drops]> as:drop:
         - define random:<util.random.decimal[0].to[100]>
         - define item:<item[<[drop].split[/].get[1]>]>
-        - define chance:<item[<[drop].split[/].get[2]>]>
+        - define chance:<[drop].split[/].get[2]>
         - define amount:<util.random.int[0].to[<item[<[drop].split[/].get[3]>]>]>
         - if <[chance]> > <[random]>:
           - define to_drop:|:<[item].with[quantity=<[amount]>]>
