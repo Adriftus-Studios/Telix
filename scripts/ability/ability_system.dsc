@@ -111,6 +111,7 @@ abilities_characterAbilities_events:
         - if <context.item.has_nbt[skillname]>:
           - remove <context.entity>
           - inventory open d:abilities_characterAbilityTrees
+          # note: determine cancelled doesnt work
     on player left clicks item in abilities_characterAbilityTrees:
       - if <context.raw_slot> < 46:
         - determine passively cancelled
