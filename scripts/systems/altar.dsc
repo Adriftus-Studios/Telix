@@ -61,9 +61,9 @@ altar_events:
     on delta time secondly every:1:
       - foreach <server.list_notables[inventories].filter[script_name.contains_text[altar_inventory]]> as:inventory:
         - if <[inventory].script_name> == altar_inventory:
-          - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
-          - if <[inventory].slot[41].script.name> == altar_timer:
-            - define clock:<[inventory].slot[41]>
+          - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
+          - if <[inventory].slot[27].script.name> == altar_timer:
+            - define clock:<[inventory].slot[27]>
             # get the contents of all input slots
           - foreach <[slotmap]> as:slot:
             - if <[slot].split[/].get[2].starts_with[in]>:
@@ -117,18 +117,18 @@ altar_events:
                 - if <[time].ends_with[m]>:
                   - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:41 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
-                  - inventory set d:<[inventory]> slot:41 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
+                  - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
               - else:
                 - if <[time].ends_with[s]>:
                   - define time:<[time].replace[s].with[]>
                 - if <[time].ends_with[m]>:
                   - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:41 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
-                  - inventory set d:<[inventory]> slot:41 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
+                  - inventory set d:<[inventory]> slot:27 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
             - else:
               # craft item and remove required ingredients
               - define amount_needed:<yaml[server.altar_recipes].read[<[crafting]>.output_quantity]>
@@ -156,7 +156,7 @@ altar_events:
         - note <inventory[altar_inventory]> as:altar_<context.location.simple>
     on player breaks obsidian:
       - if <inventory[altar_<context.location.simple>]||null> != null:
-        - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
+        - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
         - foreach <[slotmap]> as:slot:
           - drop <inventory[altar_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
         - if <player.gamemode> == survival:
@@ -170,14 +170,14 @@ altar_events:
             - determine passively cancelled
             - inventory open d:<inventory[altar_<context.location.simple>]>
     on player drags in altar_inventory:
-      - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
+      - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
       - foreach <context.raw_slots> as:slot:
         - if <[slotmap].map_get[<[slot]>].starts_with[out]>:
           - determine passively cancelled
           - stop
     on player clicks in altar_inventory:
       - narrate <context.raw_slot>
-      - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
+      - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
       - if <context.raw_slot> < 46:
         - if <[slotmap].map_get[<context.raw_slot>]||null> == null:
           - determine passively cancelled
