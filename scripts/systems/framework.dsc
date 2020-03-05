@@ -320,9 +320,7 @@ player_reset_command:
   script:
   - kick <player> reason:Standby<&sp>while<&sp>we<&sp>reset<&sp>your<&sp>player<&sp>data.
   - yaml id:player.<player.uuid> unload
-  - stop
-  - inject player_setup
-  - inject update_stats
+  - adjust server delete_file:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml
 
 resend_recipes_command:
   type: command
