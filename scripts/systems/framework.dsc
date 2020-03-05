@@ -62,6 +62,7 @@ reload_scripts:
       - yaml create id:server.equipment
       - yaml create id:server.ore_rates
       - yaml create id:server.smeltery_recipes
+      - yaml create id:server.alchemy_recipes
       - yaml load:data/skill_trees.yml id:server.skill_trees
       - foreach <server.list_scripts>:
           - if <[value].yaml_key[script]||<[value].yaml_key[events]||null>> != null:
@@ -84,6 +85,11 @@ reload_scripts:
                     - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
                     - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
                     - yaml id:server.smeltery_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
+                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == alchemy:
+                    - yaml id:server.alchemy_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
+                    - yaml id:server.alchemy_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
+                    - yaml id:server.alchemy_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
+                    
     events:
       on server start:
         - inject locally reload
