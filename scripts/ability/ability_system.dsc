@@ -112,6 +112,7 @@ abilities_characterAbilities_events:
           # doesnt work
           #- determine passively cancelled
     on player left clicks item in abilities_characterAbilityTrees:
+      - narrate <context.item.script.name>
       - if <context.raw_slot> < 46:
         - determine passively cancelled
         - if <context.item.has_nbt[skillname]>:
