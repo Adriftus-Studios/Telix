@@ -3,6 +3,8 @@ mob_drops_events:
   debug: true
   events:
     on entity death:
+      - if <context.damager.type||null> == player:
+        - adjust <queue> linked_player:<context.damager>
       - define roll:<util.random.int[1].to[100]>
       - foreach <yaml[server.drop_rates].list_keys[<context.entity.script_name||<context.entity.entity_type>>]||<list[]>>:
         - narrate <[value]>
