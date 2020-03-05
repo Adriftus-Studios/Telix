@@ -16,12 +16,11 @@ ore_drop_events:
             - foreach <[all]>:
                 - define num:+:<el@1.div[<[value]>]>
             - define num:<[num].mul[100]||100>
-            - narrate <[to_drop]>
-            - narrate <[num]>
             - if <player.gamemode> == SURVIVAL:
                 - if !<player.item_in_hand.enchantments.contains[silk_touch]>:
                     - if <util.random.int[0].to[100]> < <[num]>:
                         - define to_drop:<item[custom_<context.location.drops[<player.item_in_hand>].get[1].material.name>]>
-                - narrate <[to_drop]>
                 - if <[to_drop]||null> != null:
-                    - determine <[to_drop]>
+                    - define item:<[to_drop]>
+                    - inject build_item
+                    - determine <[item]>
