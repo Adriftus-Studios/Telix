@@ -27,7 +27,7 @@ alchemy_station_test_recipe1:
     1:
       type: alchemy
       output_quantity: 2
-      input: stone/1|dirt/2
+      input: custom_stone/1|custom_dirt/2
       cook_time: 10s
 
 alchemy_station_test_recipe2:
@@ -38,7 +38,7 @@ alchemy_station_test_recipe2:
     1:
       type: alchemy
       output_quantity: 4
-      input: stone/2|cobblestone/2
+      input: custom_stone/2|custom_cobblestone/2
       cook_time: 5s
 
 alchemy_station:
