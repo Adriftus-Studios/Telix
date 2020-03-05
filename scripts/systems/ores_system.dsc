@@ -12,7 +12,7 @@ ore_drop_events:
             - if <yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]||null> != null:
                 - define all:<[all].include[<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]>]>
             - foreach <[all]>:
-                - define num:+:<el@1.div[<[value]>]>
+                - define num:+:<el@1.div[<[value]>]||0>
             - define num:<[num].mul[50]||100>
             - if <player.gamemode> == SURVIVAL:
                 - if !<player.item_in_hand.enchantments.contains[silk_touch]>:
