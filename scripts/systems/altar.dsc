@@ -1,50 +1,50 @@
 
-alchemy_station_inventory:
+altar_inventory:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Alchemy<&r> <&6>◆
   size: 45
   definitions:
     w_filler: <item[gui_invisible_item]>
-    gui_top: <item[gui_alchemy_station_top]>
-    gui_bottom: <item[gui_alchemy_station_bottom]>
+    gui_top: <item[gui_altar_top]>
+    gui_bottom: <item[gui_altar_bottom]>
   slots:
+  - "[w_filler] [w_filler] [] [w_filler] [] [w_filler] [] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [alchemy_station_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [] [w_filler] [] [w_filler] [] [w_filler] [altar_timer]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [] [w_filler] [] [w_filler] [] [w_filler] [w_filler]"
 
-alchemy_station_timer:
+altar_timer:
   type: item
   material: clock
-  display name: <&7>Not Brewing
+  display name: <&7>Not Imbuing
 
-alchemy_station_test_recipe1:
+altar_test_recipe1:
   type: item
   material: cobblestone
   display name: <&7>Something
   recipes:
     1:
-      type: alchemy
+      type: altar
       output_quantity: 2
       input: stone/1|dirt/2
       cook_time: 10s
 
-alchemy_station_test_recipe2:
+altar_test_recipe2:
   type: item
   material: flint
   display name: <&7>Something
   recipes:
     1:
-      type: alchemy
+      type: altar
       output_quantity: 4
       input: stone/2|cobblestone/2
       cook_time: 2m
 
-alchemy_station:
+altar:
   type: item
-  material: brewing_stand
-  display name: <&b>Alchemy Station
+  material: obsidian
+  display name: <&b>Altar
   recipes:
     1:
       type: shaped
@@ -54,15 +54,15 @@ alchemy_station:
       - custom_blaze_rod|custom_brewing_stand|custom_blaze_rod
       - custom_iron_ingot|custom_iron_block|custom_iron_ingot
 
-alchemy_station_events:
+altar_events:
   type: world
   debug: false
   events:
     on delta time secondly every:1:
-      - foreach <server.list_notables[inventories].filter[script_name.contains_text[alchemy_station_inventory]]> as:inventory:
-        - if <[inventory].script_name> == alchemy_station_inventory:
+      - foreach <server.list_notables[inventories].filter[script_name.contains_text[altar_inventory]]> as:inventory:
+        - if <[inventory].script_name> == altar_inventory:
           - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
-          - if <[inventory].slot[41].script.name> == alchemy_station_timer:
+          - if <[inventory].slot[41].script.name> == altar_timer:
             - define clock:<[inventory].slot[41]>
             # get the contents of all input slots
           - foreach <[slotmap]> as:slot:
@@ -80,21 +80,21 @@ alchemy_station_events:
             - foreach next
           # find what items are needed for crafting
           - define crafting:air
-          - foreach <yaml[server.alchemy_recipes].list_keys[]> as:recipe:
+          - foreach <yaml[server.altar_recipes].list_keys[]> as:recipe:
             - define found:0
             - if <[crafting]> == air:
-              - foreach <yaml[server.alchemy_recipes].read[<[recipe]>.input]> as:input:
+              - foreach <yaml[server.altar_recipes].read[<[recipe]>.input]> as:input:
                 - if <[input].split[/].get[2]> <= <[contents].map_get[<[input].split[/].get[1]>]||0>:
                   - define ingredients:|:<[input]>
                   - define found:++
-            - if <[found]> == <yaml[server.alchemy_recipes].read[<[recipe]>.input].as_list.size>:
+            - if <[found]> == <yaml[server.altar_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
               - foreach stop
           - if <[crafting]||null> == null:
             - stop
           # find if resulting items can fit in output slots
           - if <[crafting]||null> != null && <[crafting]> != air:
-            - define amount_needed:<yaml[server.alchemy_recipes].read[<[crafting]>.output_quantity]>
+            - define amount_needed:<yaml[server.altar_recipes].read[<[crafting]>.output_quantity]>
             - foreach <[slotmap]> as:slot:
               - if <[amount_needed]> > 0:
                 - if <[slot].split[/].get[2].starts_with[out]> && <[inventory].slot[<[slot].split[/].get[1]>].quantity> != 64:
@@ -109,7 +109,7 @@ alchemy_station_events:
             - if <[amount_needed]> != 0:
               - stop
             # countdown brewing timer
-            - define time:<[clock].nbt[time].sub[1]||<yaml[server.alchemy_recipes].read[<[crafting]>.cook_time]>>
+            - define time:<[clock].nbt[time].sub[1]||<yaml[server.altar_recipes].read[<[crafting]>.cook_time]>>
             - if <[time]> > 0:
               - if <[clock]||null> == null:
                 - if <[time].ends_with[s]>:
@@ -117,21 +117,21 @@ alchemy_station_events:
                 - if <[time].ends_with[m]>:
                   - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer].with[display_name=<&7>Brewing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:41 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
-                  - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer].with[display_name=<&7>Brewing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
+                  - inventory set d:<[inventory]> slot:41 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
               - else:
                 - if <[time].ends_with[s]>:
                   - define time:<[time].replace[s].with[]>
                 - if <[time].ends_with[m]>:
                   - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer].with[display_name=<&7>Brewing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:41 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time].div[60]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
-                  - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer].with[display_name=<&7>Brewing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
+                  - inventory set d:<[inventory]> slot:41 o:<item[altar_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
             - else:
               # craft item and remove required ingredients
-              - define amount_needed:<yaml[server.alchemy_recipes].read[<[crafting]>.output_quantity]>
+              - define amount_needed:<yaml[server.altar_recipes].read[<[crafting]>.output_quantity]>
               - foreach <[slotmap]> as:slot:
                 - if <[amount_needed]> > 0:
                   - if <[slot].split[/].get[2].starts_with[out]> && <[inventory].slot[<[slot].split[/].get[1]>].quantity> != 64:
@@ -146,36 +146,36 @@ alchemy_station_events:
                       - wait 1t
                       - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[add].add[<[has]>]>]>
                       - define amount_needed:<[remaining]>
-              - foreach <yaml[server.alchemy_recipes].read[<[crafting]>.input]> as:input:
+              - foreach <yaml[server.altar_recipes].read[<[crafting]>.input]> as:input:
                 - inventory remove d:<[inventory]> o:<item[<[input].split[/].get[1]>].with[quantity=<[input].split[/].get[2]>]>
-              - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer]>
+              - inventory set d:<[inventory]> slot:41 o:<item[altar_timer]>
           - else:
-            - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer]>
-    on player places brewing_stand:
-      - if <context.item_in_hand.script.name||null> == alchemy_station:
-        - note <inventory[alchemy_station_inventory]> as:alchemy_station_<context.location.simple>
-    on player breaks brewing_stand:
-      - if <inventory[alchemy_station_<context.location.simple>]||null> != null:
+            - inventory set d:<[inventory]> slot:41 o:<item[altar_timer]>
+    on player places obsidian:
+      - if <context.item_in_hand.script.name||null> == altar:
+        - note <inventory[altar_inventory]> as:altar_<context.location.simple>
+    on player breaks obsidian:
+      - if <inventory[altar_<context.location.simple>]||null> != null:
         - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
         - foreach <[slotmap]> as:slot:
-          - drop <inventory[alchemy_station_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
+          - drop <inventory[altar_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
         - if <player.gamemode> == survival:
-          - drop <item[alchemy_station]> <context.location>
-        - note remove as:alchemy_station_<context.location.simple>
+          - drop <item[altar]> <context.location>
+        - note remove as:altar_<context.location.simple>
         - determine NOTHING
-    on player clicks brewing_stand:
+    on player clicks obsidian:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:
-          - if <inventory[alchemy_station_<context.location.simple>]||null> != null:
+          - if <inventory[altar_<context.location.simple>]||null> != null:
             - determine passively cancelled
-            - inventory open d:<inventory[alchemy_station_<context.location.simple>]>
-    on player drags in alchemy_station_inventory:
+            - inventory open d:<inventory[altar_<context.location.simple>]>
+    on player drags in altar_inventory:
       - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
       - foreach <context.raw_slots> as:slot:
         - if <[slotmap].map_get[<[slot]>].starts_with[out]>:
           - determine passively cancelled
           - stop
-    on player clicks in alchemy_station_inventory:
+    on player clicks in altar_inventory:
       - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
       - if <context.raw_slot> < 46:
         - if <[slotmap].map_get[<context.raw_slot>]||null> == null:
