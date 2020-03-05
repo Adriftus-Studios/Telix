@@ -107,7 +107,7 @@ abilities_characterAbilities_events:
   type: world
   events:
     on player drops item:
-      - if <player.open_inventory.script_name> == abilities_characterAbilityTrees:
+      - if <player.open_inventory.script_name||null> == abilities_characterAbilityTrees:
         - if <context.item.has_nbt[skillname]>:
           - remove <context.entity>
           - inventory open d:abilities_characterAbilityTrees
