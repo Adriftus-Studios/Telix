@@ -148,9 +148,9 @@ altar_events:
                       - define amount_needed:<[remaining]>
               - foreach <yaml[server.altar_recipes].read[<[crafting]>.input]> as:input:
                 - inventory remove d:<[inventory]> o:<item[<[input].split[/].get[1]>].with[quantity=<[input].split[/].get[2]>]>
-              - inventory set d:<[inventory]> slot:41 o:<item[altar_timer]>
+              - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
           - else:
-            - inventory set d:<[inventory]> slot:41 o:<item[altar_timer]>
+            - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
     on player places obsidian:
       - if <context.item_in_hand.script.name||null> == altar:
         - note <inventory[altar_inventory]> as:altar_<context.location.simple>
