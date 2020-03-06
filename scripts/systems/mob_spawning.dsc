@@ -36,7 +36,7 @@ mob_spawning_handler:
                               - define spawning_point:<[spawning_point].with_y[<[y]>].above[2]>
                       - if <[spawning_point].material.name.is[==].to[water]> == <yaml[server.mobs].read[<[mob]>.water]>:
                         - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
-                          - spawn <[mob]> <[spawning_point]>
+                          - spawn <[mob]> <[spawning_point].above>
                         - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
                         - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
     on entity spawns:
