@@ -58,4 +58,3 @@ mob_spawning_handler:
       - define mob:<[list].random>
       - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
         - spawn <[mob]> <context.location>
-      - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
