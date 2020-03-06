@@ -155,7 +155,7 @@ stats_character:
       - if <script[default_stats].yaml_key[stats.increments.<[stat]>]||null> != null:
         - adjust def:icon lore:Next<&sp>Level<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]||<yaml[player.<player.uuid>].read[stats.<[stat]>].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]>>
       - else:
-        - adjust def:icon lore:"This Stat cannot be increased with Skill Points."
+        - adjust def:icon lore:This<&sp>Stat<&sp>cannot<&sp>be<&sp>increased<&sp>with<&sp>Skill<&sp>Points.
       - narrate <[icon]>
       - define items:|:<[icon]>
     - determine <[items]>
