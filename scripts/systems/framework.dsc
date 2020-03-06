@@ -102,17 +102,17 @@ reload_scripts:
                     - yaml id:server.altar_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
                     - yaml id:server.altar_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
           - if <[value].yaml_key[type]> == entity:
-            - if <[value].yaml_key[spawning_conditions]||null> != null:
-              - yaml id:server.mob_spawns set <[value].yaml_key[spawning_conditions.world]>.<[value].yaml_key[spawning_conditions.biome]>.<[value].name>.every:<[value].yaml_key[spawning_conditions.every]||1m>
-              - yaml id:server.mobs set <[value].name>.every:<[value].yaml_key[spawning_conditions.every]||1m>
-              - yaml id:server.mobs set <[value].name>.max_y:<[value].yaml_key[spawning_conditions.max_y]||255>
-              - yaml id:server.mobs set <[value].name>.min_y:<[value].yaml_key[spawning_conditions.min_y]||0>
-              - yaml id:server.mobs set <[value].name>.max_quantity:<[value].yaml_key[spawning_conditions.max_quantity]||1>
-              - yaml id:server.mobs set <[value].name>.min_quantity:<[value].yaml_key[spawning_conditions.min_quantity]||1>
-              - yaml id:server.mobs set <[value].name>.air:<[value].yaml_key[spawning_conditions.air]||false>
-              - yaml id:server.mobs set <[value].name>.max_distance:<[value].yaml_key[spawning_conditions.max_distance]||50>
-              - yaml id:server.mobs set <[value].name>.min_distance:<[value].yaml_key[spawning_conditions.min_distance]||10>
-              - yaml id:server.mobs set <[value].name>.spawn_script:<[value].yaml_key[spawning_conditions.spawn_script]||none>
+            - if <[value].yaml_key[custom.spawning_conditions]||null> != null:
+              - yaml id:server.mob_spawns set <[value].yaml_key[custom.spawning_conditions.world]>.<[value].yaml_key[custom.spawning_conditions.biome]>.<[value].name>.every:<[value].yaml_key[custom.spawning_conditions.every]||1m>
+              - yaml id:server.mobs set <[value].name>.every:<[value].yaml_key[custom.spawning_conditions.every]||1m>
+              - yaml id:server.mobs set <[value].name>.max_y:<[value].yaml_key[custom.spawning_conditions.max_y]||255>
+              - yaml id:server.mobs set <[value].name>.min_y:<[value].yaml_key[custom.spawning_conditions.min_y]||0>
+              - yaml id:server.mobs set <[value].name>.max_quantity:<[value].yaml_key[custom.spawning_conditions.max_quantity]||1>
+              - yaml id:server.mobs set <[value].name>.min_quantity:<[value].yaml_key[custom.spawning_conditions.min_quantity]||1>
+              - yaml id:server.mobs set <[value].name>.air:<[value].yaml_key[custom.spawning_conditions.air]||false>
+              - yaml id:server.mobs set <[value].name>.max_distance:<[value].yaml_key[custom.spawning_conditions.max_distance]||50>
+              - yaml id:server.mobs set <[value].name>.min_distance:<[value].yaml_key[custom.spawning_conditions.min_distance]||10>
+              - yaml id:server.mobs set <[value].name>.spawn_script:<[value].yaml_key[custom.spawning_conditions.spawn_script]||none>
                     
     events:
       on server start:

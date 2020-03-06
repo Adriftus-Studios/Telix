@@ -35,18 +35,19 @@ mob_spawning_handler:
 mob_spawning_test_entity:
   type: entity
   entity_type: zombie
-  spawning_conditions:
-    world: all
-    biome: all
-    every: 20s
-    air: false
-    max_y: 255
-    min_y: 50
-    max_distance: 10
-    min_distance: 5
-    max_quantity: 5
-    min_quantity: 3
-    spawn_script: mob_spawning_test_script
+  custom:
+    spawning_conditions:
+      world: all
+      biome: all
+      every: 20s
+      air: false
+      max_y: 255
+      min_y: 50
+      max_distance: 10
+      min_distance: 5
+      max_quantity: 5
+      min_quantity: 3
+      spawn_script: mob_spawning_test_script
 
 mob_spawning_test_script:
   type: task
