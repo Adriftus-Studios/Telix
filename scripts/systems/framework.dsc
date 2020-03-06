@@ -112,6 +112,7 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.air:<[value].yaml_key[custom.spawning_conditions.air]||false>
               - yaml id:server.mobs set <[value].name>.max_distance:<[value].yaml_key[custom.spawning_conditions.max_distance]||50>
               - yaml id:server.mobs set <[value].name>.min_distance:<[value].yaml_key[custom.spawning_conditions.min_distance]||10>
+              - yaml id:server.mobs set <[value].name>.time:<[value].yaml_key[custom.spawning_conditions.time]||all>
               - yaml id:server.mobs set <[value].name>.spawn_script:<[value].yaml_key[custom.spawning_conditions.spawn_script]||none>
                     
     events:

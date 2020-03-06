@@ -175,6 +175,8 @@ mob_spawning_test_entity:
       # how many mobs spawn at the same time
       spawn_script: mob_spawning_test_script
       # a script that is executed when the mob spawns
+      time: all
+      # Time of day that the mob can spawn
 
 mob_spawning_test_script:
   type: task
