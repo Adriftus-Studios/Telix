@@ -19,9 +19,10 @@ mob_spawning_handler:
           - if <player.location.material.name.is[==].to[water]> != <yaml[server.mobs].read[<[mob]>.water]>:
             - define list:<-:<[mob]>
             - narrate 2
-          - if <yaml[server.mobs].read[<[mob]>.time]> != <player.location.world.time.period> || <yaml[server.mobs].read[<[mob]>.time]> != all:
-            - define list:<-:<[mob]>
-            - narrate 3
+          - if <yaml[server.mobs].read[<[mob]>.time]> != <player.location.world.time.period>:
+            - if <yaml[server.mobs].read[<[mob]>.time]> != all:
+              - define list:<-:<[mob]>
+              - narrate 3
         - define mob_limiter:40
         - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
           - foreach <[list]> as:mob:
