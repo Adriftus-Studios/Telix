@@ -65,6 +65,7 @@ reload_scripts:
       - yaml create id:server.smeltery_recipes
       - yaml create id:server.alchemy_recipes
       - yaml create id:server.altar_recipes
+      - yaml create id:server.mob_spawns
       - yaml load:data/skill_trees.yml id:server.skill_trees
       - foreach <server.list_scripts>:
           - if <[value].yaml_key[script]||<[value].yaml_key[events]||null>> != null:
@@ -99,6 +100,17 @@ reload_scripts:
                     - yaml id:server.altar_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
                     - yaml id:server.altar_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
                     - yaml id:server.altar_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
+          - if <[value].yaml_key[type]> == entity:
+            - if <[value].yaml_key[spawning_conditions]||null> != null:
+              - yaml id:server.mob_spawns set <[value].yaml_key[spawning_conditions.world]>.<[value].yaml_key[spawning_conditions.biome]>.<[value].name>.every:<[value].yaml_key[spawning_conditions.every]||1m>
+              - yaml id:server.mob_spawns set <[value].yaml_key[spawning_conditions.world]>.<[value].yaml_key[spawning_conditions.biome]>.<[value].name>.max_y:<[value].yaml_key[spawning_conditions.max_y]||255>
+              - yaml id:server.mob_spawns set <[value].yaml_key[spawning_conditions.world]>.<[value].yaml_key[spawning_conditions.biome]>.<[value].name>.min_y:<[value].yaml_key[spawning_conditions.min_y]||0>
+              - yaml id:server.mob_spawns set <[value].yaml_key[spawning_conditions.world]>.<[value].yaml_key[spawning_conditions.biome]>.<[value].name>.max_quantity:<[value].yaml_key[spawning_conditions.max_quantity]||1>
+              - yaml id:server.mob_spawns set <[value].yaml_key[spawning_conditions.world]>.<[value].yaml_key[spawning_conditions.biome]>.<[value].name>.min_quantity:<[value].yaml_key[spawning_conditions.min_quantity]||1>
+              - yaml id:server.mob_spawns set <[value].yaml_key[spawning_conditions.world]>.<[value].yaml_key[spawning_conditions.biome]>.<[value].name>.air:<[value].yaml_key[spawning_conditions.air]||false>
+              - yaml id:server.mob_spawns set <[value].yaml_key[spawning_conditions.world]>.<[value].yaml_key[spawning_conditions.biome]>.<[value].name>.max_distance:<[value].yaml_key[spawning_conditions.max_distance]||50>
+              - yaml id:server.mob_spawns set <[value].yaml_key[spawning_conditions.world]>.<[value].yaml_key[spawning_conditions.biome]>.<[value].name>.min_distance:<[value].yaml_key[spawning_conditions.min_distance]||10>
+              - yaml id:server.mob_spawns set <[value].yaml_key[spawning_conditions.world]>.<[value].yaml_key[spawning_conditions.biome]>.<[value].name>.spawn_script:<[value].yaml_key[spawning_conditions.spawn_script]||none>
                     
     events:
       on server start:
