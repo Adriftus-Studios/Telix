@@ -11,7 +11,7 @@ damage_command:
   type: command
   name: damage
   script:
-    - narrate <el@1.div[a]>
+    - narrate <el@1.mul[a]>
     - stop
     - hurt <context.args.get[1].mul[<player.health>].div[20]>
 
