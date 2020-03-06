@@ -57,9 +57,6 @@ calculate_weight_equipment_stats:
   type: task
   debug: false
   script:
-    - foreach <player.inventory.list_contents> as:item:
-      - define this_item_weight:<[item].script.yaml_key[weight]||1>
-      - define weight:|:<[this_item_weight].*[<[item].quantity>]||1>
     - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
     - foreach <[slotmap]>:
       - define item:<inventory[equipment_<player.uuid>].slot[<[value].split[/].get[1]>]||<item[air]>>
@@ -82,7 +79,6 @@ calculate_weight_equipment_stats:
           - foreach <[item].nbt_attributes> as:attr:
             - define attr_type:<[attr].split[/].get[1]>
             - define attr_amount:<[attr].split[/].get[4]>
-          - define weight:|:<[item].script.yaml_key[weight]>
           - foreach <[item].nbt_keys> as:stat:
             - if <[stat].starts_with[base_stats.]>:
               - define value:<[item].nbt[<[stat]>]>
@@ -101,13 +97,21 @@ calculate_weight_equipment_stats:
     - if <player||null> == null:
       - stop
     - equip chest:<[chestplate]||<item[equipment_chest_slot]>>
-    - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
+    - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
 
 calculate_encumberance_speed:
   type: task
   debug: false
   script:
-    - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
+    - foreach <player.inventory.list_contents> as:item:
+      - define this_item_weight:<[item].script.yaml_key[weight]||1>
+      - define weight:|:<[this_item_weight].*[<[item].quantity>]||1>
+    - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
+    - foreach <[slotmap]>:
+      - define item:<inventory[equipment_<player.uuid>].slot[<[value].split[/].get[1]>]||<item[air]>>
+      - if <[item].material> != air:
+        - define weight:|:<[item].script.yaml_key[weight]>
+    - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
     - if <[encumberance]> > 100:
       - define encumberance:100

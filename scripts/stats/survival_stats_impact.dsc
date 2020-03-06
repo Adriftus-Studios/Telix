@@ -107,50 +107,29 @@ survival_stats_thirst_hunger_periodic_drain:
         - yaml id:player.<[value].uuid> set stats.food.current:--
         - yaml id:player.<[value].uuid> set stats.thirst.current:--
 
-survival_stats_weight_calculate:
-  type: task
-  script:
-    - inject update_stats
-
-survival_stats_weight_impact:
-  type: task
-  debug: false
-  script:
-    - inject update_stats
-
 survival_stats_weight_events:
   type: world
   events:
     on player picks up item bukkit_priority:HIGHEST:
       - wait 1t
-      - inject survival_stats_weight_calculate
+      - inject calculate_encumberance_speed
 
     on player drops item bukkit_priority:HIGHEST:
       - wait 1t
-      - inject survival_stats_weight_calculate
+      - inject calculate_encumberance_speed
     
     on player closes inventory bukkit_priority:HIGHEST:
       - wait 1t
-      - inject survival_stats_weight_calculate
+      - inject calculate_encumberance_speed
 
 survival_stats_food_impact_events:
   type: world
   events:
     on player starts sprinting:
-      - inject survival_stats_food_burn_sprint
-    on player starts swimming:
-      - inject survival_stats_food_burn_swim
-
-survival_stats_food_burn_sprint:
-  type: task
-  script:
     - while <player.is_sprinting>:
       - yaml id:player.<[value].uuid> set stats.food.current:--
       - wait 3s
-
-survival_stats_food_burn_swim:
-  type: task
-  script:
+    on player starts swimming:
     - while <player.is_swimming>:
       - yaml id:player.<[value].uuid> set stats.food.current:--
       - wait 3s
@@ -163,4 +142,4 @@ survival_stats_reset:
     - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]>
     - yaml id:player.<player.uuid> set stats.health.current:<yaml[player.<player.uuid>].read[stats.health.max]>
     - yaml id:player.<player.uuid> set stats.temperature:100
-    - inject survival_stats_weight_calculate
+    - inject calculate_encumberance_speed
