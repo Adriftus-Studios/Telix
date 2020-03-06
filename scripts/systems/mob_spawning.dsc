@@ -41,6 +41,7 @@ mob_spawning_handler:
     on entity spawns:
       - determine passively cancelled
       - define list:<list[]>
+      
       - define list:|:<yaml[server.mob_spawns].list_keys[all.all]||<list[]>>
       - define list:|:<yaml[server.mob_spawns].list_keys[<context.location.world.name>.all]||<list[]>>
       - define list:|:<yaml[server.mob_spawns].list_keys[all.<context.location.biome.name>]||<list[]>>
