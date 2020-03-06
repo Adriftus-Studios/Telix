@@ -104,6 +104,7 @@ reload_scripts:
           - if <[value].yaml_key[type]> == entity:
             - if <[value].yaml_key[spawning_conditions]||null> != null:
               - yaml id:server.mob_spawns set <[value].yaml_key[spawning_conditions.world]>.<[value].yaml_key[spawning_conditions.biome]>.<[value].name>.every:<[value].yaml_key[spawning_conditions.every]||1m>
+              - yaml id:server.mobs set <[value].name>.every:<[value].yaml_key[spawning_conditions.every]||1m>
               - yaml id:server.mobs set <[value].name>.max_y:<[value].yaml_key[spawning_conditions.max_y]||255>
               - yaml id:server.mobs set <[value].name>.min_y:<[value].yaml_key[spawning_conditions.min_y]||0>
               - yaml id:server.mobs set <[value].name>.max_quantity:<[value].yaml_key[spawning_conditions.max_quantity]||1>
