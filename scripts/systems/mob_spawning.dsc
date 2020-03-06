@@ -19,6 +19,7 @@ mob_spawning_handler:
                 - if <yaml[server.mobs].read[<[mob]>.max_y]> > <player.location.y> && <yaml[server.mobs].read[<[mob]>.min_y]> < <player.location.y>:
                   - define spawning_point:<proc[find_offset].context[<util.random.int[<yaml[server.mobs].read[<[mob]>.min_distance]>].to[<yaml[server.mobs].read[<[mob]>.max_distance]>]>|<util.random.int[0].to[360]>]>
                   - define spawning_point:<location[<[spawning_point].get[1]>,<player.location.y>,<[spawning_point].get[2]>,<player.location.world.name>]>
+                  - chunkload <[spawning_point].chunk>
                   - if <[spawning_point].y> > <[spawning_point].highest>:
                     - define spawning_point:<[spawning_point].highest>
                   - else:
