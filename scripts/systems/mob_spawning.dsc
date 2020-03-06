@@ -12,14 +12,15 @@ mob_spawning_handler:
         - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
         - define list:<[list].deduplicate>
         - foreach <[list]> as:mob:
-          - if !<player.flag[<[mob]>]>:
+          - if !<player.flag[<[mob]>]||false>:
             - repeat 5:
               - define spawning_point:<proc[find_offset].context[<util.random.int[<yaml[server.mobs].read[<[mob]>.min_distance]>].to[<yaml[server.mobs].read[<[mob]>.max_distance]>]>|<util.random.int[0].to[360]>]>
+
               - repeat stop
 
 mob_spawning_test_entity:
   type: entity
-  entity_type: armor_stand
+  entity_type: zombie
   spawning_conditions:
     world: all
     biome: all
