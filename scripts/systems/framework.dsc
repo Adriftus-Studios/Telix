@@ -109,6 +109,7 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.min_y:<[value].yaml_key[custom.spawning_conditions.min_y]||0>
               - yaml id:server.mobs set <[value].name>.max_quantity:<[value].yaml_key[custom.spawning_conditions.max_quantity]||1>
               - yaml id:server.mobs set <[value].name>.min_quantity:<[value].yaml_key[custom.spawning_conditions.min_quantity]||1>
+              - yaml id:server.mobs set <[value].name>.water:<[value].yaml_key[custom.spawning_conditions.water]||false>
               - yaml id:server.mobs set <[value].name>.air:<[value].yaml_key[custom.spawning_conditions.air]||false>
               - yaml id:server.mobs set <[value].name>.max_distance:<[value].yaml_key[custom.spawning_conditions.max_distance]||50>
               - yaml id:server.mobs set <[value].name>.min_distance:<[value].yaml_key[custom.spawning_conditions.min_distance]||10>

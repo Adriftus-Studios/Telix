@@ -170,6 +170,7 @@ mob_spawning_test_entity:
       max_distance: 10
       min_distance: 5
       # how far from the player the mob is supposed to spawn at
+      water: false
       max_quantity: 5
       min_quantity: 3
       # how many mobs spawn at the same time
