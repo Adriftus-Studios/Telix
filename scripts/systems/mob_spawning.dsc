@@ -17,7 +17,7 @@ mob_spawning_test_entity:
   entity_type: armor_stand
   spawning_conditions:
     world: all
-    biome: ocean
+    biome: lukewarm_ocean
     air: false
     every: 1m
     max_y: 255
