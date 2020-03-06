@@ -51,6 +51,5 @@ mob_spawning_handler:
       - foreach <[list]> as:mob:
         - if <context.location.y> <= <yaml[server.mobs].read[<[mob]>.max_y]> && <context.location.y> >= <yaml[server.mobs].read[<[mob]>.min_y]>
           - define new_list:|:<[mob]>
-      - narrate 
       - define mob:<[new_list].random>
       - spawn <[mob]> <context.location>
