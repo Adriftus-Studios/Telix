@@ -20,7 +20,7 @@ update_stats:
 stats_setup:
   type: task
   script:
-  - announce to_ops "&cThe script <script.name> has used the deprecated task 'stats_setup'. this task has been replaced with 'player_setup'"
+  - announce to_ops "<&c>The script <script.name> has used the deprecated task 'stats_setup'. this task has been replaced with 'player_setup'"
   - inject player_setup
   
 stats_events:
@@ -35,7 +35,6 @@ stats_events:
         - yaml id:player.<context.damager.uuid> set values.kills:++
     on player heals:
       - yaml id:player.<player.uuid> set values.heals:+:<context.amount>
-
 
 calculate_base_stats:
   type: task
@@ -112,6 +111,7 @@ calculate_encumberance_speed:
       - define encumberance:100
     - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
     - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]||0.2>
+    - narrate <[speed]>
     #- if <yaml[player.<player.uuid>].read[stats.encumberance]> > 69:
     #  - adjust <player> walk_speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]||0.2>
     #- else:
