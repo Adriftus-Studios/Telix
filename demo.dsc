@@ -182,3 +182,28 @@ mob_spawning_test_script:
     # <player> is the player that caused the mob to spawn.
     - narrate "Spooky action at a distance"
     
+# -----[ Custom Mob Drops ]-----
+  
+custom_mob_drops_test_item:
+  type: item
+  material: dirt
+  display name: <&b>Test Item
+  mob_drops:
+    1:
+      dropped_by: zombie
+      # what mob drops this item
+      # can be a vanilla mob, or a custom mob
+      chance: 4
+      # the chance that this mob will drop this item
+	    # This is calculated from 1 out of "chance"
+      # So 1 out of '4' means 25% chance to drop
+      max_quantity: 4
+      # Max amount of items to drop
+      min_quantity: 1
+      # Optional minimum amount of items to drop
+      # If no minimum is specified, defaults to 1
+    2:
+      dropped_by: spider
+      chance: 5
+      min_quantity: 3
+      max_quantity: 7
