@@ -27,6 +27,7 @@ mob_spawning_handler:
                         - define spawning_point:<[spawning_point].with_y[<[y]>]>
                   - spawn <[mob]> at:<[spawning_point]>
                   - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
+                  - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
 
 mob_spawning_test_entity:
   type: entity
