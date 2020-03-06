@@ -41,19 +41,15 @@ mob_spawning_handler:
     on entity spawns:
       - determine passively cancelled
       - define list:<list[]>
-      
+
       - define list:|:<yaml[server.mob_spawns].list_keys[all.all]||<list[]>>
       - define list:|:<yaml[server.mob_spawns].list_keys[<context.location.world.name>.all]||<list[]>>
       - define list:|:<yaml[server.mob_spawns].list_keys[all.<context.location.biome.name>]||<list[]>>
       - define list:|:<yaml[server.mob_spawns].list_keys[<context.location.world.name>.<context.location.biome.name>]||<list[]>>
       - define list:<[list].deduplicate>
+      - define new_list:<list[]>
       - foreach <[list]> as:mob:
         - if <context.location.y> <= <yaml[server.mobs].read[<[mob]>.max_y]> && <context.location.y> >= <yaml[server.mobs].read[<[mob]>.min_y]>
-          - define list:<-:<[mob]>
-        - if <context.location.world.name> != <yaml[server.mobs].read[<[mob]>.world]>:
-          - define list:<-:<[mob]>
-        - if <context.location.biome.name> != <yaml[server.mobs].read[<[mob]>.biome]>:
-          - define list:<-:<[mob]>
-      - define mob:<[list].random>
-      - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
-        - spawn <[mob]> <context.location>
+          - define new_list:<-:<[mob]>
+      - define mob:<[new_list].random>
+      - spawn <[mob]> <context.location>
