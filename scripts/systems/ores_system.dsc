@@ -11,6 +11,8 @@ ore_drop_events:
                 - define all:<[all].include[<yaml[server.ore_rates].list_keys[<context.material.name>.all]>]>
             - if <yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]||null> != null:
                 - define all:<[all].include[<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]>]>
+            - if <[all].size> == 0:
+                - stop
             - foreach <[all]||<list[]>>:
                 - define num:+:<el@1.div[<[value]>]||0>
             - define num:<[num].mul[50]||100>
