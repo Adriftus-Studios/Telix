@@ -42,12 +42,10 @@ mob_spawning_handler:
       - determine passively cancelled
       - define list:<list[]>
       - define list:|:<yaml[server.mob_spawns].list_keys[all.all]||<list[]>>
-      - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.all]||<list[]>>
-      - define list:|:<yaml[server.mob_spawns].list_keys[all.<player.location.biome.name>]||<list[]>>
-      - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
+      - define list:|:<yaml[server.mob_spawns].list_keys[<context.location.world.name>.all]||<list[]>>
+      - define list:|:<yaml[server.mob_spawns].list_keys[all.<context.location.biome.name>]||<list[]>>
+      - define list:|:<yaml[server.mob_spawns].list_keys[<context.location.world.name>.<context.location.biome.name>]||<list[]>>
       - define list:<[list].deduplicate>
-      - foreach <player.list_flags> as:flag:
-        - define list:<-:<[flag]>
       - foreach <[list]> as:mob:
         - if <context.location.y> <= <yaml[server.mobs].read[<[mob]>.max_y]> && <context.location.y> >= <yaml[server.mobs].read[<[mob]>.min_y]>
           - define list:<-:<[mob]>
