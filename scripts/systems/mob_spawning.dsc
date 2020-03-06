@@ -29,6 +29,7 @@ mob_spawning_handler:
                       - define y:<[spawning_point].y.add[<[value]>]>
                       - if <[spawning_point].with_y[<[y]>].material.name> == air && <[spawning_point].with_y[<[y].add[1]>].material.name> == air && <[spawning_point].with_y[<[y].add[2]>].material.name> == air:
                         - define spawning_point:<[spawning_point].with_y[<[y]>]>
+                  - narrate <[spawning_point]>
                   - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
                   - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
 
