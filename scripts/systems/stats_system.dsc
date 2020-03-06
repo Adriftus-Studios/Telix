@@ -153,9 +153,9 @@ stats_character:
       - adjust def:icon display_name:<&6>◆<&sp><&a><&n><&l><[stat].substring[0,1].to_uppercase><[stat].substring[2].to_lowercase.replace[_].with[<&sp>]><&r><&sp><&6>◆
       - adjust def:icon lore:Current<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max]||<yaml[player.<player.uuid>].read[stats.<[stat]>]>>
       - if <script[default_stats].yaml_key[stats.increments.<[stat]>]||null> != null:
-        - adjust def:icon lore:Next<&sp>Level<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]||<yaml[player.<player.uuid>].read[stats.<[stat]>].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]>>
+        - adjust def:icon lore:Current<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max]||<yaml[player.<player.uuid>].read[stats.<[stat]>]>><&nl>Next<&sp>Level<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]||<yaml[player.<player.uuid>].read[stats.<[stat]>].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]>>
       - else:
-        - adjust def:icon lore:This<&sp>Stat<&sp>cannot<&sp>be<&sp>increased<&sp>with<&sp>Skill<&sp>Points.
+        - adjust def:icon lore:Current<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max]||<yaml[player.<player.uuid>].read[stats.<[stat]>]>><&nl>This<&sp>Stat<&sp>cannot<&sp>be<&sp>increased<&sp>with<&sp>Skill<&sp>Points.
       - narrate <[icon]>
       - define items:|:<[icon]>
     - determine <[items]>
