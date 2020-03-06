@@ -154,6 +154,7 @@ stats_character:
       - define lore:Current<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max]||<yaml[player.<player.uuid>].read[stats.<[stat]>]>>
       - if <script[default_stats].yaml_key[stats.increments.<[stat]>]||null> != null:
         - define lore:|:Next<&sp>Level<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]||<yaml[player.<player.uuid>].read[stats.<[stat]>].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]>>
+        - adjust def:icon nbt:assigned_stat/<[stat]>
       - else:
         - define lore:|:This<&sp>Stat<&sp>cannot<&sp>be<&sp>increased<&sp>with<&sp>Skill<&sp>Points.
       - adjust def:icon lore:<[lore]>
@@ -176,9 +177,9 @@ stats_inventory_handler:
     on player clicks in stats_character:
     - if <context.clicked_inventory.script_name||null> == "STATS_CHARACTER":
       - determine passively cancelled
-      - if <context.item.script.yaml_key[assigned_stat_increment]||null> != null:
+      - if <context.item.nbt[assigned_stat]||null> != null:
         - if <yaml[player.<player.uuid>].read[stats.stat_points]> > 0:
-          - yaml id:player.<player.uuid> set stats.stat_points_spent.<context.item.script.yaml_key[assigned_stat].replace[.max].with[]>:+:1
+          - yaml id:player.<player.uuid> set stats.stat_points_spent.<context.item.nbt[assigned_stat]>:+:1
           - yaml id:player.<player.uuid> set stats.stat_points:--
           - inventory open d:stats_character
           - inject update_stats
