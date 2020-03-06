@@ -189,7 +189,7 @@ mob_spawning_test_script:
 custom_mob_drops_test_item:
   type: item
   material: dirt
-  display name: <&b>Test Item
+  display name: Test Item
   mob_drops:
     1:
       dropped_by: zombie
