@@ -1,6 +1,7 @@
 
 mob_spawning_handler:
   type: world
+  debug: true
   events:
     on delta time secondly every:5:
       - foreach <server.list_online_players> as:player:
