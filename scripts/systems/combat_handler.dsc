@@ -13,3 +13,22 @@ damage_command:
   name: damage
   script:
     - hurt <context.args.get[1].mul[<player.health>].div[20]>
+
+calculate_damage:
+  type: procedure
+  definitions: damager|damaged|damage|type
+  script:
+    - define armor:<[damaged].armor_bonus>
+    - define damage_modifier:1
+    - define defence_modifier:1
+    - if <[damager].type> == player:
+      - define damage_modifier:<yaml[player.<[damager].uuid>].read[stats.damage_modifier.<[type]>]||1>
+    - else if <[damager].type> == entity:
+      - if <[damager].script||null> != null:
+        - define damage_modifier:<[damager].script.yaml_key[damage_modifier.<[type]>]||1>
+    - if <[damaged].type> == player:
+      - define defence_modifier:<yaml[player.<[damaged].uuid>].read[stats.defence_modifier.<[type]>]||1>
+    - else if <[damaged].type> == entity:
+      - if <[damaged].script||null> != null:
+        - define defence_modifier:<[damaged].script.yaml_key[defence_modifier.<[type]>]||1>
+    - define final_damage:<[damage].mul[<el@1.sub[<el@20.mul[<[armor].div[5]>].div[25]>]>]>
