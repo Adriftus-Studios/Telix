@@ -10,15 +10,22 @@ mob_spawning_handler:
         - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.all]||<list[]>>
         - define list:|:<yaml[server.mob_spawns].list_keys[all.<player.location.biome.name>]||<list[]>>
         - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
-    
+        - define list:<[list].deduplicate>
+        - foreach <[list]> as:mob:
+          - if !<player.flag[<[mob]>]>:
+            - repeat 5:
+              - define spawning_point:<proc[find_offset].context[<util.random.int[<yaml[server.mobs].read[<[mob]>.min_distance]>].to[<yaml[server.mobs].read[<[mob]>.max_distance]>]>|<util.random.int[0].to[360]>]>
+              - spawn mob_spawning_test_entity <[spawning_point].highest>
+              - repeat stop
+
 mob_spawning_test_entity:
   type: entity
   entity_type: armor_stand
   spawning_conditions:
     world: all
-    biome: lukewarm_ocean
-    air: false
+    biome: all
     every: 1m
+    air: false
     max_y: 255
     min_y: 50
     max_distance: 10
