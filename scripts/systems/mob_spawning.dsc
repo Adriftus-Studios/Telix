@@ -12,7 +12,7 @@ mob_spawning_handler:
         - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
         - define list:<[list].deduplicate>
         - foreach <[list]> as:mob:
-          - if !<player.flag[<[mob]>]||false>:
+          - if <player.flag[<[mob]>]||true>:
             - define list:<-:<[mob]>
           - if <yaml[server.mobs].read[<[mob]>.max_y]> < <player.location.y> && <yaml[server.mobs].read[<[mob]>.min_y]> > <player.location.y>:
             - define list:<-:<[mob]>
