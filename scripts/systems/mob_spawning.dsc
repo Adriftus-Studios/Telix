@@ -41,15 +41,13 @@ mob_spawning_handler:
     on entity spawns:
       - stop
       - determine passively cancelled
-      - define list:<list[]>
-
       - define list:|:<yaml[server.mob_spawns].list_keys[all.all]||<list[]>>
       - define list:|:<yaml[server.mob_spawns].list_keys[<context.location.world.name>.all]||<list[]>>
       - define list:|:<yaml[server.mob_spawns].list_keys[all.<context.location.biome.name>]||<list[]>>
       - define list:|:<yaml[server.mob_spawns].list_keys[<context.location.world.name>.<context.location.biome.name>]||<list[]>>
       - define list:<[list].deduplicate>
       - define new_list:<list[]>
-      - foreach <[list]> as:mob:
+      - foreach <[list]||<list[]>> as:mob:
         - if <context.location.y> <= <yaml[server.mobs].read[<[mob]>.max_y]> && <context.location.y> >= <yaml[server.mobs].read[<[mob]>.min_y]>
           - define new_list:|:<[mob]>
       - if <[new_list].size> != 0:
