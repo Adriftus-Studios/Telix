@@ -6,10 +6,10 @@ mob_spawning_handler:
       - foreach <server.list_online_players> as:player:
         - adjust <queue> linked_player:<[player]>
         - define list:<list[]>
-        - define list:|:<yaml[server.mob_spawns].list_keys[all.all]>
-        - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.all]>
-        - define list:|:<yaml[server.mob_spawns].list_keys[all.<player.location.biome.name>]>
-        - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]>
+        - define list:|:<yaml[server.mob_spawns].list_keys[all.all]||<list[]>>
+        - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.all]||<list[]>>
+        - define list:|:<yaml[server.mob_spawns].list_keys[all.<player.location.biome.name>]||<list[]>>
+        - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
         - narrate <[list]>
     
 mob_spawning_test_entity:
