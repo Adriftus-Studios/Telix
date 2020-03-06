@@ -1,9 +1,9 @@
 
 # -----[ Custom Ores ]-----
 
-custom_iron_ore:
+custom_ore:
   material: iron_ore
-  display name: <&7>Iron ore
+  display name: <&7>Custom ore
   weight: '1'
   type: item
   ore:
@@ -102,9 +102,9 @@ test_ring:
 
 # -----[ Smeltery Recipes ]-----
 
-custom_steel_ingot:
+smeltery_test_recipe1:
   material: iron_ingot
-  display name: <&7>Steel ingot
+  display name: <&7>Smeltery Test Recipe 1
   weight: '1'
   type: item
   recipes:
