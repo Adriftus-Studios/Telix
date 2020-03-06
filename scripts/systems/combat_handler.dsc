@@ -7,11 +7,12 @@ combat_handler:
       - flag <context.damager> pvp:true duration:5m
       - determine <context.final_damage.mul[<context.entity.health>].div[20]>
 
-      
 damage_command:
   type: command
   name: damage
   script:
+    - narrate <el@1.div[a]>
+    - stop
     - hurt <context.args.get[1].mul[<player.health>].div[20]>
 
 calculate_damage:

@@ -50,6 +50,9 @@ calculate_base_stats:
           - yaml id:player.<player.uuid> set stats.<[stat]>.max:<[value]>
         - else:
           - yaml id:player.<player.uuid> set stats.<[stat]>:<[value]>
+        - foreach <list[aer|arcane|chaos|earth|electric|ender|holy|nether|ocean|physical]> as:modifier:
+          - yaml id:player.<player.uuid> set stats.damage_modifier.<[modifier]>:0
+          - yaml id:player.<player.uuid> set stats.damage_reduction.<[modifier]>:0
 
 calculate_weight_equipment_stats:
   type: task
@@ -145,14 +148,18 @@ stats_character:
   size: 45
   procedural items:
     - inject update_stats
+    - foreach <script[default_stats].list_keys[stats.default]> as:stat:
+      - define icon:<item[stats_icon]>
+      - adjust def:icon display_name:"<&6>◆ <&a><&n><&l><[stat].substring[0,1].to_uppercase><[stat].substring[1].to_lowercase><&r> <&6>◆"
+      - adjust def:icon lore:|:
   definitions:
     filler: <item[gui_invisible_item]>
     gui_top: <item[gui_stats_top]>
     gui_bottom: <item[gui_stats_bottom]>
   slots:
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
-  - "[filler] [power_stats_icon] [food_stats_icon] [thirst_stats_icon] [carry_weight_stats_icon] [speed_stats_icon] [constitution_stats_icon] [health_stats_icon] [filler]"
-  - "[gui_stats_top] [experience_multiplier_stats_icon] [drop_rate_multiplier_stats_icon] [equipment_rating_stats_icon] [damage_stats_icon] [] [] [] [filler]"
+  - "[filler] [] [] [] [] [] [] [] [filler]"
+  - "[gui_stats_top] [] [] [] [] [] [] [] [filler]"
   - "[gui_stats_bottom] [] [] [] [] [] [] [] [filler]"
   - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
@@ -169,123 +176,14 @@ stats_inventory_handler:
           - inventory open d:stats_character
           - inject update_stats
 
-damage_stats_icon:
-  type: item
-  material: snow
-  assigned_stat: melee_damage
-  display name: "<&6>◆ <&a><&n><&l>Melee Damage<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>%"
-  - "This Stat cannot be increased with Skill Points."
-  drops_on_death: false
-
-equipment_rating_stats_icon:
-  type: item
-  material: snow
-  assigned_stat: equipment_rating
-  display name: "<&6>◆ <&a><&n><&l>Equipment Rating<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "This Stat cannot be increased with Skill Points."
-  drops_on_death: false
-
-drop_rate_multiplier_stats_icon:
-  type: item
-  material: snow
-  assigned_stat: drop_rate_multiplier
-  display name: "<&6>◆ <&a><&n><&l>Drop Rate Multiplier<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>%"
-  - "This Stat cannot be increased with Skill Points."
-  drops_on_death: false
-
-experience_multiplier_stats_icon:
-  type: item
-  material: snow
-  assigned_stat: experience_multiplier
-  display name: "<&6>◆ <&a><&n><&l>Experience Multiplier<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>%"
-  - "This Stat cannot be increased with Skill Points."
-  drops_on_death: false
-
-health_stats_icon:
-  type: item
-  material: snow
-  assigned_stat: health.max
-  assigned_stat_increment: 1
-  display name: "<&6>◆ <&a><&n><&l>Health<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.increments.health]>]>"
-  drops_on_death: false
-
-constitution_stats_icon:
-  type: item
-  material: snow
-  assigned_stat: constitution
-  assigned_stat_increment: 1
-  display name: "<&6>◆ <&a><&n><&l>Constitution<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.increments.constitution]>]>"
-  drops_on_death: false
-
-speed_stats_icon:
-  type: item
-  material: snow
-  assigned_stat: speed
-  assigned_stat_increment: 1
-  display name: "<&6>◆ <&a><&n><&l>Speed<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.increments.speed]>]>"
-  drops_on_death: false
-
-carry_weight_stats_icon:
-  type: item
-  material: snow
-  assigned_stat: weight.max
-  assigned_stat_increment: 10
-  display name: "<&6>◆ <&a><&n><&l>Carry Weight<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.increments.weight]>]>"
-  drops_on_death: false
-
-thirst_stats_icon:
-  type: item
-  material: snow
-  assigned_stat: thirst.max
-  assigned_stat_increment: 10
-  display name: "<&6>◆ <&a><&n><&l>Thirst<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.increments.thirst]>]>"
-  drops_on_death: false
-
-food_stats_icon:
-  type: item
-  material: snow
-  assigned_stat: food.max
-  assigned_stat_increment: 10
-  display name: "<&6>◆ <&a><&n><&l>Food<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.increments.food]>]>"
-  drops_on_death: false
-
-power_stats_icon:
+stats_icon:
   type: item
   material: snow
   assigned_stat: power.max
   assigned_stat_increment: 2
-  display name: "<&6>◆ <&a><&n><&l>Power<&r> <&6>◆"
-  lore:
-  - "Current: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>]>"
-  - "Next Level: <yaml[player.<player.uuid>].read[stats.<script.yaml_key[assigned_stat]>].+[<script[default_stats].yaml_key[stats.increments.power]>]>"
+  display name: "<&6>◆ <&a><&n><&l>Stat<&r> <&6>◆"
   drops_on_death: false
-
+  
 create_player_stats:
   type: world
   events:
