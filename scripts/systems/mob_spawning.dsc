@@ -35,7 +35,7 @@ mob_spawning_test_entity:
   spawning_conditions:
     world: all
     biome: all
-    every: 1m
+    every: 20s
     air: false
     max_y: 255
     min_y: 50
