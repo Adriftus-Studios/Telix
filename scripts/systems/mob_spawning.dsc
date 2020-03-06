@@ -15,7 +15,6 @@ mob_spawning_handler:
           - if !<player.flag[<[mob]>]>:
             - repeat 5:
               - define spawning_point:<proc[find_offset].context[<util.random.int[<yaml[server.mobs].read[<[mob]>.min_distance]>].to[<yaml[server.mobs].read[<[mob]>.max_distance]>]>|<util.random.int[0].to[360]>]>
-              - spawn mob_spawning_test_entity <[spawning_point].highest>
               - repeat stop
 
 mob_spawning_test_entity:
