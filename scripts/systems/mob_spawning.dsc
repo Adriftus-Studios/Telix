@@ -47,14 +47,14 @@ mob_spawning_handler:
       - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
       - define list:<[list].deduplicate>
       - foreach <player.list_flags> as:flag:
-        - define list:->:<[flag]>
+        - define list:<-:<[flag]>
       - foreach <[list]> as:mob:
         - if <context.location.y> <= <yaml[server.mobs].read[<[mob]>.max_y]> && <context.location.y> >= <yaml[server.mobs].read[<[mob]>.min_y]>
-          - define list:->:<[mob]>
+          - define list:<-:<[mob]>
         - if <context.location.world.name> != <yaml[server.mobs].read[<[mob]>.world]>:
-          - define list:->:<[mob]>
+          - define list:<-:<[mob]>
         - if <context.location.biome.name> != <yaml[server.mobs].read[<[mob]>.biome]>:
-          - define list:->:<[mob]>
+          - define list:<-:<[mob]>
       - define mob:<[list].random>
       - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
         - spawn <[mob]> <context.location>
