@@ -10,7 +10,6 @@ mob_spawning_handler:
         - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.all]||<list[]>>
         - define list:|:<yaml[server.mob_spawns].list_keys[all.<player.location.biome.name>]||<list[]>>
         - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
-        - narrate <[list]>
     
 mob_spawning_test_entity:
   type: entity
