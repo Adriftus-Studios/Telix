@@ -147,7 +147,6 @@ stats_character:
   size: 45
   procedural items:
     - inject update_stats
-    - narrate test
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - define icon:<item[stats_icon]>
       - adjust def:icon display_name:<&6>◆<&sp><&a><&n><&l><[stat].substring[0,1].to_uppercase><[stat].substring[2].to_lowercase.replace[_].with[<&sp>]><&r><&sp><&6>◆
@@ -182,7 +181,6 @@ stats_inventory_handler:
           - yaml id:player.<player.uuid> set stats.stat_points_spent.<context.item.nbt[assigned_stat]>:+:1
           - yaml id:player.<player.uuid> set stats.stat_points:--
           - inventory open d:stats_character
-          - inject update_stats
 
 stats_icon:
   type: item
