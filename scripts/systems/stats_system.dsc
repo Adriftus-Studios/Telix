@@ -151,7 +151,7 @@ stats_character:
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - define icon:<item[stats_icon]>
       - adjust def:icon display_name:<&6>◆<&sp><&a><&n><&l><[stat].substring[0,1].to_uppercase><[stat].substring[2].to_lowercase.replace[_].with[<&sp>]><&r><&sp><&6>◆
-      - define lore:|:Current<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max]||<yaml[player.<player.uuid>].read[stats.<[stat]>]>>
+      - define lore:Current<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max]||<yaml[player.<player.uuid>].read[stats.<[stat]>]>>
       - if <script[default_stats].yaml_key[stats.increments.<[stat]>]||null> != null:
         - define lore:|:Next<&sp>Level<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]||<yaml[player.<player.uuid>].read[stats.<[stat]>].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]>>
       - else:
