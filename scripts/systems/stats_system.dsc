@@ -148,12 +148,14 @@ stats_character:
   size: 45
   procedural items:
     - inject update_stats
+    - narrate test
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - define icon:<item[stats_icon]>
       - adjust def:icon display_name:"<&6>◆ <&a><&n><&l><[stat].substring[0,1].to_uppercase><[stat].substring[1].to_lowercase><&r> <&6>◆"
       - adjust def:icon lore:|:"Current: <yaml[player.<player.uuid>].read[stats.<[stat]>]||<yaml[player.<player.uuid>].read[stats.<[stat]>.max]>>"
+      - narrate <[icon]>
       - define items:|:<[icon]>
-    - determine <[items].include[<[stats_icon]>]>
+    - determine <[items]>
   definitions:
     filler: <item[gui_invisible_item]>
     gui_top: <item[gui_stats_top]>
