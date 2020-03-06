@@ -39,6 +39,7 @@ mob_spawning_handler:
                   - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
                   - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
     on entity spawns:
+      - determine passively cancelled
       - define list:<list[]>
       - define list:|:<yaml[server.mob_spawns].list_keys[all.all]||<list[]>>
       - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.all]||<list[]>>
@@ -56,5 +57,5 @@ mob_spawning_handler:
           - define list:->:<[mob]>
       - define mob:<[list].random>
       - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
-        - spawn <[mob]> <[spawning_point]>
+        - spawn <[mob]> <context.location>
       - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
