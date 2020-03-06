@@ -16,7 +16,7 @@ mob_spawning_handler:
           - foreach <[list]> as:mob:
             - repeat 5:
               - if !<player.flag[<[mob]>]||false>:
-                - narrate <player.location.material.name.is[!=].to[water]>
+                - narrate <player.location.material.name>
                 - narrate <yaml[server.mobs].read[<[mob]>.max_y]>
                 - if <yaml[server.mobs].read[<[mob]>.max_y]> > <player.location.y> && <yaml[server.mobs].read[<[mob]>.min_y]> < <player.location.y>:
                   - if <player.location.material.name.is[!=].to[water]> == <yaml[server.mobs].read[<[mob]>.max_y]>:
