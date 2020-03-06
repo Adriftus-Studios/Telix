@@ -110,7 +110,7 @@ calculate_encumberance_speed:
     - foreach <[slotmap]>:
       - define item:<inventory[equipment_<player.uuid>].slot[<[value].split[/].get[1]>]||<item[air]>>
       - if <[item].material> != air:
-        - define weight:|:<[item].script.yaml_key[weight]>
+        - define weight:|:<[item].script.yaml_key[weight]||1>
     - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
     - define encumberance:<yaml[player.<player.uuid>].read[stats.weight.current].-[4]./[<yaml[player.<player.uuid>].read[stats.weight.max]>].*[100].round_down_to_precision[10]>
     - if <[encumberance]> > 100:
