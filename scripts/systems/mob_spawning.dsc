@@ -15,6 +15,8 @@ mob_spawning_handler:
         - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
           - foreach <[list]> as:mob:
             - repeat 5:
+              - narrate <player.location.material.name.is[!=].to[water]>
+              - narrate <yaml[server.mobs].read[<[mob]>.water]>
               - if !<player.flag[<[mob]>]||false>:
                 - if <yaml[server.mobs].read[<[mob]>.max_y]> > <player.location.y> && <yaml[server.mobs].read[<[mob]>.min_y]> < <player.location.y>:
                   - if <player.location.material.name.is[!=].to[water]> == <yaml[server.mobs].read[<[mob]>.water]>:
