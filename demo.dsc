@@ -160,7 +160,7 @@ mob_spawning_test_entity:
       # world that the mob can spawn in
       biome: all
       # biome that the mob can spawn in
-      every: 20s
+      every: 5m
       # delay between each mob spawn. this is per player
       air: false
       # does the mob fly / does the mob spawn in air
