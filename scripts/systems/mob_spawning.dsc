@@ -16,12 +16,11 @@ mob_spawning_handler:
           - if <yaml[server.mobs].read[<[mob]>.max_y]> < <player.location.y> && <yaml[server.mobs].read[<[mob]>.min_y]> > <player.location.y>:
             - define list:<-:<[mob]>
             - narrate 1
-          - if !<player.location.material.name.is[==].to[water]> == <yaml[server.mobs].read[<[mob]>.water]>:
+          - if <player.location.material.name.is[==].to[water]> != <yaml[server.mobs].read[<[mob]>.water]>:
             - define list:<-:<[mob]>
             - narrate 2
-          - if !<yaml[server.mobs].read[<[mob]>.time]> == <player.location.world.time.period> || <yaml[server.mobs].read[<[mob]>.time]> == all:
+          - if <yaml[server.mobs].read[<[mob]>.time]> != <player.location.world.time.period> || <yaml[server.mobs].read[<[mob]>.time]> != all:
             - define list:<-:<[mob]>
-            - narrate 3
         - define mob_limiter:40
         - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
           - foreach <[list]> as:mob:
