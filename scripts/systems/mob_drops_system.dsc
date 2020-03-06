@@ -1,6 +1,5 @@
 mob_drops_events:
   type: world
-  debug: true
   events:
     on entity death:
       - if <context.damager.type||null> == player:
