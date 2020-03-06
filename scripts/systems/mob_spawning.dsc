@@ -3,6 +3,7 @@ mob_spawning_handler:
   type: world
   events:
     on delta time secondly every:5:
+      - stop
       - foreach <server.list_online_players> as:player:
         - adjust <queue> linked_player:<[player]>
         - define list:<list[]>
@@ -34,6 +35,26 @@ mob_spawning_handler:
                           - define spawning_point:<[spawning_point].with_y[<[y]>].above[2]>
                   - narrate <[spawning_point].simple>
                   - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
-                    - spawn mob_spawning_test_entity <[spawning_point]>
+                    - spawn <[mob]> <[spawning_point]>
                   - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
                   - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
+    on entity spawns:
+      - define list:<list[]>
+      - define list:|:<yaml[server.mob_spawns].list_keys[all.all]||<list[]>>
+      - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.all]||<list[]>>
+      - define list:|:<yaml[server.mob_spawns].list_keys[all.<player.location.biome.name>]||<list[]>>
+      - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
+      - define list:<[list].deduplicate>
+      - foreach <player.list_flags> as:flag:
+        - define list:->:<[flag]>
+      - foreach <[list]> as:mob:
+        - if <context.location.y> <= <yaml[server.mobs].read[<[mob]>.max_y]> && <context.location.y> >= <yaml[server.mobs].read[<[mob]>.min_y]>
+          - define list:->:<[mob]>
+        - if <context.location.world.name> != <yaml[server.mobs].read[<[mob]>.world]>:
+          - define list:->:<[mob]>
+        - if <context.location.biome.name> != <yaml[server.mobs].read[<[mob]>.biome]>:
+          - define list:->:<[mob]>
+      - define mob:<[list].random>
+      - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
+        - spawn <[mob]> <[spawning_point]>
+      - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
