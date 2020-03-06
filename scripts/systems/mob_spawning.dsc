@@ -15,11 +15,9 @@ mob_spawning_handler:
         - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
           - foreach <[list]> as:mob:
             - repeat 5:
-              - narrate <player.location.material.name.is[!=].to[water]>
-              - narrate <yaml[server.mobs].read[<[mob]>.water]>
               - if !<player.flag[<[mob]>]||false>:
                 - if <yaml[server.mobs].read[<[mob]>.max_y]> > <player.location.y> && <yaml[server.mobs].read[<[mob]>.min_y]> < <player.location.y>:
-                  - if <player.location.material.name.is[!=].to[water]> != <yaml[server.mobs].read[<[mob]>.water]>:
+                  - if <player.location.material.name.is[==].to[water]> == <yaml[server.mobs].read[<[mob]>.water]>:
                     - if <yaml[server.mobs].read[<[mob]>.time]> == <player.location.world.time.period> || <yaml[server.mobs].read[<[mob]>.time]> == all:
                       - define offset:<proc[find_offset].context[<util.random.int[<yaml[server.mobs].read[<[mob]>.min_distance]>].to[<yaml[server.mobs].read[<[mob]>.max_distance]>]>|<util.random.int[0].to[360]>]>
                       - define spawning_point:<location[<player.location.x.add[<[offset].get[1]>]>,<player.location.y>,<player.location.z.add[<[offset].get[2]>]>,<player.location.world.name>]>
