@@ -34,11 +34,11 @@ mob_spawning_handler:
                             - define y:<[spawning_point].y.add[<[value]>]>
                             - if <[spawning_point].with_y[<[y]>].material.name> == air && <[spawning_point].with_y[<[y].add[1]>].material.name> == air && <[spawning_point].with_y[<[y].add[2]>].material.name> == air:
                               - define spawning_point:<[spawning_point].with_y[<[y]>].above[2]>
-                      - narrate <[spawning_point].simple>
-                      - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
-                        - spawn <[mob]> <[spawning_point]>
-                      - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
-                      - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
+                      - if <[spawning_point].material.name.is[==].to[water]> == <yaml[server.mobs].read[<[mob]>.water]>:
+                        - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
+                          - spawn <[mob]> <[spawning_point]>
+                        - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
+                        - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
     on entity spawns:
       - stop
       - determine passively cancelled
