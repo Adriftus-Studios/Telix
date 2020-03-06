@@ -13,7 +13,7 @@ mob_spawning_handler:
         - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
         - define list:<[list].deduplicate>
         - define mob_limiter:40
-        - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>
+        - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
           - foreach <[list]> as:mob:
             - repeat 5:
               - if !<player.flag[<[mob]>]||false>:
