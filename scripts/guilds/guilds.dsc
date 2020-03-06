@@ -263,27 +263,6 @@ guild_command:
           - default:
             - narrate "<&c>That is not a valid option."
 
-player_leave_guild:
-  type: task
-  definitions: guild|player
-  script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
-  - yaml id:guild.<[guild]> set members:<-:<[player]>
-  - flag <[player]> guild:!
-  - flag <[player]> guild_rank:!
-  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
-    - narrate player:<[member]> "<&c><[player].name> has left the guild."
-  - narrate "<&c>You have left the guild."
-
-create_guild_rank:
-  type: task
-  definitions: guild|rank
-  script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
-  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.title:<[rank]>
-  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.priority:1
-  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.permissions:|:view_members
-
 edit_guild_rank_property:
   type: task
   definitions: guild|rank|property|value
@@ -306,6 +285,26 @@ edit_guild_rank_permission:
     - else:
       - yaml id:guild.<[guild]> set ranks.<[rank]>.permissions:->:<[permission]>
 
+player_leave_guild:
+  type: task
+  definitions: guild|player
+  script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - yaml id:guild.<[guild]> set members:<-:<[player]>
+  - flag <[player]> guild:!
+  - flag <[player]> guild_rank:!
+  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
+    - narrate player:<[member]> "<&c><[player].name> has left the guild."
+  - narrate "<&c>You have left the guild."
+
+create_guild_rank:
+  type: task
+  definitions: guild|rank
+  script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.title:<[rank]>
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.priority:1
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.permissions:|:view_members
 
 kick_from_guild:
   type: task
