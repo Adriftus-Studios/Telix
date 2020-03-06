@@ -98,6 +98,8 @@ calculate_weight_equipment_stats:
     - define chestplate:<item[equipment_chest_slot]>
     - adjust def:chestplate nbt_attributes:generic.armor/chest/0/<[armor]||0>
     - adjust def:chestplate enchantments:<[enchants]||<list[]>>
+    - if <player||null> == null:
+      - stop
     - equip chest:<[chestplate]||<item[equipment_chest_slot]>>
     - yaml id:player.<player.uuid> set stats.weight.current:<[weight].sum||0>
 
