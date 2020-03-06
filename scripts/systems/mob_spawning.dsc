@@ -39,6 +39,7 @@ mob_spawning_handler:
                   - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
                   - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
     on entity spawns:
+      - stop
       - determine passively cancelled
       - define list:<list[]>
 
