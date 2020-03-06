@@ -112,11 +112,10 @@ calculate_encumberance_speed:
       - define encumberance:100
     - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
     - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]||0.2>
-    - stop
-    - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 69:
-      - adjust <player> walk_speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]||0.2>
-    - else:
-      - adjust <player> walk_speed:<[speed]||0.2>
+    #- if <yaml[player.<player.uuid>].read[stats.encumberance]> > 69:
+    #  - adjust <player> walk_speed:<[speed].sub[<[speed].mul[<yaml[player.<player.uuid>].read[stats.encumberance].mul[0.01]>]>]||0.2>
+    #- else:
+    #  - adjust <player> walk_speed:<[speed]||0.2>
 
 default_stats:
   type: yaml data
@@ -147,6 +146,7 @@ stats_character:
   title: <&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 45
   procedural items:
+    - inject update_stats
     - narrate test
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - define icon:<item[stats_icon]>
