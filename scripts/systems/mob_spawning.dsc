@@ -13,7 +13,7 @@ mob_spawning_handler:
         - define list:<[list].deduplicate>
         - foreach <[list]> as:mob:
           - narrate <yaml[server.mobs].read[<[mob]>.max_y]><&sp><yaml[server.mobs].read[<[mob]>.min_y]>
-          - if !<yaml[server.mobs].read[<[mob]>.max_y]> > <player.location.y> && <yaml[server.mobs].read[<[mob]>.min_y]> < <player.location.y>:
+          - if <yaml[server.mobs].read[<[mob]>.max_y]> < <player.location.y> && <yaml[server.mobs].read[<[mob]>.min_y]> > <player.location.y>:
             - define list:<-:<[mob]>
             - narrate <[list]>
           - if !<player.location.material.name.is[==].to[water]> == <yaml[server.mobs].read[<[mob]>.water]>:
