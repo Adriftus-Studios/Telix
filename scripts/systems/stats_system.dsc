@@ -147,7 +147,6 @@ stats_character:
   title: <&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 45
   procedural items:
-    - inject update_stats
     - narrate test
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - define icon:<item[stats_icon]>
