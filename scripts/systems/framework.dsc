@@ -120,6 +120,8 @@ reload_scripts:
                 - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.cooldown:<[value].yaml_key[custom.ability_usage.<[ability]>.cooldown]||10s>
                 - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.warmup:<[value].yaml_key[custom.ability_usage.<[ability]>.warmup]||2s>
                 - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.use_script:<[value].yaml_key[custom.ability_usage.<[ability]>.use_script]||none>
+                - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.requires_target:<[value].yaml_key[custom.ability_usage.<[ability]>.requires_target]||true>
+                - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.requires_target_in_sight:<[value].yaml_key[custom.ability_usage.<[ability]>.requires_target_in_sight]||true>
                     
     events:
       on server start:

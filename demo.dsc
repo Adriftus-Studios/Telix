@@ -178,6 +178,13 @@ mob_spawning_test_entity:
       # a script that is executed when the mob spawns
       time: all
       # Time of day that the mob can spawn
+    ability_usage:
+      mob_ability_fire_blast:
+        cooldown: 10s
+        warmup: 2s
+        use_script: none
+        requires_target: true
+        requires_target_in_sight: true
 
 mob_spawning_test_script:
   type: task
