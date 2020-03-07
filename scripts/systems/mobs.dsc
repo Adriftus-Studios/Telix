@@ -79,7 +79,7 @@ mob_use_ability_handler:
   definitions: entity
   script:
     - while <[entity].is_spawned||false>:
-      - define ability:<yaml[server.mobs].read[<[entity].scriptname>.abilities].random>
+      - define ability:<yaml[server.mobs].read[<[entity].scriptname>.abilities].as_list.random>
       - narrate <[ability]>
       - narrate <[entity].scriptname>
       - foreach <script[<[ability]>].yaml_key[additional_conditions]> as:condition:
