@@ -81,6 +81,6 @@ mob_use_ability_handler:
   definitions: mob
   script:
     - while <[mob].is_spawned>:
-      - define ability:<yaml[server.mobs].list_keys[<[mob]>.abilities].random>
+      - define ability:<yaml[server.mobs].list_keys[<[mob].scriptname>.abilities].random>
       - narrate <[ability]>
       - wait <util.random.int[5].to[20]>s
