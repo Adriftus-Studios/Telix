@@ -316,7 +316,7 @@ kill_queue_command:
     - define list:|:<[value]>
   - determine <[list]>
   script:
-  - if <player.permission[*]>:
+  - if <player.has_permission[*]>:
     - foreach <script[<context.args.get[1]>].list_queues>:
       - queue <[value]> stop
 

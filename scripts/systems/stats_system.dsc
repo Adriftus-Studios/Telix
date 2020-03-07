@@ -103,6 +103,9 @@ calculate_encumberance_speed:
   type: task
   debug: false
   script:
+    - wait 1t
+    - if <player||null> == null:
+      - stop
     - foreach <player.inventory.list_contents> as:item:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
       - define weight:|:<[this_item_weight].*[<[item].quantity>]||1>
@@ -116,12 +119,12 @@ calculate_encumberance_speed:
     - if <[encumberance]> > 100:
       - define encumberance:100
     - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
-    - if <player||null> == null:
-      - stop
     - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]||0.2>
     - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 100:
       - adjust <player> walk_speed:0.1
     - else:
+      - if <player||null> == null:
+        - stop
       - adjust <player> walk_speed:<[speed]||0.2>
 
 default_stats:
