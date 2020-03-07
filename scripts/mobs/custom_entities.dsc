@@ -1,4 +1,15 @@
 
+test_armorstand:
+  type: entity
+  entity_type: armorstand
+  equipment: test_armorstand_head|air|air|air
+
+test_armorstand_head:
+  type: item
+  material: spawner
+  mechanisms:
+    custom_model_data: 1
+
 entity_waterhag:
   type: entity
   entity_type: drowned
