@@ -156,8 +156,8 @@ mob_spawning_test_entity:
   entity_type: zombie
   custom_name_visible: true
   custom_name: <&4><&l><&n>Bob
-  max_health: 10000
-  health: 10000
+  max_health: 2000
+  health: 2000
   custom:
     spawning_conditions:
       world: all
