@@ -72,7 +72,7 @@ spawn_custom_mob:
   script:
     - spawn <[mob]> <[location].above> save:entity1
     - announce 1
-    - if <yaml[server.mobs].read[<[mob]>.ability_usage]||null> != null:
+    - if <yaml[server.mobs].read[<[mob]>.abilities]||null> != null:
       - announce 2
       - run mob_use_ability_handler def:<entry[entity1].spawned_entity>
 
