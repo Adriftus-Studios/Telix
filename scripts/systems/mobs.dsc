@@ -92,5 +92,9 @@ mob_use_ability_handler:
           - if !<[entity].target.location.line_of_sight[<[entity].location>]>:
             - while next
       - if <[entity].flag[<[ability]>]||null> == null:
+        - define normal_speed:<[entity].speed>
+        - adjust def:entity speed:0
+        - wait <script[<[ability]>].yaml_key[requires_target_in_sight]>
+        - adjust def:entity speed:<[normal_speed]>
         - run <[ability]> def:<[entity]>
         - flag <[entity]> <[ability]>
