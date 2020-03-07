@@ -94,7 +94,9 @@ mob_use_ability_handler:
       - if <[entity].flag[<[ability]>]||null> == null:
         - define normal_speed:<[entity].speed>
         - adjust def:entity speed:0
+        - narrate 1
         - wait <script[<[ability]>].yaml_key[requires_target_in_sight]>
         - adjust def:entity speed:<[normal_speed]>
+        - narrate 2
         - run <[ability]> def:<[entity]>
         - flag <[entity]> <[ability]>
