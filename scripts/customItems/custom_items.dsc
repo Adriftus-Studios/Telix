@@ -12,7 +12,7 @@ custom_money_silver:
   material: gold_nugget
   mechanisms:
     custom_model_data: -3
-  display name: <&6>Silver Piece
+  display name: <&b>Silver Piece
   lore:
     - <&6>The <&c>C<&6> piece is equal to
     - <&b>100 <&6>pieces of copper.
@@ -21,7 +21,7 @@ custom_money_copper:
   material: gold_nugget
   mechanisms:
     custom_model_data: -2
-  display name: <&6>Copper Piece
+  display name: <&c>Copper Piece
   lore:
     - <&6>The <&c>I<&6> piece is the base
     - <&6>currency for all trade.
