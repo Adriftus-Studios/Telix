@@ -116,7 +116,8 @@ survival_stats_weight_events:
 
     on player drops item bukkit_priority:HIGHEST:
       - wait 1t
-      - inject calculate_encumberance_speed
+      - if <player.health> != 0:
+        - inject calculate_encumberance_speed
     
     on player closes inventory bukkit_priority:HIGHEST:
       - wait 1t

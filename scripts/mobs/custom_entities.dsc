@@ -11,7 +11,7 @@ entity_waterhag:
     spawning_conditions:
       world: tor_mainland
       biome: all
-      every: 5m
+      every: 15m
       air: false
       max_y: 100
       min_y: 0
@@ -23,10 +23,21 @@ entity_waterhag:
       time: night
       spawn_script: none
 
+custom_waterhag_hand:
+  type: item
+  material: rotten_flesh
+  display name: Waterhag's Hand
+  mob_drops:
+    1:
+      dropped_by: entity_waterhag
+      chance: 4
+      max_quantity: 2
+      min_quantity: 1
+
 entity_direwolf:
   type: entity
   entity_type: wolf
-  custom_name_visible: true
+  custom_name_visible: false
   custom_name: Direwolf
   max_health: 15
   health: 15
