@@ -68,7 +68,8 @@ remove_player_from_group:
   - yaml id:player.<[player].uuid> set groups.<[type]>.<[subtype]>:<-:<[group]>
 
 DO_NOT_USE:
-  type: task
+  type: item
+  material: stone
   script:
     - narrate <proc[get_player_groups].context[citadels|aurora|<player>]>
                                               # type: citadels
