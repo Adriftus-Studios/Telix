@@ -35,20 +35,20 @@ mob_spawning_events:
         - define list:<[list].deduplicate>
         - foreach <[list]> as:mob:
           - if <player.flag[<[mob]>]||null> == null:
-            - narrate <[list]>
+            - narrate 1<[mob]>
             - define list:<-:<[mob]>
           - if <yaml[server.mobs].read[<[mob]>.max_y]> < <player.location.y>:
-            - narrate <[list]>
+            - narrate 2<[mob]>
             - define list:<-:<[mob]>
           - if <yaml[server.mobs].read[<[mob]>.min_y]> > <player.location.y>:
-            - narrate <[list]>
+            - narrate 3<[mob]>
             - define list:<-:<[mob]>
           - if <player.location.material.name.is[==].to[water]> != <yaml[server.mobs].read[<[mob]>.water]>:
-            - narrate <[list]>
+            - narrate 4<[mob]>
             - define list:<-:<[mob]>
           - if <list[<yaml[server.mobs].read[<[mob]>.time]>].contains[<player.location.world.time.period>]>:
             - if <yaml[server.mobs].read[<[mob]>.time]> != all:
-              - narrate <[list]>
+              - narrate 5<[mob]>
               - define list:<-:<[mob]>
         - define mob_limiter:40
         - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
