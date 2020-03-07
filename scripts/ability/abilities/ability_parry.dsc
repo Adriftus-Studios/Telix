@@ -59,6 +59,3 @@ ability_parry_animation:
     - glow <player>
     - wait 1s
     - glow <player> false
-
-    
-    
