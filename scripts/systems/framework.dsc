@@ -115,6 +115,11 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.min_distance:<[value].yaml_key[custom.spawning_conditions.min_distance]||10>
               - yaml id:server.mobs set <[value].name>.time:<[value].yaml_key[custom.spawning_conditions.time]||all>
               - yaml id:server.mobs set <[value].name>.spawn_script:<[value].yaml_key[custom.spawning_conditions.spawn_script]||none>
+            - if <[value].yaml_key[custom.ability_usage]||null> != null:
+              - foreach <[value].list_keys[custom.ability_usage]> as:ability:
+                - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.cooldown:<[value].yaml_key[custom.ability_usage.<[ability]>.cooldown]||10s>
+                - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.warmup:<[value].yaml_key[custom.ability_usage.<[ability]>.warmup]||2s>
+                - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.use_script:<[value].yaml_key[custom.ability_usage.<[ability]>.use_script]||none>
                     
     events:
       on server start:
