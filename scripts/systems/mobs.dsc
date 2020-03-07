@@ -71,16 +71,16 @@ spawn_custom_mob:
   definitions: mob|location
   script:
     - spawn <[mob]> <[location].above> save:entity1
+    - announce 1
     - if <yaml[server.mobs].read[<[mob]>.ability_usage]||null> != null:
+      - announce 2
       - run mob_use_ability_handler def:<entry[entity1].spawned_entity>
 
 mob_use_ability_handler:
   type: task
   definitions: mob
   script:
-    - announce 1
     - while <[mob].is_spawned>:
-      - announce 2
       - define ability:<yaml[server.mobs].list_keys[<[mob]>.abilities].random>
       - narrate <[ability]>
       - wait <util.random.int[5].to[20]>s
