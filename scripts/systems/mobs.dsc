@@ -19,10 +19,10 @@ mob_drops_events:
         - if <[chance]> > <[random]>:
           - drop <[item].with[quantity=<[amount]>]> <context.entity.location>
 
-mob_spawning_handler:
+mob_spawning_events:
   type: world
   events:
-    on delta time secondly every:5:
+    on delta time secondly every:10:
       - foreach <server.list_online_players> as:player:
         - adjust <queue> linked_player:<[player]>
         - define list:<list[]>
