@@ -66,7 +66,7 @@ mob_spawning_events:
                 - if <[spawning_point].material.name.is[==].to[water]> == <yaml[server.mobs].read[<[mob]>.water]>:
                   - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
                     - run spawn_custom_mob def:<[mob]>|<[spawning_point]>
-                  #- flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
+                  - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
                   - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
 
 spawn_custom_mob:
