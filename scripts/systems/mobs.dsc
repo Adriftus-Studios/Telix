@@ -78,7 +78,9 @@ mob_use_ability_handler:
   type: task
   definitions: mob
   script:
+    - announce 1
     - while <[mob].is_spawned>:
-      - wait <util.random.int[5].to[20]>s
+      - announce 2
       - define ability:<yaml[server.mobs].list_keys[<[mob]>.abilities].random>
       - narrate <[ability]>
+      - wait <util.random.int[5].to[20]>s
