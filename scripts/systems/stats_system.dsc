@@ -122,7 +122,6 @@ calculate_encumberance_speed:
     - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 100:
       - adjust <player> walk_speed:0.1
     - else:
-      - announce <player.name>:<[speed]>
       - adjust <player> walk_speed:<[speed]||0.2>
 
 default_stats:
