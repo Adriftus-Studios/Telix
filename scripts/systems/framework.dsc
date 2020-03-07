@@ -116,7 +116,7 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.time:<[value].yaml_key[custom.spawning_conditions.time]||all>
               - yaml id:server.mobs set <[value].name>.spawn_script:<[value].yaml_key[custom.spawning_conditions.spawn_script]||none>
             - if <[value].yaml_key[custom.ability_usage]||null> != null:
-              - yaml id:server.mobs set <[value].name>.abilities:<[value].read[custom.ability_usage]>
+              - yaml id:server.mobs set <[value].name>.abilities:<[value].yaml_key[custom.ability_usage]>
                     
     events:
       on server start:
