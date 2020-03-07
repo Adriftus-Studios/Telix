@@ -41,7 +41,6 @@ ability_parry:
         - playeffect sweep_attack at:<player.location.forward.above> quantity:1
         #- playsound <player.location> sound:ability.fisticuffs.riposte custom
         - narrate "<&6>You have <&a>parried <&6>your opponent's attack!"
-        - determine
 
 
 #Injected task. <player>, <context.entity>
