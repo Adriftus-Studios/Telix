@@ -70,7 +70,7 @@ spawn_custom_mob:
   type: task
   definitions: mob|location
   script:
-    - spawn <[mob]> <[spawning_point].above> save:entity
+    - spawn <[mob]> <[location].above> save:entity
     - if <yaml[server.mobs].read[<[mob]>.abilities]||null> != null:
       - run mob_use_ability_handler def:<[entity]>
 
