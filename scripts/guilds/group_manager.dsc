@@ -2,7 +2,7 @@
 mob_spawning_handler:
   type: world
   reload:
-    - foreach <yaml.list.filter[starts_with[group.]]>:
+    - foreach <yaml.list.filter[starts_with[group]]>:
       - yaml load:data/globalData/groups/<server.flag[server.name]>/<[value].replace[group.].with[]>.yml id:<[value]>
   events:
     on delta time minutely every:30:
