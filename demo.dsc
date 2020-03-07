@@ -199,7 +199,7 @@ mob_ability_test:
   requires_target: true
   requires_target_in_sight: false
   additional_conditions:
-  - <[entity].health> < 15
+  - <[entity].health.is[le].to[15]>
   definitions: entity
   script:
     - heal 5 <[entity]>
