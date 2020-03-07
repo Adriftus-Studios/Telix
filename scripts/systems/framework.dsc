@@ -116,12 +116,7 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.time:<[value].yaml_key[custom.spawning_conditions.time]||all>
               - yaml id:server.mobs set <[value].name>.spawn_script:<[value].yaml_key[custom.spawning_conditions.spawn_script]||none>
             - if <[value].yaml_key[custom.ability_usage]||null> != null:
-              - foreach <[value].list_keys[custom.ability_usage]> as:ability:
-                - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.cooldown:<[value].yaml_key[custom.ability_usage.<[ability]>.cooldown]||10s>
-                - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.warmup:<[value].yaml_key[custom.ability_usage.<[ability]>.warmup]||2s>
-                - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.use_script:<[value].yaml_key[custom.ability_usage.<[ability]>.use_script]||none>
-                - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.requires_target:<[value].yaml_key[custom.ability_usage.<[ability]>.requires_target]||true>
-                - yaml id:server.mobs set <[value].name>.abilities.<[ability]>.requires_target_in_sight:<[value].yaml_key[custom.ability_usage.<[ability]>.requires_target_in_sight]||true>
+              - yaml id:server.mobs set <[value].name>.abilities:<[value].read[custom.ability_usage]>
                     
     events:
       on server start:

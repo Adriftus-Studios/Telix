@@ -179,8 +179,8 @@ mob_spawning_test_entity:
       time: all
       # Time of day that the mob can spawn
     ability_usage:
-      mob_ability_test:
-      # Abilities that this mob can use
+    - mob_ability_test
+    # Abilities that this mob can use
 
 mob_spawning_test_script:
   type: task
