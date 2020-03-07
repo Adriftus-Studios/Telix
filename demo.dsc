@@ -149,7 +149,7 @@ alchemy_station_test_recipe1:
       cook_time: 10s
 	  # How long it takes to craft this item, as a DurationTag
     
-# -----[ Custom Entity Spawn Conditions ]-----
+# -----[ Custom Entity ]-----
 
 mob_spawning_test_entity:
   type: entity
@@ -179,18 +179,31 @@ mob_spawning_test_entity:
       time: all
       # Time of day that the mob can spawn
     ability_usage:
-      mob_ability_fire_blast:
-        cooldown: 10s
-        warmup: 2s
-        use_script: none
-        requires_target: true
-        requires_target_in_sight: true
+      mob_ability_test:
+      # Abilities that this mob can use
 
 mob_spawning_test_script:
   type: task
   script:
     # <player> is the player that caused the mob to spawn.
     - narrate "Spooky action at a distance"
+    
+# -----[ Custom Mob Ability ]-----
+
+mob_ability_test:
+  type: task
+  name: fire_blast
+  ability_tree: Nether
+  cooldown: 10s
+  warmup: 2s
+  requires_target: true
+  requires_target_in_sight: false
+  additional_conditions:
+  - <[entity].health> < 15
+  definitions: entity
+  script:
+    - heal 5 <[entity]>
+    - playeffect heart at:<[entity].location.above[1]> visibility:50 quantity:10 offset:1.0
     
 # -----[ Custom Mob Drops ]-----
   
