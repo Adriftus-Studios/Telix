@@ -102,7 +102,7 @@ calculate_encumberance_speed:
   debug: false
   script:
     - wait 1t
-    - if <player||null> == null:
+    - if !<player.is_online>:
       - stop
     - foreach <player.inventory.list_contents> as:item:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
@@ -121,7 +121,7 @@ calculate_encumberance_speed:
     - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 100:
       - adjust <player> walk_speed:0.1
     - else:
-      - if <player||null> == null:
+      - if !<player.is_online>:
         - stop
       - adjust <player> walk_speed:<[speed]||0.2>
 
