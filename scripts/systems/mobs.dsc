@@ -85,6 +85,12 @@ mob_use_ability_handler:
       - foreach <script[<[ability]>].yaml_key[additional_conditions]> as:condition:
         - if !<[condition].parsed>:
           - while next
+      - if <script[<[ability]>].yaml_key[requires_target]>:
+        - if <[entity].target||null> == null:
+          - while next
+        - if <script[<[ability]>].yaml_key[requires_target_in_sight]>:
+          - if !<[entity].target.location.line_of_sight[<[entity].location>]>:
+            - while next
       - if <[entity].flag[<[ability]>]||null> == null:
         - run <[ability]> def:<[entity]>
         - flag <[entity]> <[ability]>
