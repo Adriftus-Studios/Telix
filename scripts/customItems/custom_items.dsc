@@ -249,14 +249,6 @@ custom_redstone_wire:
   display name: <&7>Redstone Wire
   weight: '1'
   type: item
-custom_nether_wart:
-  material: nether_wart
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether Wart
-  weight: '1'
-  type: item
 custom_light_blue_stained_glass:
   material: light_blue_stained_glass
   lore:
@@ -298,14 +290,6 @@ custom_mycelium:
   weight: '1'
   type: item
   default_drop: custom_dirt
-custom_glowstone_dust:
-  material: glowstone_dust
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Glowstone Dust
-  weight: '1'
-  type: item
 custom_potted_bamboo:
   material: potted_bamboo
   lore:
@@ -960,14 +944,6 @@ custom_beetroot_soup:
   display name: <&7>Beetroot Soup
   weight: '1'
   type: item
-custom_splash_potion:
-  material: splash_potion
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Splash Potion
-  weight: '1'
-  type: item
 custom_lime_wool:
   material: lime_wool
   lore:
@@ -1249,14 +1225,6 @@ custom_sugar_cane:
   display name: <&7>Sugar Cane
   weight: '1'
   type: item
-custom_dragon_breath:
-  material: dragon_breath
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dragon Breath
-  weight: '1'
-  type: item
 custom_potted_jungle_sapling:
   material: potted_jungle_sapling
   lore:
@@ -1327,14 +1295,6 @@ custom_end_crystal:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>End Crystal
-  weight: '1'
-  type: item
-custom_sugar:
-  material: sugar
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Sugar
   weight: '1'
   type: item
 custom_brain_coral_fan:
@@ -1884,14 +1844,6 @@ custom_music_disc_strad:
   display name: <&b>Music Disc
   weight: '1'
   type: item
-custom_rabbit_foot:
-  material: rabbit_foot
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Rabbit Foot
-  weight: '1'
-  type: item
 custom_lever:
   material: lever
   lore:
@@ -2009,8 +1961,7 @@ custom_redstone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Redstone
-  weight: '1'
+  display name: <&7>Redstone Dust
   type: item
   ore:
       biome: all
@@ -2246,14 +2197,6 @@ custom_magenta_concrete:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Magenta Concrete
-  weight: '1'
-  type: item
-custom_potion:
-  material: potion
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potion
   weight: '1'
   type: item
 custom_gray_stained_glass:
@@ -2617,14 +2560,6 @@ custom_purple_dye:
   display name: <&7>Purple Dye
   weight: '1'
   type: item
-custom_lingering_potion:
-  material: lingering_potion
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lingering Potion
-  weight: '1'
-  type: item
 custom_honey_block:
   material: honey_block
   lore:
@@ -2785,14 +2720,6 @@ custom_white_terracotta:
   display name: <&7>White Terracotta
   weight: '1'
   type: item
-custom_fermented_spider_eye:
-  material: fermented_spider_eye
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Fermented Spider Eye
-  weight: '1'
-  type: item
 custom_oak_stairs:
   material: oak_stairs
   lore:
@@ -2815,14 +2742,6 @@ custom_fire_coral_fan:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Fire Coral Fan
-  weight: '1'
-  type: item
-custom_glass_bottle:
-  material: glass_bottle
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Glass Bottle
   weight: '1'
   type: item
 custom_granite_stairs:
@@ -3176,14 +3095,6 @@ custom_green_stained_glass:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Green Stained Glass
-  weight: '1'
-  type: item
-custom_glistering_melon_slice:
-  material: glistering_melon_slice
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Glistering Melon Slice
   weight: '1'
   type: item
 custom_gunpowder:
@@ -4147,14 +4058,6 @@ custom_stone_shovel:
   display name: <&7>Stone Shovel
   weight: '1'
   type: item
-custom_brewing_stand:
-  material: brewing_stand
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brewing Stand
-  weight: '1'
-  type: item
 custom_dark_prismarine_slab:
   material: dark_prismarine_slab
   lore:
@@ -4201,14 +4104,6 @@ custom_blue_orchid:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Blue Orchid
-  weight: '1'
-  type: item
-custom_cauldron:
-  material: cauldron
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cauldron
   weight: '1'
   type: item
 custom_red_carpet:
@@ -4305,14 +4200,6 @@ custom_potted_spruce_sapling:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Potted Spruce Sapling
-  weight: '1'
-  type: item
-custom_pufferfish:
-  material: pufferfish
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pufferfish
   weight: '1'
   type: item
 custom_daylight_detector:
@@ -4523,14 +4410,6 @@ custom_mossy_cobblestone:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Mossy Cobblestone
-  weight: '1'
-  type: item
-custom_magma_cream:
-  material: magma_cream
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magma Cream
   weight: '1'
   type: item
 custom_brown_terracotta:
@@ -4955,14 +4834,6 @@ custom_birch_trapdoor:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Birch Trapdoor
-  weight: '1'
-  type: item
-custom_ghast_tear:
-  material: ghast_tear
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Ghast Tear
   weight: '1'
   type: item
 custom_pink_bed:
@@ -6252,14 +6123,6 @@ custom_potted_dead_bush:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Potted Dead Bush
-  weight: '1'
-  type: item
-custom_blaze_powder:
-  material: blaze_powder
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blaze Powder
   weight: '1'
   type: item
 custom_smooth_red_sandstone_stairs:
