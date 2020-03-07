@@ -203,6 +203,7 @@ player_setup:
     - yaml id:player.<player.uuid> set stats.experience_multiplier:100
     - yaml id:player.<player.uuid> set stats.drop_rate_multiplier:100
     - yaml id:player.<player.uuid> set stats.equipment_rating:0
+    - yaml id:player.<player.uuid> set stats.encumberance:0
     - yaml id:player.<player.uuid> set lessons.current:1000
     - yaml id:player.<player.uuid> set lessons.lifetime:0
     - foreach <script[abilitytrees].list_keys[trees]>:
