@@ -195,12 +195,20 @@ mob_ability_test:
   name: fire_blast
   ability_tree: Nether
   cooldown: 10s
+  # How long until the mob is able to use this skill again
   warmup: 2s
+  # How long it takes the mob to prepare to use this skill
+  # while preparing, the mob will not be able to move
   requires_target: true
+  # Whether the mob requires a target for this skill to be used
   requires_target_in_sight: false
+  # Whether the mob requires the target to be in line of sight for this skill to be used
   additional_conditions:
   - <[entity].health.is[less].to[15]>
+  # Additional conditions required for this skill to be used.
+  # Must be a single tag conditional
   definitions: entity
+  # All mob ability scripts must have this
   script:
     - heal 5 <[entity]>
     - playeffect heart at:<[entity].location.above[1]> visibility:50 quantity:10 offset:1.0
