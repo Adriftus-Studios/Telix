@@ -2,11 +2,10 @@
 test_armorstand:
   type: entity
   entity_type: armorstand
-  equipment: <item[test_armorstand_head]>|<item[air]>|<item[air]>|<item[air]>
 
 test_armorstand_head:
   type: item
-  material: spawner
+  material: sponge
   mechanisms:
     custom_model_data: 1
 
@@ -14,7 +13,7 @@ entity_waterhag:
   type: entity
   entity_type: drowned
   custom_name_visible: true
-  custom_name: Drowned
+  custom_name: Waterhag
   max_health: 70
   health: 70
   speed: 0.4
