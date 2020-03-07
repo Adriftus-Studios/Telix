@@ -3,8 +3,11 @@ group_manager_saving:
   type: world
   reload:
     - foreach <yaml.list.filter[starts_with[group]]>:
-      - yaml savefile:data/globalData/groups/<server.flag[server.name]>/<[value].replace[group.].with[]>.yml id:<[value]>
-      
+      - yaml savefile:data/globalData/groups/<server.flag[server.name]>/<[value].substring[8]>.yml id:<[value]>
+    - foreach <server.list_files[data/globalData/groups/<server.flag[server.name]>]>:
+      - define type:<[value].split[.].get[2].to_lowercase>
+      - define subtype:<[value].split[.].get[3].to_lowercase>
+      - yaml load:data/globalData/groups/<server.flag[server.name]>/<[value]> id:groups.<[type]>.<[subtype]>
   events:
     on delta time minutely every:30:
       - inject locally reload
