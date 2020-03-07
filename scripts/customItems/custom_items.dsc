@@ -30,7 +30,7 @@ custom_damaged_anvil:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Damaged_anvil
+  display name: <&7>Damaged Anvil
   weight: '1'
   type: item
 custom_blue_dye:
@@ -38,7 +38,7 @@ custom_blue_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_dye
+  display name: <&7>Blue Dye
   weight: '1'
   type: item
 custom_detector_rail:
@@ -46,7 +46,7 @@ custom_detector_rail:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Detector_rail
+  display name: <&7>Detector Rail
   weight: '1'
   type: item
 custom_white_glazed_terracotta:
@@ -54,7 +54,7 @@ custom_white_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_glazed_terracotta
+  display name: <&7>White Glazed Terracotta
   weight: '1'
   type: item
 custom_potted_azure_bluet:
@@ -62,7 +62,7 @@ custom_potted_azure_bluet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_azure_bluet
+  display name: <&7>Potted Azure Bluet
   weight: '1'
   type: item
 custom_cracked_stone_bricks:
@@ -70,7 +70,7 @@ custom_cracked_stone_bricks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cracked_stone_bricks
+  display name: <&7>Cracked Stone Bricks
   weight: '1'
   type: item
 custom_note_block:
@@ -78,7 +78,7 @@ custom_note_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Note_block
+  display name: <&7>Note Block
   weight: '1'
   type: item
 custom_pink_glazed_terracotta:
@@ -86,7 +86,7 @@ custom_pink_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_glazed_terracotta
+  display name: <&7>Pink Glazed Terracotta
   weight: '1'
   type: item
 custom_cut_sandstone_slab:
@@ -94,7 +94,7 @@ custom_cut_sandstone_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cut_sandstone_slab
+  display name: <&7>Cut Sandstone Slab
   weight: '1'
   type: item
 custom_orange_glazed_terracotta:
@@ -102,7 +102,7 @@ custom_orange_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_glazed_terracotta
+  display name: <&7>Orange Glazed Terracotta
   weight: '1'
   type: item
 custom_dragon_egg:
@@ -110,7 +110,7 @@ custom_dragon_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dragon_egg
+  display name: <&7>Dragon Egg
   weight: '1'
   type: item
 custom_dandelion:
@@ -126,7 +126,7 @@ custom_oak_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_log
+  display name: <&7>Oak Log
   weight: '1'
   type: item
 custom_slime_ball:
@@ -134,7 +134,7 @@ custom_slime_ball:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Slime_ball
+  display name: <&7>Slime Ball
   weight: '1'
   type: item
 custom_mossy_stone_brick_slab:
@@ -142,15 +142,16 @@ custom_mossy_stone_brick_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mossy_stone_brick_slab
+  display name: <&7>Mossy Stone Brick Slab
   weight: '1'
   type: item
 custom_music_disc_stal:
   material: music_disc_stal
   lore:
+  - '<&7>C418 - stal'
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_stal
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_birch_stairs:
@@ -158,7 +159,7 @@ custom_birch_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_stairs
+  display name: <&7>Birch Stairs
   weight: '1'
   type: item
 custom_blue_glazed_terracotta:
@@ -166,7 +167,7 @@ custom_blue_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_glazed_terracotta
+  display name: <&7>Blue Glazed Terracotta
   weight: '1'
   type: item
 custom_large_fern:
@@ -174,7 +175,7 @@ custom_large_fern:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Large_fern
+  display name: <&7>Large Fern
   weight: '1'
   type: item
 custom_black_shulker_box:
@@ -182,7 +183,7 @@ custom_black_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_shulker_box
+  display name: <&7>Black Shulker Box
   weight: '1'
   type: item
 custom_bamboo:
@@ -198,7 +199,7 @@ custom_potted_red_tulip:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_red_tulip
+  display name: <&7>Potted Red Tulip
   weight: '1'
   type: item
 custom_iron_bars:
@@ -206,7 +207,7 @@ custom_iron_bars:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_bars
+  display name: <&7>Iron Bars
   weight: '1'
   type: item
 custom_blue_ice:
@@ -214,7 +215,7 @@ custom_blue_ice:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_ice
+  display name: <&7>Blue Ice
   weight: '1'
   type: item
 custom_rose_bush:
@@ -222,7 +223,7 @@ custom_rose_bush:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Rose_bush
+  display name: <&7>Rose Bush
   weight: '1'
   type: item
 custom_suspicious_stew:
@@ -230,7 +231,7 @@ custom_suspicious_stew:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Suspicious_stew
+  display name: <&7>Suspicious Stew
   weight: '1'
   type: item
 custom_barrier:
@@ -246,7 +247,7 @@ custom_redstone_wire:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Redstone_wire
+  display name: <&7>Redstone Wire
   weight: '1'
   type: item
 custom_nether_wart:
@@ -254,7 +255,7 @@ custom_nether_wart:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether_wart
+  display name: <&7>Nether Wart
   weight: '1'
   type: item
 custom_light_blue_stained_glass:
@@ -262,7 +263,7 @@ custom_light_blue_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_stained_glass
+  display name: <&7>Light Blue Stained Glass
   weight: '1'
   type: item
 custom_bone_block:
@@ -270,7 +271,7 @@ custom_bone_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Bone_block
+  display name: <&7>Bone Block
   weight: '1'
   type: item
 custom_cobblestone_stairs:
@@ -278,7 +279,7 @@ custom_cobblestone_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cobblestone_stairs
+  display name: <&7>Cobblestone Stairs
   weight: '1'
   type: item
 custom_black_bed:
@@ -286,7 +287,7 @@ custom_black_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_bed
+  display name: <&7>Black Bed
   weight: '1'
   type: item
 custom_mycelium:
@@ -303,7 +304,7 @@ custom_glowstone_dust:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Glowstone_dust
+  display name: <&7>Glowstone Dust
   weight: '1'
   type: item
 custom_potted_bamboo:
@@ -311,7 +312,7 @@ custom_potted_bamboo:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_bamboo
+  display name: <&7>Potted Bamboo
   weight: '1'
   type: item
 custom_smoker:
@@ -327,7 +328,7 @@ custom_tall_grass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tall_grass
+  display name: <&7>Tall Grass
   weight: '1'
   type: item
 custom_beetroot:
@@ -343,7 +344,7 @@ custom_experience_bottle:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Experience_bottle
+  display name: <&7>Experience Bottle
   weight: '1'
   type: item
 custom_cake:
@@ -359,7 +360,7 @@ custom_music_disc_mall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_mall
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_dried_kelp_block:
@@ -367,7 +368,7 @@ custom_dried_kelp_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dried_kelp_block
+  display name: <&7>Dried Kelp Block
   weight: '1'
   type: item
 custom_acacia_stairs:
@@ -375,7 +376,7 @@ custom_acacia_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_stairs
+  display name: <&7>Acacia Stairs
   weight: '1'
   type: item
 custom_dark_oak_fence_gate:
@@ -383,7 +384,7 @@ custom_dark_oak_fence_gate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_fence_gate
+  display name: <&7>Dark Oak Fence Gate
   weight: '1'
   type: item
 custom_birch_wood:
@@ -391,7 +392,7 @@ custom_birch_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_wood
+  display name: <&7>Birch Wood
   weight: '1'
   type: item
 custom_blue_concrete:
@@ -399,7 +400,7 @@ custom_blue_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_concrete
+  display name: <&7>Blue Concrete
   weight: '1'
   type: item
 custom_potted_lily_of_the_valley:
@@ -407,7 +408,7 @@ custom_potted_lily_of_the_valley:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_lily_of_the_valley
+  display name: <&7>Potted Lily of the Valley
   weight: '1'
   type: item
 custom_spruce_fence:
@@ -415,7 +416,7 @@ custom_spruce_fence:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_fence
+  display name: <&7>Spruce Fence
   weight: '1'
   type: item
 custom_gray_bed:
@@ -423,7 +424,7 @@ custom_gray_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_bed
+  display name: <&7>Gray Bed
   weight: '1'
   type: item
 custom_redstone_block:
@@ -431,7 +432,7 @@ custom_redstone_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Redstone_block
+  display name: <&7>Redstone Block
   weight: '1'
   type: item
 custom_structure_block:
@@ -439,7 +440,7 @@ custom_structure_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Structure_block
+  display name: <&7>Structure Block
   weight: '1'
   type: item
 custom_lily_pad:
@@ -447,7 +448,7 @@ custom_lily_pad:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lily_pad
+  display name: <&7>Lily Pad
   weight: '1'
   type: item
 custom_brown_bed:
@@ -455,7 +456,7 @@ custom_brown_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_bed
+  display name: <&7>Brown Bed
   weight: '1'
   type: item
 custom_dark_oak_button:
@@ -463,7 +464,7 @@ custom_dark_oak_button:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_button
+  display name: <&7>Dark Oak Button
   weight: '1'
   type: item
 custom_black_stained_glass:
@@ -471,7 +472,7 @@ custom_black_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_stained_glass
+  display name: <&7>Black Stained Glass
   weight: '1'
   type: item
 custom_pink_terracotta:
@@ -479,7 +480,7 @@ custom_pink_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_terracotta
+  display name: <&7>Pink Terracotta
   weight: '1'
   type: item
 custom_clay:
@@ -515,7 +516,7 @@ custom_sweet_berry_bush:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Sweet_berry_bush
+  display name: <&7>Sweet Berry Bush
   weight: '1'
   type: item
 custom_cyan_dye:
@@ -531,7 +532,7 @@ custom_spruce_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_stairs
+  display name: <&7>Spruce Stairs
   weight: '1'
   type: item
 custom_chiseled_quartz_block:
@@ -539,7 +540,7 @@ custom_chiseled_quartz_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chiseled_quartz_block
+  display name: <&7>Chiseled Quartz Block
   weight: '1'
   type: item
 custom_yellow_bed:
@@ -547,7 +548,7 @@ custom_yellow_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_bed
+  display name: <&7>Yellow Bed
   weight: '1'
   type: item
 custom_wall_torch:
@@ -555,7 +556,7 @@ custom_wall_torch:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wall_torch
+  display name: <&7>Wall Torch
   weight: '1'
   type: item
 custom_lime_concrete:
@@ -563,7 +564,7 @@ custom_lime_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_concrete
+  display name: <&7>Lime Concrete
   weight: '1'
   type: item
 custom_lime_stained_glass_pane:
@@ -571,7 +572,7 @@ custom_lime_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_stained_glass_pane
+  display name: <&7>Lime Stained Glass Pane
   weight: '1'
   type: item
 custom_wither_skeleton_wall_skull:
@@ -579,7 +580,7 @@ custom_wither_skeleton_wall_skull:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wither_skeleton_wall_skull
+  display name: <&7>Wither Skeleton Wall Skull
   weight: '1'
   type: item
 custom_melon_seeds:
@@ -587,7 +588,7 @@ custom_melon_seeds:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Melon_seeds
+  display name: <&7>Melon Seeds
   weight: '1'
   type: item
 custom_blue_stained_glass:
@@ -595,7 +596,7 @@ custom_blue_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_stained_glass
+  display name: <&7>Blue Stained Glass
   weight: '1'
   type: item
 custom_zombie_wall_head:
@@ -603,7 +604,7 @@ custom_zombie_wall_head:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Zombie_wall_head
+  display name: <&7>Zombie Wall Head
   weight: '1'
   type: item
 custom_scute:
@@ -619,7 +620,7 @@ custom_tube_coral_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tube_coral_fan
+  display name: <&7>Tube Coral Fan
   weight: '1'
   type: item
 custom_nether_wart_block:
@@ -627,7 +628,7 @@ custom_nether_wart_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether_wart_block
+  display name: <&7>Nether Wart Block
   weight: '1'
   type: item
 custom_pink_banner:
@@ -635,7 +636,7 @@ custom_pink_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_banner
+  display name: <&7>Pink Banner
   weight: '1'
   type: item
 custom_gray_banner:
@@ -643,7 +644,7 @@ custom_gray_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_banner
+  display name: <&7>Gray Banner
   weight: '1'
   type: item
 custom_magenta_wool:
@@ -651,7 +652,7 @@ custom_magenta_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_wool
+  display name: <&7>Magenta Wool
   weight: '1'
   type: item
 custom_potted_cornflower:
@@ -659,7 +660,7 @@ custom_potted_cornflower:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_cornflower
+  display name: <&7>Potted Cornflower
   weight: '1'
   type: item
 custom_lime_dye:
@@ -667,7 +668,7 @@ custom_lime_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_dye
+  display name: <&7>Lime Dye
   weight: '1'
   type: item
 custom_black_wool:
@@ -675,7 +676,7 @@ custom_black_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_wool
+  display name: <&7>Black Wool
   weight: '1'
   type: item
 custom_redstone_ore:
@@ -683,7 +684,7 @@ custom_redstone_ore:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Redstone_ore
+  display name: <&7>Redstone Ore
   weight: '1'
   type: item
 custom_jungle_slab:
@@ -691,7 +692,7 @@ custom_jungle_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_slab
+  display name: <&7>Jungle Slab
   weight: '1'
   type: item
 custom_stripped_birch_wood:
@@ -699,7 +700,7 @@ custom_stripped_birch_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_birch_wood
+  display name: <&7>Stripped Birch Wood
   weight: '1'
   type: item
 custom_cyan_concrete:
@@ -707,7 +708,7 @@ custom_cyan_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_concrete
+  display name: <&7>Cyan Concrete
   weight: '1'
   type: item
 custom_lime_banner:
@@ -715,7 +716,7 @@ custom_lime_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_banner
+  display name: <&7>Lime Banner
   weight: '1'
   type: item
 custom_jungle_pressure_plate:
@@ -723,7 +724,7 @@ custom_jungle_pressure_plate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_pressure_plate
+  display name: <&7>Jungle Pressure Plate
   weight: '1'
   type: item
 custom_redstone_wall_torch:
@@ -731,7 +732,7 @@ custom_redstone_wall_torch:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Redstone_wall_torch
+  display name: <&7>Redstone Wall Torch
   weight: '1'
   type: item
 custom_stone_button:
@@ -739,7 +740,7 @@ custom_stone_button:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_button
+  display name: <&7>Stone Button
   weight: '1'
   type: item
 custom_cornflower:
@@ -755,7 +756,7 @@ custom_orange_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_banner
+  display name: <&7>Orange Banner
   weight: '1'
   type: item
 custom_stone_pressure_plate:
@@ -763,7 +764,7 @@ custom_stone_pressure_plate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_pressure_plate
+  display name: <&7>Stone Pressure Plate
   weight: '1'
   type: item
 custom_flower_banner_pattern:
@@ -771,7 +772,7 @@ custom_flower_banner_pattern:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Flower_banner_pattern
+  display name: <&7>Flower Banner Pattern
   weight: '1'
   type: item
 custom_cyan_shulker_box:
@@ -779,7 +780,7 @@ custom_cyan_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_shulker_box
+  display name: <&7>Cyan Shulker Box
   weight: '1'
   type: item
 custom_zombie_head:
@@ -787,7 +788,7 @@ custom_zombie_head:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Zombie_head
+  display name: <&7>Zombie Head
   weight: '1'
   type: item
 custom_coarse_dirt:
@@ -795,7 +796,7 @@ custom_coarse_dirt:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Coarse_dirt
+  display name: <&7>Coarse Dirt
   weight: '1'
   type: item
 custom_music_disc_11:
@@ -803,7 +804,7 @@ custom_music_disc_11:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_11
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_magma_block:
@@ -811,7 +812,7 @@ custom_magma_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magma_block
+  display name: <&7>Magma Block
   weight: '1'
   type: item
 custom_blaze_rod:
@@ -819,7 +820,7 @@ custom_blaze_rod:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blaze_rod
+  display name: <&7>Blaze Rod
   weight: '1'
   type: item
 custom_music_disc_13:
@@ -827,7 +828,7 @@ custom_music_disc_13:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_13
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_piston_head:
@@ -835,7 +836,7 @@ custom_piston_head:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Piston_head
+  display name: <&7>Piston Head
   weight: '1'
   type: item
 custom_white_wall_banner:
@@ -843,7 +844,7 @@ custom_white_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_wall_banner
+  display name: <&7>White Wall Banner
   weight: '1'
   type: item
 custom_porkchop:
@@ -877,7 +878,7 @@ custom_blast_furnace:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blast_furnace
+  display name: <&7>Blast Furnace
   weight: '1'
   type: item
 custom_light_gray_dye:
@@ -885,7 +886,7 @@ custom_light_gray_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_dye
+  display name: <&7>Light Gray Dye
   weight: '1'
   type: item
 custom_lava:
@@ -909,7 +910,7 @@ custom_dark_oak_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_wood
+  display name: <&7>Dark Oak Wood
   weight: '1'
   type: item
 custom_potted_acacia_sapling:
@@ -917,7 +918,7 @@ custom_potted_acacia_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_acacia_sapling
+  display name: <&7>Potted Acacia Sapling
   weight: '1'
   type: item
 custom_stripped_dark_oak_wood:
@@ -925,7 +926,7 @@ custom_stripped_dark_oak_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_dark_oak_wood
+  display name: <&7>Stripped Dark Oak Wood
   weight: '1'
   type: item
 custom_void_air:
@@ -933,7 +934,7 @@ custom_void_air:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Void_air
+  display name: <&7>Void Air
   weight: '1'
   type: item
 custom_book:
@@ -949,7 +950,7 @@ custom_purple_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_shulker_box
+  display name: <&7>Purple Shulker Box
   weight: '1'
   type: item
 custom_beetroot_soup:
@@ -957,7 +958,7 @@ custom_beetroot_soup:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Beetroot_soup
+  display name: <&7>Beetroot Soup
   weight: '1'
   type: item
 custom_splash_potion:
@@ -965,7 +966,7 @@ custom_splash_potion:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Splash_potion
+  display name: <&7>Splash Potion
   weight: '1'
   type: item
 custom_lime_wool:
@@ -973,7 +974,7 @@ custom_lime_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_wool
+  display name: <&7>Lime Wool
   weight: '1'
   type: item
 custom_green_wall_banner:
@@ -981,7 +982,7 @@ custom_green_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_wall_banner
+  display name: <&7>Green Wall Banner
   weight: '1'
   type: item
 custom_horn_coral_block:
@@ -989,7 +990,7 @@ custom_horn_coral_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Horn_coral_block
+  display name: <&7>Horn Coral Block
   weight: '1'
   type: item
 custom_blue_terracotta:
@@ -997,7 +998,7 @@ custom_blue_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_terracotta
+  display name: <&7>Blue Terracotta
   weight: '1'
   type: item
 custom_comparator:
@@ -1013,7 +1014,7 @@ custom_frosted_ice:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Frosted_ice
+  display name: <&7>Frosted Ice
   weight: '1'
   type: item
 custom_cyan_stained_glass:
@@ -1021,7 +1022,7 @@ custom_cyan_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_stained_glass
+  display name: <&7>Cyan Stained Glass
   weight: '1'
   type: item
 custom_red_mushroom_block:
@@ -1029,7 +1030,7 @@ custom_red_mushroom_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_mushroom_block
+  display name: <&7>Red Mushroom Block
   weight: '1'
   type: item
 custom_ice:
@@ -1045,7 +1046,7 @@ custom_tripwire_hook:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tripwire_hook
+  display name: <&7>Tripwire Hook
   weight: '1'
   type: item
 custom_lava_bucket:
@@ -1053,7 +1054,7 @@ custom_lava_bucket:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lava_bucket
+  display name: <&7>Lava Bucket
   weight: '1'
   type: item
 custom_prismarine_brick_stairs:
@@ -1061,7 +1062,7 @@ custom_prismarine_brick_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Prismarine_brick_stairs
+  display name: <&7>Prismarine Brick Stairs
   weight: '1'
   type: item
 custom_prismarine_stairs:
@@ -1069,7 +1070,7 @@ custom_prismarine_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Prismarine_stairs
+  display name: <&7>Prismarine Stairs
   weight: '1'
   type: item
 custom_quartz_slab:
@@ -1077,7 +1078,7 @@ custom_quartz_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Quartz_slab
+  display name: <&7>Quartz Slab
   weight: '1'
   type: item
 custom_dark_oak_fence:
@@ -1085,7 +1086,7 @@ custom_dark_oak_fence:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_fence
+  display name: <&7>Dark Oak Fence
   weight: '1'
   type: item
 custom_potatoes:
@@ -1101,7 +1102,7 @@ custom_salmon_bucket:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Salmon_bucket
+  display name: <&7>Salmon Bucket
   weight: '1'
   type: item
 custom_acacia_leaves:
@@ -1109,7 +1110,7 @@ custom_acacia_leaves:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_leaves
+  display name: <&7>Acacia Leaves
   weight: '1'
   type: item
 custom_granite:
@@ -1125,7 +1126,7 @@ custom_snow_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Snow_block
+  display name: <&7>Snow Block
   weight: '1'
   type: item
 custom_minecart:
@@ -1141,7 +1142,7 @@ custom_armor_stand:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Armor_stand
+  display name: <&7>Armor Stand
   weight: '1'
   type: item
 custom_oak_door:
@@ -1149,7 +1150,7 @@ custom_oak_door:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_door
+  display name: <&7>Oak Door
   weight: '1'
   type: item
 custom_carrots:
@@ -1165,7 +1166,7 @@ custom_smooth_quartz:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smooth_quartz
+  display name: <&7>Smooth Quartz
   weight: '1'
   type: item
 custom_orange_terracotta:
@@ -1173,7 +1174,7 @@ custom_orange_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_terracotta
+  display name: <&7>Orange Terracotta
   weight: '1'
   type: item
 custom_cooked_chicken:
@@ -1181,7 +1182,7 @@ custom_cooked_chicken:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cooked_chicken
+  display name: <&7>Cooked Chicken
   weight: '1'
   type: item
 custom_purple_glazed_terracotta:
@@ -1189,7 +1190,7 @@ custom_purple_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_glazed_terracotta
+  display name: <&7>Purple Glazed Terracotta
   weight: '1'
   type: item
 custom_beetroots:
@@ -1205,7 +1206,7 @@ custom_grass_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Grass_block
+  display name: <&7>Grass Block
   weight: '1'
   type: item
   default_drop: custom_dirt
@@ -1214,7 +1215,7 @@ custom_jungle_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_sapling
+  display name: <&7>Jungle Sapling
   weight: '1'
   type: item
 custom_stone_pickaxe:
@@ -1222,7 +1223,7 @@ custom_stone_pickaxe:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_pickaxe
+  display name: <&7>Stone Pickaxe
   weight: '1'
   type: item
 custom_stripped_acacia_log:
@@ -1230,7 +1231,7 @@ custom_stripped_acacia_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_acacia_log
+  display name: <&7>Stripped Acacia Log
   weight: '1'
   type: item
 custom_stripped_acacia_wood:
@@ -1238,7 +1239,7 @@ custom_stripped_acacia_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_acacia_wood
+  display name: <&7>Stripped Acacia Wood
   weight: '1'
   type: item
 custom_sugar_cane:
@@ -1246,7 +1247,7 @@ custom_sugar_cane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Sugar_cane
+  display name: <&7>Sugar Cane
   weight: '1'
   type: item
 custom_dragon_breath:
@@ -1254,7 +1255,7 @@ custom_dragon_breath:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dragon_breath
+  display name: <&7>Dragon Breath
   weight: '1'
   type: item
 custom_potted_jungle_sapling:
@@ -1262,7 +1263,7 @@ custom_potted_jungle_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_jungle_sapling
+  display name: <&7>Potted Jungle Sapling
   weight: '1'
   type: item
 custom_pumpkin_seeds:
@@ -1270,7 +1271,7 @@ custom_pumpkin_seeds:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pumpkin_seeds
+  display name: <&7>Pumpkin Seeds
   weight: '1'
   type: item
 custom_dead_brain_coral_wall_fan:
@@ -1278,7 +1279,7 @@ custom_dead_brain_coral_wall_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_brain_coral_wall_fan
+  display name: <&7>Dead Brain Coral Wall Fan
   weight: '1'
   type: item
 custom_nether_brick_slab:
@@ -1286,7 +1287,7 @@ custom_nether_brick_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether_brick_slab
+  display name: <&7>Nether Brick Slab
   weight: '1'
   type: item
 custom_purpur_block:
@@ -1294,7 +1295,7 @@ custom_purpur_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purpur_block
+  display name: <&7>Purpur Block
   weight: '1'
   type: item
 custom_dead_bubble_coral:
@@ -1302,7 +1303,7 @@ custom_dead_bubble_coral:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_bubble_coral
+  display name: <&7>Dead Bubble Coral
   weight: '1'
   type: item
 custom_jukebox:
@@ -1326,7 +1327,7 @@ custom_end_crystal:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>End_crystal
+  display name: <&7>End Crystal
   weight: '1'
   type: item
 custom_sugar:
@@ -1342,7 +1343,7 @@ custom_brain_coral_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brain_coral_fan
+  display name: <&7>Brain Coral Fan
   weight: '1'
   type: item
 custom_green_bed:
@@ -1350,7 +1351,7 @@ custom_green_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_bed
+  display name: <&7>Green Bed
   weight: '1'
   type: item
 custom_pink_wall_banner:
@@ -1358,7 +1359,7 @@ custom_pink_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_wall_banner
+  display name: <&7>Pink Wall Banner
   weight: '1'
   type: item
 custom_lectern:
@@ -1374,7 +1375,7 @@ custom_skeleton_skull:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Skeleton_skull
+  display name: <&7>Skeleton Skull
   weight: '1'
   type: item
 custom_water:
@@ -1390,7 +1391,7 @@ custom_stone_hoe:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_hoe
+  display name: <&7>Stone Hoe
   weight: '1'
   type: item
 custom_sunflower:
@@ -1406,7 +1407,7 @@ custom_crafting_table:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Crafting_table
+  display name: <&7>Crafting Table
   weight: '1'
   type: item
 custom_music_disc_cat:
@@ -1414,7 +1415,7 @@ custom_music_disc_cat:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_cat
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_activator_rail:
@@ -1422,7 +1423,7 @@ custom_activator_rail:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Activator_rail
+  display name: <&7>Activator Rail
   weight: '1'
   type: item
 custom_coal_block:
@@ -1430,7 +1431,7 @@ custom_coal_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Coal_block
+  display name: <&7>Coal Block
   weight: '1'
   type: item
 custom_fire_coral:
@@ -1438,7 +1439,7 @@ custom_fire_coral:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Fire_coral
+  display name: <&7>Fire Coral
   weight: '1'
   type: item
 custom_light_gray_wall_banner:
@@ -1446,7 +1447,7 @@ custom_light_gray_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_wall_banner
+  display name: <&7>Light Gray Wall Banner
   weight: '1'
   type: item
 custom_cut_sandstone:
@@ -1454,7 +1455,7 @@ custom_cut_sandstone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cut_sandstone
+  display name: <&7>Cut Sandstone
   weight: '1'
   type: item
 custom_mossy_stone_brick_wall:
@@ -1462,7 +1463,7 @@ custom_mossy_stone_brick_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mossy_stone_brick_wall
+  display name: <&7>Mossy Stone Brick Wall
   weight: '1'
   type: item
 custom_red_glazed_terracotta:
@@ -1470,7 +1471,7 @@ custom_red_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_glazed_terracotta
+  display name: <&7>Red Glazed Terracotta
   weight: '1'
   type: item
 custom_smooth_quartz_slab:
@@ -1478,7 +1479,7 @@ custom_smooth_quartz_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smooth_quartz_slab
+  display name: <&7>Smooth Quartz Slab
   weight: '1'
   type: item
 custom_stripped_jungle_log:
@@ -1486,7 +1487,7 @@ custom_stripped_jungle_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_jungle_log
+  display name: <&7>Stripped Jungle Log
   weight: '1'
   type: item
 custom_oak_pressure_plate:
@@ -1494,7 +1495,7 @@ custom_oak_pressure_plate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_pressure_plate
+  display name: <&7>Oak Pressure Plate
   weight: '1'
   type: item
 custom_jungle_stairs:
@@ -1502,7 +1503,7 @@ custom_jungle_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_stairs
+  display name: <&7>Jungle Stairs
   weight: '1'
   type: item
 custom_purpur_pillar:
@@ -1510,7 +1511,7 @@ custom_purpur_pillar:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purpur_pillar
+  display name: <&7>Purpur Pillar
   weight: '1'
   type: item
 custom_slime_block:
@@ -1518,7 +1519,7 @@ custom_slime_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Slime_block
+  display name: <&7>Slime Block
   weight: '1'
   type: item
 custom_stone_brick_stairs:
@@ -1526,7 +1527,7 @@ custom_stone_brick_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_brick_stairs
+  display name: <&7>Stone Brick Stairs
   weight: '1'
   type: item
 custom_cocoa:
@@ -1542,7 +1543,7 @@ custom_jungle_button:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_button
+  display name: <&7>Jungle Button
   weight: '1'
   type: item
 custom_acacia_planks:
@@ -1550,7 +1551,7 @@ custom_acacia_planks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_planks
+  display name: <&7>Acacia Planks
   weight: '1'
   type: item
 custom_dead_bubble_coral_wall_fan:
@@ -1558,7 +1559,7 @@ custom_dead_bubble_coral_wall_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_bubble_coral_wall_fan
+  display name: <&7>Dead Bubble Coral Wall Fan
   weight: '1'
   type: item
 custom_infested_cracked_stone_bricks:
@@ -1566,7 +1567,7 @@ custom_infested_cracked_stone_bricks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Infested_cracked_stone_bricks
+  display name: <&7>Infested Cracked Stone Bricks
   weight: '1'
   type: item
 custom_blue_wool:
@@ -1574,7 +1575,7 @@ custom_blue_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_wool
+  display name: <&7>Blue Wool
   weight: '1'
   type: item
 custom_lime_glazed_terracotta:
@@ -1582,7 +1583,7 @@ custom_lime_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_glazed_terracotta
+  display name: <&7>Lime Glazed Terracotta
   weight: '1'
   type: item
 custom_acacia_fence:
@@ -1590,7 +1591,7 @@ custom_acacia_fence:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_fence
+  display name: <&7>Acacia Fence
   weight: '1'
   type: item
 custom_stone_bricks:
@@ -1598,7 +1599,7 @@ custom_stone_bricks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_bricks
+  display name: <&7>Stone Bricks
   weight: '1'
   type: item
 custom_rail:
@@ -1614,7 +1615,7 @@ custom_soul_sand:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Soul_sand
+  display name: <&7>Soul Sand
   weight: '1'
   type: item
 custom_jungle_boat:
@@ -1622,7 +1623,7 @@ custom_jungle_boat:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_boat
+  display name: <&7>Jungle Boat
   weight: '1'
   type: item
 custom_vine:
@@ -1638,7 +1639,7 @@ custom_red_tulip:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_tulip
+  display name: <&7>Red Tulip
   weight: '1'
   type: item
 custom_rabbit_hide:
@@ -1646,7 +1647,7 @@ custom_rabbit_hide:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Rabbit_hide
+  display name: <&7>Rabbit Hide
   weight: '1'
   type: item
 custom_smooth_red_sandstone_slab:
@@ -1654,7 +1655,7 @@ custom_smooth_red_sandstone_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smooth_red_sandstone_slab
+  display name: <&7>Smooth Red Sandstone Slab
   weight: '1'
   type: item
 custom_purpur_slab:
@@ -1662,7 +1663,7 @@ custom_purpur_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purpur_slab
+  display name: <&7>Purpur Slab
   weight: '1'
   type: item
 custom_lime_carpet:
@@ -1670,7 +1671,7 @@ custom_lime_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_carpet
+  display name: <&7>Lime Carpet
   weight: '1'
   type: item
 custom_powered_rail:
@@ -1678,7 +1679,7 @@ custom_powered_rail:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Powered_rail
+  display name: <&7>Powered Rail
   weight: '1'
   type: item
 custom_lime_wall_banner:
@@ -1686,7 +1687,7 @@ custom_lime_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_wall_banner
+  display name: <&7>Lime Wall Banner
   weight: '1'
   type: item
 custom_stripped_dark_oak_log:
@@ -1694,7 +1695,7 @@ custom_stripped_dark_oak_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_dark_oak_log
+  display name: <&7>Stripped Dark Oak Log
   weight: '1'
   type: item
 custom_birch_slab:
@@ -1702,7 +1703,7 @@ custom_birch_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_slab
+  display name: <&7>Birch Slab
   weight: '1'
   type: item
 custom_name_tag:
@@ -1710,7 +1711,7 @@ custom_name_tag:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Name_tag
+  display name: <&7>Name Tag
   weight: '1'
   type: item
 custom_wither_rose:
@@ -1718,7 +1719,7 @@ custom_wither_rose:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wither_rose
+  display name: <&7>Wither Rose
   weight: '1'
   type: item
 custom_flint:
@@ -1736,7 +1737,7 @@ custom_cobblestone_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cobblestone_wall
+  display name: <&7>Cobblestone Wall
   weight: '1'
   type: item
 custom_shulker_box:
@@ -1744,7 +1745,7 @@ custom_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Shulker_box
+  display name: <&7>Shulker Box
   weight: '1'
   type: item
 custom_jigsaw:
@@ -1760,7 +1761,7 @@ custom_repeating_command_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Repeating_command_block
+  display name: <&7>Repeating Command Block
   weight: '1'
   type: item
 custom_cactus:
@@ -1784,7 +1785,7 @@ custom_iron_trapdoor:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_trapdoor
+  display name: <&7>Iron Trapdoor
   weight: '1'
   type: item
 custom_light_gray_concrete:
@@ -1792,7 +1793,7 @@ custom_light_gray_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_concrete
+  display name: <&7>Light Gray Concrete
   weight: '1'
   type: item
 custom_polished_diorite_slab:
@@ -1800,7 +1801,7 @@ custom_polished_diorite_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Polished_diorite_slab
+  display name: <&7>Polished Diorite Slab
   weight: '1'
   type: item
 custom_prismarine_crystals:
@@ -1808,7 +1809,7 @@ custom_prismarine_crystals:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Prismarine_crystals
+  display name: <&7>Prismarine Crystals
   weight: '1'
   type: item
 custom_spruce_log:
@@ -1816,7 +1817,7 @@ custom_spruce_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_log
+  display name: <&7>Spruce Log
   weight: '1'
   type: item
 custom_charcoal:
@@ -1833,7 +1834,7 @@ custom_bamboo_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Bamboo_sapling
+  display name: <&7>Bamboo Sapling
   weight: '1'
   type: item
 custom_netherrack:
@@ -1857,7 +1858,7 @@ custom_potted_oak_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_oak_sapling
+  display name: <&7>Potted Oak Sapling
   weight: '1'
   type: item
 custom_dead_tube_coral:
@@ -1865,7 +1866,7 @@ custom_dead_tube_coral:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_tube_coral
+  display name: <&7>Dead Tube Coral
   weight: '1'
   type: item
 custom_trident:
@@ -1881,7 +1882,7 @@ custom_music_disc_strad:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_strad
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_rabbit_foot:
@@ -1889,7 +1890,7 @@ custom_rabbit_foot:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Rabbit_foot
+  display name: <&7>Rabbit Foot
   weight: '1'
   type: item
 custom_lever:
@@ -1913,7 +1914,7 @@ custom_purple_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_concrete_powder
+  display name: <&7>Purple Concrete Powder
   weight: '1'
   type: item
 custom_spruce_boat:
@@ -1921,7 +1922,7 @@ custom_spruce_boat:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_boat
+  display name: <&7>Spruce Boat
   weight: '1'
   type: item
 custom_black_dye:
@@ -1929,7 +1930,7 @@ custom_black_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_dye
+  display name: <&7>Black Dye
   weight: '1'
   type: item
 custom_dark_prismarine_stairs:
@@ -1937,7 +1938,7 @@ custom_dark_prismarine_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_prismarine_stairs
+  display name: <&7>Dark Prismarine Stairs
   weight: '1'
   type: item
 custom_red_wool:
@@ -1945,7 +1946,7 @@ custom_red_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_wool
+  display name: <&7>Red Wool
   weight: '1'
   type: item
 custom_magenta_glazed_terracotta:
@@ -1953,7 +1954,7 @@ custom_magenta_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_glazed_terracotta
+  display name: <&7>Magenta Glazed Terracotta
   weight: '1'
   type: item
 custom_acacia_door:
@@ -1961,7 +1962,7 @@ custom_acacia_door:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_door
+  display name: <&7>Acacia Door
   weight: '1'
   type: item
 custom_oak_wood:
@@ -1969,7 +1970,7 @@ custom_oak_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_wood
+  display name: <&7>Oak Wood
   weight: '1'
   type: item
 custom_prismarine_bricks:
@@ -1977,7 +1978,7 @@ custom_prismarine_bricks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Prismarine_bricks
+  display name: <&7>Prismarine Bricks
   weight: '1'
   type: item
 custom_skull_banner_pattern:
@@ -1985,7 +1986,7 @@ custom_skull_banner_pattern:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Skull_banner_pattern
+  display name: <&7>Skull Banner Pattern
   weight: '1'
   type: item
 custom_firework_star:
@@ -1993,7 +1994,7 @@ custom_firework_star:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Firework_star
+  display name: <&7>Firework Star
   weight: '1'
   type: item
 custom_pink_stained_glass_pane:
@@ -2001,7 +2002,7 @@ custom_pink_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_stained_glass_pane
+  display name: <&7>Pink Stained Glass Pane
   weight: '1'
   type: item
 custom_redstone:
@@ -2021,7 +2022,7 @@ custom_cyan_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_glazed_terracotta
+  display name: <&7>Cyan Glazed Terracotta
   weight: '1'
   type: item
 custom_blue_bed:
@@ -2029,7 +2030,7 @@ custom_blue_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_bed
+  display name: <&7>Blue Bed
   weight: '1'
   type: item
 custom_redstone_torch:
@@ -2037,7 +2038,7 @@ custom_redstone_torch:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Redstone_torch
+  display name: <&7>Redstone Torch
   weight: '1'
   type: item
 custom_dead_tube_coral_block:
@@ -2045,7 +2046,7 @@ custom_dead_tube_coral_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_tube_coral_block
+  display name: <&7>Dead Tube Coral Block
   weight: '1'
   type: item
 custom_jungle_sign:
@@ -2053,7 +2054,7 @@ custom_jungle_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_sign
+  display name: <&7>Jungle Sign
   weight: '1'
   type: item
 custom_birch_button:
@@ -2061,7 +2062,7 @@ custom_birch_button:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_button
+  display name: <&7>Birch Button
   weight: '1'
   type: item
 custom_rabbit:
@@ -2077,7 +2078,7 @@ custom_chiseled_red_sandstone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chiseled_red_sandstone
+  display name: <&7>Chiseled Red Sandstone
   weight: '1'
   type: item
 custom_debug_stick:
@@ -2085,7 +2086,7 @@ custom_debug_stick:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Debug_stick
+  display name: <&7>Debug Stick
   weight: '1'
   type: item
 custom_gray_dye:
@@ -2093,7 +2094,7 @@ custom_gray_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_dye
+  display name: <&7>Gray Dye
   weight: '1'
   type: item
 custom_oak_leaves:
@@ -2101,7 +2102,7 @@ custom_oak_leaves:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_leaves
+  display name: <&7>Oak Leaves
   weight: '1'
   type: item
 custom_glass_pane:
@@ -2109,7 +2110,7 @@ custom_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Glass_pane
+  display name: <&7>Glass Pane
   weight: '1'
   type: item
 custom_jungle_trapdoor:
@@ -2117,7 +2118,7 @@ custom_jungle_trapdoor:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_trapdoor
+  display name: <&7>Jungle Trapdoor
   weight: '1'
   type: item
 custom_brown_carpet:
@@ -2125,7 +2126,7 @@ custom_brown_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_carpet
+  display name: <&7>Brown Carpet
   weight: '1'
   type: item
 custom_infested_cobblestone:
@@ -2133,7 +2134,7 @@ custom_infested_cobblestone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Infested_cobblestone
+  display name: <&7>Infested Cobblestone
   weight: '1'
   type: item
 custom_green_shulker_box:
@@ -2141,7 +2142,7 @@ custom_green_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_shulker_box
+  display name: <&7>Green Shulker Box
   weight: '1'
   type: item
 custom_gray_concrete:
@@ -2149,7 +2150,7 @@ custom_gray_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_concrete
+  display name: <&7>Gray Concrete
   weight: '1'
   type: item
 custom_light_blue_shulker_box:
@@ -2157,7 +2158,7 @@ custom_light_blue_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_shulker_box
+  display name: <&7>Light Blue Shulker Box
   weight: '1'
   type: item
 custom_dark_oak_log:
@@ -2165,7 +2166,7 @@ custom_dark_oak_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_log
+  display name: <&7>Dark Oak Log
   weight: '1'
   type: item
 custom_salmon:
@@ -2189,7 +2190,7 @@ custom_white_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_shulker_box
+  display name: <&7>White Shulker Box
   weight: '1'
   type: item
 custom_jungle_wall_sign:
@@ -2197,7 +2198,7 @@ custom_jungle_wall_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_wall_sign
+  display name: <&7>Jungle Wall Sign
   weight: '1'
   type: item
 custom_item_frame:
@@ -2205,7 +2206,7 @@ custom_item_frame:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Item_frame
+  display name: <&7>Item Frame
   weight: '1'
   type: item
 custom_red_sandstone_stairs:
@@ -2213,7 +2214,7 @@ custom_red_sandstone_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_sandstone_stairs
+  display name: <&7>Red Sandstone Stairs
   weight: '1'
   type: item
 custom_milk_bucket:
@@ -2221,7 +2222,7 @@ custom_milk_bucket:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Milk_bucket
+  display name: <&7>Milk Bucket
   weight: '1'
   type: item
 custom_dead_fire_coral_wall_fan:
@@ -2229,7 +2230,7 @@ custom_dead_fire_coral_wall_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_fire_coral_wall_fan
+  display name: <&7>Dead Fire Coral Wall Fan
   weight: '1'
   type: item
 custom_dropper:
@@ -2245,7 +2246,7 @@ custom_magenta_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_concrete
+  display name: <&7>Magenta Concrete
   weight: '1'
   type: item
 custom_potion:
@@ -2261,7 +2262,7 @@ custom_gray_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_stained_glass
+  display name: <&7>Gray Stained Glass
   weight: '1'
   type: item
 custom_melon_slice:
@@ -2269,7 +2270,7 @@ custom_melon_slice:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Melon_slice
+  display name: <&7>Melon Slice
   weight: '1'
   type: item
 custom_cooked_beef:
@@ -2277,7 +2278,7 @@ custom_cooked_beef:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cooked_beef
+  display name: <&7>Steak
   weight: '1'
   type: item
 custom_dark_oak_slab:
@@ -2285,7 +2286,7 @@ custom_dark_oak_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_slab
+  display name: <&7>Dark Oak Slab
   weight: '1'
   type: item
 custom_mossy_stone_brick_stairs:
@@ -2293,7 +2294,7 @@ custom_mossy_stone_brick_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mossy_stone_brick_stairs
+  display name: <&7>Mossy Stone Brick Stairs
   weight: '1'
   type: item
 custom_jungle_log:
@@ -2301,7 +2302,7 @@ custom_jungle_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_log
+  display name: <&7>Jungle Log
   weight: '1'
   type: item
 custom_popped_chorus_fruit:
@@ -2309,7 +2310,7 @@ custom_popped_chorus_fruit:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Popped_chorus_fruit
+  display name: <&7>Popped Chorus Fruit
   weight: '1'
   type: item
 custom_tropical_fish:
@@ -2317,7 +2318,7 @@ custom_tropical_fish:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tropical_fish
+  display name: <&7>Tropical Fish
   weight: '1'
   type: item
 custom_spruce_button:
@@ -2325,7 +2326,7 @@ custom_spruce_button:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_button
+  display name: <&7>Spruce Button
   weight: '1'
   type: item
 custom_sweet_berries:
@@ -2333,7 +2334,7 @@ custom_sweet_berries:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Sweet_berries
+  display name: <&7>Sweet Berries
   weight: '1'
   type: item
 custom_light_gray_stained_glass:
@@ -2341,7 +2342,7 @@ custom_light_gray_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_stained_glass
+  display name: <&7>Light Gray Stained Glass
   weight: '1'
   type: item
 custom_bookshelf:
@@ -2357,7 +2358,7 @@ custom_dead_brain_coral_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_brain_coral_block
+  display name: <&7>Dead Brain Coral Block
   weight: '1'
   type: item
 custom_terracotta:
@@ -2373,7 +2374,7 @@ custom_cocoa_beans:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cocoa_beans
+  display name: <&7>Cocoa Beans
   weight: '1'
   type: item
 custom_dead_horn_coral_fan:
@@ -2381,7 +2382,7 @@ custom_dead_horn_coral_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_horn_coral_fan
+  display name: <&7>Dead Horn Coral Fan
   weight: '1'
   type: item
 custom_dark_oak_leaves:
@@ -2389,7 +2390,7 @@ custom_dark_oak_leaves:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_leaves
+  display name: <&7>Dark Oak Leaves
   weight: '1'
   type: item
 custom_magenta_stained_glass_pane:
@@ -2397,7 +2398,7 @@ custom_magenta_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_stained_glass_pane
+  display name: <&7>Magenta Stained Glass Pane
   weight: '1'
   type: item
 custom_pink_stained_glass:
@@ -2405,7 +2406,7 @@ custom_pink_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_stained_glass
+  display name: <&7>Pink Stained Glass
   weight: '1'
   type: item
 custom_magenta_concrete_powder:
@@ -2413,7 +2414,7 @@ custom_magenta_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_concrete_powder
+  display name: <&7>Magenta Concrete Powder
   weight: '1'
   type: item
 custom_sand:
@@ -2429,7 +2430,7 @@ custom_phantom_membrane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Phantom_membrane
+  display name: <&7>Phantom Membrane
   weight: '1'
   type: item
 custom_dead_bush:
@@ -2437,7 +2438,7 @@ custom_dead_bush:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_bush
+  display name: <&7>Dead Bush
   weight: '1'
   type: item
 custom_cyan_wool:
@@ -2445,7 +2446,7 @@ custom_cyan_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_wool
+  display name: <&7>Cyan Wool
   weight: '1'
   type: item
 custom_potted_dandelion:
@@ -2453,7 +2454,7 @@ custom_potted_dandelion:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_dandelion
+  display name: <&7>Potted Dandelion
   weight: '1'
   type: item
 custom_light_gray_terracotta:
@@ -2461,7 +2462,7 @@ custom_light_gray_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_terracotta
+  display name: <&7>Light Gray Terracotta
   weight: '1'
   type: item
 custom_heavy_weighted_pressure_plate:
@@ -2469,7 +2470,7 @@ custom_heavy_weighted_pressure_plate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Heavy_weighted_pressure_plate
+  display name: <&7>Heavy Weighted Pressure Plate
   weight: '1'
   type: item
 custom_yellow_stained_glass:
@@ -2477,7 +2478,7 @@ custom_yellow_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_stained_glass
+  display name: <&7>Yellow Stained Glass
   weight: '1'
   type: item
 custom_smooth_stone:
@@ -2485,7 +2486,7 @@ custom_smooth_stone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smooth_stone
+  display name: <&7>Smooth Stone
   weight: '1'
   type: item
 custom_spectral_arrow:
@@ -2493,7 +2494,7 @@ custom_spectral_arrow:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spectral_arrow
+  display name: <&7>Spectral Arrow
   weight: '1'
   type: item
 custom_andesite_wall:
@@ -2501,7 +2502,7 @@ custom_andesite_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Andesite_wall
+  display name: <&7>Andesite Wall
   weight: '1'
   type: item
 custom_wheat_seeds:
@@ -2509,7 +2510,7 @@ custom_wheat_seeds:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wheat_seeds
+  display name: <&7>Wheat Seeds
   weight: '1'
   type: item
 custom_polished_diorite:
@@ -2517,7 +2518,7 @@ custom_polished_diorite:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Polished_diorite
+  display name: <&7>Polished Diorite
   weight: '1'
   type: item
 custom_tripwire:
@@ -2533,7 +2534,7 @@ custom_furnace_minecart:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Furnace_minecart
+  display name: <&7>Minecart with Furnace
   weight: '1'
   type: item
 custom_air:
@@ -2549,7 +2550,7 @@ custom_parrot_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Parrot_spawn_egg
+  display name: <&7>Parrot Spawn Egg
   weight: '1'
   type: item
 custom_spruce_planks:
@@ -2566,7 +2567,7 @@ custom_red_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_concrete_powder
+  display name: <&7>Red Concrete Powder
   weight: '1'
   type: item
 custom_cooked_rabbit:
@@ -2574,7 +2575,7 @@ custom_cooked_rabbit:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cooked_rabbit
+  display name: <&7>Cooked Rabbit
   weight: '1'
   type: item
 custom_witch_spawn_egg:
@@ -2582,7 +2583,7 @@ custom_witch_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Witch_spawn_egg
+  display name: <&7>Witch Spawn Egg
   weight: '1'
   type: item
 custom_bucket:
@@ -2598,7 +2599,7 @@ custom_cooked_salmon:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cooked_salmon
+  display name: <&7>Cooked Salmon
   weight: '1'
   type: item
 custom_diorite_slab:
@@ -2606,7 +2607,7 @@ custom_diorite_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diorite_slab
+  display name: <&7>Diorite Slab
   weight: '1'
   type: item
 custom_command_block:
@@ -2614,7 +2615,7 @@ custom_command_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Command_block
+  display name: <&7>Command Block
   weight: '1'
   type: item
 custom_tnt:
@@ -2622,7 +2623,7 @@ custom_tnt:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tnt
+  display name: <&7>TNT
   weight: '1'
   type: item
 custom_purple_dye:
@@ -2630,7 +2631,7 @@ custom_purple_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_dye
+  display name: <&7>Purple Dye
   weight: '1'
   type: item
 custom_lingering_potion:
@@ -2638,7 +2639,7 @@ custom_lingering_potion:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lingering_potion
+  display name: <&7>Lingering Potion
   weight: '1'
   type: item
 custom_honey_block:
@@ -2646,7 +2647,7 @@ custom_honey_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Honey_block
+  display name: <&7>Honey Block
   weight: '1'
   type: item
 custom_dead_bubble_coral_fan:
@@ -2654,7 +2655,7 @@ custom_dead_bubble_coral_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_bubble_coral_fan
+  display name: <&7>Dead Bubble Coral Fan
   weight: '1'
   type: item
 custom_chiseled_stone_bricks:
@@ -2678,7 +2679,7 @@ custom_birch_boat:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_boat
+  display name: <&7>Birch Boat
   weight: '1'
   type: item
 custom_dead_fire_coral_fan:
@@ -2686,7 +2687,7 @@ custom_dead_fire_coral_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_fire_coral_fan
+  display name: <&7>Dead Fire Coral Fan
   weight: '1'
   type: item
 custom_pufferfish_bucket:
@@ -2694,7 +2695,7 @@ custom_pufferfish_bucket:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pufferfish_bucket
+  display name: <&7>Pufferfish Bucket
   weight: '1'
   type: item
 custom_stripped_oak_log:
@@ -2702,7 +2703,7 @@ custom_stripped_oak_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_oak_log
+  display name: <&7>Stripped Oak Log
   weight: '1'
   type: item
 custom_zombie_horse_spawn_egg:
@@ -2710,7 +2711,7 @@ custom_zombie_horse_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Zombie_horse_spawn_egg
+  display name: <&7>Zombie Horse Spawn Egg
   weight: '1'
   type: item
 custom_cod_spawn_egg:
@@ -2718,7 +2719,7 @@ custom_cod_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cod_spawn_egg
+  display name: <&7>Cod Spawn Egg
   weight: '1'
   type: item
 custom_gray_shulker_box:
@@ -2726,7 +2727,7 @@ custom_gray_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_shulker_box
+  display name: <&7>Gray Shulker Box
   weight: '1'
   type: item
 custom_shield:
@@ -2742,7 +2743,7 @@ custom_light_gray_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_bed
+  display name: <&7>Light Gray Bed
   weight: '1'
   type: item
 custom_poisonous_potato:
@@ -2750,7 +2751,7 @@ custom_poisonous_potato:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Poisonous_potato
+  display name: <&7>Poisonous Potato
   weight: '1'
   type: item
 custom_spruce_trapdoor:
@@ -2758,7 +2759,7 @@ custom_spruce_trapdoor:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_trapdoor
+  display name: <&7>Spruce Trapdoor
   weight: '1'
   type: item
 custom_turtle_egg:
@@ -2766,7 +2767,7 @@ custom_turtle_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Turtle_egg
+  display name: <&7>Turtle Egg
   weight: '1'
   type: item
 custom_infested_mossy_stone_bricks:
@@ -2774,7 +2775,7 @@ custom_infested_mossy_stone_bricks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Infested_mossy_stone_bricks
+  display name: <&7>Infested Mossy Stone Bricks
   weight: '1'
   type: item
 custom_attached_melon_stem:
@@ -2782,7 +2783,7 @@ custom_attached_melon_stem:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Attached_melon_stem
+  display name: <&7>Attached Melon Stem
   weight: '1'
   type: item
 custom_beacon:
@@ -2798,7 +2799,7 @@ custom_red_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_terracotta
+  display name: <&7>Red Terracotta
   weight: '1'
   type: item
 custom_white_concrete_powder:
@@ -2806,7 +2807,7 @@ custom_white_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_concrete_powder
+  display name: <&7>White Concrete Powder
   weight: '1'
   type: item
 custom_turtle_spawn_egg:
@@ -2814,7 +2815,7 @@ custom_turtle_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Turtle_spawn_egg
+  display name: <&7>Turtle Spawn Egg
   weight: '1'
   type: item
 custom_white_terracotta:
@@ -2822,7 +2823,7 @@ custom_white_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_terracotta
+  display name: <&7>White Terracotta
   weight: '1'
   type: item
 custom_fermented_spider_eye:
@@ -2830,7 +2831,7 @@ custom_fermented_spider_eye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Fermented_spider_eye
+  display name: <&7>Fermented Spider Eye
   weight: '1'
   type: item
 custom_oak_stairs:
@@ -2838,7 +2839,7 @@ custom_oak_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_stairs
+  display name: <&7>Oak Stairs
   weight: '1'
   type: item
 custom_music_disc_wait:
@@ -2846,7 +2847,7 @@ custom_music_disc_wait:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_wait
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_fire_coral_fan:
@@ -2854,7 +2855,7 @@ custom_fire_coral_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Fire_coral_fan
+  display name: <&7>Fire Coral Fan
   weight: '1'
   type: item
 custom_glass_bottle:
@@ -2862,7 +2863,7 @@ custom_glass_bottle:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Glass_bottle
+  display name: <&7>Glass Bottle
   weight: '1'
   type: item
 custom_granite_stairs:
@@ -2870,7 +2871,7 @@ custom_granite_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Granite_stairs
+  display name: <&7>Granite Stairs
   weight: '1'
   type: item
 custom_wheat:
@@ -2886,7 +2887,7 @@ custom_pink_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_dye
+  display name: <&7>Pink Dye
   weight: '1'
   type: item
 custom_composter:
@@ -2902,7 +2903,7 @@ custom_end_portal:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>End_portal
+  display name: <&7>End Portal
   weight: '1'
   type: item
 custom_jungle_fence:
@@ -2910,7 +2911,7 @@ custom_jungle_fence:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_fence
+  display name: <&7>Jungle Fence
   weight: '1'
   type: item
 custom_black_stained_glass_pane:
@@ -2918,7 +2919,7 @@ custom_black_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_stained_glass_pane
+  display name: <&7>Black Stained Glass Pane
   weight: '1'
   type: item
 custom_brown_mushroom_block:
@@ -2926,7 +2927,7 @@ custom_brown_mushroom_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_mushroom_block
+  display name: <&7>Brown Mushroom Block
   weight: '1'
   type: item
 custom_arrow:
@@ -2942,7 +2943,7 @@ custom_jungle_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_wood
+  display name: <&7>Jungle Wood
   weight: '1'
   type: item
 custom_gray_glazed_terracotta:
@@ -2950,7 +2951,7 @@ custom_gray_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_glazed_terracotta
+  display name: <&7>Gray Glazed Terracotta
   weight: '1'
   type: item
 custom_ender_eye:
@@ -2958,7 +2959,7 @@ custom_ender_eye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Ender_eye
+  display name: <&7>Eye of Ender
   weight: '1'
   type: item
 custom_oak_sign:
@@ -2966,7 +2967,7 @@ custom_oak_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_sign
+  display name: <&7>Oak Sign
   weight: '1'
   type: item
 custom_brown_concrete:
@@ -2974,7 +2975,7 @@ custom_brown_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_concrete
+  display name: <&7>Brown Concrete
   weight: '1'
   type: item
 custom_spruce_slab:
@@ -2982,7 +2983,7 @@ custom_spruce_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_slab
+  display name: <&7>Spruce Slab
   weight: '1'
   type: item
 custom_smooth_quartz_stairs:
@@ -2990,7 +2991,7 @@ custom_smooth_quartz_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smooth_quartz_stairs
+  display name: <&7>Smooth Quartz Stairs
   weight: '1'
   type: item
 custom_brown_wall_banner:
@@ -2998,7 +2999,7 @@ custom_brown_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_wall_banner
+  display name: <&7>Brown Wall Banner
   weight: '1'
   type: item
 custom_light_gray_glazed_terracotta:
@@ -3006,7 +3007,7 @@ custom_light_gray_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_glazed_terracotta
+  display name: <&7>Light Gray Glazed Terracotta
   weight: '1'
   type: item
 custom_cobblestone_slab:
@@ -3014,7 +3015,7 @@ custom_cobblestone_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cobblestone_slab
+  display name: <&7>Cobblestone Slab
   weight: '1'
   type: item
 custom_carrot:
@@ -3039,7 +3040,7 @@ custom_polished_andesite_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Polished_andesite_stairs
+  display name: <&7>Polished Andesite Stairs
   weight: '1'
   type: item
 custom_flint_and_steel:
@@ -3047,7 +3048,7 @@ custom_flint_and_steel:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Flint_and_steel
+  display name: <&7>Flint and Steel
   weight: '1'
   type: item
 custom_spruce_fence_gate:
@@ -3055,7 +3056,7 @@ custom_spruce_fence_gate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_fence_gate
+  display name: <&7>Spruce Fence Gate
   weight: '1'
   type: item
 custom_jungle_leaves:
@@ -3063,7 +3064,7 @@ custom_jungle_leaves:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_leaves
+  display name: <&7>Jungle Leaves
   weight: '1'
   type: item
 custom_jungle_planks:
@@ -3071,7 +3072,7 @@ custom_jungle_planks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_planks
+  display name: <&7>Jungle Planks
   weight: '1'
   type: item
 custom_sticky_piston:
@@ -3079,7 +3080,7 @@ custom_sticky_piston:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Sticky_piston
+  display name: <&7>Sticky Piston
   weight: '1'
   type: item
 custom_blue_banner:
@@ -3087,7 +3088,7 @@ custom_blue_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_banner
+  display name: <&7>Blue Banner
   weight: '1'
   type: item
 custom_andesite_slab:
@@ -3095,7 +3096,7 @@ custom_andesite_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Andesite_slab
+  display name: <&7>Andesite Slab
   weight: '1'
   type: item
 custom_structure_void:
@@ -3103,7 +3104,7 @@ custom_structure_void:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Structure_void
+  display name: <&7>Structure Void
   weight: '1'
   type: item
 custom_tipped_arrow:
@@ -3111,7 +3112,7 @@ custom_tipped_arrow:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tipped_arrow
+  display name: <&7>Tipped Arrow
   weight: '1'
   type: item
 custom_prismarine_brick_slab:
@@ -3119,7 +3120,7 @@ custom_prismarine_brick_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Prismarine_brick_slab
+  display name: <&7>Prismarine Brick Slab
   weight: '1'
   type: item
 custom_dead_fire_coral:
@@ -3127,7 +3128,7 @@ custom_dead_fire_coral:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_fire_coral
+  display name: <&7>Dead Fire Coral
   weight: '1'
   type: item
 custom_trapped_chest:
@@ -3135,7 +3136,7 @@ custom_trapped_chest:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Trapped_chest
+  display name: <&7>Trapped Chest
   weight: '1'
   type: item
 custom_clock:
@@ -3151,7 +3152,7 @@ custom_horse_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Horse_spawn_egg
+  display name: <&7>Horse Spawn Egg
   weight: '1'
   type: item
 custom_rabbit_spawn_egg:
@@ -3159,7 +3160,7 @@ custom_rabbit_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Rabbit_spawn_egg
+  display name: <&7>Rabbit Spawn Egg
   weight: '1'
   type: item
 custom_white_stained_glass:
@@ -3167,7 +3168,7 @@ custom_white_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_stained_glass
+  display name: <&7>White Stained Glass
   weight: '1'
   type: item
 custom_cave_air:
@@ -3175,7 +3176,7 @@ custom_cave_air:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cave_air
+  display name: <&7>Cave Air
   weight: '1'
   type: item
 custom_crossbow:
@@ -3191,7 +3192,7 @@ custom_orange_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_concrete
+  display name: <&7>Orange Concrete
   weight: '1'
   type: item
 custom_polished_andesite_slab:
@@ -3199,7 +3200,7 @@ custom_polished_andesite_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Polished_andesite_slab
+  display name: <&7>Polished Andesite Slab
   weight: '1'
   type: item
 custom_green_dye:
@@ -3207,7 +3208,7 @@ custom_green_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_dye
+  display name: <&7>Green Dye
   weight: '1'
   type: item
 custom_bubble_coral_block:
@@ -3215,7 +3216,7 @@ custom_bubble_coral_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Bubble_coral_block
+  display name: <&7>Bubble Coral Block
   weight: '1'
   type: item
 custom_pufferfish_spawn_egg:
@@ -3223,7 +3224,7 @@ custom_pufferfish_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pufferfish_spawn_egg
+  display name: <&7>Pufferfish Spawn Egg
   weight: '1'
   type: item
 custom_dark_oak_boat:
@@ -3231,7 +3232,7 @@ custom_dark_oak_boat:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_boat
+  display name: <&7>Dark Oak Boat
   weight: '1'
   type: item
 custom_green_stained_glass:
@@ -3239,7 +3240,7 @@ custom_green_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_stained_glass
+  display name: <&7>Green Stained Glass
   weight: '1'
   type: item
 custom_glistering_melon_slice:
@@ -3247,7 +3248,7 @@ custom_glistering_melon_slice:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Glistering_melon_slice
+  display name: <&7>Glistering Melon Slice
   weight: '1'
   type: item
 custom_gunpowder:
@@ -3263,7 +3264,7 @@ custom_yellow_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_concrete
+  display name: <&7>Yellow Concrete
   weight: '1'
   type: item
 custom_stripped_spruce_wood:
@@ -3271,7 +3272,7 @@ custom_stripped_spruce_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_spruce_wood
+  display name: <&7>Stripped Spruce Wood
   weight: '1'
   type: item
 custom_stone_axe:
@@ -3279,7 +3280,7 @@ custom_stone_axe:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_axe
+  display name: <&7>Stone Axe
   weight: '1'
   type: item
 custom_yellow_wall_banner:
@@ -3287,7 +3288,7 @@ custom_yellow_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_wall_banner
+  display name: <&7>Yellow Wall Banner
   weight: '1'
   type: item
 custom_apple:
@@ -3311,7 +3312,7 @@ custom_potted_pink_tulip:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_pink_tulip
+  display name: <&7>Potted Pink Tulip
   weight: '1'
   type: item
 custom_magenta_stained_glass:
@@ -3319,7 +3320,7 @@ custom_magenta_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_stained_glass
+  display name: <&7>Magenta Stained Glass
   weight: '1'
   type: item
 custom_red_mushroom:
@@ -3327,7 +3328,7 @@ custom_red_mushroom:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_mushroom
+  display name: <&7>Red Mushroom
   weight: '1'
   type: item
 custom_chipped_anvil:
@@ -3335,7 +3336,7 @@ custom_chipped_anvil:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chipped_anvil
+  display name: <&7>Chipped Anvil
   weight: '1'
   type: item
 custom_stripped_oak_wood:
@@ -3343,7 +3344,7 @@ custom_stripped_oak_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_oak_wood
+  display name: <&7>Stripped Oak Wood
   weight: '1'
   type: item
 custom_fishing_rod:
@@ -3351,7 +3352,7 @@ custom_fishing_rod:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Fishing_rod
+  display name: <&7>Fishing Rod
   weight: '1'
   type: item
 custom_sandstone:
@@ -3367,7 +3368,7 @@ custom_globe_banner_pattern:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Globe_banner_pattern
+  display name: <&7>Globe Banner Pattern
   weight: '1'
   type: item
 custom_cooked_mutton:
@@ -3375,7 +3376,7 @@ custom_cooked_mutton:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cooked_mutton
+  display name: <&7>Cooked Mutton
   weight: '1'
   type: item
 custom_snow:
@@ -3391,7 +3392,7 @@ custom_emerald_ore:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Emerald_ore
+  display name: <&7>Emerald Ore
   weight: '1'
   type: item
 custom_red_nether_brick_stairs:
@@ -3399,7 +3400,7 @@ custom_red_nether_brick_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_nether_brick_stairs
+  display name: <&7>Red Nether Brick Stairs
   weight: '1'
   type: item
 custom_light_weighted_pressure_plate:
@@ -3407,7 +3408,7 @@ custom_light_weighted_pressure_plate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_weighted_pressure_plate
+  display name: <&7>Light Weighted Pressure Plate
   weight: '1'
   type: item
 custom_andesite_stairs:
@@ -3415,7 +3416,7 @@ custom_andesite_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Andesite_stairs
+  display name: <&7>Andesite Stairs
   weight: '1'
   type: item
 custom_ravager_spawn_egg:
@@ -3423,7 +3424,7 @@ custom_ravager_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Ravager_spawn_egg
+  display name: <&7>Ravager Spawn Egg
   weight: '1'
   type: item
 custom_light_blue_dye:
@@ -3431,7 +3432,7 @@ custom_light_blue_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_dye
+  display name: <&7>Light Blue Dye
   weight: '1'
   type: item
 custom_spider_eye:
@@ -3439,7 +3440,7 @@ custom_spider_eye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spider_eye
+  display name: <&7>Spider Eye
   weight: '1'
   type: item
 custom_chiseled_sandstone:
@@ -3447,7 +3448,7 @@ custom_chiseled_sandstone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chiseled_sandstone
+  display name: <&7>Chiseled Sandstone
   weight: '1'
   type: item
 custom_elder_guardian_spawn_egg:
@@ -3455,7 +3456,7 @@ custom_elder_guardian_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Elder_guardian_spawn_egg
+  display name: <&7>Elder Guardian Spawn Egg
   weight: '1'
   type: item
 custom_nether_quartz_ore:
@@ -3463,7 +3464,7 @@ custom_nether_quartz_ore:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether_quartz_ore
+  display name: <&7>Nether Quartz Ore
   weight: '1'
   type: item
 custom_potted_cactus:
@@ -3471,7 +3472,7 @@ custom_potted_cactus:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_cactus
+  display name: <&7>Potted Cactus
   weight: '1'
   type: item
 custom_acacia_button:
@@ -3479,7 +3480,7 @@ custom_acacia_button:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_button
+  display name: <&7>Acacia Button
   weight: '1'
   type: item
 custom_gray_wall_banner:
@@ -3487,7 +3488,7 @@ custom_gray_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_wall_banner
+  display name: <&7>Gray Wall Banner
   weight: '1'
   type: item
 custom_pumpkin:
@@ -3503,7 +3504,7 @@ custom_brown_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_shulker_box
+  display name: <&7>Brown Shulker Box
   weight: '1'
   type: item
 custom_polished_granite_stairs:
@@ -3511,7 +3512,7 @@ custom_polished_granite_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Polished_granite_stairs
+  display name: <&7>Polished Granite Stairs
   weight: '1'
   type: item
 custom_red_banner:
@@ -3519,7 +3520,7 @@ custom_red_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_banner
+  display name: <&7>Red Banner
   weight: '1'
   type: item
 custom_dead_horn_coral:
@@ -3527,7 +3528,7 @@ custom_dead_horn_coral:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_horn_coral
+  display name: <&7>Dead Horn Coral
   weight: '1'
   type: item
 custom_gray_carpet:
@@ -3535,7 +3536,7 @@ custom_gray_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_carpet
+  display name: <&7>Gray Carpet
   weight: '1'
   type: item
 custom_slime_spawn_egg:
@@ -3543,7 +3544,7 @@ custom_slime_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Slime_spawn_egg
+  display name: <&7>Slime Spawn Egg
   weight: '1'
   type: item
 custom_brick_slab:
@@ -3551,7 +3552,7 @@ custom_brick_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brick_slab
+  display name: <&7>Brick Slab
   weight: '1'
   type: item
 custom_magma_cube_spawn_egg:
@@ -3559,7 +3560,7 @@ custom_magma_cube_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magma_cube_spawn_egg
+  display name: <&7>Magma Cube Spawn Egg
   weight: '1'
   type: item
 custom_brain_coral:
@@ -3567,7 +3568,7 @@ custom_brain_coral:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brain_coral
+  display name: <&7>Brain Coral
   weight: '1'
   type: item
 custom_dead_fire_coral_block:
@@ -3575,7 +3576,7 @@ custom_dead_fire_coral_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_fire_coral_block
+  display name: <&7>Dead Fire Coral Block
   weight: '1'
   type: item
 custom_cow_spawn_egg:
@@ -3583,7 +3584,7 @@ custom_cow_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cow_spawn_egg
+  display name: <&7>Cow Spawn Egg
   weight: '1'
   type: item
 custom_cyan_wall_banner:
@@ -3591,7 +3592,7 @@ custom_cyan_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_wall_banner
+  display name: <&7>Cyan Wall Banner
   weight: '1'
   type: item
 custom_zombie_spawn_egg:
@@ -3599,7 +3600,7 @@ custom_zombie_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Zombie_spawn_egg
+  display name: <&7>Zombie Spawn Egg
   weight: '1'
   type: item
 custom_stonecutter:
@@ -3615,7 +3616,7 @@ custom_smithing_table:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smithing_table
+  display name: <&7>Smithing Table
   weight: '1'
   type: item
 custom_yellow_shulker_box:
@@ -3623,7 +3624,7 @@ custom_yellow_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_shulker_box
+  display name: <&7>Yellow Shulker Box
   weight: '1'
   type: item
 custom_spruce_leaves:
@@ -3631,7 +3632,7 @@ custom_spruce_leaves:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_leaves
+  display name: <&7>Spruce Leaves
   weight: '1'
   type: item
 custom_stripped_jungle_wood:
@@ -3639,7 +3640,7 @@ custom_stripped_jungle_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_jungle_wood
+  display name: <&7>Stripped Jungle Wood
   weight: '1'
   type: item
 custom_black_glazed_terracotta:
@@ -3647,7 +3648,7 @@ custom_black_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_glazed_terracotta
+  display name: <&7>Black Glazed Terracotta
   weight: '1'
   type: item
 custom_potted_blue_orchid:
@@ -3655,7 +3656,7 @@ custom_potted_blue_orchid:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_blue_orchid
+  display name: <&7>Potted Blue Orchid
   weight: '1'
   type: item
 custom_brick_stairs:
@@ -3663,7 +3664,7 @@ custom_brick_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brick_stairs
+  display name: <&7>Brick Stairs
   weight: '1'
   type: item
 custom_creeper_spawn_egg:
@@ -3671,7 +3672,7 @@ custom_creeper_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Creeper_spawn_egg
+  display name: <&7>Creeper Spawn Egg
   weight: '1'
   type: item
 custom_moving_piston:
@@ -3679,7 +3680,7 @@ custom_moving_piston:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Moving_piston
+  display name: <&7>Moving Piston
   weight: '1'
   type: item
 custom_chicken:
@@ -3695,7 +3696,7 @@ custom_bone_meal:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Bone_meal
+  display name: <&7>Bone Meal
   weight: '1'
   type: item
 custom_brown_stained_glass_pane:
@@ -3703,7 +3704,7 @@ custom_brown_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_stained_glass_pane
+  display name: <&7>Brown Stained Glass Pane
   weight: '1'
   type: item
 custom_acacia_log:
@@ -3711,7 +3712,7 @@ custom_acacia_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_log
+  display name: <&7>Acacia Log
   weight: '1'
   type: item
 custom_lime_terracotta:
@@ -3719,7 +3720,7 @@ custom_lime_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_terracotta
+  display name: <&7>Lime Terracotta
   weight: '1'
   type: item
 custom_yellow_carpet:
@@ -3727,7 +3728,7 @@ custom_yellow_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_carpet
+  display name: <&7>Yellow Carpet
   weight: '1'
   type: item
 custom_green_stained_glass_pane:
@@ -3735,7 +3736,7 @@ custom_green_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_stained_glass_pane
+  display name: <&7>Green Stained Glass Pane
   weight: '1'
   type: item
 custom_nether_portal:
@@ -3743,7 +3744,7 @@ custom_nether_portal:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether_portal
+  display name: <&7>Nether Portal
   weight: '1'
   type: item
 custom_dead_tube_coral_fan:
@@ -3751,7 +3752,7 @@ custom_dead_tube_coral_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_tube_coral_fan
+  display name: <&7>Dead Tube Coral Fan
   weight: '1'
   type: item
 custom_brown_mushroom:
@@ -3759,7 +3760,7 @@ custom_brown_mushroom:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_mushroom
+  display name: <&7>Brown Mushroom
   weight: '1'
   type: item
 custom_carrot_on_a_stick:
@@ -3767,7 +3768,7 @@ custom_carrot_on_a_stick:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Carrot_on_a_stick
+  display name: <&7>Carrot on a Stick
   weight: '1'
   type: item
 custom_blue_wall_banner:
@@ -3775,7 +3776,7 @@ custom_blue_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_wall_banner
+  display name: <&7>Blue Wall Banner
   weight: '1'
   type: item
 custom_baked_potato:
@@ -3783,7 +3784,7 @@ custom_baked_potato:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Baked_potato
+  display name: <&7>Baked Potato
   weight: '1'
   type: item
 custom_cyan_banner:
@@ -3791,7 +3792,7 @@ custom_cyan_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_banner
+  display name: <&7>Cyan Banner
   weight: '1'
   type: item
 custom_red_sand:
@@ -3799,7 +3800,7 @@ custom_red_sand:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_sand
+  display name: <&7>Red Sand
   weight: '1'
   type: item
 custom_tall_seagrass:
@@ -3807,7 +3808,7 @@ custom_tall_seagrass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tall_seagrass
+  display name: <&7>Tall Seagrass
   weight: '1'
   type: item
 custom_dark_oak_planks:
@@ -3815,7 +3816,7 @@ custom_dark_oak_planks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_planks
+  display name: <&7>Dark Oak Planks
   weight: '1'
   type: item
 custom_green_glazed_terracotta:
@@ -3823,7 +3824,7 @@ custom_green_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_glazed_terracotta
+  display name: <&7>Green Glazed Terracotta
   weight: '1'
   type: item
 custom_cooked_cod:
@@ -3831,7 +3832,7 @@ custom_cooked_cod:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cooked_cod
+  display name: <&7>Cooked Cod
   weight: '1'
   type: item
 custom_stone_sword:
@@ -3839,7 +3840,7 @@ custom_stone_sword:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_sword
+  display name: <&7>Stone Sword
   weight: '1'
   type: item
 custom_seagrass:
@@ -3863,7 +3864,7 @@ custom_shulker_shell:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Shulker_shell
+  display name: <&7>Shulker Shell
   weight: '1'
   type: item
 custom_stone_brick_slab:
@@ -3871,7 +3872,7 @@ custom_stone_brick_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_brick_slab
+  display name: <&7>Stone Brick Slab
   weight: '1'
   type: item
 custom_clay_ball:
@@ -3879,7 +3880,7 @@ custom_clay_ball:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Clay_ball
+  display name: <&7>Clay Ball
   weight: '1'
   type: item
 custom_acacia_sign:
@@ -3887,7 +3888,7 @@ custom_acacia_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_sign
+  display name: <&7>Acacia Sign
   weight: '1'
   type: item
 custom_spruce_sapling:
@@ -3895,7 +3896,7 @@ custom_spruce_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_sapling
+  display name: <&7>Spruce Sapling
   weight: '1'
   type: item
 custom_white_carpet:
@@ -3903,7 +3904,7 @@ custom_white_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_carpet
+  display name: <&7>White Carpet
   weight: '1'
   type: item
 custom_bubble_coral_wall_fan:
@@ -3911,7 +3912,7 @@ custom_bubble_coral_wall_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Bubble_coral_wall_fan
+  display name: <&7>Bubble Coral Wall Fan
   weight: '1'
   type: item
 custom_magenta_carpet:
@@ -3919,7 +3920,7 @@ custom_magenta_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_carpet
+  display name: <&7>Magenta Carpet
   weight: '1'
   type: item
 custom_music_disc_ward:
@@ -3927,7 +3928,7 @@ custom_music_disc_ward:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_ward
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_red_bed:
@@ -3935,7 +3936,7 @@ custom_red_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_bed
+  display name: <&7>Red Bed
   weight: '1'
   type: item
 custom_jungle_door:
@@ -3943,7 +3944,7 @@ custom_jungle_door:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_door
+  display name: <&7>Jungle Door
   weight: '1'
   type: item
 custom_yellow_stained_glass_pane:
@@ -3951,7 +3952,7 @@ custom_yellow_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_stained_glass_pane
+  display name: <&7>Yellow Stained Glass Pane
   weight: '1'
   type: item
 custom_quartz_pillar:
@@ -3959,7 +3960,7 @@ custom_quartz_pillar:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Quartz_pillar
+  display name: <&7>Quartz Pillar
   weight: '1'
   type: item
 custom_bread:
@@ -3975,7 +3976,7 @@ custom_light_blue_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_concrete_powder
+  display name: <&7>Light Blue Concrete Powder
   weight: '1'
   type: item
 custom_light_blue_terracotta:
@@ -3983,7 +3984,7 @@ custom_light_blue_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_terracotta
+  display name: <&7>Light Blue Terracotta
   weight: '1'
   type: item
 custom_cyan_carpet:
@@ -3991,7 +3992,7 @@ custom_cyan_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_carpet
+  display name: <&7>Cyan Carpet
   weight: '1'
   type: item
 custom_dead_horn_coral_block:
@@ -3999,7 +4000,7 @@ custom_dead_horn_coral_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_horn_coral_block
+  display name: <&7>Dead Horn Coral Block
   weight: '1'
   type: item
 custom_music_disc_far:
@@ -4007,7 +4008,7 @@ custom_music_disc_far:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_far
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_light_blue_banner:
@@ -4015,7 +4016,7 @@ custom_light_blue_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_banner
+  display name: <&7>Light Blue Banner
   weight: '1'
   type: item
 custom_dark_oak_pressure_plate:
@@ -4023,7 +4024,7 @@ custom_dark_oak_pressure_plate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_pressure_plate
+  display name: <&7>Dark Oak Pressure Plate
   weight: '1'
   type: item
 custom_smooth_sandstone_slab:
@@ -4031,7 +4032,7 @@ custom_smooth_sandstone_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smooth_sandstone_slab
+  display name: <&7>Smooth Sandstone Slab
   weight: '1'
   type: item
 custom_dragon_wall_head:
@@ -4039,7 +4040,7 @@ custom_dragon_wall_head:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dragon_wall_head
+  display name: <&7>Dragon Wall Head
   weight: '1'
   type: item
 custom_end_stone_bricks:
@@ -4047,7 +4048,7 @@ custom_end_stone_bricks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>End_stone_bricks
+  display name: <&7>End Stone Bricks
   weight: '1'
   type: item
 custom_fire:
@@ -4063,7 +4064,7 @@ custom_chorus_plant:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chorus_plant
+  display name: <&7>Chorus Plant
   weight: '1'
   type: item
 custom_podzol:
@@ -4080,7 +4081,7 @@ custom_mule_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mule_spawn_egg
+  display name: <&7>Mule Spawn Egg
   weight: '1'
   type: item
 custom_sea_pickle:
@@ -4088,7 +4089,7 @@ custom_sea_pickle:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Sea_pickle
+  display name: <&7>Sea Pickle
   weight: '1'
   type: item
 custom_red_stained_glass_pane:
@@ -4096,7 +4097,7 @@ custom_red_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_stained_glass_pane
+  display name: <&7>Red Stained Glass Pane
   weight: '1'
   type: item
 custom_bubble_column:
@@ -4104,7 +4105,7 @@ custom_bubble_column:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Bubble_column
+  display name: <&7>Bubble Column
   weight: '1'
   type: item
 custom_dark_oak_sapling:
@@ -4112,7 +4113,7 @@ custom_dark_oak_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_sapling
+  display name: <&7>Dark Oak Sapling
   weight: '1'
   type: item
 custom_oak_trapdoor:
@@ -4120,7 +4121,7 @@ custom_oak_trapdoor:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_trapdoor
+  display name: <&7>Oak Trapdoor
   weight: '1'
   type: item
 custom_brick_wall:
@@ -4128,7 +4129,7 @@ custom_brick_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brick_wall
+  display name: <&7>Brick Wall
   weight: '1'
   type: item
 custom_light_blue_concrete:
@@ -4136,7 +4137,7 @@ custom_light_blue_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_concrete
+  display name: <&7>Light Blue Concrete
   weight: '1'
   type: item
 custom_pink_tulip:
@@ -4144,7 +4145,7 @@ custom_pink_tulip:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_tulip
+  display name: <&7>Pink Tulip
   weight: '1'
   type: item
 custom_red_concrete:
@@ -4152,7 +4153,7 @@ custom_red_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_concrete
+  display name: <&7>Red Concrete
   weight: '1'
   type: item
 custom_fletching_table:
@@ -4160,7 +4161,7 @@ custom_fletching_table:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Fletching_table
+  display name: <&7>Fletching Table
   weight: '1'
   type: item
 custom_bubble_coral:
@@ -4168,7 +4169,7 @@ custom_bubble_coral:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Bubble_coral
+  display name: <&7>Bubble Coral
   weight: '1'
   type: item
 custom_drowned_spawn_egg:
@@ -4176,7 +4177,7 @@ custom_drowned_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Drowned_spawn_egg
+  display name: <&7>Drowned Spawn Egg
   weight: '1'
   type: item
 custom_acacia_trapdoor:
@@ -4184,7 +4185,7 @@ custom_acacia_trapdoor:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_trapdoor
+  display name: <&7>Acacia Trapdoor
   weight: '1'
   type: item
 custom_nether_star:
@@ -4192,7 +4193,7 @@ custom_nether_star:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether_star
+  display name: <&7>Nether Star
   weight: '1'
   type: item
 custom_skeleton_wall_skull:
@@ -4200,7 +4201,7 @@ custom_skeleton_wall_skull:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Skeleton_wall_skull
+  display name: <&7>Skeleton Wall Skull
   weight: '1'
   type: item
 custom_light_blue_carpet:
@@ -4208,7 +4209,7 @@ custom_light_blue_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_carpet
+  display name: <&7>Light Blue Carpet
   weight: '1'
   type: item
 custom_light_gray_banner:
@@ -4216,7 +4217,7 @@ custom_light_gray_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_banner
+  display name: <&7>Light Gray Banner
   weight: '1'
   type: item
 custom_paper:
@@ -4232,7 +4233,7 @@ custom_black_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_concrete
+  display name: <&7>Black Concrete
   weight: '1'
   type: item
 custom_chorus_flower:
@@ -4240,7 +4241,7 @@ custom_chorus_flower:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chorus_flower
+  display name: <&7>Chorus Flower
   weight: '1'
   type: item
 custom_infested_stone_bricks:
@@ -4248,7 +4249,7 @@ custom_infested_stone_bricks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Infested_stone_bricks
+  display name: <&7>Infested Stone Bricks
   weight: '1'
   type: item
 custom_black_concrete_powder:
@@ -4256,7 +4257,7 @@ custom_black_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_concrete_powder
+  display name: <&7>Black Concrete Powder
   weight: '1'
   type: item
 custom_stone_slab:
@@ -4264,7 +4265,7 @@ custom_stone_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_slab
+  display name: <&7>Stone Slab
   weight: '1'
   type: item
 custom_dark_oak_trapdoor:
@@ -4272,7 +4273,7 @@ custom_dark_oak_trapdoor:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_trapdoor
+  display name: <&7>Dark Oak Trapdoor
   weight: '1'
   type: item
 custom_stone_shovel:
@@ -4280,7 +4281,7 @@ custom_stone_shovel:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_shovel
+  display name: <&7>Stone Shovel
   weight: '1'
   type: item
 custom_brewing_stand:
@@ -4288,7 +4289,7 @@ custom_brewing_stand:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brewing_stand
+  display name: <&7>Brewing Stand
   weight: '1'
   type: item
 custom_dark_prismarine_slab:
@@ -4296,7 +4297,7 @@ custom_dark_prismarine_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_prismarine_slab
+  display name: <&7>Dark Prismarine Slab
   weight: '1'
   type: item
 custom_potted_wither_rose:
@@ -4304,7 +4305,7 @@ custom_potted_wither_rose:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_wither_rose
+  display name: <&7>Potted Wither Rose
   weight: '1'
   type: item
 custom_player_wall_head:
@@ -4312,7 +4313,7 @@ custom_player_wall_head:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Player_wall_head
+  display name: <&7>Player Wall Head
   weight: '1'
   type: item
 custom_honeycomb:
@@ -4328,7 +4329,7 @@ custom_creeper_banner_pattern:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Creeper_banner_pattern
+  display name: <&7>Creeper Banner Pattern
   weight: '1'
   type: item
 custom_blue_orchid:
@@ -4336,7 +4337,7 @@ custom_blue_orchid:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_orchid
+  display name: <&7>Blue Orchid
   weight: '1'
   type: item
 custom_cauldron:
@@ -4352,7 +4353,7 @@ custom_red_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_carpet
+  display name: <&7>Red Carpet
   weight: '1'
   type: item
 custom_birch_pressure_plate:
@@ -4360,7 +4361,7 @@ custom_birch_pressure_plate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_pressure_plate
+  display name: <&7>Birch Pressure Plate
   weight: '1'
   type: item
 custom_green_banner:
@@ -4368,7 +4369,7 @@ custom_green_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_banner
+  display name: <&7>Green Banner
   weight: '1'
   type: item
 custom_light_gray_carpet:
@@ -4376,7 +4377,7 @@ custom_light_gray_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_carpet
+  display name: <&7>Light Gray Carpet
   weight: '1'
   type: item
 custom_diorite_wall:
@@ -4384,7 +4385,7 @@ custom_diorite_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diorite_wall
+  display name: <&7>Diorite Wall
   weight: '1'
   type: item
 custom_loom:
@@ -4400,7 +4401,7 @@ custom_lapis_ore:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lapis_ore
+  display name: <&7>Lapis Ore
   weight: '1'
   type: item
 custom_potted_red_mushroom:
@@ -4408,7 +4409,7 @@ custom_potted_red_mushroom:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_red_mushroom
+  display name: <&7>Potted Red Mushroom
   weight: '1'
   type: item
 custom_orange_stained_glass:
@@ -4416,7 +4417,7 @@ custom_orange_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_stained_glass
+  display name: <&7>Orange Stained Glass
   weight: '1'
   type: item
 custom_pumpkin_pie:
@@ -4424,7 +4425,7 @@ custom_pumpkin_pie:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pumpkin_pie
+  display name: <&7>Pumpkin Pie
   weight: '1'
   type: item
 custom_oak_boat:
@@ -4432,7 +4433,7 @@ custom_oak_boat:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_boat
+  display name: <&7>Oak Boat
   weight: '1'
   type: item
 custom_potted_spruce_sapling:
@@ -4440,7 +4441,7 @@ custom_potted_spruce_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_spruce_sapling
+  display name: <&7>Potted Spruce Sapling
   weight: '1'
   type: item
 custom_pufferfish:
@@ -4456,7 +4457,7 @@ custom_daylight_detector:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Daylight_detector
+  display name: <&7>Daylight Detector
   weight: '1'
   type: item
 custom_mossy_stone_bricks:
@@ -4464,7 +4465,7 @@ custom_mossy_stone_bricks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mossy_stone_bricks
+  display name: <&7>Mossy Stone Bricks
   weight: '1'
   type: item
 custom_orange_bed:
@@ -4472,7 +4473,7 @@ custom_orange_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_bed
+  display name: <&7>Orange Bed
   weight: '1'
   type: item
 custom_white_dye:
@@ -4480,7 +4481,7 @@ custom_white_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_dye
+  display name: <&7>White Dye
   weight: '1'
   type: item
 custom_white_stained_glass_pane:
@@ -4488,7 +4489,7 @@ custom_white_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_stained_glass_pane
+  display name: <&7>White Stained Glass Pane
   weight: '1'
   type: item
 custom_green_carpet:
@@ -4496,7 +4497,7 @@ custom_green_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_carpet
+  display name: <&7>Green Carpet
   weight: '1'
   type: item
 custom_dried_kelp:
@@ -4504,7 +4505,7 @@ custom_dried_kelp:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dried_kelp
+  display name: <&7>Dried Kelp
   weight: '1'
   type: item
 custom_fire_charge:
@@ -4512,7 +4513,7 @@ custom_fire_charge:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Fire_charge
+  display name: <&7>Fire Charge
   weight: '1'
   type: item
 custom_totem_of_undying:
@@ -4520,7 +4521,7 @@ custom_totem_of_undying:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Totem_of_undying
+  display name: <&7>Totem of Undying
   weight: '1'
   type: item
 custom_cobweb:
@@ -4536,7 +4537,7 @@ custom_end_gateway:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>End_gateway
+  display name: <&7>End Gateway
   weight: '1'
   type: item
 custom_yellow_glazed_terracotta:
@@ -4544,7 +4545,7 @@ custom_yellow_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_glazed_terracotta
+  display name: <&7>Yellow Glazed Terracotta
   weight: '1'
   type: item
 custom_kindling:
@@ -4562,7 +4563,7 @@ custom_chain_command_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chain_command_block
+  display name: <&7>Chain Command Block
   weight: '1'
   type: item
 custom_green_terracotta:
@@ -4570,7 +4571,7 @@ custom_green_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_terracotta
+  display name: <&7>Green Terracotta
   weight: '1'
   type: item
 custom_potted_brown_mushroom:
@@ -4578,7 +4579,7 @@ custom_potted_brown_mushroom:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_brown_mushroom
+  display name: <&7>Potted Brown Mushroom
   weight: '1'
   type: item
 custom_trader_llama_spawn_egg:
@@ -4586,7 +4587,7 @@ custom_trader_llama_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Trader_llama_spawn_egg
+  display name: <&7>Trader Llama Spawn Egg
   weight: '1'
   type: item
 custom_spruce_wood:
@@ -4594,7 +4595,7 @@ custom_spruce_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_wood
+  display name: <&7>Spruce Wood
   weight: '1'
   type: item
 custom_magenta_bed:
@@ -4602,7 +4603,7 @@ custom_magenta_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_bed
+  display name: <&7>Magenta Bed
   weight: '1'
   type: item
 custom_cyan_stained_glass_pane:
@@ -4610,7 +4611,7 @@ custom_cyan_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_stained_glass_pane
+  display name: <&7>Cyan Stained Glass Pane
   weight: '1'
   type: item
 custom_writable_book:
@@ -4618,7 +4619,7 @@ custom_writable_book:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Writable_book
+  display name: <&7>Book and Quill
   weight: '1'
   type: item
 custom_end_stone_brick_wall:
@@ -4626,7 +4627,7 @@ custom_end_stone_brick_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>End_stone_brick_wall
+  display name: <&7>End Stone Brick Wall
   weight: '1'
   type: item
 custom_orange_stained_glass_pane:
@@ -4634,7 +4635,7 @@ custom_orange_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_stained_glass_pane
+  display name: <&7>Orange Stained Glass Pane
   weight: '1'
   type: item
 custom_brain_coral_wall_fan:
@@ -4642,7 +4643,7 @@ custom_brain_coral_wall_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brain_coral_wall_fan
+  display name: <&7>Brain Coral Wall Fan
   weight: '1'
   type: item
 custom_light_gray_wool:
@@ -4650,7 +4651,7 @@ custom_light_gray_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_wool
+  display name: <&7>Light Gray Wool
   weight: '1'
   type: item
 custom_potted_fern:
@@ -4658,7 +4659,7 @@ custom_potted_fern:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_fern
+  display name: <&7>Potted Fern
   weight: '1'
   type: item
 custom_mossy_cobblestone:
@@ -4666,7 +4667,7 @@ custom_mossy_cobblestone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mossy_cobblestone
+  display name: <&7>Mossy Cobblestone
   weight: '1'
   type: item
 custom_magma_cream:
@@ -4674,7 +4675,7 @@ custom_magma_cream:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magma_cream
+  display name: <&7>Magma Cream
   weight: '1'
   type: item
 custom_brown_terracotta:
@@ -4682,7 +4683,7 @@ custom_brown_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_terracotta
+  display name: <&7>Brown Terracotta
   weight: '1'
   type: item
 custom_firework_rocket:
@@ -4690,7 +4691,7 @@ custom_firework_rocket:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Firework_rocket
+  display name: <&7>Firework Rocket
   weight: '1'
   type: item
 custom_brown_stained_glass:
@@ -4698,7 +4699,7 @@ custom_brown_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_stained_glass
+  display name: <&7>Brown Stained Glass
   weight: '1'
   type: item
 custom_potted_oxeye_daisy:
@@ -4706,7 +4707,7 @@ custom_potted_oxeye_daisy:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_oxeye_daisy
+  display name: <&7>Potted Oxeye Daisy
   weight: '1'
   type: item
 custom_beetroot_seeds:
@@ -4714,7 +4715,7 @@ custom_beetroot_seeds:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Beetroot_seeds
+  display name: <&7>Beetroot Seeds
   weight: '1'
   type: item
 custom_nether_brick_stairs:
@@ -4722,7 +4723,7 @@ custom_nether_brick_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether_brick_stairs
+  display name: <&7>Nether Brick Stairs
   weight: '1'
   type: item
 custom_oak_sapling:
@@ -4730,7 +4731,7 @@ custom_oak_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_sapling
+  display name: <&7>Oak Sapling
   weight: '1'
   type: item
 custom_yellow_wool:
@@ -4738,7 +4739,7 @@ custom_yellow_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_wool
+  display name: <&7>Yellow Wool
   weight: '1'
   type: item
 custom_furnace:
@@ -4762,7 +4763,7 @@ custom_cyan_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_concrete_powder
+  display name: <&7>Cyan Concrete Powder
   weight: '1'
   type: item
 custom_potato:
@@ -4778,7 +4779,7 @@ custom_spruce_pressure_plate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_pressure_plate
+  display name: <&7>Spruce Pressure Plate
   weight: '1'
   type: item
 custom_infested_stone:
@@ -4786,7 +4787,7 @@ custom_infested_stone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Infested_stone
+  display name: <&7>Infested Stone
   weight: '1'
   type: item
 custom_end_stone:
@@ -4794,7 +4795,7 @@ custom_end_stone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>End_stone
+  display name: <&7>End Stone
   weight: '1'
   type: item
 custom_petrified_oak_slab:
@@ -4802,7 +4803,7 @@ custom_petrified_oak_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Petrified_oak_slab
+  display name: <&7>Petrified Oak Slab
   weight: '1'
   type: item
 custom_polished_diorite_stairs:
@@ -4810,7 +4811,7 @@ custom_polished_diorite_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Polished_diorite_stairs
+  display name: <&7>Polished Diorite Stairs
   weight: '1'
   type: item
 custom_pink_wool:
@@ -4818,7 +4819,7 @@ custom_pink_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_wool
+  display name: <&7>Pink Wool
   weight: '1'
   type: item
 custom_white_concrete:
@@ -4826,7 +4827,7 @@ custom_white_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_concrete
+  display name: <&7>White Concrete
   weight: '1'
   type: item
 custom_lime_shulker_box:
@@ -4834,7 +4835,7 @@ custom_lime_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_shulker_box
+  display name: <&7>Lime Shulker Box
   weight: '1'
   type: item
 custom_dead_brain_coral:
@@ -4842,7 +4843,7 @@ custom_dead_brain_coral:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_brain_coral
+  display name: <&7>Dead Brain Coral
   weight: '1'
   type: item
 custom_lapis_lazuli:
@@ -4850,7 +4851,7 @@ custom_lapis_lazuli:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lapis_lazuli
+  display name: <&7>Lapis Lazuli
   weight: '1'
   type: item
 custom_horn_coral_fan:
@@ -4858,7 +4859,7 @@ custom_horn_coral_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Horn_coral_fan
+  display name: <&7>Horn Coral Fan
   weight: '1'
   type: item
 custom_mutton:
@@ -4874,7 +4875,7 @@ custom_bubble_coral_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Bubble_coral_fan
+  display name: <&7>Bubble Coral Fan
   weight: '1'
   type: item
 custom_pink_concrete:
@@ -4882,7 +4883,7 @@ custom_pink_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_concrete
+  display name: <&7>Pink Concrete
   weight: '1'
   type: item
 custom_purple_bed:
@@ -4890,7 +4891,7 @@ custom_purple_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_bed
+  display name: <&7>Purple Bed
   weight: '1'
   type: item
 custom_diorite_stairs:
@@ -4898,7 +4899,7 @@ custom_diorite_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Diorite_stairs
+  display name: <&7>Diorite Stairs
   weight: '1'
   type: item
 custom_birch_sapling:
@@ -4906,7 +4907,7 @@ custom_birch_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_sapling
+  display name: <&7>Birch Sapling
   weight: '1'
   type: item
 custom_string:
@@ -4922,7 +4923,7 @@ custom_attached_pumpkin_stem:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Attached_pumpkin_stem
+  display name: <&7>Attached Pumpkin Stem
   weight: '1'
   type: item
 custom_honey_bottle:
@@ -4930,7 +4931,7 @@ custom_honey_bottle:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Honey_bottle
+  display name: <&7>Honey Bottle
   weight: '1'
   type: item
 custom_polished_granite_slab:
@@ -4938,7 +4939,7 @@ custom_polished_granite_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Polished_granite_slab
+  display name: <&7>Polished Granite Slab
   weight: '1'
   type: item
 custom_mojang_banner_pattern:
@@ -4946,7 +4947,7 @@ custom_mojang_banner_pattern:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mojang_banner_pattern
+  display name: <&7>Mojang Banner Pattern
   weight: '1'
   type: item
 custom_bee_nest:
@@ -4954,7 +4955,7 @@ custom_bee_nest:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Bee_nest
+  display name: <&7>Bee Nest
   weight: '1'
   type: item
 custom_sea_lantern:
@@ -4962,7 +4963,7 @@ custom_sea_lantern:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Sea_lantern
+  display name: <&7>Sea Lantern
   weight: '1'
   type: item
 custom_black_banner:
@@ -4970,7 +4971,7 @@ custom_black_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_banner
+  display name: <&7>Black Banner
   weight: '1'
   type: item
 custom_acacia_wood:
@@ -4978,7 +4979,7 @@ custom_acacia_wood:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_wood
+  display name: <&7>Acacia Wood
   weight: '1'
   type: item
 custom_potted_dark_oak_sapling:
@@ -4986,7 +4987,7 @@ custom_potted_dark_oak_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_dark_oak_sapling
+  display name: <&7>Potted Dark Oak Sapling
   weight: '1'
   type: item
 custom_smooth_sandstone:
@@ -4994,7 +4995,7 @@ custom_smooth_sandstone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smooth_sandstone
+  display name: <&7>Smooth Sandstone
   weight: '1'
   type: item
 custom_shears:
@@ -5010,7 +5011,7 @@ custom_cut_red_sandstone_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cut_red_sandstone_slab
+  display name: <&7>Cut Red Sandstone Slab
   weight: '1'
   type: item
 custom_fire_coral_block:
@@ -5018,7 +5019,7 @@ custom_fire_coral_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Fire_coral_block
+  display name: <&7>Fire Coral Block
   weight: '1'
   type: item
 custom_music_disc_chirp:
@@ -5026,7 +5027,7 @@ custom_music_disc_chirp:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_chirp
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_painting:
@@ -5042,7 +5043,7 @@ custom_oxeye_daisy:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oxeye_daisy
+  display name: <&7>Oxeye Daisy
   weight: '1'
   type: item
 custom_saddle:
@@ -5058,7 +5059,7 @@ custom_purple_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_wall_banner
+  display name: <&7>Purple Wall Banner
   weight: '1'
   type: item
 custom_end_rod:
@@ -5066,7 +5067,7 @@ custom_end_rod:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>End_rod
+  display name: <&7>End Rod
   weight: '1'
   type: item
 custom_fern:
@@ -5090,7 +5091,7 @@ custom_tube_coral:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tube_coral
+  display name: <&7>Tube Coral
   weight: '1'
   type: item
 custom_birch_trapdoor:
@@ -5098,7 +5099,7 @@ custom_birch_trapdoor:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_trapdoor
+  display name: <&7>Birch Trapdoor
   weight: '1'
   type: item
 custom_ghast_tear:
@@ -5106,7 +5107,7 @@ custom_ghast_tear:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Ghast_tear
+  display name: <&7>Ghast Tear
   weight: '1'
   type: item
 custom_pink_bed:
@@ -5114,7 +5115,7 @@ custom_pink_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_bed
+  display name: <&7>Pink Bed
   weight: '1'
   type: item
 custom_stripped_birch_log:
@@ -5122,7 +5123,7 @@ custom_stripped_birch_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_birch_log
+  display name: <&7>Stripped Birch Log
   weight: '1'
   type: item
 custom_horn_coral_wall_fan:
@@ -5130,7 +5131,7 @@ custom_horn_coral_wall_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Horn_coral_wall_fan
+  display name: <&7>Horn Coral Wall Fan
   weight: '1'
   type: item
 custom_lead:
@@ -5146,7 +5147,7 @@ custom_stripped_spruce_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stripped_spruce_log
+  display name: <&7>Stripped Spruce Log
   weight: '1'
   type: item
 custom_quartz:
@@ -5162,7 +5163,7 @@ custom_birch_fence_gate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_fence_gate
+  display name: <&7>Birch Fence Gate
   weight: '1'
   type: item
 custom_gray_concrete_powder:
@@ -5170,7 +5171,7 @@ custom_gray_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_concrete_powder
+  display name: <&7>Gray Concrete Powder
   weight: '1'
   type: item
 custom_purple_carpet:
@@ -5178,7 +5179,7 @@ custom_purple_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_carpet
+  display name: <&7>Purple Carpet
   weight: '1'
   type: item
 custom_cartography_table:
@@ -5186,7 +5187,7 @@ custom_cartography_table:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cartography_table
+  display name: <&7>Cartography Table
   weight: '1'
   type: item
 custom_red_nether_brick_slab:
@@ -5194,7 +5195,7 @@ custom_red_nether_brick_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_nether_brick_slab
+  display name: <&7>Red Nether Brick Slab
   weight: '1'
   type: item
 custom_blue_stained_glass_pane:
@@ -5202,7 +5203,7 @@ custom_blue_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_stained_glass_pane
+  display name: <&7>Blue Stained Glass Pane
   weight: '1'
   type: item
 custom_ender_pearl:
@@ -5210,7 +5211,7 @@ custom_ender_pearl:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Ender_pearl
+  display name: <&7>Ender Pearl
   weight: '1'
   type: item
 custom_birch_door:
@@ -5218,7 +5219,7 @@ custom_birch_door:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_door
+  display name: <&7>Birch Door
   weight: '1'
   type: item
 custom_brown_glazed_terracotta:
@@ -5226,7 +5227,7 @@ custom_brown_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_glazed_terracotta
+  display name: <&7>Brown Glazed Terracotta
   weight: '1'
   type: item
 custom_hopper_minecart:
@@ -5234,7 +5235,7 @@ custom_hopper_minecart:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Hopper_minecart
+  display name: <&7>Minecart with Hopper
   weight: '1'
   type: item
 custom_dead_tube_coral_wall_fan:
@@ -5242,7 +5243,7 @@ custom_dead_tube_coral_wall_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_tube_coral_wall_fan
+  display name: <&7>Dead Tube Coral Wall Fan
   weight: '1'
   type: item
 custom_cave_spider_spawn_egg:
@@ -5250,7 +5251,7 @@ custom_cave_spider_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cave_spider_spawn_egg
+  display name: <&7>Cave Spider Spawn Egg
   weight: '1'
   type: item
 custom_gray_wool:
@@ -5258,7 +5259,7 @@ custom_gray_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_wool
+  display name: <&7>Gray Wool
   weight: '1'
   type: item
 custom_dark_oak_door:
@@ -5266,7 +5267,7 @@ custom_dark_oak_door:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_door
+  display name: <&7>Dark Oak Door
   weight: '1'
   type: item
 custom_purple_banner:
@@ -5274,7 +5275,7 @@ custom_purple_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_banner
+  display name: <&7>Purple Banner
   weight: '1'
   type: item
 custom_melon_stem:
@@ -5282,7 +5283,7 @@ custom_melon_stem:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Melon_stem
+  display name: <&7>Melon Stem
   weight: '1'
   type: item
 custom_granite_wall:
@@ -5290,7 +5291,7 @@ custom_granite_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Granite_wall
+  display name: <&7>Granite Wall
   weight: '1'
   type: item
 custom_leather_tanned:
@@ -5329,7 +5330,7 @@ custom_birch_fence:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_fence
+  display name: <&7>Birch Fence
   weight: '1'
   type: item
 custom_dark_oak_stairs:
@@ -5337,7 +5338,7 @@ custom_dark_oak_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_stairs
+  display name: <&7>Dark Oak Stairs
   weight: '1'
   type: item
 custom_tropical_fish_bucket:
@@ -5345,7 +5346,7 @@ custom_tropical_fish_bucket:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tropical_fish_bucket
+  display name: <&7>Tropical Fish Bucket
   weight: '1'
   type: item
 custom_oak_slab:
@@ -5353,7 +5354,7 @@ custom_oak_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_slab
+  display name: <&7>Oak Slab
   weight: '1'
   type: item
 custom_end_portal_frame:
@@ -5361,7 +5362,7 @@ custom_end_portal_frame:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>End_portal_frame
+  display name: <&7>End Portal Frame
   weight: '1'
   type: item
 custom_birch_log:
@@ -5369,7 +5370,7 @@ custom_birch_log:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_log
+  display name: <&7>Birch Log
   weight: '1'
   type: item
 custom_written_book:
@@ -5377,7 +5378,7 @@ custom_written_book:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Written_book
+  display name: <&7>Written Book
   weight: '1'
   type: item
 custom_dark_oak_wall_sign:
@@ -5385,7 +5386,7 @@ custom_dark_oak_wall_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_wall_sign
+  display name: <&7>Dark Oak Wall Sign
   weight: '1'
   type: item
 custom_grass_path:
@@ -5393,7 +5394,7 @@ custom_grass_path:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Grass_path
+  display name: <&7>Grass Path
   weight: '1'
   type: item
 custom_scaffolding:
@@ -5409,7 +5410,7 @@ custom_light_blue_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_bed
+  display name: <&7>Light Blue Bed
   weight: '1'
   type: item
 custom_grass:
@@ -5425,7 +5426,7 @@ custom_spruce_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_sign
+  display name: <&7>Spruce Sign
   weight: '1'
   type: item
 custom_red_sandstone:
@@ -5433,7 +5434,7 @@ custom_red_sandstone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_sandstone
+  display name: <&7>Red Sandstone
   weight: '1'
   type: item
 custom_stick:
@@ -5467,7 +5468,7 @@ custom_polished_andesite:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Polished_andesite
+  display name: <&7>Polished Andesite
   weight: '1'
   type: item
 custom_chest_minecart:
@@ -5475,7 +5476,7 @@ custom_chest_minecart:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chest_minecart
+  display name: <&7>Minecart with Chest
   weight: '1'
   type: item
 custom_red_shulker_box:
@@ -5483,7 +5484,7 @@ custom_red_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_shulker_box
+  display name: <&7>Red Shulker Box
   weight: '1'
   type: item
 custom_light_blue_glazed_terracotta:
@@ -5491,7 +5492,7 @@ custom_light_blue_glazed_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_glazed_terracotta
+  display name: <&7>Light Blue Glazed Terracotta
   weight: '1'
   type: item
 custom_potted_poppy:
@@ -5499,7 +5500,7 @@ custom_potted_poppy:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_poppy
+  display name: <&7>Potted Poppy
   weight: '1'
   type: item
 custom_iron_door:
@@ -5507,7 +5508,7 @@ custom_iron_door:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Iron_door
+  display name: <&7>Iron Door
   weight: '1'
   type: item
 custom_prismarine_slab:
@@ -5515,7 +5516,7 @@ custom_prismarine_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Prismarine_slab
+  display name: <&7>Prismarine Slab
   weight: '1'
   type: item
 custom_tube_coral_wall_fan:
@@ -5523,7 +5524,7 @@ custom_tube_coral_wall_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tube_coral_wall_fan
+  display name: <&7>Tube Coral Wall Fan
   weight: '1'
   type: item
 custom_sandstone_slab:
@@ -5531,7 +5532,7 @@ custom_sandstone_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Sandstone_slab
+  display name: <&7>Sandstone Slab
   weight: '1'
   type: item
 custom_green_concrete:
@@ -5539,7 +5540,7 @@ custom_green_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_concrete
+  display name: <&7>Green Concrete
   weight: '1'
   type: item
 custom_zombie_villager_spawn_egg:
@@ -5547,7 +5548,7 @@ custom_zombie_villager_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Zombie_villager_spawn_egg
+  display name: <&7>Zombie Villager Spawn Egg
   weight: '1'
   type: item
 custom_light_blue_stained_glass_pane:
@@ -5555,7 +5556,7 @@ custom_light_blue_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_stained_glass_pane
+  display name: <&7>Light Blue Stained Glass Pane
   weight: '1'
   type: item
 custom_smooth_sandstone_stairs:
@@ -5563,7 +5564,7 @@ custom_smooth_sandstone_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smooth_sandstone_stairs
+  display name: <&7>Smooth Sandstone Stairs
   weight: '1'
   type: item
 custom_panda_spawn_egg:
@@ -5571,7 +5572,7 @@ custom_panda_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Panda_spawn_egg
+  display name: <&7>Panda Spawn Egg
   weight: '1'
   type: item
 custom_black_terracotta:
@@ -5579,7 +5580,7 @@ custom_black_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_terracotta
+  display name: <&7>Black Terracotta
   weight: '1'
   type: item
 custom_packed_ice:
@@ -5587,7 +5588,7 @@ custom_packed_ice:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Packed_ice
+  display name: <&7>Packed Ice
   weight: '1'
   type: item
 custom_pink_shulker_box:
@@ -5595,7 +5596,7 @@ custom_pink_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_shulker_box
+  display name: <&7>Pink Shulker Box
   weight: '1'
   type: item
 custom_ink_sac:
@@ -5603,7 +5604,7 @@ custom_ink_sac:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Ink_sac
+  display name: <&7>Ink Sac
   weight: '1'
   type: item
 custom_light_blue_wall_banner:
@@ -5611,7 +5612,7 @@ custom_light_blue_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_wall_banner
+  display name: <&7>Light Blue Wall Banner
   weight: '1'
   type: item
 custom_yellow_banner:
@@ -5619,7 +5620,7 @@ custom_yellow_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_banner
+  display name: <&7>Yellow Banner
   weight: '1'
   type: item
 custom_piston:
@@ -5635,7 +5636,7 @@ custom_gray_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_stained_glass_pane
+  display name: <&7>Gray Stained Glass Pane
   weight: '1'
   type: item
 custom_purple_stained_glass:
@@ -5643,7 +5644,7 @@ custom_purple_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_stained_glass
+  display name: <&7>Purple Stained Glass
   weight: '1'
   type: item
 custom_yellow_dye:
@@ -5651,7 +5652,7 @@ custom_yellow_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_dye
+  display name: <&7>Yellow Dye
   weight: '1'
   type: item
 custom_red_wall_banner:
@@ -5659,7 +5660,7 @@ custom_red_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_wall_banner
+  display name: <&7>Red Wall Banner
   weight: '1'
   type: item
 custom_granite_slab:
@@ -5667,7 +5668,7 @@ custom_granite_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Granite_slab
+  display name: <&7>Granite Slab
   weight: '1'
   type: item
 custom_light_gray_concrete_powder:
@@ -5675,7 +5676,7 @@ custom_light_gray_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_concrete_powder
+  display name: <&7>Light Gray Concrete Powder
   weight: '1'
   type: item
 custom_purpur_stairs:
@@ -5683,7 +5684,7 @@ custom_purpur_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purpur_stairs
+  display name: <&7>Purpur Stairs
   weight: '1'
   type: item
 custom_chest:
@@ -5699,7 +5700,7 @@ custom_chorus_fruit:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Chorus_fruit
+  display name: <&7>Chorus Fruit
   weight: '1'
   type: item
 custom_lime_concrete_powder:
@@ -5707,7 +5708,7 @@ custom_lime_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_concrete_powder
+  display name: <&7>Lime Concrete Powder
   weight: '1'
   type: item
 custom_water_bucket:
@@ -5715,7 +5716,7 @@ custom_water_bucket:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Water_bucket
+  display name: <&7>Water Bucket
   weight: '1'
   type: item
 custom_enchanted_book:
@@ -5723,7 +5724,7 @@ custom_enchanted_book:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Enchanted_book
+  display name: <&7>Enchanted Book
   weight: '1'
   type: item
 custom_spawner:
@@ -5739,7 +5740,7 @@ custom_quartz_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Quartz_block
+  display name: <&7>Quartz Block
   weight: '1'
   type: item
 custom_potted_orange_tulip:
@@ -5747,7 +5748,7 @@ custom_potted_orange_tulip:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_orange_tulip
+  display name: <&7>Potted Orange Tulip
   weight: '1'
   type: item
 custom_horn_coral:
@@ -5755,7 +5756,7 @@ custom_horn_coral:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Horn_coral
+  display name: <&7>Horn Coral
   weight: '1'
   type: item
 custom_beef:
@@ -5771,7 +5772,7 @@ custom_end_stone_brick_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>End_stone_brick_slab
+  display name: <&7>End Stone Brick Slab
   weight: '1'
   type: item
 custom_azure_bluet:
@@ -5779,7 +5780,7 @@ custom_azure_bluet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Azure_bluet
+  display name: <&7>Azure Bluet
   weight: '1'
   type: item
 custom_bow:
@@ -5795,7 +5796,7 @@ custom_carved_pumpkin:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Carved_pumpkin
+  display name: <&7>Carved Pumpkin
   weight: '1'
   type: item
 custom_magenta_terracotta:
@@ -5803,7 +5804,7 @@ custom_magenta_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_terracotta
+  display name: <&7>Magenta Terracotta
   weight: '1'
   type: item
 custom_nether_brick:
@@ -5811,7 +5812,7 @@ custom_nether_brick:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether_brick
+  display name: <&7>Nether Brick
   weight: '1'
   type: item
 custom_bedrock:
@@ -5827,7 +5828,7 @@ custom_dead_horn_coral_wall_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_horn_coral_wall_fan
+  display name: <&7>Dead Horn Coral Wall Fan
   weight: '1'
   type: item
 custom_smooth_stone_slab:
@@ -5835,7 +5836,7 @@ custom_smooth_stone_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smooth_stone_slab
+  display name: <&7>Smooth Stone Slab
   weight: '1'
   type: item
 custom_wither_skeleton_spawn_egg:
@@ -5843,7 +5844,7 @@ custom_wither_skeleton_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wither_skeleton_spawn_egg
+  display name: <&7>Wither Skeleton Spawn Egg
   weight: '1'
   type: item
 custom_prismarine:
@@ -5859,7 +5860,7 @@ custom_spruce_wall_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_wall_sign
+  display name: <&7>Spruce Wall Sign
   weight: '1'
   type: item
 custom_villager_spawn_egg:
@@ -5867,7 +5868,7 @@ custom_villager_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Villager_spawn_egg
+  display name: <&7>Villager Spawn Egg
   weight: '1'
   type: item
 custom_grindstone:
@@ -5891,7 +5892,7 @@ custom_red_nether_bricks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_nether_bricks
+  display name: <&7>Red Nether Bricks
   weight: '1'
   type: item
 custom_hopper:
@@ -5907,7 +5908,7 @@ custom_brown_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_dye
+  display name: <&7>Brown Dye
   weight: '1'
   type: item
 custom_green_wool:
@@ -5915,7 +5916,7 @@ custom_green_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_wool
+  display name: <&7>Green Wool
   weight: '1'
   type: item
 custom_dark_prismarine:
@@ -5923,7 +5924,7 @@ custom_dark_prismarine:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_prismarine
+  display name: <&7>Dark Prismarine
   weight: '1'
   type: item
 custom_oak_fence_gate:
@@ -5931,7 +5932,7 @@ custom_oak_fence_gate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_fence_gate
+  display name: <&7>Oak Fence Gate
   weight: '1'
   type: item
 custom_cyan_bed:
@@ -5939,7 +5940,7 @@ custom_cyan_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_bed
+  display name: <&7>Cyan Bed
   weight: '1'
   type: item
 custom_ender_chest:
@@ -5947,7 +5948,7 @@ custom_ender_chest:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Ender_chest
+  display name: <&7>Ender Chest
   weight: '1'
   type: item
 custom_turtle_helmet:
@@ -5955,7 +5956,7 @@ custom_turtle_helmet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Turtle_helmet
+  display name: <&7>Turtle Shell
   weight: '1'
   type: item
 custom_orange_wool:
@@ -5963,7 +5964,7 @@ custom_orange_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_wool
+  display name: <&7>Orange Wool
   weight: '1'
   type: item
 custom_gravel:
@@ -5979,7 +5980,7 @@ custom_dead_bubble_coral_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_bubble_coral_block
+  display name: <&7>Dead Bubble Coral Block
   weight: '1'
   type: item
 custom_oak_fence:
@@ -5987,7 +5988,7 @@ custom_oak_fence:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_fence
+  display name: <&7>Oak Fence
   weight: '1'
   type: item
 custom_allium:
@@ -6003,7 +6004,7 @@ custom_red_sandstone_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_sandstone_wall
+  display name: <&7>Red Sandstone Wall
   weight: '1'
   type: item
 custom_brown_wool:
@@ -6011,7 +6012,7 @@ custom_brown_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_wool
+  display name: <&7>Brown Wool
   weight: '1'
   type: item
 custom_poppy:
@@ -6027,7 +6028,7 @@ custom_lapis_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lapis_block
+  display name: <&7>Lapis Block
   weight: '1'
   type: item
 custom_stone_stairs:
@@ -6035,7 +6036,7 @@ custom_stone_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_stairs
+  display name: <&7>Stone Stairs
   weight: '1'
   type: item
 custom_command_block_minecart:
@@ -6043,7 +6044,7 @@ custom_command_block_minecart:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Command_block_minecart
+  display name: <&7>Minecart with Command Block
   weight: '1'
   type: item
 custom_jungle_fence_gate:
@@ -6051,7 +6052,7 @@ custom_jungle_fence_gate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jungle_fence_gate
+  display name: <&7>Jungle Fence Gate
   weight: '1'
   type: item
 custom_mossy_cobblestone_stairs:
@@ -6059,7 +6060,7 @@ custom_mossy_cobblestone_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mossy_cobblestone_stairs
+  display name: <&7>Mossy Cobblestone Stairs
   weight: '1'
   type: item
 custom_orange_dye:
@@ -6067,7 +6068,7 @@ custom_orange_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_dye
+  display name: <&7>Orange Dye
   weight: '1'
   type: item
 custom_pink_concrete_powder:
@@ -6075,7 +6076,7 @@ custom_pink_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_concrete_powder
+  display name: <&7>Pink Concrete Powder
   weight: '1'
   type: item
 custom_white_bed:
@@ -6083,7 +6084,7 @@ custom_white_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_bed
+  display name: <&7>White Bed
   weight: '1'
   type: item
 custom_white_tulip:
@@ -6091,7 +6092,7 @@ custom_white_tulip:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_tulip
+  display name: <&7>White Tulip
   weight: '1'
   type: item
 custom_emerald_block:
@@ -6099,7 +6100,7 @@ custom_emerald_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Emerald_block
+  display name: <&7>Emerald Block
   weight: '1'
   type: item
 custom_lime_bed:
@@ -6107,7 +6108,7 @@ custom_lime_bed:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_bed
+  display name: <&7>Lime Bed
   weight: '1'
   type: item
 custom_acacia_pressure_plate:
@@ -6115,7 +6116,7 @@ custom_acacia_pressure_plate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_pressure_plate
+  display name: <&7>Acacia Pressure Plate
   weight: '1'
   type: item
 custom_polar_bear_spawn_egg:
@@ -6123,7 +6124,7 @@ custom_polar_bear_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Polar_bear_spawn_egg
+  display name: <&7>Polar Bear Spawn Egg
   weight: '1'
   type: item
 custom_music_disc_blocks:
@@ -6131,7 +6132,7 @@ custom_music_disc_blocks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_blocks
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_magenta_shulker_box:
@@ -6139,7 +6140,7 @@ custom_magenta_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_shulker_box
+  display name: <&7>Magenta Shulker Box
   weight: '1'
   type: item
 custom_acacia_slab:
@@ -6147,7 +6148,7 @@ custom_acacia_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_slab
+  display name: <&7>Acacia Slab
   weight: '1'
   type: item
 custom_mossy_cobblestone_slab:
@@ -6155,7 +6156,7 @@ custom_mossy_cobblestone_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mossy_cobblestone_slab
+  display name: <&7>Mossy Cobblestone Slab
   weight: '1'
   type: item
 custom_yellow_terracotta:
@@ -6163,7 +6164,7 @@ custom_yellow_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_terracotta
+  display name: <&7>Yellow Terracotta
   weight: '1'
   type: item
 custom_quartz_stairs:
@@ -6171,7 +6172,7 @@ custom_quartz_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Quartz_stairs
+  display name: <&7>Quartz Stairs
   weight: '1'
   type: item
 custom_brown_banner:
@@ -6179,7 +6180,7 @@ custom_brown_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_banner
+  display name: <&7>Brown Banner
   weight: '1'
   type: item
 custom_stray_spawn_egg:
@@ -6187,7 +6188,7 @@ custom_stray_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stray_spawn_egg
+  display name: <&7>Stray Spawn Egg
   weight: '1'
   type: item
 custom_skeleton_spawn_egg:
@@ -6195,7 +6196,7 @@ custom_skeleton_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Skeleton_spawn_egg
+  display name: <&7>Skeleton Spawn Egg
   weight: '1'
   type: item
 custom_polished_granite:
@@ -6203,7 +6204,7 @@ custom_polished_granite:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Polished_granite
+  display name: <&7>Polished Granite
   weight: '1'
   type: item
 custom_magenta_dye:
@@ -6211,7 +6212,7 @@ custom_magenta_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_dye
+  display name: <&7>Magenta Dye
   weight: '1'
   type: item
 custom_dragon_head:
@@ -6219,7 +6220,7 @@ custom_dragon_head:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dragon_head
+  display name: <&7>Dragon Head
   weight: '1'
   type: item
 custom_creeper_wall_head:
@@ -6227,7 +6228,7 @@ custom_creeper_wall_head:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Creeper_wall_head
+  display name: <&7>Creeper Wall Head
   weight: '1'
   type: item
 custom_black_carpet:
@@ -6235,7 +6236,7 @@ custom_black_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_carpet
+  display name: <&7>Black Carpet
   weight: '1'
   type: item
 custom_purple_wool:
@@ -6243,7 +6244,7 @@ custom_purple_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_wool
+  display name: <&7>Purple Wool
   weight: '1'
   type: item
 custom_heart_of_the_sea:
@@ -6251,7 +6252,7 @@ custom_heart_of_the_sea:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Heart_of_the_sea
+  display name: <&7>Heart of the Sea
   weight: '1'
   type: item
 custom_creeper_head:
@@ -6259,7 +6260,7 @@ custom_creeper_head:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Creeper_head
+  display name: <&7>Creeper Head
   weight: '1'
   type: item
 custom_red_nether_brick_wall:
@@ -6267,7 +6268,7 @@ custom_red_nether_brick_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_nether_brick_wall
+  display name: <&7>Red Nether Brick Wall
   weight: '1'
   type: item
 custom_light_gray_shulker_box:
@@ -6275,7 +6276,7 @@ custom_light_gray_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_shulker_box
+  display name: <&7>Light Gray Shulker Box
   weight: '1'
   type: item
 custom_stone_brick_wall:
@@ -6283,7 +6284,7 @@ custom_stone_brick_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stone_brick_wall
+  display name: <&7>Stone Brick Wall
   weight: '1'
   type: item
 custom_beehive:
@@ -6299,7 +6300,7 @@ custom_pumpkin_stem:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pumpkin_stem
+  display name: <&7>Pumpkin Stem
   weight: '1'
   type: item
 custom_orange_wall_banner:
@@ -6307,7 +6308,7 @@ custom_orange_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_wall_banner
+  display name: <&7>Orange Wall Banner
   weight: '1'
   type: item
 custom_compass:
@@ -6323,7 +6324,7 @@ custom_light_blue_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_blue_wool
+  display name: <&7>Light Blue Wool
   weight: '1'
   type: item
 custom_knowledge_book:
@@ -6331,7 +6332,7 @@ custom_knowledge_book:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Knowledge_book
+  display name: <&7>Knowledge Book
   weight: '1'
   type: item
 custom_cobblestone:
@@ -6347,7 +6348,7 @@ custom_birch_leaves:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_leaves
+  display name: <&7>Birch Leaves
   weight: '1'
   type: item
 custom_rotten_flesh:
@@ -6355,7 +6356,7 @@ custom_rotten_flesh:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Rotten_flesh
+  display name: <&7>Rotten Flesh
   weight: '1'
   type: item
 custom_cod_bucket:
@@ -6363,7 +6364,7 @@ custom_cod_bucket:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cod_bucket
+  display name: <&7>Cod Bucket
   weight: '1'
   type: item
 custom_fire_coral_wall_fan:
@@ -6371,7 +6372,7 @@ custom_fire_coral_wall_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Fire_coral_wall_fan
+  display name: <&7>Fire Coral Wall Fan
   weight: '1'
   type: item
 custom_birch_wall_sign:
@@ -6379,7 +6380,7 @@ custom_birch_wall_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_wall_sign
+  display name: <&7>Birch Wall Sign
   weight: '1'
   type: item
 custom_purple_concrete:
@@ -6387,7 +6388,7 @@ custom_purple_concrete:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_concrete
+  display name: <&7>Purple Concrete
   weight: '1'
   type: item
 custom_oak_button:
@@ -6395,7 +6396,7 @@ custom_oak_button:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_button
+  display name: <&7>Oak Button
   weight: '1'
   type: item
 custom_phantom_spawn_egg:
@@ -6403,7 +6404,7 @@ custom_phantom_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Phantom_spawn_egg
+  display name: <&7>Phantom Spawn Egg
   weight: '1'
   type: item
 custom_bell:
@@ -6419,7 +6420,7 @@ custom_lily_of_the_valley:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lily_of_the_valley
+  display name: <&7>Lily of the Valley
   weight: '1'
   type: item
 custom_hay_block:
@@ -6427,7 +6428,7 @@ custom_hay_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Hay_block
+  display name: <&7>Straw Bale
   weight: '1'
   type: item
 custom_end_stone_brick_stairs:
@@ -6435,7 +6436,7 @@ custom_end_stone_brick_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>End_stone_brick_stairs
+  display name: <&7>End Stone Brick Stairs
   weight: '1'
   type: item
 custom_nether_brick_fence:
@@ -6443,7 +6444,7 @@ custom_nether_brick_fence:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether_brick_fence
+  display name: <&7>Nether Brick Fence
   weight: '1'
   type: item
 custom_enchanting_table:
@@ -6451,7 +6452,7 @@ custom_enchanting_table:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Enchanting_table
+  display name: <&7>Enchanting Table
   weight: '1'
   type: item
 custom_mossy_cobblestone_wall:
@@ -6459,7 +6460,7 @@ custom_mossy_cobblestone_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mossy_cobblestone_wall
+  display name: <&7>Mossy Cobblestone Wall
   weight: '1'
   type: item
 custom_potted_dead_bush:
@@ -6467,7 +6468,7 @@ custom_potted_dead_bush:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_dead_bush
+  display name: <&7>Potted Dead Bush
   weight: '1'
   type: item
 custom_blaze_powder:
@@ -6475,7 +6476,7 @@ custom_blaze_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blaze_powder
+  display name: <&7>Blaze Powder
   weight: '1'
   type: item
 custom_smooth_red_sandstone_stairs:
@@ -6483,7 +6484,7 @@ custom_smooth_red_sandstone_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smooth_red_sandstone_stairs
+  display name: <&7>Smooth Red Sandstone Stairs
   weight: '1'
   type: item
 custom_lantern:
@@ -6499,7 +6500,7 @@ custom_red_sandstone_slab:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_sandstone_slab
+  display name: <&7>Red Sandstone Slab
   weight: '1'
   type: item
 custom_obsidian:
@@ -6515,7 +6516,7 @@ custom_wither_skeleton_skull:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wither_skeleton_skull
+  display name: <&7>Wither Skeleton Skull
   weight: '1'
   type: item
 custom_farmland:
@@ -6531,7 +6532,7 @@ custom_oak_wall_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Oak_wall_sign
+  display name: <&7>Oak Wall Sign
   weight: '1'
   type: item
 custom_tnt_minecart:
@@ -6539,7 +6540,7 @@ custom_tnt_minecart:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tnt_minecart
+  display name: <&7>Minecart with TNT
   weight: '1'
   type: item
 custom_blue_shulker_box:
@@ -6547,7 +6548,7 @@ custom_blue_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_shulker_box
+  display name: <&7>Blue Shulker Box
   weight: '1'
   type: item
 custom_nether_brick_wall:
@@ -6555,7 +6556,7 @@ custom_nether_brick_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether_brick_wall
+  display name: <&7>Nether Brick Wall
   weight: '1'
   type: item
 custom_music_disc_mellohi:
@@ -6563,7 +6564,7 @@ custom_music_disc_mellohi:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Music_disc_mellohi
+  display name: <&b>Music Disc
   weight: '1'
   type: item
 custom_orange_tulip:
@@ -6571,7 +6572,7 @@ custom_orange_tulip:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_tulip
+  display name: <&7>Orange Tulip
   weight: '1'
   type: item
 custom_sandstone_wall:
@@ -6579,7 +6580,7 @@ custom_sandstone_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Sandstone_wall
+  display name: <&7>Sandstone Wall
   weight: '1'
   type: item
 custom_melon:
@@ -6595,7 +6596,7 @@ custom_purple_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_terracotta
+  display name: <&7>Purple Terracotta
   weight: '1'
   type: item
 custom_acacia_sapling:
@@ -6603,7 +6604,7 @@ custom_acacia_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_sapling
+  display name: <&7>Acacia Sapling
   weight: '1'
   type: item
 custom_black_wall_banner:
@@ -6611,7 +6612,7 @@ custom_black_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Black_wall_banner
+  display name: <&7>Black Wall Banner
   weight: '1'
   type: item
 custom_brain_coral_block:
@@ -6619,7 +6620,7 @@ custom_brain_coral_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brain_coral_block
+  display name: <&7>Brain Coral Block
   weight: '1'
   type: item
 custom_potted_white_tulip:
@@ -6627,7 +6628,7 @@ custom_potted_white_tulip:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_white_tulip
+  display name: <&7>Potted White Tulip
   weight: '1'
   type: item
 custom_birch_sign:
@@ -6635,7 +6636,7 @@ custom_birch_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_sign
+  display name: <&7>Birch Sign
   weight: '1'
   type: item
 custom_smooth_red_sandstone:
@@ -6643,7 +6644,7 @@ custom_smooth_red_sandstone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Smooth_red_sandstone
+  display name: <&7>Smooth Red Sandstone
   weight: '1'
   type: item
 custom_blue_concrete_powder:
@@ -6651,7 +6652,7 @@ custom_blue_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_concrete_powder
+  display name: <&7>Blue Concrete Powder
   weight: '1'
   type: item
 custom_purple_stained_glass_pane:
@@ -6659,7 +6660,7 @@ custom_purple_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Purple_stained_glass_pane
+  display name: <&7>Purple Stained Glass Pane
   weight: '1'
   type: item
 custom_cut_red_sandstone:
@@ -6667,7 +6668,7 @@ custom_cut_red_sandstone:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cut_red_sandstone
+  display name: <&7>Cut Red Sandstone
   weight: '1'
   type: item
 custom_magenta_wall_banner:
@@ -6675,7 +6676,7 @@ custom_magenta_wall_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_wall_banner
+  display name: <&7>Magenta Wall Banner
   weight: '1'
   type: item
 custom_prismarine_wall:
@@ -6683,7 +6684,7 @@ custom_prismarine_wall:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Prismarine_wall
+  display name: <&7>Prismarine Wall
   weight: '1'
   type: item
 custom_endermite_spawn_egg:
@@ -6691,7 +6692,7 @@ custom_endermite_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Endermite_spawn_egg
+  display name: <&7>Endermite Spawn Egg
   weight: '1'
   type: item
 custom_blaze_spawn_egg:
@@ -6699,7 +6700,7 @@ custom_blaze_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blaze_spawn_egg
+  display name: <&7>Blaze Spawn Egg
   weight: '1'
   type: item
 custom_brick:
@@ -6715,7 +6716,7 @@ custom_orange_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_concrete_powder
+  display name: <&7>Orange Concrete Powder
   weight: '1'
   type: item
 custom_vex_spawn_egg:
@@ -6723,7 +6724,7 @@ custom_vex_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Vex_spawn_egg
+  display name: <&7>Vex Spawn Egg
   weight: '1'
   type: item
 custom_gray_terracotta:
@@ -6731,7 +6732,7 @@ custom_gray_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gray_terracotta
+  display name: <&7>Gray Terracotta
   weight: '1'
   type: item
 custom_spider_spawn_egg:
@@ -6739,7 +6740,7 @@ custom_spider_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spider_spawn_egg
+  display name: <&7>Spider Spawn Egg
   weight: '1'
   type: item
 custom_kelp_plant:
@@ -6747,7 +6748,7 @@ custom_kelp_plant:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Kelp_plant
+  display name: <&7>Kelp Plant
   weight: '1'
   type: item
 custom_redstone_lamp:
@@ -6755,7 +6756,7 @@ custom_redstone_lamp:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Redstone_lamp
+  display name: <&7>Redstone Lamp
   weight: '1'
   type: item
 custom_skeleton_horse_spawn_egg:
@@ -6763,7 +6764,7 @@ custom_skeleton_horse_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Skeleton_horse_spawn_egg
+  display name: <&7>Skeleton Horse Spawn Egg
   weight: '1'
   type: item
 custom_lilac:
@@ -6779,7 +6780,7 @@ custom_ocelot_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Ocelot_spawn_egg
+  display name: <&7>Ocelot Spawn Egg
   weight: '1'
   type: item
 custom_yellow_concrete_powder:
@@ -6787,7 +6788,7 @@ custom_yellow_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Yellow_concrete_powder
+  display name: <&7>Yellow Concrete Powder
   weight: '1'
   type: item
 custom_birch_planks:
@@ -6795,7 +6796,7 @@ custom_birch_planks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Birch_planks
+  display name: <&7>Birch Planks
   weight: '1'
   type: item
 custom_acacia_wall_sign:
@@ -6803,7 +6804,7 @@ custom_acacia_wall_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_wall_sign
+  display name: <&7>Acacia Wall Sign
   weight: '1'
   type: item
 custom_brown_concrete_powder:
@@ -6811,7 +6812,7 @@ custom_brown_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Brown_concrete_powder
+  display name: <&7>Brown Concrete Powder
   weight: '1'
   type: item
 custom_snowball:
@@ -6835,7 +6836,7 @@ custom_wet_sponge:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wet_sponge
+  display name: <&7>Wet Sponge
   weight: '1'
   type: item
 custom_barrel:
@@ -6859,7 +6860,7 @@ custom_pink_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pink_carpet
+  display name: <&7>Pink Carpet
   weight: '1'
   type: item
 custom_cooked_porkchop:
@@ -6867,7 +6868,7 @@ custom_cooked_porkchop:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cooked_porkchop
+  display name: <&7>Cooked Porkchop
   weight: '1'
   type: item
 custom_coal:
@@ -6888,7 +6889,7 @@ custom_silverfish_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Silverfish_spawn_egg
+  display name: <&7>Silverfish Spawn Egg
   weight: '1'
   type: item
 custom_dead_brain_coral_fan:
@@ -6896,7 +6897,7 @@ custom_dead_brain_coral_fan:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dead_brain_coral_fan
+  display name: <&7>Dead Brain_Coral Fan
   weight: '1'
   type: item
 custom_red_stained_glass:
@@ -6904,7 +6905,7 @@ custom_red_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_stained_glass
+  display name: <&7>Red Stained Glass
   weight: '1'
   type: item
 custom_diorite:
@@ -6920,7 +6921,7 @@ custom_flower_pot:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Flower_pot
+  display name: <&7>Flower Pot
   weight: '1'
   type: item
 custom_llama_spawn_egg:
@@ -6928,7 +6929,7 @@ custom_llama_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Llama_spawn_egg
+  display name: <&7>Llama Spawn Egg
   weight: '1'
   type: item
 custom_sandstone_stairs:
@@ -6936,7 +6937,7 @@ custom_sandstone_stairs:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Sandstone_stairs
+  display name: <&7>Sandstone Stairs
   weight: '1'
   type: item
 custom_honeycomb_block:
@@ -6944,7 +6945,7 @@ custom_honeycomb_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Honeycomb_block
+  display name: <&7>Honeycomb Block
   weight: '1'
   type: item
 custom_potted_allium:
@@ -6952,7 +6953,7 @@ custom_potted_allium:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_allium
+  display name: <&7>Potted Allium
   weight: '1'
   type: item
 custom_filled_map:
@@ -6960,7 +6961,7 @@ custom_filled_map:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Filled_map
+  display name: <&7>Map
   weight: '1'
   type: item
 custom_cyan_terracotta:
@@ -6968,7 +6969,7 @@ custom_cyan_terracotta:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cyan_terracotta
+  display name: <&7>Cyan Terracotta
   weight: '1'
   type: item
 custom_nautilus_shell:
@@ -6976,7 +6977,7 @@ custom_nautilus_shell:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nautilus_shell
+  display name: <&7>Nautilus Shell
   weight: '1'
   type: item
 custom_coal_ore:
@@ -6984,7 +6985,7 @@ custom_coal_ore:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Coal_ore
+  display name: <&7>Coal Ore
   weight: '1'
   type: item
 custom_acacia_boat:
@@ -6992,7 +6993,7 @@ custom_acacia_boat:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_boat
+  display name: <&7>Acacia Boat
   weight: '1'
   type: item
 custom_white_wool:
@@ -7000,7 +7001,7 @@ custom_white_wool:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_wool
+  display name: <&7>White Wool
   weight: '1'
   type: item
 custom_player_head:
@@ -7008,7 +7009,7 @@ custom_player_head:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Player_head
+  display name: <&7>Player Head
   weight: '1'
   type: item
 custom_magenta_banner:
@@ -7016,7 +7017,7 @@ custom_magenta_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magenta_banner
+  display name: <&7>Magenta Banner
   weight: '1'
   type: item
 custom_white_banner:
@@ -7024,7 +7025,7 @@ custom_white_banner:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>White_banner
+  display name: <&7>White Banner
   weight: '1'
   type: item
 custom_rabbit_stew:
@@ -7032,7 +7033,7 @@ custom_rabbit_stew:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Rabbit_stew
+  display name: <&7>Rabbit Stew
   weight: '1'
   type: item
 custom_observer:
@@ -7048,7 +7049,7 @@ custom_green_concrete_powder:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Green_concrete_powder
+  display name: <&7>Green Concrete Powder
   weight: '1'
   type: item
 custom_mushroom_stew:
@@ -7056,7 +7057,7 @@ custom_mushroom_stew:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mushroom_stew
+  display name: <&7>Mushroom Stew
   weight: '1'
   type: item
 custom_orange_shulker_box:
@@ -7064,7 +7065,7 @@ custom_orange_shulker_box:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_shulker_box
+  display name: <&7>Orange Shulker Box
   weight: '1'
   type: item
 custom_spruce_door:
@@ -7072,7 +7073,7 @@ custom_spruce_door:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spruce_door
+  display name: <&7>Spruce Door
   weight: '1'
   type: item
 custom_light_gray_stained_glass_pane:
@@ -7080,7 +7081,7 @@ custom_light_gray_stained_glass_pane:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Light_gray_stained_glass_pane
+  display name: <&7>Light Gray Stained Glass Pane
   weight: '1'
   type: item
 custom_prismarine_shard:
@@ -7088,7 +7089,7 @@ custom_prismarine_shard:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Prismarine_shard
+  display name: <&7>Prismarine Shard
   weight: '1'
   type: item
 custom_red_dye:
@@ -7096,7 +7097,7 @@ custom_red_dye:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Red_dye
+  display name: <&7>Red Dye
   weight: '1'
   type: item
 custom_mushroom_stem:
@@ -7104,7 +7105,7 @@ custom_mushroom_stem:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mushroom_stem
+  display name: <&7>Mushroom Stem
   weight: '1'
   type: item
 custom_infested_chiseled_stone_bricks:
@@ -7112,7 +7113,7 @@ custom_infested_chiseled_stone_bricks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Infested_chiseled_stone_bricks
+  display name: <&7>Infested Chiseled Stone Bricks
   weight: '1'
   type: item
 custom_acacia_fence_gate:
@@ -7120,7 +7121,7 @@ custom_acacia_fence_gate:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Acacia_fence_gate
+  display name: <&7>Acacia Fence Gate
   weight: '1'
   type: item
 custom_blue_carpet:
@@ -7128,7 +7129,7 @@ custom_blue_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blue_carpet
+  display name: <&7>Blue Carpet
   weight: '1'
   type: item
 custom_lime_stained_glass:
@@ -7136,7 +7137,7 @@ custom_lime_stained_glass:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Lime_stained_glass
+  display name: <&7>Lime Stained Glass
   weight: '1'
   type: item
 custom_glass:
@@ -7152,7 +7153,7 @@ custom_orange_carpet:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Orange_carpet
+  display name: <&7>Orange Carpet
   weight: '1'
   type: item
 custom_jack_o_lantern:
@@ -7160,7 +7161,7 @@ custom_jack_o_lantern:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Jack_o_lantern
+  display name: "<&7>Jack o'Lantern"
   weight: '1'
   type: item
 custom_nether_bricks:
@@ -7168,7 +7169,7 @@ custom_nether_bricks:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Nether_bricks
+  display name: <&7>Nether Bricks
   weight: '1'
   type: item
 custom_dark_oak_sign:
@@ -7176,7 +7177,7 @@ custom_dark_oak_sign:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Dark_oak_sign
+  display name: <&7>Dark Oak Sign
   weight: '1'
   type: item
 custom_tube_coral_block:
@@ -7184,7 +7185,7 @@ custom_tube_coral_block:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Tube_coral_block
+  display name: <&7>Tube Coral Block
   weight: '1'
   type: item
 custom_evoker_spawn_egg:
@@ -7192,7 +7193,7 @@ custom_evoker_spawn_egg:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Evoker_spawn_egg
+  display name: <&7>Evoker Spawn Egg
   weight: '1'
   type: item
 custom_potted_birch_sapling:
@@ -7200,6 +7201,6 @@ custom_potted_birch_sapling:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Potted_birch_sapling
+  display name: <&7>Potted Birch Sapling
   weight: '1'
   type: item

@@ -37,7 +37,7 @@ ability_parry:
         #Riposte
         - look <player> <context.damager.eye_location>
         - hurt <context.damager> <player.item_in_hand.damage.*[<util.random.decimal[1.5].to[1.75].round>]>
-        - push <context.damager> d:<player.location.flat_forward[4]> speed:1 duration:1s
+        - push <context.damager> d:<player.location.flat_forward> speed:0.75 duration:0.15s
         #Visual and Auditory
         - playeffect sweep_attack at:<player.location.forward.above> quantity:1
         #- playsound <player.location> sound:ability.fisticuffs.riposte custom
