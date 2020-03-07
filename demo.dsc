@@ -154,6 +154,10 @@ alchemy_station_test_recipe1:
 mob_spawning_test_entity:
   type: entity
   entity_type: zombie
+  custom_name_visible: true
+  custom_name: <&4><&l><&n>Bob
+  max_health: 10000
+  health: 10000
   custom:
     spawning_conditions:
       world: all
