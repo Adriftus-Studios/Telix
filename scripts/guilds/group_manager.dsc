@@ -1,35 +1,49 @@
+
+mob_spawning_handler:
+  type: world
+  reload:
+    - foreach <yaml.list.filter[starts_with[group.]]>:
+      - yaml load:data/globalData/groups/<server.flag[server.name]>/<[value].replace[group.].with[]>.yml id:<[value]>
+  events:
+    on delta time minutely every:30:
+      - inject locally reload
+    on server start:
+      - inject locally reload
+    on script reload:
+      - inject locally reload
+
 create_type:
   type: task
   definitions: type|subtype
   script:
-  - yaml id:<[type]>.<[subtype]> create
+  - yaml id:groups.<[type]>.<[subtype]> create
 
 edit_group_property:
   type: task
   definitions: type|subtype|group|property|value
   script:
-  - yaml id:<[type]>.<[subtype]> set <[group]>.<[property]>:<[value]>
+  - yaml id:groups.<[type]>.<[subtype]> set <[group]>.<[property]>:<[value]>
 
 set_group_permission:
   type: task
   definitions: type|subtype|group|permission|value
   script:
   - if <[value]> == false:
-    - yaml id:<[type]>.<[subtype]> set <[group]>.permissions:<-:<[permission]>
+    - yaml id:groups.<[type]>.<[subtype]> set <[group]>.permissions:<-:<[permission]>
   - else:
-    - yaml id:<[type]>.<[subtype]> set <[group]>.permissions:->:<[permission]>
+    - yaml id:groups.<[type]>.<[subtype]> set <[group]>.permissions:->:<[permission]>
 
 list_group_permissions:
   type: procedure
   definitions: type|subtype|group
   script:
-  - determine <yaml[<[type]>.<[subtype]>].read[<[group]>.permissions]>
+  - determine <yaml[groups.<[type]>.<[subtype]>].read[<[group]>.permissions]>
 
 get_group_property:
   type: procedure
   definitions: type|subtype|group|property
   script:
-  - determine <yaml[<[type]>.<[subtype]>].read[<[group]>.<[property]>]>
+  - determine <yaml[groups.<[type]>.<[subtype]>].read[<[group]>.<[property]>]>
 
 add_player_to_group:
   type: task
