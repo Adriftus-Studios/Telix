@@ -24,7 +24,7 @@ ability_parry:
       - if !<player.has_flag[parrying]>:
         - inject abilities_check
         - inject abilities_cost
-        - flag player parrying:<util.date.time.duration.in_seconds> duration:2s
+        - flag player parrying:true duration:2s
         - run bb_timer def:<&5>Parrying|2s|purple
         #- playsound <player.location.forward> sound:ability.fisticuffs.parry custom
         - inject ability_parry_animation
@@ -32,11 +32,10 @@ ability_parry:
     on player damaged by entity flagged:parrying:
       - if <context.damager.location.distance[<player.location>]||5> <= 3:
         #Remove bossbar and flag
-        - bossbar remove <player.uuid>.<player.flag[parrying]>
         - flag player parrying:!
         #Riposte
         - look <player> <context.damager.eye_location>
-        - hurt <context.damager> <player.item_in_hand.damage.*[<util.random.decimal[1.5].to[1.75].round>]>
+        - hurt <context.damager> <player.weapon_damage.*[<util.random.decimal[1.5].to[1.75].round>]||1>
         # UNUSED- push <context.damager> d:<player.location.flat_forward> speed:0.75 duration:0.15s
         #Visual and Auditory
         - playeffect sweep_attack at:<player.location.forward.above> quantity:1
