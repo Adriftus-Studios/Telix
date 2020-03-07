@@ -26,12 +26,25 @@ entity_waterhag:
 custom_waterhag_hand:
   type: item
   material: rotten_flesh
-  display name: Waterhag's Hand
+  display name: <&7>Waterhag's Hand
   mob_drops:
     1:
       dropped_by: entity_waterhag
       chance: 4
       max_quantity: 2
+      min_quantity: 1
+
+custom_venom_extract:
+  type: item
+  material: potion
+  display name: <&7>Venom Extract
+  mechanisms:
+    color: 0,0,0
+  mob_drops:
+    1:
+      dropped_by: entity_waterhag
+      chance: 9
+      max_quantity: 1
       min_quantity: 1
 
 entity_direwolf:
