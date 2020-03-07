@@ -7,7 +7,7 @@
 #  "ability/fisticuffs/parry.ogg", "ability/fisticuffs/riposte.ogg"
 ability_parry:
   type: world
-  debug: false
+  debug: true
   name: parry
   ability_tree: Fisticuffs
   ability_type: passive
