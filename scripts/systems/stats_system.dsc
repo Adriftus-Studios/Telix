@@ -124,8 +124,6 @@ calculate_encumberance_speed:
       - if <player||null> == null:
         - stop
       - adjust <player> walk_speed:<[speed]||0.2>
-    - announce <script.name>
-    - announce <queue.name>
 
 default_stats:
   type: yaml data
