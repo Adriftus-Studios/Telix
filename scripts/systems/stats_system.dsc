@@ -60,37 +60,36 @@ calculate_weight_equipment_stats:
     - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
     - foreach <[slotmap]>:
       - define item:<inventory[equipment_<player.uuid>].slot[<[value].split[/].get[1]>]||<item[air]>>
-      - if <[item].material.name> != air:
-        - if !<[item].script.name.ends_with[_shadow]>:
-          - if <[item].nbt[built]||null> = null:
-            - announce to_ops "<player.name> tried to update stats with an unbuilt item. (<[item].script.name>)"
-          - foreach <[item].enchantments||<list[]>> as:enchant:
-            - if <[enchants]||null> != null:
-              - if <[item].enchantments.contains[<[enchant].split[,].get[1]>]>:
-                - define entry:<[enchant]>,<[enchants].filter[starts_with[<[enchant]>]].get[1].split[,].get[2].add[<[item].enchantments.level[<[enchant]>]>]||<[item].enchantments.level[<[enchant]>]>>
-                - define enchants:<[enchants].exclude[<[enchants].filter[starts_with[<[enchant]>]].get[1]||<list[]>>]||<list[]>>
-                - define enchants:|:<[entry]>
-              - else:
-                - define enchants:|:<[enchant]>,<[item].enchantments.level[<[enchant]>]>
+      - if <[item].material.name> != air && !<[item].script.name.ends_with[_shadow]>:
+        - if <[item].nbt[built]||null> = null:
+          - announce to_ops "<player.name> tried to update stats with an unbuilt item. (<[item].script.name>)"
+        - foreach <[item].enchantments||<list[]>> as:enchant:
+          - if <[enchants]||null> != null:
+            - if <[item].enchantments.contains[<[enchant].split[,].get[1]>]>:
+              - define entry:<[enchant]>,<[enchants].filter[starts_with[<[enchant]>]].get[1].split[,].get[2].add[<[item].enchantments.level[<[enchant]>]>]||<[item].enchantments.level[<[enchant]>]>>
+              - define enchants:<[enchants].exclude[<[enchants].filter[starts_with[<[enchant]>]].get[1]||<list[]>>]||<list[]>>
+              - define enchants:|:<[entry]>
             - else:
               - define enchants:|:<[enchant]>,<[item].enchantments.level[<[enchant]>]>
-          - if <[item].script.yaml_key[armor]||null> != null:
-            - define armor:+:<[item].script.yaml_key[armor]>
-          - foreach <[item].nbt_attributes> as:attr:
-            - define attr_type:<[attr].split[/].get[1]>
-            - define attr_amount:<[attr].split[/].get[4]>
-          - foreach <[item].nbt_keys> as:stat:
-            - if <[stat].starts_with[base_stats.]>:
-              - define value:<[item].nbt[<[stat]>]>
-              - define stat:<[stat].replace[base_stats.].with[]>
-              - if <[item].nbt[star_stat.<[stat]>]||null> != null:
-                - define value:<[value].add[<[item].nbt[star_stat.<[stat]>]>]>
-              - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
-                - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
-                - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]> < <yaml[player.<player.uuid>].read[stats.<[stat]>.current]>:
-                  - yaml id:player.<player.uuid> set stats.<[stat]>.current:+:<[value]>
-              - else:
-                - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
+          - else:
+            - define enchants:|:<[enchant]>,<[item].enchantments.level[<[enchant]>]>
+        - if <[item].script.yaml_key[armor]||null> != null:
+          - define armor:+:<[item].script.yaml_key[armor]>
+        - foreach <[item].nbt_attributes> as:attr:
+          - define attr_type:<[attr].split[/].get[1]>
+          - define attr_amount:<[attr].split[/].get[4]>
+        - foreach <[item].nbt_keys> as:stat:
+          - if <[stat].starts_with[base_stats.]>:
+            - define value:<[item].nbt[<[stat]>]>
+            - define stat:<[stat].replace[base_stats.].with[]>
+            - if <[item].nbt[star_stat.<[stat]>]||null> != null:
+              - define value:<[value].add[<[item].nbt[star_stat.<[stat]>]>]>
+            - if !<list[speed|constitution|melee_damage|experience_multiplier|drop_rate_multiplier|equipment_rating].contains[<[stat]>]>:
+              - yaml id:player.<player.uuid> set stats.<[stat]>.max:+:<[value]>
+              - if <yaml[player.<player.uuid>].read[stats.<[stat]>.max]> < <yaml[player.<player.uuid>].read[stats.<[stat]>.current]>:
+                - yaml id:player.<player.uuid> set stats.<[stat]>.current:+:<[value]>
+            - else:
+              - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
     - equip chest:<item[equipment_chest_slot].with[nbt_attributes:generic.armor/chest/0/<[armor]||0>].with[enchantments:<[enchants]||<list[]>>]>
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
 
