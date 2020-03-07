@@ -34,8 +34,6 @@ mob_spawning_events:
         - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
         - define list:<[list].deduplicate>
         - foreach <[list]> as:mob:
-          - if <player.flag[<[mob]>]||null> == null:
-            - define list:<-:<[mob]>
           - if <yaml[server.mobs].read[<[mob]>.max_y]> < <player.location.y>:
             - define list:<-:<[mob]>
           - if <yaml[server.mobs].read[<[mob]>.min_y]> > <player.location.y>:
@@ -68,7 +66,7 @@ mob_spawning_events:
                 - if <[spawning_point].material.name.is[==].to[water]> == <yaml[server.mobs].read[<[mob]>.water]>:
                   - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
                     - run spawn_custom_mob def:<[mob]>|<[spawning_point]>
-                  - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
+                  #- flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
                   - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
 
 spawn_custom_mob:
