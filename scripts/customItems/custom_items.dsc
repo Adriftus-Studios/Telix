@@ -838,16 +838,6 @@ custom_porkchop:
   display name: <&7>Porkchop
   weight: '1'
   type: item
-custom_bone:
-  material: bone
-  lore:
-  - <&b>Bone that has been dropped by an animal.
-  - <&b>This can be sharpened or used in crafting.
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Bone
-  weight: 1
-  type: item
 custom_dispenser:
   material: dispenser
   lore:
@@ -2367,14 +2357,6 @@ custom_sand:
   display name: <&7>Sand
   weight: '1'
   type: item
-custom_phantom_membrane:
-  material: phantom_membrane
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Phantom Membrane
-  weight: '1'
-  type: item
 custom_dead_bush:
   material: dead_bush
   lore:
@@ -3097,14 +3079,6 @@ custom_green_stained_glass:
   display name: <&7>Green Stained Glass
   weight: '1'
   type: item
-custom_gunpowder:
-  material: gunpowder
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Gunpowder
-  weight: '1'
-  type: item
 custom_yellow_concrete:
   material: yellow_concrete
   lore:
@@ -3271,14 +3245,6 @@ custom_light_blue_dye:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Light Blue Dye
-  weight: '1'
-  type: item
-custom_spider_eye:
-  material: spider_eye
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spider Eye
   weight: '1'
   type: item
 custom_chiseled_sandstone:
@@ -4644,14 +4610,6 @@ custom_birch_sapling:
   display name: <&7>Birch Sapling
   weight: '1'
   type: item
-custom_string:
-  material: string
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>String
-  weight: '1'
-  type: item
 custom_attached_pumpkin_stem:
   material: attached_pumpkin_stem
   lore:
@@ -5301,14 +5259,6 @@ custom_pink_shulker_box:
   display name: <&7>Pink Shulker Box
   weight: '1'
   type: item
-custom_ink_sac:
-  material: ink_sac
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Ink Sac
-  weight: '1'
-  type: item
 custom_light_blue_wall_banner:
   material: light_blue_wall_banner
   lore:
@@ -5635,14 +5585,6 @@ custom_ender_chest:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Ender Chest
-  weight: '1'
-  type: item
-custom_turtle_helmet:
-  material: turtle_helmet
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Turtle Shell
   weight: '1'
   type: item
 custom_orange_wool:
@@ -6011,14 +5953,6 @@ custom_birch_leaves:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Birch Leaves
-  weight: '1'
-  type: item
-custom_rotten_flesh:
-  material: rotten_flesh
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Rotten Flesh
   weight: '1'
   type: item
 custom_cod_bucket:
@@ -6443,14 +6377,6 @@ custom_barrel:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Barrel
-  weight: '1'
-  type: item
-custom_feather:
-  material: feather
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Feather
   weight: '1'
   type: item
 custom_pink_carpet:
