@@ -80,8 +80,10 @@ mob_use_ability_handler:
   script:
     - while <[entity].is_spawned||false>:
       - define ability:<yaml[server.mobs].list_keys[<[entity].scriptname>.abilities].random>
-      - narrate <script[mob_ability_test].yaml_key[additional_conditions].get[1].parsed>
+      - foreach <script[<[ability]>].yaml_key[additional_conditions]> as:condition:
+        - if !<[condition].parsed>:
+          - while next
       - if <[entity].flag[<[ability]>]||null> == null:
         - run <[ability]> def:<[entity]>
         - flag <[entity]> <[ability]>
-      - wait <util.random.int[5].to[20]>s
+      - wait <util.random.int[1].to[10]>s
