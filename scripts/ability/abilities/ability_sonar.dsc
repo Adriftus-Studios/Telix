@@ -23,5 +23,5 @@ ability_sonar:
     #Cast glowing on the user
     - cast glowing d:<[interval].*[6].+[<[base]>]> p:255
     #Cast glowing on entities within range
-    - foreach <player.location.find.entities.within[50].exclude[<player>].sort_by_number[location.distance[<player.location>]]>:
+    - foreach <player.location.find.entities.within[50].exclude[<player>].filter[entity_type.contains_any[armor_stand|item_frame].not].sort_by_number[location.distance[<player.location>]]>:
       - cast glowing d:<element[<[interval].*[6]>].-[<[interval].*[<[value].location.distance[<player.location>]./[10].round_down>]>].+[<[base]>]> p:255 <[value]>
