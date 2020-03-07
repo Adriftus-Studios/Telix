@@ -2,7 +2,7 @@
 test_armorstand:
   type: entity
   entity_type: armorstand
-  equipment: test_armorstand_head|air|air|air
+  equipment: <item[test_armorstand_head]>|<item[air]>|<item[air]>|<item[air]>
 
 test_armorstand_head:
   type: item
