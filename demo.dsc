@@ -177,8 +177,8 @@ mob_spawning_test_entity:
       # how far from the player the mob is supposed to spawn at
       water: false
       # Whether the mob can only spawn in water
-      max_quantity: 5
-      min_quantity: 3
+      max_quantity: 1
+      min_quantity: 1
       # how many mobs spawn at the same time
       time: all
       # Time of day that the mob can spawn
