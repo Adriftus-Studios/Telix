@@ -193,7 +193,7 @@ custom_mob_drops_test_item:
   display name: Test Item
   mob_drops:
     1:
-      dropped_by: zombie
+      dropped_by: some_mob
       # what mob drops this item
       # can be a vanilla mob, or a custom mob
       chance: 4
@@ -206,7 +206,7 @@ custom_mob_drops_test_item:
       # Optional minimum amount of items to drop
       # If no minimum is specified, defaults to 1
     2:
-      dropped_by: spider
+      dropped_by: some_other_mob
       chance: 5
       min_quantity: 3
       max_quantity: 7
