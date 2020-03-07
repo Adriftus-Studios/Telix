@@ -1,5 +1,6 @@
 ability_sonar:
   type: task
+  debug: true
   name: sonar
   ability_tree: Perception
   ability_type: active
