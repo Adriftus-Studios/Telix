@@ -45,7 +45,6 @@ mob_spawning_events:
           - if <list[<yaml[server.mobs].read[<[mob]>.time]>].contains[<player.location.world.time.period>]>:
             - if <yaml[server.mobs].read[<[mob]>.time]> != all:
               - define list:<-:<[mob]>
-        - narrate <[list]>
         - define mob_limiter:40
         - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
           - foreach <[list]> as:mob:
