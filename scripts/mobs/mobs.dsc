@@ -37,7 +37,10 @@ mob_spawning_events:
           - if <player.flag[<[mob]>]||null> == null:
             - narrate <[list]>
             - define list:<-:<[mob]>
-          - if <yaml[server.mobs].read[<[mob]>.max_y]> < <player.location.y> && <yaml[server.mobs].read[<[mob]>.min_y]> > <player.location.y>:
+          - if <yaml[server.mobs].read[<[mob]>.max_y]> < <player.location.y>:
+            - narrate <[list]>
+            - define list:<-:<[mob]>
+          - if <yaml[server.mobs].read[<[mob]>.min_y]> > <player.location.y>:
             - narrate <[list]>
             - define list:<-:<[mob]>
           - if <player.location.material.name.is[==].to[water]> != <yaml[server.mobs].read[<[mob]>.water]>:
