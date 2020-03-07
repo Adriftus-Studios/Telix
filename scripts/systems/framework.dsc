@@ -279,6 +279,7 @@ system_override:
           - yaml savefile:data/globalData/players/<server.flag[server.name]>/<[value].substring[8]>.yml id:<[value]>
     on player quit priority:2000 bukkit_priority:HIGHEST:
       - yaml id:player.<player.uuid> savefile:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml
+      - yaml id:player.<player.uuid> unload
     on player logs in priority:-2000 bukkit_priority:LOWEST:
       - if <server.has_file[data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml]>:
         - yaml load:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml id:player.<player.uuid>
