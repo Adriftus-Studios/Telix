@@ -16,7 +16,9 @@ altar_inventory:
 
 altar_timer:
   type: item
-  material: clock
+  material: gold_nugget
+  mechanisms:
+    custom_model_data:-5
   display name: <&7>Not Imbuing
 
 altar_test_recipe1:

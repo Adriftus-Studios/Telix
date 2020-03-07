@@ -16,7 +16,9 @@ alchemy_station_inventory:
 
 alchemy_station_timer:
   type: item
-  material: clock
+  material: gold_nugget
+  mechanisms:
+    custom_model_data:-5
   display name: <&7>Not Brewing
 
 alchemy_station_test_recipe1:
