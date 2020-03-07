@@ -399,6 +399,9 @@ build_item:
             - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]||null> != null:
               - if <[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]||null> != null:
                 - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.max]>]>
+                - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[value]>]>
+                - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[value]>]>
+                - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[value]>]>
           - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
           - define stats:|:<[modifier]>/<[value]>
           - define modifiers:|:<[modifier]>
