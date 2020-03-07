@@ -251,7 +251,7 @@ system_override:
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
-      - define rp_url https://download.nodecdn.net/containers/nodecraft/minepack/ae75998c4b6ccf5280b745b5da4a0c16.zip
+      - define rp_url https://download.nodecdn.net/containers/nodecraft/minepack/94c11ec04daab1d6279d1375c5e87af7.zip
       - wait 60t
       - adjust <player> resource_pack:<[rp_url]>
       - adjust <player> quietly_discover_recipe:<server.list_recipe_ids>
