@@ -21,7 +21,12 @@ entity_waterhag:
       max_quantity: 1
       min_quantity: 1
       time: night
-      spawn_script: none
+      spawn_script: test_spawn_script
+
+test_spawn_script:
+  type: task
+  script:
+    - narrate 1
 
 custom_waterhag_hand:
   type: item
