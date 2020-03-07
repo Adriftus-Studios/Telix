@@ -1,5 +1,5 @@
 
-mob_spawning_handler:
+group_manager_saving:
   type: world
   reload:
     - foreach <yaml.list.filter[starts_with[group]]>:
