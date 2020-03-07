@@ -222,9 +222,9 @@ custom_item_override:
   debug: false
   events:
     on entity death:
-      - narrate <context.drops>
       - foreach <context.drops||<list[]>>:
-        - define drops:|:<item[custom_<[value].material.name>].with[quantity=<[value].quantity||0>]||<[value]>>
+        - if <[value].material.name> != air:
+          - define drops:|:<item[custom_<[value].material.name>].with[quantity=<[value].quantity||0>]||<[value]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
       - if <context.item.script.name||null> == null:
