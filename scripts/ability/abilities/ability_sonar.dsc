@@ -17,6 +17,7 @@ ability_sonar:
     - inject abilities_cost
     - define base:3
     - define interval:0.25
-    - foreach <player.location.find.entities.within[50]>:
-      - wait <[interval]./[2]>
+    - cast glowing d:<[interval].*[6]> p:255
+    - foreach <player.location.find.entities.within[50].exclude[<player>]>:
+      - wait <[interval]./[4]>
       - cast glowing d:<element[<[interval].*[6]>].-[<[interval].*[<[value].location.distance[<player.location>]./[10].round_down>]>].+[<[base]>]> p:255 <[value]>

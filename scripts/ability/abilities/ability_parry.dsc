@@ -20,6 +20,7 @@ ability_parry:
   events:
     #Start Parry
     on player right clicks block with *_sword:
+      - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]||20>
       - if !<player.has_flag[parrying]>:
         - inject abilities_check
         - inject abilities_cost
@@ -27,7 +28,6 @@ ability_parry:
         - run bb_timer def:<&5>Parrying|2s|purple
         #- playsound <player.location.forward> sound:ability.fisticuffs.parry custom
         - inject ability_parry_animation
-      - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]||20>
     #Execute Riposte
     on player damaged by entity flagged:parrying:
       - if <context.damager.location.distance[<player.location>]||5> <= 3:
