@@ -171,13 +171,14 @@ mob_spawning_test_entity:
       min_distance: 5
       # how far from the player the mob is supposed to spawn at
       water: false
+      # Whether the mob can only spawn in water
       max_quantity: 5
       min_quantity: 3
       # how many mobs spawn at the same time
-      spawn_script: mob_spawning_test_script
-      # a script that is executed when the mob spawns
       time: all
       # Time of day that the mob can spawn
+      spawn_script: mob_spawning_test_script
+      # a script that is executed when the mob spawns
     ability_usage:
     - mob_ability_test
     # Abilities that this mob can use
@@ -192,7 +193,7 @@ mob_spawning_test_script:
 
 mob_ability_test:
   type: task
-  name: fire_blast
+  name: mob_ability_test
   ability_tree: Nether
   cooldown: 10s
   # How long until the mob is able to use this skill again
