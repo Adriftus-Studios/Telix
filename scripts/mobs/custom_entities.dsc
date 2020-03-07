@@ -41,7 +41,7 @@ custom_venom_extract:
   mechanisms:
     flags: HIDE_POTION_EFFECTS
     color: 0,0,0
-    potion_effects: poison,5,20,false,false
+    potion_effects: poison,5,20
   mob_drops:
     1:
       dropped_by: entity_waterhag
