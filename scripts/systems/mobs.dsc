@@ -71,9 +71,8 @@ spawn_custom_mob:
   definitions: mob|location
   script:
     - spawn <[mob]> <[location].above> save:entity1
-    - narrate <entry[entity].entity>
     - if <yaml[server.mobs].read[<[mob]>.abilities]||null> != null:
-      - run mob_use_ability_handler def:<[entity]>
+      - run mob_use_ability_handler def:<entry[entity1].spawned_entity>
 
 mob_use_ability_handler:
   type: task
