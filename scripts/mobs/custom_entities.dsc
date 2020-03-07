@@ -39,8 +39,8 @@ custom_venom_extract:
   material: potion
   display name: <&7>Venom Extract
   mechanisms:
+    flags: HIDE_POTION_EFFECTS
     color: 0,0,0
-  lore:
   mob_drops:
     1:
       dropped_by: entity_waterhag
