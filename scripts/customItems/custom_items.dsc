@@ -148,7 +148,6 @@ custom_mossy_stone_brick_slab:
 custom_music_disc_stal:
   material: music_disc_stal
   lore:
-  - '<&7>C418 - stal'
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&b>Music Disc
