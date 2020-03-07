@@ -16,13 +16,13 @@ ability_sonar:
       - stop
     - inject abilities_check
     - inject abilities_cost
-    #Sonar variables. Change them to balance the ability. Default: [interval] m = 0.25, [base] b = 3.
+    #Change variables to balance the ability. Y = mx + b. Default: [interval] m = 0.25, [base] b = 3.
     - define interval:0.25
     - define base:3
     #Cast glowing on the user
     - cast glowing d:<[interval].*[6].+[<[base]>]> p:255
-    - wait <[interval]./[4]>
     #Cast glowing on entities within range
     - foreach <player.location.find.entities.within[50].exclude[<player>].sort_by_number[location.distance]>:
       - wait <[interval]./[4]>
-      - cast glowing d:<element[<[interval].*[6]>].-[<[interval].*[<[value].location.distance[<player.location>]./[10].round_down>]>].+[<[base]>]> p:255 <[value]>
+      - cast glowing d:<element[<[interval].*[6]>].-[<[interval].*[<[value].location.distance[<player.location>]./[10].round_down>]>].+[<[value].location.distance[<player.location>]./[10]>].+[<[base]>]> p:255 <[value]>
+    - cast glowing d:<[interval].*[6].+[<[base]>]> p:255
