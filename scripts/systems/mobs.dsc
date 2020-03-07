@@ -76,12 +76,12 @@ spawn_custom_mob:
 
 mob_use_ability_handler:
   type: task
-  definitions: mob
+  definitions: entity
   script:
     - while <[mob].is_spawned||false>:
-      - define ability:<yaml[server.mobs].list_keys[<[mob].scriptname>.abilities].random>
+      - define ability:<yaml[server.mobs].list_keys[<[entity].scriptname>.abilities].random>
       - narrate <script[mob_ability_test].yaml_key[additional_conditions].get[1].parsed>
-      - if <[mob].flag[<[ability]>]||null> == null:
-        - run <[ability]> def:<[mob]>
-        - flag <[mob]> <[ability]>
+      - if <[entity].flag[<[ability]>]||null> == null:
+        - run <[ability]> def:<[entity]>
+        - flag <[entity]> <[ability]>
       - wait <util.random.int[5].to[20]>s
