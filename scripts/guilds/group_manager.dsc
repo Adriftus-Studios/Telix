@@ -63,48 +63,50 @@ remove_player_from_group:
   script:
   - yaml id:player.<[player].uuid> set groups.<[type]>.<[subtype]>:<-:<[group]>
 
-test:
-- narrate <proc[get_player_groups].context[citadels|aurora|<player>]>
-                                          # type: citadels
-                                          # subtype: aurora
-                                          # player: <player>
-- narrates <proc[list_group_permissions].context[citadels|aurora|friend]>
-                                                # type: citadels
-                                                # subtype: aurora
-                                                # group: friend
-- narrate <proc[get_group_property].context[citadels|aurora|friend|title]>
-                                           # type: citadels
-                                           # subtype: aurora
-                                           # group: friend
-                                           # property: title
-- run create_type def:citadels|aurora
-      # type: citadels
-      # subtype: aurora
-- run edit_group_property def:citadels|aurora|friend|title|leader
-      # type: citadels
-      # subtype: aurora
-      # group: friend
-      # property: title
-      # value: leader
-- run set_group_permission def:citadels|aurora|friend|can_build|true
-      # type: citadels
-      # subtype: aurora
-      # group: friend
-      # permission: can_build
-      # value: true
-- run set_group_permission def:citadels|aurora|friend|can_build|false
-      # type: citadels
-      # subtype: aurora
-      # group: friend
-      # permission: can_build
-      # value: false
-- run add_player_to_group def:citadels|aurora|friend|<player>
-      # type: citadels
-      # subtype: aurora
-      # group: friend
-      # player: <player>
-- run remove_player_from_group def:citadels|aurora|friend|<player>
-      # type: citadels
-      # subtype: aurora
-      # group: friend
-      # player: <player>
+DO_NOT_USE:
+  type: task
+  script:
+    - narrate <proc[get_player_groups].context[citadels|aurora|<player>]>
+                                              # type: citadels
+                                              # subtype: aurora
+                                              # player: <player>
+    - narrates <proc[list_group_permissions].context[citadels|aurora|friend]>
+                                                    # type: citadels
+                                                    # subtype: aurora
+                                                    # group: friend
+    - narrate <proc[get_group_property].context[citadels|aurora|friend|title]>
+                                              # type: citadels
+                                              # subtype: aurora
+                                              # group: friend
+                                              # property: title
+    - run create_type def:citadels|aurora
+          # type: citadels
+          # subtype: aurora
+    - run edit_group_property def:citadels|aurora|friend|title|leader
+          # type: citadels
+          # subtype: aurora
+          # group: friend
+          # property: title
+          # value: leader
+    - run set_group_permission def:citadels|aurora|friend|can_build|true
+          # type: citadels
+          # subtype: aurora
+          # group: friend
+          # permission: can_build
+          # value: true
+    - run set_group_permission def:citadels|aurora|friend|can_build|false
+          # type: citadels
+          # subtype: aurora
+          # group: friend
+          # permission: can_build
+          # value: false
+    - run add_player_to_group def:citadels|aurora|friend|<player>
+          # type: citadels
+          # subtype: aurora
+          # group: friend
+          # player: <player>
+    - run remove_player_from_group def:citadels|aurora|friend|<player>
+          # type: citadels
+          # subtype: aurora
+          # group: friend
+          # player: <player>
