@@ -189,7 +189,7 @@ player_setup:
     - yaml id:player.<player.uuid> set stats.thirst.max:100
     - yaml id:player.<player.uuid> set stats.thirst.current:100
     - yaml id:player.<player.uuid> set stats.weight.current:0
-    - yaml id:player.<player.uuid> set stats.weight.max:100
+    - yaml id:player.<player.uuid> set stats.weight.max:320
     - yaml id:player.<player.uuid> set stats.constitution:0
     - yaml id:player.<player.uuid> set stats.melee_damage:100
     - yaml id:player.<player.uuid> set stats.speed:100

@@ -91,10 +91,7 @@ calculate_weight_equipment_stats:
                   - yaml id:player.<player.uuid> set stats.<[stat]>.current:+:<[value]>
               - else:
                 - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
-    - define chestplate:<item[equipment_chest_slot]>
-    - adjust def:chestplate nbt_attributes:generic.armor/chest/0/<[armor]||0>
-    - adjust def:chestplate enchantments:<[enchants]||<list[]>>
-    - equip chest:<[chestplate]||<item[equipment_chest_slot]>>
+    - equip chest:<item[equipment_chest_slot].with[nbt_attributes:generic.armor/chest/0/<[armor]||0>].with[enchantments:<[enchants]||<list[]>>]>
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
 
 calculate_encumberance_speed:

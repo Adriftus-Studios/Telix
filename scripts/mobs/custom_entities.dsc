@@ -38,6 +38,8 @@ custom_venom_extract:
   type: item
   material: potion
   display name: <&7>Venom Extract
+  lore:
+    - 
   mechanisms:
     color: 0,0,0
   mob_drops:
