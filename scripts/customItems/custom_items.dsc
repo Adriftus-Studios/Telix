@@ -2544,14 +2544,6 @@ custom_air:
   display name: <&7>Air
   weight: '1'
   type: item
-custom_parrot_spawn_egg:
-  material: parrot_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Parrot Spawn Egg
-  weight: '1'
-  type: item
 custom_spruce_planks:
   material: spruce_planks
   lore:
@@ -2575,14 +2567,6 @@ custom_cooked_rabbit:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Cooked Rabbit
-  weight: '1'
-  type: item
-custom_witch_spawn_egg:
-  material: witch_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Witch Spawn Egg
   weight: '1'
   type: item
 custom_bucket:
@@ -2705,22 +2689,6 @@ custom_stripped_oak_log:
   display name: <&7>Stripped Oak Log
   weight: '1'
   type: item
-custom_zombie_horse_spawn_egg:
-  material: zombie_horse_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Zombie Horse Spawn Egg
-  weight: '1'
-  type: item
-custom_cod_spawn_egg:
-  material: cod_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cod Spawn Egg
-  weight: '1'
-  type: item
 custom_gray_shulker_box:
   material: gray_shulker_box
   lore:
@@ -2807,14 +2775,6 @@ custom_white_concrete_powder:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>White Concrete Powder
-  weight: '1'
-  type: item
-custom_turtle_spawn_egg:
-  material: turtle_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Turtle Spawn Egg
   weight: '1'
   type: item
 custom_white_terracotta:
@@ -3146,22 +3106,6 @@ custom_clock:
   display name: <&7>Clock
   weight: '1'
   type: item
-custom_horse_spawn_egg:
-  material: horse_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Horse Spawn Egg
-  weight: '1'
-  type: item
-custom_rabbit_spawn_egg:
-  material: rabbit_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Rabbit Spawn Egg
-  weight: '1'
-  type: item
 custom_white_stained_glass:
   material: white_stained_glass
   lore:
@@ -3216,14 +3160,6 @@ custom_bubble_coral_block:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Bubble Coral Block
-  weight: '1'
-  type: item
-custom_pufferfish_spawn_egg:
-  material: pufferfish_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Pufferfish Spawn Egg
   weight: '1'
   type: item
 custom_dark_oak_boat:
@@ -3418,14 +3354,6 @@ custom_andesite_stairs:
   display name: <&7>Andesite Stairs
   weight: '1'
   type: item
-custom_ravager_spawn_egg:
-  material: ravager_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Ravager Spawn Egg
-  weight: '1'
-  type: item
 custom_light_blue_dye:
   material: light_blue_dye
   lore:
@@ -3448,14 +3376,6 @@ custom_chiseled_sandstone:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Chiseled Sandstone
-  weight: '1'
-  type: item
-custom_elder_guardian_spawn_egg:
-  material: elder_guardian_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Elder Guardian Spawn Egg
   weight: '1'
   type: item
 custom_nether_quartz_ore:
@@ -3538,28 +3458,12 @@ custom_gray_carpet:
   display name: <&7>Gray Carpet
   weight: '1'
   type: item
-custom_slime_spawn_egg:
-  material: slime_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Slime Spawn Egg
-  weight: '1'
-  type: item
 custom_brick_slab:
   material: brick_slab
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Brick Slab
-  weight: '1'
-  type: item
-custom_magma_cube_spawn_egg:
-  material: magma_cube_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Magma Cube Spawn Egg
   weight: '1'
   type: item
 custom_brain_coral:
@@ -3578,28 +3482,12 @@ custom_dead_fire_coral_block:
   display name: <&7>Dead Fire Coral Block
   weight: '1'
   type: item
-custom_cow_spawn_egg:
-  material: cow_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cow Spawn Egg
-  weight: '1'
-  type: item
 custom_cyan_wall_banner:
   material: cyan_wall_banner
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Cyan Wall Banner
-  weight: '1'
-  type: item
-custom_zombie_spawn_egg:
-  material: zombie_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Zombie Spawn Egg
   weight: '1'
   type: item
 custom_stonecutter:
@@ -3664,14 +3552,6 @@ custom_brick_stairs:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Brick Stairs
-  weight: '1'
-  type: item
-custom_creeper_spawn_egg:
-  material: creeper_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Creeper Spawn Egg
   weight: '1'
   type: item
 custom_moving_piston:
@@ -4075,14 +3955,6 @@ custom_podzol:
   weight: '1'
   type: item
   default_drop: custom_dirt
-custom_mule_spawn_egg:
-  material: mule_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Mule Spawn Egg
-  weight: '1'
-  type: item
 custom_sea_pickle:
   material: sea_pickle
   lore:
@@ -4169,14 +4041,6 @@ custom_bubble_coral:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Bubble Coral
-  weight: '1'
-  type: item
-custom_drowned_spawn_egg:
-  material: drowned_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Drowned Spawn Egg
   weight: '1'
   type: item
 custom_acacia_trapdoor:
@@ -4579,14 +4443,6 @@ custom_potted_brown_mushroom:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Potted Brown Mushroom
-  weight: '1'
-  type: item
-custom_trader_llama_spawn_egg:
-  material: trader_llama_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Trader Llama Spawn Egg
   weight: '1'
   type: item
 custom_spruce_wood:
@@ -5245,14 +5101,6 @@ custom_dead_tube_coral_wall_fan:
   display name: <&7>Dead Tube Coral Wall Fan
   weight: '1'
   type: item
-custom_cave_spider_spawn_egg:
-  material: cave_spider_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Cave Spider Spawn Egg
-  weight: '1'
-  type: item
 custom_gray_wool:
   material: gray_wool
   lore:
@@ -5542,14 +5390,6 @@ custom_green_concrete:
   display name: <&7>Green Concrete
   weight: '1'
   type: item
-custom_zombie_villager_spawn_egg:
-  material: zombie_villager_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Zombie Villager Spawn Egg
-  weight: '1'
-  type: item
 custom_light_blue_stained_glass_pane:
   material: light_blue_stained_glass_pane
   lore:
@@ -5564,14 +5404,6 @@ custom_smooth_sandstone_stairs:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Smooth Sandstone Stairs
-  weight: '1'
-  type: item
-custom_panda_spawn_egg:
-  material: panda_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Panda Spawn Egg
   weight: '1'
   type: item
 custom_black_terracotta:
@@ -5838,14 +5670,6 @@ custom_smooth_stone_slab:
   display name: <&7>Smooth Stone Slab
   weight: '1'
   type: item
-custom_wither_skeleton_spawn_egg:
-  material: wither_skeleton_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Wither Skeleton Spawn Egg
-  weight: '1'
-  type: item
 custom_prismarine:
   material: prismarine
   lore:
@@ -5860,14 +5684,6 @@ custom_spruce_wall_sign:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Spruce Wall Sign
-  weight: '1'
-  type: item
-custom_villager_spawn_egg:
-  material: villager_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Villager Spawn Egg
   weight: '1'
   type: item
 custom_grindstone:
@@ -6118,14 +5934,6 @@ custom_acacia_pressure_plate:
   display name: <&7>Acacia Pressure Plate
   weight: '1'
   type: item
-custom_polar_bear_spawn_egg:
-  material: polar_bear_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Polar Bear Spawn Egg
-  weight: '1'
-  type: item
 custom_music_disc_blocks:
   material: music_disc_blocks
   lore:
@@ -6180,22 +5988,6 @@ custom_brown_banner:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Brown Banner
-  weight: '1'
-  type: item
-custom_stray_spawn_egg:
-  material: stray_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Stray Spawn Egg
-  weight: '1'
-  type: item
-custom_skeleton_spawn_egg:
-  material: skeleton_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Skeleton Spawn Egg
   weight: '1'
   type: item
 custom_polished_granite:
@@ -6396,14 +6188,6 @@ custom_oak_button:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Oak Button
-  weight: '1'
-  type: item
-custom_phantom_spawn_egg:
-  material: phantom_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Phantom Spawn Egg
   weight: '1'
   type: item
 custom_bell:
@@ -6686,22 +6470,6 @@ custom_prismarine_wall:
   display name: <&7>Prismarine Wall
   weight: '1'
   type: item
-custom_endermite_spawn_egg:
-  material: endermite_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Endermite Spawn Egg
-  weight: '1'
-  type: item
-custom_blaze_spawn_egg:
-  material: blaze_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Blaze Spawn Egg
-  weight: '1'
-  type: item
 custom_brick:
   material: brick
   lore:
@@ -6718,28 +6486,12 @@ custom_orange_concrete_powder:
   display name: <&7>Orange Concrete Powder
   weight: '1'
   type: item
-custom_vex_spawn_egg:
-  material: vex_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Vex Spawn Egg
-  weight: '1'
-  type: item
 custom_gray_terracotta:
   material: gray_terracotta
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Gray Terracotta
-  weight: '1'
-  type: item
-custom_spider_spawn_egg:
-  material: spider_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Spider Spawn Egg
   weight: '1'
   type: item
 custom_kelp_plant:
@@ -6758,28 +6510,12 @@ custom_redstone_lamp:
   display name: <&7>Redstone Lamp
   weight: '1'
   type: item
-custom_skeleton_horse_spawn_egg:
-  material: skeleton_horse_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Skeleton Horse Spawn Egg
-  weight: '1'
-  type: item
 custom_lilac:
   material: lilac
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Lilac
-  weight: '1'
-  type: item
-custom_ocelot_spawn_egg:
-  material: ocelot_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Ocelot Spawn Egg
   weight: '1'
   type: item
 custom_yellow_concrete_powder:
@@ -6883,14 +6619,6 @@ custom_coal:
       biome: all
       block: stone
       chance: 10
-custom_silverfish_spawn_egg:
-  material: silverfish_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Silverfish Spawn Egg
-  weight: '1'
-  type: item
 custom_dead_brain_coral_fan:
   material: dead_brain_coral_fan
   lore:
@@ -6921,14 +6649,6 @@ custom_flower_pot:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Flower Pot
-  weight: '1'
-  type: item
-custom_llama_spawn_egg:
-  material: llama_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Llama Spawn Egg
   weight: '1'
   type: item
 custom_sandstone_stairs:
@@ -7185,14 +6905,6 @@ custom_tube_coral_block:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Tube Coral Block
-  weight: '1'
-  type: item
-custom_evoker_spawn_egg:
-  material: evoker_spawn_egg
-  lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
-  display name: <&7>Evoker Spawn Egg
   weight: '1'
   type: item
 custom_potted_birch_sapling:
