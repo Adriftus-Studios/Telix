@@ -158,6 +158,7 @@ mob_spawning_test_entity:
   custom_name: <&4><&l><&n>Bob
   max_health: 2000
   health: 2000
+  absorption_health: 2000
   custom:
     spawning_conditions:
       world: all
