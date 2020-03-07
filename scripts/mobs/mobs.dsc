@@ -50,6 +50,7 @@ mob_spawning_events:
             - if <yaml[server.mobs].read[<[mob]>.time]> != all:
               - narrate 5<[mob]>
               - define list:<-:<[mob]>
+        - narrate <[list]>
         - define mob_limiter:40
         - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
           - foreach <[list]> as:mob:
