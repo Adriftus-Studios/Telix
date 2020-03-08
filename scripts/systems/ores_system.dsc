@@ -11,4 +11,7 @@ ore_drop_events:
             - foreach <[drops]> as:drop:
                 - if <util.random.int[1].to[<[drop].split[/].get[2]>]> == 1:
                     - define to_drop:|:<[drop].split[/].get[1]>
-            - narrate <[to_drop]>
+            - if <[to_drop]||null> != null:
+                - determine <[to_drop].random>
+            - else:
+                - determine <item[custom_<context.material.name>]>
