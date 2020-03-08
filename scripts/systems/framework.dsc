@@ -461,6 +461,6 @@ build_item:
       - define lore:|:<[line]>
     - define lore:|:<&9>
     - if <[item].script.yaml_key[weight]||null> != null:
-      - define lore:|:<&7>Weight:<&sp><[item].script.yaml_key[weight]>
+      - define lore:|:<&8>Item<&sp>Weight:<&sp><[item].script.yaml_key[weight]>
     - adjust def:item lore:<[lore]||<list[]>>
     - adjust def:item nbt:built/true
