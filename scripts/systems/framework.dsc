@@ -459,7 +459,8 @@ build_item:
     - if <[item].script.yaml_key[fake_durability]||null> != null:
       - define line:<&f>Durability:<&sp><[item].nbt[durability]||<[item].script.yaml_key[fake_durability]>><&sp>/<&sp><[item].script.yaml_key[fake_durability]>
       - define lore:|:<[line]>
+    - define lore:|:<&9>
     - if <[item].script.yaml_key[weight]||null> != null:
-      - define lore:|:<&9>Weight:<&sp><[item].script.yaml_key[weight]>
+      - define lore:|:<&7>Weight:<&sp><[item].script.yaml_key[weight]>
     - adjust def:item lore:<[lore]||<list[]>>
     - adjust def:item nbt:built/true
