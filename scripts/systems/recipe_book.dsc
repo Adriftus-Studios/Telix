@@ -133,7 +133,7 @@ show_recipes:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
     - if <[list].size> == 0:
-      - inventory close
+      - inventory close d:<player>
     - if <[list].size> == 1:
       - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>
     - else:
