@@ -38,10 +38,22 @@ recipe_book_inventory:
   - "[] [] [] [] [] [] [] [] []"
   - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [crafting_icon] [w_filler] [w_filler]"
 
-recipe_book_crafting:
+recipe_book_smeltery:
   type: inventory
-  inventory_type: crafting
-  title: title
+  title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
+  size: 54
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+    gui_top: <item[gui_smeltery_top]>
+    gui_bottom: <item[gui_smeltery_bottom]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
+  - "[w_filler] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
+  - "[gui_top] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
+  - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [smeltery_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 recipe_book_events:
   type: world
@@ -54,11 +66,18 @@ recipe_book_events:
           - define type:<player.open_inventory.slot[50].nbt[type]>
           - if <context.item.script.name> == next_page_button:
             - flag <player> context:<[type]>/<[page].add[1]>
+            - inventory open d:recipe_book_inventory
           - if <context.item.script.name> == previous_page_button:
             - flag <player> context:<[type]>/<[page].sub[1]>
+            - inventory open d:recipe_book_inventory
           - if <context.item.script.name> == crafting_icon:
             - flag <player> context:crafting/1
-          - inventory open d:recipe_book_inventory
+            - inventory open d:recipe_book_inventory
+          - if <context.raw_slot> < 46:
+            - define item:<context.item.script.name>
+            - define type:<context.item.nbt[type]>
+            - narrate <[item]>
+            - narrate <[type]>
     on player closes recipe_book_*:
       - flag <player> context:!
       
