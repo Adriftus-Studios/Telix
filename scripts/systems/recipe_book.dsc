@@ -54,6 +54,21 @@ recipe_book_smeltery:
   - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [smeltery_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+recipe_book_alchemy:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Alchemy<&r> <&6>◆
+  size: 45
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    gui_top: <item[gui_alchemy_station_top]>
+    gui_bottom: <item[gui_alchemy_station_bottom]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
+  - "[gui_top] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_bottom] [w_filler] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [alchemy_station_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
+
 recipe_book_crafting:
   type: inventory
   inventory: workbench
@@ -62,7 +77,7 @@ recipe_book_crafting:
 recipe_book_furnace:
   type: inventory
   inventory: furnace
-  title: <green><&6>◆<&a><&n><&l>Furnace<&r><&6>◆
+  title: <green><&6>◆ <&a><&n><&l>Furnace<&r> <&6>◆
   
 recipe_book_events:
   type: world
@@ -97,6 +112,8 @@ show_recipe:
     - if <[type]> == furnace:
       - define inv:<inventory[recipe_book_furnace]>
       - inventory open d:<[inv]>
+      - inventory set d:<[inv]> slot:1 o:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input]>]>
+      - inventory set d:<[inv]> slot:3 o:<item[<[item]>]>
     - if <[type]> == shaped || <[type]> == shapeless:
       - define inv:<inventory[recipe_book_crafting]>
       - inventory open d:<[inv]>
@@ -104,6 +121,15 @@ show_recipe:
         - if <[value]> <= <yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.size>
           - inventory set d:<[inv]> slot:<[value].add[1]> o:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>]>
       - inventory set d:<[inv]> slot:1 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.output_quantity]>]>
+    - if <[type]> == alchemy:
+      - define inv:<inventory[recipe_book_alchemy]>
+      - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
+      - define input:<yaml[server.recipe_book].read[alchemy.<[item]>.input].as_list>
+      - inventory open d:<[inv]>
+      - foreach <list[12|16|30|34]> as:in:
+        - if <[loop_index]> <= <[input].size>:
+          - inventory set d:<[inv]> slot:<[in]> o:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[quantity=<[input].get[<[loop_index]>].split[/].get[2]>]||<item[air]>>
+      - inventory sets d:<[inv]> slot:23 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[alchemy.<[item]>.output_quantity]>]>
     - if <[type]> == smeltery:
       - define inv:<inventory[recipe_book_smeltery]>
       - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
