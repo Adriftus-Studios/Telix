@@ -12,4 +12,4 @@ ore_drop_events:
                 - if <util.random.int[1].to[<[drop].split[/].get[2]>]> == 1:
                     - define to_drop:|:<[drop].split[/].get[1]>
             - if <[to_drop]||null> != null:
-            - determine NOTHING
+                - determine <item[<[to_drop].random>]>
