@@ -100,9 +100,11 @@ show_recipe:
       - define input:<yaml[server.recipe_book].read[smeltery.<[item]>.input]>
       - define output_quantity:<yaml[server.recipe_book].read[smeltery.<[item]>.output_quantity]>
       - define cook_time:<yaml[server.recipe_book].read[smeltery.<[item]>.cook_time]>
-      - inventory set d:<[inv]> slot:16 o:<[item].with[quantity=<[output_quantity]>]>
       - inventory open d:<[inv]>
-
+      - inventory set d:<[inv]> slot:16 o:<[item].with[quantity=<[output_quantity]>]>
+      - foreach <list[11|12|20|21|29|30]> as:in:
+        - define i:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[quantity=<[input].get[<[loop_index]>].split[/].get[2]>]>
+        - inventory set d:<[inv]> slot:<[in]> o:<[i]>
 crafting_icon:
   type: item
   material: crafting_table
