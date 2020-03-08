@@ -11,4 +11,12 @@ recipe_book_inventory:
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [] [closeitem] [] [w_filler] [w_filler] [w_filler]"
+
+recipe_book_events:
+  type: world
+  events:
+    on player opens recipe_book_inventory:
+      - define page:<context.inventory>
+    on player clicks in recipe_book_inventory:
+      - narrate <context.raw_slot>
