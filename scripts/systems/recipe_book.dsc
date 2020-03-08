@@ -95,6 +95,9 @@ show_recipe:
       - define inv:<inventory[recipe_book_crafting]>
       - inventory open d:<[inv]>
       - repeat 9:
+        - narrate <[value]>
+        - narrate <yaml[server.recipe_book].read[<[type]>.<[item]>.input]>
+        - narrate <yaml[server.recipe_book].read[<[type]>.<[item]>.input].get[<[value]>]>
         - inventory set d:<[inv]> slot:<[value].add[1]> o:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].get[<[value]>]>]>
     - if <[type]> == smeltery:
       - define inv:<inventory[recipe_book_smeltery]>
