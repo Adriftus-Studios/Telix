@@ -13,5 +13,3 @@ ore_drop_events:
                     - define to_drop:|:<[drop].split[/].get[1]>
             - if <[to_drop]||null> != null:
                 - determine <[to_drop].random>
-            - else:
-                - determine <item[custom_<context.material.name>]>
