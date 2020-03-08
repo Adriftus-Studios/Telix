@@ -252,7 +252,6 @@ custom_item_override:
         - if <context.material.is_block>:
           - if <item[<context.item_in_hand.script.name.replace[custom_].with[]>]||null> == null:
             - note <context.location> as:<context.item_in_hand.script.name>
-            - narrate 1
     on player breaks block:
       - if <context.location.notable_name||null> != null:
         - if <script[<context.location.notable_name>]||null> != null:
