@@ -93,7 +93,8 @@ show_recipe:
       - define inv:<inventory[recipe_book_crafting]>
       - inventory open d:<[inv]>
       - repeat 9:
-        - inventory set d:<[inv]> slot:<[value].add[1]> o:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>]>
+        - if <[value]> <= <yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.size>
+          - inventory set d:<[inv]> slot:<[value].add[1]> o:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>]>
       - inventory set d:<[inv]> slot:1 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.output_quantity]>]>
     - if <[type]> == smeltery:
       - define inv:<inventory[recipe_book_smeltery]>
