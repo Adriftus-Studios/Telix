@@ -7,6 +7,7 @@ custom_ore:
   weight: '1'
   type: item
   ore:
+    1:
       biome: all
 	  # The biome that this ore drops in
       block: stone
