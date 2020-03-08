@@ -97,6 +97,7 @@ show_recipe:
       - repeat 9:
         - narrate <[value]>
         - narrate <yaml[server.recipe_book].read[<[type]>.<[item]>.input]>
+        - narrate <yaml[server.recipe_book].read[<[type]>.<[item]>.input].get[1]>
         - narrate <yaml[server.recipe_book].read[<[type]>.<[item]>.input].get[<[value]>]>
         - inventory set d:<[inv]> slot:<[value].add[1]> o:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].get[<[value]>]>]>
     - if <[type]> == smeltery:
