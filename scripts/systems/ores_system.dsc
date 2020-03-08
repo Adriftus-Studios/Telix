@@ -9,11 +9,9 @@ ore_drop_events:
             - define num:0
             - foreach <[drop_num]> as:n:
                 - define num:<[num].add[<el@1.div[<[n]>]>]>
-            - define drop_num:<[drop_num].filter[is[OR_LESS].than[<[roll]>]].highest||100>
+            - define drop_num:<[drop_num].filter[is[OR_LESS].than[<[roll]>]].highest||0>
             - define to_drop:|:<yaml[server.ore_rates].read[<context.material.name>.<context.location.biome.name>.<[drop_num]>]||<list[]>>
             - define to_drop:|:<yaml[server.ore_rates].read[<context.material.name>.all.<[drop_num]>]||<item[custom_<context.material.name>]>>
-            - define all:<yaml[server.ore_rates].list_keys[<context.material.name>.all]||<list[]>>
-            - define all:|:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]||<list[]>>
             - narrate <[drop_num]>
             - narrate <[to_drop]>
-            - narrate <[all]>
+            - narrate <[num]>
