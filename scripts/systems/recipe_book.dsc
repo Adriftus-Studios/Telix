@@ -143,6 +143,7 @@ show_recipes:
     - foreach <yaml[server.recipe_book].list_keys[]> as:type:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
+        - narrate <[item].script.name>
     - if <[list].size> == 1:
       - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>
     - else:
