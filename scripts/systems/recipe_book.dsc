@@ -146,6 +146,8 @@ show_recipe:
   type: task
   definitions: item|type
   script:
+    - if <[item].script.name||null> != null:
+      - define item:<[item].script.name>
     - if <[type]> == furnace:
       - define inv:<inventory[recipe_book_furnace]>
       - inventory open d:<[inv]>
