@@ -146,8 +146,7 @@ show_recipes:
     - foreach <yaml[server.recipe_book].list_keys[]> as:type:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
-        - narrate <[item].script.name>
-    - narrate <[list].size>
+        - narrate <[type]>
     - if <[list].size> == 1:
       - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>
     - else:
@@ -162,6 +161,10 @@ show_recipe:
   script:
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
+    - if <[type]> == ore_spawn:
+      - define inv:<inventory[recipe_book_ores]>
+      - inventory open d:<[inv]>
+      - inventory set d:<[inv]> slot:13 o:<item[stone].with[display_name=<yaml[recipe_book].read[ore_spawn.<[item]>.biome]>]>
     - if <[type]> == furnace:
       - define inv:<inventory[recipe_book_furnace]>
       - inventory open d:<[inv]>
