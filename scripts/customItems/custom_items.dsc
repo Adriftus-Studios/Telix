@@ -483,6 +483,7 @@ custom_emerald:
   weight: '1'
   type: item
   ore:
+    1:
       biome: all
       block: stone
       chance: 95
@@ -1954,6 +1955,7 @@ custom_redstone:
   display name: <&7>Redstone Dust
   type: item
   ore:
+    1:
       biome: all
       block: stone
       chance: 70
@@ -6405,6 +6407,7 @@ custom_coal:
   weight: 0.5
   type: item
   ore:
+    1:
       biome: all
       block: stone
       chance: 10
