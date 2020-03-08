@@ -21,3 +21,5 @@ ore_drop_events:
                     - else:
                         - define to_drop:<item[<[to_drop]>]>
                 - if <[to_drop]||null> != null:
+                    - narrate <[to_drop]>
+                    - determine <[to_drop]>
