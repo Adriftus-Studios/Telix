@@ -6,16 +6,16 @@ recipe_book_inventory:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
   procedural items:
-  - define type:<player.flag[context].split[/].get[1]||all>
+  - define type1:<player.flag[context].split[/].get[1]||all>
   - define page:<player.flag[context].split[/].get[2]||1>
   - flag <player> context:!
-  - foreach <yaml[server.override_recipes].list_keys[]> as:type:
-    - foreach <yaml[server.override_recipes].list_keys[<[type]>]> as:item:
-      - define items:|:<[item]>/<[type]>
+  - foreach <yaml[server.override_recipes].list_keys[]> as:type2:
+    - if <[type1]> == all || <[type1]> == <[type2]>:
+      - foreach <yaml[server.override_recipes].list_keys[<[type]>]> as:item:
+        - define items:|:<[item]>/<[type]>
   - define items:<[items].deduplicate.alphabetical>
-  - narrate <[items]>
   - repeat 45:
-    - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>]>]>
+    - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1].with[nbt=type/<[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[2]>]>]>]>
   - determine <[list]>
   slots:
   - "[] [] [] [] [] [] [] [] []"
@@ -32,3 +32,4 @@ recipe_book_events:
       - narrate <context.inventory>
     on player clicks in recipe_book_inventory:
       - narrate <context.raw_slot>
+      - narrate <context.item.nbt[type]>
