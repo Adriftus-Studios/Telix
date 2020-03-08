@@ -15,7 +15,7 @@ recipe_book_inventory:
         - define items:|:<[item]>/<[type]>
   - define items:<[items].deduplicate.alphabetical>
   - repeat 45:
-    - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1].as_item.with[nbt=type/<[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[2]>]>]>]>
+    - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1]>].as_item.with[nbt=type/<[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[2]>]>]>
   - determine <[list]>
   slots:
   - "[] [] [] [] [] [] [] [] []"
