@@ -4,8 +4,13 @@ ore_drop_events:
     events:
         on player breaks block:
             - define roll:<util.random.int[1].to[100]>
-            - define drop_num:|:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]||<list[]>>
-            - define drop_num:|:<yaml[server.ore_rates].list_keys[<context.material.name>.all]||<list[]>>
+            - define drop_num:|:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]>
+            - foreach <yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]> as:ore:
+                - define drops:|:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>.<[ore]>]>
+            - foreach <yaml[server.ore_rates].list_keys[<context.material.name>.all]> as:ore:
+                - define drops:|:<yaml[server.ore_rates].list_keys[<context.material.name>.all.<[ore]>]>
+            - narrate <[drops]>
+            - define drop_num:|:<yaml[server.ore_rates].list_keys[<context.material.name>.all]>
             - define num:0
             - foreach <[drop_num]> as:n:
                 - define num:<[num].add[<el@1.div[<[n]>]>]>
