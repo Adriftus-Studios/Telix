@@ -135,7 +135,7 @@ show_recipes:
     - if <[list].size> == 0:
       - inventory close
     - if <[list].size> == 1:
-      - run show_recipe def:<[item]>|<[item].nbt[type]>
+      - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>
     - else:
       - define inv:<inventory[recipe_book_chooser]>
       - inventory open d:<[inv]>
