@@ -22,6 +22,7 @@ view_equipment:
   procedural items:
   - define mat:<material[<player.flag[context].split[/].get[1]>]||air>
   - define page:<player.flag[context].split[/].get[2]>
+  - flag <player> context:!
   - repeat 63:
     - define list:|:<item[<[mat]>].with[custom_model_data=<[value].add[<[page].mul[53].sub[53]>]>].with[lore=<[value].add[<[page].mul[53].sub[53]>]>]||<item[air]>>
   - determine <[list]>

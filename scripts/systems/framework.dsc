@@ -93,7 +93,7 @@ reload_scripts:
                     - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                     - foreach <[value].list_keys[recipes]> as:recipe:
                       - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
-                        - yaml id:server.override_recipes set <[value].name>.<[recipe]>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
+                        - yaml id:server.override_recipes set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[recipe]>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
                     - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
