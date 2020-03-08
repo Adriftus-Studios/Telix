@@ -23,7 +23,7 @@ recipe_book_inventory:
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
-  - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [crafting_icon] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [w_filler] [w_filler] [w_filler]"
 
 recipe_book_chooser:
   type: inventory
@@ -132,8 +132,6 @@ show_recipes:
     - foreach <yaml[server.recipe_book].list_keys[]> as:type:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
-    - if <[list].size> == 0:
-      - inventory close d:<player>
     - if <[list].size> == 1:
       - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>
     - else:
