@@ -9,6 +9,10 @@ recipe_book_inventory:
   - define mat:<player.flag[context].split[/].get[1]>
   - define page:<player.flag[context].split[/].get[2]>
   - flag <player> context:!
+  - foreach <yaml[server.override_recipes].list_keys[]> as:type:
+    - define items:|:<yaml[server.override_recipes].list_keys[<[type]>]>
+  - define items:<[items].alphabetical>
+  - narrate <[items]>
   - repeat 45:
     - define list:|:<item[<[mat]>].with[custom_model_data=<[value].add[<[page].mul[53].sub[53]>]>].with[lore=<[value].add[<[page].mul[53].sub[53]>]>]||<item[air]>>
   - determine <[list]>
