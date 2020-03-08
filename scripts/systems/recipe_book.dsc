@@ -26,7 +26,6 @@ recipe_book_inventory:
       - narrate "Not done."
       - inventory close
   - define items:<[items].deduplicate.alphabetical>
-  - narrate <[items].size>
   - repeat 45:
     - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1]>].as_item.with[nbt=type/<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[2]>]||<item[air]>>
   - define list:|:<item[gui_close_btn].with[nbt=page/<[page]>|type/<[type1]>]>
@@ -39,6 +38,10 @@ recipe_book_inventory:
   - "[] [] [] [] [] [] [] [] []"
   - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [crafting_icon] [w_filler] [w_filler]"
 
+recipe_book_crafting:
+  type: crafting
+  title: <green><&6>◆ <&a><&n><&l>Recipe Book<&r> <&6>◆
+
 recipe_book_events:
   type: world
   events:
@@ -46,9 +49,6 @@ recipe_book_events:
       - determine passively cancelled
       - if <player.open_inventory.script_name> == recipe_book_inventory:
         - if <context.raw_slot> < 55:
-          - narrate <player.open_inventory.slot[50]>
-          - narrate <player.open_inventory.slot[50].nbt[page]>
-          - narrate <player.open_inventory.slot[50].nbt[type]>
           - define page:<player.open_inventory.slot[50].nbt[page]>
           - define type:<player.open_inventory.slot[50].nbt[type]>
           - if <context.item.script.name> == next_page_button:
