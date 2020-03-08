@@ -54,7 +54,7 @@ recipe_book_smeltery:
   - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [smeltery_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
 
-recipe_book_smeltery:
+recipe_book_crafting:
   type: inventory
   inventory: crafting
   title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
