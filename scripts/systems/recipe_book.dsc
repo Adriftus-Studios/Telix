@@ -104,7 +104,11 @@ show_recipe:
       - foreach <list[11|12|20|21|29|30]> as:in:
         - inventory set d:<[inv]> slot:<[in]> o:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[quantity=<[input].get[<[loop_index]>].split[/].get[2]>]||<item[air]>>
       - inventory adjust d:<[inv]> slot:50 display_name:<&7>Cooking<&sp><item[<[item]>].script.yaml_key[display<&sp>name].parsed>
-      
+      - if <[cook_time].in_seconds> >= 60:
+        - inventory adjust d:<[inv]> slot:50 lore:<&f><[cook_time].in_minutes.round_up><&sp>Minutes
+      - else:
+        - inventory adjust d:<[inv]> slot:50 lore:<&f><[cook_time].in_seconds.round_up><&sp>Seconds
+
 crafting_icon:
   type: item
   material: crafting_table
