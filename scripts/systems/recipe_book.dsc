@@ -28,7 +28,7 @@ recipe_book_inventory:
   - define items:<[items].deduplicate.alphabetical>
   - narrate <[items].size>
   - repeat 45:
-    - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1]>].as_item||<item[air]>>
+    - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1]>].as_item.with[nbt=type/<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[2]>]||<item[air]>>
   - define list:|:<item[gui_close_btn].with[nbt=page/<[page]>|type/<[type1]>]>
   - determine <[list]>
   slots:
