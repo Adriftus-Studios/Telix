@@ -159,6 +159,7 @@ custom_terrasteel_nugget:
     1:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_terrasteel_ingot
 custom_terrasteel_ingot:
   material: brick
@@ -169,6 +170,7 @@ custom_terrasteel_ingot:
     1:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_terrasteel_nugget|custom_terrasteel_nugget|custom_terrasteel_nugget
       - custom_terrasteel_nugget|custom_terrasteel_nugget|custom_terrasteel_nugget
@@ -176,6 +178,7 @@ custom_terrasteel_ingot:
     2:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_terrasteel_block
 custom_terrasteel_block:
   material: iron_block
@@ -186,6 +189,7 @@ custom_terrasteel_block:
     1:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_terrasteel_ingot|custom_terrasteel_ingot|custom_terrasteel_ingot
       - custom_terrasteel_ingot|custom_terrasteel_ingot|custom_terrasteel_ingot

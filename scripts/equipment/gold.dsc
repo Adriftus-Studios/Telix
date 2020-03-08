@@ -180,6 +180,7 @@ custom_gold_nugget:
     1:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_gold_ingot
 custom_gold_ingot:
   material: gold_ingot
@@ -195,6 +196,7 @@ custom_gold_ingot:
     2:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_gold_nugget|custom_gold_nugget|custom_gold_nugget
       - custom_gold_nugget|custom_gold_nugget|custom_gold_nugget
@@ -202,6 +204,7 @@ custom_gold_ingot:
     3:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_gold_block
 custom_gold_block:
   material: gold_block
@@ -211,6 +214,7 @@ custom_gold_block:
   recipes:
     1:
       type: shaped
+      hide_in_recipebook: true
       output_quantity: 1
       input:
       - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot

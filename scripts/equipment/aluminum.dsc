@@ -159,6 +159,7 @@ custom_aluminum_nugget:
     1:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_aluminum_ingot
 custom_aluminum_ingot:
   material: brick
@@ -174,6 +175,7 @@ custom_aluminum_ingot:
     2:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_aluminum_nugget|custom_aluminum_nugget|custom_aluminum_nugget
       - custom_aluminum_nugget|custom_aluminum_nugget|custom_aluminum_nugget
@@ -181,6 +183,7 @@ custom_aluminum_ingot:
     3:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_aluminum_block
 custom_aluminum_block:
   material: iron_block
@@ -191,6 +194,7 @@ custom_aluminum_block:
     1:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_aluminum_ingot|custom_aluminum_ingot|custom_aluminum_ingot
       - custom_aluminum_ingot|custom_aluminum_ingot|custom_aluminum_ingot

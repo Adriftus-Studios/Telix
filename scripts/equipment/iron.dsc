@@ -166,6 +166,7 @@ custom_iron_nugget:
     1:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_iron_ingot
 custom_iron_ingot:
   material: iron_ingot
@@ -181,6 +182,7 @@ custom_iron_ingot:
     2:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_iron_nugget|custom_iron_nugget|custom_iron_nugget
       - custom_iron_nugget|custom_iron_nugget|custom_iron_nugget
@@ -188,6 +190,7 @@ custom_iron_ingot:
     3:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_iron_block
 custom_iron_block:
   material: iron_block
@@ -198,6 +201,7 @@ custom_iron_block:
     1:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot

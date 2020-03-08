@@ -159,6 +159,7 @@ custom_copper_nugget:
     1:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_copper_ingot
 custom_copper_ingot:
   material: brick
@@ -174,6 +175,7 @@ custom_copper_ingot:
     2:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
       - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
@@ -191,6 +193,7 @@ custom_copper_block:
     1:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot

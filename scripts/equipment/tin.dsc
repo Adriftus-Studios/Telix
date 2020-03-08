@@ -159,6 +159,7 @@ custom_tin_nugget:
     1:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_tin_ingot
 custom_tin_ingot:
   material: iron_ingot
@@ -174,6 +175,7 @@ custom_tin_ingot:
     2:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_tin_nugget|custom_tin_nugget|custom_tin_nugget
       - custom_tin_nugget|custom_tin_nugget|custom_tin_nugget
@@ -181,6 +183,7 @@ custom_tin_ingot:
     3:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_tin_block
 custom_tin_block:
   material: iron_block
@@ -191,6 +194,7 @@ custom_tin_block:
     1:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_tin_ingot|custom_tin_ingot|custom_tin_ingot
       - custom_tin_ingot|custom_tin_ingot|custom_tin_ingot

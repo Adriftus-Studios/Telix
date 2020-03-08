@@ -159,6 +159,7 @@ custom_elementium_nugget:
     1:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_elementium_ingot
 custom_elementium_ingot:
   material: brick
@@ -169,6 +170,7 @@ custom_elementium_ingot:
     1:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_elementium_nugget|custom_elementium_nugget|custom_elementium_nugget
       - custom_elementium_nugget|custom_elementium_nugget|custom_elementium_nugget
@@ -176,6 +178,7 @@ custom_elementium_ingot:
     2:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_elementium_block
 custom_elementium_block:
   material: iron_block
@@ -186,6 +189,7 @@ custom_elementium_block:
     1:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot

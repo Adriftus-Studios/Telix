@@ -168,6 +168,7 @@ custom_diamond:
     2:
       type: shapeless
       output_quantity: 9
+      hide_in_recipebook: true
       input: custom_diamond_block
 custom_diamond_block:
   material: diamond_block
@@ -178,6 +179,7 @@ custom_diamond_block:
     1:
       type: shaped
       output_quantity: 1
+      hide_in_recipebook: true
       input:
       - custom_diamond|custom_diamond|custom_diamond
       - custom_diamond|custom_diamond|custom_diamond
