@@ -41,14 +41,6 @@ recipe_book_smeltery:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
   size: 54
-  procedural items:
-  - define item:<player.flag[context].split[/].get[1]||all>
-  - define input:<yaml[server.recipe_book].read[smeltery.<[item]>.input]>
-  - define output_quantity:<yaml[server.recipe_book].read[smeltery.<[item]>.output_quantity]>
-  - define cook_time:<yaml[server.recipe_book].read[smeltery.<[item]>.cook_time]>
-  - narrate <[input]>
-  - narrate <[output_quantity]>
-  - narrate <[cook_time]>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -72,6 +64,7 @@ recipe_book_events:
   events:
     on player clicks in recipe_book_*:
       - determine passively cancelled
+      - narrate <context.raw_slot>
       - if <player.open_inventory.script_name> == recipe_book_inventory && <context.raw_slot> != -998:
         - if <context.raw_slot> < 55:
           - define page:<player.open_inventory.slot[50].nbt[page]>
@@ -88,8 +81,6 @@ recipe_book_events:
           - if <context.raw_slot> < 46:
             - define item:<context.item.script.name>
             - define type:<context.item.nbt[type]>
-            - narrate <[item]>
-            - narrate <[type]>
             - foreach <yaml[server.recipe_book].list_keys[<[type]>.<[item]>]> as:key:
               - narrate <yaml[server.recipe_book].read[<[type]>.<[item]>.<[key]>]>
             - run show_recipe def:<[item]>|<[type]>
@@ -103,8 +94,14 @@ show_recipe:
     - if <[type]> == shaped || <[type]> == shapeless:
       
     - if <[type]> == smeltery:
-      - flag <player> context:<[item].script.name>
-      - inventory open d:recipe_book_smeltery
+      - define inv:<inventory[recipe_book_smeltery]>
+      - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
+      - define item:<item[<player.flag[context].split[/].get[1]>]||<item[air]>>
+      - define input:<yaml[server.recipe_book].read[smeltery.<[item]>.input]>
+      - define output_quantity:<yaml[server.recipe_book].read[smeltery.<[item]>.output_quantity]>
+      - define cook_time:<yaml[server.recipe_book].read[smeltery.<[item]>.cook_time]>
+      - inventory set d:<[inv]> slot:16 o:<[item].with[quantity=<[output_quantity]>]>
+      - inventory open d:<[inv]>
 
 crafting_icon:
   type: item
