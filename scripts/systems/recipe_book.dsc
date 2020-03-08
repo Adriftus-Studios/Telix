@@ -44,6 +44,8 @@ recipe_book_events:
     on player clicks in recipe_book_inventory:
       - narrate <context.raw_slot>
       - if <context.raw_slot> < 55:
+        - narrate <context.item.script>
+        - narrate <context.item.script.name>
         - determine passively cancelled
         - define page:<player.open_inventory.slot[50].nbt[page]>
         - define type:<player.open_inventory.slot[50].nbt[type]>
