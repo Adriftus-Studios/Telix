@@ -59,7 +59,7 @@ recipe_book_events:
   events:
     on player clicks in recipe_book_*:
       - determine passively cancelled
-      - if <player.open_inventory.script_name> == recipe_book_inventor:
+      - if <player.open_inventory.script_name> == recipe_book_inventory:
         - if <context.raw_slot> < 55:
           - define page:<player.open_inventory.slot[50].nbt[page]>
           - define type:<player.open_inventory.slot[50].nbt[type]>
