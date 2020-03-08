@@ -14,12 +14,6 @@ ore_drop_events:
             - define to_drop:|:<yaml[server.ore_rates].read[<context.material.name>.all.<[drop_num]>]||<item[custom_<context.material.name>]>>
             - define all:<yaml[server.ore_rates].list_keys[<context.material.name>.all]||<list[]>>
             - define all:|:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]||<list[]>>
-            - if <player.gamemode> == SURVIVAL:
-                - if !<player.item_in_hand.enchantments.contains[silk_touch]>:
-                    - if <util.random.decimal[0].to[10]> > <[num]>:
-                        - define to_drop:<item[custom_<context.location.drops[<player.item_in_hand>].get[1].material.name>]>
-                    - else:
-                        - define to_drop:<item[<[to_drop]>]>
-                - if <[to_drop]||null> != null:
-                    - narrate <[to_drop]>
-                    - determine <[to_drop]>
+            - narrate <[drop_num]>
+            - narrate <[to_drop]>
+            - narrate <[all]>
