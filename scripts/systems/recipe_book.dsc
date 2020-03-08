@@ -18,7 +18,7 @@ recipe_book_inventory:
       - foreach <yaml[server.override_recipes].list_keys[]||<list[]>> as:type2:
         - foreach <yaml[server.override_recipes].list_keys[<[type2]>]||<list[]>> as:item:
           - define items:|:<[item]>/crafting
-      - define type2:crafting
+      - define type1:crafting
     - if <[type1]> == mob_drops:
       - narrate "Not done."
       - inventory close
