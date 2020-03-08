@@ -4,19 +4,8 @@ ore_drop_events:
     events:
         on player breaks block:
             - define roll:<util.random.int[1].to[100]>
-            - define drop_num:|:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]>
-            - foreach <yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]> as:ore:
+            - foreach <yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]||<list[]>> as:ore:
                 - define drops:|:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>.<[ore]>]>
-            - foreach <yaml[server.ore_rates].list_keys[<context.material.name>.all]> as:ore:
+            - foreach <yaml[server.ore_rates].list_keys[<context.material.name>.all]||<list[]>> as:ore:
                 - define drops:|:<yaml[server.ore_rates].list_keys[<context.material.name>.all.<[ore]>]>
             - narrate <[drops]>
-            - define drop_num:|:<yaml[server.ore_rates].list_keys[<context.material.name>.all]>
-            - define num:0
-            - foreach <[drop_num]> as:n:
-                - define num:<[num].add[<el@1.div[<[n]>]>]>
-            - define drop_num:<[drop_num].filter[is[OR_LESS].than[<[roll]>]].highest||0>
-            - define to_drop:|:<yaml[server.ore_rates].read[<context.material.name>.<context.location.biome.name>.<[drop_num]>]||<list[]>>
-            - define to_drop:|:<yaml[server.ore_rates].read[<context.material.name>.all.<[drop_num]>]||<item[custom_<context.material.name>]>>
-            - narrate <[drop_num]>
-            - narrate <[to_drop]>
-            - narrate <[num]>
