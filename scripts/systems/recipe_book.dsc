@@ -102,8 +102,9 @@ show_recipe:
       - inventory open d:<[inv]>
       - inventory set d:<[inv]> slot:16 o:<item[<[item]>].with[quantity=<[output_quantity]>]>
       - foreach <list[11|12|20|21|29|30]> as:in:
-        - define i:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[quantity=<[input].get[<[loop_index]>].split[/].get[2]>]>
-        - inventory set d:<[inv]> slot:<[in]> o:<[i]>
+        - narrate <[input].get[<[loop_index]>].split[/].get[1]>
+        - narrate <[input].get[<[loop_index]>].split[/].get[2]>
+        - inventory set d:<[inv]> slot:<[in]> o:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[quantity=<[input].get[<[loop_index]>].split[/].get[2]>]>
 crafting_icon:
   type: item
   material: crafting_table
