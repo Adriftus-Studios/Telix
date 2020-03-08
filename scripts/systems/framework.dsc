@@ -65,6 +65,7 @@ reload_scripts:
       - yaml create id:server.smeltery_recipes
       - yaml create id:server.alchemy_recipes
       - yaml create id:server.altar_recipes
+      - yaml create id:server.override_recipes
       - yaml create id:server.mob_spawns
       - yaml create id:server.mobs
       - yaml load:data/skill_trees.yml id:server.skill_trees
@@ -79,8 +80,6 @@ reload_scripts:
           - if <[value].yaml_key[type]> == item:
               - if <[value].yaml_key[ore]||null> != null:
                 - foreach <[value].list_keys[ore]> as:ore:
-                  - if <[ore]> == chance:
-                    - announce <[value].name>
                   - yaml id:server.ore_rates set <[value].yaml_key[ore.<[ore]>.block]>.<[value].yaml_key[ore.<[ore]>.biome]>.<[value].yaml_key[ore.<[ore]>.chance]>:<[value].name>
               - if <[value].yaml_key[mob_drops]||null> != null:
                 - foreach <[value].list_keys[mob_drops]> as:num:
@@ -91,6 +90,9 @@ reload_scripts:
                 - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
                   - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
                     - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
+                    - foreach <[value].list_keys[recipes]> as:recipe:
+                      - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
+                        - yaml id:server.override_recipes set <[value].name>.<[recipe]>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
                     - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>

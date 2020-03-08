@@ -99,6 +99,8 @@ calculate_encumberance_speed:
   type: task
   debug: false
   script:
+    - if <yaml[player.<player.uuid>].list_keys[]||null> == null:
+      - inject player_setup
     - foreach <player.inventory.list_contents> as:item:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
       - define weight:|:<[this_item_weight].*[<[item].quantity>]||1>
