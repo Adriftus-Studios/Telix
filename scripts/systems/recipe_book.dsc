@@ -9,24 +9,12 @@ recipe_book_inventory:
   - define type1:<player.flag[context].split[/].get[1]||all>
   - define page:<player.flag[context].split[/].get[2]||1>
   - flag <player> context:!
-  - if <[type1]> == all:
-    - foreach <yaml[server.recipe_book].list_keys[]||<list[]>> as:type2:
-      - foreach <yaml[server.recipe_book].list_keys[<[type2]>]||<list[]>> as:item:
-        - define items:|:<[item]>/<[type2]>
-  - else:
-    - if <[type1]> == crafting:
-      - foreach <yaml[server.recipe_book].list_keys[]||<list[]>> as:type2:
-        - foreach <yaml[server.recipe_book].list_keys[<[type2]>]||<list[]>> as:item:
-          - define items:|:<[item]>/<[type2]>
-    - if <[type1]> == mob_drops:
-      - narrate "Not done."
-      - inventory close
-    - if <[type1]> == ore_drops:
-      - narrate "Not done."
-      - inventory close
+  - foreach <yaml[server.recipe_book].list_keys[]||<list[]>> as:type2:
+    - foreach <yaml[server.recipe_book].list_keys[<[type2]>]||<list[]>> as:item:
+      - define items:|:<[item]>
   - define items:<[items].deduplicate.alphabetical>
   - repeat 45:
-    - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1]>].as_item.with[nbt=type/<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[2]>;lore=<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[2]>]||<item[air]>>
+    - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1]>].as_item||<item[air]>>
   - define list:|:<item[gui_close_btn].with[nbt=page/<[page]>|type/<[type1]>]>
   - determine <[list]>
   slots:
@@ -36,6 +24,18 @@ recipe_book_inventory:
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
   - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [crafting_icon] [w_filler] [w_filler]"
+
+recipe_book_chooser:
+  type: inventory
+  title: <green><&6>◆ <&a><&n><&l>Recipes<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 recipe_book_smeltery:
   type: inventory
@@ -100,23 +100,33 @@ recipe_book_events:
     on player clicks in recipe_book_*:
       - determine passively cancelled
       - narrate <context.raw_slot>
-      - if <player.open_inventory.script_name> == recipe_book_inventory && <context.raw_slot> != -998:
-        - if <context.raw_slot> < 55:
-          - define page:<player.open_inventory.slot[50].nbt[page]>
-          - define type:<player.open_inventory.slot[50].nbt[type]>
-          - if <context.item.script.name> == next_page_button:
-            - flag <player> context:<[type]>/<[page].add[1]>
-            - inventory open d:recipe_book_inventory
-          - if <context.item.script.name> == previous_page_button:
-            - flag <player> context:<[type]>/<[page].sub[1]>
-            - inventory open d:recipe_book_inventory
-          - if <context.item.script.name> == crafting_icon:
-            - flag <player> context:crafting/1
-            - inventory open d:recipe_book_inventory
-          - if <context.raw_slot> < 46:
-            - narrate <context.item.script.name>
-            - narrate <context.item.nbt[type]>
-            - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
+      - if <context.raw_slot> != -998:
+        - if <player.open_inventory.script_name> == recipe_book_inventory:
+          - if <context.raw_slot> < 55:
+            - define page:<player.open_inventory.slot[50].nbt[page]>
+            - define type:<player.open_inventory.slot[50].nbt[type]>
+            - if <context.item.script.name> == next_page_button:
+              - flag <player> context:<[type]>/<[page].add[1]>
+              - inventory open d:recipe_book_inventory
+            - if <context.item.script.name> == previous_page_button:
+              - flag <player> context:<[type]>/<[page].sub[1]>
+              - inventory open d:recipe_book_inventory
+            - if <context.item.script.name> == crafting_icon:
+              - flag <player> context:crafting/1
+              - inventory open d:recipe_book_inventory
+            - if <context.raw_slot> < 46:
+              - narrate <context.item.script.name>
+              - narrate <context.item.nbt[type]>
+              - define inv:<inventory[recipe_book_chooser]>
+              - inventory open d:<[inv]>
+              - foreach <yaml[server.recipe_book].list_keys[]> as:type:
+                - if <yaml[server.recipe_book].read[<[type]>.<context.item.script.name>]||null> != null:
+                  - narrate <context.item.script.name>
+                  - inventory add d:<[inv]> o:<context.item.with[lore=<[type]>;nbt=type/<[type]>]>
+              - stop
+              - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
+        - else:
+          
     on player closes recipe_book_*:
       - flag <player> context:!
       
@@ -144,7 +154,7 @@ show_recipe:
       - foreach <list[3|5|7|21|25|39|41|43]> as:in:
         - if <[loop_index]> <= <[input].size>:
           - inventory set d:<[inv]> slot:<[in]> o:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[quantity=<[input].get[<[loop_index]>].split[/].get[2]>]||<item[air]>>
-      - inventory sets d:<[inv]> slot:23 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[altar.<[item]>.output_quantity]>]>
+      - inventory set d:<[inv]> slot:23 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[altar.<[item]>.output_quantity]>]>
     - if <[type]> == alchemy:
       - define inv:<inventory[recipe_book_alchemy]>
       - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
