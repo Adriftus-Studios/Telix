@@ -1,7 +1,7 @@
 fake_durability_handler:
   type: world
   events:
-    on player item takes damage priority:10:
+    on player item takes damage priority:-5:
       - if <context.item.script.yaml_key[fake_durability]||null> == null:
         - stop
       - define item:<context.item>
