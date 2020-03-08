@@ -115,21 +115,26 @@ recipe_book_events:
               - flag <player> context:crafting/1
               - inventory open d:recipe_book_inventory
             - if <context.raw_slot> < 46:
-              - narrate <context.item.script.name>
-              - narrate <context.item.nbt[type]>
-              - define inv:<inventory[recipe_book_chooser]>
-              - inventory open d:<[inv]>
-              - foreach <yaml[server.recipe_book].list_keys[]> as:type:
-                - if <yaml[server.recipe_book].read[<[type]>.<context.item.script.name>]||null> != null:
-                  - narrate <context.item.script.name>
-                  - inventory add d:<[inv]> o:<context.item.with[lore=<[type]>;nbt=type/<[type]>]>
-              - stop
+              - run show_recipes def:<context.item>
+        - else if <player.open_inventory.script_name> == recipe_book_chooser:
+          - if <context.item.nbt[type]||null> != null:
+            - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
         - else:
-          - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
-          
+          - run show_recipes def:<context.item>
     on player closes recipe_book_*:
       - flag <player> context:!
       
+show_recipes:
+  type: task
+  definitions: item
+  script:
+    - define inv:<inventory[recipe_book_chooser]>
+    - inventory open d:<[inv]>
+    - foreach <yaml[server.recipe_book].list_keys[]> as:type:
+      - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
+        - narrate <[item].script.name>
+        - inventory add d:<[inv]> o:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
+
 show_recipe:
   type: task
   definitions: item|type
