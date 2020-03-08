@@ -4,17 +4,16 @@ ore_drop_events:
     events:
         on player breaks block:
             - define roll:<util.random.int[1].to[100]>
-            - define drop_num:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>].include[<yaml[server.ore_rates].list_keys[<context.material.name>.all]>].filter[is[OR_LESS].than[<[roll]>]].highest||<yaml[server.ore_rates].list_keys[<context.material.name>.all].filter[is[OR_LESS].than[<[roll]>]].highest||0>>
+            - define drop_num:|:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]>
+            - define drop_num:|:<yaml[server.ore_rates].list_keys[<context.material.name>.all]>
+            - define drop_num:<[drop_num].filter[is[OR_LESS].than[<[roll]>]]>
             - define to_drop:|:<yaml[server.ore_rates].read[<context.material.name>.<context.location.biome.name>.<[drop_num]>]||<list[]>>
             - define to_drop:|:<yaml[server.ore_rates].read[<context.material.name>.all.<[drop_num]>]||<item[custom_<context.material.name>]>>
-            - define all:<[all].include[<yaml[server.ore_rates].list_keys[<context.material.name>.all]>]||<list[]>>
+            - define all:<yaml[server.ore_rates].list_keys[<context.material.name>.all]||<list[]>>
             - define all:|:<yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]||<list[]>>
             - narrate <[drop_num]>
             - narrate <[to_drop]>
-            - foreach <[all]||<list[]>>:
-                - narrate <el@1.div[<[value]||1>
-                - define num:+:<el@1.div[<[value]||1>]||0>
-            - define num:<[num].mul[50]||100>
+            - stop
             - if <player.gamemode> == SURVIVAL:
                 - if !<player.item_in_hand.enchantments.contains[silk_touch]>:
                     - if <util.random.decimal[0].to[100]> > <[num]>:
