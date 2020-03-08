@@ -96,12 +96,14 @@ show_recipe:
     - if <[type]> == smeltery:
       - define inv:<inventory[recipe_book_smeltery]>
       - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
-      - define item:<item[<player.flag[context].split[/].get[1]>]||<item[air]>>
-      - define input:<yaml[server.recipe_book].read[smeltery.<[item]>.input]>
-      - define output_quantity:<yaml[server.recipe_book].read[smeltery.<[item]>.output_quantity]>
-      - define cook_time:<yaml[server.recipe_book].read[smeltery.<[item]>.cook_time]>
+      - define input:<yaml[server.recipe_book].read[smeltery.<[item].script.name>.input]>
+      - define output_quantity:<yaml[server.recipe_book].read[smeltery.<[item].script.name>.output_quantity]>
+      - define cook_time:<yaml[server.recipe_book].read[smeltery.<[item].script.name>.cook_time]>
       - inventory open d:<[inv]>
       - inventory set d:<[inv]> slot:16 o:<[item].with[quantity=<[output_quantity]>]>
+      - foreach <list[11|12|20|21|29|30]> as:in:
+        - define i:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[quantity=<[input].get[<[loop_index]>].split[/].get[2]>]>
+        - inventory set d:<[inv]> slot:<[in]> o:<[i]>
 crafting_icon:
   type: item
   material: crafting_table
