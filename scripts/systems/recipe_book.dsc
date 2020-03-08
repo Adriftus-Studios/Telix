@@ -124,8 +124,8 @@ recipe_book_events:
                   - narrate <context.item.script.name>
                   - inventory add d:<[inv]> o:<context.item.with[lore=<[type]>;nbt=type/<[type]>]>
               - stop
-              - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
         - else:
+          - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
           
     on player closes recipe_book_*:
       - flag <player> context:!
