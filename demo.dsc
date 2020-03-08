@@ -167,6 +167,8 @@ mob_spawning_test_entity:
       # biome that the mob can spawn in
       every: 5m
       # delay between each mob spawn. this is per player
+      aggressive: true
+      # whether the mob is aggressive
       air: false
       # does the mob fly / does the mob spawn in air
       max_y: 255

@@ -115,6 +115,7 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.min_distance:<[value].yaml_key[custom.spawning_conditions.min_distance]||10>
               - yaml id:server.mobs set <[value].name>.time:<[value].yaml_key[custom.spawning_conditions.time]||all>
               - yaml id:server.mobs set <[value].name>.spawn_script:<[value].yaml_key[custom.spawning_conditions.spawn_script]||none>
+              - yaml id:server.mobs set <[value].name>.aggressive:<[value].yaml_key[custom.spawning_conditions.aggressive]||false>
             - if <[value].yaml_key[custom.ability_usage]||null> != null:
               - yaml id:server.mobs set <[value].name>.abilities:<[value].yaml_key[custom.ability_usage]>
                     
