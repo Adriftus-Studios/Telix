@@ -268,6 +268,11 @@ custom_item_override:
         - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
         - inject build_item
         - determine <[item]>
+    on player picks up item:
+      - if !<context.item.script.name.starts_with[custom_]>:
+        - define item:<context.item>
+        - inject build_item
+        - determine ITEM:<[item]>
     on player crafts item:
       - define item:<context.item>
       - inject build_item
@@ -426,9 +431,6 @@ build_item:
           - else:
             - define line:<[line]><&7>[<&sp>]
         - define lore:|:<[line]>
-      - define lore:|:<&9>
-      - if <[item].script.yaml_key[weight]||null> != null:
-        - define lore:|:<&9>Weight:<&sp><[item].script.yaml_key[weight]>
       - define stat_names:<list[thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
       - if <[item].script.list_keys[equipment_modifiers]||null> != null:
         - define lore:|:<&9>
@@ -457,5 +459,7 @@ build_item:
     - if <[item].script.yaml_key[fake_durability]||null> != null:
       - define line:<&f>Durability:<&sp><[item].nbt[durability]||<[item].script.yaml_key[fake_durability]>><&sp>/<&sp><[item].script.yaml_key[fake_durability]>
       - define lore:|:<[line]>
+    - if <[item].script.yaml_key[weight]||null> != null:
+      - define lore:|:<&9>Weight:<&sp><[item].script.yaml_key[weight]>
     - adjust def:item lore:<[lore]||<list[]>>
     - adjust def:item nbt:built/true
