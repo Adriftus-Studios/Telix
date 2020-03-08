@@ -8,14 +8,17 @@ recipe_book_inventory:
   procedural items:
   - define type1:<player.flag[context].split[/].get[1]||all>
   - define page:<player.flag[context].split[/].get[2]||1>
-  - flag <player> context:!
   - if <[type1]> == all:
     - foreach <yaml[server.override_recipes].list_keys[]> as:type2:
       - foreach <yaml[server.override_recipes].list_keys[<[type2]>]> as:item:
         - define items:|:<[item]>/<[type2]>
   - else:
-    - foreach <yaml[server.override_recipes].list_keys[<[type2]>]> as:item:
-      - define items:|:<[item]>/<[type2]>
+    - if <[type1]> == shapeless || <[type1]> == shaped:
+      - foreach <yaml[server.override_recipes].list_keys[<[type1]>]> as:item:
+        - define items:|:<[item]>/crafting
+    - else:
+      - foreach <yaml[server.override_recipes].list_keys[<[type1]>]> as:item:
+        - define items:|:<[item]>/<[type1]>
   - define items:<[items].deduplicate.alphabetical>
   - narrate <[items].size>
   - repeat 45:
@@ -27,7 +30,7 @@ recipe_book_inventory:
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
-  - "[] [] [smeltery_icon] [crafting_icon] [closeitem] [furnace_icon] [alchemy_icon] [altar_icon] []"
+  - "[w_filler] [blast_furnace_icon] [smeltery_icon] [furnace_icon] [closeitem] [crafting_icon] [alchemy_icon] [altar_icon] [w_filler]"
 
 recipe_book_events:
   type: world
@@ -39,6 +42,9 @@ recipe_book_events:
       - narrate <context.raw_slot>
     on player drops item:
       - narrate <player.open_inventory>
+      - determine passively cancelled
+    on player closes recipe_book_inventory:
+      - flag <player> context:!
       
 altar_icon:
   type: item
@@ -64,3 +70,8 @@ furnace_icon:
   type: item
   material: furnace
   display name: <&6>Furnace Recipes
+
+blast_furnace_icon:
+  type: item
+  material: blast_furnace
+  display name: <&6>Blast Furnace Recipes
