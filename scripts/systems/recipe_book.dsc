@@ -10,15 +10,14 @@ recipe_book_inventory:
   - define page:<player.flag[context].split[/].get[2]||1>
   - flag <player> context:!
   - if <[type1]> == all:
-    - foreach <yaml[server.override_recipes].list_keys[]||<list[]>> as:type2:
-      - foreach <yaml[server.override_recipes].list_keys[<[type2]>]||<list[]>> as:item:
-        - define items:|:<[item]>/crafting
+    - foreach <yaml[server.recipe_book].list_keys[]||<list[]>> as:type2:
+      - foreach <yaml[server.recipe_book].list_keys[<[type2]>]||<list[]>> as:item:
+        - define items:|:<[item]>/<[type2]>
   - else:
     - if <[type1]> == crafting:
-      - foreach <yaml[server.override_recipes].list_keys[]||<list[]>> as:type2:
-        - foreach <yaml[server.override_recipes].list_keys[<[type2]>]||<list[]>> as:item:
-          - define items:|:<[item]>/crafting
-      - define type1:crafting
+      - foreach <yaml[server.recipe_book].list_keys[]||<list[]>> as:type2:
+        - foreach <yaml[server.recipe_book].list_keys[<[type2]>]||<list[]>> as:item:
+          - define items:|:<[item]>/<[type2]>
     - if <[type1]> == mob_drops:
       - narrate "Not done."
       - inventory close
