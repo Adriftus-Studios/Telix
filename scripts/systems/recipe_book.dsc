@@ -139,12 +139,12 @@ show_recipe:
     - if <[type]> == altar:
       - define inv:<inventory[recipe_book_altar]>
       - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
-      - define input:<yaml[server.recipe_book].read[alchemy.<[item]>.input].as_list>
+      - define input:<yaml[server.recipe_book].read[altar.<[item]>.input].as_list>
       - inventory open d:<[inv]>
       - foreach <list[3|5|7|21|25|39|41|43]> as:in:
         - if <[loop_index]> <= <[input].size>:
           - inventory set d:<[inv]> slot:<[in]> o:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[quantity=<[input].get[<[loop_index]>].split[/].get[2]>]||<item[air]>>
-      - inventory sets d:<[inv]> slot:23 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[alchemy.<[item]>.output_quantity]>]>
+      - inventory sets d:<[inv]> slot:23 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[altar.<[item]>.output_quantity]>]>
     - if <[type]> == alchemy:
       - define inv:<inventory[recipe_book_alchemy]>
       - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
