@@ -10,18 +10,15 @@ recipe_book_inventory:
   - define page:<player.flag[context].split[/].get[2]||1>
   - flag <player> context:!
   - if <[type1]> == all:
-
+    - foreach <yaml[server.override_recipes].list_keys[]> as:type2:
+      - foreach <yaml[server.override_recipes].list_keys[<[type2]>]> as:item:
+        - define items:|:<[item]>/<[type2]>
   - else:
-  - foreach <yaml[server.override_recipes].list_keys[]> as:type2:
     - foreach <yaml[server.override_recipes].list_keys[<[type2]>]> as:item:
-      - define items:|:<[item]>/<[type]>
+      - define items:|:<[item]>/<[type2]>
   - define items:<[items].deduplicate.alphabetical>
-  - narrate <[items]>
   - narrate <[items].size>
   - repeat 45:
-    - narrate <[value].add[<[page].mul[44].sub[44]>]>
-    - narrate <[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1]>
-    - narrate <item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1]>].as_item>
     - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1]>].as_item.with[nbt=type/<[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[2]>]>]>
   - determine <[list]>
   slots:
@@ -30,7 +27,7 @@ recipe_book_inventory:
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
-  - "[w_filler] [w_filler] [w_filler] [previous_page_button] [closeitem] [next_page_button] [w_filler] [w_filler] [w_filler]"
+  - "[] [] [smeltery_icon] [crafting_icon] [closeitem] [furnace_icon] [alchemy_icon] [altar_icon] []"
 
 recipe_book_events:
   type: world
@@ -38,5 +35,32 @@ recipe_book_events:
     on player opens recipe_book_inventory:
       - narrate <context.inventory>
     on player clicks in recipe_book_inventory:
+      - determine passively cancelled
       - narrate <context.raw_slot>
-      - narrate <context.item.nbt[type]>
+    on player drops item:
+      - narrate <player.open_inventory>
+      
+altar_icon:
+  type: item
+  material: beacon
+  display name: <&6>Altar Recipes
+
+smeltery_icon:
+  type: item
+  material: blast_furnace
+  display name: <&6>Smeltery Recipes
+
+alchemy_icon:
+  type: item
+  material: brewing_stand
+  display name: <&6>Alchemy Station Recipes
+
+crafting_icon:
+  type: item
+  material: crafting_table
+  display name: <&6>Crafting Recipes
+
+furnace_icon:
+  type: item
+  material: furnace
+  display name: <&6>Furnace Recipes
