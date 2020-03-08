@@ -12,7 +12,7 @@ recipe_book_inventory:
   - if <[type1]> == all:
     - foreach <yaml[server.override_recipes].list_keys[]||<list[]>> as:type2:
       - foreach <yaml[server.override_recipes].list_keys[<[type2]>]||<list[]>> as:item:
-        - define items:|:<[item]>/<[type2]>
+        - define items:|:<[item]>/<[type1]>
   - else:
     - if <[type1]> == crafting:
       - foreach <yaml[server.override_recipes].list_keys[]||<list[]>> as:type2:
