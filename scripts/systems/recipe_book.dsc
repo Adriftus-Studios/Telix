@@ -54,6 +54,11 @@ recipe_book_smeltery:
   - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [smeltery_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+recipe_book_smeltery:
+  type: inventory
+  inventory: crafting
+  title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
+  
 recipe_book_events:
   type: world
   events:
@@ -82,6 +87,13 @@ recipe_book_events:
     on player closes recipe_book_*:
       - flag <player> context:!
       
+show_recipe:
+  type: task
+  definitions: item|type
+  script:
+    - if <[type]> == shaped || <[type]> == shapeless:
+      
+
 crafting_icon:
   type: item
   material: crafting_table
