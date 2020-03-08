@@ -79,6 +79,21 @@ recipe_book_furnace:
   inventory: furnace
   title: <green><&6>◆ <&a><&n><&l>Furnace<&r> <&6>◆
   
+recipe_book_altar:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Altar<&r> <&6>◆
+  size: 45
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    gui_top: <item[gui_altar_top]>
+    gui_bottom: <item[gui_altar_bottom]>
+  slots:
+  - "[w_filler] [w_filler] [] [w_filler] [] [w_filler] [] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_top] [w_filler] [] [w_filler] [] [w_filler] [] [w_filler] [altar_timer]"
+  - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [] [w_filler] [] [w_filler] [] [w_filler] [w_filler]"
+
 recipe_book_events:
   type: world
   events:
@@ -121,6 +136,15 @@ show_recipe:
         - if <[value]> <= <yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.size>
           - inventory set d:<[inv]> slot:<[value].add[1]> o:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>]>
       - inventory set d:<[inv]> slot:1 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.output_quantity]>]>
+    - if <[type]> == altar:
+      - define inv:<inventory[recipe_book_altar]>
+      - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
+      - define input:<yaml[server.recipe_book].read[alchemy.<[item]>.input].as_list>
+      - inventory open d:<[inv]>
+      - foreach <list[3|5|7|21|25|39|41|43]> as:in:
+        - if <[loop_index]> <= <[input].size>:
+          - inventory set d:<[inv]> slot:<[in]> o:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[quantity=<[input].get[<[loop_index]>].split[/].get[2]>]||<item[air]>>
+      - inventory sets d:<[inv]> slot:23 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[alchemy.<[item]>.output_quantity]>]>
     - if <[type]> == alchemy:
       - define inv:<inventory[recipe_book_alchemy]>
       - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
