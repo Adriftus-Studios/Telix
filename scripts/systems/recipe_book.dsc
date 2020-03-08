@@ -92,6 +92,9 @@ show_recipe:
     - if <[type]> == shaped || <[type]> == shapeless:
       - narrate <yaml[server.recipe_book].read[<[type]>.<[item]>.input]>
       - narrate <yaml[server.recipe_book].read[<[type]>.<[item]>.output_quantity]>
+      - define inv:<inventory[recipe_book_crafting]>
+      - inventory open d:<[inv]>
+      - inventory adjust d:<[inv]> matrix:<yaml[server.recipe_book].read[<[type]>.<[item]>.input]>
     - if <[type]> == smeltery:
       - define inv:<inventory[recipe_book_smeltery]>
       - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
