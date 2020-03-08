@@ -128,12 +128,19 @@ show_recipes:
   type: task
   definitions: item
   script:
-    - define inv:<inventory[recipe_book_chooser]>
-    - inventory open d:<[inv]>
+    - define list:<list[]>
     - foreach <yaml[server.recipe_book].list_keys[]> as:type:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
-        - narrate <[item].script.name>
-        - inventory add d:<[inv]> o:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
+        - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
+    - if <[list].size> == 0:
+      - inventory close
+    - if <[list].size> == 1:
+      - run show_recipe def:<[item]>|<[item].nbt[type]>
+    - else:
+      - define inv:<inventory[recipe_book_chooser]>
+      - inventory open d:<[inv]>
+      - foreach <[list]> as:item:
+        - inventory add d:<[inv]> o:<[item]>
 
 show_recipe:
   type: task
