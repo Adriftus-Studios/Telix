@@ -8,4 +8,7 @@ ore_drop_events:
                 - define drops:|:<yaml[server.ore_rates].read[<context.material.name>.<context.location.biome.name>.<[ore]>]>/<[ore]>
             - foreach <yaml[server.ore_rates].list_keys[<context.material.name>.all]||<list[]>> as:ore:
                 - define drops:|:<yaml[server.ore_rates].read[<context.material.name>.all.<[ore]>]>/<[ore]>
-            - narrate <[drops]>
+            - foreach <[drops]> as:drop:
+                - if <util.random.int[1].to[<[drop].split[/].get[2]>]>:
+                    - define to_drop:|:<[drop].split[/].get[1]>
+            - narrate <[to_drop]>
