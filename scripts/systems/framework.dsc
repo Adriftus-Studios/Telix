@@ -78,7 +78,8 @@ reload_scripts:
                   - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
           - if <[value].yaml_key[type]> == item:
               - if <[value].yaml_key[ore]||null> != null:
-                  - yaml id:server.ore_rates set <[value].yaml_key[ore.block]>.<[value].yaml_key[ore.biome]>.<[value].yaml_key[ore.chance]>:<[value].name>
+                - foreach <[value].list_keys[ore]> as:ore:
+                  - yaml id:server.ore_rates set <[value].yaml_key[ore.<[ore]>.block]>.<[value].yaml_key[ore.<[ore]>.biome]>.<[value].yaml_key[ore.<[ore]>.chance]>:<[value].name>
               - if <[value].yaml_key[mob_drops]||null> != null:
                 - foreach <[value].list_keys[mob_drops]> as:num:
                   - yaml id:server.drop_rates set <[value].yaml_key[mob_drops.<[num]>.dropped_by]>.<[value].name>.<[value].yaml_key[mob_drops.<[num]>.chance]>:<[value].yaml_key[mob_drops.<[num]>.min_quantity]>/<[value].yaml_key[mob_drops.<[num]>.max_quantity]>
@@ -103,7 +104,9 @@ reload_scripts:
                     - yaml id:server.altar_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
           - if <[value].yaml_key[type]> == entity:
             - if <[value].yaml_key[custom.spawning_conditions]||null> != null:
-              - yaml id:server.mob_spawns set <[value].yaml_key[custom.spawning_conditions.world]>.<[value].yaml_key[custom.spawning_conditions.biome]>.<[value].name>.every:<[value].yaml_key[custom.spawning_conditions.every]||1m>
+              - foreach <list[<[value].yaml_key[custom.spawning_conditions.world]>]> as:world:
+                - foreach <list[<[value].yaml_key[custom.spawning_conditions.biome]>]> as:biome:
+                  - yaml id:server.mob_spawns set <[world]>.<[biome]>.<[value].name>.every:<[value].yaml_key[custom.spawning_conditions.every]||1m>
               - yaml id:server.mobs set <[value].name>.every:<[value].yaml_key[custom.spawning_conditions.every]||1m>
               - yaml id:server.mobs set <[value].name>.max_y:<[value].yaml_key[custom.spawning_conditions.max_y]||255>
               - yaml id:server.mobs set <[value].name>.min_y:<[value].yaml_key[custom.spawning_conditions.min_y]||0>
@@ -116,6 +119,8 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.time:<[value].yaml_key[custom.spawning_conditions.time]||all>
               - yaml id:server.mobs set <[value].name>.spawn_script:<[value].yaml_key[custom.spawning_conditions.spawn_script]||none>
               - yaml id:server.mobs set <[value].name>.aggressive:<[value].yaml_key[custom.spawning_conditions.aggressive]||false>
+              - yaml id:server.mobs set <[value].name>.per_world_limit:<[value].yaml_key[custom.spawning_conditions.per_world_limit]||100>
+              - yaml id:server.mobs set <[value].name>.above_ground:<[value].yaml_key[custom.spawning_conditions.above_ground]||true>
             - if <[value].yaml_key[custom.ability_usage]||null> != null:
               - yaml id:server.mobs set <[value].name>.abilities:<[value].yaml_key[custom.ability_usage]>
                     

@@ -201,6 +201,7 @@ custom_tin_ore:
   weight: '1'
   type: item
   ore:
+    1:
       biome: all
       block: stone
       chance: 20

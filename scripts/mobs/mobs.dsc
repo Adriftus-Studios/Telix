@@ -40,9 +40,12 @@ mob_spawning_events:
             - define list:<-:<[mob]>
           - if <player.location.material.name.is[==].to[water]> != <yaml[server.mobs].read[<[mob]>.water]>:
             - define list:<-:<[mob]>
-          - if <list[<yaml[server.mobs].read[<[mob]>.time]>].contains[<player.location.world.time.period>]>:
-            - if <yaml[server.mobs].read[<[mob]>.time]> != all:
-              - define list:<-:<[mob]>
+          - if <list[<yaml[server.mobs].read[<[mob]>.time]>].contains[<player.location.world.time.period>]> && <yaml[server.mobs].read[<[mob]>.time]> != all:
+            - define list:<-:<[mob]>
+          - if <player.location.world.living_entities.filter[scriptname.to_lowercase.is[==].to[<[mob]>]].size> >= <yaml[server.mobs].read[<[mob]>.per_world_limit]>:
+            - define list:<-:<[mob]>
+          - if <player.location.highest.y> >= <player.location.y.add[1]>:
+            - define list:<-:<[mob]>
         - define mob_limiter:40
         - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
           - foreach <[list]> as:mob:
@@ -67,7 +70,8 @@ mob_spawning_events:
                   - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
                     - run spawn_custom_mob def:<[mob]>|<[spawning_point]>
                   - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
-                  - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
+                  - if <yaml[server.mobs].read[<[mob]>.spawn_script]||null> != null:
+                    - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
 
 spawn_custom_mob:
   type: task

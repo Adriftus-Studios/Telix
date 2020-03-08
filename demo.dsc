@@ -161,14 +161,16 @@ mob_spawning_test_entity:
   absorption_health: 2000
   custom:
     spawning_conditions:
-      world: all
+      world: tor_mainland|some_other_world
       # world that the mob can spawn in
-      biome: all
+      biome: plains|dark_forest
       # biome that the mob can spawn in
-      every: 5m
+      every: 5h
       # delay between each mob spawn. this is per player
       aggressive: true
       # whether the mob is aggressive
+      per_world_limit: 1
+      # how many can exist on the server at the same time
       air: false
       # does the mob fly / does the mob spawn in air
       max_y: 255
@@ -179,6 +181,8 @@ mob_spawning_test_entity:
       # how far from the player the mob is supposed to spawn at
       water: false
       # Whether the mob can only spawn in water
+      above_ground: true
+      # Whether the mob can only spawn above ground
       max_quantity: 1
       min_quantity: 1
       # how many mobs spawn at the same time
@@ -194,7 +198,7 @@ mob_spawning_test_script:
   type: task
   script:
     # <player> is the player that caused the mob to spawn.
-    - narrate "Spooky action at a distance"
+    - narrate "<&7>A strange looking zombie has appeared in the distance."
     
 # -----[ Custom Mob Ability ]-----
 

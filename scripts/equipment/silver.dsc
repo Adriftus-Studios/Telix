@@ -1,7 +1,7 @@
 
-custom_copper_sword:
+custom_silver_sword:
   material: iron_sword
-  display name: <&7>Copper sword
+  display name: <&7>Silver sword
   weight: '1'
   type: item
   fake_durability: 175
@@ -12,26 +12,26 @@ custom_copper_sword:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|air|air
-      - custom_copper_ingot|air|air
+      - custom_silver_ingot|air|air
+      - custom_silver_ingot|air|air
       - custom_stick|air|air
     2:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|air
-      - air|custom_copper_ingot|air
+      - air|custom_silver_ingot|air
+      - air|custom_silver_ingot|air
       - air|custom_stick|air
     3:
       type: shaped
       output_quantity: 1
       input:
-      - air|air|custom_copper_ingot
-      - air|air|custom_copper_ingot
+      - air|air|custom_silver_ingot
+      - air|air|custom_silver_ingot
       - air|air|custom_stick
-custom_copper_pickaxe:
+custom_silver_pickaxe:
   material: iron_pickaxe
-  display name: <&7>Copper pickaxe
+  display name: <&7>Silver pickaxe
   weight: '1'
   type: item
   fake_durability: 175
@@ -42,12 +42,12 @@ custom_copper_pickaxe:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
+      - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
       - air|custom_stick|air
       - air|custom_stick|air
-custom_copper_axe:
+custom_silver_axe:
   material: iron_axe
-  display name: <&7>Copper axe
+  display name: <&7>Silver axe
   weight: '1'
   type: item
   fake_durability: 175
@@ -58,33 +58,33 @@ custom_copper_axe:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|air
-      - custom_copper_ingot|custom_stick|air
+      - custom_silver_ingot|custom_silver_ingot|air
+      - custom_silver_ingot|custom_stick|air
       - air|custom_stick|air
     2:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|custom_copper_ingot
-      - air|custom_stick|custom_copper_ingot
+      - air|custom_silver_ingot|custom_silver_ingot
+      - air|custom_stick|custom_silver_ingot
       - air|custom_stick|air
     3:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|air
-      - custom_stick|custom_copper_ingot|air
+      - custom_silver_ingot|custom_silver_ingot|air
+      - custom_stick|custom_silver_ingot|air
       - custom_stick|air|air
     4:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|custom_copper_ingot
-      - air|custom_copper_ingot|custom_stick
+      - air|custom_silver_ingot|custom_silver_ingot
+      - air|custom_silver_ingot|custom_stick
       - air|air|custom_stick
-custom_copper_shovel:
+custom_silver_shovel:
   material: iron_shovel
-  display name: <&7>Copper shovel
+  display name: <&7>Silver shovel
   weight: '1'
   type: item
   fake_durability: 175
@@ -95,26 +95,26 @@ custom_copper_shovel:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|air|air
+      - custom_silver_ingot|air|air
       - custom_stick|air|air
       - custom_stick|air|air
     2:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|air
+      - air|custom_silver_ingot|air
       - air|custom_stick|air
       - air|custom_stick|air
     3:
       type: shaped
       output_quantity: 1
       input:
-      - air|air|custom_copper_ingot
+      - air|air|custom_silver_ingot
       - air|air|custom_stick
       - air|air|custom_stick
-custom_copper_hoe:
+custom_silver_hoe:
   material: iron_hoe
-  display name: <&7>Copper hoe
+  display name: <&7>Silver hoe
   weight: '1'
   type: item
   fake_durability: 175
@@ -125,44 +125,44 @@ custom_copper_hoe:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|air
+      - custom_silver_ingot|custom_silver_ingot|air
       - air|custom_stick|air
       - air|custom_stick|air
     2:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|custom_copper_ingot
+      - air|custom_silver_ingot|custom_silver_ingot
       - air|custom_stick|air
       - air|custom_stick|air
     3:
       type: shaped
-      recipe_id: custom_copper_hoe3
+      recipe_id: custom_silver_hoe3
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|air
+      - custom_silver_ingot|custom_silver_ingot|air
       - custom_stick|air|air
       - custom_stick|air|air
     4:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|custom_copper_ingot
+      - air|custom_silver_ingot|custom_silver_ingot
       - air|air|custom_stick
       - air|air|custom_stick
-custom_copper_nugget:
+custom_silver_nugget:
   material: iron_nugget
-  display name: <&7>Copper nugget
+  display name: <&7>Silver nugget
   weight: '0'
   type: item
   recipes:
     1:
       type: shapeless
       output_quantity: 9
-      input: custom_copper_ingot
-custom_copper_ingot:
+      input: custom_silver_ingot
+custom_silver_ingot:
   material: brick
-  display name: <&7>Copper ingot
+  display name: <&7>Silver ingot
   weight: '1'
   type: item
   recipes:
@@ -170,21 +170,21 @@ custom_copper_ingot:
       type: furnace
       cook_time: 10s
       experience: 5
-      input: custom_copper_ore
+      input: custom_silver_ore
     2:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
-      - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
-      - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
+      - custom_silver_nugget|custom_silver_nugget|custom_silver_nugget
+      - custom_silver_nugget|custom_silver_nugget|custom_silver_nugget
+      - custom_silver_nugget|custom_silver_nugget|custom_silver_nugget
     3:
       type: shapeless
       output_quantity: 9
-      input: custom_copper_block
-custom_copper_block:
+      input: custom_silver_block
+custom_silver_block:
   material: iron_block
-  display name: <&7>Copper block
+  display name: <&7>Silver block
   weight: '9'
   type: item
   recipes:
@@ -192,23 +192,23 @@ custom_copper_block:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-custom_copper_ore:
+      - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
+      - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
+      - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
+custom_silver_ore:
   material: iron_ore
-  display name: <&7>Copper ore
+  display name: <&7>Silver ore
   weight: '1'
   type: item
   ore:
     1:
       biome: all
       block: stone
-      chance: 20
-custom_copper_boots:
+      chance: 25
+custom_silver_boots:
   material: iron_boots
   lore:
-  display name: <&7>Copper boots
+  display name: <&7>Silver boots
   category: shoes
   weight: '1'
   type: item
@@ -229,19 +229,19 @@ custom_copper_boots:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_leather_boots|custom_copper_ingot
-      - custom_copper_ingot|air|custom_copper_ingot
+      - custom_silver_ingot|custom_iron_boots|custom_silver_ingot
+      - custom_silver_ingot|air|custom_silver_ingot
       - air|air|air
     2:
       type: shaped
       output_quantity: 1
       input:
       - air|air|air
-      - custom_copper_ingot|custom_leather_boots|custom_copper_ingot
-      - custom_copper_ingot|air|custom_copper_ingot
-custom_copper_leggings:
+      - custom_silver_ingot|custom_iron_boots|custom_silver_ingot
+      - custom_silver_ingot|air|custom_silver_ingot
+custom_silver_leggings:
   material: iron_leggings
-  display name: <&7>Copper leggings
+  display name: <&7>Silver leggings
   category: pants
   weight: '1'
   type: item
@@ -262,12 +262,12 @@ custom_copper_leggings:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_leather_leggings|custom_copper_ingot
-      - custom_copper_ingot|air|custom_copper_ingot
-custom_copper_chestplate:
+      - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
+      - custom_silver_ingot|custom_iron_leggings|custom_silver_ingot
+      - custom_silver_ingot|air|custom_silver_ingot
+custom_silver_chestplate:
   material: iron_chestplate
-  display name: <&7>Copper chestplate
+  display name: <&7>Silver chestplate
   category: shirt
   weight: '1'
   type: item
@@ -288,12 +288,12 @@ custom_copper_chestplate:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_leather_chestplate|custom_copper_ingot
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-custom_copper_helmet:
+      - custom_silver_ingot|custom_iron_chestplate|custom_silver_ingot
+      - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
+      - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
+custom_silver_helmet:
   material: iron_helmet
-  display name: <&7>Copper helmet
+  display name: <&7>Silver helmet
   category: hat
   weight: '1'
   type: item
@@ -314,13 +314,13 @@ custom_copper_helmet:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_leather_helmet|custom_copper_ingot
+      - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
+      - custom_silver_ingot|custom_iron_helmet|custom_silver_ingot
       - air|air|air
     1:
       type: shaped
       output_quantity: 1
       input:
       - air|air|air
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_leather_helmet|custom_copper_ingot
+      - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
+      - custom_silver_ingot|custom_iron_helmet|custom_silver_ingot

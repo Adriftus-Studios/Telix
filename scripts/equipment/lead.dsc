@@ -1,7 +1,7 @@
 
-custom_copper_sword:
+custom_lead_sword:
   material: iron_sword
-  display name: <&7>Copper sword
+  display name: <&7>Lead sword
   weight: '1'
   type: item
   fake_durability: 175
@@ -12,26 +12,26 @@ custom_copper_sword:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|air|air
-      - custom_copper_ingot|air|air
+      - custom_lead_ingot|air|air
+      - custom_lead_ingot|air|air
       - custom_stick|air|air
     2:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|air
-      - air|custom_copper_ingot|air
+      - air|custom_lead_ingot|air
+      - air|custom_lead_ingot|air
       - air|custom_stick|air
     3:
       type: shaped
       output_quantity: 1
       input:
-      - air|air|custom_copper_ingot
-      - air|air|custom_copper_ingot
+      - air|air|custom_lead_ingot
+      - air|air|custom_lead_ingot
       - air|air|custom_stick
-custom_copper_pickaxe:
+custom_lead_pickaxe:
   material: iron_pickaxe
-  display name: <&7>Copper pickaxe
+  display name: <&7>Lead pickaxe
   weight: '1'
   type: item
   fake_durability: 175
@@ -42,12 +42,12 @@ custom_copper_pickaxe:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
+      - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
       - air|custom_stick|air
       - air|custom_stick|air
-custom_copper_axe:
+custom_lead_axe:
   material: iron_axe
-  display name: <&7>Copper axe
+  display name: <&7>Lead axe
   weight: '1'
   type: item
   fake_durability: 175
@@ -58,33 +58,33 @@ custom_copper_axe:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|air
-      - custom_copper_ingot|custom_stick|air
+      - custom_lead_ingot|custom_lead_ingot|air
+      - custom_lead_ingot|custom_stick|air
       - air|custom_stick|air
     2:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|custom_copper_ingot
-      - air|custom_stick|custom_copper_ingot
+      - air|custom_lead_ingot|custom_lead_ingot
+      - air|custom_stick|custom_lead_ingot
       - air|custom_stick|air
     3:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|air
-      - custom_stick|custom_copper_ingot|air
+      - custom_lead_ingot|custom_lead_ingot|air
+      - custom_stick|custom_lead_ingot|air
       - custom_stick|air|air
     4:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|custom_copper_ingot
-      - air|custom_copper_ingot|custom_stick
+      - air|custom_lead_ingot|custom_lead_ingot
+      - air|custom_lead_ingot|custom_stick
       - air|air|custom_stick
-custom_copper_shovel:
+custom_lead_shovel:
   material: iron_shovel
-  display name: <&7>Copper shovel
+  display name: <&7>Lead shovel
   weight: '1'
   type: item
   fake_durability: 175
@@ -95,26 +95,26 @@ custom_copper_shovel:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|air|air
+      - custom_lead_ingot|air|air
       - custom_stick|air|air
       - custom_stick|air|air
     2:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|air
+      - air|custom_lead_ingot|air
       - air|custom_stick|air
       - air|custom_stick|air
     3:
       type: shaped
       output_quantity: 1
       input:
-      - air|air|custom_copper_ingot
+      - air|air|custom_lead_ingot
       - air|air|custom_stick
       - air|air|custom_stick
-custom_copper_hoe:
+custom_lead_hoe:
   material: iron_hoe
-  display name: <&7>Copper hoe
+  display name: <&7>Lead hoe
   weight: '1'
   type: item
   fake_durability: 175
@@ -125,44 +125,44 @@ custom_copper_hoe:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|air
+      - custom_lead_ingot|custom_lead_ingot|air
       - air|custom_stick|air
       - air|custom_stick|air
     2:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|custom_copper_ingot
+      - air|custom_lead_ingot|custom_lead_ingot
       - air|custom_stick|air
       - air|custom_stick|air
     3:
       type: shaped
-      recipe_id: custom_copper_hoe3
+      recipe_id: custom_lead_hoe3
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|air
+      - custom_lead_ingot|custom_lead_ingot|air
       - custom_stick|air|air
       - custom_stick|air|air
     4:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_copper_ingot|custom_copper_ingot
+      - air|custom_lead_ingot|custom_lead_ingot
       - air|air|custom_stick
       - air|air|custom_stick
-custom_copper_nugget:
+custom_lead_nugget:
   material: iron_nugget
-  display name: <&7>Copper nugget
+  display name: <&7>Lead nugget
   weight: '0'
   type: item
   recipes:
     1:
       type: shapeless
       output_quantity: 9
-      input: custom_copper_ingot
-custom_copper_ingot:
+      input: custom_lead_ingot
+custom_lead_ingot:
   material: brick
-  display name: <&7>Copper ingot
+  display name: <&7>Lead ingot
   weight: '1'
   type: item
   recipes:
@@ -170,21 +170,21 @@ custom_copper_ingot:
       type: furnace
       cook_time: 10s
       experience: 5
-      input: custom_copper_ore
+      input: custom_lead_ore
     2:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
-      - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
-      - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
+      - custom_lead_nugget|custom_lead_nugget|custom_lead_nugget
+      - custom_lead_nugget|custom_lead_nugget|custom_lead_nugget
+      - custom_lead_nugget|custom_lead_nugget|custom_lead_nugget
     3:
       type: shapeless
       output_quantity: 9
-      input: custom_copper_block
-custom_copper_block:
+      input: custom_lead_block
+custom_lead_block:
   material: iron_block
-  display name: <&7>Copper block
+  display name: <&7>Lead block
   weight: '9'
   type: item
   recipes:
@@ -192,12 +192,12 @@ custom_copper_block:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-custom_copper_ore:
+      - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
+      - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
+      - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
+custom_lead_ore:
   material: iron_ore
-  display name: <&7>Copper ore
+  display name: <&7>Lead ore
   weight: '1'
   type: item
   ore:
@@ -205,10 +205,10 @@ custom_copper_ore:
       biome: all
       block: stone
       chance: 20
-custom_copper_boots:
+custom_lead_boots:
   material: iron_boots
   lore:
-  display name: <&7>Copper boots
+  display name: <&7>Lead boots
   category: shoes
   weight: '1'
   type: item
@@ -218,7 +218,7 @@ custom_copper_boots:
   max_stars: 3
   sockets: 1
   equipment_modifiers:
-    speed:
+    health:
       max: 5
       min: 1
     constitution:
@@ -229,19 +229,19 @@ custom_copper_boots:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_leather_boots|custom_copper_ingot
-      - custom_copper_ingot|air|custom_copper_ingot
+      - custom_lead_ingot|custom_leather_boots|custom_lead_ingot
+      - custom_lead_ingot|air|custom_lead_ingot
       - air|air|air
     2:
       type: shaped
       output_quantity: 1
       input:
       - air|air|air
-      - custom_copper_ingot|custom_leather_boots|custom_copper_ingot
-      - custom_copper_ingot|air|custom_copper_ingot
-custom_copper_leggings:
+      - custom_lead_ingot|custom_leather_boots|custom_lead_ingot
+      - custom_lead_ingot|air|custom_lead_ingot
+custom_lead_leggings:
   material: iron_leggings
-  display name: <&7>Copper leggings
+  display name: <&7>Lead leggings
   category: pants
   weight: '1'
   type: item
@@ -251,7 +251,7 @@ custom_copper_leggings:
   max_stars: 3
   sockets: 1
   equipment_modifiers:
-    speed:
+    health:
       max: 5
       min: 1
     constitution:
@@ -262,12 +262,12 @@ custom_copper_leggings:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_leather_leggings|custom_copper_ingot
-      - custom_copper_ingot|air|custom_copper_ingot
-custom_copper_chestplate:
+      - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
+      - custom_lead_ingot|custom_leather_leggings|custom_lead_ingot
+      - custom_lead_ingot|air|custom_lead_ingot
+custom_lead_chestplate:
   material: iron_chestplate
-  display name: <&7>Copper chestplate
+  display name: <&7>Lead chestplate
   category: shirt
   weight: '1'
   type: item
@@ -277,7 +277,7 @@ custom_copper_chestplate:
   max_stars: 3
   sockets: 1
   equipment_modifiers:
-    speed:
+    health:
       max: 5
       min: 1
     constitution:
@@ -288,12 +288,12 @@ custom_copper_chestplate:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_leather_chestplate|custom_copper_ingot
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-custom_copper_helmet:
+      - custom_lead_ingot|custom_leather_chestplate|custom_lead_ingot
+      - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
+      - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
+custom_lead_helmet:
   material: iron_helmet
-  display name: <&7>Copper helmet
+  display name: <&7>Lead helmet
   category: hat
   weight: '1'
   type: item
@@ -303,7 +303,7 @@ custom_copper_helmet:
   max_stars: 3
   sockets: 1
   equipment_modifiers:
-    speed:
+    health:
       max: 5
       min: 1
     constitution:
@@ -314,13 +314,13 @@ custom_copper_helmet:
       type: shaped
       output_quantity: 1
       input:
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_leather_helmet|custom_copper_ingot
+      - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
+      - custom_lead_ingot|custom_leather_helmet|custom_lead_ingot
       - air|air|air
     1:
       type: shaped
       output_quantity: 1
       input:
       - air|air|air
-      - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
-      - custom_copper_ingot|custom_leather_helmet|custom_copper_ingot
+      - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
+      - custom_lead_ingot|custom_leather_helmet|custom_lead_ingot
