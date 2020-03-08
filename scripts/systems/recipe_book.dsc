@@ -59,6 +59,11 @@ recipe_book_crafting:
   inventory: workbench
   title: <green><&6>◆<&a><&n><&l>Crafting<&r><&6>◆
   
+recipe_book_furnace:
+  type: inventory
+  inventory: furnace
+  title: <green><&6>◆<&a><&n><&l>Furnace<&r><&6>◆
+  
 recipe_book_events:
   type: world
   events:
@@ -89,6 +94,9 @@ show_recipe:
   type: task
   definitions: item|type
   script:
+    - if <[type]> == furnace:
+      - define inv:<inventory[recipe_book_furnace]>
+      - inventory open d:<[inv]>
     - if <[type]> == shaped || <[type]> == shapeless:
       - define inv:<inventory[recipe_book_crafting]>
       - inventory open d:<[inv]>
@@ -100,18 +108,16 @@ show_recipe:
       - define inv:<inventory[recipe_book_smeltery]>
       - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
       - define input:<yaml[server.recipe_book].read[smeltery.<[item]>.input].as_list>
-      - define output_quantity:<yaml[server.recipe_book].read[smeltery.<[item]>.output_quantity]>
-      - define cook_time:<yaml[server.recipe_book].read[smeltery.<[item]>.cook_time].as_duration>
       - inventory open d:<[inv]>
-      - inventory set d:<[inv]> slot:16 o:<item[<[item]>].with[quantity=<[output_quantity]>]>
+      - inventory set d:<[inv]> slot:16 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[smeltery.<[item]>.output_quantity]>]>
       - foreach <list[11|12|20|21|29|30]> as:in:
         - if <[loop_index]> <= <[input].size>
           - inventory set d:<[inv]> slot:<[in]> o:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[quantity=<[input].get[<[loop_index]>].split[/].get[2]>]||<item[air]>>
       - inventory adjust d:<[inv]> slot:50 display_name:<&7>Cooking<&sp><item[<[item]>].script.yaml_key[display<&sp>name].parsed>
-      - if <[cook_time].in_seconds> >= 60:
-        - inventory adjust d:<[inv]> slot:50 lore:<&f><[cook_time].in_minutes.round_up><&sp>Minutes
+      - if <yaml[server.recipe_book].read[smeltery.<[item]>.cook_time].as_duration.in_seconds> >= 60:
+        - inventory adjust d:<[inv]> slot:50 lore:<&f><yaml[server.recipe_book].read[smeltery.<[item]>.cook_time].as_duration.in_minutes.round_up><&sp>Minutes
       - else:
-        - inventory adjust d:<[inv]> slot:50 lore:<&f><[cook_time].in_seconds.round_up><&sp>Seconds
+        - inventory adjust d:<[inv]> slot:50 lore:<&f><yaml[server.recipe_book].read[smeltery.<[item]>.cook_time].as_duration.in_seconds.round_up><&sp>Seconds
 
 crafting_icon:
   type: item
