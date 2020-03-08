@@ -41,6 +41,14 @@ recipe_book_smeltery:
   type: inventory
   title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
   size: 54
+  procedural items:
+  - define item:<player.flag[context].split[/].get[1]||all>
+  - define input:<yaml[server.recipe_book].read[smeltery.<[item]>.input]>
+  - define output_quantity:<yaml[server.recipe_book].read[smeltery.<[item]>.output_quantity]>
+  - define cook_time:<yaml[server.recipe_book].read[smeltery.<[item]>.cook_time]>
+  - narrate <[input]>
+  - narrate <[output_quantity]>
+  - narrate <[cook_time]>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -64,7 +72,7 @@ recipe_book_events:
   events:
     on player clicks in recipe_book_*:
       - determine passively cancelled
-      - if <player.open_inventory.script_name> == recipe_book_inventory:
+      - if <player.open_inventory.script_name> == recipe_book_inventory && <context.raw_slot> != -998:
         - if <context.raw_slot> < 55:
           - define page:<player.open_inventory.slot[50].nbt[page]>
           - define type:<player.open_inventory.slot[50].nbt[type]>
@@ -84,6 +92,7 @@ recipe_book_events:
             - narrate <[type]>
             - foreach <yaml[server.recipe_book].list_keys[<[type]>.<[item]>]> as:key:
               - narrate <yaml[server.recipe_book].read[<[type]>.<[item]>.<[key]>]>
+            - run show_recipe def:<[item]>|<[type]>
     on player closes recipe_book_*:
       - flag <player> context:!
       
@@ -93,6 +102,9 @@ show_recipe:
   script:
     - if <[type]> == shaped || <[type]> == shapeless:
       
+    - if <[type]> == smeltery:
+      - flag <player> context:<[item].script.name>
+      - inventory open d:recipe_book_smeltery
 
 crafting_icon:
   type: item
