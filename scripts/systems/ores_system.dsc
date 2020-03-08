@@ -8,6 +8,7 @@ ore_drop_events:
             - define drop_num:|:<yaml[server.ore_rates].list_keys[<context.material.name>.all]||<list[]>>
             - define num:0
             - foreach <[drop_num]> as:n:
+                - narrate <[n]>
                 - narrate <el@1.div[<[n]>]>
                 - define num:<[num].add[<el@1.div[<[n]>]>]>
             - define drop_num:<[drop_num].filter[is[OR_LESS].than[<[roll]>]].highest>
