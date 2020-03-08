@@ -134,7 +134,8 @@ recipe_book_events:
           - if <context.item.nbt[type]||null> != null:
             - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
         - else:
-          - run show_recipes def:<context.item>
+          - if <context.item.script.name.starts_with[custom_]||false>:
+            - run show_recipes def:<context.item>
     on player closes recipe_book_*:
       - flag <player> context:!
       
@@ -164,7 +165,9 @@ show_recipe:
     - if <[type]> == ore_spawn:
       - define inv:<inventory[recipe_book_ores]>
       - inventory open d:<[inv]>
-      - inventory set d:<[inv]> slot:13 o:<item[stone].with[display_name=<yaml[recipe_book].read[ore_spawn.<[item]>.biome]>]>
+      - inventory set d:<[inv]> slot:12 o:<item[stone].with[display_name=Biome:<&sp><yaml[server.recipe_book].read[ore_spawn.<[item]>.biome]>]>
+      - inventory set d:<[inv]> slot:14 o:<item[<yaml[server.recipe_book].read[ore_spawn.<[item]>.block]>].with[display_name=Block:<&sp><yaml[server.recipe_book].read[ore_spawn.<[item]>.block]>]>
+      - inventory set d:<[inv]> slot:16 o:<item[stone].with[display_name=Chance:<&sp>1<&sp>in<&sp><yaml[server.recipe_book].read[ore_spawn.<[item]>.chance]>]>
     - if <[type]> == furnace:
       - define inv:<inventory[recipe_book_furnace]>
       - inventory open d:<[inv]>
