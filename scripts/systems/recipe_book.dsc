@@ -11,7 +11,7 @@ recipe_book_inventory:
   - flag <player> context:!
   - foreach <yaml[server.override_recipes].list_keys[]> as:type:
     - define items:|:<yaml[server.override_recipes].list_keys[<[type]>]>
-  - define items:<[items].alphabetical>
+  - define items:<[items].deduplicate.alphabetical>
   - narrate <[items]>
   - repeat 45:
     - define list:|:<item[<[mat]>].with[custom_model_data=<[value].add[<[page].mul[53].sub[53]>]>].with[lore=<[value].add[<[page].mul[53].sub[53]>]>]||<item[air]>>
