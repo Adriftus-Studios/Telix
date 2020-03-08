@@ -56,8 +56,8 @@ recipe_book_smeltery:
 
 recipe_book_crafting:
   type: inventory
-  inventory: crafting
-  title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
+  inventory: workbench
+  title: <green><&6>◆ <&a><&n><&l>Crafting<&r> <&6>◆
   
 recipe_book_events:
   type: world
@@ -79,11 +79,9 @@ recipe_book_events:
             - flag <player> context:crafting/1
             - inventory open d:recipe_book_inventory
           - if <context.raw_slot> < 46:
-            - define item:<context.item.script.name>
-            - define type:<context.item.nbt[type]>
-            - foreach <yaml[server.recipe_book].list_keys[<[type]>.<[item]>]> as:key:
-              - narrate <yaml[server.recipe_book].read[<[type]>.<[item]>.<[key]>]>
-            - run show_recipe def:<[item]>|<[type]>
+            - narrate <context.item.script.name>
+            - narrate <context.item.nbt[type]>
+            - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
     on player closes recipe_book_*:
       - flag <player> context:!
       
