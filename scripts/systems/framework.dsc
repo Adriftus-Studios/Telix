@@ -69,6 +69,7 @@ reload_scripts:
       - yaml create id:server.mob_spawns
       - yaml create id:server.mobs
       - yaml load:data/skill_trees.yml id:server.skill_trees
+      - adjust server reset_recipes
       - foreach <server.list_scripts>:
           - if <[value].yaml_key[script]||<[value].yaml_key[events]||null>> != null:
             - yaml id:server.executable_scripts set scripts:|:<[value].name>
