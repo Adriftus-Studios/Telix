@@ -101,6 +101,7 @@ show_recipe:
       - define cook_time:<yaml[server.recipe_book].read[smeltery.<[item]>.cook_time]>
       - inventory open d:<[inv]>
       - inventory set d:<[inv]> slot:16 o:<item[<[item]>].with[quantity=<[output_quantity]>]>
+      - narrate <[input]>
       - foreach <list[11|12|20|21|29|30]> as:in:
         - narrate <[input].get[<[loop_index]>].split[/].get[1]>
         - narrate <[input].get[<[loop_index]>].split[/].get[2]>
