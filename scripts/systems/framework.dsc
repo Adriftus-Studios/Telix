@@ -231,6 +231,14 @@ custom_item_override:
   type: world
   debug: false
   events:
+    on player places block:
+      - if <context.item_in_hand.script.name||null> != null:
+        - if <context.material.is_block>:
+          - note <context.location> as:<context.item_in_hand.script.name>
+    on player breaks block:
+      - if <context.location.notable_name||null> != null:
+        - if <script[<context.location.notable_name>]||null> != null:
+          - determine <item[<context.location.notable_name>]>
     on entity death:
       - foreach <context.drops||<list[]>> as:item:
         - if <[item].material.name> != air && <[item].script.name||null> == null:

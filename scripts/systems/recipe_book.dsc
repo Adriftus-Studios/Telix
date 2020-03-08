@@ -10,7 +10,8 @@ recipe_book_inventory:
   - define page:<player.flag[context].split[/].get[2]||1>
   - flag <player> context:!
   - foreach <yaml[server.override_recipes].list_keys[]> as:type:
-    - define items:|:<yaml[server.override_recipes].list_keys[<[type]>]>
+    - foreach <yaml[server.override_recipes].list_keys[<[type]>]> as:item:
+      - define items:|:<[item]>/<[type]>
   - define items:<[items].deduplicate.alphabetical>
   - narrate <[items]>
   - repeat 45:
