@@ -14,7 +14,7 @@ recipe_book_inventory:
   - define items:<[items].deduplicate.alphabetical>
   - narrate <[items]>
   - repeat 45:
-    - define list:|:<item[<[items].get[<[page].mul[44].sub[44]>]>]>
+    - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>]>]>
   - determine <[list]>
   slots:
   - "[] [] [] [] [] [] [] [] []"
