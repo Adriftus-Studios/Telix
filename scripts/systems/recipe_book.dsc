@@ -66,6 +66,7 @@ recipe_book_events:
           - flag <player> context:furnace/1
         - if <context.item.script.name> == blast_furnace_icon:
           - flag <player> context:blast_furnace/1
+        - inventory open d:recipe_book_inventory
     on player closes recipe_book_inventory:
       - flag <player> context:!
       
