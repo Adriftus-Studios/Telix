@@ -39,8 +39,9 @@ recipe_book_inventory:
   - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [crafting_icon] [w_filler] [w_filler]"
 
 recipe_book_crafting:
-  type: crafting
-  title: <green><&6>◆ <&a><&n><&l>Recipe Book<&r> <&6>◆
+  type: inventory
+  inventory_type: crafting
+  title: title
 
 recipe_book_events:
   type: world
