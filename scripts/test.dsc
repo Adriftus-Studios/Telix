@@ -1,44 +1,42 @@
-ability_group_teleport:
-  type: command
-  name: group_teleport
-  ability_tree: Test
-  ability_type: active
-  range: 20
-  points_to_unlock: 1
-  power_cost: 1
-  description: Group Teleport
-  color: <co@91,225,245>
-  icon:
-    material: iron_nugget
-    custom_model_data: 1001
-  script:
-    - define location:<player.location.with_pitch[-90]>
-    - run animation_group_teleport1 def:<[location]>
-    - wait 40t
-    - run animation_group_teleport2 def:<[location]>
-    - wait 100t
-    # teleport inside players
 
-animation_group_teleport1:
-  type: task
-  definitions: location
-  script:
-  - repeat 140:
-    - define points1:<proc[define_star].context[<[location]>|3|<[value].mul[2]>|5]>
-    - define points2:<proc[define_circle].context[<[location]>|3]>
-    - playeffect redstone at:<[points1]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
-    - playeffect redstone at:<[points2]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
-    - wait 1t
+rune_blank:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: -6
+  display name: <&7>Blank Rune
 
-animation_group_teleport2:
-  type: task
-  definitions: location
-  script:
-  - repeat 100:
-    - define rotation:<[value]>
-    - repeat 4:
-      - define offset:<proc[find_offset].context[3|<[rotation].mul[2].add[<[value].mul[90]>]>]>
-      - define point1:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-      - define curve:<proc[define_curve1].context[<[point1]>|<[location].above[5]>|1|90|0.4]>
-      - playeffect redstone at:<[curve]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
-    - wait 1t
+rune_air:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: -7
+  display name: <&7>Air Rune
+
+rune_water:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: -8
+  display name: <&7>Water Rune
+
+rune_earth:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: -9
+  display name: <&7>Earth Rune
+
+rune_fire:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: -10
+  display name: <&7>Fire Rune
+
+rune_ender:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: -11
+  display name: <&7>Ender Rune

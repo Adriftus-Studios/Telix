@@ -94,6 +94,17 @@ recipe_book_altar:
   - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [] [w_filler] [] [w_filler] [] [w_filler] [w_filler]"
 
+recipe_book_ores:
+  type: inventory
+  title: <green><&6>◆ <&a><&n><&l>Ores<&r> <&6>◆
+  size: 27
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+
 recipe_book_events:
   type: world
   events:

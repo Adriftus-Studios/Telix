@@ -82,9 +82,17 @@ reload_scripts:
               - if <[value].yaml_key[ore]||null> != null:
                 - foreach <[value].list_keys[ore]> as:ore:
                   - yaml id:server.ore_rates set <[value].yaml_key[ore.<[ore]>.block]>.<[value].yaml_key[ore.<[ore]>.biome]>.<[value].yaml_key[ore.<[ore]>.chance]>:<[value].name>
+                  - yaml id:server.recipe_book set ore_spawn.<[value].name>.block:<[value].yaml_key[ore.<[ore]>.block]>
+                  - yaml id:server.recipe_book set ore_spawn.<[value].name>.biome:<[value].yaml_key[ore.<[ore]>.biome]>
+                  - yaml id:server.recipe_book set ore_spawn.<[value].name>.chance:<[value].yaml_key[ore.<[ore]>.chance]>
               - if <[value].yaml_key[mob_drops]||null> != null:
                 - foreach <[value].list_keys[mob_drops]> as:num:
                   - yaml id:server.drop_rates set <[value].yaml_key[mob_drops.<[num]>.dropped_by]>.<[value].name>.<[value].yaml_key[mob_drops.<[num]>.chance]>:<[value].yaml_key[mob_drops.<[num]>.min_quantity]>/<[value].yaml_key[mob_drops.<[num]>.max_quantity]>
+                  - yaml id:server.recipe_book set mob_drops.<[value].name>.dropped_by:<[value].yaml_key[mob_drops.<[num]>.dropped_by]>
+                  - yaml id:server.recipe_book set mob_drops.<[value].name>.chance:<[value].yaml_key[mob_drops.<[num]>.chance]>
+                  - yaml id:server.recipe_book set mob_drops.<[value].name>.min_quantity:<[value].yaml_key[mob_drops.<[num]>.min_quantity]>
+                  - yaml id:server.recipe_book set mob_drops.<[value].name>.max_quantity:<[value].yaml_key[mob_drops.<[num]>.max_quantity]>
+                  - yaml id:server.recipe_book set mob_info.<[value].yaml_key[mob_drops.<[num]>.dropped_by]>.drops:|:<[value].name>
               - if <[value].yaml_key[category]||null> != null:
                   - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
               - if <[value].yaml_key[recipes]||null> != null:
@@ -125,6 +133,14 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.aggressive:<[value].yaml_key[custom.spawning_conditions.aggressive]||false>
               - yaml id:server.mobs set <[value].name>.per_world_limit:<[value].yaml_key[custom.spawning_conditions.per_world_limit]||100>
               - yaml id:server.mobs set <[value].name>.above_ground:<[value].yaml_key[custom.spawning_conditions.above_ground]||true>
+              - yaml id:server.recipe_book set mob_info.<[value].name>.every:<[value].yaml_key[custom.spawning_conditions.every]||1m>
+              - yaml id:server.recipe_book set mob_info.<[value].name>.max_y:<[value].yaml_key[custom.spawning_conditions.max_y]||255>
+              - yaml id:server.recipe_book set mob_info.<[value].name>.min_y:<[value].yaml_key[custom.spawning_conditions.min_y]||0>
+              - yaml id:server.recipe_book set mob_info.<[value].name>.water:<[value].yaml_key[custom.spawning_conditions.water]||false>
+              - yaml id:server.recipe_book set mob_info.<[value].name>.air:<[value].yaml_key[custom.spawning_conditions.air]||false>
+              - yaml id:server.recipe_book set mob_info.<[value].name>.time:<[value].yaml_key[custom.spawning_conditions.time]||all>
+              - yaml id:server.recipe_book set mob_info.<[value].name>.aggressive:<[value].yaml_key[custom.spawning_conditions.aggressive]||false>
+              - yaml id:server.recipe_book set mob_info.<[value].name>.above_ground:<[value].yaml_key[custom.spawning_conditions.above_ground]||true>
             - if <[value].yaml_key[custom.ability_usage]||null> != null:
               - yaml id:server.mobs set <[value].name>.abilities:<[value].yaml_key[custom.ability_usage]>
                     
