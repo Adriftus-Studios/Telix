@@ -199,8 +199,11 @@ show_recipe:
     - narrate <[type]>
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
-    - if <[type]> == recipe_book_note:
-      - narrate <[item]>
+    - if <[type]> == notes:
+      - define inv:<inventory[recipe_book_note]>
+      - inventory open d:<[inv]>
+      - define note:<yaml[server.recipe_book].read[notes.<[item]>]>
+      - narrate <[note]>
     - if <[type]> == mob_drops:
       - define inv:<inventory[recipe_book_mob_drops]>
       - inventory open d:<[inv]>
