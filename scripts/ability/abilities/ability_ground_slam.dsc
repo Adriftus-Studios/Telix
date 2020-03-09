@@ -17,7 +17,7 @@ ability_ground_slam:
     #Check if player is in the air, if they aren't, perform standard ground slam
     - define blocks:2
     - repeat <[blocks]>:
-      - if <player.location.below[<[value]>].backward_flat.material.name> != air || <player.location.below[<[value]>].material.name> != air:
+      - if <player.location.below[<[value]>].backward_flat.material.name> != air || <player.location.below[<[value]>].forward_flat.material.name> != air || <player.location.below[<[value]>].material.name> != air:
         - inject abilities_cost
         - adjust <player> velocity:0,1,0
         - wait 18t
