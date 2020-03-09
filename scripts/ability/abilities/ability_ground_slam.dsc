@@ -29,7 +29,8 @@ ability_ground_slam:
     - repeat 50:
       - if <player.location.below.material.name> == air:
         - inject abilities_cost
-        - inject ability_ground_slam_damage
+        - wait 10t
+        - inject ability_ground_slam_stun
         - stop
       - adjust <player> velocity:0,-1,0
       - wait 1s
@@ -50,7 +51,6 @@ ability_ground_slam_stun:
   type: task
   debug: true
   script:
-    - wait 10t
     - foreach <player.location.find.players.within[3].exclude[<player>]>:
       - look <[value]> <player.location>
       - cast slow <[value]> duration:5s power:255
