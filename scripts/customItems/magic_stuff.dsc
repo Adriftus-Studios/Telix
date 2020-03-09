@@ -144,7 +144,8 @@ custom_livingwood_twig:
       block: birch_log
       tool: custom_draw_knife
       chance: 37
-    2:
+  recipes:
+    1:
       type: shapeless
       output_quantity: 4
       input: custom_livingwood

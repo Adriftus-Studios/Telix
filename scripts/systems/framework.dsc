@@ -86,8 +86,6 @@ reload_scripts:
                   - foreach <[value].yaml_key[ore.<[ore]>.biome].as_list> as:biome:
                     - foreach <[value].yaml_key[ore.<[ore]>.block].as_list> as:block:
                       - yaml id:server.ore_rates set <[block]>.<[biome]>.<[value].yaml_key[ore.<[ore]>.chance]>:|:<[value].name>
-                  - if <[value].yaml_key[ore.<[ore]>.biome].as_list||null> == null:
-                    - announce <[value].name>
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.block:<[value].yaml_key[ore.<[ore]>.block]||all>
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.biome:<[value].yaml_key[ore.<[ore]>.biome]||all>
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.chance:<[value].yaml_key[ore.<[ore]>.chance]||20>
