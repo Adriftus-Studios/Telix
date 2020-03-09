@@ -93,7 +93,7 @@ reload_scripts:
                   - foreach <[value].yaml_key[mob_drops.<[num]>.dropped_by].as_list> as:mob:
                     - yaml id:server.drop_rates set <[mob]>.<[value].name>.<[value].yaml_key[mob_drops.<[num]>.chance]>:<[value].yaml_key[mob_drops.<[num]>.min_quantity]>/<[value].yaml_key[mob_drops.<[num]>.max_quantity]>
                   - yaml id:server.recipe_book set mob_drops.<[value].name>.dropped_by:<[value].yaml_key[mob_drops.<[num]>.dropped_by]>
-                  - yaml id:server.recipe_book set mob_drops.<[value].name>.:<[value].yaml_key[mob_drops.<[num]>.chance]>
+                  - yaml id:server.recipe_book set mob_drops.<[value].name>.chance:<[value].yaml_key[mob_drops.<[num]>.chance]>
                   - yaml id:server.recipe_book set mob_drops.<[value].name>.min_quantity:<[value].yaml_key[mob_drops.<[num]>.min_quantity]>
                   - yaml id:server.recipe_book set mob_drops.<[value].name>.max_quantity:<[value].yaml_key[mob_drops.<[num]>.max_quantity]>
                   - yaml id:server.recipe_book set mob_info.<[value].yaml_key[mob_drops.<[num]>.dropped_by]>.drops:|:<[value].name>
