@@ -237,6 +237,7 @@ player_setup:
 equipt_command:
   type: command
   name: equipt
+  permission: equipt
   script:
   - inject system_equipment_set
 
