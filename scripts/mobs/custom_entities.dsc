@@ -76,7 +76,7 @@ entity_direwolf:
   entity_type: wolf
   custom_name: Direwolf
   max_health: 15
-  health: 15
+  health: 7
   speed: 0.4
   custom:
     spawning_conditions:
