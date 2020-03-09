@@ -209,7 +209,7 @@ show_recipe:
       - inventory set d:<[inv]> slot:13 o:<[block].with[display_name=<&r><&6>Block:<&sp><[block].material.name.replace[_].with[<&sp>]>;lore=<[lore]>]>
       - inventory set d:<[inv]> slot:15 o:<item[stone].with[display_name=<&r><&6>Chance:<&sp>1<&sp>in<&sp><yaml[server.recipe_book].read[ore_spawn.<[item]>.chance]>]>
       - define tool:<item[<yaml[server.recipe_book].read[ore_spawn.<[item]>.tool]>]||<item[iron_axe]>>
-      - inventory set d:<[inv]> slot:17 o:<[tool].with[display_name=<&r><&6>Tool<&sp>Required:<&sp><[tool].display>]>
+      - inventory set d:<[inv]> slot:17 o:<[tool].with[display_name=<&r><&6>Tool<&sp>Required:<&sp><[tool].display||<&6>Any>]>
     - if <[type]> == furnace:
       - define inv:<inventory[recipe_book_furnace]>
       - inventory open d:<[inv]>
