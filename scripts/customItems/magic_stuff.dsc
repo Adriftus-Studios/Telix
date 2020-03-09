@@ -98,12 +98,7 @@ custom_fire_shard:
   ore:
     1:
       biome: nether
-      block: netherrack
-      tool: all
-      chance: 117
-    2:
-      biome: nether
-      block: obsidian
+      block: netherrack|obsidian
       tool: all
       chance: 117
 
