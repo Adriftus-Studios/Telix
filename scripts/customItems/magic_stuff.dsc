@@ -40,7 +40,7 @@ custom_water_rune:
     1:
       type: altar
       output_quantity: 1
-      input: custom_glass_bottle/13|custom_blank_rune/1|custom_air_shard/4|custom_white_wool/8|custom_feather/19
+      input: custom_glass_bottle/13|custom_blank_rune/1|custom_water_shard/4|custom_white_wool/8|custom_feather/19
       cook_time: 5m
 
 custom_water_shard:
