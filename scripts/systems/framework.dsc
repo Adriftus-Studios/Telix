@@ -84,13 +84,14 @@ reload_scripts:
                   - foreach <[value].yaml_key[ore.<[ore]>.biome].as_list> as:biome:
                     - foreach <[value].yaml_key[ore.<[ore]>.block].as_list> as:block:
                       - yaml id:server.ore_rates set <[block]>.<[biome]>.<[value].yaml_key[ore.<[ore]>.chance]>:|:<[value].name>
-                  - if <[value].name> == custom_water_shard:
-                    - narrate <[value].yaml_key[ore.<[ore]>.biome]>
-                    - narrate <[value].yaml_key[ore.<[ore]>.biome]||all>
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.block:<[value].yaml_key[ore.<[ore]>.block]||all>
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.biome:<[value].yaml_key[ore.<[ore]>.biome]||all>
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.chance:<[value].yaml_key[ore.<[ore]>.chance]||20>
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.tool:<[value].yaml_key[ore.<[ore]>.tool]||all>
+                  - if <[value].name> == custom_water_shard:
+                    - narrate <[value].yaml_key[ore.<[ore]>.biome]>
+                    - narrate <[value].yaml_key[ore.<[ore]>.biome]||all>
+                    - narrate <yaml[server.recipe_book].read[ore_spawn.custom_water_shard.biome]>
               - if <[value].yaml_key[mob_drops]||null> != null:
                 - foreach <[value].list_keys[mob_drops]> as:num:
                   - foreach <[value].yaml_key[mob_drops.<[num]>.dropped_by].as_list> as:mob:
