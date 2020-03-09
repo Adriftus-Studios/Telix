@@ -1,40 +1,40 @@
 
-rune_blank:
+custom_rune_blank:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -6
   display name: <&7>Blank Rune
 
-rune_air:
+custom_rune_air:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -7
   display name: <&7>Air Rune
 
-rune_water:
+custom_rune_water:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -8
   display name: <&7>Water Rune
 
-rune_earth:
+custom_rune_earth:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -9
   display name: <&7>Earth Rune
 
-rune_fire:
+custom_rune_fire:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -10
   display name: <&7>Fire Rune
 
-rune_ender:
+custom_rune_ender:
   type: item
   material: gold_nugget
   mechanisms:
@@ -50,7 +50,7 @@ custom_livingwood_twig:
       biome: all
       block: birch_log
       tool: custom_draw_knife
-      chance: 1
+      chance: 70
 
 custom_draw_knife:
   type: item

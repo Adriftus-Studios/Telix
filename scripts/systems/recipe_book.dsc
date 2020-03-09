@@ -196,7 +196,8 @@ show_recipe:
       - define inv:<inventory[recipe_book_ores]>
       - inventory open d:<[inv]>
       - inventory set d:<[inv]> slot:11 o:<item[stone].with[display_name=<&r><&6>Biome:<&sp><yaml[server.recipe_book].read[ore_spawn.<[item]>.biome]>]>
-      - inventory set d:<[inv]> slot:13 o:<item[<yaml[server.recipe_book].read[ore_spawn.<[item]>.block]>].with[display_name=<&r><&6>Block:<&sp><yaml[server.recipe_book].read[ore_spawn.<[item]>.block]>]>
+      - define block:<item[<yaml[server.recipe_book].read[ore_spawn.<[item]>.block]>]>
+      - inventory set d:<[inv]> slot:13 o:<[block].with[display_name=<&r><&6>Block:<&sp><[block].display>]>
       - inventory set d:<[inv]> slot:15 o:<item[stone].with[display_name=<&r><&6>Chance:<&sp>1<&sp>in<&sp><yaml[server.recipe_book].read[ore_spawn.<[item]>.chance]>]>
       - define tool:<item[<yaml[server.recipe_book].read[ore_spawn.<[item]>.tool]>]||<item[iron_axe]>>
       - inventory set d:<[inv]> slot:15 o:<[tool].with[display_name=<&r><&6>Tool<&sp>Required:<&sp><[tool].display>]>
