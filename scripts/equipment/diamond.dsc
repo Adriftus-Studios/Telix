@@ -1,11 +1,11 @@
 custom_diamond_horse_armor:
   material: diamond_horse_armor
-  display name: <&7>Diamond horse armor
+  display name: <&7>Diamond Horse Armor
   weight: '1'
   type: item
 custom_diamond_sword:
   material: diamond_sword
-  display name: <&7>Diamond sword
+  display name: <&7>Diamond Sword
   weight: '1'
   type: item
   fake_durability: 1561
@@ -35,7 +35,7 @@ custom_diamond_sword:
       - air|air|custom_stick
 custom_diamond_pickaxe:
   material: diamond_pickaxe
-  display name: <&7>Diamond pickaxe
+  display name: <&7>Diamond Pickaxe
   weight: '1'
   type: item
   fake_durability: 1561
@@ -51,7 +51,7 @@ custom_diamond_pickaxe:
       - air|custom_stick|air
 custom_diamond_axe:
   material: diamond_axe
-  display name: <&7>Diamond axe
+  display name: <&7>Diamond Axe
   weight: '1'
   type: item
   fake_durability: 1561
@@ -88,7 +88,7 @@ custom_diamond_axe:
       - air|air|custom_stick
 custom_diamond_shovel:
   material: diamond_shovel
-  display name: <&7>Diamond shovel
+  display name: <&7>Diamond Shovel
   weight: '1'
   type: item
   fake_durability: 1561
@@ -118,7 +118,7 @@ custom_diamond_shovel:
       - air|air|custom_stick
 custom_diamond_hoe:
   material: diamond_hoe
-  display name: <&7>Diamond hoe
+  display name: <&7>Diamond Hoe
   weight: '1'
   type: item
   fake_durability: 1561
@@ -172,7 +172,7 @@ custom_diamond:
       input: custom_diamond_block
 custom_diamond_block:
   material: diamond_block
-  display name: <&7>Diamond block
+  display name: <&7>Diamond Block
   weight: '9'
   type: item
   recipes:
@@ -186,7 +186,7 @@ custom_diamond_block:
       - custom_diamond|custom_diamond|custom_diamond
 custom_diamond_ore:
   material: diamond_ore
-  display name: <&7>Diamond ore
+  display name: <&7>Diamond Ore
   weight: '1'
   type: item
   ore:
@@ -197,7 +197,7 @@ custom_diamond_ore:
 custom_diamond_boots:
   material: diamond_boots
   lore:
-  display name: <&7>Diamond boots
+  display name: <&7>Diamond Boots
   category: shoes
   weight: '1'
   type: item
@@ -230,7 +230,7 @@ custom_diamond_boots:
       - custom_diamond|air|custom_diamond
 custom_diamond_leggings:
   material: diamond_leggings
-  display name: <&7>Diamond leggings
+  display name: <&7>Diamond Leggings
   category: pants
   weight: '1'
   type: item
@@ -256,7 +256,7 @@ custom_diamond_leggings:
       - custom_diamond|air|custom_diamond
 custom_diamond_chestplate:
   material: diamond_chestplate
-  display name: <&7>Diamond chestplate
+  display name: <&7>Diamond Chestplate
   category: shirt
   weight: '1'
   type: item
@@ -282,7 +282,7 @@ custom_diamond_chestplate:
       - custom_diamond|custom_diamond|custom_diamond
 custom_diamond_helmet:
   material: diamond_helmet
-  display name: <&7>Diamond helmet
+  display name: <&7>Diamond Helmet
   category: hat
   weight: '1'
   type: item

@@ -1,7 +1,7 @@
 
 custom_copper_sword:
   material: iron_sword
-  display name: <&7>Copper sword
+  display name: <&7>Copper Sword
   weight: '1'
   type: item
   fake_durability: 175
@@ -31,7 +31,7 @@ custom_copper_sword:
       - air|air|custom_stick
 custom_copper_pickaxe:
   material: iron_pickaxe
-  display name: <&7>Copper pickaxe
+  display name: <&7>Copper Pickaxe
   weight: '1'
   type: item
   fake_durability: 175
@@ -47,7 +47,7 @@ custom_copper_pickaxe:
       - air|custom_stick|air
 custom_copper_axe:
   material: iron_axe
-  display name: <&7>Copper axe
+  display name: <&7>Copper Axe
   weight: '1'
   type: item
   fake_durability: 175
@@ -84,7 +84,7 @@ custom_copper_axe:
       - air|air|custom_stick
 custom_copper_shovel:
   material: iron_shovel
-  display name: <&7>Copper shovel
+  display name: <&7>Copper Shovel
   weight: '1'
   type: item
   fake_durability: 175
@@ -114,7 +114,7 @@ custom_copper_shovel:
       - air|air|custom_stick
 custom_copper_hoe:
   material: iron_hoe
-  display name: <&7>Copper hoe
+  display name: <&7>Copper Hoe
   weight: '1'
   type: item
   fake_durability: 175
@@ -152,7 +152,7 @@ custom_copper_hoe:
       - air|air|custom_stick
 custom_copper_nugget:
   material: iron_nugget
-  display name: <&7>Copper nugget
+  display name: <&7>Copper Nugget
   weight: '0'
   type: item
   recipes:
@@ -163,7 +163,7 @@ custom_copper_nugget:
       input: custom_copper_ingot
 custom_copper_ingot:
   material: brick
-  display name: <&7>Copper ingot
+  display name: <&7>Copper Ingot
   weight: '1'
   type: item
   recipes:
@@ -187,7 +187,7 @@ custom_copper_ingot:
       input: custom_copper_block
 custom_copper_block:
   material: iron_block
-  display name: <&7>Copper block
+  display name: <&7>Copper Block
   weight: '9'
   type: item
   recipes:
@@ -201,7 +201,7 @@ custom_copper_block:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
 custom_copper_ore:
   material: iron_ore
-  display name: <&7>Copper ore
+  display name: <&7>Copper Ore
   weight: '1'
   type: item
   ore:
@@ -212,7 +212,7 @@ custom_copper_ore:
 custom_copper_boots:
   material: iron_boots
   lore:
-  display name: <&7>Copper boots
+  display name: <&7>Copper Boots
   category: shoes
   weight: '1'
   type: item
@@ -245,7 +245,7 @@ custom_copper_boots:
       - custom_copper_ingot|air|custom_copper_ingot
 custom_copper_leggings:
   material: iron_leggings
-  display name: <&7>Copper leggings
+  display name: <&7>Copper Leggings
   category: pants
   weight: '1'
   type: item
@@ -271,7 +271,7 @@ custom_copper_leggings:
       - custom_copper_ingot|air|custom_copper_ingot
 custom_copper_chestplate:
   material: iron_chestplate
-  display name: <&7>Copper chestplate
+  display name: <&7>Copper Chestplate
   category: shirt
   weight: '1'
   type: item
@@ -297,7 +297,7 @@ custom_copper_chestplate:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
 custom_copper_helmet:
   material: iron_helmet
-  display name: <&7>Copper helmet
+  display name: <&7>Copper Helmet
   category: hat
   weight: '1'
   type: item

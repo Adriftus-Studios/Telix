@@ -1,7 +1,7 @@
 
 custom_steel_sword:
   material: iron_sword
-  display name: <&7>Steel sword
+  display name: <&7>Steel Sword
   weight: '2'
   type: item
   fake_durability: 500
@@ -31,7 +31,7 @@ custom_steel_sword:
       - air|air|custom_stick
 custom_steel_pickaxe:
   material: iron_pickaxe
-  display name: <&7>Steel pickaxe
+  display name: <&7>Steel Pickaxe
   weight: '3'
   type: item
   fake_durability: 500
@@ -47,7 +47,7 @@ custom_steel_pickaxe:
       - air|custom_stick|air
 custom_steel_axe:
   material: iron_axe
-  display name: <&7>Steel axe
+  display name: <&7>Steel Axe
   weight: '3'
   type: item
   fake_durability: 500
@@ -84,7 +84,7 @@ custom_steel_axe:
       - air|air|custom_stick
 custom_steel_shovel:
   material: iron_shovel
-  display name: <&7>Steel shovel
+  display name: <&7>Steel Shovel
   weight: '1'
   type: item
   fake_durability: 500
@@ -114,7 +114,7 @@ custom_steel_shovel:
       - air|air|custom_stick
 custom_steel_hoe:
   material: iron_hoe
-  display name: <&7>Steel hoe
+  display name: <&7>Steel Hoe
   weight: '2'
   type: item
   fake_durability: 500
@@ -152,7 +152,7 @@ custom_steel_hoe:
       - air|air|custom_stick
 custom_steel_nugget:
   material: iron_nugget
-  display name: <&7>Steel nugget
+  display name: <&7>Steel Nugget
   weight: '0'
   type: item
   recipes:
@@ -163,7 +163,7 @@ custom_steel_nugget:
       input: custom_steel_ingot
 custom_steel_ingot:
   material: iron_ingot
-  display name: <&7>Steel ingot
+  display name: <&7>Steel Ingot
   weight: '1'
   type: item
   recipes:
@@ -187,7 +187,7 @@ custom_steel_ingot:
       input: custom_steel_block
 custom_steel_block:
   material: iron_block
-  display name: <&7>Steel block
+  display name: <&7>Steel Block
   weight: '9'
   type: item
   recipes:
@@ -202,7 +202,7 @@ custom_steel_block:
 custom_steel_boots:
   material: iron_boots
   lore:
-  display name: <&7>Steel boots
+  display name: <&7>Steel Boots
   category: shoes
   weight: '4'
   type: item
@@ -235,7 +235,7 @@ custom_steel_boots:
       - custom_steel_ingot|air|custom_steel_ingot
 custom_steel_leggings:
   material: iron_leggings
-  display name: <&7>Steel leggings
+  display name: <&7>Steel Leggings
   category: pants
   weight: '7'
   type: item
@@ -261,7 +261,7 @@ custom_steel_leggings:
       - custom_steel_ingot|air|custom_steel_ingot
 custom_steel_chestplate:
   material: iron_chestplate
-  display name: <&7>Steel chestplate
+  display name: <&7>Steel Chestplate
   category: shirt
   weight: '8'
   type: item
@@ -287,7 +287,7 @@ custom_steel_chestplate:
       - custom_steel_ingot|custom_steel_ingot|custom_steel_ingot
 custom_steel_helmet:
   material: iron_helmet
-  display name: <&7>Steel helmet
+  display name: <&7>Steel Helmet
   category: hat
   weight: '5'
   type: item

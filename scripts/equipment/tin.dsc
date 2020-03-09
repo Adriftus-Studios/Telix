@@ -1,7 +1,7 @@
 
 custom_tin_sword:
   material: iron_sword
-  display name: <&7>Tin sword
+  display name: <&7>Tin Sword
   weight: '2'
   type: item
   fake_durability: 200
@@ -31,7 +31,7 @@ custom_tin_sword:
       - air|air|custom_stick
 custom_tin_pickaxe:
   material: iron_pickaxe
-  display name: <&7>Tin pickaxe
+  display name: <&7>Tin Pickaxe
   weight: '3'
   type: item
   fake_durability: 200
@@ -47,7 +47,7 @@ custom_tin_pickaxe:
       - air|custom_stick|air
 custom_tin_axe:
   material: iron_axe
-  display name: <&7>Tin axe
+  display name: <&7>Tin Axe
   weight: '3'
   type: item
   fake_durability: 200
@@ -84,7 +84,7 @@ custom_tin_axe:
       - air|air|custom_stick
 custom_tin_shovel:
   material: iron_shovel
-  display name: <&7>Tin shovel
+  display name: <&7>Tin Shovel
   weight: '1'
   type: item
   fake_durability: 200
@@ -114,7 +114,7 @@ custom_tin_shovel:
       - air|air|custom_stick
 custom_tin_hoe:
   material: iron_hoe
-  display name: <&7>Tin hoe
+  display name: <&7>Tin Hoe
   weight: '2'
   type: item
   fake_durability: 200
@@ -152,7 +152,7 @@ custom_tin_hoe:
       - air|air|custom_stick
 custom_tin_nugget:
   material: iron_nugget
-  display name: <&7>Tin nugget
+  display name: <&7>Tin Nugget
   weight: '0'
   type: item
   recipes:
@@ -163,7 +163,7 @@ custom_tin_nugget:
       input: custom_tin_ingot
 custom_tin_ingot:
   material: iron_ingot
-  display name: <&7>Tin ingot
+  display name: <&7>Tin Ingot
   weight: '1'
   type: item
   recipes:
@@ -187,7 +187,7 @@ custom_tin_ingot:
       input: custom_tin_block
 custom_tin_block:
   material: iron_block
-  display name: <&7>Tin block
+  display name: <&7>Tin Block
   weight: '9'
   type: item
   recipes:
@@ -201,7 +201,7 @@ custom_tin_block:
       - custom_tin_ingot|custom_tin_ingot|custom_tin_ingot
 custom_tin_ore:
   material: iron_ore
-  display name: <&7>Tin ore
+  display name: <&7>Tin Ore
   weight: '1'
   type: item
   ore:
@@ -212,7 +212,7 @@ custom_tin_ore:
 custom_tin_boots:
   material: iron_boots
   lore:
-  display name: <&7>Tin boots
+  display name: <&7>Tin Boots
   category: shoes
   weight: '4'
   type: item
@@ -251,7 +251,7 @@ custom_tin_boots:
       - custom_tin_ingot|air|custom_tin_ingot
 custom_tin_leggings:
   material: iron_leggings
-  display name: <&7>Tin leggings
+  display name: <&7>Tin Leggings
   category: pants
   weight: '7'
   type: item
@@ -283,7 +283,7 @@ custom_tin_leggings:
       - custom_tin_ingot|air|custom_tin_ingot
 custom_tin_chestplate:
   material: iron_chestplate
-  display name: <&7>Tin chestplate
+  display name: <&7>Tin Chestplate
   category: shirt
   weight: '8'
   type: item
@@ -315,7 +315,7 @@ custom_tin_chestplate:
       - custom_tin_ingot|custom_tin_ingot|custom_tin_ingot
 custom_tin_helmet:
   material: iron_helmet
-  display name: <&7>Tin helmet
+  display name: <&7>Tin Helmet
   category: hat
   weight: '5'
   type: item

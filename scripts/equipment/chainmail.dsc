@@ -13,7 +13,7 @@ custom_chainlink:
       input: custom_iron_ingot
 custom_chainmail_boots:
   material: chainmail_boots
-  display name: <&7>Chainmail boots
+  display name: <&7>Chainmail Boots
   category: shoes
   weight: '1'
   type: item
@@ -49,7 +49,7 @@ custom_chainmail_boots:
       - custom_chainlink|air|custom_chainlink
 custom_chainmail_leggings:
   material: chainmail_leggings
-  display name: <&7>Chainmail leggings
+  display name: <&7>Chainmail Leggings
   category: pants
   weight: '1'
   type: item
@@ -78,7 +78,7 @@ custom_chainmail_leggings:
       - custom_chainlink|air|custom_chainlink
 custom_chainmail_chestplate:
   material: chainmail_chestplate
-  display name: <&7>Chainmail chestplate
+  display name: <&7>Chainmail Chestplate
   category: shirt
   weight: '1'
   type: item
@@ -107,7 +107,7 @@ custom_chainmail_chestplate:
       - custom_chainlink|custom_chainlink|custom_chainlink
 custom_chainmail_helmet:
   material: chainmail_helmet
-  display name: <&7>Chainmail helmet
+  display name: <&7>Chainmail Helmet
   category: hat
   weight: '1'
   type: item

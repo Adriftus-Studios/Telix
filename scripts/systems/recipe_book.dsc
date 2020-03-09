@@ -1,6 +1,6 @@
 recipe_book_inventory:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Recipe Book<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Recipe Book<&r> <&6>◆
   size: 54
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -30,7 +30,7 @@ recipe_book_inventory:
 
 recipe_book_chooser:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Recipes<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Recipes<&r> <&6>◆
   size: 36
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -42,7 +42,7 @@ recipe_book_chooser:
 
 recipe_book_smeltery:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
   size: 54
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -75,12 +75,12 @@ recipe_book_alchemy:
 recipe_book_crafting:
   type: inventory
   inventory: workbench
-  title: <green><&6>◆<&a><&n><&l>Crafting<&r><&6>◆
+  title: <&6>◆<&a><&n><&l>Crafting<&r><&6>◆
   
 recipe_book_furnace:
   type: inventory
   inventory: furnace
-  title: <green><&6>◆ <&a><&n><&l>Furnace<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Furnace<&r> <&6>◆
   
 recipe_book_altar:
   type: inventory
@@ -99,7 +99,7 @@ recipe_book_altar:
 
 recipe_book_ores:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Ores<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Ores<&r> <&6>◆
   size: 27
   definitions:
     w_filler: <item[gui_invisible_item]>

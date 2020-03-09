@@ -1,7 +1,7 @@
 
 custom_manasteel_sword:
   material: iron_sword
-  display name: <&7>Manasteel sword
+  display name: <&7>Manasteel Sword
   weight: '2'
   type: item
   fake_durability: 250
@@ -31,7 +31,7 @@ custom_manasteel_sword:
       - air|air|custom_stick
 custom_manasteel_pickaxe:
   material: iron_pickaxe
-  display name: <&7>Manasteel pickaxe
+  display name: <&7>Manasteel Pickaxe
   weight: '3'
   type: item
   fake_durability: 250
@@ -47,7 +47,7 @@ custom_manasteel_pickaxe:
       - air|custom_stick|air
 custom_manasteel_axe:
   material: iron_axe
-  display name: <&7>Manasteel axe
+  display name: <&7>Manasteel Axe
   weight: '3'
   type: item
   fake_durability: 250
@@ -84,7 +84,7 @@ custom_manasteel_axe:
       - air|air|custom_stick
 custom_manasteel_shovel:
   material: iron_shovel
-  display name: <&7>Manasteel shovel
+  display name: <&7>Manasteel Shovel
   weight: '1'
   type: item
   fake_durability: 250
@@ -114,7 +114,7 @@ custom_manasteel_shovel:
       - air|air|custom_stick
 custom_manasteel_hoe:
   material: iron_hoe
-  display name: <&7>Manasteel hoe
+  display name: <&7>Manasteel Hoe
   weight: '2'
   type: item
   fake_durability: 250
@@ -152,7 +152,7 @@ custom_manasteel_hoe:
       - air|air|custom_stick
 custom_manasteel_nugget:
   material: iron_nugget
-  display name: <&7>Manasteel nugget
+  display name: <&7>Manasteel Nugget
   weight: '0'
   type: item
   recipes:
@@ -163,7 +163,7 @@ custom_manasteel_nugget:
       input: custom_manasteel_ingot
 custom_manasteel_ingot:
   material: brick
-  display name: <&7>Manasteel ingot
+  display name: <&7>Manasteel Ingot
   weight: '1'
   type: item
   recipes:
@@ -182,7 +182,7 @@ custom_manasteel_ingot:
       input: custom_manasteel_block
 custom_manasteel_block:
   material: iron_block
-  display name: <&7>Manasteel block
+  display name: <&7>Manasteel Block
   weight: '9'
   type: item
   recipes:
@@ -197,7 +197,7 @@ custom_manasteel_block:
 custom_manasteel_boots:
   material: iron_boots
   lore:
-  display name: <&7>Manasteel boots
+  display name: <&7>Manasteel Boots
   category: shoes
   weight: '4'
   type: item
@@ -230,7 +230,7 @@ custom_manasteel_boots:
       - custom_manasteel_ingot|air|custom_manasteel_ingot
 custom_manasteel_leggings:
   material: iron_leggings
-  display name: <&7>Manasteel leggings
+  display name: <&7>Manasteel Leggings
   category: pants
   weight: '7'
   type: item
@@ -256,7 +256,7 @@ custom_manasteel_leggings:
       - custom_manasteel_ingot|air|custom_manasteel_ingot
 custom_manasteel_chestplate:
   material: iron_chestplate
-  display name: <&7>Manasteel chestplate
+  display name: <&7>Manasteel Chestplate
   category: shirt
   weight: '8'
   type: item
@@ -282,7 +282,7 @@ custom_manasteel_chestplate:
       - custom_manasteel_ingot|custom_manasteel_ingot|custom_manasteel_ingot
 custom_manasteel_helmet:
   material: iron_helmet
-  display name: <&7>Manasteel helmet
+  display name: <&7>Manasteel Helmet
   category: hat
   weight: '5'
   type: item

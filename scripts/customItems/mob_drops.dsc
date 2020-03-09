@@ -1,3 +1,4 @@
+## Hostile Mobs
 custom_rotten_flesh:
   material: rotten_flesh
   lore:
@@ -40,6 +41,7 @@ custom_spider_eye:
   display name: <&7>Spider Eye
   weight: '1'
   type: item
+## Passive Mobs
 custom_feather:
   material: feather
   lore:
@@ -56,6 +58,7 @@ custom_ink_sac:
   display name: <&7>Ink Sac
   weight: '1'
   type: item
+## New Mobs
 custom_turtle_helmet:
   material: turtle_helmet
   lore:

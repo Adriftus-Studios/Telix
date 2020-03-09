@@ -1,28 +1,28 @@
 
 custom_golden_apple:
   material: golden_apple
-  display name: <&7>Golden apple
+  display name: <&7>Golden Apple
   weight: '1'
   type: item
 custom_golden_carrot:
   material: golden_carrot
-  display name: <&7>Golden carrot
+  display name: <&7>Golden Carrot
   weight: '1'
   type: item
 custom_enchanted_golden_apple:
   material: enchanted_golden_apple
   lore:
-  display name: <&7>Enchanted_golden_apple
+  display name: <&7>Enchanted Golden Apple
   weight: '1'
   type: item
 custom_gold_horse_armor:
   material: golden_horse_armor
-  display name: <&7>Golden horse armor
+  display name: <&7>Golden Horse Armor
   weight: '1'
   type: item
 custom_gold_sword:
   material: golden_sword
-  display name: <&7>Golden sword
+  display name: <&7>Golden Sword
   weight: '1'
   type: item
   fake_durability: 32
@@ -52,7 +52,7 @@ custom_gold_sword:
       - air|air|custom_stick
 custom_gold_pickaxe:
   material: golden_pickaxe
-  display name: <&7>Golden pickaxe
+  display name: <&7>Golden Pickaxe
   weight: '1'
   type: item
   fake_durability: 32
@@ -68,7 +68,7 @@ custom_gold_pickaxe:
       - air|custom_stick|air
 custom_gold_axe:
   material: golden_axe
-  display name: <&7>Golden axe
+  display name: <&7>Golden Axe
   weight: '1'
   type: item
   fake_durability: 32
@@ -105,7 +105,7 @@ custom_gold_axe:
       - air|air|custom_stick
 custom_gold_shovel:
   material: golden_shovel
-  display name: <&7>Golden shovel
+  display name: <&7>Golden Shovel
   weight: '1'
   type: item
   fake_durability: 32
@@ -135,7 +135,7 @@ custom_gold_shovel:
       - air|air|custom_stick
 custom_gold_hoe:
   material: golden_hoe
-  display name: <&7>Golden hoe
+  display name: <&7>Golden Hoe
   weight: '1'
   type: item
   fake_durability: 32
@@ -173,7 +173,7 @@ custom_gold_hoe:
       - air|air|custom_stick
 custom_gold_nugget:
   material: gold_nugget
-  display name: <&7>Gold nugget
+  display name: <&7>Gold Nugget
   weight: '0'
   type: item
   recipes:
@@ -184,7 +184,7 @@ custom_gold_nugget:
       input: custom_gold_ingot
 custom_gold_ingot:
   material: gold_ingot
-  display name: <&7>Golden ingot
+  display name: <&7>Golden Ingot
   weight: '1'
   type: item
   recipes:
@@ -208,7 +208,7 @@ custom_gold_ingot:
       input: custom_gold_block
 custom_gold_block:
   material: gold_block
-  display name: <&7>Golden block
+  display name: <&7>Golden Block
   weight: '9'
   type: item
   recipes:
@@ -222,7 +222,7 @@ custom_gold_block:
       - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
 custom_gold_ore:
   material: gold_ore
-  display name: <&7>Golden ore
+  display name: <&7>Golden Ore
   weight: '1'
   type: item
   ore:
@@ -233,7 +233,7 @@ custom_gold_ore:
 custom_gold_boots:
   material: golden_boots
   lore:
-  display name: <&7>Golden boots
+  display name: <&7>Golden Boots
   category: shoes
   weight: '1'
   type: item
@@ -266,7 +266,7 @@ custom_gold_boots:
       - custom_gold_ingot|air|custom_gold_ingot
 custom_gold_leggings:
   material: golden_leggings
-  display name: <&7>Golden leggings
+  display name: <&7>Golden Leggings
   category: pants
   weight: '1'
   type: item
@@ -292,7 +292,7 @@ custom_gold_leggings:
       - custom_gold_ingot|air|custom_gold_ingot
 custom_gold_chestplate:
   material: golden_chestplate
-  display name: <&7>Golden chestplate
+  display name: <&7>Golden Chestplate
   category: shirt
   weight: '1'
   type: item
@@ -318,7 +318,7 @@ custom_gold_chestplate:
       - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
 custom_gold_helmet:
   material: golden_helmet
-  display name: <&7>Golden helmet
+  display name: <&7>Golden Helmet
   category: hat
   weight: '1'
   type: item

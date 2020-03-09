@@ -1,7 +1,7 @@
 
 custom_obsidian_sword:
   material: iron_sword
-  display name: <&7>Obsidian sword
+  display name: <&7>Obsidian Sword
   weight: '1'
   type: item
   fake_durability: 175
@@ -31,7 +31,7 @@ custom_obsidian_sword:
       - air|air|custom_stick
 custom_obsidian_pickaxe:
   material: iron_pickaxe
-  display name: <&7>Obsidian pickaxe
+  display name: <&7>Obsidian Pickaxe
   weight: '1'
   type: item
   fake_durability: 175
@@ -47,7 +47,7 @@ custom_obsidian_pickaxe:
       - air|custom_stick|air
 custom_obsidian_axe:
   material: iron_axe
-  display name: <&7>Obsidian axe
+  display name: <&7>Obsidian Axe
   weight: '1'
   type: item
   fake_durability: 175
@@ -84,7 +84,7 @@ custom_obsidian_axe:
       - air|air|custom_stick
 custom_obsidian_shovel:
   material: iron_shovel
-  display name: <&7>Obsidian shovel
+  display name: <&7>Obsidian Shovel
   weight: '1'
   type: item
   fake_durability: 175
@@ -114,7 +114,7 @@ custom_obsidian_shovel:
       - air|air|custom_stick
 custom_obsidian_hoe:
   material: iron_hoe
-  display name: <&7>Obsidian hoe
+  display name: <&7>Obsidian Hoe
   weight: '1'
   type: item
   fake_durability: 175
@@ -150,9 +150,10 @@ custom_obsidian_hoe:
       - air|custom_obsidian_ingot|custom_obsidian_ingot
       - air|air|custom_stick
       - air|air|custom_stick
+#<dafuq>
 custom_obsidian_nugget:
   material: iron_nugget
-  display name: <&7>Obsidian nugget
+  display name: <&7>Obsidian Nugget
   weight: '0'
   type: item
   recipes:
@@ -163,7 +164,7 @@ custom_obsidian_nugget:
       input: custom_obsidian_ingot
 custom_obsidian_ingot:
   material: brick
-  display name: <&7>Obsidian ingot
+  display name: <&7>Obsidian Ingot
   weight: '1'
   type: item
   recipes:
@@ -187,7 +188,7 @@ custom_obsidian_ingot:
       input: custom_obsidian_block
 custom_obsidian_block:
   material: iron_block
-  display name: <&7>Obsidian block
+  display name: <&7>Obsidian Block
   weight: '9'
   type: item
   recipes:
@@ -199,10 +200,11 @@ custom_obsidian_block:
       - custom_obsidian_ingot|custom_obsidian_ingot|custom_obsidian_ingot
       - custom_obsidian_ingot|custom_obsidian_ingot|custom_obsidian_ingot
       - custom_obsidian_ingot|custom_obsidian_ingot|custom_obsidian_ingot
+#</dafuq>
 custom_obsidian_boots:
   material: iron_boots
   lore:
-  display name: <&7>Obsidian boots
+  display name: <&7>Obsidian Boots
   category: shoes
   weight: '1'
   type: item
@@ -235,7 +237,7 @@ custom_obsidian_boots:
       - custom_obsidian_ingot|air|custom_obsidian_ingot
 custom_obsidian_leggings:
   material: iron_leggings
-  display name: <&7>Obsidian leggings
+  display name: <&7>Obsidian Leggings
   category: pants
   weight: '1'
   type: item
@@ -261,7 +263,7 @@ custom_obsidian_leggings:
       - custom_obsidian_ingot|air|custom_obsidian_ingot
 custom_obsidian_chestplate:
   material: iron_chestplate
-  display name: <&7>Obsidian chestplate
+  display name: <&7>Obsidian Chestplate
   category: shirt
   weight: '1'
   type: item
@@ -287,7 +289,7 @@ custom_obsidian_chestplate:
       - custom_obsidian_ingot|custom_obsidian_ingot|custom_obsidian_ingot
 custom_obsidian_helmet:
   material: iron_helmet
-  display name: <&7>Obsidian helmet
+  display name: <&7>Obsidian Helmet
   category: hat
   weight: '1'
   type: item
