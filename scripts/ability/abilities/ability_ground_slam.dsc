@@ -1,6 +1,5 @@
 ability_ground_slam:
   type: task
-  debug: true
   name: ground_slam
   ability_tree: Fisticuffs
   ability_type: active
