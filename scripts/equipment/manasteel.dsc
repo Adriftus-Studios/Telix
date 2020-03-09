@@ -180,6 +180,11 @@ custom_manasteel_ingot:
       output_quantity: 9
       hide_in_recipebook: true
       input: custom_manasteel_block
+    3:
+      type: altar
+      output_quantity: 1
+      input: custom_iron_ingot/3|custom_magic_powder/1|custom_diamond/1
+      cook_time: 5m
 custom_manasteel_block:
   material: iron_block
   display name: <&7>Manasteel Block

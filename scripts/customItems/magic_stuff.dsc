@@ -72,3 +72,14 @@ custom_draw_knife:
       - custom_manasteel_ingot|custom_stick|custom_stick
       - custom_manasteel_ingot|air|air
       - custom_manasteel_ingot|custom_stick|custom_stick
+
+custom_magic_powder:
+  type: item
+  material: redstone
+  display name: <&b>Magic Powder
+  mob_drops:
+    1:
+      dropped_by: blaze|skeleton|enderman|drowned
+      chance: 5
+      min_quantity: 1
+      max_quantity: 2

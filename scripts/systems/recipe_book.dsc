@@ -173,6 +173,7 @@ show_recipes:
         - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
     - if <[list].size> == 0:
       - inventory close d:<player.open_inventory>
+      - narrate "<&c>It appears that this item does not have a recipe. The Development team has been notified."
       - stop
     - if <[list].size> == 1:
       - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>
@@ -191,7 +192,9 @@ show_recipe:
     - if <[type]> == mob_drops:
       - define inv:<inventory[recipe_book_mob_drops]>
       - inventory open d:<[inv]>
-      - inventory set d:<[inv]> slot:11 o:<item[<entity[<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>].script.yaml_key[entity_type]||<el@zombie>>_spawn_egg].with[display_name=<&r>Dropped<&sp>by:<&sp><entity[<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>].script.yaml_key[custom_name]>;nbt=entity/<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>]>
+      - foreach <yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]> as:mob:
+        - define lore:|:<entity[<[mob]>].name>
+      - inventory set d:<[inv]> slot:11 o:<item[<entity[<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>].script.yaml_key[entity_type]>].with[display_name=<&7>Dropped<&sp>by<&co>;lore=<[lore]>]>
       - inventory set d:<[inv]> slot:13 o:<item[gold_nugget].with[display_name=Amount<&sp>dropped;lore=<&r>Max<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.max_quantity]>|<&r>Min<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.min_quantity]>]>
       - inventory set d:<[inv]> slot:15 o:<item[gold_nugget].with[display_name=Chance:<&sp>1<&sp>out<&sp>of<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.chance]>]>
     - if <[type]> == ore_spawn:
