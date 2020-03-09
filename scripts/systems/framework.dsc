@@ -272,6 +272,9 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
+      - foreach <context.item.recipe_ids> as:id:
+        - define items:<server.recipe_items[<[id]>]>
+        - narrate <[items]>
       - if <context.item.script.name||null> == null:
         - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
         - inject build_item
