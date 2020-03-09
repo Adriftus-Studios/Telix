@@ -2,7 +2,6 @@ recipe_book_inventory:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Recipe Book<&r> <&6>◆
   size: 54
-  debug: true
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>

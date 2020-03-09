@@ -1954,6 +1954,7 @@ custom_redstone:
   - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Redstone Dust
   type: item
+  weight: '1'
   ore:
     1:
       biome: all
