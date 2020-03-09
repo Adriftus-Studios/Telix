@@ -273,6 +273,7 @@ custom_item_override:
       - determine <[drops]||<list[]>>
     on item recipe formed:
       - foreach <context.item.recipe_ids> as:id:
+        - narrate <[id]>
         - define items:<server.recipe_items[<[id]>]>
         - narrate <[items]>
       - if <context.item.script.name||null> == null:

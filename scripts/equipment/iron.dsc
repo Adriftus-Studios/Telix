@@ -181,7 +181,7 @@ custom_iron_ingot:
       input: custom_iron_ore
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       hide_in_recipebook: true
       input:
       - custom_iron_nugget|custom_iron_nugget|custom_iron_nugget
