@@ -17,10 +17,10 @@ ability_ground_slam:
     #Check if player is in the air, if they aren't, perform standard ground slam
     - define relatives:<list[below|below.forward.left|below.forward|below.forward.right|below.left|below.right|below.back.left|below.back|below.back.right]>
     - narrate <[relatives]>
-    - foreach <[relatives]> as:relative:
-      - narrate <[relative]>
-      - narrate <player.location.<[relative]>.material.name>
-      - if <player.location.<[relative]>.material.name> != air:
+    - foreach <[relatives]>:
+      - narrate <[value]>
+      - narrate <player.location.<[value]>.material.name>
+      - if <player.location.<[value]>.material.name> != air:
         - inject abilities_cost
         - adjust <player> velocity:0,1,0
         - wait 18t
