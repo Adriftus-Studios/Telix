@@ -162,7 +162,7 @@ custom_elementium_nugget:
       hide_in_recipebook: true
       input: custom_elementium_ingot
 custom_elementium_ingot:
-  material: brick
+  material: iron_ingot
   display name: <&7>Elementium Ingot
   weight: '1'
   type: item

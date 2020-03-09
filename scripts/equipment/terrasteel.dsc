@@ -162,7 +162,7 @@ custom_terrasteel_nugget:
       hide_in_recipebook: true
       input: custom_terrasteel_ingot
 custom_terrasteel_ingot:
-  material: brick
+  material: iron_ingot
   display name: <&7>Terrasteel Ingot
   weight: '1'
   type: item
