@@ -137,7 +137,6 @@ custom_elementium_hoe:
       - air|custom_livingwood_twig|air
     3:
       type: shaped
-      recipe_id: custom_elementium_hoe3
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|air

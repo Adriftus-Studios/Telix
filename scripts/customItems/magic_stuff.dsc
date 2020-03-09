@@ -1,40 +1,72 @@
 
-custom_rune_blank:
+custom_blank_rune:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -6
   display name: <&7>Blank Rune
 
-custom_rune_air:
+custom_air_rune:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -7
   display name: <&7>Air Rune
+    1:
+      type: altar
+      output_quantity: 1
+      input: custom_glass_bottle/13|custom_blank_rune/1|custom_air_shard/4|custom_white_wool/8|custom_feather/19
+      cook_time: 5m
 
-custom_rune_water:
+custom_air_shard:
+  type: item
+  material: iron_nugget
+  display name: <&7>Air Shard
+  ore:
+    1:
+      biome: all
+      block: stone
+      tool: all
+      chance: 47
+
+custom_water_rune:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -8
   display name: <&7>Water Rune
+    1:
+      type: altar
+      output_quantity: 1
+      input: custom_glass_bottle/13|custom_blank_rune/1|custom_air_shard/4|custom_white_wool/8|custom_feather/19
+      cook_time: 5m
 
-custom_rune_earth:
+custom_water_shard:
+  type: item
+  material: iron_nugget
+  display name: <&7>Water Shard
+  ore:
+    1:
+      biome: ocean|deep_ocean|warm_ocean|lukewarm_ocean|deep_warm_ocean|deep_lukewarm_ocean|
+      block: stone
+      tool: all
+      chance: 47
+
+custom_earth_rune:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -9
   display name: <&7>Earth Rune
 
-custom_rune_fire:
+custom_fire_rune:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: -10
   display name: <&7>Fire Rune
 
-custom_rune_ender:
+custom_ender_rune:
   type: item
   material: gold_nugget
   mechanisms:
@@ -90,10 +122,15 @@ custom_inferno_extract:
   display name: <&7>Inferno Extract
   mechanisms:
     flags: HIDE_POTION_EFFECTS
-    color: 50,0,0
+    color: 100,0,0
   mob_drops:
     1:
-      dropped_by: entity_direwolf
-      chance: 9
+      dropped_by: blaze
+      chance: 14
+      max_quantity: 1
+      min_quantity: 1
+    2:
+      dropped_by: pig_zombie
+      chance: 67
       max_quantity: 1
       min_quantity: 1

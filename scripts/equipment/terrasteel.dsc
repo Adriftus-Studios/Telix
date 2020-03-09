@@ -159,8 +159,12 @@ custom_terrasteel_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_terrasteel_ingot
+    2:
+      type: altar
+      output_quantity: 2
+      input: custom_manasteel_block/2|custom_magic_powder/5|custom_rune_air/2|custom_rune_earth/3
+      cook_time: 15m
 custom_terrasteel_ingot:
   material: iron_ingot
   display name: <&7>Terrasteel Ingot
@@ -170,7 +174,6 @@ custom_terrasteel_ingot:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_terrasteel_nugget|custom_terrasteel_nugget|custom_terrasteel_nugget
       - custom_terrasteel_nugget|custom_terrasteel_nugget|custom_terrasteel_nugget
