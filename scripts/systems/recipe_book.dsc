@@ -160,7 +160,7 @@ recipe_book_events:
           - if <context.item.nbt[type]||null> != null:
             - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
         - else:
-          - if <context.item.script.name.starts_with[custom_]||false>:
+          - if <context.item.script.name.starts_with[custom_]||<context.item.nbt[entity].contains_text[]||false>>:
             - run show_recipes def:<context.item>
     on player closes recipe_book_*:
       - flag <player> context:!
@@ -186,7 +186,6 @@ show_recipe:
   type: task
   definitions: item|type
   script:
-    - narrate <[item]>
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
     - if <[type]> == mob_info:
