@@ -5,6 +5,15 @@ custom_blank_rune:
   mechanisms:
     custom_model_data: -6
   display name: <&7>Blank Rune
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      hide_in_recipebook: true
+      input:
+      - custom_stone|custom_stone|custom_stone
+      - custom_stone|custom_obsidian|custom_stone
+      - custom_stone|custom_stone|custom_stone
 
 custom_air_rune:
   type: item
