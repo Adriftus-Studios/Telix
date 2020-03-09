@@ -281,6 +281,6 @@ warped_shard_giver:
   events:
     on delta time minutely every:1:
       - foreach <server.list_online_players>:
-        - if <util.random.int[1].to[1]> == 1:
+        - if <util.random.int[1].to[400]> == 1:
           - inventory add d:<[value].inventory> o:<item[custom_warped_shard]>
           - narrate "<&5>A strange sound travels through the air..." targets:<[value]>
