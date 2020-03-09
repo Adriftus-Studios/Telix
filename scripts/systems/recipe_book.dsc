@@ -193,7 +193,7 @@ show_recipe:
       - define inv:<inventory[recipe_book_mob_drops]>
       - inventory open d:<[inv]>
       - foreach <yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by].as_list> as:mob:
-        - define lore:|:<&r><[mob].substring[1,1].to_uppercase><[mob].replace[_].with[<&sp>].substring[2]>
+        - define lore:|:<&r><[mob].substring[7,7].to_uppercase><[mob].replace[_].with[<&sp>].substring[8]>
       - define egg:<item[<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by].as_list.get[1].as_entity.script.yaml_key[entity_type]||<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by].as_list.get[1]>>_spawn_egg]>
       - inventory set d:<[inv]> slot:12 o:<item[zombie_spawn_egg].with[display_name=<&7>Dropped<&sp>by<&co>;lore=<[lore]>]>
       - inventory set d:<[inv]> slot:14 o:<item[gold_nugget].with[display_name=Amount<&sp>dropped;lore=<&r>Max<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.max_quantity]>|<&r>Min<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.min_quantity]>]>
