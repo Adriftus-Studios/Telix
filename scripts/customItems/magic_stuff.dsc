@@ -88,7 +88,7 @@ custom_fire_rune:
     1:
       type: altar
       output_quantity: 1
-      input: custom_blank_rune/1|custom_manasteel_ingot/7|custom_terrasteel_ingot/1|custom_obsidian/26|custom_fire_shard/17
+      input: custom_blank_rune/1|custom_manasteel_ingot/7|custom_terrasteel_ingot/1|custom_obsidian/26|custom_fire_shard/17|custom_ghast_tear/2
       cook_time: 20m
 
 custom_fire_shard:
@@ -108,6 +108,12 @@ custom_ender_rune:
   mechanisms:
     custom_model_data: -11
   display name: <&7>Ender Rune
+  recipes:
+    1:
+      type: altar
+      output_quantity: 1
+      input: custom_blank_rune/1|custom_fire_rune/3|custom_earth_shard/3|custom_water_rune/3|custom_air_rune/3|custom_enderpearl/7
+      cook_time: 60m
 
 custom_livingwood_twig:
   type: item
