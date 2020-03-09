@@ -28,13 +28,10 @@ ability_ground_slam:
         - stop
     #Foreach passed, player must be in the air. Execute mid-air ground slam
     - if <player.location.below.material.name> == air:
-      - repeat 10:
-        - if <player.location.below.material.name> == air:
+        - adjust <player> velocity:0,-1,0
           - wait 10t
           - inject ability_ground_slam_stun
           - stop
-        - adjust <player> velocity:0,-1,0
-        - wait 1s
 
 ability_ground_slam_explode:
   type: task
