@@ -171,7 +171,8 @@ show_recipes:
     - foreach <yaml[server.recipe_book].list_keys[]> as:type:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
-        - narrate <[type]>
+    - if <[list].size> == 0:
+      - narrate 1
     - if <[list].size> == 1:
       - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>
     - else:
@@ -197,7 +198,7 @@ show_recipe:
       - inventory open d:<[inv]>
       - inventory set d:<[inv]> slot:11 o:<item[stone].with[display_name=<&r><&6>Biome:<&sp><yaml[server.recipe_book].read[ore_spawn.<[item]>.biome]>]>
       - define block:<item[<yaml[server.recipe_book].read[ore_spawn.<[item]>.block]>]>
-      - inventory set d:<[inv]> slot:13 o:<[block].with[display_name=<&r><&6>Block:<&sp><[block].material.name>]>
+      - inventory set d:<[inv]> slot:13 o:<[block].with[display_name=<&r><&6>Block:<&sp><[block].material.name.replace[_].with[<&sp>]>]>
       - inventory set d:<[inv]> slot:15 o:<item[stone].with[display_name=<&r><&6>Chance:<&sp>1<&sp>in<&sp><yaml[server.recipe_book].read[ore_spawn.<[item]>.chance]>]>
       - define tool:<item[<yaml[server.recipe_book].read[ore_spawn.<[item]>.tool]>]||<item[iron_axe]>>
       - inventory set d:<[inv]> slot:17 o:<[tool].with[display_name=<&r><&6>Tool<&sp>Required:<&sp><[tool].display>]>
