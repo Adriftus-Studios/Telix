@@ -79,6 +79,8 @@ reload_scripts:
               - else:
                   - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
           - if <[value].yaml_key[type]> == item:
+              - if <[value].yaml_key[recipe_book_note]||null> != null:
+                - yaml id:server.recipe_book set notes.<[value].name>:<[value].yaml_key[recipe_book_note]>
               - if <[value].yaml_key[ore]||null> != null:
                 - foreach <[value].list_keys[ore]> as:ore:
                   - foreach <[value].yaml_key[ore.<[ore]>.biome].as_list> as:biome:
