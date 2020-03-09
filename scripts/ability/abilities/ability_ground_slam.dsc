@@ -15,7 +15,10 @@ ability_ground_slam:
     #/ex shoot <player> speed:-2.0 height:2.5
     - inject abilities_check
     #Check if player is in the air, if they aren't, perform standard ground slam
-    - foreach <list[below|below.forward.left|below.forward|below.forward.right|below.left|below.right|below.back.left|below.back|below.back.right]> as:relative:
+    - define relatives:<list[below|below.forward.left|below.forward|below.forward.right|below.left|below.right|below.back.left|below.back|below.back.right]>
+    - narrate <[relatives]>
+    - foreach <[relatives]> as:relative:
+      - narrate <[relative]>
       - narrate <player.location.<[relative]>.material.name>
       - if <player.location.<[relative]>.material.name> != air:
         - inject abilities_cost
