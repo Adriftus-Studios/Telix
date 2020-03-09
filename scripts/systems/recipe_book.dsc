@@ -205,11 +205,11 @@ show_recipe:
       - define note:<yaml[server.recipe_book].read[notes.<[item]>].parsed>
       - foreach <[note].split[<&sp>]>:
         - define line:|:<[value]>
-        - if <[line].length> > 50:
+        - if <[line].length> > 30:
           - define lore:|:<[line].separated_by[<&sp>]>
           - define line:!
       - define lore:<[lore]||<[line].separated_by[<&sp>]>>
-      - narrate <[lore]>
+      - inventory set d:inv slot:14 o:<item[paper].with[lore=<[lore]>]>
     - if <[type]> == mob_drops:
       - define inv:<inventory[recipe_book_mob_drops]>
       - inventory open d:<[inv]>
