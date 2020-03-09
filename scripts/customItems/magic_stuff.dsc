@@ -90,8 +90,7 @@ custom_inferno_extract:
   display name: <&7>Inferno Extract
   mechanisms:
     flags: HIDE_POTION_EFFECTS
-    color: 200,0,0
-    potion_effects: instant_damage,100,false
+    color: 50,0,0
   mob_drops:
     1:
       dropped_by: entity_direwolf
