@@ -79,7 +79,7 @@ spawn_custom_mob:
   debug: true
   script:
     - spawn <[mob]> <[location].above> save:entity1
-    - if <player||null> != null && <yaml[server.mobs].read[<[mob]>.aggressive]>:
+    - if <yaml[server.mobs].read[<[mob]>.aggressive]>:
       - attack <entry[entity1].spawned_entity> target:<player>
     - if <yaml[server.mobs].read[<[mob]>.abilities]||null> != null:
       - run mob_use_ability_handler def:<entry[entity1].spawned_entity>
