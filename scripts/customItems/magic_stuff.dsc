@@ -80,6 +80,6 @@ custom_magic_powder:
   mob_drops:
     1:
       dropped_by: blaze|skeleton|enderman|drowned
-      chance: 5
+      chance: 1
       min_quantity: 1
       max_quantity: 2
