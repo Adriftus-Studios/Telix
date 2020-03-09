@@ -49,7 +49,7 @@ custom_water_shard:
   display name: <&7>Water Shard
   ore:
     1:
-      biome: ocean|deep_ocean|warm_ocean|lukewarm_ocean|deep_warm_ocean|deep_lukewarm_ocean|
+      biome: ocean|deep_ocean|warm_ocean|lukewarm_ocean|deep_warm_ocean|deep_lukewarm_ocean
       block: stone
       tool: all
       chance: 47
