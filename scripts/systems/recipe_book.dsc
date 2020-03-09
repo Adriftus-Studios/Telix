@@ -193,7 +193,7 @@ show_recipe:
       - inventory open d:<[inv]>
       - foreach <yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by].as_list> as:mob:
         - define lore:|:<[mob]>
-      - inventory set d:<[inv]> slot:12 o:<item[zombie].with[display_name=<&7>Dropped<&sp>by<&co>;lore=<[lore]>]>
+      - inventory set d:<[inv]> slot:12 o:<item[zombie_spawn_egg].with[display_name=<&7>Dropped<&sp>by<&co>;lore=<[lore]>]>
       - inventory set d:<[inv]> slot:14 o:<item[gold_nugget].with[display_name=Amount<&sp>dropped;lore=<&r>Max<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.max_quantity]>|<&r>Min<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.min_quantity]>]>
       - inventory set d:<[inv]> slot:16 o:<item[gold_nugget].with[display_name=Chance:<&sp>1<&sp>out<&sp>of<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.chance]>]>
     - if <[type]> == ore_spawn:
