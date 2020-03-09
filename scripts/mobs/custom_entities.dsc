@@ -76,7 +76,7 @@ entity_direwolf:
   custom_name: Direwolf
   max_health: 15
   health: 15
-  speed: 0.6
+  speed: 0.4
   custom:
     spawning_conditions:
       world: tor_mainland
