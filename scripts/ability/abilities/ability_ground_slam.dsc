@@ -16,7 +16,8 @@ ability_ground_slam:
     - inject abilities_check
     #Check if player is in the air, if they aren't, perform standard ground slam
     - foreach <list[below|below.forward.left|below.forward|below.forward.right|below.left|below.right|below.back.left|below.back|below.back.right]> as:relative:
-      - if <player.location.<[relative]>.material.name||air> != air:
+      - narrate <player.location.<[relative]>.material.name>
+      - if <player.location.<[relative]>.material.name> != air:
         - inject abilities_cost
         - adjust <player> velocity:0,1,0
         - wait 18t
@@ -27,7 +28,8 @@ ability_ground_slam:
         - stop
     #Foreach passed, player must be in the air. Execute mid-air ground slam
     - if <player.location.below.material.name> != air:
-      - repeat 50:
+      - repeat 10:
+        - narrate <player.location.below.material.name>
         - if <player.location.below.material.name> == air:
           - inject abilities_cost
           - wait 10t
