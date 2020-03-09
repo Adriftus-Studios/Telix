@@ -6,7 +6,7 @@ ability_ground_slam:
   ability_type: active
   points_to_unlock: 10
   power_cost: 10
-  description: "ON GROUND: Knock back players in a 5 block radius.<&nl>IN AIR: Stun players in a 3 block radius for 5 seconds."
+  description: [GROUND] Knock back players in a 5 block radius. [AIR] Stun players in a 3 block radius for 5 seconds.
   icon:
     material: stone
     custom_model_data: 1
