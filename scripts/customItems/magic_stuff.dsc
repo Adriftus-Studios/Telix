@@ -83,3 +83,18 @@ custom_magic_powder:
       chance: 25
       min_quantity: 1
       max_quantity: 2
+
+custom_inferno_extract:
+  type: item
+  material: potion
+  display name: <&7>Inferno Extract
+  mechanisms:
+    flags: HIDE_POTION_EFFECTS
+    color: 200,0,0
+    potion_effects: instant_damage,100,false,false
+  mob_drops:
+    1:
+      dropped_by: entity_direwolf
+      chance: 9
+      max_quantity: 1
+      min_quantity: 1
