@@ -188,6 +188,11 @@ show_recipe:
   script:
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
+    - if <entity[<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>].script||null> != null:
+      - define item:<entity[<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>].script.name>
+    - if <[type]> == mob_info:
+      - define inv:<inventory[recipe_book_mob_info]>
+      - inventory open d:<[inv]>
     - if <[type]> == mob_drops:
       - define inv:<inventory[recipe_book_mob_drops]>
       - inventory open d:<[inv]>
