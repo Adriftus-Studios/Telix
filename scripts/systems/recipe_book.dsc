@@ -200,6 +200,7 @@ show_recipe:
     - if <[type]> == ore_spawn:
       - define inv:<inventory[recipe_book_ores]>
       - inventory open d:<[inv]>
+      - narrate <yaml[server.recipe_book].read[ore_spawn.<[item]>.biome].as_list>
       - foreach <yaml[server.recipe_book].read[ore_spawn.<[item]>.biome].as_list> as:biome:
         - define biome_lore:|:<&r><[biome].substring[1,1].to_uppercase><[biome].replace[_].with[<&sp>].substring[2]>
       - narrate <[biome_lore]>
