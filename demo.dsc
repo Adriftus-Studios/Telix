@@ -12,6 +12,8 @@ custom_ore:
 	  # The biome that this ore drops in
       block: stone
 	  # The block that drops this ore
+      tool: custom_iron_pickaxe
+    # The tool that is required to break the block with
       chance: 20
 	  # Chance that the block will drop the ore.
 	  # This is calculated from 1 out of "chance"
