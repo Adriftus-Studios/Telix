@@ -5,6 +5,7 @@ survival_stats_temperature:
   events:
     on delta time secondly every:15:
       - stop
+      # temperature disabled until insulation methods implemented
       - foreach <server.list_online_players.filter[health.is[OR_MORE].than[0]]>:
         - adjust <queue> linked_player:<[value]>
         - define change:none
