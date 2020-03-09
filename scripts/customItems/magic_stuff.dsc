@@ -9,7 +9,6 @@ custom_blank_rune:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_stone|custom_stone|custom_stone
       - custom_stone|custom_obsidian|custom_stone
