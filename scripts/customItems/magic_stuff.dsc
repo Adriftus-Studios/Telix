@@ -133,11 +133,6 @@ custom_ender_shard:
       chance: 7
       min_quantity: 1
       max_quantity: 2
-    2:
-      dropped_by: enderdragon
-      chance: 1
-      min_quantity: 1
-      max_quantity: 64
 
 custom_livingwood_twig:
   type: item
