@@ -186,6 +186,7 @@ show_recipe:
   type: task
   definitions: item|type
   script:
+    - narrate <[item]>
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
     - if <entity[<[item].nbt[entity]>].script||null> != null:
