@@ -108,6 +108,32 @@ recipe_book_ores:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+recipe_book_mob_info:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Mob Info<&r> <&6>◆
+  size: 54
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+recipe_book_mob_drops:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Mob Drops<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+
 recipe_book_events:
   type: world
   events:
@@ -162,6 +188,9 @@ show_recipe:
   script:
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
+    - if <[type]> == mob_drops:
+      - define inv:<inventory[recipe_book_mob_drops]>
+      - inventory open d:<[inv]>
     - if <[type]> == ore_spawn:
       - define inv:<inventory[recipe_book_ores]>
       - inventory open d:<[inv]>

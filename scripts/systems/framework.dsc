@@ -142,6 +142,7 @@ reload_scripts:
               - yaml id:server.recipe_book set mob_info.<[value].name>.time:<[value].yaml_key[custom.spawning_conditions.time]||all>
               - yaml id:server.recipe_book set mob_info.<[value].name>.aggressive:<[value].yaml_key[custom.spawning_conditions.aggressive]||false>
               - yaml id:server.recipe_book set mob_info.<[value].name>.above_ground:<[value].yaml_key[custom.spawning_conditions.above_ground]||true>
+              - yaml id:server.recipe_book set mob_info.<[value].name>.entity_type:<[value].yaml_key[entity_type]>
             - if <[value].yaml_key[custom.ability_usage]||null> != null:
               - yaml id:server.mobs set <[value].name>.abilities:<[value].yaml_key[custom.ability_usage]>
                     
