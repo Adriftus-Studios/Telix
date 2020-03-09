@@ -139,24 +139,21 @@ recipe_book_events:
   events:
     on player clicks in recipe_book_*:
       - determine passively cancelled
-      - narrate <context.raw_slot>
-      - narrate <player.open_inventory.size>
-      - if <context.raw_slot> != -998:
+      - if <context.raw_slot> != -998 && <context.raw_slot> <= <player.open_inventory.size>:
         - if <player.open_inventory.script_name> == recipe_book_inventory:
-          - if <context.raw_slot> < 55:
-            - define page:<player.open_inventory.slot[50].nbt[page]>
-            - define type:<player.open_inventory.slot[50].nbt[type]>
-            - if <context.item.script.name> == next_page_button:
-              - flag <player> context:<[type]>/<[page].add[1]>
-              - inventory open d:recipe_book_inventory
-            - if <context.item.script.name> == previous_page_button:
-              - flag <player> context:<[type]>/<[page].sub[1]>
-              - inventory open d:recipe_book_inventory
-            - if <context.item.script.name> == crafting_icon:
-              - flag <player> context:crafting/1
-              - inventory open d:recipe_book_inventory
-            - if <context.raw_slot> < 46:
-              - run show_recipes def:<context.item>
+          - define page:<player.open_inventory.slot[50].nbt[page]>
+          - define type:<player.open_inventory.slot[50].nbt[type]>
+          - if <context.item.script.name> == next_page_button:
+            - flag <player> context:<[type]>/<[page].add[1]>
+            - inventory open d:recipe_book_inventory
+          - if <context.item.script.name> == previous_page_button:
+            - flag <player> context:<[type]>/<[page].sub[1]>
+            - inventory open d:recipe_book_inventory
+          - if <context.item.script.name> == crafting_icon:
+            - flag <player> context:crafting/1
+            - inventory open d:recipe_book_inventory
+          - if <context.raw_slot> < 46:
+            - run show_recipes def:<context.item>
         - else if <player.open_inventory.script_name> == recipe_book_chooser:
           - if <context.item.nbt[type]||null> != null:
             - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
