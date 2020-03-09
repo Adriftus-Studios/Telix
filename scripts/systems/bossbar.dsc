@@ -77,7 +77,7 @@ bb_timer:
     #Wait for specified duration of time
     - repeat <[duration].as_duration.in_seconds>:
       - define length:--
-      - bossbar update <[id]> progress:<[length]./[<[duration].as_duration.in_seconds>].round_to_precision[0.01]>
+      - bossbar update <[id]> title:<[title]> progress:<[length]./[<[duration].as_duration.in_seconds>].round_to_precision[0.01]>
       - wait 1s
 
     #Remove bossbar
