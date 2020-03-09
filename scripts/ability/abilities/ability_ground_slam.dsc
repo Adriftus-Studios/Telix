@@ -6,7 +6,7 @@ ability_ground_slam:
   ability_type: active
   points_to_unlock: 10
   power_cost: 10
-  description: "ON GROUND: Knock back players in a 5 block radius.&nlIN AIR: Stun players in a 3 block radius for 5 seconds."
+  description: "ON GROUND: Knock back players in a 5 block radius.<&nl>IN AIR: Stun players in a 3 block radius for 5 seconds."
   icon:
     material: stone
     custom_model_data: 1
@@ -26,14 +26,15 @@ ability_ground_slam:
         - inject ability_ground_slam_explode
         - stop
     #Foreach passed, player must be in the air. Execute mid-air ground slam
-    - repeat 50:
-      - if <player.location.below.material.name> == air:
-        - inject abilities_cost
-        - wait 10t
-        - inject ability_ground_slam_stun
-        - stop
-      - adjust <player> velocity:0,-1,0
-      - wait 1s
+    - if <player.location.below.material.name> != air:
+      - repeat 50:
+        - if <player.location.below.material.name> == air:
+          - inject abilities_cost
+          - wait 10t
+          - inject ability_ground_slam_stun
+          - stop
+        - adjust <player> velocity:0,-1,0
+        - wait 1s
 
 ability_ground_slam_explode:
   type: task
