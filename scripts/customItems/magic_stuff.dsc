@@ -112,8 +112,24 @@ custom_ender_rune:
     1:
       type: altar
       output_quantity: 1
-      input: custom_blank_rune/1|custom_fire_rune/3|custom_earth_shard/3|custom_water_rune/3|custom_air_rune/3|custom_enderpearl/7
+      input: custom_blank_rune/1|custom_fire_rune/3|custom_earth_rune/3|custom_water_rune/3|custom_air_rune/3|custom_enderpearl/7|custom_ender_shard/17
       cook_time: 60m
+
+custom_ender_shard:
+  type: item
+  material: iron_nugget
+  display name: <&7>Ender Shard
+  mob_drops:
+    1:
+      dropped_by: enderman
+      chance: 7
+      min_quantity: 1
+      max_quantity: 2
+    2:
+      dropped_by: enderdragon
+      chance: 1
+      min_quantity: 1
+      max_quantity: 64
 
 custom_livingwood_twig:
   type: item
