@@ -209,7 +209,7 @@ show_recipe:
           - define lore:|:<[line].separated_by[<&sp>]>
           - define line:!
       - define lore:<[lore]||<[line].separated_by[<&sp>]>>
-      - inventory set d:inv slot:14 o:<item[paper].with[lore=<[lore]>]>
+      - inventory set d:<[inv]> slot:14 o:<item[paper].with[lore=<[lore]>]>
     - if <[type]> == mob_drops:
       - define inv:<inventory[recipe_book_mob_drops]>
       - inventory open d:<[inv]>
