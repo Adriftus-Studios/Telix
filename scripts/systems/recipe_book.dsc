@@ -2,6 +2,7 @@ recipe_book_inventory:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Recipe Book<&r> <&6>◆
   size: 54
+  debug: true
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -16,7 +17,6 @@ recipe_book_inventory:
   - repeat 45:
     - if <[items].size> >= <[value].add[<[page].mul[44].sub[44]>]>:
       - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1]||air>].as_item.with[flags=HIDE_ATTRIBUTES]||<item[air]>>
-      - announce <[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[1]||air>
     - else:
       - define list:|:<item[air]>
   - define list:|:<item[gui_close_btn].with[nbt=page/<[page]>|type/<[type1]>]>
