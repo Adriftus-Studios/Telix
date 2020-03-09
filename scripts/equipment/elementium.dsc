@@ -1,7 +1,7 @@
 
 custom_elementium_sword:
   material: iron_sword
-  display name: <&7>Elementium Sword
+  display name: <&d>Elementium Sword
   weight: '2'
   type: item
   fake_durability: 250
@@ -31,7 +31,7 @@ custom_elementium_sword:
       - air|air|custom_dreamwood_twig
 custom_elementium_pickaxe:
   material: iron_pickaxe
-  display name: <&7>Elementium Pickaxe
+  display name: <&d>Elementium Pickaxe
   weight: '3'
   type: item
   fake_durability: 250
@@ -47,7 +47,7 @@ custom_elementium_pickaxe:
       - air|custom_dreamwood_twig|air
 custom_elementium_axe:
   material: iron_axe
-  display name: <&7>Elementium Axe
+  display name: <&d>Elementium Axe
   weight: '3'
   type: item
   fake_durability: 250
@@ -84,7 +84,7 @@ custom_elementium_axe:
       - air|air|custom_dreamwood_twig
 custom_elementium_shovel:
   material: iron_shovel
-  display name: <&7>Elementium Shovel
+  display name: <&d>Elementium Shovel
   weight: '1'
   type: item
   fake_durability: 250
@@ -114,7 +114,7 @@ custom_elementium_shovel:
       - air|air|custom_dreamwood_twig
 custom_elementium_hoe:
   material: iron_hoe
-  display name: <&7>Elementium Hoe
+  display name: <&d>Elementium Hoe
   weight: '2'
   type: item
   fake_durability: 250
@@ -151,7 +151,7 @@ custom_elementium_hoe:
       - air|air|custom_dreamwood_twig
 custom_elementium_nugget:
   material: iron_nugget
-  display name: <&7>Elementium Nugget
+  display name: <&d>Elementium Nugget
   weight: '0'
   type: item
   recipes:
@@ -162,7 +162,7 @@ custom_elementium_nugget:
       input: custom_elementium_ingot
 custom_elementium_ingot:
   material: iron_ingot
-  display name: <&7>Elementium Ingot
+  display name: <&d>Elementium Ingot
   weight: '1'
   type: item
   recipes:
@@ -186,7 +186,7 @@ custom_elementium_ingot:
       cook_time: 10m
 custom_elementium_block:
   material: iron_block
-  display name: <&7>Elementium Block
+  display name: <&d>Elementium Block
   weight: '9'
   type: item
   recipes:
@@ -201,7 +201,7 @@ custom_elementium_block:
 custom_elementium_boots:
   material: iron_boots
   lore:
-  display name: <&7>Elementium Boots
+  display name: <&d>Elementium Boots
   category: shoes
   weight: '4'
   type: item
@@ -234,7 +234,7 @@ custom_elementium_boots:
       - custom_elementium_ingot|air|custom_elementium_ingot
 custom_elementium_leggings:
   material: iron_leggings
-  display name: <&7>Elementium Leggings
+  display name: <&d>Elementium Leggings
   category: pants
   weight: '7'
   type: item
@@ -260,7 +260,7 @@ custom_elementium_leggings:
       - custom_elementium_ingot|air|custom_elementium_ingot
 custom_elementium_chestplate:
   material: iron_chestplate
-  display name: <&7>Elementium Chestplate
+  display name: <&d>Elementium Chestplate
   category: shirt
   weight: '8'
   type: item
@@ -286,7 +286,7 @@ custom_elementium_chestplate:
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
 custom_elementium_helmet:
   material: iron_helmet
-  display name: <&7>Elementium Helmet
+  display name: <&d>Elementium Helmet
   category: hat
   weight: '5'
   type: item

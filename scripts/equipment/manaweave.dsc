@@ -98,7 +98,7 @@ custom_manaweave_pants:
 custom_manaweave_boots:
   type: item
   material: leather_boots
-  display name: <&b>Manaweave Bots
+  display name: <&b>Manaweave Boots
   category: hat
   fake_durability: 435
   armor: 2

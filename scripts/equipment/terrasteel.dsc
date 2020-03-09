@@ -1,7 +1,7 @@
 
 custom_terrasteel_sword:
   material: iron_sword
-  display name: <&7>Terrasteel Sword
+  display name: <&a>Terrasteel Sword
   weight: '2'
   type: item
   fake_durability: 2300
@@ -31,7 +31,7 @@ custom_terrasteel_sword:
       - air|air|custom_livingwood_twig
 custom_terrasteel_pickaxe:
   material: iron_pickaxe
-  display name: <&7>Terrasteel Pickaxe
+  display name: <&a>Terrasteel Pickaxe
   weight: '3'
   type: item
   fake_durability: 2300
@@ -47,7 +47,7 @@ custom_terrasteel_pickaxe:
       - air|custom_livingwood_twig|air
 custom_terrasteel_axe:
   material: iron_axe
-  display name: <&7>Terrasteel Axe
+  display name: <&a>Terrasteel Axe
   weight: '3'
   type: item
   fake_durability: 2300
@@ -84,7 +84,7 @@ custom_terrasteel_axe:
       - air|air|custom_livingwood_twig
 custom_terrasteel_shovel:
   material: iron_shovel
-  display name: <&7>Terrasteel Shovel
+  display name: <&a>Terrasteel Shovel
   weight: '1'
   type: item
   fake_durability: 2300
@@ -114,7 +114,7 @@ custom_terrasteel_shovel:
       - air|air|custom_livingwood_twig
 custom_terrasteel_hoe:
   material: iron_hoe
-  display name: <&7>Terrasteel Hoe
+  display name: <&a>Terrasteel Hoe
   weight: '2'
   type: item
   fake_durability: 2300
@@ -152,7 +152,7 @@ custom_terrasteel_hoe:
       - air|air|custom_livingwood_twig
 custom_terrasteel_nugget:
   material: iron_nugget
-  display name: <&7>Terrasteel Nugget
+  display name: <&a>Terrasteel Nugget
   weight: '0'
   type: item
   recipes:
@@ -167,7 +167,7 @@ custom_terrasteel_nugget:
       cook_time: 15m
 custom_terrasteel_ingot:
   material: iron_ingot
-  display name: <&7>Terrasteel Ingot
+  display name: <&a>Terrasteel Ingot
   weight: '1'
   type: item
   recipes:
@@ -185,7 +185,7 @@ custom_terrasteel_ingot:
       input: custom_terrasteel_block
 custom_terrasteel_block:
   material: iron_block
-  display name: <&7>Terrasteel Block
+  display name: <&a>Terrasteel Block
   weight: '9'
   type: item
   recipes:
@@ -200,7 +200,7 @@ custom_terrasteel_block:
 custom_terrasteel_boots:
   material: iron_boots
   lore:
-  display name: <&7>Terrasteel Boots
+  display name: <&a>Terrasteel Boots
   category: shoes
   weight: '4'
   type: item
@@ -233,7 +233,7 @@ custom_terrasteel_boots:
       - custom_terrasteel_ingot|air|custom_terrasteel_ingot
 custom_terrasteel_leggings:
   material: iron_leggings
-  display name: <&7>Terrasteel Leggings
+  display name: <&a>Terrasteel Leggings
   category: pants
   weight: '7'
   type: item
@@ -259,7 +259,7 @@ custom_terrasteel_leggings:
       - custom_terrasteel_ingot|air|custom_terrasteel_ingot
 custom_terrasteel_chestplate:
   material: iron_chestplate
-  display name: <&7>Terrasteel Chestplate
+  display name: <&a>Terrasteel Chestplate
   category: shirt
   weight: '8'
   type: item
@@ -285,7 +285,7 @@ custom_terrasteel_chestplate:
       - custom_terrasteel_ingot|custom_terrasteel_ingot|custom_terrasteel_ingot
 custom_terrasteel_helmet:
   material: iron_helmet
-  display name: <&7>Terrasteel Helmet
+  display name: <&a>Terrasteel Helmet
   category: hat
   weight: '5'
   type: item
