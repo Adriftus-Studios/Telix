@@ -89,11 +89,12 @@ reload_scripts:
               - if <[value].yaml_key[mob_drops]||null> != null:
                 - foreach <[value].list_keys[mob_drops]> as:num:
                   - yaml id:server.drop_rates set <[value].yaml_key[mob_drops.<[num]>.dropped_by]>.<[value].name>.<[value].yaml_key[mob_drops.<[num]>.chance]>:<[value].yaml_key[mob_drops.<[num]>.min_quantity]>/<[value].yaml_key[mob_drops.<[num]>.max_quantity]>
-                  - yaml id:server.recipe_book set mob_drops.<[value].name>.dropped_by:<[value].yaml_key[mob_drops.<[num]>.dropped_by]>
-                  - yaml id:server.recipe_book set mob_drops.<[value].name>.:<[value].yaml_key[mob_drops.<[num]>.chance]>
-                  - yaml id:server.recipe_book set mob_drops.<[value].name>.min_quantity:<[value].yaml_key[mob_drops.<[num]>.min_quantity]>
-                  - yaml id:server.recipe_book set mob_drops.<[value].name>.max_quantity:<[value].yaml_key[mob_drops.<[num]>.max_quantity]>
-                  - yaml id:server.recipe_book set mob_info.<[value].yaml_key[mob_drops.<[num]>.dropped_by]>.drops:|:<[value].name>
+                  - foreach <[value].yaml_key[mob_drops.<[num]>.dropped_by].as_list> as:drop:
+                    - yaml id:server.recipe_book set mob_drops.<[value].name>.dropped_by:<[drop]>
+                    - yaml id:server.recipe_book set mob_drops.<[value].name>.:<[value].yaml_key[mob_drops.<[num]>.chance]>
+                    - yaml id:server.recipe_book set mob_drops.<[value].name>.min_quantity:<[value].yaml_key[mob_drops.<[num]>.min_quantity]>
+                    - yaml id:server.recipe_book set mob_drops.<[value].name>.max_quantity:<[value].yaml_key[mob_drops.<[num]>.max_quantity]>
+                    - yaml id:server.recipe_book set mob_info.<[value].yaml_key[mob_drops.<[num]>.dropped_by]>.drops:|:<[value].name>
               - if <[value].yaml_key[category]||null> != null:
                   - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
               - if <[value].yaml_key[recipes]||null> != null:
