@@ -192,7 +192,7 @@ show_recipe:
       - define inv:<inventory[recipe_book_mob_drops]>
       - inventory open d:<[inv]>
       - inventory set d:<[inv]> slot:11 o:<item[<entity[<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>].script.yaml_key[entity_type]||<el@zombie>>_spawn_egg].with[display_name=<&r>Dropped<&sp>by:<&sp><entity[<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>].script.yaml_key[custom_name]>]>
-      - inventory set d:<[inv]> slot:13 o:<item[gold_nugget].with[display_name=Amount<&sp>dropped;lore=<&r>Max<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.max_quantity]>|<&r>Max<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.max_quantity]>]>
+      - inventory set d:<[inv]> slot:13 o:<item[gold_nugget].with[display_name=Amount<&sp>dropped;lore=<&r>Max<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.max_quantity]>|<&r>Min<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.min_quantity]>]>
     - if <[type]> == ore_spawn:
       - define inv:<inventory[recipe_book_ores]>
       - inventory open d:<[inv]>
