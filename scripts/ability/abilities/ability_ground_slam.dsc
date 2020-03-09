@@ -38,7 +38,7 @@ ability_ground_slam_explode:
   type: task
   debug: true
   script:
-    - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:15 targets:<server.list_online_players>
+    - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:20 targets:<server.list_online_players>
     - flag player no_jump:true duration:1s
     - foreach <player.location.find.players.within[5].exclude[<player>]>:
       - look <[value]> <player.location>
@@ -50,7 +50,9 @@ ability_ground_slam_stun:
   type: task
   debug: true
   script:
+    - playeffect flash at:<player.location> quantity:1 visibility:20 targets:<server.list_online_players>
     - foreach <player.location.find.players.within[3].exclude[<player>]>:
       - look <[value]> <player.location>
+     - playeffect crit at:<[value].location> quantity:10 targets:<[value]>
       - cast slow <[value]> duration:5s power:255
       - flag <[value]> no_jump:true duration:5s
