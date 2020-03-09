@@ -125,12 +125,11 @@ recipe_book_mob_info:
 recipe_book_mob_drops:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Mob Drops<&r> <&6>◆
-  size: 36
+  size: 27
   definitions:
     w_filler: <item[gui_invisible_item]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
@@ -192,11 +191,11 @@ show_recipe:
     - if <[type]> == mob_drops:
       - define inv:<inventory[recipe_book_mob_drops]>
       - inventory open d:<[inv]>
-      - foreach <yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]> as:mob:
+      - foreach <yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by].as_list> as:mob:
         - define lore:|:<entity[<[mob]>].name>
-      - inventory set d:<[inv]> slot:11 o:<item[<entity[<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>].script.yaml_key[entity_type]>].with[display_name=<&7>Dropped<&sp>by<&co>;lore=<[lore]>]>
-      - inventory set d:<[inv]> slot:13 o:<item[gold_nugget].with[display_name=Amount<&sp>dropped;lore=<&r>Max<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.max_quantity]>|<&r>Min<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.min_quantity]>]>
-      - inventory set d:<[inv]> slot:15 o:<item[gold_nugget].with[display_name=Chance:<&sp>1<&sp>out<&sp>of<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.chance]>]>
+      - inventory set d:<[inv]> slot:12 o:<item[<entity[<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>].script.yaml_key[entity_type]>].with[display_name=<&7>Dropped<&sp>by<&co>;lore=<[lore]>]>
+      - inventory set d:<[inv]> slot:14 o:<item[gold_nugget].with[display_name=Amount<&sp>dropped;lore=<&r>Max<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.max_quantity]>|<&r>Min<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.min_quantity]>]>
+      - inventory set d:<[inv]> slot:16 o:<item[gold_nugget].with[display_name=Chance:<&sp>1<&sp>out<&sp>of<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.chance]>]>
     - if <[type]> == ore_spawn:
       - define inv:<inventory[recipe_book_ores]>
       - inventory open d:<[inv]>
