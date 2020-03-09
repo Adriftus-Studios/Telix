@@ -269,3 +269,18 @@ custom_pride_shard:
       chance: 100
       max_quantity: 1
       min_quantity: 1
+
+custom_warped_shard:
+  type: item
+  material: iron_nugget
+  display name: <&5>Warped Shard
+  recipe_book_note: <&5>Not much is known about this shard... Legends say it will appear at a random point in the world every hour.
+
+warped_shard_giver:
+  type: world
+  events:
+    on delta time minutely every:1:
+      - foreach <server.list_online_players>:
+        - if <util.random.int[1].to[1]> == 1:
+          - inventory add d:<[value].inventory> o:<item[custom_warped_shard]>
+          - narrate "<&5>A strange sound travels through the air..." targets:<[value]>
