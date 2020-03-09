@@ -274,11 +274,6 @@ custom_item_override:
         - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
         - inject build_item
         - determine <[item]>
-    on player picks up item:
-      - if !<context.item.script.name.starts_with[custom_]>:
-        - define item:<context.item>
-        - inject build_item
-        - determine ITEM:<[item]>
     on player crafts item:
       - define item:<context.item>
       - inject build_item
@@ -434,7 +429,7 @@ build_item:
           - else:
             - define line:<[line]><&7>[<&sp>]
         - define lore:|:<[line]>
-      - define stat_names:<list[thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
+      - define stat_names:<list[boss_damage/Boss<&sp>Damage|thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
       - if <[item].script.list_keys[equipment_modifiers]||null> != null:
         - define lore:|:<&9>
         - define lore:|:<&9>When<&sp>Equipped:<&co>

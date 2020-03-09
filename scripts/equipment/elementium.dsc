@@ -14,21 +14,21 @@ custom_elementium_sword:
       input:
       - custom_elementium_ingot|air|air
       - custom_elementium_ingot|air|air
-      - custom_livingwood_twig|air|air
+      - custom_dreamwood_twig|air|air
     2:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|air
       - air|custom_elementium_ingot|air
-      - air|custom_livingwood_twig|air
+      - air|custom_dreamwood_twig|air
     3:
       type: shaped
       output_quantity: 1
       input:
       - air|air|custom_elementium_ingot
       - air|air|custom_elementium_ingot
-      - air|air|custom_livingwood_twig
+      - air|air|custom_dreamwood_twig
 custom_elementium_pickaxe:
   material: iron_pickaxe
   display name: <&7>Elementium Pickaxe
@@ -43,8 +43,8 @@ custom_elementium_pickaxe:
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
-      - air|custom_livingwood_twig|air
-      - air|custom_livingwood_twig|air
+      - air|custom_dreamwood_twig|air
+      - air|custom_dreamwood_twig|air
 custom_elementium_axe:
   material: iron_axe
   display name: <&7>Elementium Axe
@@ -59,29 +59,29 @@ custom_elementium_axe:
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|air
-      - custom_elementium_ingot|custom_livingwood_twig|air
-      - air|custom_livingwood_twig|air
+      - custom_elementium_ingot|custom_dreamwood_twig|air
+      - air|custom_dreamwood_twig|air
     2:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|custom_elementium_ingot
-      - air|custom_livingwood_twig|custom_elementium_ingot
-      - air|custom_livingwood_twig|air
+      - air|custom_dreamwood_twig|custom_elementium_ingot
+      - air|custom_dreamwood_twig|air
     3:
       type: shaped
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|air
-      - custom_livingwood_twig|custom_elementium_ingot|air
-      - custom_livingwood_twig|air|air
+      - custom_dreamwood_twig|custom_elementium_ingot|air
+      - custom_dreamwood_twig|air|air
     4:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|custom_elementium_ingot
-      - air|custom_elementium_ingot|custom_livingwood_twig
-      - air|air|custom_livingwood_twig
+      - air|custom_elementium_ingot|custom_dreamwood_twig
+      - air|air|custom_dreamwood_twig
 custom_elementium_shovel:
   material: iron_shovel
   display name: <&7>Elementium Shovel
@@ -96,22 +96,22 @@ custom_elementium_shovel:
       output_quantity: 1
       input:
       - custom_elementium_ingot|air|air
-      - custom_livingwood_twig|air|air
-      - custom_livingwood_twig|air|air
+      - custom_dreamwood_twig|air|air
+      - custom_dreamwood_twig|air|air
     2:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|air
-      - air|custom_livingwood_twig|air
-      - air|custom_livingwood_twig|air
+      - air|custom_dreamwood_twig|air
+      - air|custom_dreamwood_twig|air
     3:
       type: shaped
       output_quantity: 1
       input:
       - air|air|custom_elementium_ingot
-      - air|air|custom_livingwood_twig
-      - air|air|custom_livingwood_twig
+      - air|air|custom_dreamwood_twig
+      - air|air|custom_dreamwood_twig
 custom_elementium_hoe:
   material: iron_hoe
   display name: <&7>Elementium Hoe
@@ -126,29 +126,29 @@ custom_elementium_hoe:
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|air
-      - air|custom_livingwood_twig|air
-      - air|custom_livingwood_twig|air
+      - air|custom_dreamwood_twig|air
+      - air|custom_dreamwood_twig|air
     2:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|custom_elementium_ingot
-      - air|custom_livingwood_twig|air
-      - air|custom_livingwood_twig|air
+      - air|custom_dreamwood_twig|air
+      - air|custom_dreamwood_twig|air
     3:
       type: shaped
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|air
-      - custom_livingwood_twig|air|air
-      - custom_livingwood_twig|air|air
+      - custom_dreamwood_twig|air|air
+      - custom_dreamwood_twig|air|air
     4:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|custom_elementium_ingot
-      - air|air|custom_livingwood_twig
-      - air|air|custom_livingwood_twig
+      - air|air|custom_dreamwood_twig
+      - air|air|custom_dreamwood_twig
 custom_elementium_nugget:
   material: iron_nugget
   display name: <&7>Elementium Nugget
@@ -179,6 +179,11 @@ custom_elementium_ingot:
       output_quantity: 9
       hide_in_recipebook: true
       input: custom_elementium_block
+    3:
+      type: altar
+      output_quantity: 1
+      input: custom_terrasteel_ingot/2|custom_fire_rune/1|custom_earth_rune/1|custom_water_rune/1|custom_air_rune/1|custom_ender_rune/1
+      cook_time: 10m
 custom_elementium_block:
   material: iron_block
   display name: <&7>Elementium Block

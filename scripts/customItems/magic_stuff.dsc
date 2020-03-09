@@ -143,7 +143,48 @@ custom_livingwood_twig:
       biome: all
       block: birch_log
       tool: custom_draw_knife
-      chance: 70
+      chance: 37
+    2:
+      type: shapeless
+      output_quantity: 4
+      input: custom_livingwood
+
+custom_livingwood:
+  type: item
+  material: birch_log
+  display name: <&f>Livingwood
+  ore:
+    1:
+      biome: all
+      block: birch_log
+      tool: custom_draw_knife
+      chance: 230
+
+custom_dreamwood_twig:
+  type: item
+  material: stick
+  display name: <&d>Dreamwood Twig
+  recipes:
+    1:
+      type: alchemy
+      output_quantity: 1
+      input: custom_livingwood_twig/7|custom_earth_rune/1|custom_air_rune/2|custom_ender_shard/2
+      cook_time: 7m
+    2:
+      type: shapeless
+      output_quantity: 4
+      input: custom_dreamwood
+
+custom_dreamwood:
+  type: item
+  material: birch_log
+  display name: <&d>Dreamwood
+  recipes:
+    1:
+      type: alchemy
+      output_quantity: 1
+      input: custom_livingwood/3|custom_dreamwood_twig/11|custom_magic_powder/5|custom_earth_rune/2
+      cook_time: 20m
 
 custom_draw_knife:
   type: item

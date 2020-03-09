@@ -182,7 +182,7 @@ custom_manasteel_ingot:
       input: custom_manasteel_block
     3:
       type: altar
-      output_quantity: 1
+      output_quantity: 2
       input: custom_iron_ingot/3|custom_magic_powder/1|custom_diamond/1
       cook_time: 5m
 custom_manasteel_block:
