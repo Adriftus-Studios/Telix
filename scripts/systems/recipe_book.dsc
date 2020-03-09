@@ -202,6 +202,7 @@ show_recipe:
       - inventory open d:<[inv]>
       - foreach <yaml[server.recipe_book].read[ore_spawn.<[item]>.biome].as_list> as:biome:
         - define biome_lore:|:<&r><[biome].substring[1,1].to_uppercase><[biome].replace[_].with[<&sp>].substring[2]>
+      - narrate <[biome_lore]>
       - inventory set d:<[inv]> slot:11 o:<item[stone].with[display_name=<&r><&6>Biome:<&sp><yaml[server.recipe_book].read[ore_spawn.<[item]>.biome].as_list.get[1]>;lore=<[biome_lore]>]>
       - foreach <yaml[server.recipe_book].read[ore_spawn.<[item]>.block].as_list> as:block:
         - define lore:|:<&r><[block].substring[1,1].to_uppercase><[block].replace[_].with[<&sp>].substring[2]>
