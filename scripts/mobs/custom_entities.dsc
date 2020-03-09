@@ -43,6 +43,7 @@ entity_waterhag:
       max_quantity: 1
       min_quantity: 1
       time: night
+      aggressive: true
 
 custom_waterhag_hand:
   type: item
@@ -91,3 +92,4 @@ entity_direwolf:
       max_quantity: 3
       min_quantity: 5
       time: night
+      aggressive: true
