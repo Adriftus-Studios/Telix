@@ -186,11 +186,9 @@ show_recipe:
   type: task
   definitions: item|type
   script:
+    - narrate <[item]>
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
-    - if <yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]||null> != null:
-      - define item:<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>
-      - define type:mob_info
     - if <[type]> == mob_info:
       - define inv:<inventory[recipe_book_mob_info]>
       - inventory open d:<[inv]>
