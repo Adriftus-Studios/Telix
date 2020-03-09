@@ -196,7 +196,6 @@ show_recipe:
   type: task
   definitions: item|type
   script:
-    - narrate <[type]>
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
     - if <[type]> == notes:
