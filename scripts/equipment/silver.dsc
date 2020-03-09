@@ -2,9 +2,9 @@
 custom_silver_sword:
   material: iron_sword
   display name: <&7>Silver Sword
-  weight: '1'
+  weight: '2'
   type: item
-  fake_durability: 175
+  fake_durability: 200
   damage: 5
   attack_speed: 4
   recipes:
@@ -32,9 +32,9 @@ custom_silver_sword:
 custom_silver_pickaxe:
   material: iron_pickaxe
   display name: <&7>Silver Pickaxe
-  weight: '1'
+  weight: '3'
   type: item
-  fake_durability: 175
+  fake_durability: 200
   damage: 3
   attack_speed: 4
   recipes:
@@ -48,9 +48,9 @@ custom_silver_pickaxe:
 custom_silver_axe:
   material: iron_axe
   display name: <&7>Silver Axe
-  weight: '1'
+  weight: '3'
   type: item
-  fake_durability: 175
+  fake_durability: 200
   damage: 4
   attack_speed: 4
   recipes:
@@ -87,8 +87,8 @@ custom_silver_shovel:
   display name: <&7>Silver Shovel
   weight: '1'
   type: item
-  fake_durability: 175
-  damage: 2
+  fake_durability: 200
+  damage: 4
   attack_speed: 4
   recipes:
     1:
@@ -115,9 +115,9 @@ custom_silver_shovel:
 custom_silver_hoe:
   material: iron_hoe
   display name: <&7>Silver Hoe
-  weight: '1'
+  weight: '2'
   type: item
-  fake_durability: 175
+  fake_durability: 200
   damage: 2
   attack_speed: 4
   recipes:
@@ -216,17 +216,14 @@ custom_silver_boots:
   category: shoes
   weight: '1'
   type: item
-  fake_durability: 78
+  fake_durability: 143
   armor: 1
   equipment_rating: 5
   max_stars: 3
   sockets: 1
   equipment_modifiers:
     speed:
-      max: 5
-      min: 1
-    constitution:
-      max: 3
+      max: 8
       min: 1
   recipes:
     1:
@@ -249,17 +246,14 @@ custom_silver_leggings:
   category: pants
   weight: '1'
   type: item
-  fake_durability: 90
-  armor: 3
+  fake_durability: 165
+  armor: 4
   equipment_rating: 5
   max_stars: 3
   sockets: 1
   equipment_modifiers:
     speed:
-      max: 5
-      min: 1
-    constitution:
-      max: 3
+      max: 8
       min: 1
   recipes:
     1:
@@ -275,17 +269,14 @@ custom_silver_chestplate:
   category: shirt
   weight: '1'
   type: item
-  fake_durability: 96
-  armor: 3
+  fake_durability: 176
+  armor: 4
   equipment_rating: 5
   max_stars: 3
   sockets: 1
   equipment_modifiers:
     speed:
-      max: 5
-      min: 1
-    constitution:
-      max: 3
+      max: 8
       min: 1
   recipes:
     1:
@@ -301,17 +292,14 @@ custom_silver_helmet:
   category: hat
   weight: '1'
   type: item
-  fake_durability: 66
-  armor: 1
+  fake_durability: 121
+  armor: 2
   equipment_rating: 5
   max_stars: 3
   sockets: 1
   equipment_modifiers:
     speed:
-      max: 5
-      min: 1
-    constitution:
-      max: 3
+      max: 8
       min: 1
   recipes:
     1:

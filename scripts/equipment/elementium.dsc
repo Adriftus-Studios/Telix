@@ -14,21 +14,21 @@ custom_elementium_sword:
       input:
       - custom_elementium_ingot|air|air
       - custom_elementium_ingot|air|air
-      - custom_stick|air|air
+      - custom_livingwood_twig|air|air
     2:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|air
       - air|custom_elementium_ingot|air
-      - air|custom_stick|air
+      - air|custom_livingwood_twig|air
     3:
       type: shaped
       output_quantity: 1
       input:
       - air|air|custom_elementium_ingot
       - air|air|custom_elementium_ingot
-      - air|air|custom_stick
+      - air|air|custom_livingwood_twig
 custom_elementium_pickaxe:
   material: iron_pickaxe
   display name: <&7>Elementium Pickaxe
@@ -43,8 +43,8 @@ custom_elementium_pickaxe:
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
-      - air|custom_stick|air
-      - air|custom_stick|air
+      - air|custom_livingwood_twig|air
+      - air|custom_livingwood_twig|air
 custom_elementium_axe:
   material: iron_axe
   display name: <&7>Elementium Axe
@@ -59,29 +59,29 @@ custom_elementium_axe:
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|air
-      - custom_elementium_ingot|custom_stick|air
-      - air|custom_stick|air
+      - custom_elementium_ingot|custom_livingwood_twig|air
+      - air|custom_livingwood_twig|air
     2:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|custom_elementium_ingot
-      - air|custom_stick|custom_elementium_ingot
-      - air|custom_stick|air
+      - air|custom_livingwood_twig|custom_elementium_ingot
+      - air|custom_livingwood_twig|air
     3:
       type: shaped
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|air
-      - custom_stick|custom_elementium_ingot|air
-      - custom_stick|air|air
+      - custom_livingwood_twig|custom_elementium_ingot|air
+      - custom_livingwood_twig|air|air
     4:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|custom_elementium_ingot
-      - air|custom_elementium_ingot|custom_stick
-      - air|air|custom_stick
+      - air|custom_elementium_ingot|custom_livingwood_twig
+      - air|air|custom_livingwood_twig
 custom_elementium_shovel:
   material: iron_shovel
   display name: <&7>Elementium Shovel
@@ -96,22 +96,22 @@ custom_elementium_shovel:
       output_quantity: 1
       input:
       - custom_elementium_ingot|air|air
-      - custom_stick|air|air
-      - custom_stick|air|air
+      - custom_livingwood_twig|air|air
+      - custom_livingwood_twig|air|air
     2:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|air
-      - air|custom_stick|air
-      - air|custom_stick|air
+      - air|custom_livingwood_twig|air
+      - air|custom_livingwood_twig|air
     3:
       type: shaped
       output_quantity: 1
       input:
       - air|air|custom_elementium_ingot
-      - air|air|custom_stick
-      - air|air|custom_stick
+      - air|air|custom_livingwood_twig
+      - air|air|custom_livingwood_twig
 custom_elementium_hoe:
   material: iron_hoe
   display name: <&7>Elementium Hoe
@@ -126,30 +126,30 @@ custom_elementium_hoe:
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|air
-      - air|custom_stick|air
-      - air|custom_stick|air
+      - air|custom_livingwood_twig|air
+      - air|custom_livingwood_twig|air
     2:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|custom_elementium_ingot
-      - air|custom_stick|air
-      - air|custom_stick|air
+      - air|custom_livingwood_twig|air
+      - air|custom_livingwood_twig|air
     3:
       type: shaped
       recipe_id: custom_elementium_hoe3
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|air
-      - custom_stick|air|air
-      - custom_stick|air|air
+      - custom_livingwood_twig|air|air
+      - custom_livingwood_twig|air|air
     4:
       type: shaped
       output_quantity: 1
       input:
       - air|custom_elementium_ingot|custom_elementium_ingot
-      - air|air|custom_stick
-      - air|air|custom_stick
+      - air|air|custom_livingwood_twig
+      - air|air|custom_livingwood_twig
 custom_elementium_nugget:
   material: iron_nugget
   display name: <&7>Elementium Nugget
@@ -218,7 +218,7 @@ custom_elementium_boots:
       type: shaped
       output_quantity: 1
       input:
-      - custom_elementium_ingot|custom_iron_boots|custom_elementium_ingot
+      - custom_elementium_ingot|custom_terrasteel_boots|custom_elementium_ingot
       - custom_elementium_ingot|air|custom_elementium_ingot
       - air|air|air
     2:
@@ -226,7 +226,7 @@ custom_elementium_boots:
       output_quantity: 1
       input:
       - air|air|air
-      - custom_elementium_ingot|custom_iron_boots|custom_elementium_ingot
+      - custom_elementium_ingot|custom_terrasteel_boots|custom_elementium_ingot
       - custom_elementium_ingot|air|custom_elementium_ingot
 custom_elementium_leggings:
   material: iron_leggings
@@ -252,7 +252,7 @@ custom_elementium_leggings:
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
-      - custom_elementium_ingot|custom_iron_leggings|custom_elementium_ingot
+      - custom_elementium_ingot|custom_terrasteel_leggings|custom_elementium_ingot
       - custom_elementium_ingot|air|custom_elementium_ingot
 custom_elementium_chestplate:
   material: iron_chestplate
@@ -277,7 +277,7 @@ custom_elementium_chestplate:
       type: shaped
       output_quantity: 1
       input:
-      - custom_elementium_ingot|custom_iron_chestplate|custom_elementium_ingot
+      - custom_elementium_ingot|custom_terrasteel_chestplate|custom_elementium_ingot
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
 custom_elementium_helmet:
@@ -304,7 +304,7 @@ custom_elementium_helmet:
       output_quantity: 1
       input:
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
-      - custom_elementium_ingot|custom_iron_helmet|custom_elementium_ingot
+      - custom_elementium_ingot|custom_terrasteel_helmet|custom_elementium_ingot
       - air|air|air
     1:
       type: shaped
@@ -312,4 +312,4 @@ custom_elementium_helmet:
       input:
       - air|air|air
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
-      - custom_elementium_ingot|custom_iron_helmet|custom_elementium_ingot
+      - custom_elementium_ingot|custom_terrasteel_helmet|custom_elementium_ingot

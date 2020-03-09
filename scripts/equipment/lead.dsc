@@ -2,9 +2,9 @@
 custom_lead_sword:
   material: iron_sword
   display name: <&7>Lead Sword
-  weight: '1'
+  weight: '2'
   type: item
-  fake_durability: 175
+  fake_durability: 150
   damage: 5
   attack_speed: 4
   recipes:
@@ -32,9 +32,9 @@ custom_lead_sword:
 custom_lead_pickaxe:
   material: iron_pickaxe
   display name: <&7>Lead Pickaxe
-  weight: '1'
+  weight: '3'
   type: item
-  fake_durability: 175
+  fake_durability: 150
   damage: 3
   attack_speed: 4
   recipes:
@@ -48,9 +48,9 @@ custom_lead_pickaxe:
 custom_lead_axe:
   material: iron_axe
   display name: <&7>Lead Axe
-  weight: '1'
+  weight: '3'
   type: item
-  fake_durability: 175
+  fake_durability: 150
   damage: 4
   attack_speed: 4
   recipes:
@@ -87,7 +87,7 @@ custom_lead_shovel:
   display name: <&7>Lead Shovel
   weight: '1'
   type: item
-  fake_durability: 175
+  fake_durability: 150
   damage: 2
   attack_speed: 4
   recipes:
@@ -115,9 +115,9 @@ custom_lead_shovel:
 custom_lead_hoe:
   material: iron_hoe
   display name: <&7>Lead Hoe
-  weight: '1'
+  weight: '2'
   type: item
-  fake_durability: 175
+  fake_durability: 150
   damage: 2
   attack_speed: 4
   recipes:
@@ -214,20 +214,20 @@ custom_lead_boots:
   lore:
   display name: <&7>Lead Boots
   category: shoes
-  weight: '1'
+  weight: '4'
   type: item
-  fake_durability: 78
-  armor: 1
+  fake_durability: 195
+  armor: 3
   equipment_rating: 5
   max_stars: 3
   sockets: 1
   equipment_modifiers:
+    speed:
+      min: -15
+      max: -5
     health:
-      max: 5
       min: 1
-    constitution:
       max: 3
-      min: 1
   recipes:
     1:
       type: shaped
@@ -247,20 +247,20 @@ custom_lead_leggings:
   material: iron_leggings
   display name: <&7>Lead Leggings
   category: pants
-  weight: '1'
+  weight: '7'
   type: item
-  fake_durability: 90
-  armor: 3
+  fake_durability: 225
+  armor: 4
   equipment_rating: 5
   max_stars: 3
   sockets: 1
   equipment_modifiers:
+    speed:
+      min: -15
+      max: -5
     health:
-      max: 5
       min: 1
-    constitution:
       max: 3
-      min: 1
   recipes:
     1:
       type: shaped
@@ -273,20 +273,20 @@ custom_lead_chestplate:
   material: iron_chestplate
   display name: <&7>Lead Chestplate
   category: shirt
-  weight: '1'
+  weight: '8'
   type: item
-  fake_durability: 96
-  armor: 3
+  fake_durability: 240
+  armor: 5
   equipment_rating: 5
   max_stars: 3
   sockets: 1
   equipment_modifiers:
+    speed:
+      min: -15
+      max: -5
     health:
-      max: 5
       min: 1
-    constitution:
       max: 3
-      min: 1
   recipes:
     1:
       type: shaped
@@ -299,20 +299,20 @@ custom_lead_helmet:
   material: iron_helmet
   display name: <&7>Lead Helmet
   category: hat
-  weight: '1'
+  weight: '5'
   type: item
-  fake_durability: 66
-  armor: 1
+  fake_durability: 165
+  armor: 2
   equipment_rating: 5
   max_stars: 3
   sockets: 1
   equipment_modifiers:
+    speed:
+      min: -15
+      max: -5
     health:
-      max: 5
       min: 1
-    constitution:
       max: 3
-      min: 1
   recipes:
     1:
       type: shaped

@@ -40,3 +40,35 @@ rune_ender:
   mechanisms:
     custom_model_data: -11
   display name: <&7>Ender Rune
+
+custom_livingwood_twig:
+  type: item
+  material: stick
+  display name: <&f>Livingwood Twig
+  ore:
+    1:
+      biome: all
+      block: birch_log
+      tool: custom_draw_knife
+      chance: 1
+
+custom_draw_knife:
+  type: item
+  material: iron_axe
+  display name: <&7>Draw Knife
+  fake_durability: 114
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_stick|custom_stick|custom_manasteel_ingot
+      - air|air|custom_manasteel_ingot
+      - custom_stick|custom_stick|custom_manasteel_ingot
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+      - custom_manasteel_ingot|custom_stick|custom_stick
+      - custom_manasteel_ingot|air|air
+      - custom_manasteel_ingot|custom_stick|custom_stick

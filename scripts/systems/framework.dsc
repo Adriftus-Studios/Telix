@@ -82,9 +82,10 @@ reload_scripts:
               - if <[value].yaml_key[ore]||null> != null:
                 - foreach <[value].list_keys[ore]> as:ore:
                   - yaml id:server.ore_rates set <[value].yaml_key[ore.<[ore]>.block]>.<[value].yaml_key[ore.<[ore]>.biome]>.<[value].yaml_key[ore.<[ore]>.chance]>:<[value].name>
-                  - yaml id:server.recipe_book set ore_spawn.<[value].name>.block:<[value].yaml_key[ore.<[ore]>.block]>
-                  - yaml id:server.recipe_book set ore_spawn.<[value].name>.biome:<[value].yaml_key[ore.<[ore]>.biome]>
-                  - yaml id:server.recipe_book set ore_spawn.<[value].name>.chance:<[value].yaml_key[ore.<[ore]>.chance]>
+                  - yaml id:server.recipe_book set ore_spawn.<[value].name>.block:<[value].yaml_key[ore.<[ore]>.block]||all>
+                  - yaml id:server.recipe_book set ore_spawn.<[value].name>.biome:<[value].yaml_key[ore.<[ore]>.biome]||all>
+                  - yaml id:server.recipe_book set ore_spawn.<[value].name>.chance:<[value].yaml_key[ore.<[ore]>.chance]||20>
+                  - yaml id:server.recipe_book set ore_spawn.<[value].name>.tool:<[value].yaml_key[ore.<[ore]>.tool]||all>
               - if <[value].yaml_key[mob_drops]||null> != null:
                 - foreach <[value].list_keys[mob_drops]> as:num:
                   - yaml id:server.drop_rates set <[value].yaml_key[mob_drops.<[num]>.dropped_by]>.<[value].name>.<[value].yaml_key[mob_drops.<[num]>.chance]>:<[value].yaml_key[mob_drops.<[num]>.min_quantity]>/<[value].yaml_key[mob_drops.<[num]>.max_quantity]>
