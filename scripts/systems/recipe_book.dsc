@@ -171,7 +171,7 @@ show_recipes:
         - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
     - if <[list].size> == 0:
       - inventory close d:<player.open_inventory>
-      - narrate "<&c>This item either uses the default minecraft recipe."
+      - narrate "<&c>This item does not use a custom recipe."
       - stop
     - if <[list].size> == 1:
       - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>
