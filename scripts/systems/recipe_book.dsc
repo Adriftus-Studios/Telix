@@ -157,7 +157,7 @@ recipe_book_events:
           - if <context.item.script.name> == next_page_button:
             - flag <player> context:<[type]>/<[page].add[1]>
             - inventory open d:recipe_book_inventory
-          - if <context.item.script.name> == previous_page_button:
+          - if <context.item.script.name> == previous_page_button && <[page].sub[1]> > 0:
             - flag <player> context:<[type]>/<[page].sub[1]>
             - inventory open d:recipe_book_inventory
           - if <context.item.script.name> == crafting_icon:
