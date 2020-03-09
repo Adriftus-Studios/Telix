@@ -13,11 +13,11 @@ ability_ground_slam:
     #/ex teleport <[value]> <[value].location.with_pitch[0]>
     #/ex shoot <player> speed:-2.0 height:2.5
     - inject abilities_check
+    - inject abilities_cost
     #Check if player is in the air, if they aren't, perform standard ground slam
     - define blocks:2
     - repeat <[blocks]>:
       - if <player.location.below[<[value]>].backward.material.name> != air || <player.location.below[<[value]>].material.name> != air:
-        - inject abilities_cost
         - adjust <player> velocity:0,1,0
         - wait 18t
         - teleport <player> <player.location.with_pitch[75]>
@@ -27,7 +27,6 @@ ability_ground_slam:
         - stop
     #Foreach passed, player must be in the air. Execute mid-air ground slam
     - if <player.location.below.material.name> == air:
-      - inject abilities_cost
       - adjust <player> velocity:0,-1,0
       - wait 10t
       - run ability_ground_slam_stun
