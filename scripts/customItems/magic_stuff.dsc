@@ -12,6 +12,7 @@ custom_air_rune:
   mechanisms:
     custom_model_data: -7
   display name: <&7>Air Rune
+  recipes:
     1:
       type: altar
       output_quantity: 1
@@ -35,6 +36,7 @@ custom_water_rune:
   mechanisms:
     custom_model_data: -8
   display name: <&7>Water Rune
+  recipes:
     1:
       type: altar
       output_quantity: 1
