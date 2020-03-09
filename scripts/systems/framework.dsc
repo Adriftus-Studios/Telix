@@ -362,16 +362,15 @@ kill_queue_command:
   - foreach <yaml[server.executable_scripts].read[scripts].filter[to_lowercase.starts_with[<context.args.get[1].to_lowercase>]]>:
     - define list:|:<[value]>
   - determine <[list]>
+  permission: kill_queue
   script:
-  - if <player.has_permission[*]>:
     - foreach <script[<context.args.get[1]>].list_queues>:
       - queue <[value]> stop
 
 player_setup_command:
   type: command
   name: player_setup
-  description: player_setup
-  usage: /player_setup
+  permission: player_setup
   tab complete:
   - determine <server.list_online_players.filter[name.to_lowercase.starts_with[<context.args.get[1].to_lowercase>]]>
   script:
@@ -381,9 +380,9 @@ player_setup_command:
 player_reset_command:
   type: command
   name: player_reset
-  description: player_reset
-  usage: /player_reset
+  permission: player_reset
   script:
+  - adjust <queue> linked_player:<server.match_player[<context.args.get[1]>]||<player>>
   - kick <player> reason:Standby<&sp>while<&sp>we<&sp>reset<&sp>your<&sp>player<&sp>data.
   - yaml id:player.<player.uuid> unload
   - adjust server delete_file:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml
@@ -391,8 +390,7 @@ player_reset_command:
 resend_recipes_command:
   type: command
   name: resend_recipes
-  description: resend_recipes
-  usage: /resend_recipes
+  permission: resend_recipes
   script:
   - foreach <server.list_online_players> as:player:
     - adjust <[player]> quietly_discover_recipe:<server.list_recipe_ids>
@@ -401,8 +399,7 @@ resend_recipes_command:
 build_item_command:
   type: command
   name: build_item
-  description: build_item
-  usage: /build_item
+  permission: build_item
   script:
     - define item:<player.item_in_hand>
     - inject build_item

@@ -140,6 +140,7 @@ recipe_book_events:
     on player clicks in recipe_book_*:
       - determine passively cancelled
       - narrate <context.raw_slot>
+      - narrate <player.open_inventory.size>
       - if <context.raw_slot> != -998:
         - if <player.open_inventory.script_name> == recipe_book_inventory:
           - if <context.raw_slot> < 55:

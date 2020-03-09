@@ -1,8 +1,7 @@
 update_stats_command:
   type: command
   name: update_stats
-  description: update_stats
-  usage: /update_stat
+  permission: update_stats
   script:
     - inject update_stats
 
@@ -188,10 +187,6 @@ stats_inventory_handler:
 stats_icon:
   type: item
   material: snow
-  assigned_stat: power.max
-  assigned_stat_increment: 2
-  display name: "<&6>◆ <&a><&n><&l>Stat<&r> <&6>◆"
-  drops_on_death: false
   
 create_player_stats:
   type: world
