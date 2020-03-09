@@ -70,26 +70,3 @@ custom_venom_extract:
       chance: 9
       max_quantity: 1
       min_quantity: 1
-
-entity_direwolf:
-  type: entity
-  entity_type: wolf
-  custom_name: Direwolf
-  max_health: 15
-  health: 7
-  speed: 0.4
-  custom:
-    spawning_conditions:
-      world: tor_mainland
-      biome: all
-      every: 5m
-      air: false
-      max_y: 100
-      min_y: 0
-      max_distance: 40
-      min_distance: 30
-      water: false
-      max_quantity: 3
-      min_quantity: 5
-      time: night
-      aggressive: true

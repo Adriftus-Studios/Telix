@@ -229,7 +229,7 @@ custom_gold_ore:
     1:
       biome: all
       block: stone
-      chance: 20
+      chance: 54
 custom_gold_boots:
   material: golden_boots
   lore:

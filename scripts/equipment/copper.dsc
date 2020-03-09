@@ -208,7 +208,7 @@ custom_copper_ore:
     1:
       biome: all
       block: stone
-      chance: 20
+      chance: 24
 custom_copper_boots:
   material: iron_boots
   lore:

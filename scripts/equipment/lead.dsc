@@ -162,7 +162,7 @@ custom_lead_nugget:
       hide_in_recipebook: true
       input: custom_lead_ingot
 custom_lead_ingot:
-  material: brick
+  material: iron_ingot
   display name: <&7>Lead Ingot
   weight: '1'
   type: item
@@ -208,7 +208,7 @@ custom_lead_ore:
     1:
       biome: all
       block: stone
-      chance: 20
+      chance: 39
 custom_lead_boots:
   material: iron_boots
   lore:

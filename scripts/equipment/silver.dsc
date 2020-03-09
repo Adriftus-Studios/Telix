@@ -162,7 +162,7 @@ custom_silver_nugget:
       hide_in_recipebook: true
       input: custom_silver_ingot
 custom_silver_ingot:
-  material: brick
+  material: iron_ingot
   display name: <&7>Silver Ingot
   weight: '1'
   type: item
@@ -208,7 +208,7 @@ custom_silver_ore:
     1:
       biome: all
       block: stone
-      chance: 25
+      chance: 56
 custom_silver_boots:
   material: iron_boots
   lore:

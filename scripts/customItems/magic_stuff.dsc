@@ -28,7 +28,7 @@ custom_air_shard:
       biome: all
       block: stone
       tool: all
-      chance: 47
+      chance: 39
 
 custom_water_rune:
   type: item
@@ -40,8 +40,8 @@ custom_water_rune:
     1:
       type: altar
       output_quantity: 1
-      input: potion/1|custom_blank_rune/1|custom_water_shard/7|custom_kelp/29|custom_sugar_cane/11|custom_pufferfish/2
-      cook_time: 5m
+      input: custom_blank_rune/1|custom_water_shard/7|custom_kelp/29|custom_sugar_cane/11|custom_pufferfish/2
+      cook_time: 10m
 
 custom_water_shard:
   type: item
@@ -60,6 +60,23 @@ custom_earth_rune:
   mechanisms:
     custom_model_data: -9
   display name: <&7>Earth Rune
+  recipes:
+    1:
+      type: altar
+      output_quantity: 1
+      input: custom_blank_rune/1|custom_steel_ingot/12|custom_bronze_ingot/5|custom_obsidian_ingot/2|custom_stone/64|custom_cobblestone/64|custom_earth_shard/6
+      cook_time: 10m
+
+custom_earth_shard:
+  type: item
+  material: iron_nugget
+  display name: <&7>Earth Shard
+  ore:
+    1:
+      biome: MOUNTAINS|SNOWY_MOUNTAINS|MOUNTAIN_EDGE|WOODED_MOUNTAINS|GRAVELLY_MOUNTAINS|TAIGA_MOUNTAINS|SNOWY_TAIGA_MOUNTAINS|MODIFIED_GRAVELLY_MOUNTAINS
+      block: stone
+      tool: all
+      chance: 60
 
 custom_fire_rune:
   type: item
@@ -67,6 +84,28 @@ custom_fire_rune:
   mechanisms:
     custom_model_data: -10
   display name: <&7>Fire Rune
+  recipes:
+    1:
+      type: altar
+      output_quantity: 1
+      input: custom_blank_rune/1|custom_manasteel_ingot/7|custom_terrasteel_ingot/1|custom_obsidian/26|custom_fire_shard/17
+      cook_time: 20m
+
+custom_fire_shard:
+  type: item
+  material: iron_nugget
+  display name: <&7>Earth Shard
+  ore:
+    1:
+      biome: nether
+      block: netherrack
+      tool: all
+      chance: 117
+    2:
+      biome: nether
+      block: obsidian
+      tool: all
+      chance: 117
 
 custom_ender_rune:
   type: item

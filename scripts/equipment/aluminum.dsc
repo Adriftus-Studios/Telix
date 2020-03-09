@@ -162,7 +162,7 @@ custom_aluminum_nugget:
       hide_in_recipebook: true
       input: custom_aluminum_ingot
 custom_aluminum_ingot:
-  material: brick
+  material: iron_ingot
   display name: <&7>Aluminum Ingot
   weight: '1'
   type: item
@@ -208,7 +208,7 @@ custom_aluminum_ore:
     1:
       biome: all
       block: stone
-      chance: 20
+      chance: 28
 custom_aluminum_boots:
   material: iron_boots
   lore:

@@ -150,20 +150,8 @@ custom_obsidian_hoe:
       - air|custom_obsidian_ingot|custom_obsidian_ingot
       - air|air|custom_stick
       - air|air|custom_stick
-#<dafuq>
-custom_obsidian_nugget:
-  material: iron_nugget
-  display name: <&7>Obsidian Nugget
-  weight: '0'
-  type: item
-  recipes:
-    1:
-      type: shapeless
-      output_quantity: 9
-      hide_in_recipebook: true
-      input: custom_obsidian_ingot
 custom_obsidian_ingot:
-  material: brick
+  material: iron_ingot
   display name: <&7>Obsidian Ingot
   weight: '1'
   type: item
@@ -173,34 +161,6 @@ custom_obsidian_ingot:
       input: custom_obsidian/4|custom_diamond/1
       output_quantity: 1
       type: smeltery
-    2:
-      type: shaped
-      output_quantity: 1
-      hide_in_recipebook: true
-      input:
-      - custom_obsidian_nugget|custom_obsidian_nugget|custom_obsidian_nugget
-      - custom_obsidian_nugget|custom_obsidian_nugget|custom_obsidian_nugget
-      - custom_obsidian_nugget|custom_obsidian_nugget|custom_obsidian_nugget
-    3:
-      type: shapeless
-      output_quantity: 9
-      hide_in_recipebook: true
-      input: custom_obsidian_block
-custom_obsidian_block:
-  material: iron_block
-  display name: <&7>Obsidian Block
-  weight: '9'
-  type: item
-  recipes:
-    1:
-      type: shaped
-      output_quantity: 1
-      hide_in_recipebook: true
-      input:
-      - custom_obsidian_ingot|custom_obsidian_ingot|custom_obsidian_ingot
-      - custom_obsidian_ingot|custom_obsidian_ingot|custom_obsidian_ingot
-      - custom_obsidian_ingot|custom_obsidian_ingot|custom_obsidian_ingot
-#</dafuq>
 custom_obsidian_boots:
   material: iron_boots
   lore:

@@ -215,7 +215,7 @@ custom_iron_ore:
     1:
       biome: all
       block: stone
-      chance: 20
+      chance: 31
 custom_iron_boots:
   material: iron_boots
   lore:
