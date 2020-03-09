@@ -96,7 +96,7 @@ custom_fire_rune:
     1:
       type: altar
       output_quantity: 1
-      input: custom_blank_rune/1|custom_manasteel_ingot/7|custom_terrasteel_ingot/1|custom_obsidian/26|custom_fire_shard/17|custom_ghast_tear/2
+      input: custom_blank_rune/1|custom_manasteel_ingot/7|custom_terrasteel_ingot/1|custom_obsidian/26|custom_fire_shard/17|custom_ghast_tear/2|custom_inferno_extract/1
       cook_time: 20m
 
 custom_fire_shard:
@@ -234,5 +234,38 @@ custom_inferno_extract:
     2:
       dropped_by: pig_zombie
       chance: 67
+      max_quantity: 1
+      min_quantity: 1
+
+custom_wrath_shard:
+  type: item
+  material: iron_nugget
+  display name: <&7>Wrath Shard
+  mob_drops:
+    1:
+      dropped_by: blaze|zombie_pig|enderman|skeleton|zombie|spider|creeper
+      chance: 440
+      max_quantity: 1
+      min_quantity: 1
+
+custom_envy_shard:
+  type: item
+  material: iron_nugget
+  display name: <&7>Envy Shard
+  ore:
+    1:
+      biome: all
+      block: stone|netherrack|dirt|grass|sand
+      tool: all
+      chance: 300
+
+custom_pride_shard:
+  type: item
+  material: iron_nugget
+  display name: <&7>Pride Shard
+  mob_drops:
+    1:
+      dropped_by: player
+      chance: 100
       max_quantity: 1
       min_quantity: 1
