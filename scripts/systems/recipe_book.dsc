@@ -191,6 +191,7 @@ show_recipe:
     - if <[type]> == mob_drops:
       - define inv:<inventory[recipe_book_mob_drops]>
       - inventory open d:<[inv]>
+      - inventory set d:<[inv]> slot:12 o:<item[spawn_egg].with[display_name=<&r>Dropped<&sp>by:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by]>]>
     - if <[type]> == ore_spawn:
       - define inv:<inventory[recipe_book_ores]>
       - inventory open d:<[inv]>
