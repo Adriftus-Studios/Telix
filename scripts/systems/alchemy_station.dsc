@@ -21,28 +21,6 @@ alchemy_station_timer:
     custom_model_data: -5
   display name: <&7>Not Brewing
 
-alchemy_station_test_recipe1:
-  type: item
-  material: cobblestone
-  display name: <&7>Something
-  recipes:
-    1:
-      type: alchemy
-      output_quantity: 2
-      input: custom_stone/1|custom_dirt/2
-      cook_time: 10s
-
-alchemy_station_test_recipe2:
-  type: item
-  material: flint
-  display name: <&7>Something
-  recipes:
-    1:
-      type: alchemy
-      output_quantity: 4
-      input: custom_stone/2|custom_cobblestone/2
-      cook_time: 5s
-
 alchemy_station:
   type: item
   material: brewing_stand

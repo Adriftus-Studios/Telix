@@ -21,28 +21,6 @@ altar_timer:
     custom_model_data: -5
   display name: <&7>Not Imbuing
 
-altar_test_recipe1:
-  type: item
-  material: cobblestone
-  display name: <&7>Altar test recipe 1
-  recipes:
-    1:
-      type: altar
-      output_quantity: 2
-      input: custom_stone/1|custom_dirt/2
-      cook_time: 10s
-
-altar_test_recipe2:
-  type: item
-  material: diamond
-  display name: <&7>Altar test recipe 2
-  recipes:
-    1:
-      type: altar
-      output_quantity: 4
-      input: custom_gold_ingot/2|custom_cobblestone/2
-      cook_time: 5s
-
 altar:
   type: item
   material: obsidian
