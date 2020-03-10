@@ -153,13 +153,14 @@ recipe_book_events:
     - define page:<player.flag[context].split[/].get[2]||1>
     - flag <player> context:!
     - if <[type]> == all:
-      - narrate 1
       - foreach <yaml[server.recipe_book].list_keys[categories]> as:cat:
         - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[cat]>]>
     - else:
-      - narrate 2
-      - foreach <yaml[server.recipe_book].list_keys[categories.<[type]>]> as:cat:
-        - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[cat]>]>
+      - if <yaml[server.recipe_book].list_keys[categories.<[type]>]||null> != null:
+        - foreach <yaml[server.recipe_book].list_keys[categories.<[type]>]> as:cat:
+          - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[cat]>]>
+      - else:
+        - narrate <yaml[server.recipe_book].read[categories.<[type]>].parse[as_item]>
     on player clicks in recipe_book_*:
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
