@@ -9,7 +9,7 @@ recipe_book_inventory:
   - define type1:<player.flag[context].split[/].get[1]||all>
   - define page:<player.flag[context].split[/].get[2]||1>
   - flag <player> context:!
-  - foreach <yaml[server.recipe_book].list_keys[]||<list[]>> as:type2:
+  - foreach <yaml[server.recipe_book].list_keys[].exclude[used_for]||<list[]>> as:type2:
     - foreach <yaml[server.recipe_book].list_keys[<[type2]>]||<list[]>> as:item:
       - define items:|:<[item]>
   - define items:<[items].deduplicate.alphabetical>
