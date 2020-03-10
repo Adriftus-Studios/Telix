@@ -220,6 +220,7 @@ show_recipe:
   script:
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
+    - narrate <[type]>
     - if <[type]> == notes:
       - define inv:<inventory[recipe_book_note]>
       - inventory open d:<[inv]>
