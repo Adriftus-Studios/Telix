@@ -12,6 +12,7 @@ recipe_book_inventory:
   - foreach <yaml[server.recipe_book].list_keys[].exclude[used_for]||<list[]>> as:type2:
     - foreach <yaml[server.recipe_book].list_keys[<[type2]>]||<list[]>> as:item:
       - define items:|:<[item]>
+      - narrate <[item]>
   - define items:<[items].deduplicate.alphabetical>
   - repeat 45:
     - if <[items].size> >= <[value].add[<[page].mul[44].sub[44]>]>:
