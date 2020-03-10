@@ -46,9 +46,10 @@ ability_ground_slam:
       - adjust <player> velocity:0,-1,0
       - repeat 10:
         - if <player.location.below.material.name> != air:
-          - wait 1s
-        - else:
           - repeat stop
+        - else:
+          - adjust <player> velocity:0,-1,0
+          - wait 1s
       - wait 10t
       - inject locally stun
       - inject abilities_cost
