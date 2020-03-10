@@ -451,7 +451,7 @@ build_item:
           - else:
             - define line:<[line]><&7>[<&sp>]
         - define lore:|:<[line]>
-      - define stat_names:<list[boss_damage/Boss<&sp>Damage|thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
+      - define stat_names:<list[boss_damage/Boss<&sp>Damage|ore_drops/Ore<&sp>Drops|thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
       - if <[item].script.list_keys[equipment_modifiers]||null> != null:
         - define lore:|:<&9>
         - define lore:|:<&9>When<&sp>Equipped:<&co>

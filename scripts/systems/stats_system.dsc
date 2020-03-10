@@ -128,6 +128,7 @@ default_stats:
       constitution: 0
       experience_multiplier: 0
       drop_rate_multiplier: 0
+      ore_drops_multiplier: 0
       melee_damage: 100
       equipment_rating: 0
     increments:
