@@ -1,7 +1,7 @@
 
 custom_aluminum_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.aluminum
+  recipe_book_category: equipment.aluminum
   display name: <&7>Aluminum Nugget
   weight: '0'
   type: item
@@ -13,8 +13,8 @@ custom_aluminum_nugget:
       input: custom_aluminum_ingot
 custom_aluminum_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.aluminum
-  recipe_book_category: materials|equipment.aluminum
+  recipe_book_category: equipment.aluminum
+  recipe_book_category: equipment.aluminum
   display name: <&7>Aluminum Ingot
   weight: '1'
   type: item
@@ -39,7 +39,7 @@ custom_aluminum_ingot:
       input: custom_aluminum_block
 custom_aluminum_block:
   material: iron_block
-  recipe_book_category: materials|equipment.aluminum
+  recipe_book_category: equipment.aluminum
   display name: <&7>Aluminum Block
   weight: '9'
   type: item
@@ -54,7 +54,7 @@ custom_aluminum_block:
       - custom_aluminum_ingot|custom_aluminum_ingot|custom_aluminum_ingot
 custom_aluminum_ore:
   material: iron_ore
-  recipe_book_category: materials|equipment.aluminum
+  recipe_book_category: equipment.aluminum
   display name: <&7>Aluminum Ore
   weight: '1'
   type: item
@@ -65,7 +65,7 @@ custom_aluminum_ore:
       chance: 28
 custom_bronze_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.bronze
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Nugget
   weight: '0'
   type: item
@@ -77,7 +77,7 @@ custom_bronze_nugget:
       input: custom_bronze_ingot
 custom_bronze_ingot:
   material: brick
-  recipe_book_category: materials|equipment.bronze
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Ingot
   weight: '1'
   type: item
@@ -102,7 +102,7 @@ custom_bronze_ingot:
       input: custom_bronze_block
 custom_bronze_block:
   material: iron_block
-  recipe_book_category: materials|equipment.bronze
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Block
   weight: '9'
   type: item
@@ -117,7 +117,7 @@ custom_bronze_block:
       - custom_bronze_ingot|custom_bronze_ingot|custom_bronze_ingot
 custom_constantan_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.constantan
+  recipe_book_category: equipment.constantan
   display name: <&7>Constantan Nugget
   weight: '0'
   type: item
@@ -129,7 +129,7 @@ custom_constantan_nugget:
       input: custom_constantan_ingot
 custom_constantan_ingot:
   material: brick
-  recipe_book_category: materials|equipment.constantan
+  recipe_book_category: equipment.constantan
   display name: <&7>Constantan Ingot
   weight: '1'
   type: item
@@ -154,7 +154,7 @@ custom_constantan_ingot:
       input: custom_constantan_block
 custom_constantan_block:
   material: iron_block
-  recipe_book_category: materials|equipment.constantan
+  recipe_book_category: equipment.constantan
   display name: <&7>Constantan Block
   weight: '9'
   type: item
@@ -169,7 +169,7 @@ custom_constantan_block:
       - custom_constantan_ingot|custom_constantan_ingot|custom_constantan_ingot
 custom_copper_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.copper
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Nugget
   weight: '0'
   type: item
@@ -181,7 +181,7 @@ custom_copper_nugget:
       input: custom_copper_ingot
 custom_copper_ingot:
   material: brick
-  recipe_book_category: materials|equipment.copper
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Ingot
   weight: '1'
   type: item
@@ -206,7 +206,7 @@ custom_copper_ingot:
       input: custom_copper_block
 custom_copper_block:
   material: iron_block
-  recipe_book_category: materials|equipment.copper
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Block
   weight: '9'
   type: item
@@ -221,7 +221,7 @@ custom_copper_block:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
 custom_copper_ore:
   material: iron_ore
-  recipe_book_category: materials|equipment.copper
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Ore
   weight: '1'
   type: item
@@ -232,7 +232,7 @@ custom_copper_ore:
       chance: 24
 custom_diamond:
   material: diamond
-  recipe_book_category: materials|equipment.diamond
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond
   weight: '1'
   type: item
@@ -249,7 +249,7 @@ custom_diamond:
       input: custom_diamond_block
 custom_diamond_block:
   material: diamond_block
-  recipe_book_category: materials|equipment.diamond
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Block
   weight: '9'
   type: item
@@ -264,7 +264,7 @@ custom_diamond_block:
       - custom_diamond|custom_diamond|custom_diamond
 custom_diamond_ore:
   material: diamond_ore
-  recipe_book_category: materials|equipment.diamond
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Ore
   weight: '1'
   type: item
@@ -275,7 +275,7 @@ custom_diamond_ore:
       chance: 20
 custom_elementium_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.elementium
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Nugget
   weight: '0'
   type: item
@@ -287,7 +287,7 @@ custom_elementium_nugget:
       input: custom_elementium_ingot
 custom_elementium_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.elementium
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Ingot
   weight: '1'
   type: item
@@ -312,7 +312,7 @@ custom_elementium_ingot:
       cook_time: 10m
 custom_elementium_block:
   material: iron_block
-  recipe_book_category: materials|equipment.elementium
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Block
   weight: '9'
   type: item
@@ -327,7 +327,7 @@ custom_elementium_block:
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
 custom_gold_nugget:
   material: gold_nugget
-  recipe_book_category: materials|equipment.gold
+  recipe_book_category: equipment.gold
   display name: <&7>Gold Nugget
   weight: '0'
   type: item
@@ -339,7 +339,7 @@ custom_gold_nugget:
       input: custom_gold_ingot
 custom_gold_ingot:
   material: gold_ingot
-  recipe_book_category: materials|equipment.gold
+  recipe_book_category: equipment.gold
   display name: <&7>Golden Ingot
   weight: '1'
   type: item
@@ -364,7 +364,7 @@ custom_gold_ingot:
       input: custom_gold_block
 custom_gold_block:
   material: gold_block
-  recipe_book_category: materials|equipment.gold
+  recipe_book_category: equipment.gold
   display name: <&7>Golden Block
   weight: '9'
   type: item
@@ -379,7 +379,7 @@ custom_gold_block:
       - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
 custom_gold_ore:
   material: gold_ore
-  recipe_book_category: materials|equipment.gold
+  recipe_book_category: equipment.gold
   display name: <&7>Golden Ore
   weight: '1'
   type: item
@@ -390,7 +390,7 @@ custom_gold_ore:
       chance: 54
 custom_iron_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.iron
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Nugget
   weight: '0'
   type: item
@@ -402,7 +402,7 @@ custom_iron_nugget:
       input: custom_iron_ingot
 custom_iron_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.iron
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Ingot
   weight: '1'
   type: item
@@ -427,7 +427,7 @@ custom_iron_ingot:
       input: custom_iron_block
 custom_iron_block:
   material: iron_block
-  recipe_book_category: materials|equipment.iron
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Block
   weight: '9'
   type: item
@@ -442,7 +442,7 @@ custom_iron_block:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
 custom_iron_ore:
   material: iron_ore
-  recipe_book_category: materials|equipment.iron
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Ore
   weight: '1'
   type: item
@@ -453,7 +453,7 @@ custom_iron_ore:
       chance: 31
 custom_lead_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.lead
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Nugget
   weight: '0'
   type: item
@@ -465,7 +465,7 @@ custom_lead_nugget:
       input: custom_lead_ingot
 custom_lead_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.lead
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Ingot
   weight: '1'
   type: item
@@ -490,7 +490,7 @@ custom_lead_ingot:
       input: custom_lead_block
 custom_lead_block:
   material: iron_block
-  recipe_book_category: materials|equipment.lead
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Block
   weight: '9'
   type: item
@@ -505,7 +505,7 @@ custom_lead_block:
       - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
 custom_lead_ore:
   material: iron_ore
-  recipe_book_category: materials|equipment.lead
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Ore
   weight: '1'
   type: item
@@ -516,7 +516,7 @@ custom_lead_ore:
       chance: 39
 custom_manasteel_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.manasteel
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Nugget
   weight: '0'
   type: item
@@ -528,7 +528,7 @@ custom_manasteel_nugget:
       input: custom_manasteel_ingot
 custom_manasteel_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.manasteel
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Ingot
   weight: '1'
   type: item
@@ -553,7 +553,7 @@ custom_manasteel_ingot:
       cook_time: 5m
 custom_manasteel_block:
   material: iron_block
-  recipe_book_category: materials|equipment.manasteel
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Block
   weight: '9'
   type: item
@@ -569,7 +569,7 @@ custom_manasteel_block:
 custom_manaweave_cloth:
   type: item
   material: leather
-  recipe_book_category: materials|equipment.manaweave
+  recipe_book_category: equipment.manaweave
   display name: <&b>Manaweave Cloth
   recipes:
     1:
@@ -579,7 +579,7 @@ custom_manaweave_cloth:
       cook_time: 4m
 custom_nickel_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.nickel
+  recipe_book_category: equipment.nickel
   display name: <&7>Nickel Nugget
   weight: '0'
   type: item
@@ -591,7 +591,7 @@ custom_nickel_nugget:
       input: custom_nickel_ingot
 custom_nickel_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.nickel
+  recipe_book_category: equipment.nickel
   display name: <&7>Nickel Ingot
   weight: '1'
   type: item
@@ -616,7 +616,7 @@ custom_nickel_ingot:
       input: custom_nickel_block
 custom_nickel_block:
   material: iron_block
-  recipe_book_category: materials|equipment.nickel
+  recipe_book_category: equipment.nickel
   display name: <&7>Nickel Block
   weight: '9'
   type: item
@@ -631,7 +631,7 @@ custom_nickel_block:
       - custom_nickel_ingot|custom_nickel_ingot|custom_nickel_ingot
 custom_nickel_ore:
   material: iron_ore
-  recipe_book_category: materials|equipment.nickel
+  recipe_book_category: equipment.nickel
   display name: <&7>Nickel Ore
   weight: '1'
   type: item
@@ -642,7 +642,7 @@ custom_nickel_ore:
       chance: 30
 custom_obsidian_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.obsidian
+  recipe_book_category: equipment.obsidian
   display name: <&7>Obsidian Ingot
   weight: '1'
   type: item
@@ -654,7 +654,7 @@ custom_obsidian_ingot:
       type: smeltery
 custom_silver_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.silver
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Nugget
   weight: '0'
   type: item
@@ -666,7 +666,7 @@ custom_silver_nugget:
       input: custom_silver_ingot
 custom_silver_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.silver
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Ingot
   weight: '1'
   type: item
@@ -691,7 +691,7 @@ custom_silver_ingot:
       input: custom_silver_block
 custom_silver_block:
   material: iron_block
-  recipe_book_category: materials|equipment.silver
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Block
   weight: '9'
   type: item
@@ -706,7 +706,7 @@ custom_silver_block:
       - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
 custom_silver_ore:
   material: iron_ore
-  recipe_book_category: materials|equipment.silver
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Ore
   weight: '1'
   type: item
@@ -717,7 +717,7 @@ custom_silver_ore:
       chance: 56
 custom_steel_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.steel
+  recipe_book_category: equipment.steel
   display name: <&7>Steel Nugget
   weight: '0'
   type: item
@@ -729,7 +729,7 @@ custom_steel_nugget:
       input: custom_steel_ingot
 custom_steel_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.steel
+  recipe_book_category: equipment.steel
   display name: <&7>Steel Ingot
   weight: '1'
   type: item
@@ -754,7 +754,7 @@ custom_steel_ingot:
       input: custom_steel_block
 custom_steel_block:
   material: iron_block
-  recipe_book_category: materials|equipment.steel
+  recipe_book_category: equipment.steel
   display name: <&7>Steel Block
   weight: '9'
   type: item
@@ -769,7 +769,7 @@ custom_steel_block:
       - custom_steel_ingot|custom_steel_ingot|custom_steel_ingot
 custom_terrasteel_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.terrasteel
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Nugget
   weight: '0'
   type: item
@@ -785,7 +785,7 @@ custom_terrasteel_nugget:
       cook_time: 15m
 custom_terrasteel_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.terrasteel
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Ingot
   weight: '1'
   type: item
@@ -804,7 +804,7 @@ custom_terrasteel_ingot:
       input: custom_terrasteel_block
 custom_terrasteel_block:
   material: iron_block
-  recipe_book_category: materials|equipment.terrasteel
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Block
   weight: '9'
   type: item
@@ -819,7 +819,7 @@ custom_terrasteel_block:
       - custom_terrasteel_ingot|custom_terrasteel_ingot|custom_terrasteel_ingot
 custom_tin_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.tin
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Nugget
   weight: '0'
   type: item
@@ -831,7 +831,7 @@ custom_tin_nugget:
       input: custom_tin_ingot
 custom_tin_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.tin
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Ingot
   weight: '1'
   type: item
@@ -856,7 +856,7 @@ custom_tin_ingot:
       input: custom_tin_block
 custom_tin_block:
   material: iron_block
-  recipe_book_category: materials|equipment.tin
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Block
   weight: '9'
   type: item
@@ -871,7 +871,7 @@ custom_tin_block:
       - custom_tin_ingot|custom_tin_ingot|custom_tin_ingot
 custom_tin_ore:
   material: iron_ore
-  recipe_book_category: materials|equipment.tin
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Ore
   weight: '1'
   type: item
@@ -882,7 +882,7 @@ custom_tin_ore:
       chance: 20
 custom_warpmetal_nugget:
   material: iron_nugget
-  recipe_book_category: materials|equipment.warpmetal
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Nugget
   weight: '0'
   type: item
@@ -893,7 +893,7 @@ custom_warpmetal_nugget:
       input: custom_warpmetal_ingot
 custom_warpmetal_ingot:
   material: iron_ingot
-  recipe_book_category: materials|equipment.warpmetal
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal
   weight: '1'
   type: item
@@ -917,7 +917,7 @@ custom_warpmetal_ingot:
       cook_time: 2m
 custom_warpmetal_block:
   material: iron_block
-  recipe_book_category: materials|equipment.warpmetal
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Block
   weight: '9'
   type: item
