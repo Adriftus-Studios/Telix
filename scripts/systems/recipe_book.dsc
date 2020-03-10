@@ -192,8 +192,6 @@ recipe_book_events:
               - run show_recipes def:<context.item>
         - if <context.click> == RIGHT:
           - run show_used_for_recipes def:<context.item.script.name>
-    on player closes recipe_book_*:
-      - flag <player> context:!
       
 show_used_for_recipes:
   type: task
