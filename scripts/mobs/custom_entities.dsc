@@ -22,7 +22,7 @@ entity_drowned:
       time: night
       aggressive_on_spawn: true
 
-entity_combustion_cow:
+entity_boomboom:
   type: entity
   entity_type: cow
   custom_name: BoomBoom
