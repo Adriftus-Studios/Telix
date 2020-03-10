@@ -188,7 +188,7 @@ recipe_book_events:
             - if <context.item.script.name.starts_with[custom_]||false>:
               - run show_recipes def:<context.item>
         - narrate <context.click>
-        - else if <context.click> == RIGHT:
+        - if <context.click> == RIGHT:
           - if <context.item.nbt[type]||null> != null:
             - run show_used_for_recipes def:<context.item.script.name>
     on player closes recipe_book_*:
