@@ -9,6 +9,21 @@ ability_ground_slam:
   icon:
     material: stone
     custom_model_data: 1
+  explosion:
+    - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:20 targets:<server.list_online_players>
+    - flag player no_jump:true duration:1s
+    - foreach <player.location.find.players.within[5].exclude[<player>]>:
+      - look <[value]> <player.location>
+      - teleport <[value]> <[value].location.with_pitch[45]>
+      - shoot <[value]> o:<[value].location> speed:-2.0
+    - cast slow <player> duration:2s power:255
+  stun:
+    - playeffect flash at:<player.location> quantity:1 visibility:20 targets:<server.list_online_players>
+    - foreach <player.location.find.players.within[3].exclude[<player>]>:
+      - look <[value]> <player.location>
+      - playeffect crit at:<[value].location> quantity:10 targets:<[value]>
+      - cast slow <[value]> duration:5s power:255
+      - flag <[value]> no_jump:true duration:5s
   script:
     #/ex teleport <[value]> <[value].location.with_pitch[0]>
     #/ex shoot <player> speed:-2.0 height:2.5
