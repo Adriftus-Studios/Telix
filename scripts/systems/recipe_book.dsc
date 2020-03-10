@@ -11,7 +11,7 @@ recipe_book_inventory:
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
-  - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [w_filler] [w_filler] [w_filler]"
+  - "[] [] [] [] [] [] [] [] []"
 
 recipe_book_chooser:
   type: inventory
@@ -149,7 +149,6 @@ recipe_book_events:
   events:
     on player opens recipe_book_inventory:
     - define type:<player.flag[context].split[/].get[1]||all>
-    - define page:<player.flag[context].split[/].get[2]||1>
     - flag <player> context:!
     - if <[type]> == all:
       - foreach <yaml[server.recipe_book].list_keys[categories]> as:cat:
@@ -160,32 +159,19 @@ recipe_book_events:
           - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[type]>.<[cat]>]>
       - else:
         - define items:<yaml[server.recipe_book].read[categories.<[type]>].parse[as_item]>
-        - repeat 45:
+        - repeat 54:
           - inventory add d:<context.inventory> o:<[items].get[<[value]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
     on player clicks in recipe_book_*:
-      - narrate <context.item.custom_model_data>
-      - narrate <context.item.script.name>
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
       - if <context.raw_slot> != -998 && <context.raw_slot> <= <player.open_inventory.size> && <context.item.material.name> != air:
         - if <player.open_inventory.script_name> == recipe_book_inventory:
           - if <context.item.nbt[category]||null> != null:
-            - flag <player> context:<context.item.nbt[category]>/1
+            - flag <player> context:<context.item.nbt[category]>
             - inventory open d:recipe_book_inventory
             - stop
         - if <context.click> == LEFT:
           - if <player.open_inventory.script_name> == recipe_book_inventory:
-            - define page:<player.open_inventory.slot[50].nbt[page]>
-            - define type:<player.open_inventory.slot[50].nbt[type]>
-            - if <context.item.script.name> == next_page_button:
-              - flag <player> context:<[type]>/<[page].add[1]>
-              - inventory open d:recipe_book_inventory
-            - if <context.item.script.name> == previous_page_button && <[page].sub[1]> > 0:
-              - flag <player> context:<[type]>/<[page].sub[1]>
-              - inventory open d:recipe_book_inventory
-            - if <context.item.script.name> == crafting_icon:
-              - flag <player> context:crafting/1
-              - inventory open d:recipe_book_inventory
             - if <context.raw_slot> < 46:
               - run show_recipes def:<context.item>
           - else if <player.open_inventory.script_name> == recipe_book_chooser:
