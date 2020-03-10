@@ -28,21 +28,6 @@ recipe_book_inventory:
   - "[] [] [] [] [] [] [] [] []"
   - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [w_filler] [w_filler] [w_filler]"
 
-recipe_book_used_for:
-  type: inventory
-  title: <&6>◆ <&a><&n><&l>Recipe Book<&r> <&6>◆
-  size: 54
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    closeitem: <item[gui_close_btn]>
-  slots:
-  - "[] [] [] [] [] [] [] [] []"
-  - "[] [] [] [] [] [] [] [] []"
-  - "[] [] [] [] [] [] [] [] []"
-  - "[] [] [] [] [] [] [] [] []"
-  - "[] [] [] [] [] [] [] [] []"
-  - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [w_filler] [w_filler] [w_filler]"
-
 recipe_book_chooser:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Recipes<&r> <&6>◆
@@ -159,6 +144,21 @@ recipe_book_mob_drops:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+recipe_book_used_for:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Recipe Book<&r> <&6>◆
+  size: 54
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [w_filler] [w_filler] [w_filler]"
+
 recipe_book_events:
   type: world
   events:
@@ -189,7 +189,7 @@ recipe_book_events:
               - run show_recipes def:<context.item>
         - else if <context.click> == RIGHT:
           - if <context.item.nbt[type]||null> != null:
-            - run show_recipes def:<context.item.script.name>
+            - run show_used_for_recipes def:<context.item.script.name>
     on player closes recipe_book_*:
       - flag <player> context:!
       
@@ -198,7 +198,11 @@ show_used_for_recipes:
   definitions: item
   script:
     - if <yaml[server.recipe_book].read[used_for.<[item].script.name>]||null> != null:
-
+      - define inv:<inventory[recipe_book_used_for]>
+      - inventory open d:<[inv]>
+      - define items:<yaml[server.recipe_book].read[used_for.<[item].script.name>].as_list.parse[as_item]>
+      - repeat 45:
+        - inventory set d:<[inv]> slot:<[value]> o:<[items].get[<[value]>]||<item[air]>>
 
 show_recipes:
   type: task
