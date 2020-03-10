@@ -2,6 +2,7 @@
 custom_blank_rune:
   type: item
   material: gold_nugget
+  recipe_book_category: crafting.magic
   mechanisms:
     custom_model_data: -6
   display name: <&7>Blank Rune
@@ -17,6 +18,7 @@ custom_blank_rune:
 custom_air_rune:
   type: item
   material: gold_nugget
+  recipe_book_category: crafting.magic
   mechanisms:
     custom_model_data: -7
   display name: <&7>Air Rune
@@ -30,6 +32,7 @@ custom_air_rune:
 custom_air_shard:
   type: item
   material: iron_nugget
+  recipe_book_category: crafting.magic
   display name: <&7>Air Shard
   ore:
     1:
@@ -41,6 +44,7 @@ custom_air_shard:
 custom_water_rune:
   type: item
   material: gold_nugget
+  recipe_book_category: crafting.magic
   mechanisms:
     custom_model_data: -8
   display name: <&7>Water Rune
@@ -54,6 +58,7 @@ custom_water_rune:
 custom_water_shard:
   type: item
   material: iron_nugget
+  recipe_book_category: crafting.magic
   display name: <&7>Water Shard
   ore:
     1:
@@ -65,6 +70,7 @@ custom_water_shard:
 custom_earth_rune:
   type: item
   material: gold_nugget
+  recipe_book_category: crafting.magic
   mechanisms:
     custom_model_data: -9
   display name: <&7>Earth Rune
@@ -78,6 +84,7 @@ custom_earth_rune:
 custom_earth_shard:
   type: item
   material: iron_nugget
+  recipe_book_category: crafting.magic
   display name: <&7>Earth Shard
   ore:
     1:
@@ -89,6 +96,7 @@ custom_earth_shard:
 custom_fire_rune:
   type: item
   material: gold_nugget
+  recipe_book_category: crafting.magic
   mechanisms:
     custom_model_data: -10
   display name: <&7>Fire Rune
@@ -102,6 +110,7 @@ custom_fire_rune:
 custom_fire_shard:
   type: item
   material: iron_nugget
+  recipe_book_category: crafting.magic
   display name: <&7>Earth Shard
   ore:
     1:
@@ -113,6 +122,7 @@ custom_fire_shard:
 custom_ender_rune:
   type: item
   material: gold_nugget
+  recipe_book_category: crafting.magic
   mechanisms:
     custom_model_data: -11
   display name: <&7>Ender Rune
@@ -126,6 +136,7 @@ custom_ender_rune:
 custom_ender_shard:
   type: item
   material: iron_nugget
+  recipe_book_category: crafting.magic
   display name: <&7>Ender Shard
   mob_drops:
     1:
@@ -137,6 +148,7 @@ custom_ender_shard:
 custom_livingwood_twig:
   type: item
   material: stick
+  recipe_book_category: crafting.magic
   display name: <&f>Livingwood Twig
   ore:
     1:
@@ -153,6 +165,7 @@ custom_livingwood_twig:
 custom_livingwood:
   type: item
   material: birch_log
+  recipe_book_category: crafting.magic
   display name: <&f>Livingwood
   ore:
     1:
@@ -164,6 +177,7 @@ custom_livingwood:
 custom_dreamwood_twig:
   type: item
   material: stick
+  recipe_book_category: crafting.magic
   display name: <&d>Dreamwood Twig
   recipes:
     1:
@@ -179,6 +193,7 @@ custom_dreamwood_twig:
 custom_dreamwood:
   type: item
   material: birch_log
+  recipe_book_category: crafting.magic
   display name: <&d>Dreamwood
   recipes:
     1:
@@ -211,6 +226,7 @@ custom_draw_knife:
 custom_magic_powder:
   type: item
   material: redstone
+  recipe_book_category: crafting.magic
   display name: <&b>Magic Powder
   mob_drops:
     1:
@@ -241,6 +257,7 @@ custom_inferno_extract:
 custom_wrath_shard:
   type: item
   material: iron_nugget
+  recipe_book_category: crafting.magic
   display name: <&7>Wrath Shard
   mob_drops:
     1:
@@ -252,6 +269,7 @@ custom_wrath_shard:
 custom_envy_shard:
   type: item
   material: iron_nugget
+  recipe_book_category: crafting.magic
   display name: <&7>Envy Shard
   ore:
     1:
@@ -263,6 +281,7 @@ custom_envy_shard:
 custom_pride_shard:
   type: item
   material: iron_nugget
+  recipe_book_category: crafting.magic
   display name: <&7>Pride Shard
   mob_drops:
     1:
@@ -273,6 +292,7 @@ custom_pride_shard:
 
 custom_warped_shard:
   type: item
+  recipe_book_category: crafting.magic
   material: iron_nugget
   display name: <&5>Warped Shard
   recipe_book_note: <&5>Not much is known about this shard... Legends say it will appear at a random point in the world at a random time.
