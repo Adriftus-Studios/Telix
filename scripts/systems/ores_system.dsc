@@ -11,6 +11,7 @@ ore_drop_events:
             - foreach <[drops]||<list[]>> as:drop:
                 - define tool:<yaml[server.recipe_book].read[ore_spawn.<[drop].split[/].get[1]>.tool]>
                 - if <[tool]> == <player.item_in_hand.script.name||null> || <[tool]> == all:
+                    - narrate <[drop]>
                     - if <util.random.int[1].to[<[drop].split[/].get[2]>]||0> == 1:
                         - define to_drop:|:<[drop].split[/].get[1]>
             - if <[to_drop]||null> != null:

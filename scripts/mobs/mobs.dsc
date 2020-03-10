@@ -23,7 +23,7 @@ mob_drops_events:
           - drop <[item].with[quantity=<[amount]>]> <context.entity.location>
     on entity damages entity:
       - if <context.entity.script||null> != null:
-        - if <context.entity.script.yaml_key[custom.aggressive]>:
+        - if <context.entity.script.yaml_key[custom.aggressive]||true>:
           - attack <context.entity> target:<context.damager>
 
 mob_spawning_events:

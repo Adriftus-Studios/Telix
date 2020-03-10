@@ -5,21 +5,6 @@ recipe_book_inventory:
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
-  procedural items:
-  - define type1:<player.flag[context].split[/].get[1]||all>
-  - define page:<player.flag[context].split[/].get[2]||1>
-  - flag <player> context:!
-  - foreach <yaml[server.recipe_book].list_keys[].exclude[used_for].exclude[mob_info].exclude[categories]||<list[]>> as:type2:
-    - foreach <yaml[server.recipe_book].list_keys[<[type2]>]||<list[]>> as:item:
-      - define items:|:<[item].as_item.display>/<[item]>
-  - define items:<[items].deduplicate.alphabetical>
-  - repeat 45:
-    - if <[items].size> >= <[value].add[<[page].mul[44].sub[44]>]>:
-      - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[2]||air>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
-    - else:
-      - define list:|:<item[air]>
-  - define list:|:<item[gui_close_btn].with[nbt=page/<[page]>|type/<[type1]>]>
-  - determine <[list]>
   slots:
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
@@ -162,6 +147,20 @@ recipe_book_used_for:
 recipe_book_events:
   type: world
   events:
+    on player opens recipe_book_inventory:
+    - define type1:<player.flag[context].split[/].get[1]||all>
+    - define page:<player.flag[context].split[/].get[2]||1>
+    - flag <player> context:!
+    - foreach <yaml[server.recipe_book].list_keys[].exclude[used_for].exclude[mob_info].exclude[categories]||<list[]>> as:type2:
+      - foreach <yaml[server.recipe_book].list_keys[<[type2]>]||<list[]>> as:item:
+        - define items:|:<[item].as_item.display>/<[item]>
+    - define items:<[items].deduplicate.alphabetical>
+    - repeat 45:
+      - if <[items].size> >= <[value].add[<[page].mul[44].sub[44]>]>:
+        - define list:|:<item[<[items].get[<[value].add[<[page].mul[44].sub[44]>]>].split[/].get[2]||air>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
+      - else:
+        - define list:|:<item[air]>
+    - define list:|:<item[gui_close_btn].with[nbt=page/<[page]>|type/<[type1]>]>
     on player clicks in recipe_book_*:
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
