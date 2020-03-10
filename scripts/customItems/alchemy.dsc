@@ -2,6 +2,7 @@
 custom_waterhag_hand:
   type: item
   material: rotten_flesh
+  recipe_book_category: materials.alchemy
   display name: <&7>Waterhag's Hand
   mob_drops:
     1:
@@ -13,6 +14,7 @@ custom_waterhag_hand:
 custom_venom_extract:
   type: item
   material: potion
+  recipe_book_category: materials.alchemy
   display name: <&7>Venom Extract
   mechanisms:
     flags: HIDE_POTION_EFFECTS
@@ -28,6 +30,7 @@ custom_venom_extract:
 custom_blizz_rod:
   type: item
   material: blue_ice
+  recipe_book_category: materials.alchemy
   display name: <&7>Blizz Rod
   mob_drops:
     1:
@@ -39,6 +42,7 @@ custom_blizz_rod:
 custom_moth_wing:
   type: item
   material: leather
+  recipe_book_category: materials.alchemy
   display name: <&7>Moth Wing
   mob_drops:
     1:
@@ -46,6 +50,18 @@ custom_moth_wing:
       chance: 12
       max_quantity: 2
       min_quantity: 1
+
+custom_aerotheum:
+  material: redstone
+  recipe_book_category: materials.alchemy
+  display name: <&a>Aerotheum
+  weight: '1'
+  type: item
+  recipes:
+    1:
+      type: smeltery
+      output_quantity: 4
+      input: custom_antler/2|custom_tin_ingot/1|custom_constantan_ingot/2
 
 
 ## Potions

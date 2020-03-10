@@ -315,6 +315,13 @@ custom_item_override:
 system_override:
   type: world
   events:
+    on player picks up item:
+      - if <context.item.script.yaml_key[contaminated]||null> != null:
+        - while <player.inventory.contains.scriptname[<context.item.script.name>]>:
+          - cast wither duration:2m
+          - flag <player> contaminated:true duration:2m
+          - hurt 1
+          - wait 4
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
@@ -353,6 +360,8 @@ system_override:
       - else:
         - yaml create id:player.<player.uuid>
     on player respawns:
+      - flag <player> contaminated:!
+      - wait 1t
       - inject system_equipment_set
     on player drags in inventory:
       - if <player.open_inventory> == <player.inventory>:

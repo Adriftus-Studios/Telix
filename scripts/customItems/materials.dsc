@@ -930,3 +930,30 @@ custom_warpmetal_block:
       - custom_warpmetal_ingot|custom_warpmetal_ingot|custom_warpmetal_ingot
       - custom_warpmetal_ingot|custom_warpmetal_ingot|custom_warpmetal_ingot
       - custom_warpmetal_ingot|custom_warpmetal_ingot|custom_warpmetal_ingot
+custom_iridium_ingot:
+  material: iron_ingot
+  recipe_book_category: materials.ingots
+  display name: <&7>Tin Ingot
+  weight: '1'
+  type: item
+  contaminated: 1
+  lore:
+  - <&2><&l>Contaminated
+  recipes:
+    1:
+      type: furnace
+      cook_time: 10s
+      experience: 5
+      input: custom_iridium_ore
+custom_iridium_ore:
+  material: iron_ore
+  recipe_book_category: materials.ores
+  display name: <&7>Iridium Ore
+  weight: '1'
+  type: item
+  recipes:
+  ore:
+    1:
+      biome: all
+      block: stone
+      chance: 700
