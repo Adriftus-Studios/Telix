@@ -5,7 +5,7 @@ ability_ground_slam:
   ability_type: active
   points_to_unlock: 10
   power_cost: 10
-  description: <&3>Ground:|<&b>Knock back players in a 5 block radius.|<&3>Midair:|<&b>Stun players in a 3 block radius.
+  description: Ground:|&bKnock back players in a 5 block radius.|&3Midair:|&bStun players in a 3 block radius.
   icon:
     material: stone
     custom_model_data: 1
