@@ -1,16 +1,3 @@
-
-custom_manaweave_cloth:
-  type: item
-  material: leather
-  recipe_book_category: equipment.manaweave
-  display name: <&b>Manaweave Cloth
-  recipes:
-    1:
-      type: alchemy
-      output_quantity: 1
-      input: custom_manasteel_ingot/2|custom_leather/5|custom_magic_powder/1
-      cook_time: 4m
-  
 custom_manaweave_cowl:
   type: item
   material: leather_helmet

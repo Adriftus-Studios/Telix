@@ -105,7 +105,7 @@ entity_elk:
   custom:
     spawning_conditions:
       world: tor_mainland
-      biome: wooded_hills|jungle_hills|birch_forest_hills|swamp_hills|tall_birch_hills|dark_forest_hills|giant_spruce_taiga_hills|bamboo_jungle_hills
+      biome: wooded_hills|jungle_hills|birch_forest_hills|swamp_hills|tall_birch_hills|dark_forest_hills|giant_spruce_taiga_hills|bamboo_jungle_hills|plains|sunflower_plains
       every: 20m
       air: false
       max_y: 255
@@ -153,7 +153,7 @@ entity_sand_rat:
   custom:
     spawning_conditions:
       world: tor_mainland
-      biome: desert|desert_hills|desert_lakes
+      biome: desert|desert_hills|desert_lakes|beach
       every: 10m
       air: false
       max_y: 255
@@ -177,7 +177,7 @@ entity_desert_dweller:
   custom:
     spawning_conditions:
       world: tor_mainland
-      biome: desert|desert_hills|desert_lakes
+      biome: desert|desert_hills|desert_lakes|beach
       every: 15m
       air: false
       max_y: 255
@@ -201,7 +201,7 @@ entity_desert_priest:
   custom:
     spawning_conditions:
       world: tor_mainland
-      biome: desert|desert_hills|desert_lakes
+      biome: desert|desert_hills|desert_lakes|beach
       every: 20m
       air: false
       max_y: 255
@@ -263,6 +263,30 @@ entity_frost_golem:
       aggressive_on_spawn: true
       chance: 1
 
+entity_icicle_guardian:
+  type: entity
+  entity_type: guardian
+  custom_name: Icicle Guardian
+  max_health: 70
+  health: 70
+  speed: 0.3
+  custom:
+    spawning_conditions:
+      world: tor_mainland
+      biome: ocean|frozen_ocean|deep_ocean|warm_ocean|lukewarm_ocean|cold_ocean|deep_warm_ocean|deep_lukewarm_ocean|deep_cold_ocean|deep_frozen_ocean
+      every: 40m
+      air: false
+      max_y: 255
+      min_y: 0
+      max_distance: 40
+      min_distance: 15
+      water: true
+      max_quantity: 1
+      min_quantity: 1
+      time: night
+      aggressive_on_spawn: true
+      chance: 1
+
 entity_icewolf:
   type: entity
   entity_type: wolf
@@ -285,6 +309,54 @@ entity_icewolf:
       min_quantity: 2
       time: all
       aggressive_on_spawn: true
+      chance: 1
+
+entity_sky_moth:
+  type: entity
+  entity_type: bat
+  custom_name: Sky Moth
+  max_health: 8
+  health: 8
+  speed: 0.6
+  custom:
+    spawning_conditions:
+      world: tor_mainland
+      biome: all
+      every: 10m
+      air: true
+      max_y: 255
+      min_y: 200
+      max_distance: 40
+      min_distance: 15
+      water: false
+      max_quantity: 2
+      min_quantity: 1
+      time: all
+      aggressive_on_spawn: false
+      chance: 1
+
+entity_jungle_moth:
+  type: entity
+  entity_type: bat
+  custom_name: Jungle Moth
+  max_health: 8
+  health: 8
+  speed: 0.6
+  custom:
+    spawning_conditions:
+      world: tor_mainland
+      biome: jungle|jungle_hills|jungle_edge|modified_jungle|modified_jungle_edge|bamboo_jungle|bamboo_jungle_hills
+      every: 10m
+      air: true
+      max_y: 255
+      min_y: 0
+      max_distance: 40
+      min_distance: 15
+      water: false
+      max_quantity: 1
+      min_quantity: 1
+      time: all
+      aggressive_on_spawn: false
       chance: 1
 
 entity_frost_moth:

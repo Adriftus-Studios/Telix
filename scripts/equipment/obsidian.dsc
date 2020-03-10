@@ -155,18 +155,6 @@ custom_obsidian_hoe:
       - air|custom_obsidian_ingot|custom_obsidian_ingot
       - air|air|custom_stick
       - air|air|custom_stick
-custom_obsidian_ingot:
-  material: iron_ingot
-  recipe_book_category: equipment.obsidian
-  display name: <&7>Obsidian Ingot
-  weight: '1'
-  type: item
-  recipes:
-    1:
-      cook_time: 17m
-      input: custom_obsidian/4|custom_diamond/1
-      output_quantity: 1
-      type: smeltery
 custom_obsidian_boots:
   material: iron_boots
   lore:

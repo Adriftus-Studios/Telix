@@ -31,7 +31,7 @@ custom_blizz_rod:
   display name: <&7>Blizz Rod
   mob_drops:
     1:
-      dropped_by: entity_icewolf|entity_frost_golem
+      dropped_by: entity_icewolf|entity_frost_golem|entity_icicle_guardian
       chance: 4
       max_quantity: 2
       min_quantity: 1
@@ -42,7 +42,7 @@ custom_moth_wing:
   display name: <&7>Moth Wing
   mob_drops:
     1:
-      dropped_by: entity_frost_moth
+      dropped_by: entity_frost_moth|entity_jungle_moth|entity_sky_moth
       chance: 12
       max_quantity: 2
       min_quantity: 1

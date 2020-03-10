@@ -40,7 +40,7 @@ custom_antler:
     1:
       dropped_by: entity_elk|entity_highland_cattle
       chance: 1
-      max_quantity: 1
+      max_quantity: 2
       min_quantity: 1
 
 
