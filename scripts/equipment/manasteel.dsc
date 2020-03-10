@@ -162,7 +162,7 @@ custom_manasteel_nugget:
       hide_in_recipebook: true
       input: custom_manasteel_ingot
 custom_manasteel_ingot:
-  material: brick
+  material: iron_ingot
   display name: <&b>Manasteel Ingot
   weight: '1'
   type: item
