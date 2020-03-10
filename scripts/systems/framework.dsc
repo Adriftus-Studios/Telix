@@ -130,7 +130,7 @@ reload_scripts:
                   - else:
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list> as:entry:
                       - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
-                      - narrate <[value].name>:<[entry]>
+                      - narrate <[value].name>:<[entry].as_list>
           - if <[value].yaml_key[type]> == entity:
             - if <[value].yaml_key[custom.spawning_conditions]||null> != null:
               - foreach <list[<[value].yaml_key[custom.spawning_conditions.world]>]> as:world:
