@@ -152,16 +152,20 @@ recipe_book_events:
     - define page:<player.flag[context].split[/].get[2]||1>
     - flag <player> context:!
     - if <[type]> == all:
-      - foreach <yaml[server.recipe_book].list_keys[categories]> as:cat:
-        - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[cat]>]>
+      - if <[type]> == all:
+        - foreach <yaml[server.recipe_book].list_keys[categories]> as:cat:
+          - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[cat]>]>
+      - else:
+        - foreach <yaml[server.recipe_book].list_keys[categories.<[type]>]> as:cat:
+          - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[cat]>]>
     on player clicks in recipe_book_*:
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
       - if <context.raw_slot> != -998 && <context.raw_slot> <= <player.open_inventory.size> && <context.item.material.name> != air:
         - if <player.open_inventory.script_name> == recipe_book_inventory:
           - if <context.item.nbt[category]||null> != null:
-            - narrate <context.item.nbt[category]>
-            - stop
+            - flag <player> context:<context.item.nbt[category]>/1
+            - inventory open d:<inventory[recipe_book_inventory]>
         - if <context.click> == LEFT:
           - if <player.open_inventory.script_name> == recipe_book_inventory:
             - define page:<player.open_inventory.slot[50].nbt[page]>
