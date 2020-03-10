@@ -120,7 +120,7 @@ custom_ender_rune:
     1:
       type: altar
       output_quantity: 1
-      input: custom_blank_rune/1|custom_fire_rune/3|custom_earth_rune/3|custom_water_rune/3|custom_air_rune/3|custom_enderpearl/7|custom_ender_shard/17
+      input: custom_blank_rune/1|custom_fire_rune/3|custom_earth_rune/3|custom_water_rune/3|custom_air_rune/3|custom_ender_pearl/7|custom_ender_shard/17
       cook_time: 60m
 
 custom_ender_shard:

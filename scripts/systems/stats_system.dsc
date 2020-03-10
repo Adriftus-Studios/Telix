@@ -114,11 +114,6 @@ calculate_encumberance_speed:
       - define encumberance:100
     - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
     - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
-    - if <yaml[player.<player.uuid>].read[stats.encumberance]> > 100:
-      - adjust <player> walk_speed:0.1
-    - else:
-      - adjust <player> walk_speed:<[speed]>
-
 default_stats:
   type: yaml data
   stats:
