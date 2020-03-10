@@ -29,6 +29,7 @@ ability_ground_slam:
     #/ex teleport <[value]> <[value].location.with_pitch[0]>
     #/ex shoot <player> speed:-2.0 height:2.5
     - inject abilities_check
+    - inject abilities_cost
     #Check if player is in the air, if they aren't, perform standard ground slam, explosion
     - define blocks:2
     - repeat <[blocks]>:
@@ -39,12 +40,10 @@ ability_ground_slam:
         - adjust <player> velocity:0,-1,0
         - waituntil <player.location.below.material.name> != air
         - inject locally explosion
-        - inject abilities_cost
         - stop
     #Foreach passed, player must be in the air. Execute mid-air ground slam, stun
     - if <player.location.below.material.name> == air:
       - adjust <player> velocity:0,-1,0
       - waituntil <player.location.below.material.name> != air
       - inject locally stun
-      - inject abilities_cost
       - stop
