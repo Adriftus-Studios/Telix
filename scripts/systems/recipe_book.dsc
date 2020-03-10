@@ -148,7 +148,6 @@ recipe_book_events:
   type: world
   events:
     on player opens recipe_book_inventory:
-    - narrate <player.flag[context]>
     - define type:<player.flag[context].split[/].get[1]||all>
     - define page:<player.flag[context].split[/].get[2]||1>
     - flag <player> context:!
@@ -160,7 +159,9 @@ recipe_book_events:
         - foreach <yaml[server.recipe_book].list_keys[categories.<[type]>]> as:cat:
           - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[type]>.<[cat]>]>
       - else:
-        - narrate <yaml[server.recipe_book].read[categories.<[type]>]>
+        - define items:<yaml[server.recipe_book].read[categories.<[type]>].parse[as_item]>
+        - repeat 45:
+          - inventory add d:<context.inventory> o:<[items].get[<[value]>].with[flags=HIDE_ATTRIBUTES]>
     on player clicks in recipe_book_*:
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
