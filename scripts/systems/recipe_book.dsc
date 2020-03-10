@@ -162,7 +162,7 @@ recipe_book_events:
           - inventory add d:<context.inventory> o:<item[stone].with[display_name=<&6><[cat].substring[1,1].to_uppercase><[cat].substring[2]>;nbt=category/<[type]>.<[cat]>]>
       - else:
         - define items:<yaml[server.recipe_book].read[categories.<[type]>].parse[as_item]>
-        - repeat 54:
+        - repeat 45:
           - inventory add d:<context.inventory> o:<[items].get[<[value]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
     on player clicks in recipe_book_*:
       - if <context.raw_slot> <= <player.open_inventory.size>:

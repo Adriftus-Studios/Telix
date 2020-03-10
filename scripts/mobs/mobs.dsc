@@ -80,7 +80,6 @@ mob_spawning_events:
 spawn_custom_mob:
   type: task
   definitions: mob|location
-  debug: true
   script:
     - spawn <[mob]> <[location].above> save:entity1
     - if <yaml[server.mobs].read[<[mob]>.aggressive_on_spawn]>:
