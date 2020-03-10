@@ -157,7 +157,7 @@ recipe_book_used_for:
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
-  - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 recipe_book_events:
   type: world
@@ -197,10 +197,10 @@ show_used_for_recipes:
   type: task
   definitions: item
   script:
-    - if <yaml[server.recipe_book].read[used_for.<[item].script.name>]||null> != null:
+    - if <yaml[server.recipe_book].read[used_for.<[item]>]||null> != null:
       - define inv:<inventory[recipe_book_used_for]>
       - inventory open d:<[inv]>
-      - define items:<yaml[server.recipe_book].read[used_for.<[item].script.name>].as_list.parse[as_item]>
+      - define items:<yaml[server.recipe_book].read[used_for.<[item]>].as_list.parse[as_item]>
       - repeat 45:
         - inventory set d:<[inv]> slot:<[value]> o:<[items].get[<[value]>]||<item[air]>>
 
@@ -209,7 +209,7 @@ show_recipes:
   definitions: item
   script:
     - define list:<list[]>
-    - foreach <yaml[server.recipe_book].list_keys[]> as:type:
+    - foreach <yaml[server.recipe_book].list_keys[].exclude[used_for]> as:type:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
     - if <[list].size> == 0:
