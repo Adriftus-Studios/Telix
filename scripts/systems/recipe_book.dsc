@@ -28,6 +28,21 @@ recipe_book_inventory:
   - "[] [] [] [] [] [] [] [] []"
   - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [w_filler] [w_filler] [w_filler]"
 
+recipe_book_used_for:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Recipe Book<&r> <&6>◆
+  size: 54
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[] [] [] [] [] [] [] [] []"
+  - "[w_filler] [w_filler] [w_filler] [previous_page_button] [] [next_page_button] [w_filler] [w_filler] [w_filler]"
+
 recipe_book_chooser:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Recipes<&r> <&6>◆
@@ -151,29 +166,39 @@ recipe_book_events:
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
       - if <context.raw_slot> != -998 && <context.raw_slot> <= <player.open_inventory.size> && <context.item.material.name> != air:
-        - if <player.open_inventory.script_name> == recipe_book_inventory:
-          - define page:<player.open_inventory.slot[50].nbt[page]>
-          - define type:<player.open_inventory.slot[50].nbt[type]>
-          - if <context.item.script.name> == next_page_button:
-            - flag <player> context:<[type]>/<[page].add[1]>
-            - inventory open d:recipe_book_inventory
-          - if <context.item.script.name> == previous_page_button && <[page].sub[1]> > 0:
-            - flag <player> context:<[type]>/<[page].sub[1]>
-            - inventory open d:recipe_book_inventory
-          - if <context.item.script.name> == crafting_icon:
-            - flag <player> context:crafting/1
-            - inventory open d:recipe_book_inventory
-          - if <context.raw_slot> < 46:
-            - run show_recipes def:<context.item>
-        - else if <player.open_inventory.script_name> == recipe_book_chooser:
-          - if <context.item.nbt[type]||null> != null:
-            - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
-        - else:
-          - if <context.item.script.name.starts_with[custom_]||false>:
-            - run show_recipes def:<context.item>
+        - if <context.click> == LEFT:
+          - if <player.open_inventory.script_name> == recipe_book_inventory:
+            - define page:<player.open_inventory.slot[50].nbt[page]>
+            - define type:<player.open_inventory.slot[50].nbt[type]>
+            - if <context.item.script.name> == next_page_button:
+              - flag <player> context:<[type]>/<[page].add[1]>
+              - inventory open d:recipe_book_inventory
+            - if <context.item.script.name> == previous_page_button && <[page].sub[1]> > 0:
+              - flag <player> context:<[type]>/<[page].sub[1]>
+              - inventory open d:recipe_book_inventory
+            - if <context.item.script.name> == crafting_icon:
+              - flag <player> context:crafting/1
+              - inventory open d:recipe_book_inventory
+            - if <context.raw_slot> < 46:
+              - run show_recipes def:<context.item>
+          - else if <player.open_inventory.script_name> == recipe_book_chooser:
+            - if <context.item.nbt[type]||null> != null:
+              - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
+          - else:
+            - if <context.item.script.name.starts_with[custom_]||false>:
+              - run show_recipes def:<context.item>
+        - else if <context.click> == RIGHT:
+          - narrate 1
     on player closes recipe_book_*:
       - flag <player> context:!
       
+show_used_for_recipes:
+  type: task
+  definitions: item
+  script:
+    - if <yaml[server.recipe_book].read[used_for.<[item].script.name>]||null> != null:
+
+
 show_recipes:
   type: task
   definitions: item
