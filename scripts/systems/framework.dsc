@@ -82,7 +82,7 @@ reload_scripts:
           - if <[value].yaml_key[type]> == item:
               - if <[value].yaml_key[recipe_book_category]||null> != null:
                 - foreach <[value].yaml_key[recipe_book_category].as_list> as:cat:
-                  - yaml id:server.recipe_book set categories.<[cat]>|:<[value].name>
+                  - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
               - else:
                 - yaml id:server.recipe_book set categories.other:|:<[value].name>
               - if <[value].name.replace[custom_].with[]> != <[value].yaml_key[material]>:
