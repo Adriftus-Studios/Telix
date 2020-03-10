@@ -148,6 +148,7 @@ recipe_book_events:
   type: world
   events:
     on player opens recipe_book_inventory:
+    - narrate <player.flag[context]>
     - define type:<player.flag[context].split[/].get[1]||all>
     - define page:<player.flag[context].split[/].get[2]||1>
     - flag <player> context:!
