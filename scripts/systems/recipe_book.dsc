@@ -160,6 +160,7 @@ recipe_book_events:
       - if <context.raw_slot> != -998 && <context.raw_slot> <= <player.open_inventory.size> && <context.item.material.name> != air:
         - if <player.open_inventory.script_name> == recipe_book_inventory:
           - if <context.item.nbt[category]||null> != null:
+            - narrate <context.item.nbt[category]>
         - if <context.click> == LEFT:
           - if <player.open_inventory.script_name> == recipe_book_inventory:
             - define page:<player.open_inventory.slot[50].nbt[page]>
