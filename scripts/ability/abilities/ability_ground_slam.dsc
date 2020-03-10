@@ -38,7 +38,6 @@ ability_ground_slam:
         - teleport <player> <player.location.with_pitch[75]>
         - adjust <player> velocity:0,-1,0
         - waituntil <player.location.below.material.name> != air
-        - wait 5t
         - inject locally explosion
         - inject abilities_cost
         - stop
@@ -46,7 +45,6 @@ ability_ground_slam:
     - if <player.location.below.material.name> == air:
       - adjust <player> velocity:0,-1,0
       - waituntil <player.location.below.material.name> != air
-      - wait 5t
       - inject locally stun
       - inject abilities_cost
       - stop
