@@ -44,6 +44,11 @@ ability_ground_slam:
     #Foreach passed, player must be in the air. Execute mid-air ground slam, stun
     - if <player.location.below.material.name> == air:
       - adjust <player> velocity:0,-1,0
+      - repeat 10:
+        - if <player.location.below.material.name> != air:
+          - wait 1s
+        - else:
+          - repeat stop
       - wait 10t
       - inject locally stun
       - inject abilities_cost
