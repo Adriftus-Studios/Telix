@@ -128,6 +128,7 @@ reload_scripts:
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list.parse[split[/].get[1]]> as:entry:
                       - yaml id:server.recipe_book set used_for.<[entry]>:|:<[value].name>
                   - else:
+                    - narrate <[value].name>
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list> as:entry:
                       - yaml id:server.recipe_book set used_for.<[entry]>:|:<[value].name>
           - if <[value].yaml_key[type]> == entity:
