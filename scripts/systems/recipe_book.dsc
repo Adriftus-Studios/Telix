@@ -147,6 +147,9 @@ recipe_book_used_for:
 recipe_book_events:
   type: world
   events:
+    on player crafts item:
+    - if <context.inventory.script_name> == recipe_book_crafting:
+      - determine cancelled
     on player opens recipe_book_inventory:
     - define type:<player.flag[context].split[/].get[1]||all>
     - flag <player> context:!
@@ -220,7 +223,6 @@ show_recipe:
   script:
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
-    - narrate <[type]>
     - if <[type]> == notes:
       - define inv:<inventory[recipe_book_note]>
       - inventory open d:<[inv]>
