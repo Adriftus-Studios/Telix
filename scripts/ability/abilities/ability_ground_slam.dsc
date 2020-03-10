@@ -24,6 +24,7 @@ ability_ground_slam:
       - playeffect crit at:<[value].location> quantity:10 targets:<[value]>
       - cast slow <[value]> duration:5s power:255
       - flag <[value]> no_jump:true duration:5s
+    - cast slow <player> duration:15t power:2
   script:
     #/ex teleport <[value]> <[value].location.with_pitch[0]>
     #/ex shoot <player> speed:-2.0 height:2.5
