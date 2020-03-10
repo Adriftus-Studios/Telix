@@ -20,7 +20,7 @@ entity_direwolf:
       max_quantity: 3
       min_quantity: 5
       time: night
-      aggressive: true
+      aggressive_on_spawn: true
 
 custom_direwolf_fang:
   type: item

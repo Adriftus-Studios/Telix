@@ -20,6 +20,44 @@ entity_drowned:
       max_quantity: 1
       min_quantity: 1
       time: night
+      aggressive_on_spawn: true
+
+entity_combustion_cow:
+  type: entity
+  entity_type: cow
+  custom_name: BoomBoom
+  health: 20
+  custom:
+    aggressive: true
+    spawning_conditions:
+      world: tor_mainland
+      biome: all
+      every: 15m
+      air: false
+      max_y: 100
+      min_y: 0
+      max_distance: 20
+      min_distance: 15
+      water: true
+      max_quantity: 1
+      min_quantity: 1
+      time: night
+      aggressive_on_spawn: false
+    ability_usage:
+      - mob_ability_boomboom_explode
+
+mob_ability_boomboom_explode:
+  type: task
+  name: mob_ability_boomboom_explode
+  ability_tree: Nether
+  cooldown: 10s
+  warmup: 1s
+  requires_target: true
+  requires_target_in_sight: true
+  definitions: entity
+  script:
+    - explode power:2 location:<[entity].location> fire
+    - remove <[entity]>
 
 entity_waterhag:
   type: entity
@@ -43,7 +81,7 @@ entity_waterhag:
       max_quantity: 1
       min_quantity: 1
       time: night
-      aggressive: true
+      aggressive_on_spawn: true
 
 custom_waterhag_hand:
   type: item

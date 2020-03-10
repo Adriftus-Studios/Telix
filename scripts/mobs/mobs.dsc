@@ -21,6 +21,10 @@ mob_drops_events:
         - define amount:<util.random.int[<[drop].split[/].get[3]>].to[<[amount]>]>
         - if <[chance]> > <[random]>:
           - drop <[item].with[quantity=<[amount]>]> <context.entity.location>
+    on entity damages entity:
+      - if <context.entity.script||null> != null:
+        - if <context.entity.script.yaml_key[custom.aggressive]>:
+          - attack <context.entity> targets:<context.damager>
 
 mob_spawning_events:
   type: world
@@ -79,7 +83,7 @@ spawn_custom_mob:
   debug: true
   script:
     - spawn <[mob]> <[location].above> save:entity1
-    - if <yaml[server.mobs].read[<[mob]>.aggressive]>:
+    - if <yaml[server.mobs].read[<[mob]>.aggressive_on_spawn]>:
       - attack <entry[entity1].spawned_entity> target:<player>
     - if <yaml[server.mobs].read[<[mob]>.abilities]||null> != null:
       - run mob_use_ability_handler def:<entry[entity1].spawned_entity>

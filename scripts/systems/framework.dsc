@@ -147,7 +147,7 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.min_distance:<[value].yaml_key[custom.spawning_conditions.min_distance]||10>
               - yaml id:server.mobs set <[value].name>.time:<[value].yaml_key[custom.spawning_conditions.time]||all>
               - yaml id:server.mobs set <[value].name>.spawn_script:<[value].yaml_key[custom.spawning_conditions.spawn_script]||none>
-              - yaml id:server.mobs set <[value].name>.aggressive:<[value].yaml_key[custom.spawning_conditions.aggressive]||false>
+              - yaml id:server.mobs set <[value].name>.aggressive_on_spawn:<[value].yaml_key[custom.spawning_conditions.aggressive_on_spawn]||false>
               - yaml id:server.mobs set <[value].name>.per_world_limit:<[value].yaml_key[custom.spawning_conditions.per_world_limit]||100>
               - yaml id:server.mobs set <[value].name>.above_ground:<[value].yaml_key[custom.spawning_conditions.above_ground]||true>
               - yaml id:server.recipe_book set mob_info.<[value].name>.every:<[value].yaml_key[custom.spawning_conditions.every]||1m>
@@ -156,7 +156,7 @@ reload_scripts:
               - yaml id:server.recipe_book set mob_info.<[value].name>.water:<[value].yaml_key[custom.spawning_conditions.water]||false>
               - yaml id:server.recipe_book set mob_info.<[value].name>.air:<[value].yaml_key[custom.spawning_conditions.air]||false>
               - yaml id:server.recipe_book set mob_info.<[value].name>.time:<[value].yaml_key[custom.spawning_conditions.time]||all>
-              - yaml id:server.recipe_book set mob_info.<[value].name>.aggressive:<[value].yaml_key[custom.spawning_conditions.aggressive]||false>
+              - yaml id:server.recipe_book set mob_info.<[value].name>.aggressive_on_spawn:<[value].yaml_key[custom.spawning_conditions.aggressive_on_spawn]||false>
               - yaml id:server.recipe_book set mob_info.<[value].name>.above_ground:<[value].yaml_key[custom.spawning_conditions.above_ground]||true>
               - yaml id:server.recipe_book set mob_info.<[value].name>.entity_type:<[value].yaml_key[entity_type]>
             - if <[value].yaml_key[custom.ability_usage]||null> != null:

@@ -170,8 +170,8 @@ mob_spawning_test_entity:
       # biome that the mob can spawn in
       every: 5h
       # delay between each mob spawn. this is per player
-      aggressive: true
-      # whether the mob is aggressive
+      aggressive_on_spawn: true
+      # whether the mob is aggressive on spawn
       per_world_limit: 1
       # how many can exist on the server at the same time
       air: false
