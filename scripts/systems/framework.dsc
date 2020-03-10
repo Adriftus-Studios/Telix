@@ -306,7 +306,7 @@ custom_item_override:
         - inject build_item
         - determine <[item]>
     on player picks up item:
-      - if <context.item.script.name||null> == null:
+      - if <context.item.script.name||null> == null || !<context.item.nbt[built]||false>:
         - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
         - inject build_item
         - determine ITEM:<[item]>
