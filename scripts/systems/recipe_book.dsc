@@ -148,16 +148,17 @@ recipe_book_events:
   type: world
   events:
     on player opens recipe_book_inventory:
+    - narrate <player.flag[context]>
     - define type:<player.flag[context].split[/].get[1]||all>
     - define page:<player.flag[context].split[/].get[2]||1>
     - flag <player> context:!
     - if <[type]> == all:
       - foreach <yaml[server.recipe_book].list_keys[categories]> as:cat:
-        - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[cat]>]>
+        - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[type]>.<[cat]>]>
     - else:
       - if <yaml[server.recipe_book].list_keys[categories.<[type]>]||null> != null:
         - foreach <yaml[server.recipe_book].list_keys[categories.<[type]>]> as:cat:
-          - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[cat]>]>
+          - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[type]>.<[cat]>]>
       - else:
         - narrate <yaml[server.recipe_book].read[categories.<[type]>]>
     on player clicks in recipe_book_*:
