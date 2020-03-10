@@ -24,7 +24,7 @@ ability_ground_slam:
       - cast slow <[value]> duration:5s power:255
       - flag <[value]> no_jump:true duration:5s
     - playeffect flash at:<player.location> quantity:1 visibility:20 targets:<server.list_online_players>
-    - cast slow <player> duration:1s power:6
+    - cast slow <player> duration:15t power:6
   script:
     #/ex teleport <[value]> <[value].location.with_pitch[0]>
     #/ex shoot <player> speed:-2.0 height:2.5
