@@ -218,7 +218,7 @@ custom_diamond_boots:
       type: shaped
       output_quantity: 1
       input:
-      - custom_diamond|custom_iron_boots|custom_diamond
+      - custom_diamond|custom_steel_boots|custom_diamond
       - custom_diamond|air|custom_diamond
       - air|air|air
     2:
@@ -226,7 +226,7 @@ custom_diamond_boots:
       output_quantity: 1
       input:
       - air|air|air
-      - custom_diamond|custom_iron_boots|custom_diamond
+      - custom_diamond|custom_steel_boots|custom_diamond
       - custom_diamond|air|custom_diamond
 custom_diamond_leggings:
   material: diamond_leggings
@@ -252,7 +252,7 @@ custom_diamond_leggings:
       output_quantity: 1
       input:
       - custom_diamond|custom_diamond|custom_diamond
-      - custom_diamond|custom_iron_leggings|custom_diamond
+      - custom_diamond|custom_steel_leggings|custom_diamond
       - custom_diamond|air|custom_diamond
 custom_diamond_chestplate:
   material: diamond_chestplate
@@ -277,7 +277,7 @@ custom_diamond_chestplate:
       type: shaped
       output_quantity: 1
       input:
-      - custom_diamond|custom_iron_chestplate|custom_diamond
+      - custom_diamond|custom_steel_chestplate|custom_diamond
       - custom_diamond|custom_diamond|custom_diamond
       - custom_diamond|custom_diamond|custom_diamond
 custom_diamond_helmet:
@@ -304,7 +304,7 @@ custom_diamond_helmet:
       output_quantity: 1
       input:
       - custom_diamond|custom_diamond|custom_diamond
-      - custom_diamond|custom_iron_helmet|custom_diamond
+      - custom_diamond|custom_steel_helmet|custom_diamond
       - air|air|air
     2:
       type: shaped
@@ -312,4 +312,4 @@ custom_diamond_helmet:
       input:
       - air|air|air
       - custom_diamond|custom_diamond|custom_diamond
-      - custom_diamond|custom_iron_helmet|custom_diamond
+      - custom_diamond|custom_steel_helmet|custom_diamond
