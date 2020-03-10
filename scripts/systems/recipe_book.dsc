@@ -166,6 +166,7 @@ recipe_book_events:
           - if <context.item.nbt[category]||null> != null:
             - flag <player> context:<context.item.nbt[category]>/1
             - inventory open d:<inventory[recipe_book_inventory]>
+            - stop
         - if <context.click> == LEFT:
           - if <player.open_inventory.script_name> == recipe_book_inventory:
             - define page:<player.open_inventory.slot[50].nbt[page]>
