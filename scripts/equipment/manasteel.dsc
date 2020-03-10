@@ -1,6 +1,7 @@
 
 custom_manasteel_sword:
   material: iron_sword
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Sword
   weight: '2'
   type: item
@@ -31,6 +32,7 @@ custom_manasteel_sword:
       - air|air|custom_livingwood_twig
 custom_manasteel_pickaxe:
   material: iron_pickaxe
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Pickaxe
   weight: '3'
   type: item
@@ -47,6 +49,7 @@ custom_manasteel_pickaxe:
       - air|custom_livingwood_twig|air
 custom_manasteel_axe:
   material: iron_axe
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Axe
   weight: '3'
   type: item
@@ -84,6 +87,7 @@ custom_manasteel_axe:
       - air|air|custom_livingwood_twig
 custom_manasteel_shovel:
   material: iron_shovel
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Shovel
   weight: '1'
   type: item
@@ -114,6 +118,7 @@ custom_manasteel_shovel:
       - air|air|custom_livingwood_twig
 custom_manasteel_hoe:
   material: iron_hoe
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Hoe
   weight: '2'
   type: item
@@ -152,6 +157,7 @@ custom_manasteel_hoe:
       - air|air|custom_livingwood_twig
 custom_manasteel_nugget:
   material: iron_nugget
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Nugget
   weight: '0'
   type: item
@@ -163,6 +169,7 @@ custom_manasteel_nugget:
       input: custom_manasteel_ingot
 custom_manasteel_ingot:
   material: iron_ingot
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Ingot
   weight: '1'
   type: item
@@ -187,6 +194,7 @@ custom_manasteel_ingot:
       cook_time: 5m
 custom_manasteel_block:
   material: iron_block
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Block
   weight: '9'
   type: item
@@ -202,6 +210,7 @@ custom_manasteel_block:
 custom_manasteel_boots:
   material: iron_boots
   lore:
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Boots
   category: shoes
   weight: '4'
@@ -238,6 +247,7 @@ custom_manasteel_boots:
       - custom_manasteel_ingot|air|custom_manasteel_ingot
 custom_manasteel_leggings:
   material: iron_leggings
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Leggings
   category: pants
   weight: '7'
@@ -267,6 +277,7 @@ custom_manasteel_leggings:
       - custom_manasteel_ingot|air|custom_manasteel_ingot
 custom_manasteel_chestplate:
   material: iron_chestplate
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Chestplate
   category: shirt
   weight: '8'
@@ -296,6 +307,7 @@ custom_manasteel_chestplate:
       - custom_manasteel_ingot|custom_manasteel_ingot|custom_manasteel_ingot
 custom_manasteel_helmet:
   material: iron_helmet
+  recipe_book_category: equipment.manasteel
   display name: <&b>Manasteel Helmet
   category: hat
   weight: '5'

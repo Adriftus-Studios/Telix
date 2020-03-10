@@ -1,6 +1,7 @@
 
 custom_warpmetal_sword:
   material: iron_sword
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Sword
   weight: '2'
   type: item
@@ -31,6 +32,7 @@ custom_warpmetal_sword:
       - air|air|custom_dreamwood_twig
 custom_warpmetal_pickaxe:
   material: iron_pickaxe
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Pickaxe
   weight: '3'
   type: item
@@ -47,6 +49,7 @@ custom_warpmetal_pickaxe:
       - air|custom_dreamwood_twig|air
 custom_warpmetal_axe:
   material: iron_axe
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Axe
   weight: '3'
   type: item
@@ -84,6 +87,7 @@ custom_warpmetal_axe:
       - air|air|custom_dreamwood_twig
 custom_warpmetal_shovel:
   material: iron_shovel
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Shovel
   weight: '1'
   type: item
@@ -114,6 +118,7 @@ custom_warpmetal_shovel:
       - air|air|custom_dreamwood_twig
 custom_warpmetal_hoe:
   material: iron_hoe
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Hoe
   weight: '2'
   type: item
@@ -152,6 +157,7 @@ custom_warpmetal_hoe:
       - air|air|custom_dreamwood_twig
 custom_warpmetal_nugget:
   material: iron_nugget
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Nugget
   weight: '0'
   type: item
@@ -162,6 +168,7 @@ custom_warpmetal_nugget:
       input: custom_warpmetal_ingot
 custom_warpmetal_ingot:
   material: iron_ingot
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal
   weight: '1'
   type: item
@@ -185,6 +192,7 @@ custom_warpmetal_ingot:
       cook_time: 2m
 custom_warpmetal_block:
   material: iron_block
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Block
   weight: '9'
   type: item
@@ -200,6 +208,7 @@ custom_warpmetal_block:
 custom_warpmetal_boots:
   material: iron_boots
   lore:
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Boots
   category: shoes
   weight: '4'
@@ -234,6 +243,7 @@ custom_warpmetal_boots:
 custom_boots_of_the_voidwalker:
   material: diamond_boots
   lore:
+  recipe_book_category: equipment.warpmetal
   display name: <&5>Boots of the VoidWalker
   category: shoes
   weight: '17'
@@ -258,6 +268,7 @@ custom_boots_of_the_voidwalker:
       cook_time: 20m
 custom_warpmetal_leggings:
   material: iron_leggings
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Leggings
   category: pants
   weight: '7'
@@ -284,6 +295,7 @@ custom_warpmetal_leggings:
       - custom_warpmetal_ingot|air|custom_warpmetal_ingot
 custom_warpmetal_chestplate:
   material: iron_chestplate
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Chestplate
   category: shirt
   weight: '8'
@@ -310,6 +322,7 @@ custom_warpmetal_chestplate:
       - custom_warpmetal_ingot|custom_warpmetal_ingot|custom_warpmetal_ingot
 custom_warpmetal_helmet:
   material: iron_helmet
+  recipe_book_category: equipment.warpmetal
   display name: <&a>Warpmetal Helmet
   category: hat
   weight: '5'

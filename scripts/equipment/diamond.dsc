@@ -1,10 +1,12 @@
 custom_diamond_horse_armor:
   material: diamond_horse_armor
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Horse Armor
   weight: '1'
   type: item
 custom_diamond_sword:
   material: diamond_sword
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Sword
   weight: '1'
   type: item
@@ -35,6 +37,7 @@ custom_diamond_sword:
       - air|air|custom_stick
 custom_diamond_pickaxe:
   material: diamond_pickaxe
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Pickaxe
   weight: '1'
   type: item
@@ -51,6 +54,7 @@ custom_diamond_pickaxe:
       - air|custom_stick|air
 custom_diamond_axe:
   material: diamond_axe
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Axe
   weight: '1'
   type: item
@@ -88,6 +92,7 @@ custom_diamond_axe:
       - air|air|custom_stick
 custom_diamond_shovel:
   material: diamond_shovel
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Shovel
   weight: '1'
   type: item
@@ -118,6 +123,7 @@ custom_diamond_shovel:
       - air|air|custom_stick
 custom_diamond_hoe:
   material: diamond_hoe
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Hoe
   weight: '1'
   type: item
@@ -156,6 +162,7 @@ custom_diamond_hoe:
       - air|air|custom_stick
 custom_diamond:
   material: diamond
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond
   weight: '1'
   type: item
@@ -172,6 +179,7 @@ custom_diamond:
       input: custom_diamond_block
 custom_diamond_block:
   material: diamond_block
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Block
   weight: '9'
   type: item
@@ -186,6 +194,7 @@ custom_diamond_block:
       - custom_diamond|custom_diamond|custom_diamond
 custom_diamond_ore:
   material: diamond_ore
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Ore
   weight: '1'
   type: item
@@ -197,6 +206,7 @@ custom_diamond_ore:
 custom_diamond_boots:
   material: diamond_boots
   lore:
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Boots
   category: shoes
   weight: '1'
@@ -230,6 +240,7 @@ custom_diamond_boots:
       - custom_diamond|air|custom_diamond
 custom_diamond_leggings:
   material: diamond_leggings
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Leggings
   category: pants
   weight: '1'
@@ -256,6 +267,7 @@ custom_diamond_leggings:
       - custom_diamond|air|custom_diamond
 custom_diamond_chestplate:
   material: diamond_chestplate
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Chestplate
   category: shirt
   weight: '1'
@@ -282,6 +294,7 @@ custom_diamond_chestplate:
       - custom_diamond|custom_diamond|custom_diamond
 custom_diamond_helmet:
   material: diamond_helmet
+  recipe_book_category: equipment.diamond
   display name: <&7>Diamond Helmet
   category: hat
   weight: '1'

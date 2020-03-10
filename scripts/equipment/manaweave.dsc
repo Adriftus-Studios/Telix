@@ -2,6 +2,7 @@
 custom_manaweave_cloth:
   type: item
   material: leather
+  recipe_book_category: equipment.manaweave
   display name: <&b>Manaweave Cloth
   recipes:
     1:
@@ -13,6 +14,7 @@ custom_manaweave_cloth:
 custom_manaweave_cowl:
   type: item
   material: leather_helmet
+  recipe_book_category: equipment.manaweave
   display name: <&b>Manaweave Cowl
   category: hat
   fake_durability: 450
@@ -46,6 +48,7 @@ custom_manaweave_cowl:
 custom_manaweave_robe:
   type: item
   material: leather_chestplate
+  recipe_book_category: equipment.manaweave
   display name: <&b>Manaweave Robe
   category: shirt
   fake_durability: 495
@@ -72,6 +75,7 @@ custom_manaweave_robe:
 custom_manaweave_pants:
   type: item
   material: leather_leggings
+  recipe_book_category: equipment.manaweave
   display name: <&b>Manaweave Pants
   category: pants
   fake_durability: 470
@@ -98,6 +102,7 @@ custom_manaweave_pants:
 custom_manaweave_boots:
   type: item
   material: leather_boots
+  recipe_book_category: equipment.manaweave
   display name: <&b>Manaweave Boots
   category: hat
   fake_durability: 435

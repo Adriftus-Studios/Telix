@@ -1,6 +1,7 @@
 
 custom_silver_sword:
   material: iron_sword
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Sword
   weight: '2'
   type: item
@@ -31,6 +32,7 @@ custom_silver_sword:
       - air|air|custom_stick
 custom_silver_pickaxe:
   material: iron_pickaxe
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Pickaxe
   weight: '3'
   type: item
@@ -47,6 +49,7 @@ custom_silver_pickaxe:
       - air|custom_stick|air
 custom_silver_axe:
   material: iron_axe
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Axe
   weight: '3'
   type: item
@@ -84,6 +87,7 @@ custom_silver_axe:
       - air|air|custom_stick
 custom_silver_shovel:
   material: iron_shovel
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Shovel
   weight: '1'
   type: item
@@ -114,6 +118,7 @@ custom_silver_shovel:
       - air|air|custom_stick
 custom_silver_hoe:
   material: iron_hoe
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Hoe
   weight: '2'
   type: item
@@ -152,6 +157,7 @@ custom_silver_hoe:
       - air|air|custom_stick
 custom_silver_nugget:
   material: iron_nugget
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Nugget
   weight: '0'
   type: item
@@ -163,6 +169,7 @@ custom_silver_nugget:
       input: custom_silver_ingot
 custom_silver_ingot:
   material: iron_ingot
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Ingot
   weight: '1'
   type: item
@@ -187,6 +194,7 @@ custom_silver_ingot:
       input: custom_silver_block
 custom_silver_block:
   material: iron_block
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Block
   weight: '9'
   type: item
@@ -201,6 +209,7 @@ custom_silver_block:
       - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
 custom_silver_ore:
   material: iron_ore
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Ore
   weight: '1'
   type: item
@@ -212,6 +221,7 @@ custom_silver_ore:
 custom_silver_boots:
   material: iron_boots
   lore:
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Boots
   category: shoes
   weight: '1'
@@ -242,6 +252,7 @@ custom_silver_boots:
       - custom_silver_ingot|air|custom_silver_ingot
 custom_silver_leggings:
   material: iron_leggings
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Leggings
   category: pants
   weight: '1'
@@ -265,6 +276,7 @@ custom_silver_leggings:
       - custom_silver_ingot|air|custom_silver_ingot
 custom_silver_chestplate:
   material: iron_chestplate
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Chestplate
   category: shirt
   weight: '1'
@@ -288,6 +300,7 @@ custom_silver_chestplate:
       - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
 custom_silver_helmet:
   material: iron_helmet
+  recipe_book_category: equipment.silver
   display name: <&7>Silver Helmet
   category: hat
   weight: '1'

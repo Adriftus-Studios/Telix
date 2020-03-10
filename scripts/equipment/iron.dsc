@@ -3,11 +3,13 @@ custom_iron_horse_armor:
   lore:
   - <&6>
   - '<&8>Item Weight: <script.yaml_key[weight]>'
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Horse Armor
   weight: '1'
   type: item
 custom_iron_sword:
   material: iron_sword
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Sword
   weight: '1'
   type: item
@@ -38,6 +40,7 @@ custom_iron_sword:
       - air|air|custom_stick
 custom_iron_pickaxe:
   material: iron_pickaxe
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Pickaxe
   weight: '1'
   type: item
@@ -54,6 +57,7 @@ custom_iron_pickaxe:
       - air|custom_stick|air
 custom_iron_axe:
   material: iron_axe
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Axe
   weight: '1'
   type: item
@@ -91,6 +95,7 @@ custom_iron_axe:
       - air|air|custom_stick
 custom_iron_shovel:
   material: iron_shovel
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Shovel
   weight: '1'
   type: item
@@ -121,6 +126,7 @@ custom_iron_shovel:
       - air|air|custom_stick
 custom_iron_hoe:
   material: iron_hoe
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Hoe
   weight: '1'
   type: item
@@ -159,6 +165,7 @@ custom_iron_hoe:
       - air|air|custom_stick
 custom_iron_nugget:
   material: iron_nugget
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Nugget
   weight: '0'
   type: item
@@ -170,6 +177,7 @@ custom_iron_nugget:
       input: custom_iron_ingot
 custom_iron_ingot:
   material: iron_ingot
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Ingot
   weight: '1'
   type: item
@@ -194,6 +202,7 @@ custom_iron_ingot:
       input: custom_iron_block
 custom_iron_block:
   material: iron_block
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Block
   weight: '9'
   type: item
@@ -208,6 +217,7 @@ custom_iron_block:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
 custom_iron_ore:
   material: iron_ore
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Ore
   weight: '1'
   type: item
@@ -219,6 +229,7 @@ custom_iron_ore:
 custom_iron_boots:
   material: iron_boots
   lore:
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Boots
   category: shoes
   weight: '1'
@@ -255,6 +266,7 @@ custom_iron_boots:
       - custom_iron_ingot|air|custom_iron_ingot
 custom_iron_leggings:
   material: iron_leggings
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Leggings
   category: pants
   weight: '1'
@@ -284,6 +296,7 @@ custom_iron_leggings:
       - custom_iron_ingot|air|custom_iron_ingot
 custom_iron_chestplate:
   material: iron_chestplate
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Chestplate
   category: shirt
   weight: '1'
@@ -313,6 +326,7 @@ custom_iron_chestplate:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
 custom_iron_helmet:
   material: iron_helmet
+  recipe_book_category: equipment.iron
   display name: <&7>Iron Helmet
   category: hat
   weight: '1'

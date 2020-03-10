@@ -80,6 +80,10 @@ reload_scripts:
               - else:
                   - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
           - if <[value].yaml_key[type]> == item:
+              - if <[value].yaml_key[recipe_book_category]||null> != null:
+                - yaml id:server.recipe_book set categories.<[value].yaml_key[recipe_book_category]>:|:<[value].name>
+              - else:
+                - yaml id:server.recipe_book set categories.other:|:<[value].name>
               - if <[value].name.replace[custom_].with[]> != <[value].yaml_key[material]>:
                 - yaml id:server.recipe_fixer set restricted:|:<[value].name>
               - if <[value].yaml_key[recipe_book_note]||null> != null:

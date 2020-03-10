@@ -1,6 +1,7 @@
 
 custom_terrasteel_sword:
   material: iron_sword
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Sword
   weight: '2'
   type: item
@@ -31,6 +32,7 @@ custom_terrasteel_sword:
       - air|air|custom_livingwood_twig
 custom_terrasteel_pickaxe:
   material: iron_pickaxe
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Pickaxe
   weight: '3'
   type: item
@@ -47,6 +49,7 @@ custom_terrasteel_pickaxe:
       - air|custom_livingwood_twig|air
 custom_terrasteel_axe:
   material: iron_axe
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Axe
   weight: '3'
   type: item
@@ -84,6 +87,7 @@ custom_terrasteel_axe:
       - air|air|custom_livingwood_twig
 custom_terrasteel_shovel:
   material: iron_shovel
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Shovel
   weight: '1'
   type: item
@@ -114,6 +118,7 @@ custom_terrasteel_shovel:
       - air|air|custom_livingwood_twig
 custom_terrasteel_hoe:
   material: iron_hoe
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Hoe
   weight: '2'
   type: item
@@ -152,6 +157,7 @@ custom_terrasteel_hoe:
       - air|air|custom_livingwood_twig
 custom_terrasteel_nugget:
   material: iron_nugget
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Nugget
   weight: '0'
   type: item
@@ -167,6 +173,7 @@ custom_terrasteel_nugget:
       cook_time: 15m
 custom_terrasteel_ingot:
   material: iron_ingot
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Ingot
   weight: '1'
   type: item
@@ -185,6 +192,7 @@ custom_terrasteel_ingot:
       input: custom_terrasteel_block
 custom_terrasteel_block:
   material: iron_block
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Block
   weight: '9'
   type: item
@@ -200,6 +208,7 @@ custom_terrasteel_block:
 custom_terrasteel_boots:
   material: iron_boots
   lore:
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Boots
   category: shoes
   weight: '4'
@@ -233,6 +242,7 @@ custom_terrasteel_boots:
       - custom_terrasteel_ingot|air|custom_terrasteel_ingot
 custom_terrasteel_leggings:
   material: iron_leggings
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Leggings
   category: pants
   weight: '7'
@@ -259,6 +269,7 @@ custom_terrasteel_leggings:
       - custom_terrasteel_ingot|air|custom_terrasteel_ingot
 custom_terrasteel_chestplate:
   material: iron_chestplate
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Chestplate
   category: shirt
   weight: '8'
@@ -285,6 +296,7 @@ custom_terrasteel_chestplate:
       - custom_terrasteel_ingot|custom_terrasteel_ingot|custom_terrasteel_ingot
 custom_terrasteel_helmet:
   material: iron_helmet
+  recipe_book_category: equipment.terrasteel
   display name: <&a>Terrasteel Helmet
   category: hat
   weight: '5'

@@ -1,12 +1,14 @@
 
 custom_leather_horse_armor:
   material: leather_horse_armor
+  recipe_book_category: equipment.leather
   display name: <&7>Leather Horse Armor
   weight: '1'
   type: item
 custom_leather_boots:
   material: leather_boots
   lore:
+  recipe_book_category: equipment.leather
   display name: <&7>Leather Boots
   category: shoes
   weight: '1'
@@ -43,6 +45,7 @@ custom_leather_boots:
       - custom_leather|air|custom_leather
 custom_leather_leggings:
   material: leather_leggings
+  recipe_book_category: equipment.leather
   display name: <&7>Leather Pants
   category: pants
   weight: '1'
@@ -72,6 +75,7 @@ custom_leather_leggings:
       - custom_leather|air|custom_leather
 custom_leather_chestplate:
   material: leather_chestplate
+  recipe_book_category: equipment.leather
   display name: <&7>Leather Tunic
   category: shirt
   weight: '1'
@@ -101,6 +105,7 @@ custom_leather_chestplate:
       - custom_leather|custom_leather|custom_leather
 custom_leather_helmet:
   material: leather_helmet
+  recipe_book_category: equipment.leather
   display name: <&7>Leather Cap
   category: hat
   weight: '1'
@@ -139,6 +144,7 @@ custom_leather:
   material: leather
   lore:
   - <&b>Raw animal hide
+  recipe_book_category: equipment.leather
   display name: <&7>Raw Hide
   weight: 1
   type: item

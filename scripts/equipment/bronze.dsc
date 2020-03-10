@@ -1,6 +1,7 @@
 
 custom_bronze_sword:
   material: iron_sword
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Sword
   weight: '2'
   type: item
@@ -31,6 +32,7 @@ custom_bronze_sword:
       - air|air|custom_stick
 custom_bronze_pickaxe:
   material: iron_pickaxe
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Pickaxe
   weight: '3'
   type: item
@@ -47,6 +49,7 @@ custom_bronze_pickaxe:
       - air|custom_stick|air
 custom_bronze_axe:
   material: iron_axe
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Axe
   weight: '3'
   type: item
@@ -84,6 +87,7 @@ custom_bronze_axe:
       - air|air|custom_stick
 custom_bronze_shovel:
   material: iron_shovel
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Shovel
   weight: '1'
   type: item
@@ -114,6 +118,7 @@ custom_bronze_shovel:
       - air|air|custom_stick
 custom_bronze_hoe:
   material: iron_hoe
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Hoe
   weight: '2'
   type: item
@@ -152,6 +157,7 @@ custom_bronze_hoe:
       - air|air|custom_stick
 custom_bronze_nugget:
   material: iron_nugget
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Nugget
   weight: '0'
   type: item
@@ -163,6 +169,7 @@ custom_bronze_nugget:
       input: custom_bronze_ingot
 custom_bronze_ingot:
   material: brick
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Ingot
   weight: '1'
   type: item
@@ -187,6 +194,7 @@ custom_bronze_ingot:
       input: custom_bronze_block
 custom_bronze_block:
   material: iron_block
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Block
   weight: '9'
   type: item
@@ -202,6 +210,7 @@ custom_bronze_block:
 custom_bronze_boots:
   material: iron_boots
   lore:
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Boots
   category: shoes
   weight: '4'
@@ -235,6 +244,7 @@ custom_bronze_boots:
       - custom_bronze_ingot|air|custom_bronze_ingot
 custom_bronze_leggings:
   material: iron_leggings
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Leggings
   category: pants
   weight: '7'
@@ -261,6 +271,7 @@ custom_bronze_leggings:
       - custom_bronze_ingot|air|custom_bronze_ingot
 custom_bronze_chestplate:
   material: iron_chestplate
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Chestplate
   category: shirt
   weight: '8'
@@ -287,6 +298,7 @@ custom_bronze_chestplate:
       - custom_bronze_ingot|custom_bronze_ingot|custom_bronze_ingot
 custom_bronze_helmet:
   material: iron_helmet
+  recipe_book_category: equipment.bronze
   display name: <&7>Bronze Helmet
   category: hat
   weight: '5'

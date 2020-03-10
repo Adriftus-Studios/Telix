@@ -1,6 +1,7 @@
 
 custom_tin_sword:
   material: iron_sword
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Sword
   weight: '2'
   type: item
@@ -31,6 +32,7 @@ custom_tin_sword:
       - air|air|custom_stick
 custom_tin_pickaxe:
   material: iron_pickaxe
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Pickaxe
   weight: '3'
   type: item
@@ -47,6 +49,7 @@ custom_tin_pickaxe:
       - air|custom_stick|air
 custom_tin_axe:
   material: iron_axe
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Axe
   weight: '3'
   type: item
@@ -84,6 +87,7 @@ custom_tin_axe:
       - air|air|custom_stick
 custom_tin_shovel:
   material: iron_shovel
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Shovel
   weight: '1'
   type: item
@@ -114,6 +118,7 @@ custom_tin_shovel:
       - air|air|custom_stick
 custom_tin_hoe:
   material: iron_hoe
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Hoe
   weight: '2'
   type: item
@@ -152,6 +157,7 @@ custom_tin_hoe:
       - air|air|custom_stick
 custom_tin_nugget:
   material: iron_nugget
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Nugget
   weight: '0'
   type: item
@@ -163,6 +169,7 @@ custom_tin_nugget:
       input: custom_tin_ingot
 custom_tin_ingot:
   material: iron_ingot
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Ingot
   weight: '1'
   type: item
@@ -187,6 +194,7 @@ custom_tin_ingot:
       input: custom_tin_block
 custom_tin_block:
   material: iron_block
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Block
   weight: '9'
   type: item
@@ -201,6 +209,7 @@ custom_tin_block:
       - custom_tin_ingot|custom_tin_ingot|custom_tin_ingot
 custom_tin_ore:
   material: iron_ore
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Ore
   weight: '1'
   type: item
@@ -212,6 +221,7 @@ custom_tin_ore:
 custom_tin_boots:
   material: iron_boots
   lore:
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Boots
   category: shoes
   weight: '4'
@@ -251,6 +261,7 @@ custom_tin_boots:
       - custom_tin_ingot|air|custom_tin_ingot
 custom_tin_leggings:
   material: iron_leggings
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Leggings
   category: pants
   weight: '7'
@@ -283,6 +294,7 @@ custom_tin_leggings:
       - custom_tin_ingot|air|custom_tin_ingot
 custom_tin_chestplate:
   material: iron_chestplate
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Chestplate
   category: shirt
   weight: '8'
@@ -315,6 +327,7 @@ custom_tin_chestplate:
       - custom_tin_ingot|custom_tin_ingot|custom_tin_ingot
 custom_tin_helmet:
   material: iron_helmet
+  recipe_book_category: equipment.tin
   display name: <&7>Tin Helmet
   category: hat
   weight: '5'

@@ -8,6 +8,7 @@ silver_ring_blue:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.silver
   display name: "<&c>Silver Ring"
   drops_on_death: true
   mechanisms:
@@ -22,6 +23,7 @@ silver_ring_cyan:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.silver
   display name: "<&c>Silver Ring"
   drops_on_death: true
   mechanisms:
@@ -36,6 +38,7 @@ silver_ring_empty:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.silver
   display name: "<&c>Silver Ring"
   drops_on_death: true
   mechanisms:
@@ -50,6 +53,7 @@ silver_ring_green:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.silver
   display name: "<&c>Silver Ring"
   drops_on_death: true
   mechanisms:
@@ -64,6 +68,7 @@ silver_ring_purple:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.silver
   display name: "<&c>Silver Ring"
   drops_on_death: true
   mechanisms:
@@ -78,6 +83,7 @@ silver_ring_red:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.silver
   display name: "<&c>Silver Ring"
   drops_on_death: true
   mechanisms:
@@ -92,6 +98,7 @@ silver_ring_yellow:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.silver
   display name: "<&c>Silver Ring"
   drops_on_death: true
   mechanisms:

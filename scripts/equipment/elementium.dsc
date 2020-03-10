@@ -1,6 +1,7 @@
 
 custom_elementium_sword:
   material: iron_sword
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Sword
   weight: '2'
   type: item
@@ -31,6 +32,7 @@ custom_elementium_sword:
       - air|air|custom_dreamwood_twig
 custom_elementium_pickaxe:
   material: iron_pickaxe
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Pickaxe
   weight: '3'
   type: item
@@ -47,6 +49,7 @@ custom_elementium_pickaxe:
       - air|custom_dreamwood_twig|air
 custom_elementium_axe:
   material: iron_axe
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Axe
   weight: '3'
   type: item
@@ -84,6 +87,7 @@ custom_elementium_axe:
       - air|air|custom_dreamwood_twig
 custom_elementium_shovel:
   material: iron_shovel
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Shovel
   weight: '1'
   type: item
@@ -114,6 +118,7 @@ custom_elementium_shovel:
       - air|air|custom_dreamwood_twig
 custom_elementium_hoe:
   material: iron_hoe
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Hoe
   weight: '2'
   type: item
@@ -151,6 +156,7 @@ custom_elementium_hoe:
       - air|air|custom_dreamwood_twig
 custom_elementium_nugget:
   material: iron_nugget
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Nugget
   weight: '0'
   type: item
@@ -162,6 +168,7 @@ custom_elementium_nugget:
       input: custom_elementium_ingot
 custom_elementium_ingot:
   material: iron_ingot
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Ingot
   weight: '1'
   type: item
@@ -186,6 +193,7 @@ custom_elementium_ingot:
       cook_time: 10m
 custom_elementium_block:
   material: iron_block
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Block
   weight: '9'
   type: item
@@ -201,6 +209,7 @@ custom_elementium_block:
 custom_elementium_boots:
   material: iron_boots
   lore:
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Boots
   category: shoes
   weight: '4'
@@ -234,6 +243,7 @@ custom_elementium_boots:
       - custom_elementium_ingot|air|custom_elementium_ingot
 custom_elementium_leggings:
   material: iron_leggings
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Leggings
   category: pants
   weight: '7'
@@ -260,6 +270,7 @@ custom_elementium_leggings:
       - custom_elementium_ingot|air|custom_elementium_ingot
 custom_elementium_chestplate:
   material: iron_chestplate
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Chestplate
   category: shirt
   weight: '8'
@@ -286,6 +297,7 @@ custom_elementium_chestplate:
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
 custom_elementium_helmet:
   material: iron_helmet
+  recipe_book_category: equipment.elementium
   display name: <&d>Elementium Helmet
   category: hat
   weight: '5'

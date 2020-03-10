@@ -1,6 +1,7 @@
 
 custom_obsidian_sword:
   material: iron_sword
+  recipe_book_category: equipment.obsidian
   display name: <&7>Obsidian Sword
   weight: '1'
   type: item
@@ -31,6 +32,7 @@ custom_obsidian_sword:
       - air|air|custom_stick
 custom_obsidian_pickaxe:
   material: iron_pickaxe
+  recipe_book_category: equipment.obsidian
   display name: <&7>Obsidian Pickaxe
   weight: '1'
   type: item
@@ -47,6 +49,7 @@ custom_obsidian_pickaxe:
       - air|custom_stick|air
 custom_obsidian_axe:
   material: iron_axe
+  recipe_book_category: equipment.obsidian
   display name: <&7>Obsidian Axe
   weight: '1'
   type: item
@@ -84,6 +87,7 @@ custom_obsidian_axe:
       - air|air|custom_stick
 custom_obsidian_shovel:
   material: iron_shovel
+  recipe_book_category: equipment.obsidian
   display name: <&7>Obsidian Shovel
   weight: '1'
   type: item
@@ -114,6 +118,7 @@ custom_obsidian_shovel:
       - air|air|custom_stick
 custom_obsidian_hoe:
   material: iron_hoe
+  recipe_book_category: equipment.obsidian
   display name: <&7>Obsidian Hoe
   weight: '1'
   type: item
@@ -152,6 +157,7 @@ custom_obsidian_hoe:
       - air|air|custom_stick
 custom_obsidian_ingot:
   material: iron_ingot
+  recipe_book_category: equipment.obsidian
   display name: <&7>Obsidian Ingot
   weight: '1'
   type: item
@@ -164,6 +170,7 @@ custom_obsidian_ingot:
 custom_obsidian_boots:
   material: iron_boots
   lore:
+  recipe_book_category: equipment.obsidian
   display name: <&7>Obsidian Boots
   category: shoes
   weight: '1'
@@ -197,6 +204,7 @@ custom_obsidian_boots:
       - custom_obsidian_ingot|air|custom_obsidian_ingot
 custom_obsidian_leggings:
   material: iron_leggings
+  recipe_book_category: equipment.obsidian
   display name: <&7>Obsidian Leggings
   category: pants
   weight: '1'
@@ -223,6 +231,7 @@ custom_obsidian_leggings:
       - custom_obsidian_ingot|air|custom_obsidian_ingot
 custom_obsidian_chestplate:
   material: iron_chestplate
+  recipe_book_category: equipment.obsidian
   display name: <&7>Obsidian Chestplate
   category: shirt
   weight: '1'
@@ -249,6 +258,7 @@ custom_obsidian_chestplate:
       - custom_obsidian_ingot|custom_obsidian_ingot|custom_obsidian_ingot
 custom_obsidian_helmet:
   material: iron_helmet
+  recipe_book_category: equipment.obsidian
   display name: <&7>Obsidian Helmet
   category: hat
   weight: '1'

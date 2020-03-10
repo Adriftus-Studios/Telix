@@ -1,6 +1,7 @@
 
 custom_chainlink:
   material: iron_nugget
+  recipe_book_category: equipment.chainmail
   display name: <&7>Chainlink
   weight: '1'
   type: item
@@ -13,6 +14,7 @@ custom_chainlink:
       input: custom_iron_ingot
 custom_chainmail_boots:
   material: chainmail_boots
+  recipe_book_category: equipment.chainmail
   display name: <&7>Chainmail Boots
   category: shoes
   weight: '1'
@@ -49,6 +51,7 @@ custom_chainmail_boots:
       - custom_chainlink|air|custom_chainlink
 custom_chainmail_leggings:
   material: chainmail_leggings
+  recipe_book_category: equipment.chainmail
   display name: <&7>Chainmail Leggings
   category: pants
   weight: '1'
@@ -78,6 +81,7 @@ custom_chainmail_leggings:
       - custom_chainlink|air|custom_chainlink
 custom_chainmail_chestplate:
   material: chainmail_chestplate
+  recipe_book_category: equipment.chainmail
   display name: <&7>Chainmail Chestplate
   category: shirt
   weight: '1'
@@ -107,6 +111,7 @@ custom_chainmail_chestplate:
       - custom_chainlink|custom_chainlink|custom_chainlink
 custom_chainmail_helmet:
   material: chainmail_helmet
+  recipe_book_category: equipment.chainmail
   display name: <&7>Chainmail Helmet
   category: hat
   weight: '1'

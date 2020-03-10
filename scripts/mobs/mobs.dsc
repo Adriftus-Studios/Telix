@@ -74,7 +74,7 @@ mob_spawning_events:
                   - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
                     - run spawn_custom_mob def:<[mob]>|<[spawning_point]>
                   - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
-                  - if <yaml[server.mobs].read[<[mob]>.spawn_script]||null> != null:
+                  - if <yaml[server.mobs].read[<[mob]>.spawn_script]> != none:
                     - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
 
 spawn_custom_mob:

@@ -1,6 +1,7 @@
 
 custom_copper_sword:
   material: iron_sword
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Sword
   weight: '1'
   type: item
@@ -31,6 +32,7 @@ custom_copper_sword:
       - air|air|custom_stick
 custom_copper_pickaxe:
   material: iron_pickaxe
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Pickaxe
   weight: '1'
   type: item
@@ -47,6 +49,7 @@ custom_copper_pickaxe:
       - air|custom_stick|air
 custom_copper_axe:
   material: iron_axe
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Axe
   weight: '1'
   type: item
@@ -84,6 +87,7 @@ custom_copper_axe:
       - air|air|custom_stick
 custom_copper_shovel:
   material: iron_shovel
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Shovel
   weight: '1'
   type: item
@@ -114,6 +118,7 @@ custom_copper_shovel:
       - air|air|custom_stick
 custom_copper_hoe:
   material: iron_hoe
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Hoe
   weight: '1'
   type: item
@@ -152,6 +157,7 @@ custom_copper_hoe:
       - air|air|custom_stick
 custom_copper_nugget:
   material: iron_nugget
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Nugget
   weight: '0'
   type: item
@@ -163,6 +169,7 @@ custom_copper_nugget:
       input: custom_copper_ingot
 custom_copper_ingot:
   material: brick
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Ingot
   weight: '1'
   type: item
@@ -187,6 +194,7 @@ custom_copper_ingot:
       input: custom_copper_block
 custom_copper_block:
   material: iron_block
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Block
   weight: '9'
   type: item
@@ -201,6 +209,7 @@ custom_copper_block:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
 custom_copper_ore:
   material: iron_ore
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Ore
   weight: '1'
   type: item
@@ -212,6 +221,7 @@ custom_copper_ore:
 custom_copper_boots:
   material: iron_boots
   lore:
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Boots
   category: shoes
   weight: '1'
@@ -245,6 +255,7 @@ custom_copper_boots:
       - custom_copper_ingot|air|custom_copper_ingot
 custom_copper_leggings:
   material: iron_leggings
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Leggings
   category: pants
   weight: '1'
@@ -271,6 +282,7 @@ custom_copper_leggings:
       - custom_copper_ingot|air|custom_copper_ingot
 custom_copper_chestplate:
   material: iron_chestplate
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Chestplate
   category: shirt
   weight: '1'
@@ -297,6 +309,7 @@ custom_copper_chestplate:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
 custom_copper_helmet:
   material: iron_helmet
+  recipe_book_category: equipment.copper
   display name: <&7>Copper Helmet
   category: hat
   weight: '1'

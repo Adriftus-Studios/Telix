@@ -1,6 +1,7 @@
 
 custom_lead_sword:
   material: iron_sword
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Sword
   weight: '2'
   type: item
@@ -31,6 +32,7 @@ custom_lead_sword:
       - air|air|custom_stick
 custom_lead_pickaxe:
   material: iron_pickaxe
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Pickaxe
   weight: '3'
   type: item
@@ -47,6 +49,7 @@ custom_lead_pickaxe:
       - air|custom_stick|air
 custom_lead_axe:
   material: iron_axe
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Axe
   weight: '3'
   type: item
@@ -84,6 +87,7 @@ custom_lead_axe:
       - air|air|custom_stick
 custom_lead_shovel:
   material: iron_shovel
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Shovel
   weight: '1'
   type: item
@@ -114,6 +118,7 @@ custom_lead_shovel:
       - air|air|custom_stick
 custom_lead_hoe:
   material: iron_hoe
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Hoe
   weight: '2'
   type: item
@@ -152,6 +157,7 @@ custom_lead_hoe:
       - air|air|custom_stick
 custom_lead_nugget:
   material: iron_nugget
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Nugget
   weight: '0'
   type: item
@@ -163,6 +169,7 @@ custom_lead_nugget:
       input: custom_lead_ingot
 custom_lead_ingot:
   material: iron_ingot
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Ingot
   weight: '1'
   type: item
@@ -187,6 +194,7 @@ custom_lead_ingot:
       input: custom_lead_block
 custom_lead_block:
   material: iron_block
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Block
   weight: '9'
   type: item
@@ -201,6 +209,7 @@ custom_lead_block:
       - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
 custom_lead_ore:
   material: iron_ore
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Ore
   weight: '1'
   type: item
@@ -212,6 +221,7 @@ custom_lead_ore:
 custom_lead_boots:
   material: iron_boots
   lore:
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Boots
   category: shoes
   weight: '4'
@@ -245,6 +255,7 @@ custom_lead_boots:
       - custom_lead_ingot|air|custom_lead_ingot
 custom_lead_leggings:
   material: iron_leggings
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Leggings
   category: pants
   weight: '7'
@@ -271,6 +282,7 @@ custom_lead_leggings:
       - custom_lead_ingot|air|custom_lead_ingot
 custom_lead_chestplate:
   material: iron_chestplate
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Chestplate
   category: shirt
   weight: '8'
@@ -297,6 +309,7 @@ custom_lead_chestplate:
       - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
 custom_lead_helmet:
   material: iron_helmet
+  recipe_book_category: equipment.lead
   display name: <&7>Lead Helmet
   category: hat
   weight: '5'

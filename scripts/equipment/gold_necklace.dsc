@@ -8,6 +8,7 @@ gold_necklace_blue:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.gold
   display name: "<&c>Gold Necklace"
   drops_on_death: true
   mechanisms:
@@ -22,6 +23,7 @@ gold_necklace_cyan:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.gold
   display name: "<&c>Gold Necklace"
   drops_on_death: true
   mechanisms:
@@ -36,6 +38,7 @@ gold_necklace_empty:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.gold
   display name: "<&c>Gold Necklace"
   drops_on_death: true
   mechanisms:
@@ -50,6 +53,7 @@ gold_necklace_green:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.gold
   display name: "<&c>Gold Necklace"
   drops_on_death: true
   mechanisms:
@@ -64,6 +68,7 @@ gold_necklace_purple:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.gold
   display name: "<&c>Gold Necklace"
   drops_on_death: true
   mechanisms:
@@ -78,6 +83,7 @@ gold_necklace_red:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.gold
   display name: "<&c>Gold Necklace"
   drops_on_death: true
   mechanisms:
@@ -92,6 +98,7 @@ gold_necklace_yellow:
   max_stars: 5
   sockets: 1
   equipment_modifiers:
+  recipe_book_category: equipment.gold
   display name: "<&c>Gold Necklace"
   drops_on_death: true
   mechanisms:
