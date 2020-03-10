@@ -196,8 +196,6 @@ show_used_for_recipes:
   type: task
   definitions: item
   script:
-    - narrate <[item]>
-    - narrate <yaml[server.recipe_book].read[used_for.<[item]>]>
     - if <yaml[server.recipe_book].read[used_for.<[item]>]||null> != null:
       - define inv:<inventory[recipe_book_used_for]>
       - inventory open d:<[inv]>
