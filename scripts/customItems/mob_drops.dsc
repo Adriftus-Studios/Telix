@@ -1,3 +1,49 @@
+
+custom_sharp_fang:
+  type: item
+  material: bone
+  display name: <&7>Sharp Fang
+  mob_drops:
+    1:
+      dropped_by: entity_direwolf|entity_mountain_wolf|entity_icewolf|entity_hyena
+      chance: 3
+      max_quantity: 2
+      min_quantity: 1
+      
+custom_animal_pelt:
+  type: item
+  material: leather
+  display name: <&7>Animal Pelt
+  mob_drops:
+    1:
+      dropped_by: entity_direwolf|entity_mountain_wolf|entity_icewolf|entity_hyena
+      chance: 2
+      max_quantity: 1
+      min_quantity: 1
+
+custom_scrap_metal:
+  type: item
+  material: iron_ingot
+  display name: <&7>Scrap Metal
+  mob_drops:
+    1:
+      dropped_by: entity_mountain_golem|entity_frost_golem
+      chance: 1
+      max_quantity: 8
+      min_quantity: 1
+
+custom_antler:
+  type: item
+  material: bone
+  display name: <&7>Antler
+  mob_drops:
+    1:
+      dropped_by: entity_elk|entity_highland_cattle
+      chance: 1
+      max_quantity: 1
+      min_quantity: 1
+
+
 ## Hostile Mobs
 custom_rotten_flesh:
   material: rotten_flesh

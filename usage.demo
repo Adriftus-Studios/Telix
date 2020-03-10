@@ -191,6 +191,10 @@ mob_spawning_test_entity:
       # how many mobs spawn at the same time
       time: all
       # Time of day that the mob can spawn
+      chance: 10
+      # The chance for this mob to spawn every 10 minutes
+	    # This is calculated from 1 out of "chance"
+      # So 1 out of '10' means 10% chance to spawn every 10 minutes
       spawn_script: mob_spawning_test_script
       # a script that is executed when the mob spawns
     ability_usage:

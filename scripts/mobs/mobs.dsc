@@ -44,11 +44,13 @@ mob_spawning_events:
             - define list:<-:<[mob]>
           - if <player.location.material.name.is[==].to[water]> != <yaml[server.mobs].read[<[mob]>.water]>:
             - define list:<-:<[mob]>
-          - if <list[<yaml[server.mobs].read[<[mob]>.time]>].contains[<player.location.world.time.period>]> && <yaml[server.mobs].read[<[mob]>.time]> != all:
+          - if <list[<yaml[server.mobs].read[<[mob]>.time]>].as_list.contains[<player.location.world.time.period>]> && <yaml[server.mobs].read[<[mob]>.time]> != all:
             - define list:<-:<[mob]>
           - if <player.location.world.living_entities.filter[scriptname.to_lowercase.is[==].to[<[mob]>]].size> >= <yaml[server.mobs].read[<[mob]>.per_world_limit]>:
             - define list:<-:<[mob]>
           - if <player.location.highest.y> >= <player.location.y.add[1]>:
+            - define list:<-:<[mob]>
+          - if <util.random.int[1].to[<yaml[server.mobs].read[<[mob]>.chance].mul[60]>]> == 1 && <yaml[server.mobs].read[<[mob]>.chance]> != 0:
             - define list:<-:<[mob]>
         - define mob_limiter:25
         - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
@@ -74,8 +76,6 @@ mob_spawning_events:
                   - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
                     - run spawn_custom_mob def:<[mob]>|<[spawning_point]>
                   - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
-                  - if <yaml[server.mobs].read[<[mob]>.spawn_script]> != none:
-                    - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
 
 spawn_custom_mob:
   type: task
@@ -84,6 +84,8 @@ spawn_custom_mob:
     - spawn <[mob]> <[location].above> save:entity1
     - if <yaml[server.mobs].read[<[mob]>.aggressive_on_spawn]>:
       - attack <entry[entity1].spawned_entity> target:<player>
+    - if <yaml[server.mobs].read[<[mob]>.spawn_script]> != none:
+      - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
     - if <yaml[server.mobs].read[<[mob]>.abilities]||null> != null:
       - run mob_use_ability_handler def:<entry[entity1].spawned_entity>
 
