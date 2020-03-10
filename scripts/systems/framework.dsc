@@ -128,9 +128,10 @@ reload_scripts:
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list.parse[split[/].get[1]]> as:entry:
                       - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
                   - else:
-                    - foreach <[value].yaml_key[recipes.<[recipe]>.input].parse[as_list]> as:entry:
-                      - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
-                      - narrate <[value].name>:<[entry]>
+                    - foreach <[value].yaml_key[recipes.<[recipe]>.input]> as:entry:
+                      - foreach <[entry].as_list> as:entry:
+                        - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
+                        - narrate <[value].name>:<[entry]>
           - if <[value].yaml_key[type]> == entity:
             - if <[value].yaml_key[custom.spawning_conditions]||null> != null:
               - foreach <list[<[value].yaml_key[custom.spawning_conditions.world]>]> as:world:
