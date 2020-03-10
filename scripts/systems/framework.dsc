@@ -66,6 +66,7 @@ reload_scripts:
       - yaml create id:server.alchemy_recipes
       - yaml create id:server.altar_recipes
       - yaml create id:server.recipe_book
+      - yaml create id:server.recipe_fixer
       - yaml create id:server.mob_spawns
       - yaml create id:server.mobs
       - yaml load:data/skill_trees.yml id:server.skill_trees
@@ -79,6 +80,8 @@ reload_scripts:
               - else:
                   - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
           - if <[value].yaml_key[type]> == item:
+              - if <[value].name.replace[custom_].with[]> != <[value].yaml_key[material]>:
+                - yaml id:server.recipe_fixer set restricted:|:<[value].name>
               - if <[value].yaml_key[recipe_book_note]||null> != null:
                 - yaml id:server.recipe_book set notes.<[value].name>:<[value].yaml_key[recipe_book_note]>
               - if <[value].yaml_key[ore]||null> != null:
@@ -272,11 +275,11 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
-      - foreach <context.item.recipe_ids> as:id:
-        - narrate <[id]>
-        - define items:<server.recipe_items[<[id]>]>
-        - narrate <[items]>
       - if <context.item.script.name||null> == null:
+        - foreach <context.recipe> as:item:
+          - if <yaml[server.recipe_fixer].read[restricted].contains[<[item].script.name||<[item].material.name>>]>:
+            - determine cancelled
+            - stop
         - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
         - inject build_item
         - determine <[item]>

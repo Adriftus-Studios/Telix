@@ -275,7 +275,7 @@ custom_warped_shard:
   type: item
   material: iron_nugget
   display name: <&5>Warped Shard
-  recipe_book_note: <&5>Not much is known about this shard... Legends say it will appear at a random point in the world every hour.
+  recipe_book_note: <&5>Not much is known about this shard... Legends say it will appear at a random point in the world at a random time.
 
 warped_shard_giver:
   type: world
