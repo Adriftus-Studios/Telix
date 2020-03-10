@@ -26,7 +26,6 @@ entity_boomboom:
   type: entity
   entity_type: cow
   custom_name: BoomBoom
-  health: 20
   custom:
     aggressive: true
     spawning_conditions:
