@@ -126,11 +126,10 @@ reload_scripts:
                     - yaml id:server.altar_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
                   - if <list[altar|alchemy|smeltery].contains[<[value].yaml_key[recipes.<[recipe]>.type]>]>:
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list.parse[split[/].get[1]]> as:entry:
-                      - yaml id:server.recipe_book set used_for.<[entry]>:|:<[value].name>
+                      - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
                   - else:
-                    - narrate <[value].name>
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list> as:entry:
-                      - yaml id:server.recipe_book set used_for.<[entry]>:|:<[value].name>
+                      - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
           - if <[value].yaml_key[type]> == entity:
             - if <[value].yaml_key[custom.spawning_conditions]||null> != null:
               - foreach <list[<[value].yaml_key[custom.spawning_conditions.world]>]> as:world:
