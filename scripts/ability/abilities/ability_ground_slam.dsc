@@ -49,7 +49,7 @@ ability_ground_slam:
           - repeat stop
         - else:
           - adjust <player> velocity:0,-1,0
-          - wait 1s
+          - wait 10t
       - wait 10t
       - inject locally stun
       - inject abilities_cost
