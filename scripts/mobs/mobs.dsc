@@ -24,6 +24,7 @@ mob_drops_events:
     on entity damages entity:
       - if <context.entity.script||null> != null:
         - if <context.entity.script.yaml_key[custom.aggressive]>:
+          - narrate 1
           - attack <context.entity> target:<context.damager>
 
 mob_spawning_events:
