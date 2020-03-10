@@ -162,7 +162,7 @@ reload_scripts:
             - if <[value].yaml_key[custom.ability_usage]||null> != null:
               - yaml id:server.mobs set <[value].name>.abilities:<[value].yaml_key[custom.ability_usage]>
       - foreach <yaml[server.recipe_book].list_keys[used_for]> as:item:
-        - yaml id:server.recipe_book set used.<[item]>:<yaml[server.recipe_book].read[used_for.<[item]>].as_list.deduplicate.exclude[air]>
+        - yaml id:server.recipe_book set used_for.<[item]>:<yaml[server.recipe_book].read[used_for.<[item]>].as_list.deduplicate.exclude[air]>
     events:
       on server start:
         - inject locally reload
