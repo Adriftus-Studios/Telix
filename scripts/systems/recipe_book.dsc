@@ -161,7 +161,7 @@ recipe_book_events:
       - else:
         - define items:<yaml[server.recipe_book].read[categories.<[type]>].parse[as_item]>
         - repeat 45:
-          - inventory add d:<context.inventory> o:<[items].get[<[value]>].with[flags=HIDE_ATTRIBUTES]>
+          - inventory add d:<context.inventory> o:<[items].get[<[value]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
     on player clicks in recipe_book_*:
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
