@@ -127,6 +127,7 @@ reload_scripts:
                   - if <list[altar|alchemy|smeltery].contains[<[value].yaml_key[recipes.<[recipe]>.type]>]>:
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list.parse[split[/].get[1]]> as:entry:
                       - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
+                      - narrate <[value].name>:<[entry]>
                   - else:
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list> as:entry:
                       - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
