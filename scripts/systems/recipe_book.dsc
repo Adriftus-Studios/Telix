@@ -154,7 +154,7 @@ recipe_book_events:
     - flag <player> context:!
     - if <[type]> == all:
       - foreach <yaml[server.recipe_book].list_keys[categories]> as:cat:
-        - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[type]>.<[cat]>]>
+        - inventory add d:<context.inventory> o:<item[stone].with[display_name=<[cat]>;nbt=category/<[cat]>]>
     - else:
       - if <yaml[server.recipe_book].list_keys[categories.<[type]>]||null> != null:
         - foreach <yaml[server.recipe_book].list_keys[categories.<[type]>]> as:cat:
