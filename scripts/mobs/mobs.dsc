@@ -11,7 +11,7 @@ mob_drops_events:
           - define num:+:<el@1.div[<[key]>]>
       - define num:<[num]||0>
       - define to_drop:<list[]>
-      - run playerLevel_GiveXP def:<yaml[server.mobs].read[<[mob]>.xp]||1>
+      - run playerLevel_GiveXP def:<yaml[server.mobs].read[<context.entity.script_name>.xp]||1>
       - foreach <[drops]||<list[]>> as:drop:
         - define random:<util.random.decimal[0].to[1]>
         - define item:<item[<[drop].split[/].get[1]>]>
