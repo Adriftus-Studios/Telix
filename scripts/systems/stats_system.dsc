@@ -168,7 +168,7 @@ default_stats:
       food: 100
       thirst: 100
       health: 20
-      weight: 100
+      weight: 320
       power: 20
       constitution: 0
       experience_multiplier: 0
