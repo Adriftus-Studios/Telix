@@ -2,6 +2,7 @@
 event_command:
   type: command
   name: events
+  permission: events
   script:
   - if <context.args.get[2].div[1]> != <context.args.get[2]>:
     - stop

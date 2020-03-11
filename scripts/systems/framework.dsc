@@ -118,8 +118,6 @@ reload_scripts:
                     - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
-                    - if <[value].yaml_key[recipes.<[recipe]>.cook_time]||null> == null:
-                      - narrate <[value].name>
                     - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
                     - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
                     - yaml id:server.smeltery_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
