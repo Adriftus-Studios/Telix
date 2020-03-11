@@ -303,8 +303,6 @@ custom_item_override:
       - narrate <player.open_inventory>
       - if <context.item.script.name||null> == null:
         - foreach <context.recipe> as:item:
-          - narrate <[item].script.name||<[item].material.name>>
-          - narrate <yaml[server.recipe_fixer].read[restricted].contains[<[item].script.name||<[item].material.name>>]>
           - if <yaml[server.recipe_fixer].read[restricted].contains[<[item].script.name||<[item].material.name>>]>:
             - determine cancelled
             - stop
@@ -383,6 +381,9 @@ system_override:
         - if <context.raw_slot> < 6:
           - determine passively cancelled
           - define slotmap:<list[1/in@workbench[holder=<player>]|2/recipe_book_inventory|3/citadels|4/guilds|5/settings]>
+          - if <context.item.material.name> != air:
+            - determine passively cancelled
+            - inventory open d:in@workbench[holder=<player>]
           - if <[slotmap].map_get[<context.raw_slot>]||null> == guilds:
             - if <yaml[player.<player.uuid>].read[guild]||null> != null:
               - inventory open d:my_guild_gui
