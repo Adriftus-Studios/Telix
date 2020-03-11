@@ -315,49 +315,9 @@ custom_item_override:
         - inject build_item
         - determine ITEM:<[item]>
 
-contaminate_player:
-  type: task
-  definitions: player|level
-  script:
-    - adjust <queue> linked_player:<[player]>
-    - if <player.flag[contaminated]||0> >= <[level]>:
-      - stop
-    - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> >= <[level]>:
-      - stop
-    - flag <player> contaminated:<[level]>
-    - while <yaml[player.<player.uuid>].read[stats.contaminated]> != 0:
-      - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> >= <[level]>:
-        - while stop
-        - flag <player> contaminated:!
-      - if <yaml[player.<player.uuid>].read[stats.contaminated]> != <[level]>:
-        - while stop
-        - flag <player> contaminated:!
-      - define duration:<duration[<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>t]||<duration[1t]>>
-      - cast wither duration:<[duration].add[5t]> power:4
-      - wait 1t
-
-scan_inventory_for_contaminated_items:
-  type: procedure
-  definitions: inventory
-  script:
-    - foreach <[inventory].list_contents.parse[script].filter[list_keys.contains[contaminated]]>:
-      - if <[value].yaml_key[contaminated]> > <[level]||0>:
-        - define level:<[value].yaml_key[contaminated]>
-    - determine <[level]||0>
-
 system_override:
   type: world
   events:
-    on player drops item:
-      - wait 1t
-      - define level:<proc[scan_inventory_for_contaminated_items].context[<player.inventory>]>
-      - yaml id:player.<player.uuid> set stats.contaminated:<[level]>
-      - run contaminate_player def:<player>|<[level]>
-    on player picks up item:
-      - wait 1t
-      - define level:<proc[scan_inventory_for_contaminated_items].context[<player.inventory>]>
-      - yaml id:player.<player.uuid> set stats.contaminated:<[level]>
-      - run contaminate_player def:<player>|<[level]>
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
