@@ -320,7 +320,7 @@ system_override:
   events:
     on player picks up item:
       - if <context.item.script.yaml_key[contaminated]||null> != null:
-        - narrate "<&b><&l>This item is contaminated!"
+        - narrate "<&2><&l>This item is contaminated!"
         - wait 1t
         - while <player.inventory.contains.scriptname[<context.item.script.name>]>:
           - define duration:<duration[<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>t]||<duration[1t]>>
