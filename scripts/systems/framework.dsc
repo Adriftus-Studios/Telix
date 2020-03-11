@@ -321,6 +321,7 @@ system_override:
     on player picks up item:
       - if <context.item.script.yaml_key[contaminated]||null> != null:
         - narrate "You've been contaminated"
+        - wait 1t
         - while <player.inventory.contains.scriptname[<context.item.script.name>]>:
           - cast wither duration:2m
           - flag <player> contaminated:true duration:2m
