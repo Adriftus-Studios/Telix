@@ -378,6 +378,28 @@ system_override:
         - foreach <context.raw_slots>:
           - if <[value]> < 6:
             - determine cancelled
+    on player clicks in inventory:
+      - if <player.open_inventory> == <player.inventory>:
+        - if <context.raw_slot> < 6:
+          - determine passively cancelled
+          - define slotmap:<list[1/in@workbench[holder=<player>]|2/recipe_book_inventory|3/citadels|4/guilds|5/settings]>
+          - narrate <context.item>
+          - if <context.item.material.name> != air:
+            - determine passively cancelled
+            - inventory open d:in@workbench[holder=<player>]
+            - stop
+          - if <[slotmap].map_get[<context.raw_slot>]||null> == guilds:
+            - if <yaml[player.<player.uuid>].read[guild]||null> != null:
+              - inventory open d:my_guild_gui
+            - else:
+              - inventory open d:new_guild_gui
+            - stop
+          - if <inventory[<[slotmap].map_get[<context.raw_slot>]||null>]||null> != null:
+            - inventory open d:<inventory[<[slotmap].map_get[<context.raw_slot>]>]>
+      - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
+        - determine passively cancelled
+        - wait 1t
+        - inventory open d:<context.item.script.yaml_key[GUI_Inventory].parsed>
 
 player_crafting:
   type: inventory
