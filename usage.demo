@@ -1,4 +1,33 @@
 
+# -----[ Custom Food ]-----
+
+custom_food:
+  material: steak
+  display name: <&7>Custom food
+  weight: '1'
+  type: Item
+  on_consume:
+    - narrate "you ate a custom steak"
+  recipes:
+    1:
+      type: cooking
+      output_quantity: 1
+      main_ingredient: some_ingredient
+      side_ingredients: another_ingredient|final_ingredient
+      serving_dish: some_serving_dish
+      # Can be serving_dish, main_ingredient, or side_ingredient
+      cook_time: 5m
+
+# -----[ Custom Cooking Ingredient ]-----
+
+custom_ingedient:
+  material: red_mushroom
+  display name: <&7>Custom Ingredient
+  weight: '1'
+  type: item
+  ingredient_category: serving_dish
+  # Can be serving_dish, main_ingredient, or side_ingredient
+
 # -----[ Custom Ores ]-----
 
 custom_ore:

@@ -273,6 +273,9 @@ custom_item_override:
   type: world
   debug: false
   events:
+    on player consumes item:
+      - if <context.item.script.yaml_key[on_consume]||null> != null:
+        - run <context.item.script.name> path:on_consume
     on player places block:
       - if <context.item_in_hand.script.name||null> != null:
         - if <context.material.is_block>:
@@ -314,8 +317,6 @@ custom_item_override:
 
 system_override:
   type: world
-  test_script:
-    - narrate 1
   events:
     on player picks up item:
       - if <context.item.script.yaml_key[contaminated]||null> != null:
