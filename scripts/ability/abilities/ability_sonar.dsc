@@ -4,8 +4,8 @@ ability_sonar:
   name: sonar
   ability_tree: Perception
   ability_type: active
-  points_to_unlock: 10
-  power_cost: 10
+  points_to_unlock: 20
+  power_cost: 15
   description: Reveal entity locations in a 50 block radius.
   icon:
     material: stone

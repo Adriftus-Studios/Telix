@@ -51,19 +51,3 @@ ability_parry:
         - playeffect sweep_attack at:<player.location.forward.above> quantity:1
         #- playsound <player.location> sound:ability.fisticuffs.riposte custom
         - narrate "<&6>You have <&a>parried <&6>your opponent's attack!"
-
-
-#Injected task. <player>, <context.entity>
-ability_parry_animation:
-  type: task
-  debug: false
-  script:
-    - repeat 2:
-      - wait 0.125s
-      - glow <player>
-      - wait 0.125s
-      - glow <player> false
-    - wait 0.125s
-    - glow <player>
-    - wait 1s
-    - glow <player> false
