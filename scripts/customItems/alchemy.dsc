@@ -39,6 +39,18 @@ custom_blizz_rod:
       max_quantity: 2
       min_quantity: 1
 
+custom_small_husk:
+  type: item
+  material: bone
+  recipe_book_category: materials.alchemy
+  display name: <&7>Small Husk
+  mob_drops:
+    1:
+      dropped_by: entity_sand_rat
+      chance: 12
+      max_quantity: 2
+      min_quantity: 1
+
 custom_moth_wing:
   type: item
   material: leather
