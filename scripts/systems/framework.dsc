@@ -322,11 +322,13 @@ contaminate_player:
     - adjust <queue> linked_player:<[player]>
     - if <player.flag[contaminated]||0> >= <[level]>:
       - stop
-    - narrate <[level]>
     - flag <player> contaminated:<[level]>
     - while <yaml[player.<player.uuid>].read[stats.contaminated]> != 0:
       - define duration:<duration[<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>t]||<duration[1t]>>
       - cast wither duration:<[duration].add[5t]> power:4
+      - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> >= <[level]>:
+        - while stop
+        - flag <player> contaminated:!
       - if <yaml[player.<player.uuid>].read[stats.contaminated]> != <[level]>:
         - while stop
         - flag <player> contaminated:!
