@@ -115,7 +115,7 @@ calculate_encumberance_speed:
     - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
     - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
     - wait 3t
-    - announce <player.is_online>
+    - announce to_console <player.is_online>
     - adjust <player> walk_speed:<[speed]>
     
 default_stats:
