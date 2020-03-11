@@ -271,7 +271,7 @@ system_equipment_set:
 
 custom_item_override:
   type: world
-  debug: false
+  debug: true
   events:
     on player consumes item:
       - if <context.item.script.yaml_key[on_consume]||null> != null:
