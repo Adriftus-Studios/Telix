@@ -130,10 +130,13 @@ calculate_contamination:
     - foreach <player.inventory.list_contents.parse[script].filter[list_keys.contains[contaminated]]>:
       - if <[value].yaml_key[contaminated]> > <[level]||0>:
         - define level:<[value].yaml_key[contaminated]>
+    - narrate <[level]>
     - if <player.flag[contaminated]||0> >= <[level]>:
       - stop
+    - narrate a
     - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> >= <[level]>:
       - stop
+    - narrate b
     - if <[level]> != 0:
       - flag <player> contaminated:<[level]>
       - while <yaml[player.<player.uuid>].read[stats.contaminated]> != 0:
