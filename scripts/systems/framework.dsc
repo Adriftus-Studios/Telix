@@ -314,6 +314,8 @@ custom_item_override:
 
 system_override:
   type: world
+  test_script:
+    - narrate 1
   events:
     on player picks up item:
       - if <context.item.script.yaml_key[contaminated]||null> != null:
