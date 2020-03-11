@@ -323,7 +323,8 @@ system_override:
         - narrate "You've been contaminated"
         - wait 1t
         - while <player.inventory.contains.scriptname[<context.item.script.name>]>:
-          - define duration:<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]||1t>
+          - define duration:<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]t||1t>
+          - narrate <[duration]>
           - cast wither duration:<[duration].add[1t]> power:4
     on player first login:
       - flag <player> ott:1 duration:2h
