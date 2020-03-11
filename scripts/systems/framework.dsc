@@ -474,9 +474,15 @@ build_item:
           - define stats:|:<[modifier]>/<[value]>
           - define modifiers:|:<[modifier]>
           - if <[value]> > 0:
-            - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
+            - if <list[speed|melee_damage|drop_rate_multiplier|ore_drops|experience_multiplier].contains[<[modifier]>]>:
+              - define lore:|:<&9>+<[value]>%<&sp><[stat_names].map_get[<[modifier]>]>
+            - else:
+              - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
           - else:
-            - define lore:|:<&c><[value]><&sp><[stat_names].map_get[<[modifier]>]>
+            - if <list[speed|melee_damage|drop_rate_multiplier|ore_drops|experience_multiplier].contains[<[modifier]>]>:
+              - define lore:|:<&c><[value]>%<&sp><[stat_names].map_get[<[modifier]>]>
+            - else:
+              - define lore:|:<&c><[value]><&sp><[stat_names].map_get[<[modifier]>]>
     - else:
       - define lore:|:<[item].script.yaml_key[lore].parsed||<list[]>>
     - adjust def:item flags:HIDE_ATTRIBUTES
