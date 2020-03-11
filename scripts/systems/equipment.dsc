@@ -235,7 +235,6 @@ get_hazard_protection_level:
       - define item:<inventory[equipment_<player.uuid>].slot[<[value].split[/].get[1]>]||<item[air]>>
       - define list:|:<[item].script.yaml_key[hazard_protection]||0>
     - define list:<[list].deduplicate>
-    - narrate <[list]>
     - determine <[list].lowest>
 
 equipment_character:
