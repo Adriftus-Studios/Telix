@@ -324,11 +324,9 @@ system_override:
         - wait 1t
         - while <player.inventory.contains.scriptname[<context.item.script.name>]>:
           - if <player.list_effects.filter[starts_with[WITHER]].size> != 0:
-            - define duration:<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>
-            - narrate <[duration]>
-            - cast wither duration:
+            - define duration:<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]||1t>
+            - cast wither duration:<[duration].add[1t]> power:4
           - else:
-            - cast wither duration:5s power:4
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
