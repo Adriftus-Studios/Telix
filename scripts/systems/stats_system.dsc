@@ -116,7 +116,7 @@ calculate_encumberance_speed:
     - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
     - wait 3t
     - if <player.is_online>:
-      - if <[encumberance]> < 100:
+      - if <[encumberance]> >= 100:
         - adjust <player> walk_speed:0.1
       - else:
         - adjust <player> walk_speed:<[speed]>
