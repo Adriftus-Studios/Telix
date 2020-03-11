@@ -3150,11 +3150,6 @@ custom_leather_tanned:
       type: blast
       experience: 0
   material: leather
-  lore:
-  - <&b>Processed leather hide.
-  - <&b>This has many applications.
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Tanned Leather
   weight: 1
   type: item
@@ -3162,13 +3157,8 @@ custom_leather_tanned:
     custom_model_data: 2
 custom_stone:
   material: stone
-  lore:
-  - <&b>A small dull rock,
-  - <&b>chipped from a large dull rock
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
   display name: <&7>Stone
-  weight: 3
+  weight: 1
   type: item
   default_drop: custom_cobblestone
 custom_birch_fence:
