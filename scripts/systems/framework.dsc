@@ -383,6 +383,7 @@ system_override:
           - if <context.item.material.name> != air:
             - determine passively cancelled
             - inventory open d:in@workbench[holder=<player>]
+            - stop
           - if <[slotmap].map_get[<context.raw_slot>]||null> == guilds:
             - if <yaml[player.<player.uuid>].read[guild]||null> != null:
               - inventory open d:my_guild_gui
