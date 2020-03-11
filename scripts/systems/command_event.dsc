@@ -26,9 +26,9 @@ event_command:
       - define value:"<[duration].in_days> Minutes"
   - else if <[duration].formatted.ends_with[s]>:
     - if <[duration].formatted> == 1s:
-      - define value:"1 Second"
+      - define value:1 Second
     - else:
-      - define value:"<[duration].in_days> Seconds"
+      - define value:<[duration].in_days> Seconds
   - else:
     - narrate no
     - stop
