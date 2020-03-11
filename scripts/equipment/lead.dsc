@@ -163,6 +163,7 @@ custom_lead_boots:
   category: shoes
   weight: '4'
   type: item
+  hazard_protection: 1
   fake_durability: 195
   armor: 3
   equipment_rating: 5
@@ -197,6 +198,7 @@ custom_lead_leggings:
   category: pants
   weight: '7'
   type: item
+  hazard_protection: 1
   fake_durability: 225
   armor: 4
   equipment_rating: 5
@@ -224,6 +226,7 @@ custom_lead_chestplate:
   category: shirt
   weight: '8'
   type: item
+  hazard_protection: 1
   fake_durability: 240
   armor: 5
   equipment_rating: 5
@@ -251,6 +254,7 @@ custom_lead_helmet:
   category: hat
   weight: '5'
   type: item
+  hazard_protection: 1
   fake_durability: 165
   armor: 2
   equipment_rating: 5

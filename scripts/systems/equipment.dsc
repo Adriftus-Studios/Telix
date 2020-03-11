@@ -4,6 +4,7 @@ view_equipment_command:
   name: view_equipment
   description: view_equipment
   usage: /view_equipment
+  permission: view_equipment
   tab complete:
   - if <player.permission[*]>:
     - foreach <server.list_material_types> as:mat:
@@ -224,6 +225,18 @@ invisible_placeholder:
   mechanisms:
     custom_model_data: -1
   display name: <&7>
+
+get_hazard_protection_level:
+  type: procedure
+  definitions: player
+  script:
+    - define slotmap:<list[16/hat|25/shirt|34/pants|43/shoes]>
+    - foreach <[slotmap]>:
+      - define item:<inventory[equipment_<player.uuid>].slot[<[value].split[/].get[1]>]||<item[air]>>
+      - define list:|:<[item].script.yaml_key[hazard_protection]||0>
+    - define list:<[list].deduplicate>
+    - narrate <[list]>
+    - determine <[list].lowest>
 
 equipment_character:
   type: inventory
