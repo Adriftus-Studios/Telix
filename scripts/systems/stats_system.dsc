@@ -164,6 +164,7 @@ stats_character:
         - define lore:|:This<&sp>Stat<&sp>cannot<&sp>be<&sp>increased<&sp>with<&sp>Skill<&sp>Points.
       - adjust def:icon lore:<[lore]>
       - define items:|:<[icon]>
+    - narrate <[items]>
     - determine <[items]>
   definitions:
     filler: <item[gui_invisible_item]>
