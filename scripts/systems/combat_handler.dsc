@@ -3,16 +3,20 @@ combat_handler:
   type: world
   events:
     on player damaged by player:
-      - flag <context.entity> pvp:true duration:5m
-      - flag <context.damager> pvp:true duration:5m
+      - flag <context.entity> pvp:true duration:1m
+      - flag <context.damager> pvp:true duration:1m
       - determine <context.final_damage.mul[<context.entity.health>].div[20]>
 
 damage_command:
   type: command
   name: damage
   script:
-    - stop
-    - hurt <context.args.get[1].mul[<player.health>].div[20]>
+    - define damage:<context.args.get[1]>
+    - define armor:<player.armor_bonus>
+    - define damage_modifier:1
+    - define defence_modifier:1
+    - define final_damage:<[damage].mul[<el@1.sub[<el@20.mul[<[armor].div[5]>].div[25]>]>]>
+    - narrate <[final_damage]>
 
 calculate_damage:
   type: procedure
@@ -25,10 +29,10 @@ calculate_damage:
       - define damage_modifier:<yaml[player.<[damager].uuid>].read[stats.damage_modifier.<[type]>]||1>
     - else if <[damager].type> == entity:
       - if <[damager].script||null> != null:
-        - define damage_modifier:<[damager].script.yaml_key[damage_modifier.<[type]>]||1>
+        - define damage_modifier:<[damager].script.yaml_key[custom.damage_modifier.<[type]>]||1>
     - if <[damaged].type> == player:
       - define defence_modifier:<yaml[player.<[damaged].uuid>].read[stats.defence_modifier.<[type]>]||1>
     - else if <[damaged].type> == entity:
       - if <[damaged].script||null> != null:
-        - define defence_modifier:<[damaged].script.yaml_key[defence_modifier.<[type]>]||1>
+        - define defence_modifier:<[damaged].script.yaml_key[custom.defence_modifier.<[type]>]||1>
     - define final_damage:<[damage].mul[<el@1.sub[<el@20.mul[<[armor].div[5]>].div[25]>]>]>
