@@ -12,6 +12,7 @@ mob_drops_events:
       - define num:<[num]||0>
       - define to_drop:<list[]>
       - run playerLevel_GiveXP def:<context.entity.script.yaml_key[custom.xp_dropped]||1>
+      - narrate <context.entity.script.yaml_key[custom.xp_dropped]||1>
       - foreach <[drops]||<list[]>> as:drop:
         - define random:<util.random.decimal[0].to[1]>
         - define item:<item[<[drop].split[/].get[1]>]>
