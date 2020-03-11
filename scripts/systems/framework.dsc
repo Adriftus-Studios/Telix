@@ -300,6 +300,7 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
+      - narrate <player.open_inventory>
       - if <context.item.script.name||null> == null:
         - foreach <context.recipe> as:item:
           - narrate <[item].script.name||<[item].material.name>>
