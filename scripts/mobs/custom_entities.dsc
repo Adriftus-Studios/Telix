@@ -65,8 +65,8 @@ entity_direwolf:
       max_distance: 40
       min_distance: 30
       water: false
-      max_quantity: 3
-      min_quantity: 5
+      max_quantity: 1
+      min_quantity: 3
       time: night
       aggressive_on_spawn: true
       chance: 1
