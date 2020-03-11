@@ -15,6 +15,7 @@ damage_command:
     - define armor:<context.args.get[2]>
     - define damage_modifier:<context.args.get[3]>
     - define defence_modifier:<context.args.get[4]>
+    - define damage:<[damage].mul[<[damage_modifier]>].div[<[defence_modifier]>]>
     - define final_damage:<[damage].mul[<el@1.sub[<el@20.mul[<[armor].div[5]>].div[25]>]>]>
     - narrate <[final_damage]>
 
