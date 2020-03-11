@@ -90,6 +90,7 @@ calculate_weight_equipment_stats:
             - else:
               - yaml id:player.<player.uuid> set stats.<[stat]>:+:<[value]>
     - equip chest:<item[equipment_chest_slot].with[nbt_attributes=generic.armor/chest/0/<[armor]||0>;enchantments=<[enchants]||<list[]>>]>
+    - yaml id:player.<player.uuid> set stats.hazard_protection:<proc[get_hazard_protection_level].context[<player>]>
     - adjust <player> health:20
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
     - adjust <player> health:<yaml[player.<player.uuid>].read[stats.health.max]>

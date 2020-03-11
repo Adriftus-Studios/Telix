@@ -323,7 +323,7 @@ system_override:
         - narrate "<&2><&l>This item is contaminated!"
         - wait 1t
         - while <player.inventory.contains.scriptname[<context.item.script.name>]>:
-          - if <proc[get_hazard_protection_level].context[<player>]> < <context.item.script.yaml_key[contaminated]>:
+          - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> < <context.item.script.yaml_key[contaminated]>:
             - define duration:<duration[<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>t]||<duration[1t]>>
             - cast wither duration:<[duration].add[5t]> power:4
             - wait 1t
