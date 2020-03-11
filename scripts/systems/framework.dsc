@@ -382,7 +382,7 @@ system_override:
       - if <player.open_inventory> == <player.inventory>:
         - if <context.raw_slot> < 6:
           - determine passively cancelled
-          - define slotmap:<list[1/player_crafting|2/recipe_book_inventory|3/citadels|4/guilds|5/settings]>
+          - define slotmap:<list[1/in@workbench[holder=<player>]|2/recipe_book_inventory|3/citadels|4/guilds|5/settings]>
           - if <[slotmap].map_get[<context.raw_slot>]||null> == guilds:
             - if <yaml[player.<player.uuid>].read[guild]||null> != null:
               - inventory open d:my_guild_gui
