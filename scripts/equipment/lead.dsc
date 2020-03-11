@@ -165,7 +165,7 @@ custom_lead_boots:
   type: item
   hazard_protection: 1
   lore:
-    - <&b>Hazard Protection: 1
+    - <&2>Hazard Protection: 1
   fake_durability: 195
   armor: 3
   equipment_rating: 5
@@ -202,7 +202,7 @@ custom_lead_leggings:
   type: item
   hazard_protection: 1
   lore:
-    - <&b>Hazard Protection: 1
+    - <&2>Hazard Protection: 1
   fake_durability: 225
   armor: 4
   equipment_rating: 5
@@ -232,7 +232,7 @@ custom_lead_chestplate:
   type: item
   hazard_protection: 1
   lore:
-    - <&b>Hazard Protection: 1
+    - <&2>Hazard Protection: 1
   fake_durability: 240
   armor: 5
   equipment_rating: 5
@@ -262,7 +262,7 @@ custom_lead_helmet:
   type: item
   hazard_protection: 1
   lore:
-    - <&b>Hazard Protection: 1
+    - <&2>Hazard Protection: 1
   fake_durability: 165
   armor: 2
   equipment_rating: 5
