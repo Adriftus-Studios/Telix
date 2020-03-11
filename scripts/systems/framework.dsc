@@ -381,13 +381,13 @@ system_override:
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
         - if <context.raw_slot> < 6:
-          - determine passively cancelled
           - define slotmap:<list[1/in@workbench[holder=<player>]|2/recipe_book_inventory|3/citadels|4/guilds|5/settings]>
           - narrate <context.item.is[!=].to[i@air]>
           - if <context.item.material.name> != air:
             - inventory open d:in@workbench[holder=<player>]
             - narrate <context.item>
             - stop
+          - determine passively cancelled
           - if <[slotmap].map_get[<context.raw_slot>]||null> == guilds:
             - if <yaml[player.<player.uuid>].read[guild]||null> != null:
               - inventory open d:my_guild_gui
