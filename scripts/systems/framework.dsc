@@ -285,7 +285,7 @@ custom_item_override:
             - yaml unload id:<context.location.simple>
     on player breaks block:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1]||null> != null:
-        - determine <server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1].as_item>
+        - determine <item[<server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1]>]>
     on entity death:
       - foreach <context.drops||<list[]>> as:item:
         - if <[item].material.name> != air && <[item].script.name||null> == null:
