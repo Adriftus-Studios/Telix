@@ -35,7 +35,7 @@ recipe_book_smeltery:
     gui_top: <item[gui_smeltery_top]>
     gui_bottom: <item[gui_smeltery_bottom]>
   slots:
-  - "[smeltery] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[custom_smeltery] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
   - "[w_filler] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
   - "[gui_top] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
@@ -51,7 +51,7 @@ recipe_book_alchemy:
     gui_top: <item[gui_alchemy_station_top]>
     gui_bottom: <item[gui_alchemy_station_bottom]>
   slots:
-  - "[alchemy_station] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[custom_alchemy_station] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
   - "[gui_top] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[gui_bottom] [w_filler] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
