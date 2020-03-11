@@ -322,6 +322,7 @@ contaminate_player:
     - adjust <queue> linked_player:<[player]>
     - if <player.flag[contaminated]||0> >= <[level]>:
       - stop
+    - narrate <[level]>
     - flag <player> contaminated:<[level]>
     - while <yaml[player.<player.uuid>].read[stats.contaminated]> != 0:
       - define duration:<duration[<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>t]||<duration[1t]>>
@@ -338,6 +339,7 @@ scan_inventory_for_contaminated_items:
     - foreach <[inventory].list_contents.parse[script].filter[list_keys.contains[contaminated]]>:
       - if <[value].yaml_key[contaminated]> > <[level]||0>:
         - define level:<[value].yaml_key[contaminated]>
+    - narrate <[level]>
     - determine <[level]||0>
 
 system_override:
