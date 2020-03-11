@@ -506,7 +506,10 @@ build_item:
           - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
           - define stats:|:<[modifier]>/<[value]>
           - define modifiers:|:<[modifier]>
-          - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
+          - if <[value]> > 0:
+            - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
+          - else:
+            - define lore:|:<&c><[value]><&sp><[stat_names].map_get[<[modifier]>]>
     - else:
       - define lore:|:<[item].script.yaml_key[lore].parsed||<list[]>>
     - adjust def:item flags:HIDE_ATTRIBUTES
