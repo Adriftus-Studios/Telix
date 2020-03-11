@@ -35,7 +35,7 @@ recipe_book_smeltery:
     gui_top: <item[gui_smeltery_top]>
     gui_bottom: <item[gui_smeltery_bottom]>
   slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[smeltery] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
   - "[w_filler] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
   - "[gui_top] [] [] [w_filler] [] [w_filler] [] [] [w_filler]"
