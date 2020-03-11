@@ -325,7 +325,7 @@ system_override:
         - while <player.inventory.contains.scriptname[<context.item.script.name>]>:
           - define duration:<duration[<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>t]||<duration[1t]>>
           - narrate <player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>
-          - cast wither duration:<[duration].add[1t]> power:4
+          - cast wither duration:<[duration].add[3t]> power:4
           - wait 1t
     on player first login:
       - flag <player> ott:1 duration:2h
