@@ -292,6 +292,7 @@ custom_item_override:
           - determine <[item]>
         - else:
           - determine NOTHING
+        - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
     on entity death:
       - foreach <context.drops||<list[]>> as:item:
         - if <[item].material.name> != air && <[item].script.name||null> == null:
