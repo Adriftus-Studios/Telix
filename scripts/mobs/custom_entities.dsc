@@ -29,6 +29,7 @@ entity_boomboom:
   custom_name: BoomBoom
   custom:
     aggressive: true
+    xp_dropped: 3
     spawning_conditions:
       world: tor_mainland
       biome: all
@@ -55,6 +56,7 @@ entity_direwolf:
   health: 7
   speed: 0.4
   custom:
+    xp_dropped: 2
     spawning_conditions:
       world: tor_mainland
       biome: forest|birch_forest|birch_forest_hills|dark_forest|flower_forest|tall_birch_forest|dark_forest_hills
@@ -79,6 +81,7 @@ entity_hyena:
   health: 19
   speed: 0.3
   custom:
+    xp_dropped: 2
     spawning_conditions:
       world: tor_mainland
       biome: mountains|snowy_mountains|mountain_edge|wooded_mountains|gravelly_mountains|taiga_mountains|snowy_taiga_mountains|modified_gravelly_mountains
@@ -103,6 +106,7 @@ entity_elk:
   health: 20
   speed: 0.2
   custom:
+    xp_dropped: 3
     spawning_conditions:
       world: tor_mainland
       biome: wooded_hills|jungle_hills|birch_forest_hills|swamp_hills|tall_birch_hills|dark_forest_hills|giant_spruce_taiga_hills|bamboo_jungle_hills|plains|sunflower_plains
@@ -127,6 +131,7 @@ entity_highland_cattle:
   health: 25
   speed: 0.2
   custom:
+    xp_dropped: 3
     spawning_conditions:
       world: tor_mainland
       biome: plains|sunflower_plains
@@ -151,6 +156,7 @@ entity_sand_rat:
   health: 10
   speed: 0.2
   custom:
+    xp_dropped: 1
     spawning_conditions:
       world: tor_mainland
       biome: desert|desert_hills|desert_lakes|beach
@@ -175,6 +181,7 @@ entity_desert_dweller:
   health: 20
   speed: 0.2
   custom:
+    xp_dropped: 10
     spawning_conditions:
       world: tor_mainland
       biome: desert|desert_hills|desert_lakes|beach
@@ -199,6 +206,7 @@ entity_desert_priest:
   health: 55
   speed: 0.1
   custom:
+    xp_dropped: 15
     spawning_conditions:
       world: tor_mainland
       biome: desert|desert_hills|desert_lakes|beach
@@ -223,6 +231,7 @@ entity_mountain_golem:
   health: 120
   speed: 0.1
   custom:
+    xp_dropped: 20
     spawning_conditions:
       world: tor_mainland
       biome: mountains|snowy_mountains|mountain_edge|wooded_mountains|gravelly_mountains|taiga_mountains|snowy_taiga_mountains|modified_gravelly_mountains
@@ -247,6 +256,7 @@ entity_frost_golem:
   health: 80
   speed: 0.2
   custom:
+    xp_dropped: 20
     spawning_conditions:
       world: tor_mainland
       biome: snowy_tundra|snowy_mountains|snowy_beach|snowy_taiga|snowy_taiga_hills|snowy_taiga_mountains
@@ -271,6 +281,7 @@ entity_icicle_guardian:
   health: 70
   speed: 0.3
   custom:
+    xp_dropped: 30
     spawning_conditions:
       world: tor_mainland
       biome: ocean|frozen_ocean|deep_ocean|warm_ocean|lukewarm_ocean|cold_ocean|deep_warm_ocean|deep_lukewarm_ocean|deep_cold_ocean|deep_frozen_ocean
@@ -295,6 +306,7 @@ entity_icewolf:
   health: 14
   speed: 0.2
   custom:
+    xp_dropped: 5
     spawning_conditions:
       world: tor_mainland
       biome: snowy_tundra|snowy_mountains|snowy_beach|snowy_taiga|snowy_taiga_hills|snowy_taiga_mountains
@@ -319,6 +331,7 @@ entity_sky_moth:
   health: 8
   speed: 0.6
   custom:
+    xp_dropped: 1
     spawning_conditions:
       world: tor_mainland
       biome: all
@@ -343,6 +356,7 @@ entity_jungle_moth:
   health: 8
   speed: 0.6
   custom:
+    xp_dropped: 1
     spawning_conditions:
       world: tor_mainland
       biome: jungle|jungle_hills|jungle_edge|modified_jungle|modified_jungle_edge|bamboo_jungle|bamboo_jungle_hills
@@ -367,6 +381,7 @@ entity_frost_moth:
   health: 9
   speed: 0.6
   custom:
+    xp_dropped: 1
     spawning_conditions:
       world: tor_mainland
       biome: snowy_tundra|snowy_mountains|snowy_beach|snowy_taiga|snowy_taiga_hills|snowy_taiga_mountains
@@ -391,6 +406,7 @@ entity_lost_soul:
   health: 80
   speed: 0.2
   custom:
+    xp_dropped: 50
     spawning_conditions:
       world: tor_mainland
       biome: all
@@ -415,6 +431,7 @@ entity_mountain_wolf:
   health: 80
   speed: 0.2
   custom:
+    xp_dropped: 4
     spawning_conditions:
       world: tor_mainland
       biome: mountains|snowy_mountains|mountain_edge|wooded_mountains|gravelly_mountains|taiga_mountains|snowy_taiga_mountains|modified_gravelly_mountains
@@ -440,6 +457,7 @@ entity_waterhag:
   health: 70
   speed: 0.4
   custom:
+    xp_dropped: 17
     spawning_conditions:
       world: tor_mainland
       biome: all

@@ -21,4 +21,5 @@ playerLevel_levelUp:
     - yaml id:player.<player.uuid> set lessons.current:+:10
     - yaml id:player.<player.uuid> set lessons.lifetime:+:10
     - yaml id:player.<player.uuid> set stats.xp:0
+    - yaml id:player.<player.uuid> set stats.stat_points:+:1
     - inventory adjust slot:38 custom_model_data:2

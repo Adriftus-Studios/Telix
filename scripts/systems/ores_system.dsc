@@ -15,4 +15,5 @@ ore_drop_events:
                         - define to_drop:|:<[drop].split[/].get[1]>
             - if <[to_drop]||null> != null:
                 - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
+                - run playerLevel_GiveXP def:1
                 - determine <item[<[to_drop].random>]>
