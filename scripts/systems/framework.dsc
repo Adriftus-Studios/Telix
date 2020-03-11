@@ -384,6 +384,7 @@ system_override:
           - define slotmap:<list[1/in@workbench[holder=<player>]|2/recipe_book_inventory|3/citadels|4/guilds|5/settings]>
           - if <context.cursor_item.quantity> != 0:
             - inventory open d:in@workbench[holder=<player>]
+            - determine passively cancelled
             - stop
           - determine passively cancelled
           - if <[slotmap].map_get[<context.raw_slot>]||null> == guilds:
