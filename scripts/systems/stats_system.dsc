@@ -130,19 +130,21 @@ calculate_contamination:
     - foreach <player.inventory.list_contents.parse[script].filter[list_keys.contains[contaminated]]>:
       - if <[value].yaml_key[contaminated]> > <[level]||0>:
         - define level:<[value].yaml_key[contaminated]>
+    - if <player.flag[contaminated]||0> >= <[level]>:
+      - stop
+    - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> >= <[level]>:
+      - stop
     - if <[level]> != 0:
-      - if <player.flag[contaminated]||0> >= <[level]>:
-        - stop
-      - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> >= <[level]>:
-        - stop
       - flag <player> contaminated:<[level]>
       - while <yaml[player.<player.uuid>].read[stats.contaminated]> != 0:
         - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> >= <[level]>:
           - while stop
           - flag <player> contaminated:!
+          - yaml id:player.<player.uuid> set stats.contaminated:0
         - if <yaml[player.<player.uuid>].read[stats.contaminated]> != <[level]>:
           - while stop
           - flag <player> contaminated:!
+          - yaml id:player.<player.uuid> set stats.contaminated:0
         - define duration:<duration[<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>t]||<duration[1t]>>
         - cast wither duration:<[duration].add[5t]> power:4
         - wait 1t
@@ -156,10 +158,6 @@ contamination_events:
     on player picks up item:
       - wait 1t
       - run calculate_contamination def:<player>
-scan_inventory_for_contaminated_items:
-  type: procedure
-  definitions: inventory
-  script:
 
 default_stats:
   type: yaml data
