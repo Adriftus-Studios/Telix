@@ -305,7 +305,7 @@ custom_item_override:
         - foreach <context.recipe> as:item:
           - narrate <[item].script.name||<[item].material.name>>
           - narrate <yaml[server.recipe_fixer].read[restricted].contains[<[item].script.name||<[item].material.name>>]>
-          - if !<yaml[server.recipe_fixer].read[restricted].contains[<[item].script.name||<[item].material.name>>]>:
+          - if <yaml[server.recipe_fixer].read[restricted].contains[<[item].script.name||<[item].material.name>>]>:
             - determine cancelled
             - stop
         - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
