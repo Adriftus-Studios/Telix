@@ -327,7 +327,7 @@ contaminate_player:
     - while <yaml[player.<player.uuid>].read[stats.contaminated]> != 0:
       - define duration:<duration[<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>t]||<duration[1t]>>
       - cast wither duration:<[duration].add[5t]> power:4
-      - if <yaml[player.<player.uuid>].read[stats.contaminated]> > <[level]>:
+      - if <yaml[player.<player.uuid>].read[stats.contaminated]> != <[level]>:
         - while stop
         - flag <player> contaminated:!
       - wait 1t
@@ -339,7 +339,6 @@ scan_inventory_for_contaminated_items:
     - foreach <[inventory].list_contents.parse[script].filter[list_keys.contains[contaminated]]>:
       - if <[value].yaml_key[contaminated]> > <[level]||0>:
         - define level:<[value].yaml_key[contaminated]>
-    - narrate <[level]>
     - determine <[level]||0>
 
 system_override:
