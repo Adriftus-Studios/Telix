@@ -933,7 +933,7 @@ custom_warpmetal_block:
 custom_iridium_ingot:
   material: iron_ingot
   recipe_book_category: materials.ingots
-  display name: <&7>Tin Ingot
+  display name: <&7>Iridium Ingot
   weight: '1'
   type: item
   contaminated: 1
