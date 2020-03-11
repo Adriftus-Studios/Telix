@@ -7,18 +7,6 @@ combat_handler:
       - flag <context.damager> pvp:true duration:1m
       - determine <context.final_damage.mul[<context.entity.health>].div[20]>
 
-damage_command:
-  type: command
-  name: damage
-  script:
-    - define damage:<context.args.get[1]>
-    - define armor:<context.args.get[2]>
-    - define damage_modifier:<context.args.get[3]>
-    - define defence_modifier:<context.args.get[4]>
-    - define damage:<[damage].mul[<[damage_modifier]>].div[<[defence_modifier]>]>
-    - define final_damage:<[damage].mul[<el@1.sub[<el@20.mul[<[armor].div[5]>].div[25]>]>]>
-    - narrate <[final_damage]>
-
 calculate_damage:
   type: procedure
   definitions: damager|damaged|damage|type
