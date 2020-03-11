@@ -73,6 +73,7 @@ custom_aerotheum:
     1:
       type: smeltery
       output_quantity: 4
+      cook_time: 4m
       input: custom_antler/2|custom_tin_ingot/1|custom_constantan_ingot/2
 
 
