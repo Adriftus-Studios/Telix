@@ -39,7 +39,7 @@ custom_air_shard:
       biome: all
       block: stone
       tool: all
-      chance: 39
+      chance: 150
 
 custom_water_rune:
   type: item
@@ -65,7 +65,7 @@ custom_water_shard:
       biome: ocean|deep_ocean|warm_ocean|lukewarm_ocean|deep_warm_ocean|deep_lukewarm_ocean
       block: stone
       tool: all
-      chance: 47
+      chance: 150
 
 custom_earth_rune:
   type: item
@@ -91,7 +91,7 @@ custom_earth_shard:
       biome: MOUNTAINS|SNOWY_MOUNTAINS|MOUNTAIN_EDGE|WOODED_MOUNTAINS|GRAVELLY_MOUNTAINS|TAIGA_MOUNTAINS|SNOWY_TAIGA_MOUNTAINS|MODIFIED_GRAVELLY_MOUNTAINS
       block: stone
       tool: all
-      chance: 60
+      chance: 150
 
 custom_fire_rune:
   type: item
@@ -117,7 +117,7 @@ custom_fire_shard:
       biome: nether
       block: netherrack|obsidian
       tool: all
-      chance: 117
+      chance: 200
 
 custom_ender_rune:
   type: item
@@ -155,7 +155,7 @@ custom_livingwood_twig:
       biome: all
       block: birch_log
       tool: custom_draw_knife
-      chance: 37
+      chance: 70
   recipes:
     1:
       type: shapeless
@@ -172,7 +172,7 @@ custom_livingwood:
       biome: all
       block: birch_log
       tool: custom_draw_knife
-      chance: 230
+      chance: 340
 
 custom_dreamwood_twig:
   type: item
@@ -276,7 +276,7 @@ custom_envy_shard:
       biome: all
       block: stone|netherrack|dirt|grass|sand
       tool: all
-      chance: 300
+      chance: 400
 
 custom_pride_shard:
   type: item

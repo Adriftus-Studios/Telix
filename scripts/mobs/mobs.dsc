@@ -29,7 +29,7 @@ mob_drops_events:
 mob_spawning_events:
   type: world
   events:
-    on delta time secondly every:10:
+    on delta time secondly every:30:
       - foreach <server.list_online_players> as:player:
         - adjust <queue> linked_player:<[player]>
         - define list:|:<yaml[server.mob_spawns].list_keys[all.all]||<list[]>>

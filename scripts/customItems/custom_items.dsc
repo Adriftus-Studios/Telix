@@ -315,7 +315,7 @@ custom_emerald:
     1:
       biome: all
       block: stone
-      chance: 95
+      chance: 450
 custom_bricks:
   material: bricks
   display name: <&7>Bricks
@@ -1245,7 +1245,7 @@ custom_redstone:
     1:
       biome: all
       block: stone
-      chance: 70
+      chance: 150
 custom_cyan_glazed_terracotta:
   material: cyan_glazed_terracotta
   display name: <&7>Cyan Glazed Terracotta
@@ -4059,7 +4059,7 @@ custom_coal:
     1:
       biome: all
       block: stone
-      chance: 10
+      chance: 40
 custom_dead_brain_coral_fan:
   material: dead_brain_coral_fan
   display name: <&7>Dead Brain_Coral Fan
