@@ -20,6 +20,7 @@ playerLevel_levelUp:
   type: task
   script:
     - actionbar "<&a>You Have Gained 10 Lessons!"
+    - actionbar "<&a>You Have Gained 1 Stat Point!"
     - yaml id:player.<player.uuid> set lessons.current:+:10
     - yaml id:player.<player.uuid> set lessons.lifetime:+:10
     - yaml id:player.<player.uuid> set stats.xp:0
