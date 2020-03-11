@@ -12,7 +12,7 @@ damage_command:
   name: damage
   script:
     - define damage:<context.args.get[1]>
-    - define armor:<player.armor_bonus>
+    - define armor:<context.args.get[2]>
     - define damage_modifier:1
     - define defence_modifier:1
     - define final_damage:<[damage].mul[<el@1.sub[<el@20.mul[<[armor].div[5]>].div[25]>]>]>
