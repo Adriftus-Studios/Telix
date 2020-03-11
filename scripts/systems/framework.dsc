@@ -247,15 +247,15 @@ player_setup:
     - yaml id:player.<player.uuid> set stats.temperature:100
     - yaml id:player.<player.uuid> set stats.xp:0
     - yaml id:player.<player.uuid> set stats.level:1
-    - yaml id:player.<player.uuid> set stats.stat_points:1000
+    - yaml id:player.<player.uuid> set stats.stat_points:10
     - yaml id:player.<player.uuid> set stats.experience_multiplier:100
     - yaml id:player.<player.uuid> set stats.drop_rate_multiplier:100
     - yaml id:player.<player.uuid> set stats.equipment_rating:0
     - yaml id:player.<player.uuid> set stats.encumberance:0
-    - yaml id:player.<player.uuid> set lessons.current:1000
+    - yaml id:player.<player.uuid> set lessons.current:10
     - yaml id:player.<player.uuid> set lessons.lifetime:0
     - foreach <script[abilitytrees].list_keys[trees]>:
-      - yaml id:player.<player.uuid> set skills.<[value]>.current:100
+      - yaml id:player.<player.uuid> set skills.<[value]>.current:1
 
 equipt_command:
   type: command
@@ -318,6 +318,9 @@ custom_item_override:
 system_override:
   type: world
   events:
+    on tick:
+      - foreach <server.list_online_players.filter[food_level.is[==].to[20]]>:
+        - adjust <[value]> food_level:19
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:

@@ -25,6 +25,10 @@ stats_setup:
 stats_events:
   type: world
   events:
+    on player consumes item:
+      - yaml id:player.<[value].uuid> set stats.food.current:+:10
+      - if <yaml[player.<player.uuid>].read[stats.food.current]> > <yaml[player.<player.uuid>].read[stats.food.max]>:
+        - yaml id:player.<[value].uuid> set stats.food.current:<yaml[player.<player.uuid>].read[stats.food.max]>
     on player damages player:
       - yaml id:player.<player.uuid> set values.damage_to_players:+:<context.damage.round>
     on player kills player:

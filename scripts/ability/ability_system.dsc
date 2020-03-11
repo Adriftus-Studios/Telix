@@ -112,7 +112,7 @@ abilities_characterAbilities_events:
           - remove <context.entity>
           - inventory open d:abilities_characterAbilityTrees
           # note: determine cancelled doesnt work
-    on player left clicks item in abilities_characterAbilityTrees:
+    on player clicks item in abilities_characterAbilityTrees:
       - if <context.raw_slot> < 46:
         - determine passively cancelled
         - if <context.item.has_nbt[skillname]>:
@@ -126,8 +126,7 @@ abilities_characterAbilities_events:
               - define list:|:<item[abilities_item].with[material=<script[ability_<[ability]>].yaml_key[icon.material]>;custom_model_data=<script[ability_<[ability]>].yaml_key[icon.custom_model_data]>;display_name=<[ability].replace[_].with[<&sp>].to_titlecase>;lore=<[lore]>;nbt=skillname/<[ability]>]>
           - inventory add d:<[inventory]> o:<[list]>
           - inventory open d:<[inventory]>
-
-    on player shift left clicks item in abilities_characterAbilityTrees priority:10:
+    on player shift clicks item in abilities_characterAbilityTrees priority:10:
       - if <context.raw_slot> < 46:
         - determine passively cancelled
         - ratelimit <player> 2t

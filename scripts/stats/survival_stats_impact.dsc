@@ -101,7 +101,7 @@ survival_thirst_hunger_impact:
 survival_stats_thirst_hunger_periodic_drain:
   type: world
   events:
-    on delta time secondly every:15:
+    on delta time secondly every:30:
       - foreach <server.list_online_players>:
         - if <[value].has_flag[cheatmode]>:
           - stop
@@ -132,7 +132,7 @@ survival_stats_food_impact_events:
       - yaml id:player.<[value].uuid> set stats.food.current:--
       - wait 3s
     on player starts swimming:
-    - while <player.is_swimming>:
+    - while <player.swimming>:
       - yaml id:player.<[value].uuid> set stats.food.current:--
       - wait 3s
 

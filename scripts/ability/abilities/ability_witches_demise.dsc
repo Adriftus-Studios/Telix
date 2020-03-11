@@ -11,6 +11,8 @@ ability_witches_demise:
     material: iron_nugget
     custom_model_data: 1000
   script:
+    - inject abilities_check
+    - inject abilities_cost
     - repeat 5:
       - define offset:<proc[find_offset].context[2|<util.random.int[0].to[360]>]>
       - define points:<proc[define_curve1].context[<player.eye_location.below[1].forward[2]>|<player.eye_location.below[1].forward[<script.yaml_key[range]>].up[<[offset].get[1]>].right[<[offset].get[2]>]>|1|<util.random.int[0].to[360]>|1]>
@@ -26,5 +28,5 @@ witches_demise_animation:
     - playeffect spell_witch <[points].get[<[value]>]> offset:0 visibility:300 quantity:2
     - wait 1t
     - if <[points].get[<[value]>].find.living_entities.within[0.5].size> != 0:
-      - hurt 3 <[points].get[<[value]>].find.living_entities.within[0.5]>
+      - hurt 1 <[points].get[<[value]>].find.living_entities.within[0.5]>
       - repeat stop
