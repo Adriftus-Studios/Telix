@@ -23,7 +23,7 @@ smeltery_timer:
     custom_model_data: -5
   display name: <&7>Not Smelting
 
-smeltery:
+custom_smeltery:
   type: item
   material: blast_furnace
   display name: <&b>Smeltery
@@ -130,7 +130,7 @@ smeltery_events:
           - else:
             - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer]>
     on player places blast_furnace:
-      - if <context.item_in_hand.script.name||null> == smeltery:
+      - if <context.item_in_hand.script.name||null> == custom_smeltery:
         - note <inventory[smeltery_inventory]> as:smeltery_<context.location.simple>
     on player breaks blast_furnace:
       - if <inventory[smeltery_<context.location.simple>]||null> != null:
@@ -138,7 +138,7 @@ smeltery_events:
         - foreach <[slotmap]> as:slot:
           - drop <inventory[smeltery_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
         - if <player.gamemode> == survival:
-          - drop <item[smeltery]> <context.location>
+          - drop <item[custom_smeltery]> <context.location>
         - note remove as:smeltery_<context.location.simple>
         - determine NOTHING
     on player clicks blast_furnace:

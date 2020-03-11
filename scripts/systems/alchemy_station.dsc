@@ -21,7 +21,7 @@ alchemy_station_timer:
     custom_model_data: -5
   display name: <&7>Not Brewing
 
-alchemy_station:
+custom_alchemy_station:
   type: item
   material: brewing_stand
   display name: <&b>Alchemy Station
@@ -132,7 +132,7 @@ alchemy_station_events:
           - else:
             - inventory set d:<[inventory]> slot:41 o:<item[alchemy_station_timer]>
     on player places brewing_stand:
-      - if <context.item_in_hand.script.name||null> == alchemy_station:
+      - if <context.item_in_hand.script.name||null> == custom_alchemy_station:
         - note <inventory[alchemy_station_inventory]> as:alchemy_station_<context.location.simple>
     on player breaks brewing_stand:
       - if <inventory[alchemy_station_<context.location.simple>]||null> != null:
@@ -140,7 +140,7 @@ alchemy_station_events:
         - foreach <[slotmap]> as:slot:
           - drop <inventory[alchemy_station_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
         - if <player.gamemode> == survival:
-          - drop <item[alchemy_station]> <context.location>
+          - drop <item[custom_alchemy_station]> <context.location>
         - note remove as:alchemy_station_<context.location.simple>
         - determine NOTHING
     on player clicks brewing_stand:
