@@ -93,6 +93,7 @@ calculate_weight_equipment_stats:
     - adjust <player> health:20
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
     - adjust <player> health:<yaml[player.<player.uuid>].read[stats.health.max]>
+    - run calculate_contamination def:<player>
 
 calculate_encumberance_speed:
   type: task
