@@ -346,11 +346,13 @@ system_override:
     on player drops item:
       - define level:<proc[scan_inventory_for_contaminated_items].context[<player.inventory>]>
       - yaml id:player.<player.uuid> set stats.contaminated:<[level]>
-
+      - wait 1t
+      - run contaminate_player def:<player>|<[level]>
     on player picks up item:
       - define level:<proc[scan_inventory_for_contaminated_items].context[<player.inventory>]>
       - yaml id:player.<player.uuid> set stats.contaminated:<[level]>
-
+      - wait 1t
+      - run contaminate_player def:<player>|<[level]>
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
