@@ -3,7 +3,6 @@ ore_drop_events:
     debug: false
     events:
         on player breaks block:
-            - define roll:<util.random.int[1].to[100]>
             - foreach <yaml[server.ore_rates].list_keys[<context.material.name>.<context.location.biome.name>]||<list[]>> as:ore:
                 - define drops:|:<yaml[server.ore_rates].read[<context.material.name>.<context.location.biome.name>.<[ore]>]>/<[ore]>
             - foreach <yaml[server.ore_rates].list_keys[<context.material.name>.all]||<list[]>> as:ore:
@@ -16,4 +15,7 @@ ore_drop_events:
             - if <[to_drop]||null> != null:
                 - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
                 - run playerLevel_GiveXP def:1
-                - determine <item[<[to_drop].random>]>
+                - if <server.has_flag[double_ore_drops]>:
+                    - determine <item[<[to_drop].random>].with[quantity=2]>
+                - else:
+                    - determine <item[<[to_drop].random>]>

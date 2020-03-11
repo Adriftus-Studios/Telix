@@ -20,8 +20,14 @@ mob_drops_events:
         - define amount:<util.random.int[<[drop].split[/].get[3]>].to[<[amount]>]>
         - define amount:<util.random.int[<[drop].split[/].get[3]>].to[<[amount]>]>
         - define amount:<util.random.int[<[drop].split[/].get[3]>].to[<[amount]>]>
+        - if <server.has_flag[global_mob_drop_multiplier]>:
+          - define chance:<[chance].mul[<server.flag[global_mob_drop_multiplier]>]>
         - if <[chance]> > <[random]>:
           - drop <[item].with[quantity=<[amount]>]> <context.entity.location>
+      - if <server.has_flag[global_mob_drop_multiplier]>:
+        - foreach <context.drops> as:drop:
+          - define list:|:<[drop].with[quantity=<[drop].quantity.mul[<server.flag[global_mob_drop_multiplier]>]>]>
+        - determine <[list]||<list[]>>
     on entity damages entity:
       - if <context.entity.script||null> != null:
         - if <context.entity.script.yaml_key[custom.aggressive]||true>:

@@ -2,6 +2,7 @@ playerLevel_GiveXP:
   type: task
   definitions: xp
   script:
+    - define xp:<[xp].mul[<server.flag[global_xp_multiplier]>]||<[xp]>>
     - define preXP:<yaml[player.<player.uuid>].read[stats.xp]>
     - yaml id:player.<player.uuid> set stats.xp:+:<[xp]>
     - if 100 < <yaml[player.<player.uuid>].read[stats.xp]>:
