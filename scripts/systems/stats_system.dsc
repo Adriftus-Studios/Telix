@@ -151,21 +151,6 @@ stats_character:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Stats Menu<&r> <&6>◆
   size: 45
-  procedural items:
-    - inject update_stats
-    - foreach <script[default_stats].list_keys[stats.default].alphabetical> as:stat:
-      - define icon:<item[stats_icon]>
-      - adjust def:icon display_name:<&6>◆<&sp><&a><&n><&l><[stat].substring[0,1].to_uppercase><[stat].substring[2].to_lowercase.replace[_].with[<&sp>]><&r><&sp><&6>◆
-      - define lore:Current<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max]||<yaml[player.<player.uuid>].read[stats.<[stat]>]>>
-      - if <script[default_stats].yaml_key[stats.increments.<[stat]>]||null> != null:
-        - define lore:|:Next<&sp>Level<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]||<yaml[player.<player.uuid>].read[stats.<[stat]>].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]>>
-        - adjust def:icon nbt:assigned_stat/<[stat]>
-      - else:
-        - define lore:|:This<&sp>Stat<&sp>cannot<&sp>be<&sp>increased<&sp>with<&sp>Skill<&sp>Points.
-      - adjust def:icon lore:<[lore]>
-      - define items:|:<[icon]>
-    - narrate <[items]>
-    - determine <[items]>
   definitions:
     filler: <item[gui_invisible_item]>
     gui_top: <item[gui_stats_top]>
@@ -180,6 +165,19 @@ stats_character:
 stats_inventory_handler:
   type: world
   events:
+    on player opens stats_character:
+    - inject update_stats
+    - foreach <script[default_stats].list_keys[stats.default].alphabetical> as:stat:
+      - define icon:<item[stats_icon]>
+      - adjust def:icon display_name:<&6>◆<&sp><&a><&n><&l><[stat].substring[0,1].to_uppercase><[stat].substring[2].to_lowercase.replace[_].with[<&sp>]><&r><&sp><&6>◆
+      - define lore:Current<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max]||<yaml[player.<player.uuid>].read[stats.<[stat]>]>>
+      - if <script[default_stats].yaml_key[stats.increments.<[stat]>]||null> != null:
+        - define lore:|:Next<&sp>Level<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]||<yaml[player.<player.uuid>].read[stats.<[stat]>].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]>>
+        - adjust def:icon nbt:assigned_stat/<[stat]>
+      - else:
+        - define lore:|:This<&sp>Stat<&sp>cannot<&sp>be<&sp>increased<&sp>with<&sp>Skill<&sp>Points.
+      - adjust def:icon lore:<[lore]>
+      - inventory add d:<context.inventory> o:<[icon]>
     on player clicks in stats_character:
     - if <context.clicked_inventory.script_name||null> == "STATS_CHARACTER":
       - determine passively cancelled
