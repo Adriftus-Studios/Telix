@@ -280,11 +280,11 @@ custom_item_override:
       - if <context.item_in_hand.script.name||null> != null:
         - if <context.material.is_block>:
           - if <item[<context.item_in_hand.script.name.replace[custom_].with[]>]||null> == null:
-            - note <context.location> as:<context.item_in_hand.script.name>
+            - yaml create id:<context.location.simple>
+            - yaml savefile:"/DONT_PUT_SHIT_IN_HERE/<context.location.simple>/<context.item_in_hand.script.name.replace[custom_].with[]>.yml"
+            - yaml unload id:<context.location.simple>
     on player breaks block:
-      - if <context.location.notable_name||null> != null:
-        - if <script[<context.location.notable_name>]||null> != null:
-          - determine <item[<context.location.notable_name>]>
+      - narrate <server.list_files[/DONT_PUT_SHIT_IN_HERE/<context.location.simple>/]>
     on entity death:
       - foreach <context.drops||<list[]>> as:item:
         - if <[item].material.name> != air && <[item].script.name||null> == null:
