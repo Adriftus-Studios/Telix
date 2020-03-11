@@ -11,33 +11,33 @@ event_command:
     - define duration:<context.args.get[3].as_duration>
   - if <[duration].formatted.ends_with[d]>:
     - if <[duration].formatted> == 1d:
-      - define value:"1 Day"
+      - define value:1_Day
     - else:
-      - define value:"<[duration].in_days> Days"
+      - define value:<[duration].in_days.round>_Days
   - else if <[duration].formatted.ends_with[h]>:
     - if <[duration].formatted> == 1h:
-      - define value:"1 Hour"
+      - define value:1_Hour
     - else:
-      - define value:"<[duration].in_days> Hours"
+      - define value:<[duration].in_hours.round>_Hours
   - else if <[duration].formatted.ends_with[m]>:
     - if <[duration].formatted> == 1m:
-      - define value:"1 Minute"
+      - define value:1_Minute
     - else:
-      - define value:"<[duration].in_days> Minutes"
+      - define value:<[duration].in_minutes.round>_Minutes
   - else if <[duration].formatted.ends_with[s]>:
     - if <[duration].formatted> == 1s:
-      - define value:1 Second
+      - define value:1_Second
     - else:
-      - define value:<[duration].in_days> Seconds
+      - define value:<[duration].in_seconds.round>_Seconds
   - else:
     - narrate no
     - stop
   - if <context.args.get[1]> == xp:
     - flag server global_xp_multiplier:<context.args.get[2]> duration:<[duration]>
-    - announce "<&6><&l><player.name><&r><&6> has activated <context.args.get[2]>X XP for <[value]>!"
+    - announce "<&6><&l><player.name><&r><&6> has activated <context.args.get[2]>X XP for <[value].replace[_].with[<&sp>]>!"
   - if <context.args.get[1]> == mob:
     - flag server global_mob_drop_multiplier:<context.args.get[2]> duration:<[duration]>
-    - announce "<&6><&l><player.name><&r><&6> has activated <context.args.get[2]>X Mob Drops for <[value]>!"
+    - announce "<&6><&l><player.name><&r><&6> has activated <context.args.get[2]>X Mob Drops for <[value].replace[_].with[<&sp>]>!"
   - if <context.args.get[1]> == ore:
     - flag server double_ore_drops:<context.args.get[2]> duration:<[duration]>
-    - announce "<&6><&l><player.name><&r><&6> has activated Double Ores for <[value]>!"
+    - announce "<&6><&l><player.name><&r><&6> has activated Double Ores for <[value].replace[_].with[<&sp>]>!"
