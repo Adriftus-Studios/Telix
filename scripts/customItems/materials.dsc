@@ -62,7 +62,7 @@ custom_aluminum_ore:
     1:
       biome: all
       block: stone
-      chance: 28
+      chance: 130
 custom_bronze_nugget:
   material: iron_nugget
   recipe_book_category: equipment.bronze
@@ -229,7 +229,7 @@ custom_copper_ore:
     1:
       biome: all
       block: stone
-      chance: 24
+      chance: 100
 custom_diamond:
   material: diamond
   recipe_book_category: equipment.diamond
@@ -272,7 +272,7 @@ custom_diamond_ore:
     1:
       biome: all
       block: stone
-      chance: 20
+      chance: 280
 custom_elementium_nugget:
   material: iron_nugget
   recipe_book_category: equipment.elementium
@@ -387,7 +387,7 @@ custom_gold_ore:
     1:
       biome: all
       block: stone
-      chance: 54
+      chance: 170
 custom_iron_nugget:
   material: iron_nugget
   recipe_book_category: equipment.iron
@@ -450,7 +450,7 @@ custom_iron_ore:
     1:
       biome: all
       block: stone
-      chance: 31
+      chance: 80
 custom_lead_nugget:
   material: iron_nugget
   recipe_book_category: equipment.lead
@@ -513,7 +513,7 @@ custom_lead_ore:
     1:
       biome: all
       block: stone
-      chance: 39
+      chance: 80
 custom_manasteel_nugget:
   material: iron_nugget
   recipe_book_category: equipment.manasteel
@@ -639,7 +639,7 @@ custom_nickel_ore:
     1:
       biome: all
       block: stone
-      chance: 30
+      chance: 110
 custom_obsidian_ingot:
   material: iron_ingot
   recipe_book_category: equipment.obsidian
@@ -714,7 +714,7 @@ custom_silver_ore:
     1:
       biome: all
       block: stone
-      chance: 56
+      chance: 140
 custom_steel_nugget:
   material: iron_nugget
   recipe_book_category: equipment.steel
@@ -879,7 +879,7 @@ custom_tin_ore:
     1:
       biome: all
       block: stone
-      chance: 20
+      chance: 70
 custom_warpmetal_nugget:
   material: iron_nugget
   recipe_book_category: equipment.warpmetal

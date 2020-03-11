@@ -23,6 +23,19 @@ smeltery_timer:
     custom_model_data: -5
   display name: <&7>Not Smelting
 
+smeltery:
+  type: item
+  material: blast_furnace
+  display name: <&b>Smeltery
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+      - air|custom_silver_ingot|air
+      - furnace|blast_furnace|furnace
+      - custom_copper_ingot|custom_iron_block|custom_copper_ingot
+
 smeltery_events:
   type: world
   debug: false
@@ -116,21 +129,24 @@ smeltery_events:
               - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer]>
           - else:
             - inventory set d:<[inventory]> slot:50 o:<item[smeltery_timer]>
-    on player breaks furnace:
+    on player places blast_furnace:
+      - if <context.item_in_hand.script.name||null> == smeltery:
+        - note <inventory[smeltery_inventory]> as:smeltery_<context.location.simple>
+    on player breaks blast_furnace:
       - if <inventory[smeltery_<context.location.simple>]||null> != null:
         - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
         - foreach <[slotmap]> as:slot:
           - drop <inventory[smeltery_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
+        - if <player.gamemode> == survival:
+          - drop <item[smeltery]> <context.location>
         - note remove as:smeltery_<context.location.simple>
-    on player clicks furnace:
+        - determine NOTHING
+    on player clicks blast_furnace:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:
-          - if <context.location.up[1].material.name> == cobblestone_wall:
-            - if <context.location.down[1].material.name> == lava || <context.location.down[1].material.name> == fire:
-              - determine passively cancelled
-              - if <inventory[smeltery_<context.location.simple>]||null> == null:
-                - note <inventory[smeltery_inventory]> as:smeltery_<context.location.simple>
-              - inventory open d:<inventory[smeltery_<context.location.simple>]>
+          - if <inventory[smeltery_<context.location.simple>]||null> != null:
+            - determine passively cancelled
+            - inventory open d:<inventory[smeltery_<context.location.simple>]>
     on player drags in smeltery_inventory:
       - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
       - foreach <context.raw_slots> as:slot:
