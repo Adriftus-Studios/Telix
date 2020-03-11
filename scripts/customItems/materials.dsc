@@ -938,7 +938,7 @@ custom_iridium_ingot:
   type: item
   contaminated: 1
   lore:
-  - <&2><&l>Contaminated Level: 1
+  - <&2><&l>Contamination Level: 1
   recipes:
     1:
       type: furnace
