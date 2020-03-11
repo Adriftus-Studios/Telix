@@ -2,17 +2,6 @@ fake_durability_handler:
   type: world
   events:
     on player item takes damage:
-      - if <context.item.script.yaml_key[fake_durability]||null> == null:
-        - stop
-      - define item:<context.item>
-      - define amount:-1
-      - if !<[item].enchantments.contains_any[DURABILITY]>:
-        - inject fake_durability_modify
-        - inventory set slot:<context.slot> d:<player.inventory> o:<[item]>
-      - else:
-        - if <util.random.int[0].to[100]> < <util.random.int[100].to[100]./[<[item].enchantments.level[DURABILITY].+[1]>]>:
-          - inject fake_durability_modify
-          - inventory set slot:<context.slot> d:<player.inventory> o:<[item]>
     on player mends item:
       - if <context.item.script.yaml_key[fake_durability]||null> == null:
         - stop
@@ -22,6 +11,21 @@ fake_durability_handler:
       - define item:<[new_item]>
       - inject build_item
       - inventory set slot:<context.slot> d:<player.inventory> o:<[item]>
+
+fake_durability_use:
+  type: procedure
+  definitions: item
+  script:
+    - if <[item].script.yaml_key[fake_durability]||null> == null:
+      - stop
+    - define amount:-1
+    - if !<[item].enchantments.contains_any[DURABILITY]>:
+      - inject fake_durability_modify
+      - determine <[new_item]>
+    - else:
+      - if <util.random.int[0].to[100]> < <util.random.int[100].to[100]./[<[item].enchantments.level[DURABILITY].+[1]>]>:
+        - inject fake_durability_modify
+        - determine <[new_item]>
 
 fake_durability_modify:
   type: task
