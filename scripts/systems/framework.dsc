@@ -386,6 +386,8 @@ system_override:
             - else:
               - inventory open d:new_guild_gui
             - stop
+          - if <[slotmap].map_get[<context.raw_slot>]> == crafting:
+            - inventory open d:<inventory[player_crafting]>
           - if <inventory[<[slotmap].map_get[<context.raw_slot>]||null>]||null> != null:
             - inventory open d:<inventory[<[slotmap].map_get[<context.raw_slot>]>]>
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
@@ -393,6 +395,10 @@ system_override:
         - wait 1t
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory].parsed>
 
+player_crafting:
+  type: inventory
+  inventory: workbench
+  
 kill_queue_command:
   type: command
   name: kill_queue
