@@ -286,7 +286,7 @@ custom_item_override:
             - yaml unload id:<context.location.simple>
     on player breaks block:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1]||null> != null:
-        - adjust server delete_file:<server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1]>
+        - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/<context.location.simple>/<server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1]>
         - determine <item[<server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1].replace[.yml].with[]>]>
     on entity death:
       - foreach <context.drops||<list[]>> as:item:
