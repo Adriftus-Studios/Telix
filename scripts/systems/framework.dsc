@@ -468,6 +468,7 @@ build_item_command:
 build_item:
   type: task
   script:
+    - define lore:|:<[item].script.yaml_key[lore]||<list[]>>
     - if <[item].script.yaml_key[category]||null> != null:
       - if <[item].script.yaml_key[max_stars]||null> != null:
         - if <[item].nbt[stars]||null> == null:
@@ -479,7 +480,6 @@ build_item:
           - else:
             - define line:<[line]><&7><&chr[2B50]>
         - define lore:|:<[line]>
-      - define lore:|:<[item].script.yaml_key[lore]||<list[]>>
       - if <[item].script.yaml_key[sockets]||null> != null:
         - if <[item].nbt[used_sockets]||null> == null:
           - adjust def:item nbt:used_sockets/0
