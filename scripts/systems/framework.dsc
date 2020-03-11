@@ -382,10 +382,8 @@ system_override:
       - if <player.open_inventory> == <player.inventory>:
         - if <context.raw_slot> < 6:
           - define slotmap:<list[1/in@workbench[holder=<player>]|2/recipe_book_inventory|3/citadels|4/guilds|5/settings]>
-          - narrate <context.item.is[!=].to[i@air]>
-          - if <context.item.material.name> != air:
+          - if <context.item.quantity> != 0:
             - inventory open d:in@workbench[holder=<player>]
-            - narrate <context.item>
             - stop
           - determine passively cancelled
           - if <[slotmap].map_get[<context.raw_slot>]||null> == guilds:
