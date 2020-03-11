@@ -245,6 +245,7 @@ player_setup:
     - yaml id:player.<player.uuid> set stats.melee_damage:100
     - yaml id:player.<player.uuid> set stats.speed:100
     - yaml id:player.<player.uuid> set stats.temperature:100
+    # DO NOT CHANCE THESE VALUES
     - yaml id:player.<player.uuid> set stats.xp:0
     - yaml id:player.<player.uuid> set stats.level:1
     - yaml id:player.<player.uuid> set stats.stat_points:10
@@ -285,6 +286,7 @@ custom_item_override:
             - yaml unload id:<context.location.simple>
     on player breaks block:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1]||null> != null:
+        - adjust server delete_file:<server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1]>
         - determine <item[<server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1].replace[.yml].with[]>]>
     on entity death:
       - foreach <context.drops||<list[]>> as:item:
