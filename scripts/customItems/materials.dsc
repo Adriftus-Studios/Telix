@@ -236,6 +236,11 @@ custom_diamond:
   display name: <&7>Diamond
   weight: '1'
   type: item
+  ore:
+    1:
+      biome: all
+      block: stone
+      chance: 280
   recipes:
     1:
       type: furnace
@@ -268,11 +273,6 @@ custom_diamond_ore:
   display name: <&7>Diamond Ore
   weight: '1'
   type: item
-  ore:
-    1:
-      biome: all
-      block: stone
-      chance: 280
 custom_elementium_nugget:
   material: iron_nugget
   recipe_book_category: equipment.elementium
