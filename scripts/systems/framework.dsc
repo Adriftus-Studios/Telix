@@ -281,7 +281,7 @@ custom_item_override:
         - if <context.material.is_block>:
           - if <item[<context.item_in_hand.script.name.replace[custom_].with[]>]||null> == null:
             - yaml create id:<context.location.simple>
-            - yaml savefile:"/DONT_PUT_SHIT_IN_HERE/<context.location.simple>/<context.item_in_hand.script.name.replace[custom_].with[]>" id:<context.location.simple>
+            - yaml savefile:"/DONT_PUT_SHIT_IN_HERE/<context.location.simple>/test.yml" id:<context.location.simple>
             - yaml unload id:<context.location.simple>
     on player breaks block:
       - narrate <server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/]>
