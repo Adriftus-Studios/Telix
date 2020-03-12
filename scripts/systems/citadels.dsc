@@ -12,10 +12,10 @@ citadel_events:
       - foreach <server.list_flags.filter[starts_with[unload_timer.]]>:
         - if <server.flag[<[value]>].expiration.in_seconds> <= 1:
           - if <[value].replace[unload_timer.].with[].starts_with[locked_door_]>:
-            - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors<[value].replace[unload_timer.].with[]>.yml
+            - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[value].replace[unload_timer.].with[]>.yml
             - yaml id:<[value].replace[unload_timer.].with[]> unload
           - else:
-            - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/other<[value].replace[unload_timer.].with[]>.yml
+            - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/other/<[value].replace[unload_timer.].with[]>.yml
             - yaml id:<[value].replace[unload_timer.].with[]> unload
     on player right clicks *door:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>:
@@ -23,6 +23,17 @@ citadel_events:
         - flag server unload_timer.locked_door_<[location].simple> duration:10s
         - if <yaml[locked_door_<context.location.simple>].read[owner]> == <player>:
           - narrate a
+        - else if <yaml[locked_door_<context.location.simple>].read[type]||player> == guild:
+          - narrate TODO
+        - else:
+          - if <context.item.script.yaml_key[category]||null> == lock_pick:
+            - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
+            - yaml id:locked_door_<context.location.simple> set strength:--
+            - if <yaml[locked_door_<context.location.simple>].read[strength]> < 1:
+              - yaml id:locked_door_<context.location.simple> unload
+              - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml
+              - narrate "<&b>The lock finally broke."
+          - determine cancelled
 
 lock_door:
   type: task
@@ -50,10 +61,13 @@ lock_door:
 custom_iron_lock:
   type: item
   material: iron_ingot
+  category: lock
   display name: <&7>Iron Lock
-  lock_strength: 100
+  lock_strength: 10
 
 custom_lock_pick:
   type: item
   material: stick
+  category: lock_pick
   display name: <&7>Lock Pick
+  break_chance: 1
