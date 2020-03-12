@@ -50,7 +50,7 @@ citadel_events:
           - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
     on player right clicks block:
       - if <context.item.script.yaml_key[block_reinforcement_strength]||null> != null:
-        - if !<server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]>:
+        - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]>:
           - if !<yaml.list.contains[reinforced_block_<context.location.simple>]>:
             - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<context.location.simple>.yml id:reinforced_block_<context.location.simple>
           - if <yaml[reinforced_block_<context.location.simple>].read[owner]> == <player>:
