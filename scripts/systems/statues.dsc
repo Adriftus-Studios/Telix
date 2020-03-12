@@ -43,7 +43,7 @@ statues_events:
       - if <context.item.script.name> == custom_statue_baseplate:
         - adjust <context.relative> block_type:barrier
         - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
-        - spawn <entity[statue_baseplate]> <context.location.center>
+        - spawn <entity[statue_baseplate]> <context.location.center.up[0.5]>
         - note <inventory[statues_inventory]> as:statue_<context.relative>
     on player right clicks barrier:
       - if <inventory[statue_<context.location>]||null> != null:
