@@ -52,5 +52,13 @@ statues_events:
     on player opens statues_inventory:
       - inventory set d:<context.inventory> slot:14 o:<context.inventory.slot[1].nbt[entity].as_entity.equipment.helmet>
     on player clicks in statues_inventory:
-      - narrate <context.slot>
-      - narrate <player.open_inventory.slot[1].nbt[entity].as_entity.equipment.helmet>
+      - if <context.raw_slot> < 28:
+        - narrate <context.inventory.slot[1].nbt[entity].as_entity.equipment.helmet.script.name>
+        - if <context.raw_slot> == 14:
+          - if <context.item.script.name> == custom_statue_baseplate:
+            - if <context.cursor_item.material.name> != air:
+              - determine passively cancelled
+            - else if <context.cursor_item.script.yaml_key[statue]||null> != null:
+              - wait 1t
+              - adjust <player> item_on_cursor:<item[air]>
+              - adjust <context.inventory.slot[1].nbt[entity].as_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.cursor_item>
