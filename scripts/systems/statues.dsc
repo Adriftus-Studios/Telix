@@ -56,7 +56,7 @@ statues_events:
         - narrate <context.inventory.slot[1].nbt[entity].as_entity.equipment.helmet.script.name>
         - if <context.raw_slot> == 14:
           - if <context.item.script.name> == custom_statue_baseplate:
-            - if <context.cursor_item.material.name> != air:
+            - if <context.cursor_item.material.name> == air:
               - determine passively cancelled
             - else if <context.cursor_item.script.yaml_key[statue]||null> != null:
               - wait 1t
