@@ -20,7 +20,8 @@ citadel_events:
             - yaml id:<[value].replace[unload_timer.].with[]> unload
     on player right clicks *door:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>:
-        - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml id:locked_door_<context.location.simple>
+        - if !<yaml.list.contains[locked_door_<context.location.simple>]>:
+          - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml id:locked_door_<context.location.simple>
         - flag server unload_timer.locked_door_<context.location.simple> duration:10s
         - if <yaml[locked_door_<context.location.simple>].read[owner]> == <player>:
           - narrate a
@@ -36,7 +37,6 @@ citadel_events:
               - yaml id:locked_door_<context.location.simple> unload
               - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml
               - narrate "<&b>The lock finally broke."
-        - yaml id:locked_door_<context.location.simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml
 
 lock_door:
   type: task
