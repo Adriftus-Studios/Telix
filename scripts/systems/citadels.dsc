@@ -20,7 +20,7 @@ citadel_events:
     on player right clicks *door:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>:
         - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml id:locked_door_<context.location.simple>
-        - flag server unload_timer.locked_door_<[location].simple> duration:10s
+        - flag server unload_timer.locked_door_<context.location.simple> duration:10s
         - if <yaml[locked_door_<context.location.simple>].read[owner]> == <player>:
           - narrate a
         - else if <yaml[locked_door_<context.location.simple>].read[type]||player> == guild:
