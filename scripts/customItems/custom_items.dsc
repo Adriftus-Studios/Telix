@@ -1063,7 +1063,6 @@ custom_flint:
   - <&b>A piece of sharpened rock.
   - <&b>This can be used in crafting.
 
-
   display name: <&7>Flint
   weight: 2
   type: item
@@ -1126,7 +1125,6 @@ custom_charcoal:
   material: charcoal
   lore:
   - <&b>A lump of raw fuel
-
 
   display name: <&7>Lump of Coal
   weight: 0.75
@@ -1571,7 +1569,6 @@ custom_spruce_planks:
   lore:
   - <&b>Straightened Spruce planks
 
-
   display name: <&7>Spruce Planks
   weight: 2
   type: item
@@ -1834,7 +1831,6 @@ custom_oak_planks:
   material: oak_planks
   lore:
   - <&b>Straightened Oak planks
-
 
   display name: <&7>Oak Planks
   weight: 2
@@ -2701,7 +2697,6 @@ custom_kindling:
   - <&b>Dry organic material
   - <&b>that could be used to make a fire.
 
-
   display name: <&7>Kindling
   weight: 1
   type: item
@@ -3236,7 +3231,6 @@ custom_stick:
   lore:
   - <&b>Sturdy organic material
   - <&b>that could be used as a handle.
-
 
   display name: <&7>Stick
   weight: 2
@@ -4040,7 +4034,6 @@ custom_coal:
   material: coal
   lore:
   - <&b>Refined coal that burns longer.
-
 
   display name: <&7>Refined Coal
   weight: 0.5
