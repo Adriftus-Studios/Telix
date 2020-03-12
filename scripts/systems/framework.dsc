@@ -332,7 +332,7 @@ custom_item_override:
           - if <context.raw_slot> > <player.open_inventory.size>:
             - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
           - else:
-            - inventory set d:<player.inventory> slot:<context.raw_slot> o:<[item]>
+            - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item]>
         - else if <player.open_inventory.matrix.size> == 4:
           - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
         - else if <player.open_inventory.matrix.size> == 9:
