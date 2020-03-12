@@ -36,7 +36,6 @@ citadel_events:
               - yaml id:locked_door_<context.location.simple> unload
               - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml
               - narrate "<&b>The lock finally broke."
-          - determine passively cancelled
 
 lock_door:
   type: task
