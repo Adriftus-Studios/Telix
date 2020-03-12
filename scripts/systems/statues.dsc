@@ -49,5 +49,8 @@ statues_events:
     on player right clicks barrier:
       - if <inventory[statue_<context.location>]||null> != null:
         - inventory open d:<inventory[statue_<context.location>]>
+    on player opens statues_inventory:
+      - inventory set <context.inventory> slot:1
     on player clicks in statues_inventory:
+      - narrate <context.slot>
       - narrate <player.open_inventory.slot[1].nbt[entity]>
