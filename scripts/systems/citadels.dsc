@@ -49,9 +49,8 @@ citadel_events:
           - flag server unload_timer.reinforced_block_<context.location.simple> duration:10s
           - yaml id:reinforced_block_<context.location.simple> set strength:--
           - determine passively cancelled
-          - if <proc[fake_durability_use].context[<player.item_in_hand>].material.name> != air:
+          - if <player.item_in_hand.material.name> != air:
             - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
-          - narrate <yaml[reinforced_block_<context.location.simple>].read[strength]>
           - if <yaml[reinforced_block_<context.location.simple>].read[strength]> < 1:
             - flag server unload_timer.reinforced_block_<context.location.simple>:!
             - yaml id:reinforced_block_<context.location.simple> unload
