@@ -33,6 +33,19 @@ lock_door:
   - yaml id:locked_door_<[location].simple> set owner:<[player]>
   - yaml id:locked_door_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml
   - flag server unload_timer.locked_door_<[location].simple> duration:10s
+  - if <[location].material.half> == BOTTOM:
+    - yaml id:locked_door_<[location].up[1].simple> create
+    - yaml id:locked_door_<[location].up[1].simple> set strength:<[strength]>
+    - yaml id:locked_door_<[location].up[1].simple> set owner:<[player]>
+    - yaml id:locked_door_<[location].up[1].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].up[1].simple>.yml
+    - flag server unload_timer.locked_door_<[location].up[1].simple> duration:10s
+  - if <[location].material.half> == TOP:
+    - yaml id:locked_door_<[location].down[1].simple> create
+    - yaml id:locked_door_<[location].down[1].simple> set strength:<[strength]>
+    - yaml id:locked_door_<[location].down[1].simple> set owner:<[player]>
+    - yaml id:locked_door_<[location].down[1].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].down[1].simple>.yml
+    - flag server unload_timer.locked_door_<[location].down[1].simple> duration:10s
+
 
 custom_iron_lock:
   type: item
