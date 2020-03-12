@@ -78,5 +78,7 @@ statues_events:
             - else if <context.cursor_item.script.yaml_key[statue]||null> != null:
               - wait 1t
               - adjust <context.inventory.slot[1].nbt[entity].as_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.cursor_item>
-        - wait 1t
-        - narrate <context.inventory.slot[1].nbt[entity].as_entity.equipment.helmet.script.name>
+        - if <context.raw_slot> == 16:
+
+        - if <context.raw_slot> == 17:
+          - adjust <context.inventory.slot[1].nbt[entity].as_entity.location> head_rotation:<context.inventory.slot[1].nbt[entity].as_entity.location.head_rotation.add[1]>
