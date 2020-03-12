@@ -331,6 +331,7 @@ custom_item_override:
         - inject build_item
         - wait 1t
         - adjust <player> item_on_cursor:<[item]>
+        - determine <item[diamond]>
 
 system_override:
   type: world
