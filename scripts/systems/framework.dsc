@@ -330,16 +330,16 @@ custom_item_override:
         - wait 1t
         - if <player.open_inventory.matrix||null> == null:
           - if <context.raw_slot> > <player.open_inventory.size>:
-            - narrates 0
+            - narrate 0
             - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
           - else:
-            - narrates 1
+            - narrate 1
             - inventory set d:<player.inventory> slot:<context.raw_slot> o:<[item]>
         - if <player.open_inventory.matrix.size> == 4:
-          - narrates 2
+          - narrate 2
           - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
         - if <player.open_inventory.matrix.size> == 9:
-          - narrates 3
+          - narrate 3
 
 system_override:
   type: world
