@@ -324,11 +324,11 @@ custom_item_override:
         - inject build_item
         - determine ITEM:<[item]>
     on player clicks in inventory:
-      - narrate <context.item>
-      - if !<context.cursor_item.has_nbt[build]>:
-        - define item:<context.cursor_item>
+      - if !<context.item.has_nbt[build]>:
+        - define item:<context.item>
         - inject build_item
-        - determine <[item]>
+        - wait 1t
+        - adjust <player> item_on_cursor:<[item]>
 
 system_override:
   type: world
@@ -462,6 +462,7 @@ build_item_command:
 build_item:
   type: task
   script:
+  - if <[item].material.name> != air:
     - if <[item].script||null> == null:
       - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]>
     - if <[item].script.yaml_key[category]||null> != null:
