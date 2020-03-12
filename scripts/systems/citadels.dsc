@@ -20,22 +20,25 @@ citadel_events:
             - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/other/<[value].replace[unload_timer.].with[]>.yml
             - yaml id:<[value].replace[unload_timer.].with[]> unload
     on player right clicks *door:
-      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>:
-        - if !<yaml.list.contains[locked_door_<context.location.simple>]>:
-          - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml id:locked_door_<context.location.simple>
-        - flag server unload_timer.locked_door_<context.location.simple> duration:10s
-        - if <yaml[locked_door_<context.location.simple>].read[owner]> == <player>:
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]> || <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.down[1].simple>.yml]>:
+        - define loc:<server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>
+        - if <context.location.material.half> == TOP:
+          - define loc:<server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.down[1].simple>.yml]>
+        - if !<yaml.list.contains[locked_door_<[loc].simple>]>:
+          - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc].simple>.yml id:locked_door_<[loc].simple>
+        - flag server unload_timer.locked_door_<[loc].simple> duration:10s
+        - if <yaml[locked_door_<[loc].simple>].read[owner]> == <player>:
           - narrate a
-        - else if <yaml[locked_door_<context.location.simple>].read[type]||player> == guild:
+        - else if <yaml[locked_door_<[loc].simple>].read[type]||player> == guild:
           - narrate TODO
         - else:
           - determine passively cancelled
           - if <context.item.script.yaml_key[category]||null> == lock_pick:
             - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
-            - yaml id:locked_door_<context.location.simple> set strength:--
-            - if <yaml[locked_door_<context.location.simple>].read[strength]> < 1:
-              - yaml id:locked_door_<context.location.simple> unload
-              - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml
+            - yaml id:locked_door_<[loc].simple> set strength:--
+            - if <yaml[locked_door_<[loc].simple>].read[strength]> < 1:
+              - yaml id:locked_door_<[loc].simple> unload
+              - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc].simple>.yml
               - narrate "<&b>The lock finally broke."
 
 lock_door:
