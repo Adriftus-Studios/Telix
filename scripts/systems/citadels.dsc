@@ -54,9 +54,9 @@ citadel_events:
           - if !<yaml.list.contains[reinforced_block_<context.location.simple>]>:
             - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<context.location.simple>.yml id:reinforced_block_<context.location.simple>
           - if <yaml[reinforced_block_<context.location.simple>].read[owner]> == <player>:
-            - run reinforce_block def:<player>|<context.location|<context.item.script.yaml_key[block_reinforcement_strength]>
+            - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
         - else:
-          - run reinforce_block def:<player>|<context.location|<context.item.script.yaml_key[block_reinforcement_strength]>
+          - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
 
 get_citadel_durability:
   type: proc
