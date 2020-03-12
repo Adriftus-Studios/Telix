@@ -84,4 +84,4 @@ statues_events:
 
         - if <context.raw_slot> == 17:
           - narrate <context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head]>
-          - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[1,0,0]>
+          - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[-1,1,0]>
