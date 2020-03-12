@@ -2,6 +2,7 @@ citadel_events:
   type: world
   events:
     on player clicks block with *_lock:
+      - wait 1t
       - if <context.location.material.name.ends_with[_door]> || <context.location.material.name.ends_with[_trapdoor]>:
         - if !<server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>:
           - run lock_door def:<player>|<context.location>|<context.item.script.yaml_key[lock_strength]>
