@@ -326,7 +326,7 @@ custom_item_override:
     on player clicks in inventory:
       - narrate <context.item>
       - if !<context.cursor_item.has_nbt[build]>:
-        - define item:<context.item>
+        - define item:<context.cursor_item>
         - inject build_item
         - determine <[item]>
 
