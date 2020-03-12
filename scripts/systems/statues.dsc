@@ -35,6 +35,16 @@ custom_statue_creeper_normal:
     size: normal
     entity: creeper
 
+custom_statue_zombie_normal:
+  type: item
+  material: armor_stand
+  mechanisms:
+    custom_model_data: 2
+  display name: Zombie Statue
+  statue:
+    size: normal
+    entity: zombie
+
 statues_events:
   type: world
   events:
@@ -53,7 +63,6 @@ statues_events:
       - inventory set d:<context.inventory> slot:14 o:<context.inventory.slot[1].nbt[entity].as_entity.equipment.helmet>
     on player clicks in statues_inventory:
       - if <context.raw_slot> < 28:
-        - narrate <context.inventory.slot[1].nbt[entity].as_entity.equipment.helmet.script.name>
         - if <context.raw_slot> == 14:
           - if <context.item.script.name> == custom_statue_baseplate:
             - if <context.cursor_item.material.name> == air:
@@ -62,3 +71,13 @@ statues_events:
               - wait 1t
               - adjust <player> item_on_cursor:<item[air]>
               - adjust <context.inventory.slot[1].nbt[entity].as_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.cursor_item>
+          - else:
+            - if <context.cursor_item.material.name> == air:
+              - wait 1t
+              - adjust <player> item_on_cursor:<item[air]>
+              - adjust <context.inventory.slot[1].nbt[entity].as_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<item[custom_statue_baseplate]>
+            - else if <context.cursor_item.script.yaml_key[statue]||null> != null:
+              - wait 1t
+              - adjust <context.inventory.slot[1].nbt[entity].as_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.cursor_item>
+        - wait 1t
+        - narrate <context.inventory.slot[1].nbt[entity].as_entity.equipment.helmet.script.name>
