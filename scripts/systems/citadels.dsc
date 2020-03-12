@@ -15,10 +15,11 @@ citadel_events:
         - if <server.flag[<[value]>].expiration.in_seconds> <= 1:
           - if <[value].replace[unload_timer.].with[].starts_with[locked_door_]>:
             - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[value].replace[unload_timer.].with[]>.yml
-            - yaml id:<[value].replace[unload_timer.].with[]> unload
+          - if <[value].replace[unload_timer.].with[].starts_with[reinforced_block_]>:
+            - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[value].replace[unload_timer.].with[]>.yml
           - else:
             - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/other/<[value].replace[unload_timer.].with[]>.yml
-            - yaml id:<[value].replace[unload_timer.].with[]> unload
+          - yaml id:<[value].replace[unload_timer.].with[]> unload
     on player right clicks *door:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]> || <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.down[1].simple>.yml]>:
         - define loc:<context.location.simple>
@@ -27,36 +28,94 @@ citadel_events:
         - if !<yaml.list.contains[locked_door_<[loc]>]>:
           - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc]>.yml id:locked_door_<[loc]>
         - flag server unload_timer.locked_door_<[loc]> duration:10s
-        - if <yaml[locked_door_<[loc]>].read[owner]> == <player>:
-          - narrate a
-        - else if <yaml[locked_door_<[loc]>].read[type]||player> == guild:
-          - narrate TODO
-        - else:
+        - if <yaml[locked_door_<[loc]>].read[owner]> != <player>:
+          - if <yaml[locked_door_<[loc]>].read[type]||player> == guild:
+            - narrate TODO
+          - else:
+            - determine passively cancelled
+            - if <context.item.script.yaml_key[category]||null> == lock_pick:
+              - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
+              - yaml id:locked_door_<[loc]> set strength:--
+              - if <yaml[locked_door_<[loc]>].read[strength]> < 1:
+                - yaml id:locked_door_<[loc]> unload
+                - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc]>.yml
+                - narrate "<&b>The lock finally broke."
+    on player breaks block:
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]>:
+        - if !<yaml.list.contains[reinforced_block_<context.location.simple>]>:
+          - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<context.location.simple>.yml id:reinforced_block_<context.location.simple>
+        - if <yaml[reinforced_block_<context.location.simple>].read[owner]> != <player>:
+          - yaml id:reinforced_block_<context.location.simple> set strength:--
           - determine passively cancelled
-          - if <context.item.script.yaml_key[category]||null> == lock_pick:
-            - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
-            - yaml id:locked_door_<[loc]> set strength:--
-            - if <yaml[locked_door_<[loc]>].read[strength]> < 1:
-              - yaml id:locked_door_<[loc]> unload
-              - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc]>.yml
-              - narrate "<&b>The lock finally broke."
+          - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
+    on player right clicks block:
+      - if <context.item.script.yaml_key[block_reinforcement_strength]||null> != null:
+        - if !<server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]>:
+          - if !<yaml.list.contains[reinforced_block_<context.location.simple>]>:
+            - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<context.location.simple>.yml id:reinforced_block_<context.location.simple>
+          - if <yaml[reinforced_block_<context.location.simple>].read[owner]> == <player>:
+            - run reinforce_block def:<player>|<context.location|<context.item.script.yaml_key[block_reinforcement_strength]>
+        - else:
+          - run reinforce_block def:<player>|<context.location|<context.item.script.yaml_key[block_reinforcement_strength]>
+
+get_citadel_durability:
+  type: proc
+  definitions: location
+  script:
+  - if <[location].material.name.ends_with[door]>:
+    - if <[location].material.side> == TOP:
+      - define location:<[location].down[1]>
+    - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<[location].simple>.yml]>:
+      - if !<yaml.list.contains[locked_door_<[location].simple>]>:
+        - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml id:locked_door_<[location].simple>
+      - determine <yaml[locked_door_<[location].simple>].read[strength]>
+    - else:
+      - determine 0
+  - else if <[location].inventory||null> != null:
+    
+  - else:
+    - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<[location].simple>.yml]>:
+      - if !<yaml.list.contains[reinforced_block_<[location].simple>]>:
+        - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[location].simple>.yml id:reinforced_block_<[location].simple>
+      - determine <yaml[reinforced_block_<[location].simple>].read[strength]>
+    - else:
+      - determine 0
+
+reinforce_block:
+  type: task
+  definitions: player|location|strength
+  script:
+  - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<[location].simple>.yml]>:
+    - if !<yaml.list.contains[reinforced_block_<[location].simple>]>:
+      - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[location].simple>.yml id:reinforced_block_<[location].simple>
+  - else:
+    - yaml id:reinforced_block_<[location].simple> create
+  - yaml id:reinforced_block_<[location].simple> set strength:<[strength]>
+  - yaml id:reinforced_block_<[location].simple> set owner:<[player]>
+  - yaml id:reinforced_block_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[location].simple>.yml
+  - flag server unload_timer.reinforced_block_<[location].simple> duration:10s
 
 lock_door:
   type: task
   definitions: player|location|strength
   script:
   - if <[location].material.half> == TOP:
-    - yaml id:locked_door_<[location].down[1].simple> create
-    - yaml id:locked_door_<[location].down[1].simple> set strength:<[strength]>
-    - yaml id:locked_door_<[location].down[1].simple> set owner:<[player]>
-    - yaml id:locked_door_<[location].down[1].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].down[1].simple>.yml
-    - flag server unload_timer.locked_door_<[location].down[1].simple> duration:10s
+    - define location:<[location].down[1]>
+  - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<[location].simple>.yml]>:
+    - if !<yaml.list.contains[locked_door_<[location].simple>]>:
+      - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml id:locked_door_<[location].simple>
   - else:
     - yaml id:locked_door_<[location].simple> create
-    - yaml id:locked_door_<[location].simple> set strength:<[strength]>
-    - yaml id:locked_door_<[location].simple> set owner:<[player]>
-    - yaml id:locked_door_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml
-    - flag server unload_timer.locked_door_<[location].simple> duration:10s
+  - yaml id:locked_door_<[location].simple> create
+  - yaml id:locked_door_<[location].simple> set strength:<[strength]>
+  - yaml id:locked_door_<[location].simple> set owner:<[player]>
+  - yaml id:locked_door_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml
+  - flag server unload_timer.locked_door_<[location].simple> duration:10s
+
+custom_citadel_test_item:
+  type: item
+  material: diamond
+  block_reinforcement_strength: 100
 
 custom_iron_lock:
   type: item
