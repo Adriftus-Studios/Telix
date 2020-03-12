@@ -74,7 +74,6 @@ statues_events:
           - else:
             - if <context.cursor_item.material.name> == air:
               - wait 1t
-              - adjust <player> item_on_cursor:<item[air]>
               - adjust <context.inventory.slot[1].nbt[entity].as_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<item[custom_statue_baseplate]>
             - else if <context.cursor_item.script.yaml_key[statue]||null> != null:
               - wait 1t
