@@ -53,7 +53,7 @@ entity_direwolf:
   entity_type: wolf
   custom_name: Direwolf
   max_health: 15
-  health: 7
+  health: 5
   speed: 0.4
   custom:
     xp_dropped: 2
