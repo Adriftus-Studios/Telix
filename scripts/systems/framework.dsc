@@ -329,9 +329,11 @@ custom_item_override:
       - if !<context.cursor_item.has_nbt[build]> || <context.cursor_item.material.name> != air:
         - define item:<context.cursor_item>
         - inject build_item
+        - wait 1t
         - if <context.raw_slot> > <player.open_inventory.size>:
-          - wait 1t
           - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
+        - else:
+          - inventory set d:<player.inventory> slot:<context.raw_slot> o:<[item]>
 
 
 system_override:
