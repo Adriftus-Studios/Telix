@@ -326,10 +326,14 @@ custom_item_override:
     on player clicks in inventory:
       - narrate <context.cursor_item>
       - narrate <player.item_on_cursor>
+      - if <context.raw_slot> > <player.open_inventory.size>:
+        - narrate 1
       - if !<context.cursor_item.has_nbt[build]> || <context.cursor_item.material.name> != air:
         - define item:<context.cursor_item>
         - inject build_item
-        - determine <item[diamond]>
+        - wait 1t
+        - if <player.open_inventory> == <player.inventory>:
+
 
 system_override:
   type: world
