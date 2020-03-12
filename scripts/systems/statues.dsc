@@ -79,8 +79,9 @@ statues_events:
               - wait 1t
               - adjust <context.inventory.slot[1].nbt[entity].as_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.cursor_item>
         - determine passively cancelled
+        - define pose:<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head]>
         - if <context.raw_slot> == 16:
 
         - if <context.raw_slot> == 17:
           - narrate <context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head]>
-          - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head/<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].to_degrees.add[45].to_radians>
+          - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[1,0,0]>
