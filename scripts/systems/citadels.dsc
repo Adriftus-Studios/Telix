@@ -22,7 +22,7 @@ citadel_events:
         - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml id:locked_door_<context.location.simple>
         - flag server unload_timer.locked_door_<[location].simple> duration:10s
         - if <yaml[locked_door_<context.location.simple>].read[owner]> == <player>:
-          - narrate
+          - narrate a
 
 lock_door:
   type: task
