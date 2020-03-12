@@ -330,11 +330,11 @@ custom_item_override:
         - wait 1t
         - if <player.open_inventory.matrix||null> == null:
           - if <context.raw_slot> > <player.open_inventory.size>:
-            - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
+            - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
           - else:
-            - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item]>
+            - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=<player.open_inventory.slot[<context.slot>].quantity>]>
         - else if <player.open_inventory.matrix.size> == 4:
-          - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
+          - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
         - else if <player.open_inventory.matrix.size> == 9:
           - narrate <player.open_inventory.slot[<context.slot>]>
 
