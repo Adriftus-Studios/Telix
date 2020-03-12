@@ -329,8 +329,6 @@ custom_item_override:
       - if !<context.cursor_item.has_nbt[build]> || <context.cursor_item.material.name> != air:
         - define item:<context.cursor_item>
         - inject build_item
-        - wait 1t
-        - adjust <player> item_on_cursor:<[item]>
         - determine <item[diamond]>
 
 system_override:
