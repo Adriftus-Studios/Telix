@@ -21,24 +21,24 @@ citadel_events:
             - yaml id:<[value].replace[unload_timer.].with[]> unload
     on player right clicks *door:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]> || <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.down[1].simple>.yml]>:
-        - define loc:<context.location.simple>
+        - define loc:<context.location.siple>
         - if <context.location.material.half> == TOP:
-          - define loc:<context.location.down[1].simple>
-        - if !<yaml.list.contains[locked_door_<[loc].simple>]>:
-          - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc].simple>.yml id:locked_door_<[loc].simple>
-        - flag server unload_timer.locked_door_<[loc].simple> duration:10s
-        - if <yaml[locked_door_<[loc].simple>].read[owner]> == <player>:
+          - define loc:<context.location.down[1]>
+        - if !<yaml.list.contains[locked_door_<[loc]>]>:
+          - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc]>.yml id:locked_door_<[loc]>
+        - flag server unload_timer.locked_door_<[loc]> duration:10s
+        - if <yaml[locked_door_<[loc]>].read[owner]> == <player>:
           - narrate a
-        - else if <yaml[locked_door_<[loc].simple>].read[type]||player> == guild:
+        - else if <yaml[locked_door_<[loc]>].read[type]||player> == guild:
           - narrate TODO
         - else:
           - determine passively cancelled
           - if <context.item.script.yaml_key[category]||null> == lock_pick:
             - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
-            - yaml id:locked_door_<[loc].simple> set strength:--
-            - if <yaml[locked_door_<[loc].simple>].read[strength]> < 1:
-              - yaml id:locked_door_<[loc].simple> unload
-              - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc].simple>.yml
+            - yaml id:locked_door_<[loc]> set strength:--
+            - if <yaml[locked_door_<[loc]>].read[strength]> < 1:
+              - yaml id:locked_door_<[loc]> unload
+              - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc]>.yml
               - narrate "<&b>The lock finally broke."
 
 lock_door:
