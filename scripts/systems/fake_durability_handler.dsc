@@ -17,6 +17,8 @@ fake_durability_use:
   type: procedure
   definitions: item
   script:
+    - if <[item].material.name> == air:
+      - determine <item[air]>
     - if <[item].script.yaml_key[fake_durability]||null> == null:
       - stop
     - define amount:-1
