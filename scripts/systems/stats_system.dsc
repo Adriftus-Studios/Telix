@@ -153,6 +153,9 @@ calculate_contamination:
 contamination_events:
   type: world
   events:
+    on player respawns:
+      - wait 1t
+      - run calculate_contamination def:<player>
     on player drops item:
       - wait 1t
       - run calculate_contamination def:<player>
