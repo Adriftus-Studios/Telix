@@ -78,7 +78,8 @@ statues_events:
             - else if <context.cursor_item.script.yaml_key[statue]||null> != null:
               - wait 1t
               - adjust <context.inventory.slot[1].nbt[entity].as_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.cursor_item>
+        - determine passively cancelled
         - if <context.raw_slot> == 16:
 
         - if <context.raw_slot> == 17:
-          - adjust <context.inventory.slot[1].nbt[entity].as_entity> rotation:<context.inventory.slot[1].nbt[entity].as_entity.rotation.add[1]>
+          - adjust <context.inventory.slot[1].nbt[entity].as_entity> rotation:<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].to_degrees.add[45].to_radians>
