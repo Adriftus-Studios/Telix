@@ -14,6 +14,8 @@ statue_baseplate:
   type: entity
   entity_type: armor_stand
   visible: false
+  gravity: false
+  invulnerable: true
   equipment: <item[air]>|<item[air]>|<item[air]>|<item[custom_statue_baseplate]>
 
 custom_statue_baseplate:
