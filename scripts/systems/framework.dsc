@@ -310,7 +310,7 @@ custom_item_override:
         - inject build_item
         - determine <[item]>
     on player crafts item:
-      - define item:<context.item>
+      - define item:<context.item.with[quantity=<context.item.quantity>]>
       - inject build_item
       - determine <[item]>
     on furnace smelts item:

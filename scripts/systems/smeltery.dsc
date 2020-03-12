@@ -33,7 +33,7 @@ custom_smeltery:
       output_quantity: 1
       input:
       - air|custom_silver_ingot|air
-      - furnace|blast_furnace|furnace
+      - custom_furnace|custom_blast_furnace|custom_furnace
       - custom_copper_ingot|custom_iron_block|custom_copper_ingot
 
 smeltery_events:
