@@ -328,12 +328,11 @@ custom_item_override:
         - define item:<context.cursor_item>
         - inject build_item
         - wait 1t
-        - narrate <context.raw_slot>
-        - narrate <player.open_inventory.size>
-        - if <context.raw_slot> > <player.open_inventory.size>:
-          - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
-        - else:
-          - inventory set d:<player.inventory> slot:<context.raw_slot> o:<[item]>
+        - if <player.open_inventory> != <player.inventory>:
+          - if <context.raw_slot> > <player.open_inventory.size>:
+            - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
+          - else:
+            - inventory set d:<player.inventory> slot:<context.raw_slot> o:<[item]>
 
 system_override:
   type: world
