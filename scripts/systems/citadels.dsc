@@ -55,7 +55,7 @@ citadel_events:
           - if <yaml[reinforced_block_<context.location.simple>].read[strength]> < 1:
             - flag server unload_timer.reinforced_block_<context.location.simple>:!
             - yaml id:reinforced_block_<context.location.simple> unload
-            - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml
+            - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/reinforced_block/<context.location.simple>.yml
         - else:
           - flag server unload_timer.reinforced_block_<context.location.simple>:!
           - yaml id:reinforced_block_<context.location.simple> unload
