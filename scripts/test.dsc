@@ -5,6 +5,6 @@ test_armorstand:
 
 test_armorstand_head:
   type: item
-  material: armorstand
+  material: armor_stand
   mechanisms:
     custom_model_data: 1
