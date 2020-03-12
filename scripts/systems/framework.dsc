@@ -323,6 +323,10 @@ custom_item_override:
         - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
         - inject build_item
         - determine ITEM:<[item]>
+    on player clicks in inventory:
+      - define item:<context.item>
+      - inject build_item
+      - determine <[item]>
 
 system_override:
   type: world
