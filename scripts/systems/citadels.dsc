@@ -6,6 +6,7 @@ citadel_events:
       - if <context.location.material.name.ends_with[_door]> || <context.location.material.name.ends_with[_trapdoor]>:
         - if !<server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>:
           - run lock_door def:<player>|<context.location>|<context.item.script.yaml_key[lock_strength]>
+          - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
         - else:
           - narrate "<&c>That door is already locked."
     on delta time secondly every:1:
@@ -30,9 +31,7 @@ citadel_events:
         - else:
           - if <context.item.script.yaml_key[category]||null> == lock_pick:
             - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
-            - narrate <yaml[locked_door_<context.location.simple>].read[strength]>
             - yaml id:locked_door_<context.location.simple> set strength:--
-            - narrate <yaml[locked_door_<context.location.simple>].read[strength]>
             - if <yaml[locked_door_<context.location.simple>].read[strength]> < 1:
               - yaml id:locked_door_<context.location.simple> unload
               - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml
@@ -55,13 +54,12 @@ lock_door:
     - yaml id:locked_door_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml
     - flag server unload_timer.locked_door_<[location].simple> duration:10s
 
-
 custom_iron_lock:
   type: item
   material: iron_ingot
   category: lock
   display name: <&7>Iron Lock
-  lock_strength: 10
+  lock_strength: 100
 
 custom_lock_pick:
   type: item
