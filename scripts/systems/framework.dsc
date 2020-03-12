@@ -326,8 +326,8 @@ custom_item_override:
     on player clicks in inventory:
       - narrate <context.cursor_item>
       - narrate <player.item_on_cursor>
-      - if !<context.cursor_item.has_nbt[build]> || <context.cursor_item.material.name> != air:
-        - define item:<context.cursor_item>
+      - if !<context.item.has_nbt[build]> || <context.item.material.name> != air:
+        - define item:<context.item>
         - inject build_item
         - if <context.raw_slot> > <player.open_inventory.size>:
           - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
