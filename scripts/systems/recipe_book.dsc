@@ -148,7 +148,7 @@ recipe_book_events:
   type: world
   events:
     on player crafts item:
-    - if <context.inventory.script_name> == recipe_book_crafting:
+    - if <context.inventory.script_name||null> == recipe_book_crafting:
       - determine cancelled
     on player opens recipe_book_inventory:
     - define type:<player.flag[context].split[/].get[1]||all>
