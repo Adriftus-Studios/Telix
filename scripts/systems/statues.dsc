@@ -50,7 +50,7 @@ statues_events:
       - if <inventory[statue_<context.location>]||null> != null:
         - inventory open d:<inventory[statue_<context.location>]>
     on player opens statues_inventory:
-      - inventory set <context.inventory> slot:1
+      - inventory set <context.inventory> slot:14 o:<player.open_inventory.slot[1].nbt[entity].as_entity.equipment.helmet>
     on player clicks in statues_inventory:
       - narrate <context.slot>
-      - narrate <player.open_inventory.slot[1].nbt[entity]>
+      - narrate <player.open_inventory.slot[1].nbt[entity].as_entity.equipment.helmet>
