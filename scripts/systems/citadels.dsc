@@ -29,8 +29,8 @@ citadel_events:
         - else:
           - if <context.item.script.yaml_key[category]||null> == lock_pick:
             - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
+            - narrate <yaml[locked_door_<context.location.simple>].read[strength]>
             - yaml id:locked_door_<context.location.simple> set strength:<yaml[locked_door_<context.location.simple>].read[strength].sub[1]>
-            - wait 1t
             - narrate <yaml[locked_door_<context.location.simple>].read[strength]>
             - if <yaml[locked_door_<context.location.simple>].read[strength]> < 1:
               - yaml id:locked_door_<context.location.simple> unload
@@ -42,23 +42,18 @@ lock_door:
   type: task
   definitions: player|location|strength
   script:
-  - yaml id:locked_door_<[location].simple> create
-  - yaml id:locked_door_<[location].simple> set strength:<[strength]>
-  - yaml id:locked_door_<[location].simple> set owner:<[player]>
-  - yaml id:locked_door_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml
-  - flag server unload_timer.locked_door_<[location].simple> duration:10s
-  - if <[location].material.half> == BOTTOM:
-    - yaml id:locked_door_<[location].up[1].simple> create
-    - yaml id:locked_door_<[location].up[1].simple> set strength:<[strength]>
-    - yaml id:locked_door_<[location].up[1].simple> set owner:<[player]>
-    - yaml id:locked_door_<[location].up[1].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].up[1].simple>.yml
-    - flag server unload_timer.locked_door_<[location].up[1].simple> duration:10s
   - if <[location].material.half> == TOP:
     - yaml id:locked_door_<[location].down[1].simple> create
     - yaml id:locked_door_<[location].down[1].simple> set strength:<[strength]>
     - yaml id:locked_door_<[location].down[1].simple> set owner:<[player]>
     - yaml id:locked_door_<[location].down[1].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].down[1].simple>.yml
     - flag server unload_timer.locked_door_<[location].down[1].simple> duration:10s
+  - else:
+    - yaml id:locked_door_<[location].simple> create
+    - yaml id:locked_door_<[location].simple> set strength:<[strength]>
+    - yaml id:locked_door_<[location].simple> set owner:<[player]>
+    - yaml id:locked_door_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml
+    - flag server unload_timer.locked_door_<[location].simple> duration:10s
 
 
 custom_iron_lock:
