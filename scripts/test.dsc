@@ -1,6 +1,6 @@
 test_armorstand:
   type: entity
-  entity_type: armor_stand
+  entity_type: armorstand
   mechanisms:
     custom_model_data: 1
 
