@@ -52,7 +52,7 @@ entity_direwolf:
   type: entity
   entity_type: wolf
   custom_name: Direwolf
-  max_health: 15
+  max_health: 5
   health: 5
   speed: 0.4
   custom:
