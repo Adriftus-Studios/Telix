@@ -330,6 +330,7 @@ custom_item_override:
         - define item:<context.item>
         - inject build_item
         - if <context.raw_slot> > <player.open_inventory.size>:
+          - wait 1t
           - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
 
 
