@@ -5,9 +5,10 @@ statues_inventory:
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
+    rotate_btn: <item[compass].with[display_name=<&c>Rotate<&sp>;lore=<&d>Right/Left<&sp>Click<&sp>to<&sp>rotate<&sp>45<&sp>degrees.]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler] [rotate_btn] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 statue_baseplate:
@@ -52,6 +53,7 @@ statues_events:
       - determine passively cancelled
       - if <context.item.script.name> == custom_statue_baseplate:
         - adjust <context.relative> block_type:barrier
+        - adjust <context.relative.up[1]> block_type:barrier
         - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
         - spawn <entity[statue_baseplate]> <context.location.center.up[0.5]> save:statue
         - note <inventory[statues_inventory]> as:statue_<context.relative>
