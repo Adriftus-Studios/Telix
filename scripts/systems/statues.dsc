@@ -10,6 +10,12 @@ statues_inventory:
   - "[] [] [] [] [] [] [] [] []"
   - "[] [] [] [] [] [] [] [] []"
 
+statue_baseplate:
+  type: entity
+  entity_type: armor_stand
+  visible: false
+  equipment: <item[air]>|<item[air]>|<item[air]>|<item[custom_statue_baseplate]>
+
 custom_statue_baseplate:
   type: item
   material: armor_stand
@@ -31,8 +37,11 @@ statues_events:
   type: world
   events:
     on player right clicks block with custom_statue_*:
+      - determine passively cancelled
       - if <context.item.script.name> == custom_statue_baseplate:
         - adjust <context.relative> block_type:barrier
+        - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
+        - spawn <entity[statue_baseplate]> <context.location.center>
         - note <inventory[statues_inventory]> as:statue_<context.relative>
     on player right clicks barrier:
       - if <inventory[statue_<context.location>]||null> != null:
