@@ -324,7 +324,9 @@ custom_item_override:
         - inject build_item
         - determine ITEM:<[item]>
     on player clicks in inventory:
-      - if !<context.item.has_nbt[build]>:
+      - narrate <context.item>
+      - narrate <player.cursor_item>
+      - if !<context.item.has_nbt[build]> || <context.item.material.name> != air:
         - define item:<context.item>
         - inject build_item
         - wait 1t
