@@ -82,4 +82,5 @@ statues_events:
         - if <context.raw_slot> == 16:
 
         - if <context.raw_slot> == 17:
+          - narrate <context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].to_degrees.add[45].to_radians>
           - adjust <context.inventory.slot[1].nbt[entity].as_entity> rotation:<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].to_degrees.add[45].to_radians>
