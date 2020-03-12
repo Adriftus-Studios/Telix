@@ -29,7 +29,7 @@ citadel_events:
         - else if <yaml[locked_door_<context.location.simple>].read[type]||player> == guild:
           - narrate TODO
         - else:
-          - determine cancelled
+          - determine passively cancelled
           - if <context.item.script.yaml_key[category]||null> == lock_pick:
             - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
             - yaml id:locked_door_<context.location.simple> set strength:--
