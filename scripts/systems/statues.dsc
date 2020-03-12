@@ -81,4 +81,4 @@ statues_events:
         - if <context.raw_slot> == 16:
 
         - if <context.raw_slot> == 17:
-          - adjust <context.inventory.slot[1].nbt[entity].as_entity.location> head_rotation:<context.inventory.slot[1].nbt[entity].as_entity.location.head_rotation.add[1]>
+          - adjust <context.inventory.slot[1].nbt[entity].as_entity.rotation> rotation:<context.inventory.slot[1].nbt[entity].as_entity.rotation.add[1]>
