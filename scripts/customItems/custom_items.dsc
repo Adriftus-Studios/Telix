@@ -5,7 +5,7 @@ custom_money_gold:
     custom_model_data: -4
   display name: <&6>Gold Piece
   lore:
-    - <&6>The <&c>M<&6> piece is equal to
+  The <&c>M<&6> piece is equal to
     - <&b>1,000 <&6>pieces of copper.
 custom_money_silver:
   type: item
@@ -14,7 +14,7 @@ custom_money_silver:
     custom_model_data: -3
   display name: <&b>Silver Piece
   lore:
-    - <&6>The <&c>C<&6> piece is equal to
+  The <&c>C<&6> piece is equal to
     - <&b>100 <&6>pieces of copper.
 custom_money_copper:
   type: item
@@ -23,8 +23,8 @@ custom_money_copper:
     custom_model_data: -2
   display name: <&c>Copper Piece
   lore:
-    - <&6>The <&c>I<&6> piece is the base
-    - <&6>currency for all trade.
+  The <&c>I<&6> piece is the base
+  currency for all trade.
 custom_damaged_anvil:
   material: damaged_anvil
   display name: <&7>Damaged Anvil
@@ -1062,8 +1062,8 @@ custom_flint:
   lore:
   - <&b>A piece of sharpened rock.
   - <&b>This can be used in crafting.
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Flint
   weight: 2
   type: item
@@ -1126,8 +1126,8 @@ custom_charcoal:
   material: charcoal
   lore:
   - <&b>A lump of raw fuel
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Lump of Coal
   weight: 0.75
   type: item
@@ -1570,8 +1570,8 @@ custom_spruce_planks:
   material: spruce_planks
   lore:
   - <&b>Straightened Spruce planks
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Spruce Planks
   weight: 2
   type: item
@@ -1834,8 +1834,8 @@ custom_oak_planks:
   material: oak_planks
   lore:
   - <&b>Straightened Oak planks
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Oak Planks
   weight: 2
   type: item
@@ -2700,8 +2700,8 @@ custom_kindling:
   lore:
   - <&b>Dry organic material
   - <&b>that could be used to make a fire.
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Kindling
   weight: 1
   type: item
@@ -3236,8 +3236,8 @@ custom_stick:
   lore:
   - <&b>Sturdy organic material
   - <&b>that could be used as a handle.
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Stick
   weight: 2
   type: item
@@ -4040,8 +4040,8 @@ custom_coal:
   material: coal
   lore:
   - <&b>Refined coal that burns longer.
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Refined Coal
   weight: 0.5
   type: item

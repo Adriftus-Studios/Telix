@@ -81,32 +81,32 @@ custom_aerotheum:
 custom_glass_bottle:
   material: glass_bottle
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Glass Bottle
   weight: '1'
   type: item
 custom_potion:
   material: potion
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Potion
   weight: '1'
   type: item
 custom_lingering_potion:
   material: lingering_potion
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Lingering Potion
   weight: '1'
   type: item
 custom_splash_potion:
   material: splash_potion
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Splash Potion
   weight: '1'
   type: item
@@ -114,16 +114,16 @@ custom_splash_potion:
 custom_blaze_powder:
   material: blaze_powder
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Blaze Powder
   weight: '1'
   type: item
 custom_nether_wart:
   material: nether_wart
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Nether Wart
   weight: '1'
   type: item
@@ -131,16 +131,16 @@ custom_nether_wart:
 custom_glowstone_dust:
   material: glowstone_dust
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Glowstone Dust
   weight: '1'
   type: item
 custom_fermented_spider_eye:
   material: fermented_spider_eye
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Fermented Spider Eye
   weight: '1'
   type: item
@@ -148,32 +148,32 @@ custom_fermented_spider_eye:
 custom_dragon_breath:
   material: dragon_breath
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: "<&7>Dragon's Breath"
   weight: '1'
   type: item
 custom_sugar:
   material: sugar
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Sugar
   weight: '1'
   type: item
 custom_rabbit_foot:
   material: rabbit_foot
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: "<&7>Rabbit's Foot"
   weight: '1'
   type: item
 custom_glistering_melon_slice:
   material: glistering_melon_slice
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Glistering Melon Slice
   weight: '1'
   type: item
@@ -181,24 +181,24 @@ custom_glistering_melon_slice:
 custom_pufferfish:
   material: pufferfish
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Pufferfish
   weight: '1'
   type: item
 custom_magma_cream:
   material: magma_cream
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Magma Cream
   weight: '1'
   type: item
 custom_ghast_tear:
   material: ghast_tear
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Ghast Tear
   weight: '1'
   type: item
@@ -208,16 +208,16 @@ custom_ghast_tear:
 custom_brewing_stand:
   material: brewing_stand
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Brewing Stand
   weight: '1'
   type: item
 custom_cauldron:
   material: cauldron
   lore:
-  - <&6>
-  - '<&8>Item Weight: <script.yaml_key[weight]>'
+
+
   display name: <&7>Cauldron
   weight: '1'
   type: item
