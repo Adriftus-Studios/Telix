@@ -328,8 +328,6 @@ custom_item_override:
         - define item:<context.cursor_item>
         - inject build_item
         - wait 1t
-        - narrate <context.slot>
-        - narrate <context.raw_slot>
         - if <player.open_inventory.matrix||null> == null:
           - if <context.raw_slot> > <player.open_inventory.size>:
             - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
@@ -338,7 +336,6 @@ custom_item_override:
         - else if <player.open_inventory.matrix.size> == 4:
           - inventory set d:<player.inventory> slot:<context.slot> o:<[item]>
         - else if <player.open_inventory.matrix.size> == 9:
-          - narrate 3
           - narrate <player.open_inventory.slot[<context.slot>]>
 
 system_override:
