@@ -90,7 +90,7 @@ spawn_custom_mob:
   definitions: mob|location
   script:
     - spawn <[mob]> <[location].above> save:entity1
-    - if <yaml[server.mobs].read[<[mob]>.aggressive_on_spawn]>:
+    - if <yaml[server.mobs].read[<[mob]>.aggressive_on_spawn]> && !<player.has_flag[safemode]>:
       - attack <entry[entity1].spawned_entity> target:<player>
     - if <yaml[server.mobs].read[<[mob]>.spawn_script]> != none:
       - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>

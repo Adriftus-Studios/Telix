@@ -283,12 +283,12 @@ custom_item_override:
         - if <context.material.is_block>:
           - if <item[<context.item_in_hand.script.name.replace[custom_].with[]>]||null> == null:
             - yaml create id:<context.location.simple>
-            - yaml savefile:DONT_PUT_SHIT_IN_HERE/<context.location.simple>/<context.item_in_hand.script.name>.yml id:<context.location.simple>
+            - yaml savefile:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<context.item_in_hand.script.name>.yml id:<context.location.simple>
             - yaml unload id:<context.location.simple>
     on player breaks block:
-      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1]||null> != null:
-        - define item:<item[<server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1].replace[.yml].with[]>]>
-        - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/<context.location.simple>/<server.list_files[DONT_PUT_SHIT_IN_HERE/<context.location.simple>/].get[1]>
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]||null> != null:
+        - define item:<item[<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1].replace[.yml].with[]>]>
+        - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]>
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
         - if <[item].material> == <context.material>:
           - determine <[item]>
