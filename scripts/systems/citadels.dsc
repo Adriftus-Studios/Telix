@@ -21,9 +21,9 @@ citadel_events:
             - yaml id:<[value].replace[unload_timer.].with[]> unload
     on player right clicks *door:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]> || <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.down[1].simple>.yml]>:
-        - define loc:<context.location>
+        - define loc:<context.location.simple>
         - if <context.location.material.half> == TOP:
-          - define loc:<context.location.down[1]>
+          - define loc:<context.location.down[1].simple>
         - if !<yaml.list.contains[locked_door_<[loc]>]>:
           - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc]>.yml id:locked_door_<[loc]>
         - flag server unload_timer.locked_door_<[loc]> duration:10s
