@@ -3,7 +3,7 @@ citadel_events:
   events:
     on player clicks block with *_lock:
       - if <context.location.material.name.ends_with[_door]> || <context.location.material.name.ends_with[_trapdoor]>:
-        - narrate 1
+        - run lock_door def:<player>|<context.location>|<context.item.script.yaml_key[lock_strength]>
     on delta time secondly every:1:
       - foreach <server.list_flags.filter[starts_with[unload_timer_]]>:
         - if <server.flag[<[value]>].expiration.in_seconds> <= 1:
