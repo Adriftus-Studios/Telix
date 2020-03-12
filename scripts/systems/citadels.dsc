@@ -37,6 +37,7 @@ citadel_events:
               - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
               - yaml id:locked_door_<[loc]> set strength:--
               - if <yaml[locked_door_<[loc]>].read[strength]> < 1:
+                - flag server unload_timer.locked_door_<[loc]>:!
                 - yaml id:locked_door_<[loc]> unload
                 - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc]>.yml
                 - narrate "<&b>The lock finally broke."
@@ -45,9 +46,28 @@ citadel_events:
         - if !<yaml.list.contains[reinforced_block_<context.location.simple>]>:
           - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<context.location.simple>.yml id:reinforced_block_<context.location.simple>
         - if <yaml[reinforced_block_<context.location.simple>].read[owner]> != <player>:
+          - flag server unload_timer.reinforced_block_<context.location.simple> duration:10s
           - yaml id:reinforced_block_<context.location.simple> set strength:--
           - determine passively cancelled
-          - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
+          - if <proc[fake_durability_use].context[<player.item_in_hand>].material.name> != air:
+            - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
+          - if <yaml[reinforced_block_<context.location.simple>].read[strength]> < 1:
+            - flag server unload_timer.reinforced_block_<context.location.simple>:!
+            - yaml id:reinforced_block_<context.location.simple> unload
+            - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml
+        - else:
+          - flag server unload_timer.reinforced_block_<context.location.simple>:!
+          - yaml id:reinforced_block_<context.location.simple> unload
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>:
+        - if !<yaml.list.contains[locked_door_<context.location.simple>]>:
+          - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml id:locked_door_<context.location.simple>
+        - flag server unload_timer.locked_door_<context.location.simple> duration:10s
+        - if <yaml[locked_door_<context.location.simple>].read[owner]> != <player>:
+          - determine passively cancelled
+        - else:
+          - flag server unload_timer.locked_door_<context.location.simple>:!
+          - yaml id:locked_door_<context.location.simple> unload
+          - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml
     on player right clicks block:
       - if <context.item.script.yaml_key[block_reinforcement_strength]||null> != null:
         - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]>:
@@ -115,7 +135,7 @@ lock_door:
 custom_citadel_test_item:
   type: item
   material: diamond
-  block_reinforcement_strength: 100
+  block_reinforcement_strength: 10
 
 custom_iron_lock:
   type: item
