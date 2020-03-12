@@ -61,6 +61,8 @@ statues_events:
     on player right clicks barrier:
       - if <inventory[statue_<context.location>]||null> != null:
         - inventory open d:<inventory[statue_<context.location>]>
+      - if <inventory[statue_<context.location.down[1]>]||null> != null:
+        - inventory open d:<inventory[statue_<context.location.down[1]>]>
     on player opens statues_inventory:
       - inventory set d:<context.inventory> slot:14 o:<context.inventory.slot[1].nbt[entity].as_entity.equipment.helmet>
     on player clicks in statues_inventory:
