@@ -14,6 +14,7 @@ playerLevel_GiveXP:
 playerLevel_showXP:
   type: task
   script:
+    - announce <queue>
     - adjust <player> fake_experience:<yaml[player.<player.uuid>].read[stats.xp]./[100]>|<yaml[player.<player.uuid>].read[lessons.current]>
 
 playerLevel_levelUp:
