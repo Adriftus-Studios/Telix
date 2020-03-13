@@ -112,9 +112,10 @@ reload_scripts:
                   - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
                     #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
-                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped || <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
-                    - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name>
-                    - yaml id:server.recipe_fixer savefile:recipe_fixer.yml
+                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
+                    - yaml id:server.recipe_fixer set restricted.shaped.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name>
+                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
+                    - yaml id:server.recipe_fixer set restricted.shapeless.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name>
                   - if <[value].name> == custom_lead_sword:
                     - narrate <[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>
                     - narrate <yaml[server.recipe_fixer].read[restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>]>
@@ -175,6 +176,7 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.abilities:<[value].yaml_key[custom.ability_usage]>
       - foreach <yaml[server.recipe_book].list_keys[used_for]> as:item:
         - yaml id:server.recipe_book set used_for.<[item]>:<yaml[server.recipe_book].read[used_for.<[item]>].as_list.deduplicate.exclude[air].exclude[<[item]>]>
+      - yaml id:server.recipe_fixer savefile:recipe_fixer.yml
     events:
       on server start:
         - inject locally reload
@@ -306,8 +308,7 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
-      - define item:<yaml[server.recipe_fixer].read[restricted.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item>
-      - narrate <[item]>
+      - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item>
       - inject build_item
       - determine <[item]>
     on player crafts item:
