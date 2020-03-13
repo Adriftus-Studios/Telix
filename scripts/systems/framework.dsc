@@ -136,7 +136,7 @@ reload_scripts:
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input]> as:entry:
                       - foreach <[entry].as_list> as:entry:
                         - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
-                - yaml id:server.recipe_fixer set restricted.<[value].name>:<yaml[server.recipe_fixer].read[restricted.<[value].name>].as_list.deduplicate||<list[]>>
+                - yaml id:server.recipe_fixer set restricted.<[value].name>:<yaml[server.recipe_fixer].read[restricted.<[value].name>].as_list.deduplicate.exclude[air]||<list[]>>
           - if <[value].yaml_key[type]> == entity:
             - if <[value].yaml_key[custom.spawning_conditions]||null> != null:
               - foreach <list[<[value].yaml_key[custom.spawning_conditions.world]>]> as:world:
