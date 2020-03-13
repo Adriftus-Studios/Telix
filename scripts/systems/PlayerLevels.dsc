@@ -2,6 +2,8 @@ playerLevel_GiveXP:
   type: task
   definitions: xp
   script:
+    - if <player||null> == null:
+      - stop
     - if <server.has_flag[global_xp_multiplier]>:
       - define xp:<[xp].mul[<server.flag[global_xp_multiplier]>]>
     - define preXP:<yaml[player.<player.uuid>].read[stats.xp]>
