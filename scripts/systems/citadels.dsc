@@ -68,6 +68,13 @@ citadel_events:
           - flag server unload_timer.locked_door_<context.location.simple>:!
           - yaml id:locked_door_<context.location.simple> unload
           - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml
+    on player places block:
+      - if <player.has_flag[citadel_build_mode]>:
+        - define item:<player.flag[citadel_build_mode].as_item>
+        - if <[item].script.yaml_key[block_reinforcement_strength]||null> != null:
+
+        - else:
+          - flag <player> citadel_build_mode:!
     on player right clicks block:
       - if <context.item.script.yaml_key[block_reinforcement_strength]||null> != null:
         - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]>:
@@ -79,6 +86,13 @@ citadel_events:
         - else:
           - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
           - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
+
+command_citadel_build_mode:
+  type: command
+  name: citadel_build_mode
+  aliases: cbm
+  script:
+    - narrate test
 
 get_citadel_durability:
   type: proc
