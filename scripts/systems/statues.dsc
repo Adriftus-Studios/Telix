@@ -17,14 +17,6 @@ entity_statue:
   visible: false
   gravity: false
   invulnerable: true
-  equipment: <item[air]>|<item[air]>|<item[air]>|<item[custom_statue_baseplate]>
-
-custom_statue_baseplate:
-  type: item
-  material: armor_stand
-  mechanisms:
-    custom_model_data: 1
-  display name: Statue Baseplate
 
 custom_statue_creeper_normal:
   type: item
@@ -36,49 +28,27 @@ custom_statue_creeper_normal:
     size: normal
     entity: creeper
 
-custom_statue_zombie_normal:
-  type: item
-  material: armor_stand
-  mechanisms:
-    custom_model_data: 2
-  display name: Zombie Statue
-  statue:
-    size: normal
-    entity: zombie
-
 statues_events:
   type: world
   events:
     on player right clicks block with custom_statue_*:
       - determine passively cancelled
-      - if <context.item.script.name> == custom_statue_baseplate:
-        - adjust <context.relative> block_type:barrier
-        - adjust <context.relative.up[1]> block_type:barrier
-        - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
-        - spawn <entity[entity_statue]> <context.location.center.up[0.5]> save:statue
-        - note <inventory[statues_inventory]> as:statue_<context.relative>
-        - inventory adjust d:<inventory[statue_<context.relative>]> slot:1 nbt:entity/<entry[statue].spawned_entity>
-      - else:
-        - adjust <context.relative> block_type:barrier
-        - adjust <context.relative.up[1]> block_type:barrier
-        - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
-        - spawn <entity[entity_statue]> <context.location.center.up[0.5]> save:statue
-        - adjust <entry[statue].spawned_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.item.with[quantity=1]>
-        - note <inventory[statues_inventory]> as:statue_<context.relative>
-        - inventory adjust d:<inventory[statue_<context.relative>]> slot:1 nbt:entity/<entry[statue].spawned_entity>
+      - adjust <context.relative> block_type:barrier
+      - adjust <context.relative.up[1]> block_type:barrier
+      - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
+      - spawn <entity[entity_statue]> <context.location.center.up[0.5]> save:statue
+      - adjust <entry[statue].spawned_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.item.with[quantity=1]>
+      - note <inventory[statues_inventory]> as:statue_<context.relative>
+      - inventory adjust d:<inventory[statue_<context.relative>]> slot:1 nbt:entity/<entry[statue].spawned_entity>
     on player clicks barrier:
       - if <player.is_sneaking>:
         - if <inventory[statue_<context.location>]||null> != null:
           - remove <inventory[statue_<context.location>].slot[1].nbt[entity].as_entity>
-          - if <inventory[statue_<context.location>].slot[14].script.name> != custom_statue_baseplate:
-            - drop <inventory[statue_<context.location>].slot[14]> <context.location>
           - adjust <context.location> block_type:air
           - adjust <context.location.up[1]> block_type:air
           - note remove as:statue_<context.location>
         - if <inventory[statue_<context.location.down[1]>]||null> != null:
           - remove <inventory[statue_<context.location.down[1]>].slot[1].nbt[entity].as_entity>
-          - if <inventory[statue_<context.location.down[1]>].slot[14].script.name> != custom_statue_baseplate:
-            - drop <inventory[statue_<context.location.down[1]>].slot[14]> <context.location.down[1]>
           - adjust <context.location> block_type:air
           - adjust <context.location.down[1]> block_type:air
           - note remove as:statue_<context.location.down[1]>
