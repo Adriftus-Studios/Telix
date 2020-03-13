@@ -115,10 +115,7 @@ reload_scripts:
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
                     - yaml id:server.recipe_fixer set restricted.shaped.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
-                    - yaml id:server.recipe_fixer set restricted.shapeless.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
-                  - if <[value].name> == custom_lead_sword:
-                    - narrate <[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>
-                    - narrate <yaml[server.recipe_fixer].read[restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>]>
+                    - yaml id:server.recipe_fixer set restricted.shapeless.<[value].yaml_key[recipes.<[recipe]>.input].as_list.alphabetical.separated_by[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
@@ -308,11 +305,12 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
+      - narrate <context.recipe.parse[script.name.to_lowercase].filter[length.is[!=].to[0]].separated_by[_]>
       - if <yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
         - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item>
       - if <yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
         - narrate 1
-        - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item>
+        - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase].filter[length.is[!=].to[0]].separated_by[_]>].get[1].as_item>
       - inject build_item
       - determine <[item]>
     on player crafts item:
