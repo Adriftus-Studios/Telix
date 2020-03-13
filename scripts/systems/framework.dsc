@@ -488,7 +488,7 @@ build_item:
   type: task
   script:
   - if <[item].material.name> != air:
-    - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>;custom_model_data=<[item].custom_model_data||0>;nbt=<[item].nbt>;enchantments=<[item].enchantments>;nbt_attributes=<[item].nbt_attributes>]>
+    - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>;custom_model_data=<[item].custom_model_data||0>]>
     - if <[item].script.yaml_key[category]||null> != null:
       - if <[item].script.yaml_key[max_stars]||null> != null:
         - if <[item].nbt[stars]||null> == null:
