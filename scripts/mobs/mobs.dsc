@@ -4,11 +4,11 @@ mob_drops_events:
     on entity death:
       - if <context.damager.type||null> == player:
         - adjust <queue> linked_player:<context.damager>
-      - define roll:<util.random.int[1].to[100]>
       - foreach <yaml[server.drop_rates].list_keys[<context.entity.script_name||<context.entity.entity_type>>]||<list[]>>:
         - foreach <yaml[server.drop_rates].list_keys[<context.entity.script_name||<context.entity.entity_type>>.<[value]>]> as:key:
           - define drops:|:<[value]>/<el@1.div[<[key]>]>/<yaml[server.drop_rates].read[<context.entity.script_name||<context.entity.entity_type>>.<[value]>.<[key]>].split[/].get[1]>/<yaml[server.drop_rates].read[<context.entity.script_name||<context.entity.entity_type>>.<[value]>.<[key]>].split[/].get[2]>
           - define num:+:<el@1.div[<[key]>]>
+      - narrate <[drops]>
       - define num:<[num]||0>
       - define to_drop:<list[]>
       - run playerLevel_GiveXP def:<context.entity.script.yaml_key[custom.xp_dropped]||1>
@@ -24,7 +24,6 @@ mob_drops_events:
           - define amount:<[amount].mul[<server.flag[global_mob_drop_multiplier]>]>
         - if <[chance]> > <[random]>:
           - drop <[item].with[quantity=<[amount]>]> <context.entity.location>
-        - narrate <[drop]>
       - if <server.has_flag[global_mob_drop_multiplier]>:
         - foreach <context.drops> as:drop:
           - define list:|:<[drop].with[quantity=<[drop].quantity.mul[<server.flag[global_mob_drop_multiplier]>]>]>
