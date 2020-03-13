@@ -80,8 +80,6 @@ reload_scripts:
               - else:
                   - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
           - if <[value].yaml_key[type]> == item:
-              - if <[value].name.replace[custom_].with[]> != <[value].yaml_key[material]>:
-                #- yaml id:server.recipe_fixer set restricted:|:<[value].name>
               - if <[value].yaml_key[recipe_book_note]||null> != null:
                 - yaml id:server.recipe_book set notes.<[value].name>:<[value].yaml_key[recipe_book_note]>
               - if <[value].yaml_key[ore]||null> != null:
@@ -105,6 +103,7 @@ reload_scripts:
               - if <[value].yaml_key[category]||null> != null:
                   - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
               - if <[value].yaml_key[recipes]||null> != null:
+              
                 - if <[value].yaml_key[recipe_book_category]||null> != null:
                   - foreach <[value].yaml_key[recipe_book_category].as_list> as:cat:
                     - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
@@ -114,8 +113,9 @@ reload_scripts:
                   - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
                     - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
-                  - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
-                    - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
+                  - yaml id:server.recipe_fixer set restricted.<[value].name>:|:<[value].yaml_key[recipes.<[recipe]>.input]>
+                  - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
+                    - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
                     - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
