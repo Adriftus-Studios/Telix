@@ -311,7 +311,7 @@ custom_item_override:
           - inject build_item
           - determine <[item]>
       - foreach <yaml[server.recipe_fixer].list_keys[restricted.shapeless]>:
-        - narrate <yaml[server.recipe_fixer].read[restricted.shapeless.<[value]>].as_list.filter[contains_text[<context.recipe.parse[script.name.to_lowercase].alphabetical.separated_by[.]>]]>
+        - narrate <yaml[server.recipe_fixer].read[restricted.shapeless.<[value]>].as_list>
         - if <yaml[server.recipe_fixer].read[restricted.shapeless.<[value]>].as_list.filter[contains_text[<context.recipe.parse[script.name.to_lowercase].alphabetical.separated_by[.]>]].size> != 0:
           - narrate <yaml[server.recipe_fixer].read[restricted.shapeless.<[value]>].as_list.filter[contains_text[<context.recipe.parse[script.name.to_lowercase].alphabetical>]].get[1]>
           - define item:<item[<[value]>]>
