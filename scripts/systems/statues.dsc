@@ -40,6 +40,7 @@ statues_events:
       - note <inventory[statues_inventory]> as:statue_<context.relative>
       - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
       - inventory adjust d:<inventory[statue_<context.relative>]> slot:1 nbt:entity/<entry[statue].spawned_entity>
+      - inventory set d:<inventory[statue_<context.relative>]> slot:14 o:<context.item.with[quantity=1]>
     on player clicks barrier:
       - if <player.is_sneaking>:
         - if <inventory[statue_<context.location>]||null> != null:
@@ -60,8 +61,6 @@ statues_events:
         - inventory open d:<inventory[statue_<context.location>]>
       - if <inventory[statue_<context.location.down[1]>]||null> != null:
         - inventory open d:<inventory[statue_<context.location.down[1]>]>
-    on player opens statues_inventory:
-      - inventory set d:<context.inventory> slot:14 o:<context.inventory.slot[1].nbt[entity].as_entity.equipment.helmet>
     on player clicks in statues_inventory:
       - if <context.raw_slot> < 28:
         - determine passively cancelled
