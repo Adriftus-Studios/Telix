@@ -114,6 +114,7 @@ reload_scripts:
                 - foreach <[value].list_keys[recipes]> as:recipe:
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped || <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
                     - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>:|:<[value].name>
+                    - yaml id:server.recipe_fixer savefile:recipe_fixer.yml
                   - if <[value].name> == custom_lead_sword:
                     - narrate <[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>
                     - narrate <yaml[server.recipe_fixer].read[restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>]>
