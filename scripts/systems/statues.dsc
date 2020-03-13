@@ -92,16 +92,14 @@ statues_events:
               - adjust <context.inventory.slot[1].nbt[entity].as_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.cursor_item>
         - determine passively cancelled
         - define pose:<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head]>
-        - if <context.raw_slot> == 16:
-
         - if <context.raw_slot> == 17:
-          - if !<context.is_shift_click>:
-            - if <context.click> == right:
-              - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@90.to_radians>,0]>
-            - if <context.click> == left:
-              - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@-90.to_radians>,0]>
-          - else:
+          - if <context.is_shift_click>:
             - if <context.click> == right:
               - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@22.5.to_radians>,0]>
             - if <context.click> == left:
               - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@-22.5.to_radians>,0]>
+          - else:
+            - if <context.click> == right:
+              - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@90.to_radians>,0]>
+            - if <context.click> == left:
+              - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@-90.to_radians>,0]>
