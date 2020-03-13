@@ -103,6 +103,9 @@ reload_scripts:
               - if <[value].yaml_key[category]||null> != null:
                   - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
               - if <[value].yaml_key[recipes]||null> != null:
+                - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
+                  - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
+                    - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - if <[value].yaml_key[recipe_book_category]||null> != null:
                   - foreach <[value].yaml_key[recipe_book_category].as_list> as:cat:
                     - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
@@ -303,6 +306,16 @@ custom_item_override:
           - inject build_item
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
+    on item recipe formed:
+      - stop
+      - if <yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
+        - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
+        - inject build_item
+        - determine <[item]>
+      - if <yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item||null> != null:
+        - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
+        - inject build_item
+        - determine <[item]>
     on player crafts item:
       - define item:<context.item>
       - inject build_item
