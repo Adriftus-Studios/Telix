@@ -87,13 +87,15 @@ citadel_events:
           - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
           - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
 
-command_citadel_build_mode:
+citadel_build_mode_command:
   type: command
   name: citadel_build_mode
-  aliases: cbm
+  aliases:
+  - "cbm"
   script:
-    - narrate test
+    - narrate 1
 
+  
 get_citadel_durability:
   type: proc
   definitions: location
@@ -108,7 +110,7 @@ get_citadel_durability:
     - else:
       - determine 0
   - else if <[location].inventory||null> != null:
-    
+    - narrate "TODO"
   - else:
     - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<[location].simple>.yml]>:
       - if !<yaml.list.contains[reinforced_block_<[location].simple>]>:
