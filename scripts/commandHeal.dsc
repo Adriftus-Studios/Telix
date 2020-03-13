@@ -1,6 +1,5 @@
 custom_feed_command:
   type: command
-  debug: true
   name: feed
   description: Feed yourself
   usage: /feed
@@ -11,7 +10,6 @@ custom_feed_command:
 
 custom_drink_command:
   type: command
-  debug: true
   name: drink
   description: Quench your thirst.
   usage: /drink
@@ -23,7 +21,6 @@ custom_drink_command:
 
 custom_heal_command:
   type: command
-  debug: true
   name: heal
   description: Fully heal yourself.
   usage: /heal
