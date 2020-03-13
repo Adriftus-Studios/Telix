@@ -113,11 +113,11 @@ reload_scripts:
                     #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped || <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
-                    - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>:|:<[value].name>
+                    - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name>
                     - yaml id:server.recipe_fixer savefile:recipe_fixer.yml
                   - if <[value].name> == custom_lead_sword:
-                    - narrate <[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>
-                    - narrate <yaml[server.recipe_fixer].read[restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>]>
+                    - narrate <[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>
+                    - narrate <yaml[server.recipe_fixer].read[restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>]>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
