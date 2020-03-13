@@ -554,3 +554,4 @@ build_item:
     - define lore:|:<&8>
     - define lore:|:<&8>Item<&sp>Weight:<&sp><[item].script.yaml_key[weight]||1>
     - adjust def:item nbt:built/true
+    - adjust def:item lore:<[lore]>
