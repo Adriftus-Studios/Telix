@@ -110,13 +110,12 @@ reload_scripts:
                   - yaml id:server.recipe_book set categories.other:|:<[value].name>
                 - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
                   - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
-                    - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
+                    #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
                   - yaml id:server.recipe_fixer set restricted.<[value].name>:|:<[value].yaml_key[recipes.<[recipe]>.input]>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
-                      - something
-                      #- yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
+                      - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
                     - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
                     - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
