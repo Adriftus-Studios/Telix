@@ -328,7 +328,6 @@ custom_item_override:
         - inject build_item
         - determine ITEM:<[item]>
     on player clicks in inventory:
-      - narrate <player.open_inventory>
       - if !<context.cursor_item.has_nbt[built]> && <context.cursor_item.material.name> != air:
         - define item:<context.cursor_item>
         - inject build_item
@@ -345,6 +344,9 @@ custom_item_override:
             - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
           - else:
             - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=<player.open_inventory.slot[<context.slot>].quantity>]>
+      - if <player.open_inventory.inventory_type> == crafting:
+        - narrate <player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>
+
 
 system_override:
   type: world
