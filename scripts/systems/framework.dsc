@@ -321,6 +321,15 @@ custom_item_override:
       - define item:<context.result_item>
       - inject build_item
       - determine <[item]>
+    on player picks up item:
+      - if <context.item.script.name||null> == null:
+        - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+        - inject build_item
+        - determine ITEM:<[item]>
+      - if !<context.item.nbt[built]>:
+        - define item:<context.item>
+        - inject build_item
+        - determine ITEM:<[item]>
     on player clicks in inventory:
       - if !<context.cursor_item.has_nbt[built]> && <context.cursor_item.material.name> != air:
         - define item:<context.cursor_item>
