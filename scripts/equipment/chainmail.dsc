@@ -7,11 +7,10 @@ custom_chainlink:
   type: item
   recipes:
     1:
-      type: furnace
+      type: smeltery
       cook_time: 30s
-      experience: 5
       output_quantity: 2
-      input: custom_iron_ingot
+      input: custom_iron_ingot/1
 custom_chainmail_boots:
   material: chainmail_boots
   recipe_book_category: equipment.chainmail
