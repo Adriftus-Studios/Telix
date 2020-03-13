@@ -326,7 +326,6 @@ custom_item_override:
       - if !<context.cursor_item.has_nbt[build]> && <context.cursor_item.material.name> != air:
         - define item:<context.cursor_item>
         - inject build_item
-        - wait 1t
         - if <player.open_inventory.matrix||null> == null:
           - if <context.raw_slot> > <player.open_inventory.size>:
             - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
