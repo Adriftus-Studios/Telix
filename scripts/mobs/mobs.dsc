@@ -5,9 +5,9 @@ mob_drops_events:
       - if <context.damager.type||null> == player:
         - adjust <queue> linked_player:<context.damager>
       - narrate <context.entity.script.name>
-      - foreach <yaml[server.drop_rates].list_keys[<context.entity.script_name||<context.entity.entity_type>>]||<list[]>>:
-        - foreach <yaml[server.drop_rates].list_keys[<context.entity.script_name||<context.entity.entity_type>>.<[value]>]> as:key:
-          - define drops:|:<[value]>/<el@1.div[<[key]>]>/<yaml[server.drop_rates].read[<context.entity.script_name||<context.entity.entity_type>>.<[value]>.<[key]>].split[/].get[1]>/<yaml[server.drop_rates].read[<context.entity.script_name||<context.entity.entity_type>>.<[value]>.<[key]>].split[/].get[2]>
+      - foreach <yaml[server.drop_rates].list_keys[<context.entity.script.name||<context.entity.entity_type>>]||<list[]>>:
+        - foreach <yaml[server.drop_rates].list_keys[<context.entity.script.name||<context.entity.entity_type>>.<[value]>]> as:key:
+          - define drops:|:<[value]>/<el@1.div[<[key]>]>/<yaml[server.drop_rates].read[<context.entity.script.name||<context.entity.entity_type>>.<[value]>.<[key]>].split[/].get[1]>/<yaml[server.drop_rates].read[<context.entity.script.name||<context.entity.entity_type>>.<[value]>.<[key]>].split[/].get[2]>
           - define num:+:<el@1.div[<[key]>]>
       - narrate <[drops]>
       - define num:<[num]||0>
