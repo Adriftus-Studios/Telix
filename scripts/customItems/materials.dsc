@@ -39,7 +39,7 @@ custom_aluminum_ingot:
       input: custom_aluminum_block
 custom_aluminum_block:
   material: iron_block
-  recipe_book_category: equipment.aluminum
+  recipe_book_category: equipment.aluminum|materials.blocks
   display name: <&7>Aluminum Block
   weight: '9'
   type: item
@@ -102,7 +102,7 @@ custom_bronze_ingot:
       input: custom_bronze_block
 custom_bronze_block:
   material: iron_block
-  recipe_book_category: equipment.bronze
+  recipe_book_category: equipment.bronze|materials.blocks
   display name: <&7>Bronze Block
   weight: '9'
   type: item
@@ -154,7 +154,7 @@ custom_constantan_ingot:
       input: custom_constantan_block
 custom_constantan_block:
   material: iron_block
-  recipe_book_category: equipment.constantan
+  recipe_book_category: equipment.constantan|materials.blocks
   display name: <&7>Constantan Block
   weight: '9'
   type: item
@@ -206,7 +206,7 @@ custom_copper_ingot:
       input: custom_copper_block
 custom_copper_block:
   material: iron_block
-  recipe_book_category: equipment.copper
+  recipe_book_category: equipment.copper|materials.blocks
   display name: <&7>Copper Block
   weight: '9'
   type: item
@@ -254,7 +254,7 @@ custom_diamond:
       input: custom_diamond_block
 custom_diamond_block:
   material: diamond_block
-  recipe_book_category: equipment.diamond
+  recipe_book_category: equipment.diamond|materials.blocks
   display name: <&7>Diamond Block
   weight: '9'
   type: item
@@ -312,7 +312,7 @@ custom_elementium_ingot:
       cook_time: 10m
 custom_elementium_block:
   material: iron_block
-  recipe_book_category: equipment.elementium
+  recipe_book_category: equipment.elementium|materials.blocks
   display name: <&d>Elementium Block
   weight: '9'
   type: item
@@ -364,7 +364,7 @@ custom_gold_ingot:
       input: custom_gold_block
 custom_gold_block:
   material: gold_block
-  recipe_book_category: equipment.gold
+  recipe_book_category: equipment.gold|materials.blocks
   display name: <&7>Golden Block
   weight: '9'
   type: item
@@ -427,7 +427,7 @@ custom_iron_ingot:
       input: custom_iron_block
 custom_iron_block:
   material: iron_block
-  recipe_book_category: equipment.iron
+  recipe_book_category: equipment.iron|materials.blocks
   display name: <&7>Iron Block
   weight: '9'
   type: item
@@ -754,7 +754,7 @@ custom_steel_ingot:
       input: custom_steel_block
 custom_steel_block:
   material: iron_block
-  recipe_book_category: equipment.steel
+  recipe_book_category: equipment.steel|materials.blocks
   display name: <&7>Steel Block
   weight: '9'
   type: item
@@ -804,7 +804,7 @@ custom_terrasteel_ingot:
       input: custom_terrasteel_block
 custom_terrasteel_block:
   material: iron_block
-  recipe_book_category: equipment.terrasteel
+  recipe_book_category: equipment.terrasteel|materials.blocks
   display name: <&a>Terrasteel Block
   weight: '9'
   type: item
@@ -856,7 +856,7 @@ custom_tin_ingot:
       input: custom_tin_block
 custom_tin_block:
   material: iron_block
-  recipe_book_category: equipment.tin
+  recipe_book_category: equipment.tin|materials.blocks
   display name: <&7>Tin Block
   weight: '9'
   type: item
@@ -917,7 +917,7 @@ custom_warpmetal_ingot:
       cook_time: 2m
 custom_warpmetal_block:
   material: iron_block
-  recipe_book_category: equipment.warpmetal
+  recipe_book_category: equipment.warpmetal|materials.blocks
   display name: <&a>Warpmetal Block
   weight: '9'
   type: item

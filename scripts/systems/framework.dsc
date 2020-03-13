@@ -304,6 +304,7 @@ custom_item_override:
       - if <context.item.script.name||null> == null:
         - foreach <context.recipe> as:item:
           - if <yaml[server.recipe_fixer].read[restricted].contains[<[item].script.name||<[item].material.name>>]>:
+            - narrate <[item]>
             - determine cancelled
             - stop
         - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
@@ -314,10 +315,9 @@ custom_item_override:
       - inject build_item
       - determine <[item]>
     on furnace smelts item:
-      - if <context.result_item.script.name||null> == null:
-        - define item:<item[custom_<context.result_item.material.name>].with[quantity=<context.result_item.quantity>]>
-        - inject build_item
-        - determine <[item]>
+      - define item:<item[custom_<context.result_item.material.name>].with[quantity=<context.result_item.quantity>]>
+      - inject build_item
+      - determine <[item]>
     on player picks up item:
       - if <context.item.script.name||null> == null:
         - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
