@@ -10,7 +10,6 @@ custom_chainlink:
       type: furnace
       cook_time: 30s
       experience: 5
-      output_quantity: 2
       input: custom_iron_ingot
 custom_chainmail_boots:
   material: chainmail_boots
