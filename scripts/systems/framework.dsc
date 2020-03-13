@@ -308,7 +308,7 @@ custom_item_override:
       - narrate <context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>
       - if <yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
         - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item>
-      - if <yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
+      - if <yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item||null> != null:
         - narrate 1
         - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase].filter[length.is[!=].to[0]].separated_by[_]>].get[1].as_item>
       - inject build_item
