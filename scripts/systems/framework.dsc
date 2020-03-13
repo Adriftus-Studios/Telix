@@ -336,9 +336,10 @@ custom_item_override:
         - else if <player.open_inventory.matrix.size> == 4:
           - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
         - else if <player.open_inventory.matrix.size> == 9:
-          - narrate <player.open_inventory.slot[<context.raw_slot>]>
-          - narrate <context.slot>
-          - narrate <context.raw_slot>
+          - if <context.raw_slot> > 10:
+            - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
+          - else:
+            - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=<player.open_inventory.slot[<context.slot>].quantity>]>
 
 system_override:
   type: world
