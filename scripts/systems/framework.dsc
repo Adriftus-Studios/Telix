@@ -81,7 +81,7 @@ reload_scripts:
                   - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
           - if <[value].yaml_key[type]> == item:
               - if <[value].name.replace[custom_].with[]> != <[value].yaml_key[material]>:
-                - yaml id:server.recipe_fixer set restricted:|:<[value].name>
+                #- yaml id:server.recipe_fixer set restricted:|:<[value].name>
               - if <[value].yaml_key[recipe_book_note]||null> != null:
                 - yaml id:server.recipe_book set notes.<[value].name>:<[value].yaml_key[recipe_book_note]>
               - if <[value].yaml_key[ore]||null> != null:
