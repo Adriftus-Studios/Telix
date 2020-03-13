@@ -172,11 +172,6 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.abilities:<[value].yaml_key[custom.ability_usage]>
       - foreach <yaml[server.recipe_book].list_keys[used_for]> as:item:
         - yaml id:server.recipe_book set used_for.<[item]>:<yaml[server.recipe_book].read[used_for.<[item]>].as_list.deduplicate.exclude[air].exclude[<[item]>]>
-      - foreach <yaml[server.recipe_fixer].list_keys[restricted]>:
-        - if <yaml[server.recipe_fixer].read[restricted.<[value]>].as_list.size> != 1:
-          - narrate <[value]>_<yaml[server.recipe_fixer].read[restricted.<[value]>].as_list.size>
-      - narrate <[int]>
-      - narrate <yaml[server.recipe_fixer].list_keys[restricted].size>
     events:
       on server start:
         - inject locally reload
@@ -308,7 +303,6 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
-      - narrate <context.recipe.parse[script.name.to_lowercase||air].separated_by[.]>
       - foreach <yaml[server.recipe_fixer].list_keys[restricted]>:
         - if <yaml[server.recipe_fixer].read[restricted.<[value]>].as_list.contains[<context.recipe.parse[script.name.to_lowercase||air].separated_by[.]>]>:
           - define item:<item[<[value]>]>
