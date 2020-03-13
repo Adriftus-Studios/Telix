@@ -113,9 +113,8 @@ reload_scripts:
                     #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
-                    - if <[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]||null> == null || <[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.].split[.].size||0> != 9:
-                      - narrate <[value].name>
-                    - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>:<[value].name>
+                    - yaml id:server.recipe_fixer set restricted.<[value].name>:<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>
+                    - define int:++
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
@@ -173,6 +172,8 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.abilities:<[value].yaml_key[custom.ability_usage]>
       - foreach <yaml[server.recipe_book].list_keys[used_for]> as:item:
         - yaml id:server.recipe_book set used_for.<[item]>:<yaml[server.recipe_book].read[used_for.<[item]>].as_list.deduplicate.exclude[air].exclude[<[item]>]>
+      - narrate <[int]>
+      - narrate <yaml[server.recipe_fixer].list_keys[restricted].size>
     events:
       on server start:
         - inject locally reload
