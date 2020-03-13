@@ -113,9 +113,9 @@ reload_scripts:
                     #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
-                    - yaml id:server.recipe_fixer set restricted.<[value].name>:|:<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>
+                    - yaml id:server.recipe_fixer set restricted.shaped.<[value].name>:|:<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
-                    - yaml id:server.recipe_fixer set restricted.<[value].name>:|:<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.].split[.].alphabetical.separated_by[.]>
+                    - yaml id:server.recipe_fixer set restricted.shapeless.<[value].name>:|:<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.].split[.].alphabetical.separated_by[.]>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
@@ -305,7 +305,7 @@ custom_item_override:
       - determine <[drops]||<list[]>>
     on item recipe formed:
       - foreach <yaml[server.recipe_fixer].list_keys[restricted]>:
-        - if <yaml[server.recipe_fixer].read[restricted.<[value]>].as_list.contains[<context.recipe.parse[script.name.to_lowercase||air].separated_by[.]>]> || <yaml[server.recipe_fixer].read[restricted.<[value]>].as_list.contains[<context.recipe.parse[script.name.to_lowercase||air].alphabetical.separated_by[.]>]>:
+        - if <yaml[server.recipe_fixer].read[restricted.shaped.<[value]>].as_list.contains[<context.recipe.parse[script.name.to_lowercase||air].separated_by[.]>]>:
           - define item:<item[<[value]>]>
           - inject build_item
           - determine <[item]>
