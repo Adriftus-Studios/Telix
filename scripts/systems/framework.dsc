@@ -312,6 +312,7 @@ custom_item_override:
         - determine <[item]>
       - if <yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item||null> != null:
         - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item>
+        - narrate <yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1]>
         - inject build_item
         - determine <[item]>
     on player crafts item:
