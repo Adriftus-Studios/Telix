@@ -30,7 +30,7 @@ custom_statue_creeper_normal:
   mob_drops:
     1:
       dropped_by: creeper
-      chance: 1
+      chance: 300
       max_quantity: 1
       min_quantity: 1
 

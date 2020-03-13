@@ -24,7 +24,6 @@ mob_drops_events:
           - define amount:<[amount].mul[<server.flag[global_mob_drop_multiplier]>]>
         - if <[chance]> > <[random]>:
           - drop <[item].with[quantity=<[amount]>]> <context.entity.location>
-        - narrate <[drop]>
       - if <server.has_flag[global_mob_drop_multiplier]>:
         - foreach <context.drops> as:drop:
           - define list:|:<[drop].with[quantity=<[drop].quantity.mul[<server.flag[global_mob_drop_multiplier]>]>]>
