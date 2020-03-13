@@ -300,6 +300,24 @@ custom_item_override:
           - inject build_item
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
+    on item recipe formed:
+      - foreach <context.recipe> as:item:
+        - if <yaml[server.recipe_fixer].read[restricted].contains[<[item].script.name||<[item].material.name>>]>:
+          - narrate <[item]>
+          - determine cancelled
+          - stop
+      - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+      - inject build_item
+      - determine <[item]>
+    on player crafts item:
+      - if <context.item.script.name||null> == null:
+        - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+        - inject build_item
+        - determine ITEM:<[item]>
+      - else:
+        - define item:<context.item>
+        - inject build_item
+        - determine ITEM:<[item]>
     on furnace smelts item:
       - if <context.result_item.script.name||null> == null:
         - define item:<item[custom_<context.result_item.material.name>].with[quantity=<context.result_item.quantity>]>
@@ -519,12 +537,12 @@ build_item:
               - define lore:|:<&c><[value]>%<&sp><[stat_names].map_get[<[modifier]>]>
             - else:
               - define lore:|:<&c><[value]><&sp><[stat_names].map_get[<[modifier]>]>
+      - adjust def:item flags:HIDE_ATTRIBUTES
+      - if <[item].script.yaml_key[armor]||null> != null:
+        - adjust def:item nbt_attributes:generic.armor/chest/0/<[item].script.yaml_key[armor]>
+        - adjust def:item lore:|:<&9>+<[item].script.yaml_key[armor]><&sp>Armor
     - else:
       - define lore:|:<[item].script.yaml_key[lore].parsed||<list[]>>
-    - adjust def:item flags:HIDE_ATTRIBUTES
-    - if <[item].script.yaml_key[armor]||null> != null:
-      - adjust def:item nbt_attributes:generic.armor/chest/0/<[item].script.yaml_key[armor]>
-      - adjust def:item lore:|:<&9>+<[item].script.yaml_key[armor]><&sp>Armor
     - if <[item].script.yaml_key[damage]||null> != null:
       - adjust def:item nbt_attributes:generic.attackDamage/hand/0/<[item].script.yaml_key[damage]>
     - if <[item].script.yaml_key[attack_speed]||null> != null:
@@ -532,7 +550,7 @@ build_item:
     - if <[item].script.yaml_key[fake_durability]||null> != null:
       - define lore:|:<&f>Durability:<&sp><[item].nbt[durability]||<[item].script.yaml_key[fake_durability]>><&sp>/<&sp><[item].script.yaml_key[fake_durability]>
     - if <[item].script.yaml_key[contaminated]||null> != null:
-      - adjust def:item nbt:contaminated/<[item].script.yaml_key[contaminated]>  
+      - adjust def:item nbt:contaminated/<[item].script.yaml_key[contaminated]>
     - define lore:|:<&8>
     - define lore:|:<&8>Item<&sp>Weight:<&sp><[item].script.yaml_key[weight]||1>
     - adjust def:item lore:<[lore]||<list[]>>
