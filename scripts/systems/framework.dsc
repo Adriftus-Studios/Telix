@@ -113,7 +113,7 @@ reload_scripts:
                     #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
-                    - narrate <[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.]>
+                    - narrate <[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>
                     - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.]>:<[value].name>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
