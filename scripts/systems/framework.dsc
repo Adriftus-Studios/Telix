@@ -112,10 +112,8 @@ reload_scripts:
                   - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
                     #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
-                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
-                    - yaml id:server.recipe_fixer set restricted.shaped.<[value].name>:|:<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>
-                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
-                    - yaml id:server.recipe_fixer set restricted.shapeless.<[value].name>:|:<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.].split[.].alphabetical.separated_by[.]>
+                  - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>:<[value].name>
+                  - narrate <yaml[server.recipe_fixer].read[restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>]>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
@@ -305,13 +303,14 @@ custom_item_override:
       - determine <[drops]||<list[]>>
     on item recipe formed:
       - narrate <context.recipe.parse[script.name.to_lowercase].filter[contains_text[_]].alphabetical>
+      - stop
       - foreach <yaml[server.recipe_fixer].list_keys[restricted.shaped]>:
         - if <yaml[server.recipe_fixer].read[restricted.shaped.<[value]>].as_list.filter[contains_text[<context.recipe.parse[script.name.to_lowercase||air].separated_by[.]>]].size> != 0:
           - define item:<item[<[value]>]>
           - inject build_item
           - determine <[item]>
       - foreach <yaml[server.recipe_fixer].list_keys[restricted.shapeless]>:
-        - if <yaml[server.recipe_fixer].read[restricted.shapeless.<[value]>].as_list.contains[<context.recipe.parse[script.name.to_lowercase].filter[contains_text[_]]>]>:
+        - if <yaml[server.recipe_fixer].read[restricted.shapeless.<[value]>].as_list.contains_any[<context.recipe.parse[script.name.to_lowercase].filter[contains_text[_]]>]>:
           - narrate <yaml[server.recipe_fixer].read[restricted.shapeless.<[value]>].as_list.filter[contains_text[<context.recipe.parse[script.name.to_lowercase].alphabetical>]].get[1]>
           - define item:<item[<[value]>]>
           - inject build_item
