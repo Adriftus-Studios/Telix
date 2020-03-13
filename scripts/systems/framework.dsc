@@ -353,12 +353,12 @@ custom_item_override:
         - if <yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
           - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
           - inject build_item
-          - inventory set d:<player.open_inventory> slot:1 o:<[item]>
+          - adjust <player.open_inventory> result:<[item]>
           - narrate <player.open_inventory.slot[1]>
         - if <yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item||null> != null:
           - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
           - inject build_item
-          - inventory set d:<player.open_inventory> slot:1 o:<[item]>
+          - adjust <player.open_inventory> result:<[item]>
 
 
 system_override:
