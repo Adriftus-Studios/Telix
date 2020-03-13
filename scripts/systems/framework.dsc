@@ -309,7 +309,9 @@ custom_item_override:
       - determine <[drops]||<list[]>>
     on item recipe formed:
       - narrate <context.recipe.parse[script.name.to_lowercase||air].separated_by[.]>
-      - narrate <yaml[server.recipe_fixer].read[restricted.<context.recipe.parse[script.name.to_lowercase||air].separated_by[.]>]>
+      - foreach <yaml[server.recipe_fixer].list_keys[restricted]>:
+        - if <yaml[server.recipe_fixer].read[restricted.<[value]>].as_list.contains[<context.recipe.parse[script.name.to_lowercase||air].separated_by[.]>]>:
+          - narrate 1
       - define item:<context.item>
       - inject build_item
       - determine <[item]>
