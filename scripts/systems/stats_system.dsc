@@ -121,6 +121,8 @@ calculate_encumberance_speed:
     - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
     - wait 3t
     - if <player.is_online>:
+      - narrate <[encumberance]>
+      - narrate <yaml[player.<player.uuid>].read[stats.weight.max]>
       - if <[encumberance]> >= <yaml[player.<player.uuid>].read[stats.weight.max]>:
         - adjust <player> walk_speed:0.1
       - else:
@@ -147,7 +149,7 @@ calculate_contamination:
           - while stop
           - yaml id:player.<player.uuid> set stats.contaminated:0
         - define duration:<duration[<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>t]||<duration[1t]>>
-        - cast wither duration:<[duration].add[5t]> power:4
+        - cast wither duration:<[duration].add[<[level].mul[5]>t]> power:<[level].mul[2].add[4]>
         - wait 1t
 
 contamination_events:
