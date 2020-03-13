@@ -300,24 +300,6 @@ custom_item_override:
           - inject build_item
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
-    on item recipe formed:
-      - foreach <context.recipe> as:item:
-        - if <yaml[server.recipe_fixer].read[restricted].contains[<[item].script.name||<[item].material.name>>]>:
-          - narrate <[item]>
-          - determine cancelled
-          - stop
-      - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
-      - inject build_item
-      - determine <[item]>
-    on player crafts item:
-      - if <context.item.script.name||null> == null:
-        - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
-        - inject build_item
-        - determine ITEM:<[item]>
-      - else:
-        - define item:<context.item>
-        - inject build_item
-        - determine ITEM:<[item]>
     on furnace smelts item:
       - if <context.result_item.script.name||null> == null:
         - define item:<item[custom_<context.result_item.material.name>].with[quantity=<context.result_item.quantity>]>
@@ -337,7 +319,6 @@ custom_item_override:
         - inject build_item
         - determine ITEM:<[item]>
     on player clicks in inventory:
-      - stop
       - if !<context.cursor_item.has_nbt[build]> && <context.cursor_item.material.name> != air:
         - define item:<context.cursor_item>
         - inject build_item
