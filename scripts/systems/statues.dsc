@@ -70,11 +70,15 @@ statues_events:
       - if <player.is_sneaking>:
         - if <inventory[statue_<context.location>]||null> != null:
           - remove <inventory[statue_<context.location>].slot[1].nbt[entity].as_entity>
+          - if <inventory[statue_<context.location>].slot[14].script.name> != custom_statue_baseplate:
+            - drop <inventory[statue_<context.location>].slot[14]> <context.location>
           - adjust <context.location> block_type:air
           - adjust <context.location.up[1]> block_type:air
           - note remove as:statue_<context.location>
         - if <inventory[statue_<context.location.down[1]>]||null> != null:
           - remove <inventory[statue_<context.location.down[1]>].slot[1].nbt[entity].as_entity>
+          - if <inventory[statue_<context.location.down[1]>].slot[14].script.name> != custom_statue_baseplate:
+            - drop <inventory[statue_<context.location.down[1]>].slot[14]> <context.location.down[1]>
           - adjust <context.location> block_type:air
           - adjust <context.location.down[1]> block_type:air
           - note remove as:statue_<context.location.down[1]>
