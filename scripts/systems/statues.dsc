@@ -66,6 +66,18 @@ statues_events:
         - adjust <entry[statue].spawned_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.item.with[quantity=1]>
         - note <inventory[statues_inventory]> as:statue_<context.relative>
         - inventory adjust d:<inventory[statue_<context.relative>]> slot:1 nbt:entity/<entry[statue].spawned_entity>
+    on player clicks barrier:
+      - if <player.is_sneaking>:
+        - if <inventory[statue_<context.location>]||null> != null:
+          - inventory open d:<inventory[statue_<context.location>].slot[1].nbt[entity].as_entity>
+          - adjust <context.relative> block_type:air
+          - adjust <context.relative.up[1]> block_type:air
+          - note remove as:statue_<context.location>
+        - if <inventory[statue_<context.location.down[1]>]||null> != null:
+          - remove <inventory[statue_<context.location.down[1]>].slot[1].nbt[entity].as_entity>
+          - adjust <context.relative> block_type:air
+          - adjust <context.relative.down[1]> block_type:air
+          - note remove as:statue_<context.location.down[1]>
     on player right clicks barrier:
       - if <inventory[statue_<context.location>]||null> != null:
         - inventory open d:<inventory[statue_<context.location>]>
