@@ -544,3 +544,14 @@ build_item:
         - adjust def:item lore:|:<&9>+<[item].script.yaml_key[armor]><&sp>Armor
     - else:
       - define lore:|:<[item].script.yaml_key[lore].parsed||<list[]>>
+    - if <[item].script.yaml_key[damage]||null> != null:
+      - adjust def:item nbt_attributes:generic.attackDamage/hand/0/<[item].script.yaml_key[damage]>
+    - if <[item].script.yaml_key[attack_speed]||null> != null:
+      - adjust def:item nbt_attributes:attackSpeed/hand/0/<[item].script.yaml_key[attack_speed]>
+    - if <[item].script.yaml_key[fake_durability]||null> != null:
+      - define lore:|:<&f>Durability:<&sp><[item].nbt[durability]||<[item].script.yaml_key[fake_durability]>><&sp>/<&sp><[item].script.yaml_key[fake_durability]>
+    - if <[item].script.yaml_key[contaminated]||null> != null:
+      - adjust def:item nbt:contaminated/<[item].script.yaml_key[contaminated]>
+    - define lore:|:<&8>
+    - define lore:|:<&8>Item<&sp>Weight:<&sp><[item].script.yaml_key[weight]||1>
+    - adjust def:item lore:<[lore]||<list[]>>
