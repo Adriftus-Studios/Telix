@@ -43,6 +43,7 @@ statues_events:
     on player clicks barrier:
       - if <player.is_sneaking>:
         - if <inventory[statue_<context.location>]||null> != null:
+          - narrate <inventory[statue_<context.location>].slot[14]>
           - drop <inventory[statue_<context.location>].slot[14]> <context.location>
           - remove <inventory[statue_<context.location>].slot[1].nbt[entity].as_entity>
           - adjust <context.location> block_type:air
