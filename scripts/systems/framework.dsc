@@ -103,7 +103,6 @@ reload_scripts:
               - if <[value].yaml_key[category]||null> != null:
                   - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
               - if <[value].yaml_key[recipes]||null> != null:
-              
                 - if <[value].yaml_key[recipe_book_category]||null> != null:
                   - foreach <[value].yaml_key[recipe_book_category].as_list> as:cat:
                     - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
@@ -116,7 +115,7 @@ reload_scripts:
                   - yaml id:server.recipe_fixer set restricted.<[value].name>:|:<[value].yaml_key[recipes.<[recipe]>.input]>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
-                      - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
+                      #- yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
                     - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
                     - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
