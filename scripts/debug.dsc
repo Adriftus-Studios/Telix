@@ -27,3 +27,4 @@ debug_command:
   - else:
     - narrate "<&c>Debug Mode disabled for <player.name>"
     - flag <player> debug:true
+
