@@ -301,11 +301,6 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
-      - foreach <context.recipe> as:item:
-        - if <yaml[server.recipe_fixer].read[restricted].contains[<[item].script.name||<[item].material.name>>]>:
-          - narrate <[item]>
-          - determine cancelled
-          - stop
       - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
       - inject build_item
       - determine <[item]>
@@ -488,7 +483,8 @@ build_item:
   type: task
   script:
   - if <[item].material.name> != air:
-    - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>;custom_model_data=<[item].custom_model_data||0>]>
+    - if <item[custom_<[item].material.name>]||null> != null:
+      - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>;custom_model_data=<[item].custom_model_data||0>;nbt=<[item].nbt||<list[]>>;enchantments=<[item].enchantments||<list[]>>;nbt_attributes=<[item].nbt_attributes||<list[]>>]>
     - if <[item].script.yaml_key[category]||null> != null:
       - if <[item].script.yaml_key[max_stars]||null> != null:
         - if <[item].nbt[stars]||null> == null:
