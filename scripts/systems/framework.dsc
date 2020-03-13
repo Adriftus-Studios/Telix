@@ -302,7 +302,7 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
-      - define item:<item[custom_<context.item.material.name>].with[quantity=<context.item.quantity>]>
+      - define item:<context.item>
       - inject build_item
       - determine <[item]>
     on player crafts item:
