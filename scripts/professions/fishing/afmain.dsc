@@ -5,7 +5,6 @@
 #Injecting the YAML keys.
 fishing_reload:
   type: world
-  debug: true
   fish_reload:
       - yaml load:data/af_config.yml id:fish_info
   events:
@@ -18,7 +17,6 @@ fishing_reload:
 
 fishing_inventory_listener:
   type: world
-  debug: true
   events:
     on player clicks in afgui_* priority:10:
       - determine cancelled

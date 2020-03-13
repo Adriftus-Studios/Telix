@@ -116,6 +116,8 @@ reload_scripts:
                     - yaml id:server.recipe_fixer set restricted.shaped.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
                     - yaml id:server.recipe_fixer set restricted.shapeless.<[value].yaml_key[recipes.<[recipe]>.input].as_list.alphabetical.separated_by[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
+                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == furnace:
+                    - yaml id:server.recipe_fixer set restricted.furnace.<[value].yaml_key[recipes.<[recipe]>.input]>:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
