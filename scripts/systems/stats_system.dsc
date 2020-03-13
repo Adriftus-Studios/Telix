@@ -120,9 +120,9 @@ calculate_encumberance_speed:
     - yaml id:player.<player.uuid> set stats.encumberance:<[encumberance]>
     - define speed:<yaml[player.<player.uuid>].read[stats.speed].mul[0.002]>
     - wait 3t
+    - narrate <[encumberance]>
+    - narrate <yaml[player.<player.uuid>].read[stats.weight.max]>
     - if <player.is_online>:
-      - narrate <[encumberance]>
-      - narrate <yaml[player.<player.uuid>].read[stats.weight.max]>
       - if <[encumberance]> >= <yaml[player.<player.uuid>].read[stats.weight.max]>:
         - adjust <player> walk_speed:0.1
       - else:
