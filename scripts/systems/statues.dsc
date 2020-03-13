@@ -27,6 +27,12 @@ custom_statue_creeper_normal:
   statue:
     size: normal
     entity: creeper
+  mob_drops:
+    1:
+      dropped_by: creeper
+      chance: 1
+      max_quantity: 1
+      min_quantity: 1
 
 statues_events:
   type: world
