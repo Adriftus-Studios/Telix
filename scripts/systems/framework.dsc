@@ -112,7 +112,8 @@ reload_scripts:
                   - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
                     #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
-                  - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_]>:<[value].name>
+                  - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list>
+                  - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.]>:<[value].name>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
