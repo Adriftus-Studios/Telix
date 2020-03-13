@@ -108,22 +108,6 @@ survival_stats_thirst_hunger_periodic_drain:
         - yaml id:player.<[value].uuid> set stats.food.current:--
         - yaml id:player.<[value].uuid> set stats.thirst.current:--
 
-survival_stats_weight_events:
-  type: world
-  events:
-    on player picks up item bukkit_priority:HIGHEST:
-      - wait 1t
-      - inject calculate_encumberance_speed
-
-    on player drops item bukkit_priority:HIGHEST:
-      - wait 1t
-      - if <player.health> != 0:
-        - inject calculate_encumberance_speed
-    
-    on player closes inventory bukkit_priority:HIGHEST:
-      - wait 1t
-      - inject calculate_encumberance_speed
-
 survival_stats_food_impact_events:
   type: world
   events:

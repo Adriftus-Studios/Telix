@@ -155,15 +155,22 @@ calculate_contamination:
 contamination_events:
   type: world
   events:
-    on player respawns:
+    on player respawns bukkit_priority:HIGHEST:
       - wait 1t
       - run calculate_contamination def:<player>
-    on player drops item:
+    on player drops item bukkit_priority:HIGHEST:
       - wait 1t
       - run calculate_contamination def:<player>
-    on player picks up item:
+      - inject calculate_encumberance_speed
+    on player picks up item bukkit_priority:HIGHEST:
       - wait 1t
       - run calculate_contamination def:<player>
+      - inject calculate_encumberance_speed
+    on player closes inventory bukkit_priority:HIGHEST:
+      - wait 1t
+      - run calculate_contamination def:<player>
+      - inject calculate_encumberance_speed
+
 
 default_stats:
   type: yaml data
