@@ -307,6 +307,7 @@ custom_item_override:
       - determine <[drops]||<list[]>>
     on item recipe formed:
       - define item:<yaml[server.recipe_fixer].read[restricted.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item>
+      - narrate <[item]>
       - inject build_item
       - determine <[item]>
     on player crafts item:
