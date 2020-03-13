@@ -310,7 +310,7 @@ custom_item_override:
           - define item:<item[<[value]>]>
           - inject build_item
           - determine <[item]>
-        - if <yaml[server.recipe_fixer].read[restricted.shaped.<[value]>].as_list.contains[<context.recipe.parse[script.name].filter[contains_text[_]].alphabetical>]>:
+        - if <yaml[server.recipe_fixer].read[restricted.shapeless.<[value]>].as_list.contains[<context.recipe.parse[script.name].filter[contains_text[_]].alphabetical>]>:
           - define item:<item[<[value]>]>
           - inject build_item
           - determine <[item]>
