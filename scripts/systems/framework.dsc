@@ -303,8 +303,8 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
-      - narrate <context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>
-      - narrate <yaml[server.recipe_fixer].read[restricted.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>]>
+      - narrate <context.recipe.parse[script.name.to_lowercase||air].separated_by[.]>
+      - narrate <yaml[server.recipe_fixer].read[restricted.<context.recipe.parse[script.name.to_lowercase||air].separated_by[.]>]>
       - define item:<context.item>
       - inject build_item
       - determine <[item]>
