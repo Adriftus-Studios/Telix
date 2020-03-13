@@ -5,7 +5,7 @@ statues_inventory:
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
-    rotate_btn: <item[compass].with[display_name=<&c>Rotate<&sp>;lore=<&d>Right/Left<&sp>Click<&sp>to<&sp>rotate<&sp>45<&sp>degrees.]>
+    rotate_btn: <item[compass].with[display_name=<&c>Rotate<&sp>;lore=<&d>Right/Left<&sp>Click<&sp>to<&sp>rotate<&sp>90<&sp>degrees.<&nl><&d>Shift<&sp>Click<&sp>to<&sp>rotate<&sp>22.5<&sp>degrees.]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler] [rotate_btn] [w_filler]"
@@ -95,7 +95,13 @@ statues_events:
         - if <context.raw_slot> == 16:
 
         - if <context.raw_slot> == 17:
-          - if <context.click> == right:
-            - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@45.to_radians>,0]>
-          - if <context.click> == left:
-            - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@-45.to_radians>,0]>
+          - if !<context.is_shift_click>:
+            - if <context.click> == right:
+              - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@90.to_radians>,0]>
+            - if <context.click> == left:
+              - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@-90.to_radians>,0]>
+          - else:
+            - if <context.click> == right:
+              - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@22.5.to_radians>,0]>
+            - if <context.click> == left:
+              - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@-22.5.to_radians>,0]>
