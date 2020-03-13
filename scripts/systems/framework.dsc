@@ -23,6 +23,7 @@ equipment_chest_slot:
     nbt_attributes: generic.armor/chest/0/0
     flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS
 
+
 equipment_leg_slot:
   type: item
   material: iron_nugget
