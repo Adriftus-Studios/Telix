@@ -70,13 +70,13 @@ statues_events:
       - if <player.is_sneaking>:
         - if <inventory[statue_<context.location>]||null> != null:
           - inventory open d:<inventory[statue_<context.location>].slot[1].nbt[entity].as_entity>
-          - adjust <context.relative> block_type:air
-          - adjust <context.relative.up[1]> block_type:air
+          - adjust <context.location> block_type:air
+          - adjust <context.location.up[1]> block_type:air
           - note remove as:statue_<context.location>
         - if <inventory[statue_<context.location.down[1]>]||null> != null:
           - remove <inventory[statue_<context.location.down[1]>].slot[1].nbt[entity].as_entity>
-          - adjust <context.relative> block_type:air
-          - adjust <context.relative.down[1]> block_type:air
+          - adjust <context.location> block_type:air
+          - adjust <context.location.down[1]> block_type:air
           - note remove as:statue_<context.location.down[1]>
     on player right clicks barrier:
       - if <inventory[statue_<context.location>]||null> != null:
