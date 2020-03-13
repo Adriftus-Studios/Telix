@@ -112,8 +112,10 @@ reload_scripts:
                   - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
                     #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
-                  - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>:<[value].name>
-                  - narrate <yaml[server.recipe_fixer].read[restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>]>
+                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped || <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
+                    - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>:<[value].name>
+                    - narrate <[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>
+                    - narrate <yaml[server.recipe_fixer].read[restricted.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[.].replace[|].with[.]>]>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
@@ -302,7 +304,7 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
-      - narrate <context.recipe.parse[script.name.to_lowercase].filter[contains_text[_]].alphabetical>
+      - narrate <context.recipe.parse[script.name.to_lowercase]>
       - stop
       - foreach <yaml[server.recipe_fixer].list_keys[restricted.shaped]>:
         - if <yaml[server.recipe_fixer].read[restricted.shaped.<[value]>].as_list.filter[contains_text[<context.recipe.parse[script.name.to_lowercase||air].separated_by[.]>]].size> != 0:
