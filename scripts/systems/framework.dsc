@@ -117,7 +117,7 @@ reload_scripts:
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
                     - yaml id:server.recipe_fixer set restricted.shapeless.<[value].yaml_key[recipes.<[recipe]>.input].as_list.alphabetical.separated_by[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == furnace:
-                    - yaml id:server.recipe_fixer set restricted.furnace.<[value].yaml_key[recipes.<[recipe]>.input]>:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
+                    - yaml id:server.recipe_fixer set restricted.furnace.<[value].yaml_key[recipes.<[recipe]>.input]>:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]||1>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
@@ -321,6 +321,8 @@ custom_item_override:
       - determine ITEM:<[item]>
     on furnace smelts item:
       - define item:<context.result_item>
+      - if <yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>]||null> != null:
+        - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[2]>]>
       - inject build_item
       - determine <[item]>
     on player picks up item:
