@@ -112,7 +112,7 @@ reload_scripts:
                   - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
                     #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
-                  - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].separated_by[-]>:<[value].name>
+                  - yaml id:server.recipe_fixer set restricted.<[value].yaml_key[recipes.<[recipe]>.input].separated_by[_]>:<[value].name>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
@@ -301,8 +301,8 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
-      - narrate <context.recipe.parse[script.name.to_lowercase||air].separated_by[-]>
-      - narrate <yaml[server.recipe_fixer].read[restricted.<context.recipe.parse[script.name.to_lowercase||air].separated_by[-]>]>
+      - narrate <context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>
+      - narrate <yaml[server.recipe_fixer].read[restricted.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>]>
       - define item:<context.item>
       - inject build_item
       - determine <[item]>
