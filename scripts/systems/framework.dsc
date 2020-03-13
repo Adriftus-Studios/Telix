@@ -554,4 +554,3 @@ build_item:
       - adjust def:item nbt:contaminated/<[item].script.yaml_key[contaminated]>
     - define lore:|:<&8>
     - define lore:|:<&8>Item<&sp>Weight:<&sp><[item].script.yaml_key[weight]||1>
-    - adjust def:item lore:<[lore]||<list[]>>
