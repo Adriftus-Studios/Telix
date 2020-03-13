@@ -108,9 +108,6 @@ reload_scripts:
                     - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
                 - else:
                   - yaml id:server.recipe_book set categories.other:|:<[value].name>
-                - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
-                  - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
-                    - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - foreach <[value].list_keys[recipes]> as:recipe:
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
                     - yaml id:server.recipe_fixer set restricted.shaped.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
@@ -331,6 +328,7 @@ custom_item_override:
         - inject build_item
         - determine ITEM:<[item]>
     on player clicks in inventory:
+      - narrate <player.open_inventory>
       - if !<context.cursor_item.has_nbt[built]> && <context.cursor_item.material.name> != air:
         - define item:<context.cursor_item>
         - inject build_item
