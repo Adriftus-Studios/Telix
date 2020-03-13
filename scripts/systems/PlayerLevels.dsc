@@ -2,6 +2,7 @@ playerLevel_GiveXP:
   type: task
   definitions: xp
   script:
+    - announce <queue>
     - if <server.has_flag[global_xp_multiplier]>:
       - define xp:<[xp].mul[<server.flag[global_xp_multiplier]>]>
     - define preXP:<yaml[player.<player.uuid>].read[stats.xp]>
@@ -14,7 +15,6 @@ playerLevel_GiveXP:
 playerLevel_showXP:
   type: task
   script:
-    - announce <queue>
     - adjust <player> fake_experience:<yaml[player.<player.uuid>].read[stats.xp]./[100]>|<yaml[player.<player.uuid>].read[lessons.current]>
 
 playerLevel_levelUp:
