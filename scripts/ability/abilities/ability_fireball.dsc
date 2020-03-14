@@ -14,14 +14,14 @@ ability_fireball:
     #Definitions
     - inject abilities_check
     - inject abilities_cost
-    - shoot fireball d:<player.location.cursor_on> speed:2 height:0 shooter:<player> script:ability_fireball_script
+    - shoot fireball d:<player.location.cursor_on> speed:2.25 height:0 shooter:<player> script:ability_fireball_script
     
 ability_fireball_script:
   type: task
   debug: true
   script:
     - define hit:<[hit_entities].get[1].location||<[location]>>
-    - foreach <[hit].above.find.entities.within[3].exclude[<player>]>:
+    - foreach <[hit].above.find.entities.within[3.5].exclude[<player>]>:
       - hurt <[value].location.distance[<[hit]>].*[1.25].round_to[1]> <[value]>
       - adjust <[value]> velocity:0,1,0
     - playeffect explosion_large at:<[hit]> quantity:1 visibility:50
