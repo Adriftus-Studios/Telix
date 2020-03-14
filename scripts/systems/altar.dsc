@@ -21,27 +21,27 @@ altar_timer:
     custom_model_data: -5
   display name: <&7>Not Imbuing
 
-altar_tier_I:
+altar_tier_2:
   type: item
   material: obsidian
   display name: <&b>Altar I
 
-altar_tier_II:
+altar_tier_2:
   type: item
   material: obsidian
   display name: <&b>Altar II
 
-altar_tier_III:
+altar_tier_3:
   type: item
   material: obsidian
   display name: <&b>Altar III
 
-altar_tier_IV:
+altar_tier_4:
   type: item
   material: obsidian
   display name: <&b>Altar IV
 
-altar_tier_V:
+altar_tier_5:
   type: item
   material: obsidian
   display name: <&b>Altar V
@@ -56,6 +56,7 @@ altar_events:
           - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
           - if <[inventory].slot[27].script.name> == altar_timer:
             - define clock:<[inventory].slot[27]>
+          - narrate <[inventory].slot[1].nbt[tier]>
             # get the contents of all input slots
           - foreach <[slotmap]> as:slot:
             - if <[slot].split[/].get[2].starts_with[in]>:
@@ -157,9 +158,10 @@ altar_events:
       - if <context.location.notable_name.starts_with[altar_]>:
         - define loc:<context.location.notable_name.split[_].get[2]>
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
-        - adjust def:inv title:"<&6>◆ <&a><&n><&l>Altar <[tier]><&r> <&6>◆"
+        - adjust def:inv title:"<&6>◆ <&a><&n><&l>Altar Tier <[tier]><&r> <&6>◆"
         - if !<server.list_notables[inventories].contains[altar_<player.uuid>_<[tier]>]>:
-          - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
+          - inventory set d:<[inv]> slot:1 o:<item[altar_<[tier]>].with[nbt=tier/<[tier]>]>
+          - note <[inv]> as:altar_<player.uuid>_<[tier]>
         - inventory open d:<inventory[altar_<player.uuid>_<[tier]>]>
     on player drags in altar_inventory:
       - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
