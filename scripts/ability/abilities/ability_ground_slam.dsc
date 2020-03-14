@@ -23,7 +23,7 @@ ability_ground_slam:
       - playeffect crit at:<[value].location> quantity:10 targets:<[value]>
       - cast slow <[value]> duration:5s power:255
       - flag <[value]> no_jump:true duration:5s
-    - playeffect flash at:<player.location> quantity:1 visibility:20 targets:<server.list_online_players>
+    - playeffect flash at:<player.location> quantity:1 visibility:50
     - cast slow <player> duration:15t power:6
   script:
     #/ex teleport <[value]> <[value].location.with_pitch[0]>
