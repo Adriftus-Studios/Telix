@@ -72,10 +72,14 @@ citadel_events:
     on player places block:
       - if <player.has_flag[citadel_build_mode]>:
         - define item:<player.flag[citadel_build_mode].as_item>
-        - if <[item].script.yaml_key[block_reinforcement_strength]||null> != null:
-
+        - if <[item].script.yaml_key[block_reinforcement_strength]||null> != null || <player.inventory.find.scriptname[<[item].script.name>]> == -1:
+          - inventory set d:<player.inventory> slot:<player.inventory.find.scriptname[<[item].script.name>]> o:<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].with[quantity=<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].quantity.sub[1]>]>
+          - if <player.inventory.find.scriptname[<[item].script.name>]> == -1:
+            - flag <player> citadel_build_mode:!
+            - narrate "<&b>You have ran out of reinforcement material."
         - else:
           - flag <player> citadel_build_mode:!
+          - narrate "<&b>You have ran out of reinforcement material."
     on player right clicks block:
       - if <context.item.script.yaml_key[block_reinforcement_strength]||null> != null:
         - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]>:
