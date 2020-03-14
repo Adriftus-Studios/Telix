@@ -50,7 +50,8 @@ entity_boomboom:
       - narrate testt
     events:
       on attacked:
-        - narrate <[entity]>
+        - explode power:5 <[entity].location> fire breakblocks
+        
         
 
 entity_direwolf:
