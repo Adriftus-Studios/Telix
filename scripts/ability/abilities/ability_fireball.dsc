@@ -11,10 +11,9 @@ ability_fireball:
     material: stone
     custom_model_data: 1
   script:
-    #Definitions
     - inject abilities_check
     - inject abilities_cost
-    - shoot fireball d:<player.location.cursor_on> speed:2.25 height:0 shooter:<player> script:ability_fireball_script
+    - shoot fireball d:<player.location.cursor_on> speed:2.20 height:0 shooter:<player> script:ability_fireball_script
     
 ability_fireball_script:
   type: task
