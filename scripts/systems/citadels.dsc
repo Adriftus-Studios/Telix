@@ -1,5 +1,6 @@
 citadel_events:
   type: world
+  debug: false
   events:
     on player clicks block with *_lock:
       - wait 1t
