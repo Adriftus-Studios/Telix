@@ -54,6 +54,29 @@ equipment_boots_slot:
   lore:
   - "<&e>Click to open your skills and abilities menu."
 
+delwarp_command:
+  type: command
+  name: delwarp
+  permission: delwarp
+  script:
+    - if <server.list_notables[locations].contains[warp_<context.args.get[1]>]>:
+      - note remove as:warp_<context.args.get[1]>
+
+warp_command:
+  type: command
+  name: warp
+    - determine <server.list_notables[locations].filter[starts_with[warp_]].parse[replace[warp_].with[]]>
+  script:
+    - if <server.list_notables[locations].contains[warp_<context.args.get[1]>]>:
+      - teleport <server.match_player[<context.args.get[2]>]||<player>> <location[warp_<context.args.get[1]>]>
+
+setwarp_command:
+  type: command
+  name: setwarp
+  permission: setwarp
+  script:
+    - note <player.location> as:warp_<context.args.get[1]>
+
 reload_scripts:
     type: world
     reload:
