@@ -14,7 +14,7 @@ ability_crimson_blast:
     - inject abilities_check
     - inject abilities_cost
     #Definitions
-    - define min:0.5
+    - define min:0.25
     - define max:2
     - define power:<player.location.cursor_on.distance[<player.location>].round_to[1]>
     - if <[power]> < <[min]>:
@@ -22,5 +22,5 @@ ability_crimson_blast:
     - else if <[power]> > <[max]>:
       - define power:<[max]>
     - narrate <[power]>
-    - explode <player.location.cursor_on.above> power:<[power]>
+    - explode <player.location.cursor_on.backward> power:<[power]>
     - narrate "Planned ability tree: Nether"
