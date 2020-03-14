@@ -14,7 +14,7 @@ ability_crimson_blast:
     - inject abilities_cost
     #Definitions
     - define min:0.5
-    - define max:3
+    - define max:2
     - define power:<player.location.cursor_on.distance[<player.location>].round_to[1]>
     - narrate <[power]>
     - if <[power]> < <[min]>:
