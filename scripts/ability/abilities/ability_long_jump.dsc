@@ -5,7 +5,7 @@ ability_long_jump:
   ability_type: passive
   points_to_unlock: 10
   power_cost: 10
-  description: Clear greater gaps using a long jump.|Sprint + Sneak + Jump
+  description: Clear greater gaps using a long jump.| Sprint + Sneak + Jump
   icon:
     material: stone
     custom_model_data: 1
