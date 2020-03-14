@@ -13,7 +13,7 @@ ability_crimson_blast:
   script:
     #Definitions
     - define min:0.5
-    - define max:2
+    - define max:2.5
     - define target:<player.location.cursor_on>
     - define power:<player.location.cursor_on.distance[<player.location>].round_to[1]>
     - if <[target].distance[<player.location>]> > 50 || <[target].material.name> == air:
@@ -25,7 +25,4 @@ ability_crimson_blast:
       - define power:<[min]>
     - else if <[power]> > <[max]>:
       - define power:<[max]>
-    #- narrate <[target]>
-    #- narrate <[power]>
     - explode <[target].backward> power:<[power]>
-    - narrate "Planned ability tree: Nether"
