@@ -120,8 +120,8 @@ abilities_characterAbilities_events:
         - if <context.item.has_nbt[skillname]>:
           - define inventory:<inventory[abilityTree_inventory]>
           - adjust def:inventory title:<context.item.nbt[skillname].to_titlecase>
-          - foreach <yaml[server.skills_by_level].list_keys[<context.item.nbt[skillname]>].numerical> as:skilllevel:
-            - foreach <yaml[server.skills_by_level].read[<context.item.nbt[skillname]>.<[skilllevel]>].alphabetical> as:ability:
+          - foreach <yaml[server.skills_by_level].list_keys[<context.item.nbt[skillname]>].numerical||<list[]>> as:skilllevel:
+            - foreach <yaml[server.skills_by_level].read[<context.item.nbt[skillname]>.<[skilllevel]>].alphabetical||<list[]>> as:ability:
               - if <yaml[player.<player.uuid>].read[skills.<context.item.nbt[skillname]>.current]> < <[skilllevel]>:
                 - inventory add d:<[inventory]> o:<item[abilities_item].with[material=barrier;display_name=<&4>Locked<&sp><&r><[ability].replace[_].with[<&sp>].to_titlecase>;lore=<&c>Required<&sp>Level:<&sp><[skilllevel]>|<&b><script[ability_<[ability]>].yaml_key[description]>]>
               - else:
