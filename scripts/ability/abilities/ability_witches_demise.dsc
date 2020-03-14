@@ -4,7 +4,7 @@ ability_witches_demise:
   ability_tree: Test
   ability_type: active
   range: 20
-  points_to_unlock: 10
+  points_to_unlock: 1000
   power_cost: 10
   description: Test Skill 1
   icon:
