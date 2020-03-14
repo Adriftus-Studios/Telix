@@ -25,6 +25,7 @@ entity_drowned:
 
 entity_boomboom:
   type: entity
+  definitions: entity
   entity_type: cow
   custom_name: BoomBoom
   custom:
@@ -48,8 +49,9 @@ entity_boomboom:
     ability_usage:
       - narrate testt
     events:
-      on attack:
-        - narrate 1
+      on attacked:
+        - narrate <[entity]>
+        
 
 entity_direwolf:
   type: entity
