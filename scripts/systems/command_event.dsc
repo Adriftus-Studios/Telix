@@ -14,31 +14,31 @@ event_command:
     - if <[duration].formatted> == 1d:
       - define value:1_Day
     - else:
-      - define value:<[duration].in_days.round>_Days
+      - define value:<[duration].in_days.round><&sp>Days
   - else if <[duration].formatted.ends_with[h]>:
     - if <[duration].formatted> == 1h:
       - define value:1_Hour
     - else:
-      - define value:<[duration].in_hours.round>_Hours
+      - define value:<[duration].in_hours.round><&sp>Hours
   - else if <[duration].formatted.ends_with[m]>:
     - if <[duration].formatted> == 1m:
       - define value:1_Minute
     - else:
-      - define value:<[duration].in_minutes.round>_Minutes
+      - define value:<[duration].in_minutes.round><&sp>Minutes
   - else if <[duration].formatted.ends_with[s]>:
     - if <[duration].formatted> == 1s:
       - define value:1_Second
     - else:
-      - define value:<[duration].in_seconds.round>_Seconds
+      - define value:<[duration].in_seconds.round><&sp>Seconds
   - else:
     - narrate no
     - stop
   - if <context.args.get[1]> == xp:
     - flag server global_xp_multiplier:<context.args.get[2]> duration:<[duration]>
-    - announce "<&6><&l><player.name||Console><&r><&6> has activated <context.args.get[2]>X XP for <[value].replace[_].with[<&sp>]>!"
+    - announce "<&6><&l><player.name||Console><&r><&6> has activated <context.args.get[2]>X XP for <[value]>!"
   - if <context.args.get[1]> == mob:
     - flag server global_mob_drop_multiplier:<context.args.get[2]> duration:<[duration]>
-    - announce "<&6><&l><player.name||Console><&r><&6> has activated <context.args.get[2]>X Mob Drops for <[value].replace[_].with[<&sp>]>!"
+    - announce "<&6><&l><player.name||Console><&r><&6> has activated <context.args.get[2]>X Mob Drops for <[value]>!"
   - if <context.args.get[1]> == ore:
     - flag server double_ore_drops:<context.args.get[2]> duration:<[duration]>
-    - announce "<&6><&l><player.name||Console><&r><&6> has activated Double Ores for <[value].replace[_].with[<&sp>]>!"
+    - announce "<&6><&l><player.name||Console><&r><&6> has activated Double Ores for <[value]>!"
