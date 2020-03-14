@@ -27,5 +27,5 @@ ability_crimson_blast:
       - define power:<[max]>
     #- narrate <[target]>
     #- narrate <[power]>
-    - explode <[target]> power:<[power]>
+    - explode <[target].backward> power:<[power]>
     - narrate "Planned ability tree: Nether"
