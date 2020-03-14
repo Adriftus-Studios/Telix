@@ -22,6 +22,8 @@ ability_crimson_blast:
       - define target:<player.location.cursor_on.backward>
     - else if <[target]> == <player>:
       - define target:<player.location.cursor_on.backward>
+    - else:
+      - define target:<[target].location>
     - if <[power]> < <[min]>:
       - define power:<[min]>
     - else if <[power]> > <[max]>:
