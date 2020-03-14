@@ -19,7 +19,8 @@ ability_fireball_script:
   type: task
   debug: true
   script:
-    - foreach <[location].above.find.entities.within[3]>:
-      - hurt <[value].location.distance[<[location]>].*[1.25].round_to[1]> <[value]>
+    - define hit:<[hit_entities].get[1].location||<[location]>>
+    - foreach <[hit].above.find.entities.within[3]>:
+      - hurt <[value].location.distance[<[hit]>].*[1.25].round_to[1]> <[value]>
       - adjust <[value]> velocity:0,1,0
-    - playeffect explosion_large at:<[location]> quantity:1 visibility:50
+    - playeffect explosion_large at:<[hit]> quantity:1 visibility:50
