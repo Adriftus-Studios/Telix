@@ -69,7 +69,7 @@ warp_command:
     - determine <server.list_notables[locations].filter[starts_with[warp_]].parse[replace[warp_].with[]]||<list[]>>
   script:
     - if <server.list_notables[locations].contains[warp_<context.args.get[1]>]>:
-      - teleport <server.match_player[<context.args.get[2]>]||<player>> <location[warp_<context.args.get[1]>]>
+      - teleport <location[warp_<context.args.get[1]>]>
 
 setwarp_command:
   type: command
