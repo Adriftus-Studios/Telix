@@ -14,22 +14,22 @@ event_command:
     - if <[duration].formatted> == 1d:
       - define value:1_Day
     - else:
-      - define value:<[duration].in_days.round><&sp>Days
+      - define value:<[duration].in_days><&sp>Days
   - else if <[duration].formatted.ends_with[h]>:
     - if <[duration].formatted> == 1h:
       - define value:1_Hour
     - else:
-      - define value:<[duration].in_hours.round><&sp>Hours
+      - define value:<[duration].in_hours><&sp>Hours
   - else if <[duration].formatted.ends_with[m]>:
     - if <[duration].formatted> == 1m:
       - define value:1_Minute
     - else:
-      - define value:<[duration].in_minutes.round><&sp>Minutes
+      - define value:<[duration].in_minutes><&sp>Minutes
   - else if <[duration].formatted.ends_with[s]>:
     - if <[duration].formatted> == 1s:
       - define value:1_Second
     - else:
-      - define value:<[duration].in_seconds.round><&sp>Seconds
+      - define value:<[duration].in_seconds><&sp>Seconds
   - else:
     - narrate no
     - stop
