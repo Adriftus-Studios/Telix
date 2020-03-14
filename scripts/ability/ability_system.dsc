@@ -86,6 +86,7 @@ abilityTree_inventory_events:
   type: world
   events:
     on player clicks item in abilityTree_inventory:
+      - narrate <context.item.script.name>
       - if <context.raw_slot> < 46:
         - determine passively cancelled
         - if <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_type]||nope> == active:
