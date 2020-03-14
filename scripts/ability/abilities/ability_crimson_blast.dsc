@@ -14,9 +14,9 @@ ability_crimson_blast:
     #Definitions
     - define min:0.5
     - define max:2
-    - define target:<player.location.cursor_on.backward>
+    - define target:<player.location.cursor_on>
     - define power:<player.location.cursor_on.distance[<player.location>].round_to[1]>
-    - if <[target].distance[<player.location>]> > 50:
+    - if <[target].distance[<player.location>]> > 50 || <[target].material.name> == air:
       - narrate "<&e>Your target is too far away!"
       - stop
     - inject abilities_check
