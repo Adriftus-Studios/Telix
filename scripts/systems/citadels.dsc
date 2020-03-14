@@ -8,8 +8,16 @@ citadel_events:
         - if !<server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>:
           - run lock_door def:<player>|<context.location>|<context.item.script.yaml_key[lock_strength]>
           - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
+          - narrate "<&7><&o>Click..."
         - else:
           - narrate "<&c>That door is already locked."
+      - if <context.location.inventory||null> != null:
+        - if !<server.list_files[DONT_PUT_SHIT_IN_HERE/locked_containers].contains[<context.location.simple>.yml]>:
+          - run lock_container def:<player>|<context.location>|<context.item.script.yaml_key[lock_strength]>
+          - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
+          - narrate "<&7><&o>Click..."
+        - else:
+          - narrate "<&c>That container is already locked."
     on delta time secondly every:1:
       # unload timer
       - foreach <server.list_flags.filter[starts_with[unload_timer.]]>:
@@ -74,6 +82,7 @@ citadel_events:
         - define item:<player.flag[citadel_build_mode].as_item>
         - if <[item].script.yaml_key[block_reinforcement_strength]||null> != null || <player.inventory.find.scriptname[<[item].script.name>]> == -1:
           - inventory set d:<player.inventory> slot:<player.inventory.find.scriptname[<[item].script.name>]> o:<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].with[quantity=<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].quantity.sub[1]>]>
+          - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
           - if <player.inventory.find.scriptname[<[item].script.name>]> == -1:
             - flag <player> citadel_build_mode:!
             - narrate "<&b>You have ran out of reinforcement material."
@@ -97,6 +106,8 @@ citadel_build_mode_command:
   name: citadelbuildmode
   aliases:
   - "cbm"
+  tab complete:
+    - narrate s:<context.args.get[<context.args.size>]>
   script:
     - if <player.item_in_hand.script.yaml_key[block_reinforcement_strength]>
       - flag <player> citadel_build_mode:<player.item_in_hand.script.name>
@@ -146,6 +157,21 @@ reinforce_block:
   - yaml id:reinforced_block_<[location].simple> set owner:<[player]>
   - yaml id:reinforced_block_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[location].simple>.yml
   - flag server unload_timer.reinforced_block_<[location].simple> duration:10s
+
+lock_container:
+  type: task
+  definitions: player|location|strength
+  script:
+  - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_container].contains[<[location].simple>.yml]>:
+    - if !<yaml.list.contains[locked_container_<[location].simple>]>:
+      - yaml load:DONT_PUT_SHIT_IN_HERE/locked_container/<[location].simple>.yml id:locked_container_<[location].simple>
+  - else:
+    - yaml id:locked_container_<[location].simple> create
+  - yaml id:locked_container_<[location].simple> create
+  - yaml id:locked_container_<[location].simple> set strength:<[strength]>
+  - yaml id:locked_container_<[location].simple> set owner:<[player]>
+  - yaml id:locked_container_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_container/<[location].simple>.yml
+  - flag server unload_timer.locked_container_<[location].simple> duration:10s
 
 lock_door:
   type: task
