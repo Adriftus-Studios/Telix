@@ -15,7 +15,6 @@ telix_creator_codes:
   type: yaml data
   #Codes below
   whatreva:
-    display: Whatreva
     uuid: 0d239973-934b-44fc-8444-d6250a098150
     twitch: whatreva
     youtube: channel/UC5tP5kP3P9yR5Rs_0OUV4Hw
