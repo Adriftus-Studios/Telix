@@ -21,4 +21,4 @@ ability_fireball_script:
   script:
     - foreach <[location].above.find.entities.within[3]>:
       - adjust <[value]> velocity:0,1,0
-    - playeffect explosion_huge at:<[location]> quantity:1 visibility:50
+    - playeffect explosion_large at:<[location]> quantity:1 visibility:50
