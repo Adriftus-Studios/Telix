@@ -50,6 +50,7 @@ entity_boomboom:
       on attacked:
         - wait 1t
         - if <[entity].health> > 0:
+          - hurt 1 <player> source:<[entity]>
           - explode power:5 <[entity].location> fire breakblocks
         
 entity_direwolf:
