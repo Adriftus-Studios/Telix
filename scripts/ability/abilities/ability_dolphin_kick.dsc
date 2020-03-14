@@ -5,7 +5,7 @@ ability_dolphin_kick:
   ability_type: passive
   points_to_unlock: 20
   power_cost: 10
-  description: Perform a fast kick while swimming to speed up.|Underwater > Swimming + Sneak
+  description: Perform a fast kick while swimming to speed up.|  Underwater > Swimming + Sneak
   icon:
     material: iron_nugget
     custom_model_data: 8
