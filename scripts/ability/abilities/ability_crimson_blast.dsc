@@ -5,7 +5,8 @@ ability_crimson_blast:
   ability_type: active
   points_to_unlock: 0
   power_cost: 1
-  description: Cast an explosion targeting your mouse location.|Power increases as the target distance increases.
+  description: Cast an explosion targeting your mouse location.
+  usage: Power increases as the target distance increases.
   icon:
     material: stone
     custom_model_data: 1
