@@ -12,7 +12,7 @@ command_code:
     - narrate "<&2><&n>Telix Codes"
     - narrate "<&a>Support your favourite Telix Creators by entering their creator code once a week!"
     - narrate "<&a>Entering a creator's code shows support for their content."
-    - narrate "<&6>How do I get a Telix code? <&a>You already have one, <&b><player.name>!"
+    - narrate "<&6>How do I get a Telix code? <&e>You already have one, <&b><player.name>!"
     - narrate "<&6>Are you a creator? <&e>Type <&a>/code join <&e>for more information."
   join:
     - narrate "<&2><&n>Telix Creators - Affiliate Program"
