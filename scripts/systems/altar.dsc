@@ -157,11 +157,11 @@ altar_events:
       - if <context.location.notable_name.starts_with[altar_]>:
         - define loc:<context.location.notable_name.split[_].get[2]>
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
-        - define inv:<inventory[altar_inventory]>
-        - adjust def:inv title:"<&6>◆ <&a><&n><&l>Altar Tier <[tier]><&r> <&6>◆"
         - if !<server.list_notables[inventories].contains[altar_<player.uuid>_<[tier]>]>:
-          - inventory set d:<[inv]> slot:1 o:<item[altar_<[tier]>].with[nbt=tier/<[tier]>]>
-          - note <[inv]> as:altar_<player.uuid>_<[tier]>
+          - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
+        - define inv:<inventory[altar_<player.uuid>_<[tier]>]>
+        - inventory set d:<[inv]> slot:1 o:<item[altar_<[tier]>].with[nbt=tier/<[tier]>]>
+        - adjust def:inv title:"<&6>◆ <&a><&n><&l>Altar Tier <[tier]><&r> <&6>◆"
         - inventory open d:<inventory[altar_<player.uuid>_<[tier]>]>
     on player drags in altar_inventory:
       - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
