@@ -25,4 +25,6 @@ ability_crimson_blast:
       - define power:<[min]>
     - else if <[power]> > <[max]>:
       - define power:<[max]>
-    - explode <[target].backward> power:<[power]>
+    - foreach <[target].backward.find.entities.within[<[power]>]>:
+      - hurt <[power].*[1.25]> <[value]>
+    - playeffect explosion_huge at:<[target].backward>
