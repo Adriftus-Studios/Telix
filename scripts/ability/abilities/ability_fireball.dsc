@@ -20,5 +20,6 @@ ability_fireball_script:
   debug: true
   script:
     - foreach <[location].above.find.entities.within[3]>:
+      - hurt <[value].location.distance[<[location]>].*[1.5].round_to[1]> <[value]>
       - adjust <[value]> velocity:0,1,0
     - playeffect explosion_large at:<[location]> quantity:1 visibility:50
