@@ -26,5 +26,5 @@ ability_crimson_blast:
     - else if <[power]> > <[max]>:
       - define power:<[max]>
     - foreach <[target].find.entities.within[<[power]>]>:
-      - hurt <[power].*[1.25]> <[value]>
-    - playeffect explosion_huge at:<[target].backward>
+      - hurt <[power].*[1.25].round_down> <[value]>
+    - playeffect explosion_huge at:<[target]> quantity:<[power].round_up>
