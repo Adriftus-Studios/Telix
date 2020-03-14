@@ -95,7 +95,7 @@ abilityTree_inventory_events:
 abilities_GUIitem_buildLore:
   type: task
   script:
-    - define "lore:!|:<&e>-------------------------"
+    - define "lore:|:<&e>-------------------------"
     - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
     - define "lore:|:<&a>Ability Type<&co> <script[ability_<[ability]>].yaml_key[ability_type].to_titlecase>"
     - if <script[ability_<[ability]>]>].yaml_key[ability_type]> == command:
@@ -122,7 +122,7 @@ abilities_characterAbilities_events:
             - foreach <yaml[server.skills_by_level].read[<context.item.nbt[skillname]>.<[skilllevel]>].alphabetical> as:ability:
               - if <yaml[player.<player.uuid>].read[skills.<context.item.nbt[skillname]>.current]> < <[skilllevel]>:
                 - inject abilities_GUIitem_buildLore
-                - inventory add d:<[inventory]> o:<item[abilities_item].with[material=barrier;display_name=<[ability].replace[_].with[<&sp>].to_titlecase><&sp><&4>Locked;lore=<&c>Required<&sp>Level:<&sp><[skilllevel]><&nl><[lore]>]>
+                - inventory add d:<[inventory]> o:<item[abilities_item].with[material=barrier;display_name=<[ability].replace[_].with[<&sp>].to_titlecase><&sp><&4>Locked;lore=<&c>Required<&sp>Level:<&sp><[skilllevel]>|<[lore]>]>
               - else:
                 - inject abilities_GUIitem_buildLore
                 - inventory add d:<[inventory]> o:<item[abilities_item].with[material=<script[ability_<[ability]>].yaml_key[icon.material]>;custom_model_data=<script[ability_<[ability]>].yaml_key[icon.custom_model_data]>;display_name=<[ability].replace[_].with[<&sp>].to_titlecase>;lore=<[lore]>;nbt=skillname/<[ability]>]>
