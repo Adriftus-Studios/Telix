@@ -22,5 +22,5 @@ ability_crimson_blast:
     - else if <[power]> > <[max]>:
       - define power:<[max]>
     - narrate <[power]>
-    - explode <player.location.cursor_on.backward> power:<[power]>
+    - explode <player.target||<player.location.cursor_on.backward>> power:<[power]>
     - narrate "Planned ability tree: Nether"
