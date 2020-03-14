@@ -56,7 +56,9 @@ altar_events:
           - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
           - if <[inventory].slot[27].script.name> == altar_timer:
             - define clock:<[inventory].slot[27]>
-          - define tier:<[inventory].slot[1].nbt[tier]>
+          - define tier:<[inventory].slot[1].nbt[tier]||0>
+          - if <[tier]> == 0:
+            - foreach next
             # get the contents of all input slots
           - foreach <[slotmap]> as:slot:
             - if <[slot].split[/].get[2].starts_with[in]>:

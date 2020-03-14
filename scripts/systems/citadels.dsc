@@ -90,13 +90,22 @@ citadel_events:
 
 citadel_build_mode_command:
   type: command
-  name: citadel_build_mode
+  name: citadelbuildmode
   aliases:
   - "cbm"
   script:
-    - narrate 1
+    - if <player.item_in_hand.script.yaml_key[block_reinforcement_strength]>
+      - flag <player> citadel_build_mode:<player.item_in_hand.script.name>
+      - narrate "<&b>You have entered Citadel Build Mode with <player.item_in_hand.script.yaml_key[display<&sp>name].parsed>."
+    - else:
+      - narrate "<&b>That item cannot be used to reinforce blocks."
 
   
+custom_citadel_test_item:
+  type: item
+  material: diamond
+  block_reinforcement_strength: 10
+
 get_citadel_durability:
   type: proc
   definitions: location
@@ -150,11 +159,6 @@ lock_door:
   - yaml id:locked_door_<[location].simple> set owner:<[player]>
   - yaml id:locked_door_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml
   - flag server unload_timer.locked_door_<[location].simple> duration:10s
-
-custom_citadel_test_item:
-  type: item
-  material: diamond
-  block_reinforcement_strength: 10
 
 custom_iron_lock:
   type: item
