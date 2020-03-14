@@ -1,5 +1,6 @@
 ability_fireball:
   type: task
+  debug: false
   name: fireball
   ability_tree: Test
   ability_type: active
