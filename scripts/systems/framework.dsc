@@ -65,7 +65,8 @@ delwarp_command:
 warp_command:
   type: command
   name: warp
-    - determine <server.list_notables[locations].filter[starts_with[warp_]].parse[replace[warp_].with[]]>
+  tab complete:
+    - determine <server.list_notables[locations].filter[starts_with[warp_]].parse[replace[warp_].with[]]||<list[]>>
   script:
     - if <server.list_notables[locations].contains[warp_<context.args.get[1]>]>:
       - teleport <server.match_player[<context.args.get[2]>]||<player>> <location[warp_<context.args.get[1]>]>
