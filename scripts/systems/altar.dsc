@@ -155,6 +155,7 @@ altar_events:
           - drop <item[altar_<[tier]>]> <context.location>
     on player clicks obsidian:
       - if <context.location.notable_name.starts_with[altar_]>:
+        - narrate 1
         - define loc:<context.location.notable_name.split[_].get[2]>
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
         - if !<server.list_notables[inventories].contains[altar_<player.uuid>_<[tier]>]>:
