@@ -59,6 +59,8 @@ altar_events:
           - define tier:<[inventory].slot[1].nbt[tier]||0>
           - if <[tier]> == 0:
             - foreach next
+          - if <[inventory].slot[3|5|7|21|23|25|39|41|43].deduplicate.exclude[<item[air]>].size> == 0:
+            - note remove  as:<[inventory]>
             # get the contents of all input slots
           - foreach <[slotmap]> as:slot:
             - if <[slot].split[/].get[2].starts_with[in]>:
