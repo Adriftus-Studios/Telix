@@ -14,8 +14,8 @@ ability_crimson_blast:
     - inject abilities_cost
     #/ex explode <player.location.cursor_on.above> power:<player.location.cursor_on.distance[<player.location>].round_to[1]>
     - define power:<player.location.cursor_on.distance[<player.location>].round_to[1]>
-    - if <[power]> < 1:
-      - define power:1
+    - if <[power]> < 2:
+      - define power:2
     - else if <[power]> > 5:
       - define power:5
     - explode explode <player.location.cursor_on.backward> power:<[power]>
