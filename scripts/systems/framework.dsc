@@ -67,8 +67,10 @@ warp_command:
   name: warp
   permission: warp
   tab complete:
-    - if <context.args.size> == 0 || <context.args.size> == 1:
+    - if <context.args.size> == 0:
       - determine <server.list_notables[locations].parse[notable_name].filter[starts_with[warp_]].parse[replace[warp_].with[]]||<list[]>>
+    - else if <context.args.size> == 1:
+      - determine <server.list_notables[locations].parse[notable_name].filter[starts_with[warp_]].parse[replace[warp_].with[]].filter[starts_with[<context.args.get[1]>]]||<list[]>>
     - else:
       - determine <server.list_online_players.parse[name]>
   script:
