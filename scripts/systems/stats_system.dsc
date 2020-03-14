@@ -3,6 +3,7 @@ update_stats_command:
   name: update_stats
   permission: update_stats
   script:
+    - adjust <queue> linked_player:<server.match_player[<context.args.get[1]>]||<player>>
     - inject update_stats
 
 update_stats:
@@ -15,6 +16,7 @@ update_stats:
     - inject calculate_base_stats
     - inject calculate_weight_equipment_stats
     - inject calculate_encumberance_speed
+    - inject calculate_contamination
 
 stats_setup:
   type: task
@@ -97,7 +99,6 @@ calculate_weight_equipment_stats:
     - adjust <player> health:20
     - adjust <player> max_health:<yaml[player.<player.uuid>].read[stats.health.max]>
     - adjust <player> health:<yaml[player.<player.uuid>].read[stats.health.max]>
-    - run calculate_contamination def:<player>
 
 calculate_encumberance_speed:
   type: task
