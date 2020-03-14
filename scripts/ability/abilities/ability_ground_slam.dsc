@@ -10,7 +10,7 @@ ability_ground_slam:
     material: stone
     custom_model_data: 1
   explosion:
-    - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:20 targets:<server.list_online_players>
+    - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:50
     - flag player no_jump:true duration:1s
     - foreach <player.location.find.players.within[5].exclude[<player>]>:
       - look <[value]> <player.location>
