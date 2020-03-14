@@ -21,27 +21,27 @@ altar_timer:
     custom_model_data: -5
   display name: <&7>Not Imbuing
 
-altar_tier_1:
+altar_tier_I:
   type: item
   material: obsidian
   display name: <&b>Altar I
 
-altar_tier_2:
+altar_tier_II:
   type: item
   material: obsidian
   display name: <&b>Altar II
 
-altar_tier_3:
+altar_tier_III:
   type: item
   material: obsidian
   display name: <&b>Altar III
 
-altar_tier_4:
+altar_tier_IV:
   type: item
   material: obsidian
   display name: <&b>Altar IV
 
-altar_tier_5:
+altar_tier_V:
   type: item
   material: obsidian
   display name: <&b>Altar V
@@ -153,7 +153,8 @@ altar_events:
       - if <context.location.notable_name.starts_with[altar_]>:
         - define loc:<context.location.notable_name.split[_].get[2]>
         - define tier:<context.location.notable_name.split[_].get[3]>
-        - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
+        - define inv:<inventory[altar_inventory]>
+        - adjust def:inv title:"<&6>◆ <&a><&n><&l>Altar <[tier]><&r> <&6>◆"
         - if <server.list_notables[inventories].contains[altar_<player.uuid>_<[tier]>]>
           - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
         - inventory open:<inventory[altar_<player.uuid>_<[tier]>]>
