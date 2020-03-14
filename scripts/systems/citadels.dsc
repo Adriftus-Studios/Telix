@@ -111,12 +111,14 @@ citadel_build_mode_command:
       - determine <list[self|guild|group]>
   script:
     - if <player.item_in_hand.script.yaml_key[block_reinforcement_strength]||null> != null:
+      - flag <player> citadel_build_mode:!
       - flag <player> citadel_build_mode:<player.item_in_hand.script.name>
-      - narrate "<&b>You have entered Citadel Build Mode with <player.item_in_hand.script.yaml_key[display<&sp>name].parsed||<player.item_in_hand.material.name.substring[1,1]><player.item_in_hand.material.name.substring[2]>>."
+      - narrate "<&b>You have entered Citadel Build Mode with <player.item_in_hand.script.yaml_key[display<&sp>name].parsed||<player.item_in_hand.material.name.substring[1,1].to_uppercase><player.item_in_hand.material.name.substring[2]>>."
+      - waituntil !<player.has_flag[citadel_build_mode]>
+      - narrate something
     - else:
       - narrate "<&b>That item cannot be used to reinforce blocks."
 
-  
 custom_citadel_test_item:
   type: item
   material: diamond
