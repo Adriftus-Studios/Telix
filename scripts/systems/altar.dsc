@@ -144,11 +144,8 @@ altar_events:
           - else:
             - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
     on player places obsidian:
-      - narrate a
-      - narrate <context.item_in_hand.script.name>
-      - if <context.item_in_hand.script.name.starts_with[altar_tier_]>:
-        - narrate b
-        - note <context.location> as:altar_<context.location.simple>_<context.item_in_hand.script.name.replace[altar_tier_].with[]>
+      - if <context.item.script.name.starts_with[altar_tier_]>:
+        - note <context.location> as:altar_<context.location.simple>_<context.item.script.name.replace[altar_tier_].with[]>
     on player breaks obsidian:
       - if <context.location.notable_name.starts_with[altar_]>:
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
