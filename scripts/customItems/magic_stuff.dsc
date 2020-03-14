@@ -25,6 +25,7 @@ custom_air_rune:
   recipes:
     1:
       type: altar
+      tier: 1
       output_quantity: 1
       input: custom_glass_bottle/13|custom_blank_rune/1|custom_air_shard/4|custom_white_wool/8|custom_feather/19
       cook_time: 5m
@@ -51,6 +52,7 @@ custom_water_rune:
   recipes:
     1:
       type: altar
+      tier: 2
       output_quantity: 1
       input: custom_blank_rune/1|custom_water_shard/7|custom_kelp/29|custom_sugar_cane/11|custom_pufferfish/2
       cook_time: 10m
@@ -77,6 +79,7 @@ custom_earth_rune:
   recipes:
     1:
       type: altar
+      tier: 3
       output_quantity: 1
       input: custom_blank_rune/1|custom_steel_ingot/12|custom_bronze_ingot/5|custom_obsidian_ingot/2|custom_stone/64|custom_cobblestone/64|custom_earth_shard/6
       cook_time: 10m
@@ -103,6 +106,7 @@ custom_fire_rune:
   recipes:
     1:
       type: altar
+      tier: 4
       output_quantity: 1
       input: custom_blank_rune/1|custom_manasteel_ingot/7|custom_terrasteel_ingot/1|custom_obsidian/26|custom_fire_shard/17|custom_ghast_tear/2|custom_inferno_extract/1
       cook_time: 20m
@@ -129,6 +133,7 @@ custom_ender_rune:
   recipes:
     1:
       type: altar
+      tier: 5
       output_quantity: 1
       input: custom_blank_rune/1|custom_fire_rune/3|custom_earth_rune/3|custom_water_rune/3|custom_air_rune/3|custom_ender_pearl/7|custom_ender_shard/17
       cook_time: 60m

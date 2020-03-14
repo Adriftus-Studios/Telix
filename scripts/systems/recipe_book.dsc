@@ -76,7 +76,7 @@ recipe_book_altar:
     gui_top: <item[gui_altar_top]>
     gui_bottom: <item[gui_altar_bottom]>
   slots:
-  - "[altar] [w_filler] [] [w_filler] [] [w_filler] [] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [] [w_filler] [] [w_filler] [] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[gui_top] [w_filler] [] [w_filler] [] [w_filler] [] [w_filler] [altar_timer]"
   - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
