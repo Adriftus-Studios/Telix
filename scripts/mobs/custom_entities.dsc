@@ -47,6 +47,9 @@ entity_boomboom:
       chance: 1
     ability_usage:
       - narrate testt
+    events:
+      on attack:
+        - narrate 1
 
 entity_direwolf:
   type: entity
