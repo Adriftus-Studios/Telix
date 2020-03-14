@@ -35,10 +35,10 @@ event_command:
     - stop
   - if <context.args.get[1]> == xp:
     - flag server global_xp_multiplier:<context.args.get[2]> duration:<[duration]>
-    - announce "<&6><&l><player.name><&r><&6> has activated <context.args.get[2]>X XP for <[value].replace[_].with[<&sp>]>!"
+    - announce "<&6><&l><player.name||Console><&r><&6> has activated <context.args.get[2]>X XP for <[value].replace[_].with[<&sp>]>!"
   - if <context.args.get[1]> == mob:
     - flag server global_mob_drop_multiplier:<context.args.get[2]> duration:<[duration]>
-    - announce "<&6><&l><player.name><&r><&6> has activated <context.args.get[2]>X Mob Drops for <[value].replace[_].with[<&sp>]>!"
+    - announce "<&6><&l><player.name||Console><&r><&6> has activated <context.args.get[2]>X Mob Drops for <[value].replace[_].with[<&sp>]>!"
   - if <context.args.get[1]> == ore:
     - flag server double_ore_drops:<context.args.get[2]> duration:<[duration]>
-    - announce "<&6><&l><player.name><&r><&6> has activated Double Ores for <[value].replace[_].with[<&sp>]>!"
+    - announce "<&6><&l><player.name||Console><&r><&6> has activated Double Ores for <[value].replace[_].with[<&sp>]>!"
