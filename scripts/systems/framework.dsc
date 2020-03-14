@@ -67,7 +67,10 @@ warp_command:
   name: warp
   permission: warp
   tab complete:
-    - determine <server.list_notables[locations].parse[notable_name].filter[starts_with[warp_]].parse[replace[warp_].with[]]||<list[]>>
+    - if <context.args.size> == 0 || <context.args.size> == 1:
+      - determine <server.list_notables[locations].parse[notable_name].filter[starts_with[warp_]].parse[replace[warp_].with[]]||<list[]>>
+    - else:
+      - determine <server.list_online_players.parse[name]>
   script:
     - if <server.list_notables[locations].contains[<location[warp_<context.args.get[1]>]>]>:
       - if <player.has_permission[warp.<context.args.get[1]>]>:
@@ -79,6 +82,23 @@ setwarp_command:
   permission: setwarp
   script:
     - note <player.location> as:warp_<context.args.get[1]>
+
+spawn_command:
+  type: command
+  name: spawn
+  permission: spawn
+  tab complete:
+    - determine <server.list_online_players.parse[name]>
+  script:
+    - if <location[spawn]||null> != null:
+      - teleport <server.match_player[<context.args.get[1]>]||<player>>
+
+setspawn_command:
+  type: command
+  name: setspawn
+  permission: setspawn
+  script:
+    - note <player.location> as:spawn
 
 reload_scripts:
     type: world
