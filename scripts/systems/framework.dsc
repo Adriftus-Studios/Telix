@@ -65,11 +65,13 @@ delwarp_command:
 warp_command:
   type: command
   name: warp
+  permission: warp
   tab complete:
     - determine <server.list_notables[locations].parse[notable_name].filter[starts_with[warp_]].parse[replace[warp_].with[]]||<list[]>>
   script:
     - if <server.list_notables[locations].contains[<location[warp_<context.args.get[1]>]>]>:
-      - teleport <location[warp_<context.args.get[1]>]>
+      - if <player.has_permission[warp.<context.args.get[1]>]>:
+        - teleport <location[warp_<context.args.get[1]>]>
 
 setwarp_command:
   type: command
