@@ -1,7 +1,7 @@
 command_code:
   type: command
   debug: true
-  name:
+  name: code
   tab complete:
     - define arguments:<list[help|join|version]>
     - if <context.args.size||0> == 0:
