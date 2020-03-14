@@ -68,7 +68,7 @@ warp_command:
   tab complete:
     - determine <server.list_notables[locations].filter[starts_with[warp_]].parse[replace[warp_].with[]]||<list[]>>
   script:
-    - if <server.list_notables[locations].contains[warp_<context.args.get[1]>]>:
+    - if <server.list_notables[locations].contains[<location[warp_<context.args.get[1]>]>]>:
       - teleport <location[warp_<context.args.get[1]>]>
 
 setwarp_command:
