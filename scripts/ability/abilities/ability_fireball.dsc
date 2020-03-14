@@ -19,6 +19,6 @@ ability_fireball_script:
   type: task
   debug: true
   script:
-    - foreach <[location].find.entities.within[3]>:
+    - foreach <[location].above.find.entities.within[3]>:
       - adjust <[value]> velocity:0,1,0
     - playeffect explosion_huge at:<[location]> quantity:1 visibility:50
