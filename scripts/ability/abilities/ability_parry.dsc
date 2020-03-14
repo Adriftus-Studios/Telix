@@ -45,6 +45,8 @@ ability_parry:
         - flag player parrying:!
         #Riposte
         - look <player> <context.damager.eye_location>
+        - cast slow <context.damager> duration:10t power:255
+        - wait 10t
         - hurt <context.damager> <player.weapon_damage.*[<util.random.decimal[1.5].to[1.75].round>]||1>
         # UNUSED- push <context.damager> d:<player.location.flat_forward> speed:0.75 duration:0.15s
         #Visual and Auditory
