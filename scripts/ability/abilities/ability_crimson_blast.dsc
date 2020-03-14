@@ -17,7 +17,6 @@ ability_crimson_blast:
     - define min:0.5
     - define max:2
     - define power:<player.location.cursor_on.distance[<player.location>].round_to[1]>
-    - narrate <[power]>
     - if <[power]> < <[min]>:
       - define power:<[min]>
     - else if <[power]> > <[max]>:
