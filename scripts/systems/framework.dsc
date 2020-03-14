@@ -91,7 +91,7 @@ spawn_command:
     - determine <server.list_online_players.parse[name]>
   script:
     - if <location[spawn]||null> != null:
-      - teleport <server.match_player[<context.args.get[1]>]||<player>>
+      - teleport <server.match_player[<context.args.get[1]>]||<player>> <location[spawn]>
 
 setspawn_command:
   type: command
