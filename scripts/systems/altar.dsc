@@ -146,11 +146,13 @@ altar_events:
     on player places obsidian:
       - if <context.item_in_hand.script.name.starts_with[altar_tier_]>:
         - note <context.location> as:altar_<context.location.simple>_<context.item_in_hand.script.name.replace[altar_tier_].with[]>
+        - narrate altar_<context.location.simple>_<context.item_in_hand.script.name.replace[altar_tier_].with[]>
     on player breaks obsidian:
       - if <context.location.notable_name.starts_with[altar_]>:
         - note remove as:<context.location.notable_name>
     on player clicks obsidian:
       - if <context.location.notable_name.starts_with[altar_]>:
+        - narrate <context.location.notable_name>
         - define loc:<context.location.notable_name.split[_].get[2]>
         - define tier:<context.location.notable_name.split[_].get[3]>
         - define inv:<inventory[altar_inventory]>
