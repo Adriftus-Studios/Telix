@@ -1,4 +1,4 @@
-citadel_events:
+citadel_block_protection_events:
   type: world
   debug: false
   events:
@@ -107,8 +107,7 @@ citadel_build_mode_command:
   aliases:
   - "cbm"
   tab complete:
-    - if <context.args.size> == 0 || <context.args.size> == 1:
-      - determine <list[self|guild|group]>
+    - determine <list[self]>
   script:
     - if <player.item_in_hand.script.yaml_key[block_reinforcement_strength]||null> != null:
       - flag <player> citadel_build_mode:!
@@ -129,24 +128,30 @@ get_citadel_durability:
   type: proc
   definitions: location
   script:
-  - if <[location].material.name.ends_with[door]>:
     - if <[location].material.side> == TOP:
-      - define location:<[location].down[1]>
-    - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<[location].simple>.yml]>:
-      - if !<yaml.list.contains[locked_door_<[location].simple>]>:
-        - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml id:locked_door_<[location].simple>
-      - determine <yaml[locked_door_<[location].simple>].read[strength]>
-    - else:
-      - determine 0
-  - else if <[location].inventory||null> != null:
-    - narrate "TODO"
-  - else:
+      - define location:<[location].other_block>
     - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<[location].simple>.yml]>:
       - if !<yaml.list.contains[reinforced_block_<[location].simple>]>:
         - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[location].simple>.yml id:reinforced_block_<[location].simple>
       - determine <yaml[reinforced_block_<[location].simple>].read[strength]>
     - else:
       - determine 0
+
+get_lock_durability:
+  type: proc
+  definitions: location
+  script:
+    - if <[location].material.name.ends_with[door]>:
+      - if <[location].material.side> == TOP:
+        - define location:<[location].down[1]>
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<[location].simple>.yml]>:
+        - if !<yaml.list.contains[locked_door_<[location].simple>]>:
+          - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml id:locked_door_<[location].simple>
+        - determine <yaml[locked_door_<[location].simple>].read[strength]>
+      - else:
+        - determine 0
+    - else if <[location].inventory||null> != null:
+      - narrate "TODO"
 
 reinforce_block:
   type: task
