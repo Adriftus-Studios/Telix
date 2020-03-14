@@ -154,14 +154,14 @@ recipe_book_events:
     - define type:<player.flag[context].split[/].get[1]||all>
     - flag <player> context:!
     - if <[type]> == all:
-      - foreach <yaml[server.recipe_book].list_keys[categories]> as:cat:
+      - foreach <yaml[server.recipe_book].list_keys[categories].alphabetical> as:cat:
         - inventory add d:<context.inventory> o:<item[stone].with[display_name=<&6><[cat].substring[1,1].to_uppercase><[cat].substring[2]>;nbt=category/<[cat]>]>
     - else:
       - if <yaml[server.recipe_book].list_keys[categories.<[type]>]||null> != null:
-        - foreach <yaml[server.recipe_book].list_keys[categories.<[type]>]> as:cat:
+        - foreach <yaml[server.recipe_book].list_keys[categories.<[type]>].alphabetical> as:cat:
           - inventory add d:<context.inventory> o:<item[stone].with[display_name=<&6><[cat].substring[1,1].to_uppercase><[cat].substring[2]>;nbt=category/<[type]>.<[cat]>]>
       - else:
-        - define items:<yaml[server.recipe_book].read[categories.<[type]>].parse[as_item]>
+        - define items:<yaml[server.recipe_book].read[categories.<[type]>].alphabetical.parse[as_item]>
         - repeat 45:
           - inventory add d:<context.inventory> o:<[items].get[<[value]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
     on player clicks in recipe_book_*:
