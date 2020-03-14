@@ -375,8 +375,9 @@ system_override:
   type: world
   events:
     on tick:
-      - foreach <server.list_online_players.filter[food_level.is[==].to[20]]>:
-        - adjust <[value]> food_level:19
+      - if !<server.list_online_players.filter[food_level.is[==].to[20]].is_empty>:
+        - foreach <server.list_online_players.filter[food_level.is[==].to[20]]>:
+          - adjust <[value]> food_level:19
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
