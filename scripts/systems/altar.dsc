@@ -21,18 +21,30 @@ altar_timer:
     custom_model_data: -5
   display name: <&7>Not Imbuing
 
-altar:
+altar_tier_1:
   type: item
   material: obsidian
-  display name: <&b>Altar
-  recipes:
-    1:
-      type: shaped
-      output_quantity: 1
-      input:
-      - air|custom_beacon|air
-      - custom_diamond|custom_obsidian|custom_diamond
-      - custom_iron_ingot|custom_iron_block|custom_iron_ingot
+  display name: <&b>Altar I
+
+altar_tier_2:
+  type: item
+  material: obsidian
+  display name: <&b>Altar II
+
+altar_tier_3:
+  type: item
+  material: obsidian
+  display name: <&b>Altar III
+
+altar_tier_4:
+  type: item
+  material: obsidian
+  display name: <&b>Altar IV
+
+altar_tier_5:
+  type: item
+  material: obsidian
+  display name: <&b>Altar V
 
 altar_events:
   type: world
@@ -132,23 +144,19 @@ altar_events:
           - else:
             - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
     on player places obsidian:
-      - if <context.item_in_hand.script.name||null> == altar:
-        - note <inventory[altar_inventory]> as:altar_<context.location.simple>
+      - if <context.item_in_hand.script.name.starts_with[altar_tier_]>:
+        - note <context.location> as:altar_<context.location.simple>_<context.item_in_hand.script.name.replace[altar_tier_].with[]>
     on player breaks obsidian:
-      - if <inventory[altar_<context.location.simple>]||null> != null:
-        - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
-        - foreach <[slotmap]> as:slot:
-          - drop <inventory[altar_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
-        - if <player.gamemode> == survival:
-          - drop <item[altar]> <context.location>
-        - note remove as:altar_<context.location.simple>
-        - determine NOTHING
+      - if <context.location.notable_name.starts_with[altar_]>:
+        - note remove as:<context.location.notable_name>
     on player clicks obsidian:
-      - if <context.click_type> == RIGHT_CLICK_BLOCK:
-        - if !<player.is_sneaking>:
-          - if <inventory[altar_<context.location.simple>]||null> != null:
-            - determine passively cancelled
-            - inventory open d:<inventory[altar_<context.location.simple>]>
+      - if <context.location.notable_name.starts_with[altar_]>:
+        - define loc:<context.location.notable_name.split[_].get[2]>
+        - define tier:<context.location.notable_name.split[_].get[3]>
+        - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
+        - if <server.list_notables[inventories].contains[altar_<player.uuid>_<[tier]>]>
+          - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
+        - inventory open:<inventory[altar_<player.uuid>_<[tier]>]>
     on player drags in altar_inventory:
       - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
       - foreach <context.raw_slots> as:slot:

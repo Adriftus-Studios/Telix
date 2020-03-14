@@ -50,10 +50,9 @@ entity_boomboom:
       - narrate testt
     events:
       on attacked:
+        - hurt 1 <player> source:<[entity]>
         - explode power:5 <[entity].location> fire breakblocks
         
-        
-
 entity_direwolf:
   type: entity
   entity_type: wolf
