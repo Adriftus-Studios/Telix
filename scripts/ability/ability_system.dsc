@@ -121,8 +121,7 @@ abilities_characterAbilities_events:
           - foreach <yaml[server.skills_by_level].list_keys[<context.item.nbt[skillname]>].numerical> as:skilllevel:
             - foreach <yaml[server.skills_by_level].read[<context.item.nbt[skillname]>.<[skilllevel]>].alphabetical> as:ability:
               - if <yaml[player.<player.uuid>].read[skills.<context.item.nbt[skillname]>.current]> < <[skilllevel]>:
-                - inject abilities_GUIitem_buildLore
-                - inventory add d:<[inventory]> o:<item[abilities_item].with[material=barrier;display_name=<[ability].replace[_].with[<&sp>].to_titlecase><&sp><&4>Locked;lore=<&c>Required<&sp>Level:<&sp><[skilllevel]>|<[lore]>]>
+                - inventory add d:<[inventory]> o:<item[abilities_item].with[material=barrier;display_name=<&4>Locked;lore=<&c>Required<&sp>Level:<&sp><[skilllevel]>|<script[ability_<[ability]>].yaml_key[description]>]>
               - else:
                 - inject abilities_GUIitem_buildLore
                 - inventory add d:<[inventory]> o:<item[abilities_item].with[material=<script[ability_<[ability]>].yaml_key[icon.material]>;custom_model_data=<script[ability_<[ability]>].yaml_key[icon.custom_model_data]>;display_name=<[ability].replace[_].with[<&sp>].to_titlecase>;lore=<[lore]>;nbt=skillname/<[ability]>]>
