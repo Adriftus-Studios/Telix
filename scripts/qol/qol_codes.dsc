@@ -16,7 +16,7 @@ command_code:
     - narrate "<&6>Are you a creator? <&e>Type <&a>/code join <&e>for more information."
   join:
     - narrate "<&2><&l>Telix Creators - Affiliate Program"
-    - narrate "<&e>Contact <&9>Kyu#5957 <&e>on <&9>discord.AuroraGaming.org <&e>to apply for an affiliate code."
+    - narrate "<&e>Contact <&b>Kyu#5957 <&e>on <&9>discord.AuroraGaming.org <&e>to apply for an affiliate code."
     - narrate "<&c>You must link your relevant social media accounts to your Discord account."
     - narrate "<&c>These accounts MUST be visible through <&b>Account Name <&6><&gt> Display on profile."
     - narrate "<&e>Don't know how? <&6>Click <&b>User Settings <&6><&gt> <&b>Connections <&6><&gt> <&b>Connect Your Accounts."
