@@ -16,7 +16,7 @@ ability_crimson_blast:
     #Definitions
     - define min:0.5
     - define max:2.5
-    - define target:<player.target>
+    - define target:<player.target||<player.location.cursor_on.backward>>
     - define power:<player.location.cursor_on.distance[<player.location>].round_to[1]>
     - if <[target]||null> == null:
       - define target:<player.location.cursor_on.backward>
