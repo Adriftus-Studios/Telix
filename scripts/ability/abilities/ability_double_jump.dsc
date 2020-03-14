@@ -5,7 +5,7 @@ ability_double_jump:
   ability_type: passive
   points_to_unlock: 30
   power_cost: 10
-  description: Jump again in mid-air, shortly after an initial jump.|Mid-Air > Sneak
+  description: Jump again in mid-air, shortly after an initial jump.| Mid-Air > Sneak
   icon:
     material: stone
     custom_model_data: 1
