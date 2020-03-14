@@ -98,8 +98,10 @@ abilities_GUIitem_buildLore:
     - define "lore:|:<&e>-------------------------"
     - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
     - define "lore:|:<&a>Ability Type<&co> <script[ability_<[ability]>].yaml_key[ability_type].to_titlecase>"
-    - if <script[ability_<[ability]>]>].yaml_key[ability_type]> == command:
+    - if <script[ability_<[ability]>].yaml_key[ability_type]> == command:
       - define "lore:|:<&a>Usage<&co> <&e>/<script[ability_<[ability]>].yaml_key[command_usage]>"
+    - else if <script[ability_<[ability]>].yaml_key[usage]||null> != null:
+      - define "lore:|:<&a>Usage<&co> <&e><script[ability_<[ability]>].yaml_key[usage]>"
     - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
     - define "lore:|:<&e>-------------------------"
 
