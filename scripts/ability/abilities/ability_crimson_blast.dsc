@@ -16,11 +16,16 @@ ability_crimson_blast:
     #Definitions
     - define min:0.5
     - define max:2.5
+    - define target:<player.target>
     - define power:<player.location.cursor_on.distance[<player.location>].round_to[1]>
+    - if <[target]||null> == null:
+      - define target:<player.location.cursor_on.backward>
+    - else if <[target]> == <player>:
+      - define target:<player.location.cursor_on.backward>
     - if <[power]> < <[min]>:
       - define power:<[min]>
     - else if <[power]> > <[max]>:
       - define power:<[max]>
     - narrate <[power]>
-    - explode <player.location.cursor_on.backward> power:<[power]>
+    - explode <[target]> power:<[power]>
     - narrate "Planned ability tree: Nether"
