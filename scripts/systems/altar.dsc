@@ -159,7 +159,7 @@ altar_events:
         - adjust def:inv title:"<&6>◆ <&a><&n><&l>Altar <[tier]><&r> <&6>◆"
         - if <server.list_notables[inventories].contains[altar_<player.uuid>_<[tier]>]>
           - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
-        - inventory open:<inventory[altar_<player.uuid>_<[tier]>]>
+        - inventory open d:<inventory[altar_<player.uuid>_<[tier]>]>
     on player drags in altar_inventory:
       - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
       - foreach <context.raw_slots> as:slot:
