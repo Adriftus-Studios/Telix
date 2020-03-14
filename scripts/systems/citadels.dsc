@@ -110,7 +110,7 @@ citadel_build_mode_command:
     - if <context.args.size> == 0 || <context.args.size> == 1:
       - determine <list[self|guild|group]>
   script:
-    - if <player.item_in_hand.script.yaml_key[block_reinforcement_strength]>:
+    - if <player.item_in_hand.script.yaml_key[block_reinforcement_strength]||null> != null:
       - flag <player> citadel_build_mode:<player.item_in_hand.script.name>
       - narrate "<&b>You have entered Citadel Build Mode with <player.item_in_hand.script.yaml_key[display<&sp>name].parsed>."
     - else:
