@@ -26,6 +26,7 @@ ability_crimson_blast:
       - define power:<[min]>
     - else if <[power]> > <[max]>:
       - define power:<[max]>
+    - narrate <[target]>
     - narrate <[power]>
     - explode <[target]> power:<[power]>
     - narrate "Planned ability tree: Nether"
