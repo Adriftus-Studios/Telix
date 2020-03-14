@@ -154,8 +154,8 @@ altar_events:
       - if <context.location.notable_name.starts_with[altar_]>:
         - narrate <context.location.notable_name>
         - define loc:<context.location.notable_name.split[_].get[2]>
+        - narrate <context.location.notable_name.split[_].size>
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
-        - define inv:<inventory[altar_inventory]>
         - adjust def:inv title:"<&6>◆ <&a><&n><&l>Altar <[tier]><&r> <&6>◆"
         - if <server.list_notables[inventories].contains[altar_<player.uuid>_<[tier]>]>
           - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
