@@ -80,7 +80,7 @@ altar_events:
                 - if <[input].split[/].get[2]> <= <[contents].map_get[<[input].split[/].get[1]>]||0>:
                   - define ingredients:|:<[input]>
                   - define found:++
-            - if <[found]> == <yaml[server.altar_recipes].read[<[recipe]>.input].as_list.size>:
+            - if <[found]> == <yaml[server.altar_recipes].read[<[recipe]>.input].as_list.size> && <yaml[server.altar_recipes].read[<[recipe]>.tier]> <= <[tier]>:
               - define crafting:<[recipe]>
               - foreach stop
           - if <[crafting]||null> == null:
