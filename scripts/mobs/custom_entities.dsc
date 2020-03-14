@@ -46,7 +46,7 @@ entity_boomboom:
       aggressive_on_spawn: false
       chance: 1
     ability_usage:
-      - mob_ability_boomboom_explode
+      - narrate testt
 
 entity_direwolf:
   type: entity
