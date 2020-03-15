@@ -70,9 +70,6 @@ custom_statue_creeper_legendary:
 statues_events:
   type: world
   events:
-    on player right clicks barrier with custom_statue_*:
-      - narrate "<&c>You cannot place a trophy here!"
-      - stop
     on player right clicks block with custom_statue_*:
       - determine passively cancelled
       - adjust <context.relative> block_type:barrier
@@ -84,6 +81,9 @@ statues_events:
       - inventory adjust d:<inventory[statue_<context.relative>]> slot:1 nbt:entity/<entry[statue].spawned_entity>
       - inventory set d:<inventory[statue_<context.relative>]> slot:23 o:<context.item.with[quantity=1]>
     on player clicks barrier:
+      - if <item_in_hand.scriptname> == custom_statue_*:
+        - narrate "<&c>You cannot place a trophy here!"
+        - stop
       - if <player.is_sneaking>:
         - if <inventory[statue_<context.location>]||null> != null:
           - drop <inventory[statue_<context.location>].slot[23]> <context.location>
