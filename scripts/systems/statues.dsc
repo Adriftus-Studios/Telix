@@ -1,7 +1,7 @@
 statues_inventory:
   type: inventory
   title: Statues
-  size: 27
+  size: 45
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -11,8 +11,10 @@ statues_inventory:
     rotate_btn: <item[compass].with[display_name=<&c>Rotate<&sp>;lore=<&d>Right/Left<&sp>Click<&sp>to<&sp>rotate<&sp>90<&sp>degrees.|<&d>Shift<&sp>Click<&sp>to<&sp>rotate<&sp>22.5<&sp>degrees.]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [gui_creeper] [w_filler] [w_filler] [] [w_filler] [w_filler] [rotate_btn] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [gui_creeper] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [rotate_btn] [w_filler]"
+  - "[w_filler] [gui_creeper] [w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_top] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 entity_statue:
   type: entity
