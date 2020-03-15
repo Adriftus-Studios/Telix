@@ -5,10 +5,13 @@ statues_inventory:
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
+    gui_bottom: <item[gui_statue_bottom]>
+    gui_top: <item[gui_statue_top]>
+    gui_creeper: <item[custom_statue_creeper_gui]>
     rotate_btn: <item[compass].with[display_name=<&c>Rotate<&sp>;lore=<&d>Right/Left<&sp>Click<&sp>to<&sp>rotate<&sp>90<&sp>degrees.|<&d>Shift<&sp>Click<&sp>to<&sp>rotate<&sp>22.5<&sp>degrees.]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler] [rotate_btn] [w_filler]"
+  - "[w_filler] [gui_creeper] [w_filler] [w_filler] [] [w_filler] [w_filler] [rotate_btn] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 entity_statue:
@@ -17,6 +20,13 @@ entity_statue:
   visible: false
   gravity: false
   invulnerable: true
+
+custom_statue_creeper_gui:
+  type: item
+  material: armor_stand
+  mechanisms:
+    custom_model_data: -1
+  display name: <&a>
 
 custom_statue_creeper_normal:
   type: item
