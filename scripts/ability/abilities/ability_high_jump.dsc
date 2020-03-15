@@ -5,7 +5,8 @@ ability_high_jump:
   ability_type: passive
   points_to_unlock: 20
   power_cost: 10
-  description: Jumping while sneaking, will jump extra high.
+  description: Jump extra high using a high jump.
+  usage: Sneak + Jump
   icon:
     material: stone
     custom_model_data: 1

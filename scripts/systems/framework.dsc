@@ -54,6 +54,54 @@ equipment_boots_slot:
   lore:
   - "<&e>Click to open your skills and abilities menu."
 
+delwarp_command:
+  type: command
+  name: delwarp
+  permission: delwarp
+  script:
+    - if <server.list_notables[locations].contains[warp_<context.args.get[1]>]>:
+      - note remove as:warp_<context.args.get[1]>
+
+warp_command:
+  type: command
+  name: warp
+  permission: warp
+  tab complete:
+    - if <context.args.size> == 0:
+      - determine <server.list_notables[locations].parse[notable_name].filter[starts_with[warp_]].parse[replace[warp_].with[]]||<list[]>>
+    - else if <context.args.size> == 1:
+      - determine <server.list_notables[locations].parse[notable_name].filter[starts_with[warp_]].parse[replace[warp_].with[]].filter[starts_with[<context.args.get[1]>]]||<list[]>>
+    - else:
+      - determine <server.list_online_players.parse[name]>
+  script:
+    - if <server.list_notables[locations].contains[<location[warp_<context.args.get[1]>]>]>:
+      - if <player.has_permission[warp.<context.args.get[1]>]>:
+        - teleport <location[warp_<context.args.get[1]>]>
+
+setwarp_command:
+  type: command
+  name: setwarp
+  permission: setwarp
+  script:
+    - note <player.location> as:warp_<context.args.get[1]>
+
+spawn_command:
+  type: command
+  name: spawn
+  permission: spawn
+  tab complete:
+    - determine <server.list_online_players.parse[name]>
+  script:
+    - if <location[spawn]||null> != null:
+      - teleport <server.match_player[<context.args.get[1]>]||<player>> <location[spawn]>
+
+setspawn_command:
+  type: command
+  name: setspawn
+  permission: setspawn
+  script:
+    - note <player.location> as:spawn
+
 reload_scripts:
     type: world
     reload:
@@ -133,6 +181,7 @@ reload_scripts:
                     - yaml id:server.altar_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
                     - yaml id:server.altar_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
                     - yaml id:server.altar_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
+                    - yaml id:server.altar_recipes set <[value].name>.required_tier:<[value].yaml_key[recipes.<[recipe]>.tier]||5>
                   - if <list[altar|alchemy|smeltery].contains[<[value].yaml_key[recipes.<[recipe]>.type]>]>:
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list.parse[split[/].get[1]]> as:entry:
                       - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
@@ -372,10 +421,12 @@ custom_item_override:
 
 system_override:
   type: world
+  debug: false
   events:
     on tick:
-      - foreach <server.list_online_players.filter[food_level.is[==].to[20]]>:
-        - adjust <[value]> food_level:19
+      - if !<server.list_online_players.filter[food_level.is[==].to[20]].is_empty>:
+        - foreach <server.list_online_players.filter[food_level.is[==].to[20]]>:
+          - adjust <[value]> food_level:19
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:

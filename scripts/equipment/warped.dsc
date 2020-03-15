@@ -213,6 +213,7 @@ custom_boots_of_the_voidwalker:
   recipes:
     1:
       type: altar
+      tier: 5
       output_quantity: 1
       input: custom_warped_shard/8|custom_warpmetal_ingot/2|custom_wrath_shard/1
       cook_time: 20m

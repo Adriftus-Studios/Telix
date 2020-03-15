@@ -510,7 +510,7 @@ guild_events:
     on server starts:
     - yaml create id:server.guilds
     - foreach <server.list_files[data/globalData/guilds/<server.flag[server.name]>]> as:guild:
-      - yaml load:data/globalData/guilds/<server.flag[server.name]>/<[guild]> id:guild.<[guild]>
+      - yaml load:data/globalData/guilds/<server.flag[server.name]>/<[guild]> id:guild.<[guild].replace[.yml].with[]>
       - yaml id:server.guilds set all_guilds:|:<[guild]>
     on shutdown:
       - foreach <yaml.list>:

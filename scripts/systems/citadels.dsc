@@ -1,5 +1,6 @@
-citadel_events:
+citadel_block_protection_events:
   type: world
+  debug: false
   events:
     on player clicks block with *_lock:
       - wait 1t
@@ -7,8 +8,16 @@ citadel_events:
         - if !<server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>:
           - run lock_door def:<player>|<context.location>|<context.item.script.yaml_key[lock_strength]>
           - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
+          - narrate "<&7><&o>Click..."
         - else:
           - narrate "<&c>That door is already locked."
+      - if <context.location.inventory||null> != null:
+        - if !<server.list_files[DONT_PUT_SHIT_IN_HERE/locked_containers].contains[<context.location.simple>.yml]>:
+          - run lock_container def:<player>|<context.location>|<context.item.script.yaml_key[lock_strength]>
+          - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
+          - narrate "<&7><&o>Click..."
+        - else:
+          - narrate "<&c>That container is already locked."
     on delta time secondly every:1:
       # unload timer
       - foreach <server.list_flags.filter[starts_with[unload_timer.]]>:
@@ -71,10 +80,15 @@ citadel_events:
     on player places block:
       - if <player.has_flag[citadel_build_mode]>:
         - define item:<player.flag[citadel_build_mode].as_item>
-        - if <[item].script.yaml_key[block_reinforcement_strength]||null> != null:
-
+        - if <[item].script.yaml_key[block_reinforcement_strength]||null> != null || <player.inventory.find.scriptname[<[item].script.name>]> == -1:
+          - inventory set d:<player.inventory> slot:<player.inventory.find.scriptname[<[item].script.name>]> o:<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].with[quantity=<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].quantity.sub[1]>]>
+          - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
+          - if <player.inventory.find.scriptname[<[item].script.name>]> == -1:
+            - flag <player> citadel_build_mode:!
+            - narrate "<&b>You have ran out of reinforcement material."
         - else:
           - flag <player> citadel_build_mode:!
+          - narrate "<&b>You have ran out of reinforcement material."
     on player right clicks block:
       - if <context.item.script.yaml_key[block_reinforcement_strength]||null> != null:
         - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]>:
@@ -89,35 +103,55 @@ citadel_events:
 
 citadel_build_mode_command:
   type: command
-  name: citadel_build_mode
+  name: citadelbuildmode
   aliases:
   - "cbm"
+  tab complete:
+    - determine <list[self]>
   script:
-    - narrate 1
+    - if <player.item_in_hand.script.yaml_key[block_reinforcement_strength]||null> != null:
+      - flag <player> citadel_build_mode:!
+      - wait 1t
+      - flag <player> citadel_build_mode:<player.item_in_hand.script.name>
+      - narrate "<&b>You have entered Citadel Build Mode with <player.item_in_hand.script.yaml_key[display<&sp>name].parsed||<player.item_in_hand.material.name.substring[1,1].to_uppercase><player.item_in_hand.material.name.substring[2]>>."
+      - waituntil !<player.has_flag[citadel_build_mode]>
+      - narrate something
+    - else:
+      - narrate "<&b>That item cannot be used to reinforce blocks."
 
-  
+custom_citadel_test_item:
+  type: item
+  material: diamond
+  block_reinforcement_strength: 10
+
 get_citadel_durability:
   type: proc
   definitions: location
   script:
-  - if <[location].material.name.ends_with[door]>:
     - if <[location].material.side> == TOP:
-      - define location:<[location].down[1]>
-    - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<[location].simple>.yml]>:
-      - if !<yaml.list.contains[locked_door_<[location].simple>]>:
-        - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml id:locked_door_<[location].simple>
-      - determine <yaml[locked_door_<[location].simple>].read[strength]>
-    - else:
-      - determine 0
-  - else if <[location].inventory||null> != null:
-    - narrate "TODO"
-  - else:
+      - define location:<[location].other_block>
     - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<[location].simple>.yml]>:
       - if !<yaml.list.contains[reinforced_block_<[location].simple>]>:
         - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[location].simple>.yml id:reinforced_block_<[location].simple>
       - determine <yaml[reinforced_block_<[location].simple>].read[strength]>
     - else:
       - determine 0
+
+get_lock_durability:
+  type: proc
+  definitions: location
+  script:
+    - if <[location].material.name.ends_with[door]>:
+      - if <[location].material.side> == TOP:
+        - define location:<[location].down[1]>
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<[location].simple>.yml]>:
+        - if !<yaml.list.contains[locked_door_<[location].simple>]>:
+          - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml id:locked_door_<[location].simple>
+        - determine <yaml[locked_door_<[location].simple>].read[strength]>
+      - else:
+        - determine 0
+    - else if <[location].inventory||null> != null:
+      - narrate "TODO"
 
 reinforce_block:
   type: task
@@ -132,6 +166,21 @@ reinforce_block:
   - yaml id:reinforced_block_<[location].simple> set owner:<[player]>
   - yaml id:reinforced_block_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[location].simple>.yml
   - flag server unload_timer.reinforced_block_<[location].simple> duration:10s
+
+lock_container:
+  type: task
+  definitions: player|location|strength
+  script:
+  - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_container].contains[<[location].simple>.yml]>:
+    - if !<yaml.list.contains[locked_container_<[location].simple>]>:
+      - yaml load:DONT_PUT_SHIT_IN_HERE/locked_container/<[location].simple>.yml id:locked_container_<[location].simple>
+  - else:
+    - yaml id:locked_container_<[location].simple> create
+  - yaml id:locked_container_<[location].simple> create
+  - yaml id:locked_container_<[location].simple> set strength:<[strength]>
+  - yaml id:locked_container_<[location].simple> set owner:<[player]>
+  - yaml id:locked_container_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_container/<[location].simple>.yml
+  - flag server unload_timer.locked_container_<[location].simple> duration:10s
 
 lock_door:
   type: task
@@ -149,11 +198,6 @@ lock_door:
   - yaml id:locked_door_<[location].simple> set owner:<[player]>
   - yaml id:locked_door_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml
   - flag server unload_timer.locked_door_<[location].simple> duration:10s
-
-custom_citadel_test_item:
-  type: item
-  material: diamond
-  block_reinforcement_strength: 10
 
 custom_iron_lock:
   type: item

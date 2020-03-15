@@ -4,8 +4,8 @@ ability_arcane_strike:
   ability_tree: Test
   ability_type: active
   range: 20
-  points_to_unlock: 1
-  power_cost: 1
+  points_to_unlock: 1000
+  power_cost: 10
   description: Arcane Strike
   icon:
     material: iron_nugget

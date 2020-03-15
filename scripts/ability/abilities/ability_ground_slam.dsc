@@ -5,12 +5,12 @@ ability_ground_slam:
   ability_type: active
   points_to_unlock: 10
   power_cost: 10
-  description: Ground: Knockback players in a 5 block radius.|Midair: Stun players in a 3 block radius.
+  description: Ground: Knockback players in a 5 block radius.|Mid-air: Stun players in a 3 block radius.
   icon:
     material: stone
     custom_model_data: 1
   explosion:
-    - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:20 targets:<server.list_online_players>
+    - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:50
     - flag player no_jump:true duration:1s
     - foreach <player.location.find.players.within[5].exclude[<player>]>:
       - look <[value]> <player.location>
@@ -23,7 +23,7 @@ ability_ground_slam:
       - playeffect crit at:<[value].location> quantity:10 targets:<[value]>
       - cast slow <[value]> duration:5s power:255
       - flag <[value]> no_jump:true duration:5s
-    - playeffect flash at:<player.location> quantity:1 visibility:20 targets:<server.list_online_players>
+    - playeffect flash at:<player.location> quantity:1 visibility:50
     - cast slow <player> duration:15t power:6
   script:
     #/ex teleport <[value]> <[value].location.with_pitch[0]>

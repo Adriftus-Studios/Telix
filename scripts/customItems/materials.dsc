@@ -307,6 +307,7 @@ custom_elementium_ingot:
       input: custom_elementium_block
     3:
       type: altar
+      tier: 4
       output_quantity: 1
       input: custom_terrasteel_ingot/2|custom_fire_rune/1|custom_earth_rune/1|custom_water_rune/1|custom_air_rune/1|custom_ender_rune/1
       cook_time: 10m
@@ -548,6 +549,7 @@ custom_manasteel_ingot:
       input: custom_manasteel_block
     3:
       type: altar
+      tier: 2
       output_quantity: 2
       input: custom_iron_ingot/3|custom_magic_powder/1|custom_diamond/1
       cook_time: 5m
@@ -780,6 +782,7 @@ custom_terrasteel_nugget:
       input: custom_terrasteel_ingot
     2:
       type: altar
+      tier: 3
       output_quantity: 2
       input: custom_manasteel_block/2|custom_magic_powder/5|custom_rune_air/2|custom_rune_earth/3
       cook_time: 15m
