@@ -81,6 +81,9 @@ statues_events:
       - inventory adjust d:<inventory[statue_<context.relative>]> slot:1 nbt:entity/<entry[statue].spawned_entity>
       - inventory set d:<inventory[statue_<context.relative>]> slot:23 o:<context.item.with[quantity=1]>
     on player clicks barrier:
+      - if <player.item_in_hand> == custom_statue_*
+        - narrate "<&c>You cannot place a trophy here!"
+        - stop
       - if <player.is_sneaking>:
         - if <inventory[statue_<context.location>]||null> != null:
           - drop <inventory[statue_<context.location>].slot[23]> <context.location>
@@ -89,7 +92,7 @@ statues_events:
           - adjust <context.location.up[1]> block_type:air
           - note remove as:statue_<context.location>
         - if <inventory[statue_<context.location.down[1]>]||null> != null:
-          - drop <inventory[statue_<context.location.down[1]>].slot[14]> <context.location.down[1]>
+          - drop <inventory[statue_<context.location.down[1]>].slot[23]> <context.location.down[1]>
           - remove <inventory[statue_<context.location.down[1]>].slot[1].nbt[entity].as_entity>
           - adjust <context.location> block_type:air
           - adjust <context.location.down[1]> block_type:air
@@ -100,7 +103,7 @@ statues_events:
       - if <inventory[statue_<context.location.down[1]>]||null> != null:
         - inventory open d:<inventory[statue_<context.location.down[1]>]>
     on player clicks in statues_inventory:
-      - if <context.raw_slot> <= 28:
+      - if <context.raw_slot> <= 45:
         - determine passively cancelled
         - define pose:<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head]>
         - if <context.raw_slot> == 26:
