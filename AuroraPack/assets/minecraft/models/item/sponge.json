@@ -1,0 +1,12 @@
+{
+	"__comment": "/give @s minecraft:sponge{CustomModelData:1000000[1-7]}",
+	"parent": "block/sponge",
+	"textures": {
+		"layer0": "item/sponge"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": 0}, "model": "item/sponge" },
+		{ "predicate": { "custom_model_data": 1}, "model": "item/custom/altar" }
+	]
+
+}S
