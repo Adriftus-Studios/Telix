@@ -79,11 +79,11 @@ statues_events:
       - note <inventory[statues_inventory]> as:statue_<context.relative>
       - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
       - inventory adjust d:<inventory[statue_<context.relative>]> slot:1 nbt:entity/<entry[statue].spawned_entity>
-      - inventory set d:<inventory[statue_<context.relative>]> slot:14 o:<context.item.with[quantity=1]>
+      - inventory set d:<inventory[statue_<context.relative>]> slot:23 o:<context.item.with[quantity=1]>
     on player clicks barrier:
       - if <player.is_sneaking>:
         - if <inventory[statue_<context.location>]||null> != null:
-          - drop <inventory[statue_<context.location>].slot[14]> <context.location>
+          - drop <inventory[statue_<context.location>].slot[23]> <context.location>
           - remove <inventory[statue_<context.location>].slot[1].nbt[entity].as_entity>
           - adjust <context.location> block_type:air
           - adjust <context.location.up[1]> block_type:air
@@ -100,10 +100,10 @@ statues_events:
       - if <inventory[statue_<context.location.down[1]>]||null> != null:
         - inventory open d:<inventory[statue_<context.location.down[1]>]>
     on player clicks in statues_inventory:
-      - if <context.raw_slot> < 28:
+      - if <context.raw_slot> <= 28:
         - determine passively cancelled
         - define pose:<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head]>
-        - if <context.raw_slot> == 17:
+        - if <context.raw_slot> == 26:
           - if <context.click> == shift_right:
             - adjust <context.inventory.slot[1].nbt[entity].as_entity> armor_pose:head|<context.inventory.slot[1].nbt[entity].as_entity.armor_pose[head].add[0,<el@22.5.to_radians>,0]>
           - if <context.click> == shift_left:
