@@ -22,11 +22,32 @@ custom_statue_creeper_normal:
   type: item
   material: armor_stand
   mechanisms:
+    custom_model_data: 1
+  display name: Creeper Statue
+  statue:
+    size: normal
+    entity: creeper
+
+custom_statue_creeper_rare:
+  type: item
+  material: armor_stand
+  mechanisms:
     custom_model_data: 2
   display name: Creeper Statue
   statue:
     size: normal
     entity: creeper
+  
+custom_statue_creeper_legendary:
+  type: item
+  material: armor_stand
+  mechanisms:
+    custom_model_data: 3
+  display name: Creeper Statue
+  statue:
+    size: normal
+    entity: creeper
+    
   mob_drops:
     1:
       dropped_by: creeper
