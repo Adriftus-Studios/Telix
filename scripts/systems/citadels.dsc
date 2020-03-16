@@ -127,7 +127,7 @@ custom_citadel_test_item:
   block_reinforcement_strength: 10
 
 get_citadel_durability:
-  type: proc
+  type: procedure
   definitions: location
   script:
     - if <[location].material.side> == TOP:
@@ -140,7 +140,7 @@ get_citadel_durability:
       - determine 0
 
 get_lock_durability:
-  type: proc
+  type: procedure
   definitions: location
   script:
     - narrate 0
