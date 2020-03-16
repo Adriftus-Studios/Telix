@@ -83,6 +83,7 @@ citadel_block_protection_events:
         - if <[item].script.yaml_key[block_reinforcement_strength]||null> != null || <player.inventory.find.scriptname[<[item].script.name>]> == -1:
           - inventory set d:<player.inventory> slot:<player.inventory.find.scriptname[<[item].script.name>]> o:<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].with[quantity=<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].quantity.sub[1]>]>
           - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
+          - narrate <context.item.script.yaml_key[block_reinforcement_strength]>
           - if <player.inventory.find.scriptname[<[item].script.name>]> == -1:
             - flag <player> citadel_build_mode:!
             - narrate "<&b>You have ran out of reinforcement material."
@@ -90,17 +91,16 @@ citadel_block_protection_events:
           - flag <player> citadel_build_mode:!
           - narrate "<&b>You have ran out of reinforcement material."
     on player right clicks block:
+      - stop
       - if <context.item.script.yaml_key[block_reinforcement_strength]||null> != null:
         - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]>:
           - if !<yaml.list.contains[reinforced_block_<context.location.simple>]>:
             - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<context.location.simple>.yml id:reinforced_block_<context.location.simple>
           - if <yaml[reinforced_block_<context.location.simple>].read[owner]> == <player>:
             - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
-            - narrate a
             - narrate <context.item.script.yaml_key[block_reinforcement_strength]>
             - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
         - else:
-          - narrate b
           - narrate <context.item.script.yaml_key[block_reinforcement_strength]>
           - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
           - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
