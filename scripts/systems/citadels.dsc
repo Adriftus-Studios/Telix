@@ -135,7 +135,7 @@ get_citadel_durability:
     - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<[location].simple>.yml]>:
       - if !<yaml.list.contains[reinforced_block_<[location].simple>]>:
         - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[location].simple>.yml id:reinforced_block_<[location].simple>
-      - determine <yaml[reinforced_block_<[location].simple>].read[strength]>
+      - determine <yaml[reinforced_block_<[location].simple>].read[strength]||0>
     - else:
       - determine 0
 
@@ -149,7 +149,7 @@ get_lock_durability:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<[location].simple>.yml]>:
         - if !<yaml.list.contains[locked_door_<[location].simple>]>:
           - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml id:locked_door_<[location].simple>
-        - determine <yaml[locked_door_<[location].simple>].read[strength]>
+        - determine <yaml[locked_door_<[location].simple>].read[strength]||0>
       - else:
         - determine 0
     - else if <[location].inventory||null> != null:
@@ -157,7 +157,7 @@ get_lock_durability:
         - define location:<[location].other_block>
       - if !<yaml.list.contains[locked_container_<[location].simple>]>:
         - yaml load:DONT_PUT_SHIT_IN_HERE/locked_containers/<[location].simple>.yml id:locked_container_<[location].simple>
-      - determine <yaml[locked_container_<[location].simple>].read[strength]>
+      - determine <yaml[locked_container_<[location].simple>].read[strength]||0>
     - else:
       - determine 0
 
