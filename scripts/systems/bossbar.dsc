@@ -82,3 +82,51 @@ bb_timer:
 
     #Remove bossbar
     - bossbar remove <[id]>
+
+#Add bb_progress
+
+#bb_status (Run task)
+bb_status:
+  type: task
+  debug: true
+  definitions: effect|duration|targets
+  script:
+    #Check for existing definitions and set defaults as necessary
+    - if <[effect]||null> == null || !<[effect].exists>:
+      - define effect:stun
+    - if <[duration]||null> == null || !<[duration].exists>:
+      - define duration:5s
+    - if <[targets]||null> == null || !<[targets].exists>:
+      - define targets:<player>
+    
+    #Check for definitions above/below/not what is expected (duration, color, progress)
+    - if <[duration].as_duration.in_seconds> <= 0:
+      - define duration:5s
+    #- if !<list[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW].contains[<[color]>]>:
+    #  - define color:YELLOW
+      
+    #Check for effect, define title
+    - choose <[effect]>:
+      - case stun:
+        - define title:<&e><&l><[effect].to_titlecase>
+        - define color:YELLOW
+      - case freeze:
+        - define title:<&b><&l><[effect].to_titlecase>
+        - define color:BLUE
+      - default:
+        - define title:<&f><&l><[effect].to_titlecase>
+        - define color:WHITE
+    
+    #Define timestamp id, create bossbar, and define length of time
+    - define id:<[targets].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
+    - bossbar create <[id]> title:<[title]> color:<[color]> style:SOLID
+    - define length:<[duration].as_duration.in_seconds.+[1]>
+    
+    #Wait for specified duration of time
+    - repeat <[duration].as_duration.in_seconds>:
+      - define length:--
+      - bossbar update <[id]> title:<[title]><&sp><[length]./[<[duration].as_duration.in_seconds>]> progress:<[length]./[<[duration].as_duration.in_seconds>].round_to_precision[0.01]>
+      - wait 1s
+      
+    #Remove bossbar
+    - bossbar remove <[id]>
