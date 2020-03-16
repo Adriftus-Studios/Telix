@@ -82,8 +82,7 @@ citadel_block_protection_events:
         - define item:<player.flag[citadel_build_mode].as_item>
         - if <[item].script.yaml_key[block_reinforcement_strength]||null> != null || <player.inventory.find.scriptname[<[item].script.name>]> == -1:
           - inventory set d:<player.inventory> slot:<player.inventory.find.scriptname[<[item].script.name>]> o:<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].with[quantity=<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].quantity.sub[1]>]>
-          - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
-          - narrate <context.item.script.yaml_key[block_reinforcement_strength]>
+          - run reinforce_block def:<player>|<context.location>|<[item].script.yaml_key[block_reinforcement_strength]>
           - if <player.inventory.find.scriptname[<[item].script.name>]> == -1:
             - flag <player> citadel_build_mode:!
             - narrate "<&b>You have ran out of reinforcement material."
