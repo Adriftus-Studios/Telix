@@ -28,9 +28,9 @@ ability_crimson_blast:
     - else if <[power]> > <[max]>:
       - define power:<[max]>
     - foreach <[target].find.entities.within[<[power]>]>:
-      #Replace hurt with damage proc
+      #Replace hurt with calculate_damage proc
       - hurt <[power].*[1.20].round_down> <[value]>
-      #Replace burn with burn proc
+      #Replace burn with calculate_burn proc
       - burn <[value]> duration:<[value]./[2]>
     - playeffect explosion_huge at:<[target]> quantity:<[power]./[2].round_up> visibility:50
     - playeffect flash at:<[target]> quantity:5 visibility:50
