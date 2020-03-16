@@ -38,8 +38,15 @@ custom_statue_creeper_normal:
   display name: <&a>Normal Creeper Statue
   statue:
     size: normal
+    rarity: normal
     entity: creeper
     picture: custom_statue_creeper_gui
+  mob_drops:
+    1:
+      dropped_by: creeper
+      chance: 100
+      max_quantity: 1
+      min_quantity: 1
 
 custom_statue_creeper_rare:
   type: item
@@ -49,8 +56,15 @@ custom_statue_creeper_rare:
   display name: <&3>Rare Creeper Statue
   statue:
     size: normal
+    rarity: rare
     entity: creeper
     picture: custom_statue_creeper_gui
+  mob_drops:
+    1:
+      dropped_by: creeper
+      chance: 300
+      max_quantity: 1
+      min_quantity: 1
   
 custom_statue_creeper_legendary:
   type: item
@@ -60,12 +74,13 @@ custom_statue_creeper_legendary:
   display name: <&6>Legendary Creeper Statue
   statue:
     size: normal
+    rarity: legendary
     entity: creeper
     picture: custom_statue_creeper_gui
   mob_drops:
     1:
       dropped_by: creeper
-      chance: 300
+      chance: 500
       max_quantity: 1
       min_quantity: 1
 
