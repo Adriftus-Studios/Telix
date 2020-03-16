@@ -157,9 +157,9 @@ get_lock_durability:
         - define location:<[location].other_block>
       - if !<yaml.list.contains[locked_container_<[location].simple>]>:
         - yaml load:DONT_PUT_SHIT_IN_HERE/locked_containers/<[location].simple>.yml id:locked_container_<[location].simple>
-        - determine <yaml[locked_container_<[location].simple>].read[strength]>
-      - else:
-        - determine 0
+      - determine <yaml[locked_container_<[location].simple>].read[strength]>
+    - else:
+      - determine 0
 
 reinforce_block:
   type: task
