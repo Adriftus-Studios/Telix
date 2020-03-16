@@ -28,4 +28,5 @@ ability_crimson_blast:
       - define power:<[max]>
     - foreach <[target].find.entities.within[<[power]>]>:
       - hurt <[power].*[1.25].round_down> <[value]>
+      - burn <[value]> duration:<[value]./[2]>
     - playeffect flash at:<[target]> quantity:<[power].round_up> visibility:50
