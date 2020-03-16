@@ -104,7 +104,6 @@ citadel_block_protection_events:
           - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
           - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
     on player clicks block:
-      - stop
       - narrate <proc[get_lock_durability].context[<context.location>]>
       - narrate <proc[get_citadel_durability].context[<context.location>]>
 
