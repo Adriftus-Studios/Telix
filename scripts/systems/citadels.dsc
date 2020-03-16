@@ -49,7 +49,7 @@ citadel_block_protection_events:
                 - flag server unload_timer.locked_door_<[loc]>:!
                 - yaml id:locked_door_<[loc]> unload
                 - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc]>.yml
-                - narrate "<&b>The lock finally broke."
+                - narrate "<&7><&o>Click..."
     on player breaks block:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]>:
         - if !<yaml.list.contains[reinforced_block_<context.location.simple>]>:
@@ -151,7 +151,13 @@ get_lock_durability:
       - else:
         - determine 0
     - else if <[location].inventory||null> != null:
-      - narrate "TODO"
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_containers].contains[<[location].other_block.simple>.yml]>:
+        - define location:<[location].other_block>
+      - if !<yaml.list.contains[locked_container_<[location].simple>]>:
+        - yaml load:DONT_PUT_SHIT_IN_HERE/locked_containers/<[location].simple>.yml id:locked_container_<[location].simple>
+        - determine <yaml[locked_container_<[location].simple>].read[strength]>
+      - else:
+        - determine 0
 
 reinforce_block:
   type: task
@@ -176,7 +182,6 @@ lock_container:
       - yaml load:DONT_PUT_SHIT_IN_HERE/locked_container/<[location].simple>.yml id:locked_container_<[location].simple>
   - else:
     - yaml id:locked_container_<[location].simple> create
-  - yaml id:locked_container_<[location].simple> create
   - yaml id:locked_container_<[location].simple> set strength:<[strength]>
   - yaml id:locked_container_<[location].simple> set owner:<[player]>
   - yaml id:locked_container_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_container/<[location].simple>.yml
