@@ -5,6 +5,7 @@
 		"layer0": "item/iron_nugget"
 	},
 	"overrides": [
+		{ "predicate": { "custom_model_data": -4}, "model": "item/abilities/-4" },
 		{ "predicate": { "custom_model_data": -3}, "model": "item/abilities/-3" },
 		{ "predicate": { "custom_model_data": -2}, "model": "item/abilities/0" },
 		{ "predicate": { "custom_model_data": -1}, "model": "item/abilities/-1" },

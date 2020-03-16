@@ -1,0 +1,15 @@
+{
+	"__comment": "/give @s minecraft:sponge{CustomModelData:1}",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "item/armor_stand"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": -1}, "model": "statues/statue_gui" },
+		{ "predicate": { "custom_model_data": 0}, "model": "item/armor_stand" },
+		{ "predicate": { "custom_model_data": 1}, "model": "statues/statue_creeper_normal" },
+		{ "predicate": { "custom_model_data": 2}, "model": "statues/statue_creeper_rare" },
+		{ "predicate": { "custom_model_data": 3}, "model": "statues/statue_creeper_legendary" }
+	]
+
+}

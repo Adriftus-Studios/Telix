@@ -53,7 +53,7 @@ equipment_death_handler:
 
 hat_shadow:
   type: item
-  material: diamond_chestplate
+  material: diamond_pickaxe
   category: hat
   mechanisms:
     custom_model_data: -1
@@ -62,7 +62,7 @@ hat_shadow:
 
 shirt_shadow:
   type: item
-  material: diamond_chestplate
+  material: diamond_pickaxe
   category: shirt
   mechanisms:
     custom_model_data: -2
@@ -71,7 +71,7 @@ shirt_shadow:
 
 pants_shadow:
   type: item
-  material: diamond_chestplate
+  material: diamond_pickaxe
   category: pants
   mechanisms:
     custom_model_data: -3
@@ -80,7 +80,7 @@ pants_shadow:
 
 shoes_shadow:
   type: item
-  material: diamond_chestplate
+  material: diamond_pickaxe
   category: shoes
   mechanisms:
     custom_model_data: -4
@@ -89,7 +89,7 @@ shoes_shadow:
 
 cape_shadow:
   type: item
-  material: diamond_chestplate
+  material: diamond_pickaxe
   category: cape
   mechanisms:
     custom_model_data: -5
@@ -98,7 +98,7 @@ cape_shadow:
 
 gloves_shadow:
   type: item
-  material: diamond_chestplate
+  material: diamond_pickaxe
   category: gloves
   mechanisms:
     custom_model_data: -6

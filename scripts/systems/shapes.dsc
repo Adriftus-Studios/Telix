@@ -4,9 +4,9 @@ define_curve1:
   definitions: start|end|intensity|angle|between
   script:
   - define a:<[start].face[<[end]>].points_between[<[end]>].distance[<[between]>]>
-  - define increment:<el@40.div[<[a].size>]>
+  - define increment:<element[40].div[<[a].size>]>
   - foreach <[a]> as:point:
-    - define b:<el@1.add[<el@1.div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
+    - define b:<element[1].add[<element[1].div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
     - define offset:<proc[find_offset].context[<[b]>|<[angle]>]>
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
@@ -16,9 +16,9 @@ define_curve2:
   definitions: start|end|intensity|angle|between
   script:
   - define a:<[start].face[<[end]>].points_between[<[end]>].distance[<[between]>]>
-  - define increment:<el@40.div[<[a].size>]>
+  - define increment:<element[40].div[<[a].size>]>
   - foreach <[a]> as:point:
-    - define b:<el@1.add[<el@1.div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
+    - define b:<element[1].add[<element[1].div[20].mul[<[loop_index].mul[<[increment]>].sub[20]>].power[2].mul[-1]>].mul[<[intensity]>]>
     - define offset:<proc[find_offset].context[<[b]>|<[angle]>]>
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
@@ -28,7 +28,7 @@ define_circle:
   definitions: location|radius
   script:
   - define cir:<[radius].mul[<util.pi>].mul[2]>
-  - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
+  - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
   - repeat <[cir].div[0.2].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
@@ -39,7 +39,7 @@ define_star2:
   definitions: location|radius|rotation|num
   script:
   - repeat <[num]>:
-    - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_down>]>
+    - define t:<element[360].div[<[num]>].mul[<[num].div[2].round_down>]>
     - define offset:<proc[find_offset].context[<[radius]>|<[t].mul[<[value]>].add[<[rotation]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - define distance:<[points].get[1].points_between[<[points].get[2]>].distance[0.2].size>
@@ -54,7 +54,7 @@ define_star:
   definitions: location|radius|rotation|num
   script:
   - repeat <[num]>:
-    - define t:<el@360.div[<[num]>].mul[<[num].div[2].round_down>]>
+    - define t:<element[360].div[<[num]>].mul[<[num].div[2].round_down>]>
     - define offset:<proc[find_offset].context[<[radius]>|<[t].mul[<[value]>].add[<[rotation]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - repeat <[num]>:
@@ -68,7 +68,7 @@ define_spiral:
   script:
   - define start:<[start].face[<[end]>]>
   - define cir:<[radius].mul[<util.pi>].mul[2]>
-  - define between:<el@360.div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
+  - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
   - foreach <[start].points_between[<[end]>].distance[0.4]> as:point:
     - define offset:<proc[find_offset].context[<[radius]>|<[between].mul[<[loop_index]>].add[<[angle_offset]>]>]>
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>

@@ -5,6 +5,13 @@
 		"layer0": "item/gold_nugget"
 	},
 	"overrides": [
+		{ "predicate": { "custom_model_data": -11}, "model": "item/runes/ender_rune" },
+		{ "predicate": { "custom_model_data": -10}, "model": "item/runes/fire_rune" },
+		{ "predicate": { "custom_model_data": -9}, "model": "item/runes/earth_rune" },
+		{ "predicate": { "custom_model_data": -8}, "model": "item/runes/water_rune" },
+		{ "predicate": { "custom_model_data": -7}, "model": "item/runes/air_rune" },
+		{ "predicate": { "custom_model_data": -6}, "model": "item/runes/blank_rune" },
+		{ "predicate": { "custom_model_data": -5}, "model": "guis/hourglass" },
 		{ "predicate": { "custom_model_data": -4}, "model": "item/custom/drops/mnote" },
 		{ "predicate": { "custom_model_data": -3}, "model": "item/custom/drops/cnote" },
 		{ "predicate": { "custom_model_data": -2}, "model": "item/custom/drops/inote" },
@@ -21,7 +28,13 @@
 		{ "predicate": { "custom_model_data": 9}, "model": "guis/stats_bottom" },
 		{ "predicate": { "custom_model_data": 10}, "model": "guis/stats_top" },
 		{ "predicate": { "custom_model_data": 11}, "model": "guis/smeltery_bottom" },
-		{ "predicate": { "custom_model_data": 12}, "model": "guis/smeltery_top" }
+		{ "predicate": { "custom_model_data": 12}, "model": "guis/smeltery_top" },
+		{ "predicate": { "custom_model_data": 13}, "model": "guis/altar_bottom" },
+		{ "predicate": { "custom_model_data": 14}, "model": "guis/altar_top" },
+		{ "predicate": { "custom_model_data": 15}, "model": "guis/alchemy_bottom" },
+		{ "predicate": { "custom_model_data": 16}, "model": "guis/alchemy_top" },
+		{ "predicate": { "custom_model_data": 17}, "model": "guis/statues_bottom" },
+		{ "predicate": { "custom_model_data": 18}, "model": "guis/statues_top" }
 	]
 }
 

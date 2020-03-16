@@ -5,6 +5,7 @@
 		"layer0": "item/spawner"
 	},
 	"overrides": [
+		{ "predicate": { "custom_model_data": 1}, "model": "item/custom/altar" },
 		{ "predicate": { "custom_model_data": 10000001}, "model": "item/custom/blocks/copper_ore" },
 		{ "predicate": { "custom_model_data": 10000002}, "model": "item/custom/blocks/silver_ore" },
 		{ "predicate": { "custom_model_data": 10000003}, "model": "item/custom/blocks/ruby_ore" },
