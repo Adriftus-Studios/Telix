@@ -119,13 +119,13 @@ bb_status:
     
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[targets].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]><&sp><[duration].as_duration.in_seconds>s color:<[color]> style:SOLID
+    - bossbar create <[id]> title:<[title]><&sp><&f><[duration].as_duration.in_seconds>s color:<[color]> style:SOLID
     - define length:<[duration].as_duration.in_seconds.+[1]>
     
     #Wait for specified duration of time
     - repeat <[duration].as_duration.in_seconds>:
       - define length:--
-      - bossbar update <[id]> title:<[title]><&sp><[length]>s progress:<[length]./[<[duration].as_duration.in_seconds>].round_to_precision[0.01]>
+      - bossbar update <[id]> title:<[title]><&sp><&f><[length]>s progress:<[length]./[<[duration].as_duration.in_seconds>].round_to_precision[0.01]>
       - wait 1s
       
     #Remove bossbar
