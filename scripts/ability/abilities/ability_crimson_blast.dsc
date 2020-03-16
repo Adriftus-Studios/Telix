@@ -13,8 +13,8 @@ ability_crimson_blast:
     custom_model_data: 1
   script:
     #Definitions
-    - define min:0.5
-    - define max:2.5
+    - define min:1
+    - define max:5
     - define target:<player.location.cursor_on>
     - define power:<player.location.cursor_on.distance[<player.location>].round_to[1]>
     - if <[target].distance[<player.location>]> > 50 || <[target].material.name> == air:
@@ -28,4 +28,4 @@ ability_crimson_blast:
       - define power:<[max]>
     - foreach <[target].find.entities.within[<[power]>]>:
       - hurt <[power].*[1.25].round_down> <[value]>
-    - playeffect explosion_huge at:<[target]> quantity:<[power].round_up> visibility:50
+    - playeffect flash at:<[target]> quantity:<[power].round_up> visibility:50
