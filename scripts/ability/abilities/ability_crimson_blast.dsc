@@ -17,7 +17,7 @@ ability_crimson_blast:
     - define max:5
     - define target:<player.location.cursor_on>
     - define power:<player.location.cursor_on.distance[<player.location>].round_to[1]>
-    #Target Skill Tree: Nether, Target
+    #Target Skill Tree: Nether, Target Points Requirement: 20, Target Power Cost: 15
     - if <[target].distance[<player.location>]> > 50 || <[target].material.name> == air:
       - narrate "<&e>Your target is too far away!"
       - stop
@@ -32,5 +32,5 @@ ability_crimson_blast:
       - hurt <[power].*[1.20].round_down> <[value]>
       #Replace burn with burn proc
       - burn <[value]> duration:<[value]./[2]>
-    - playeffect explosion_huge at:<[target]> quantity:<[power].round_up> visibility:50
+    - playeffect explosion_huge at:<[target]> quantity:<[power]./[2].round_up> visibility:50
     - playeffect flash at:<[target]> quantity:5 visibility:50
