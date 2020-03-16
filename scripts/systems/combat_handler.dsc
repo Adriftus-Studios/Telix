@@ -29,3 +29,10 @@ calculate_damage:
     - if <[final_damage]> < 0.5:
       - define final_damage:0.5
     - determine <[final_damage]>
+  
+# initial in seconds, reduction in integers
+calculate_burn:
+  type: procedure
+  definitions: initial|reduction
+  script:
+    - determine <[initial].*[<element[100].-[<[reduction]>]>]>
