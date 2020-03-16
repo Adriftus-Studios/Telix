@@ -113,7 +113,7 @@ bb_status:
         - define color:YELLOW
       - case freeze:
         - define title:<&b><&l><[effect].to_titlecase>
-        - define icon:<&b>☉
+        - define icon:<&b>☐
         - define color:BLUE
       - case burn:
         - define title:<&c><&l><[effect].to_titlecase>
