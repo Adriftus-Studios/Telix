@@ -23,9 +23,9 @@ citadel_block_protection_events:
       - foreach <server.list_flags.filter[starts_with[unload_timer.]]>:
         - if <server.flag[<[value]>].expiration.in_seconds> <= 1:
           - if <[value].replace[unload_timer.].with[].starts_with[locked_door_]>:
-            - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[value].replace[unload_timer.].with[]>.yml
+            - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[value].replace[unload_timer.locked_door_].with[]>.yml
           - if <[value].replace[unload_timer.].with[].starts_with[reinforced_block_]>:
-            - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[value].replace[unload_timer.].with[]>.yml
+            - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[value].replace[unload_timer.reinforced_block_].with[]>.yml
           - else:
             - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/other/<[value].replace[unload_timer.].with[]>.yml
           - yaml id:<[value].replace[unload_timer.].with[]> unload
