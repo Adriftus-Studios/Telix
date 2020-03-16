@@ -143,6 +143,7 @@ get_lock_durability:
   type: proc
   definitions: location
   script:
+    - narrate 0
     - if <[location].material.name.ends_with[door]>:
       - if <[location].material.side> == TOP:
         - define location:<[location].other_block||<[location]>>
