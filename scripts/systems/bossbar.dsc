@@ -117,7 +117,7 @@ bb_status:
         - define color:BLUE
       - case burn:
         - define title:<&c><&l><[effect].to_titlecase>
-        - define icon::<&c>[<&f>☼<&c>]
+        - define icon:<&c>[<&f>☼<&c>]
         - define color:RED
       - default:
         - define title:<&f><&l><[effect].to_titlecase>
