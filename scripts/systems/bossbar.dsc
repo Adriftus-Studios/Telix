@@ -109,19 +109,19 @@ bb_status:
     - choose <[effect]>:
       - case stun:
         - define title:<&e><&l><[effect].to_titlecase>
-        - define icon:<&e>[<&f>⭍<&e>]
+        - define icon:<&e>⚡
         - define color:YELLOW
       - case freeze:
         - define title:<&b><&l><[effect].to_titlecase>
-        - define icon:<&b>[<&f>❄<&b>]
+        - define icon:<&b>☉
         - define color:BLUE
       - case burn:
         - define title:<&c><&l><[effect].to_titlecase>
-        - define icon:<&c>[<&f>☼<&c>]
+        - define icon:<&c>☀
         - define color:RED
       - default:
-        - define title:<&f><&l><[effect].to_titlecase>
-        - define icon:[x]
+        - define title:<&7><&l><[effect].to_titlecase>
+        - define icon:<&7>x
         - define color:WHITE
     
     #Define timestamp id, create bossbar, and define length of time
