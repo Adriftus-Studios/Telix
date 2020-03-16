@@ -143,7 +143,7 @@ get_lock_durability:
   script:
     - if <[location].material.name.ends_with[door]>:
       - if <[location].material.side> == TOP:
-        - define location:<[location].down[1]>
+        - define location:<[location].other_block||<[location]>>
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<[location].simple>.yml]>:
         - if !<yaml.list.contains[locked_door_<[location].simple>]>:
           - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[location].simple>.yml id:locked_door_<[location].simple>
