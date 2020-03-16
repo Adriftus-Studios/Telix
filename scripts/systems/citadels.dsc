@@ -134,10 +134,13 @@ get_citadel_durability:
     - if <[location].material.side> == TOP:
       - define location:<[location].other_block>
     - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<[location].simple>.yml]>:
+      - narrate 1
       - if !<yaml.list.contains[reinforced_block_<[location].simple>]>:
         - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[location].simple>.yml id:reinforced_block_<[location].simple>
+        - narrate 2
       - determine <yaml[reinforced_block_<[location].simple>].read[strength]||0>
     - else:
+      - narrate 3
       - determine 0
 
 get_lock_durability:
