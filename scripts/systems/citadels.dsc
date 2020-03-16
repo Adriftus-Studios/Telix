@@ -143,7 +143,6 @@ get_lock_durability:
   type: procedure
   definitions: location
   script:
-    - narrate 0
     - if <[location].material.name.ends_with[door]>:
       - if <[location].material.side> == TOP:
         - define location:<[location].other_block||<[location]>>
@@ -154,12 +153,9 @@ get_lock_durability:
       - else:
         - determine 0
     - else if <[location].inventory||null> != null:
-      - narrate 1
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_containers].contains[<[location].other_block.simple>.yml]>:
-        - narrate 2
         - define location:<[location].other_block>
       - if !<yaml.list.contains[locked_container_<[location].simple>]>:
-        - narrate 3
         - yaml load:DONT_PUT_SHIT_IN_HERE/locked_containers/<[location].simple>.yml id:locked_container_<[location].simple>
         - determine <yaml[locked_container_<[location].simple>].read[strength]>
       - else:
