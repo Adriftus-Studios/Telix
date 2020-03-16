@@ -179,7 +179,7 @@ lock_container:
   type: task
   definitions: player|location|strength
   script:
-  - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_container].contains[<[location].simple>.yml]>:
+  - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_containers].contains[<[location].simple>.yml]>:
     - if !<yaml.list.contains[locked_container_<[location].simple>]>:
       - yaml load:DONT_PUT_SHIT_IN_HERE/locked_containers/<[location].simple>.yml id:locked_container_<[location].simple>
   - else:
