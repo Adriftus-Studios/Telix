@@ -100,6 +100,8 @@ citadel_block_protection_events:
         - else:
           - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
           - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
+    on player clicks block:
+      - narrate <proc[get_lock_durability].context[<context.location>]>
 
 citadel_build_mode_command:
   type: command
