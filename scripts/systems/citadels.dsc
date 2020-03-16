@@ -102,6 +102,7 @@ citadel_block_protection_events:
           - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
     on player clicks block:
       - narrate <proc[get_lock_durability].context[<context.location>]>
+      - narrate <proc[get_citadel_durability].context[<context.location>]>
 
 citadel_build_mode_command:
   type: command
