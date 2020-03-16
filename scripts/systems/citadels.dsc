@@ -181,12 +181,12 @@ lock_container:
   script:
   - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_container].contains[<[location].simple>.yml]>:
     - if !<yaml.list.contains[locked_container_<[location].simple>]>:
-      - yaml load:DONT_PUT_SHIT_IN_HERE/locked_container/<[location].simple>.yml id:locked_container_<[location].simple>
+      - yaml load:DONT_PUT_SHIT_IN_HERE/locked_containers/<[location].simple>.yml id:locked_container_<[location].simple>
   - else:
     - yaml id:locked_container_<[location].simple> create
   - yaml id:locked_container_<[location].simple> set strength:<[strength]>
   - yaml id:locked_container_<[location].simple> set owner:<[player]>
-  - yaml id:locked_container_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_container/<[location].simple>.yml
+  - yaml id:locked_container_<[location].simple> savefile:DONT_PUT_SHIT_IN_HERE/locked_containers/<[location].simple>.yml
   - flag server unload_timer.locked_container_<[location].simple> duration:10s
 
 lock_door:
