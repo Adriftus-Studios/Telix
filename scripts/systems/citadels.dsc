@@ -103,9 +103,6 @@ citadel_block_protection_events:
           - narrate <context.item.script.yaml_key[block_reinforcement_strength]>
           - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
           - run reinforce_block def:<player>|<context.location>|<context.item.script.yaml_key[block_reinforcement_strength]>
-    on player clicks block:
-      - narrate <proc[get_lock_durability].context[<context.location>]>
-      - narrate <proc[get_citadel_durability].context[<context.location>]>
 
 citadel_build_mode_command:
   type: command
@@ -137,13 +134,10 @@ get_citadel_durability:
     - if <[location].material.side> == TOP:
       - define location:<[location].other_block>
     - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<[location].simple>.yml]>:
-      - narrate 1
       - if !<yaml.list.contains[reinforced_block_<[location].simple>]>:
         - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[location].simple>.yml id:reinforced_block_<[location].simple>
-        - narrate 2
       - determine <yaml[reinforced_block_<[location].simple>].read[strength]||0>
     - else:
-      - narrate 3
       - determine 0
 
 get_lock_durability:
