@@ -113,6 +113,9 @@ bb_status:
       - case freeze:
         - define title:<&b><&l><[effect].to_titlecase>
         - define color:BLUE
+      - case burn:
+        - define title:<&c><&l><[effect].to_titlecase>
+        - define color:RED
       - default:
         - define title:<&f><&l><[effect].to_titlecase>
         - define color:WHITE
