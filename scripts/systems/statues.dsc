@@ -90,7 +90,7 @@ statues_events:
     on player right clicks block with custom_statue_*:
       - determine passively cancelled
       - narrate <context.location.material>
-      - if <context.location.material.name> != barrier:
+      - if <context.location.material.name> != barrier && <context.location.material.name> != air:
         - adjust <context.relative> block_type:barrier
         - adjust <context.relative.up[1]> block_type:barrier
         - spawn <entity[entity_statue]> <context.location.center.up[0.5]> save:statue
