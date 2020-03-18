@@ -241,6 +241,7 @@ stats_inventory_handler:
       - adjust def:icon lore:<[lore]>
       - inventory add d:<context.inventory> o:<[icon]>
     on player clicks in stats_character:
+    - narrate <context.item.custom_model_data>
     - if <context.clicked_inventory.script_name||null> == "STATS_CHARACTER":
       - determine passively cancelled
       - if <context.item.nbt[assigned_stat]||null> != null:
