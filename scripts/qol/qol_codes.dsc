@@ -45,7 +45,7 @@ command_code_redeem:
     - narrate "Affiliate Code Entered."
   script:
     - define code:<context.args.get[1].to_lowercase>
-    - if <server.list_players.parse[name.to_lowercase].filter[starts_with[<[code]>]]>:
+    - if <server.list_players.parse[name.to_lowercase].filter[starts_with[<[code]>]].get[1]||null> == <[code]>:
       - inject locally user
     - else if <script[telix_creator_codes].list_keys.contains[<[code]>]>:
       - inject locally affiliate
