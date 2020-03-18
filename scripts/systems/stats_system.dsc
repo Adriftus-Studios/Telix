@@ -139,19 +139,18 @@ calculate_contamination:
         - if <[value].yaml_key[contaminated]> > <[level]||0>:
           - define level:<[value].yaml_key[contaminated]>
       - yaml id:player.<player.uuid> set stats.contaminated:<[level]>
-      - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> >= <[level]>:
-        - stop
-      - if <[level]> != 0:
-        - while <yaml[player.<player.uuid>].read[stats.contaminated]> != 0:
-          - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> >= <[level]>:
-            - while stop
-            - yaml id:player.<player.uuid> set stats.contaminated:0
-          - if <yaml[player.<player.uuid>].read[stats.contaminated]> != <[level]>:
-            - while stop
-            - yaml id:player.<player.uuid> set stats.contaminated:0
-          - define duration:<duration[<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>t]||<duration[1t]>>
-          - cast wither duration:<[duration].add[<[level].mul[5]>t]> power:<[level].mul[2].add[4]>
-          - wait 1t
+      - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> < <[level]>:
+        - if <[level]> != 0:
+          - while <yaml[player.<player.uuid>].read[stats.contaminated]> != 0:
+            - if <yaml[player.<player.uuid>].read[stats.hazard_protection]> >= <[level]>:
+              - while stop
+              - yaml id:player.<player.uuid> set stats.contaminated:0
+            - if <yaml[player.<player.uuid>].read[stats.contaminated]> != <[level]>:
+              - while stop
+              - yaml id:player.<player.uuid> set stats.contaminated:0
+            - define duration:<duration[<player.list_effects.filter[starts_with[WITHER]].get[1].split[,].get[3]>t]||<duration[1t]>>
+            - cast wither duration:<[duration].add[<[level].mul[5]>t]> power:<[level].mul[2].add[4]>
+            - wait 1t
 
 contamination_events:
   type: world
