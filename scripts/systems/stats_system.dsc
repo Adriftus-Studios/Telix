@@ -217,7 +217,9 @@ stats_inventory_handler:
   type: world
   events:
     on player opens stats_character:
+    - narrate 1
     - inject update_stats
+    - narrate 2
     - foreach <script[default_stats].list_keys[stats.default].alphabetical> as:stat:
       - narrate <[stat]>
       - define icon:<item[stats_icon]>
