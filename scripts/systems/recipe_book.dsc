@@ -9,9 +9,23 @@ recipe_book_inventory:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[rb_top] [] [] [] [] [] [] [] [w_filler]"
+  - "[rb_bottom] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+rb_top:
+  type: item
+  material: gold_nugget
+  display name: <&c>
+  mechanisms:
+    custom_model_data: 20
+
+rb_bottom:
+  type: item
+  material: gold_nugget
+  display name: <&c>
+  mechanisms:
+    custom_model_data: 19
 
 recipe_book_chooser:
   type: inventory
