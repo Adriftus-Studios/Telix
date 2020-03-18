@@ -49,14 +49,16 @@ command_code_redeem:
       - stop
     - narrate "<&2>You have entered <&a><script[telix_creator_codes].yaml_key[<[code]>.display]><&2>'s code."
     - if <player[<script[telix_creator_codes].yaml_key[<[code]>.uuid]>].is_online>:
-      - narrate "<&a>[<&2>TCI<&a>] <&b><player.name> has entered your code, <&3><script[telix_creator_codes].yaml_key[<[code]>.display]>."
+      - narrate "<&a>[<&2>TCI<&a>] <&b><player.name> has entered your code, <&3><script[telix_creator_codes].yaml_key[<[code]>.display]>." targets:<player[<script[telix_creator_codes].yaml_key[<[code]>.uuid]>]>
+    - flag player code_redeemed:true duration:7d
   user:
     - if <server.match_player[<[code]>]> == <player>:
       - narrate "<&c>You cannot enter your own user code!"
       - stop
     - narrate "<&b>You have entered <&3><server.match_player[<[code]>].name><&b>'s code."
     - if <server.match_player[<[code]>].is_online>:
-    - narrate "<&3>[<&b>TCI<&3>] <&a><player.name> has entered your code, <&2><server.match_player[<[code]>].name>."
+      - narrate "<&3>[<&b>TCI<&3>] <&a><player.name> has entered your code, <&2><server.match_player[<[code]>].name>." targets:<server.match_player[<[code]>]>
+    - flag player code_redeemed:true duration:7d
   script:
     - define code:<context.args.get[1].to_lowercase>
     - if <script[telix_creator_codes].list_keys.contains[<[code]>]>:
