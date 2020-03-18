@@ -14,7 +14,7 @@ command_code:
       - if <script[telix_creator_codes].yaml_key[<[value]>.uuid]> == <player.uuid>:
         - define code:<script[telix_creator_codes].yaml_key[<[value]>.display]>
     - narrate "<&2><&l>Telix Codes"
-    - narrate "<&a>Support your favourite Telix Creators by entering their creator code once a week!"
+    - narrate "<&a>Support your favourite Telix Creators by entering their creator code every day!"
     - narrate "<&a>Entering a creator's code shows support for their content on the server."
     - narrate "<&6>How do I get a Telix code? <&e>You already have one, <&b><[code]><&e>!"
     - narrate "<&6>Are you a creator? <&e>Type <&a>/code join <&e>for more information."
@@ -37,6 +37,8 @@ command_code:
     - else if <context.args.get[1].to_lowercase> == version:
       - inject locally version
     - else:
+      - if <player.has_flag[code_redeemed]>:
+        - narrate "<&c>You have already redeemed the code <player.flag[code_redeemed].split[.].get[1]> on <player.flag[code_redeemed].split[.].get[2]>."
       - inject command_code_redeem
       
 #Injected task (<context.args.get[1]>)
@@ -50,7 +52,7 @@ command_code_redeem:
     - narrate "<&2>You have entered <&a><script[telix_creator_codes].yaml_key[<[code]>.display]><&2>'s code."
     - if <player[<script[telix_creator_codes].yaml_key[<[code]>.uuid]>].is_online>:
       - narrate "<&a>[<&2>TCI<&a>] <&b><player.name> has entered your code, <&3><script[telix_creator_codes].yaml_key[<[code]>.display]>." targets:<player[<script[telix_creator_codes].yaml_key[<[code]>.uuid]>]>
-    - flag player code_redeemed:true duration:7d
+    - flag player code_redeemed:<[code]>.<util.date> duration:1d
   user:
     - if <server.match_player[<[code]>]> == <player>:
       - narrate "<&c>You cannot enter your own user code!"
@@ -58,7 +60,7 @@ command_code_redeem:
     - narrate "<&b>You have entered <&3><server.match_player[<[code]>].name><&b>'s code."
     - if <server.match_player[<[code]>].is_online>:
       - narrate "<&3>[<&b>TCI<&3>] <&a><player.name> has entered your code, <&2><server.match_player[<[code]>].name>." targets:<server.match_player[<[code]>]>
-    - flag player code_redeemed:true duration:7d
+    - flag player code_redeemed:<[code]>.<util.date> duration:1d
   script:
     - define code:<context.args.get[1].to_lowercase>
     - if <script[telix_creator_codes].list_keys.contains[<[code]>]>:
