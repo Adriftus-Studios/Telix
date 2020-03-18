@@ -9,10 +9,14 @@ command_code:
     - else if <context.args.size> == 1 && <context.raw_args.ends_with[<&sp>].not>:
       - determine <[arguments].filter[starts_with[<context.args.get[1]>]]>
   help:
+    - define code:<player.name>
+    - foreach <script[telix_creator_codes].list_keys>:
+      - if <script[telix_creator_codes].yaml_key[<[value]>.uuid]> == <player.uuid>:
+        - define code:<script[telix_creator_codes].yaml_key[<[value]>.display]>
     - narrate "<&2><&l>Telix Codes"
     - narrate "<&a>Support your favourite Telix Creators by entering their creator code once a week!"
     - narrate "<&a>Entering a creator's code shows support for their content."
-    - narrate "<&6>How do I get a Telix code? <&e>You already have one, <&b><player.name>!"
+    - narrate "<&6>How do I get a Telix code? <&e>You already have one, <&b><[code]>!"
     - narrate "<&6>Are you a creator? <&e>Type <&a>/code join <&e>for more information."
   join:
     - narrate "<&2><&l>Telix Creators - Affiliate Program"
