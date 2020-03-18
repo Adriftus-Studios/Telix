@@ -216,11 +216,8 @@ stats_inventory_handler:
   type: world
   events:
     on player opens stats_character:
-    - narrate 1
     - inject update_stats
-    - narrate 2
     - foreach <script[default_stats].list_keys[stats.default].alphabetical> as:stat:
-      - narrate <[stat]>
       - define icon:<item[stats_icon]>
       - adjust def:icon display_name:<&6>◆<&sp><&a><&n><&l><[stat].substring[0,1].to_uppercase><[stat].substring[2].to_lowercase.replace[_].with[<&sp>]><&r><&sp><&6>◆
       - define lore:Current<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max]||<yaml[player.<player.uuid>].read[stats.<[stat]>]>>
