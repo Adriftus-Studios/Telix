@@ -89,7 +89,6 @@ statues_events:
   events:
     on player right clicks block with custom_statue_*:
       - determine passively cancelled
-      - narrate <context.location.material>
       - if <context.location.material.name> != barrier && <context.location.material.name> != air:
         - adjust <context.relative> block_type:barrier
         - adjust <context.relative.up[1]> block_type:barrier
