@@ -25,6 +25,6 @@ ability_fireball_script:
       #Replace hurt with calculate_damage proc
       - hurt <[value].location.distance[<[hit]>].*[1.25].round_to[1]> <[value]>
       #Replace burn with calculate_burn proc
-      - burn <[value]> duration:5t
+      - burn <[value]> duration:6t
       - adjust <[value]> velocity:0,1,0
     - playeffect explosion_large at:<[hit]> quantity:1 visibility:50
