@@ -5,7 +5,8 @@ ability_ground_slam:
   ability_type: active
   points_to_unlock: 10
   power_cost: 10
-  description: Ground: Knockback players in a 5 block radius.|Mid-air: Stun players in a 3 block radius.
+  description: Knockback/Stun players in a 5/3 block radius.
+  usage: Grounded/Midair
   icon:
     material: stone
     custom_model_data: 1
