@@ -45,8 +45,12 @@ command_code_redeem:
   debug: false
   affiliate:
     - narrate "<&2>You have entered <&a><script[telix_creator_codes].yaml_key[<[code]>.display]><&2>'s code."
+    - if <player[<script[telix_creator_codes].yaml_key[<[code]>.uuid]>].is_online>:
+      - narrate "<&a>[<&2>TCI<&a>] <&b><player.name> has entered your code, <&3><script[telix_creator_codes].yaml_key[<[code]>.display]>."
   user:
-    - narrate "<&b>You have entered <&3><server.match_player[<[code]>].name><&3>'s code."
+    - narrate "<&b>You have entered <&3><server.match_player[<[code]>].name><&b>'s code."
+    - if <server.match_player[<[code]>].is_online>:
+    - narrate "<&3>[<&b>TCI<&3>] <&a><player.name> has entered your code, <&2><server.match_player[<[code]>].name>."
   script:
     - define code:<context.args.get[1].to_lowercase>
     - if <script[telix_creator_codes].list_keys.contains[<[code]>]>:
