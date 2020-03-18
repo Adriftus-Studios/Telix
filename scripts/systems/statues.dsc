@@ -89,15 +89,17 @@ statues_events:
   events:
     on player right clicks block with custom_statue_*:
       - determine passively cancelled
-      - adjust <context.relative> block_type:barrier
-      - adjust <context.relative.up[1]> block_type:barrier
-      - spawn <entity[entity_statue]> <context.location.center.up[0.5]> save:statue
-      - adjust <entry[statue].spawned_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.item.with[quantity=1]>
-      - note <inventory[statues_inventory]> as:statue_<context.relative>
-      - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
-      - inventory adjust d:<inventory[statue_<context.relative>]> slot:1 nbt:entity/<entry[statue].spawned_entity>
-      - inventory set d:<inventory[statue_<context.relative>]> slot:23 o:<context.item.with[quantity=1]>
-      - inventory set d:<inventory[statue_<context.relative>]> slot:20 o:<context.item.script.yaml_key[statue.picture]>
+      - narrate <context.location.material>
+      - if <context.location.material.name> != barrier:
+        - adjust <context.relative> block_type:barrier
+        - adjust <context.relative.up[1]> block_type:barrier
+        - spawn <entity[entity_statue]> <context.location.center.up[0.5]> save:statue
+        - adjust <entry[statue].spawned_entity> equipment:<item[air]>|<item[air]>|<item[air]>|<context.item.with[quantity=1]>
+        - note <inventory[statues_inventory]> as:statue_<context.relative>
+        - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
+        - inventory adjust d:<inventory[statue_<context.relative>]> slot:1 nbt:entity/<entry[statue].spawned_entity>
+        - inventory set d:<inventory[statue_<context.relative>]> slot:23 o:<context.item.with[quantity=1]>
+        - inventory set d:<inventory[statue_<context.relative>]> slot:20 o:<context.item.script.yaml_key[statue.picture]>
     on player clicks barrier:
       - if <player.is_sneaking>:
         - if <inventory[statue_<context.location>]||null> != null:

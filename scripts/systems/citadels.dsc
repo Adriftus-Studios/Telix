@@ -125,6 +125,7 @@ citadel_build_mode_command:
 custom_citadel_test_item:
   type: item
   material: diamond
+  display name: Citadel Test Item
   block_reinforcement_strength: 10
 
 get_citadel_durability:
