@@ -46,8 +46,8 @@ command_code_redeem:
   script:
     - define code:<context.args.get[1].to_lowercase>
     - if <server.list_players.parse[name.to_lowercase].filter[starts_with[<[code]>]]>:
-      - inject locally redeem
+      - inject locally user
     - else if <script[telix_creator_codes].list_keys.contains[<[code]>]>:
-      - inject locally redeem
+      - inject locally affiliate
     - else:
       - narrate "<&c>You have entered an invalid code!"
