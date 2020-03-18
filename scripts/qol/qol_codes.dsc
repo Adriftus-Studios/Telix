@@ -39,6 +39,7 @@ command_code:
     - else:
       - if <player.has_flag[code_redeemed]>:
         - narrate "<&c>You have already redeemed the code <player.flag[code_redeemed].split[.].get[1]> on <player.flag[code_redeemed].split[.].get[2]>."
+        - stop
       - inject command_code_redeem
       
 #Injected task (<context.args.get[1]>)
