@@ -175,6 +175,18 @@ contamination_events:
 default_stats:
   type: yaml data
   stats:
+    custom_model_data:
+      speed: 0
+      food: -14
+      thirst: 0
+      health: 0
+      weight: 0
+      power: -9
+      experience_multiplier: -12
+      drop_rate_multiplier: -10
+      ore_drops_multiplier: 0
+      melee_damage: -13
+      equipment_rating: -11
     default:
       speed: 100
       food: 100
@@ -182,7 +194,6 @@ default_stats:
       health: 20
       weight: 320
       power: 20
-      constitution: 0
       experience_multiplier: 0
       drop_rate_multiplier: 0
       ore_drops_multiplier: 0
@@ -218,8 +229,9 @@ stats_inventory_handler:
     on player opens stats_character:
     - inject update_stats
     - foreach <script[default_stats].list_keys[stats.default].alphabetical> as:stat:
-      - define icon:<item[stats_icon]>
+      - define icon:<item[iron_nugget]>
       - adjust def:icon display_name:<&6>◆<&sp><&a><&n><&l><[stat].substring[0,1].to_uppercase><[stat].substring[2].to_lowercase.replace[_].with[<&sp>]><&r><&sp><&6>◆
+      - adjust def:icon custom_model_data:<script[default_stats].read[stats.custom_model_data.<[stat]>]>
       - define lore:Current<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max]||<yaml[player.<player.uuid>].read[stats.<[stat]>]>>
       - if <script[default_stats].yaml_key[stats.increments.<[stat]>]||null> != null:
         - define lore:|:Next<&sp>Level<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]||<yaml[player.<player.uuid>].read[stats.<[stat]>].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]>>
