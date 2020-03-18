@@ -232,6 +232,7 @@ stats_inventory_handler:
       - define icon:<item[iron_nugget]>
       - adjust def:icon display_name:<&6>◆<&sp><&a><&n><&l><[stat].substring[0,1].to_uppercase><[stat].substring[2].to_lowercase.replace[_].with[<&sp>]><&r><&sp><&6>◆
       - adjust def:icon custom_model_data:<script[default_stats].read[stats.custom_model_data.<[stat]>]>
+      - narrate <script[default_stats].read[stats.custom_model_data.<[stat]>]>
       - define lore:Current<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max]||<yaml[player.<player.uuid>].read[stats.<[stat]>]>>
       - if <script[default_stats].yaml_key[stats.increments.<[stat]>]||null> != null:
         - define lore:|:Next<&sp>Level<&co><&sp><yaml[player.<player.uuid>].read[stats.<[stat]>.max].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]||<yaml[player.<player.uuid>].read[stats.<[stat]>].+[<script[default_stats].yaml_key[stats.increments.<[stat]>]>]>>
