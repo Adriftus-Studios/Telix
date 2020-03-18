@@ -21,10 +21,10 @@ ability_fireball_script:
   script:
     #Target Skill Tree: Nether, Target Points Requirement: 15, Target Power Cost: 10
     - define hit:<[hit_entities].get[1].location||<[location]>>
-    - foreach <[hit].above.find.entities.within[3.5].exclude[<player>]>:
+    - foreach <[hit].above.find.entities.within[3.5]>:
       #Replace hurt with calculate_damage proc
       - hurt <[value].location.distance[<[hit]>].*[1.25].round_to[1]> <[value]>
       #Replace burn with calculate_burn proc
-      - burn <[value]> duration:10t
+      - burn <[value]> duration:5t
       - adjust <[value]> velocity:0,1,0
     - playeffect explosion_large at:<[hit]> quantity:1 visibility:50
