@@ -1,4 +1,4 @@
-ability_crimson_blast:
+ability_explosive_blast:
   type: task
   debug: false
   name: crimson_blast
