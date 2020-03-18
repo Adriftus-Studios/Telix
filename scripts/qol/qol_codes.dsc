@@ -46,7 +46,7 @@ command_code_redeem:
   affiliate:
     - narrate "<&2>You have entered <&a><script[telix_creator_codes].yaml_key[<[code]>.display]><&2>'s code."
   user:
-    - narrate "<&b>You have entered <&3><server.match_player[<[code]>].name><&b>'s code."
+    - narrate "<&b>You have entered <&3><server.match_player[<[code]>].name><&3>'s code."
   script:
     - define code:<context.args.get[1].to_lowercase>
     - if <script[telix_creator_codes].list_keys.contains[<[code]>]>:
