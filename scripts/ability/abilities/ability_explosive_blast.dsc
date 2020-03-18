@@ -29,9 +29,9 @@ ability_explosive_blast:
       - define power:<[max]>
     - foreach <[target].find.entities.within[<[power]>]>:
       #Replace burn with calculate_burn proc
-      - burn <[value]> duration:<[value]./[2]>
+      - burn <[value]> duration:<[power]./[2]>
       #Replace hurt with calculate_damage proc
       - hurt <[power].*[1.20].round_down> <[value]>
-      - cast slow <[value]> duration:<[power].*[5].round_down>t power:2
+      - cast slow <[value]> duration:<[power].*[6].round_down>t power:2
     - playeffect explosion_huge at:<[target]> quantity:<[power]./[2].round_up> visibility:50
     - playeffect flash at:<[target]> quantity:5 visibility:50
