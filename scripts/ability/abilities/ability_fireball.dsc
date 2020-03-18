@@ -6,7 +6,7 @@ ability_fireball:
   ability_type: active
   points_to_unlock: 15
   power_cost: 10
-  description: Shoot a fireball towards your targeted location.
+  description: Shoot a fireball towards your targeted location
   icon:
     material: stone
     custom_model_data: 1
