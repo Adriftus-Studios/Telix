@@ -44,10 +44,16 @@ command_code_redeem:
   type: task
   debug: false
   affiliate:
+    - if <script[telix_creator_codes].yaml_key[<[code]>.uuid]> == <player.uuid>:
+      - narrate "<&c>You cannot enter your own affiliate code!"
+      - stop
     - narrate "<&2>You have entered <&a><script[telix_creator_codes].yaml_key[<[code]>.display]><&2>'s code."
     - if <player[<script[telix_creator_codes].yaml_key[<[code]>.uuid]>].is_online>:
       - narrate "<&a>[<&2>TCI<&a>] <&b><player.name> has entered your code, <&3><script[telix_creator_codes].yaml_key[<[code]>.display]>."
   user:
+    - if <server.match_player[<[code]>]> == <player>:
+      - narrate "<&c>You cannot enter your own user code!"
+      - stop
     - narrate "<&b>You have entered <&3><server.match_player[<[code]>].name><&b>'s code."
     - if <server.match_player[<[code]>].is_online>:
     - narrate "<&3>[<&b>TCI<&3>] <&a><player.name> has entered your code, <&2><server.match_player[<[code]>].name>."
