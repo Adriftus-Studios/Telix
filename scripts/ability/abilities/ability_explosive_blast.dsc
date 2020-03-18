@@ -1,7 +1,7 @@
 ability_explosive_blast:
   type: task
   debug: false
-  name: crimson_blast
+  name: explosive_blast
   ability_tree: Nether
   ability_type: active
   points_to_unlock: 20
