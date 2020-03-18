@@ -22,9 +22,3 @@ telix_creator_codes:
     twitter: TjlTrevor
     instagram: whattreva
     facebook: whatreva
-  chrispy:
-    display: CHRiSPY
-    uuid: 7cd8946b-3e5d-4563-b8e9-5ed42707e35f
-    twitch: Estyric
-    youtube: ChrispyIsHere
-    twitter: ChrispyIsHere
