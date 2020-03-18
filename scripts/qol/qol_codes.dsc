@@ -15,8 +15,8 @@ command_code:
         - define code:<script[telix_creator_codes].yaml_key[<[value]>.display]>
     - narrate "<&2><&l>Telix Codes"
     - narrate "<&a>Support your favourite Telix Creators by entering their creator code once a week!"
-    - narrate "<&a>Entering a creator's code shows support for their content."
-    - narrate "<&6>How do I get a Telix code? <&e>You already have one, <&b><[code]>!"
+    - narrate "<&a>Entering a creator's code shows support for their content on the server."
+    - narrate "<&6>How do I get a Telix code? <&e>You already have one, <&b><[code]><&e>!"
     - narrate "<&6>Are you a creator? <&e>Type <&a>/code join <&e>for more information."
   join:
     - narrate "<&2><&l>Telix Creators - Affiliate Program"
@@ -26,7 +26,7 @@ command_code:
     - narrate "<&e>Don't know how? <&6>Click <&b>User Settings <&6><&gt> <&b>Connections <&6><&gt> <&b>Connect Your Accounts."
   version:
     - narrate "<&2><&l>Codes <&e>by <&b>@Estyria (Kyu#5957)"
-    - narrate "<&a>Telix Codes - 2020-03-13"
+    - narrate "<&a>Telix Codes - 2020-03-18"
   script:
     - if <context.args.get[1]||null> == null:
       - narrate "<&e>Correct usage: <&a>/code <&lt>code<&gt>"
@@ -43,10 +43,10 @@ command_code:
 command_code_redeem:
   type: task
   debug: false
-  user:
-    - narrate "User Code Entered."
   affiliate:
-    - narrate "Affiliate Code Entered."
+    - narrate "<&2>You have entered <&a><[code]><&2>'s code."
+  user:
+    - narrate "<&b>You have entered <&3><[code]><&b>'s code."
   script:
     - define code:<context.args.get[1].to_lowercase>
     - if <script[telix_creator_codes].list_keys.contains[<[code]>]>:
