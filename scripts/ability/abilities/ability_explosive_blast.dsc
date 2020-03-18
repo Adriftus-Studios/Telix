@@ -4,8 +4,8 @@ ability_explosive_blast:
   name: explosive_blast
   ability_tree: Nether
   ability_type: active
-  points_to_unlock: 0
-  power_cost: 1
+  points_to_unlock: 20
+  power_cost: 15
   description: Cast an explosion at your targeted location
   usage: Power increases as the target distance increases.
   icon:
@@ -31,7 +31,7 @@ ability_explosive_blast:
       #Replace burn with calculate_burn proc
       - burn <[value]> duration:<[power].*[1.5]>
       #Replace hurt with calculate_damage proc
-      - hurt <[power].*[1.20].round_down> <[value]>
+      - hurt <[power].*[1.25].round_down> <[value]>
       - cast slow <[value]> duration:<[power].*[6].round_down>t power:2
     - playeffect explosion_huge at:<[target]> quantity:<[power]./[2].round_up> visibility:50
     - playeffect flash at:<[target]> quantity:5 visibility:50
