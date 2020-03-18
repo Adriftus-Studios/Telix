@@ -44,14 +44,14 @@ command_code_redeem:
   type: task
   debug: false
   affiliate:
-    - narrate "<&2>You have entered <&a><[code]><&2>'s code."
+    - narrate "<&2>You have entered <&a><script[telix_creator_codes].yaml_key[<[code]>.display]><&2>'s code."
   user:
-    - narrate "<&b>You have entered <&3><[code]><&b>'s code."
+    - narrate "<&b>You have entered <&3><server.match_player[<[code]>].name><&b>'s code."
   script:
     - define code:<context.args.get[1].to_lowercase>
     - if <script[telix_creator_codes].list_keys.contains[<[code]>]>:
       - inject locally affiliate
-    - else if <server.list_players.parse[name.to_lowercase].filter[starts_with[<[code]>]].get[1]||null> == <[code]>:
+    - else if <server.match_player[<[code]>]||null> != null:
       - inject locally user
     - else:
       - narrate "<&c>You have entered an invalid code!"
