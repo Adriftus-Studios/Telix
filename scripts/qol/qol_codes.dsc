@@ -33,4 +33,21 @@ command_code:
     - else if <context.args.get[1].to_lowercase> == version:
       - inject locally version
     - else:
-      - narrate "<&c>Codes have not been implemented yet! Target release date: 2020-03-16"
+      - inject command_code_redeem
+      
+#Injected task (<context.args.get[1]>)
+command_code_redeem:
+  type: task
+  debug: false
+  user:
+    - narrate "User Code Entered."
+  affiliate:
+    - narrate "Affiliate Code Entered."
+  script:
+    - define code:<context.args.get[1].to_lowercase>
+    - if <server.list_players.parse[name.to_lowercase].filter[starts_with[<[code]>]]>:
+      - inject locally redeem
+    - else if <script[telix_creator_codes].list_keys.contains[<[code]>]>:
+      - inject locally redeem
+    - else:
+      - narrate "<&c>You have entered an invalid code!"
