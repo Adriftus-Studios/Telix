@@ -29,7 +29,7 @@ ability_explosive_blast:
       - define power:<[max]>
     - foreach <[target].find.entities.within[<[power]>]>:
       #Replace burn with calculate_burn proc
-      - burn <[value]> duration:<[power]./[2]>
+      - burn <[value]> duration:<[power].*[1.5]>
       #Replace hurt with calculate_damage proc
       - hurt <[power].*[1.20].round_down> <[value]>
       - cast slow <[value]> duration:<[power].*[6].round_down>t power:2
