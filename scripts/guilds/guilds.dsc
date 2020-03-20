@@ -771,6 +771,13 @@ guild_gui_events:
     on player clicks guilds_view_members_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[view_guild_members]>
+    on player clicks guilds_leave_btn in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <player>:
+        - run player_leave_guild def:<player.flag[guild]>|<player>
+        - inventory close
+      - else:
+        - narrate "<&c>You are the guild leader, you must disband in order to leave."
     on player clicks in guild_bank_gui:
     - if <context.raw_slot> <= 54 && <context.raw_slot> > 45:
       - determine passively cancelled
