@@ -424,7 +424,6 @@ update_guild_flags_gui:
   - note <inventory[guild_flags_gui]> as:guild_<[guild]>_flags
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:location:
     - define flag:<item[guild_flag].with[display_name=<yaml[guild.<[guild]>].read[flags.<[location]>.name]>;lore=<list[<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[location]>.health]>]>]>
-    - adjust def:flag nbt=<[location]>
     - inventory add d:<inventory[guild_<[guild]>_flags]> o:<[flag]>
 
 damage_guild_flag:
