@@ -79,7 +79,7 @@ citadel_block_protection_events:
           - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml
     on player places block:
       - if <player.has_flag[citadel_build_mode]>:
-        - define item:<player.flag[citadel_build_mode].as_item>
+        - define item:<player.flag[citadel_build_mode].split[|].get[1].as_item>
         - if <[item].script.yaml_key[block_reinforcement_strength]||null> != null || <player.inventory.find.scriptname[<[item].script.name>]> == -1:
           - inventory set d:<player.inventory> slot:<player.inventory.find.scriptname[<[item].script.name>]> o:<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].with[quantity=<player.inventory.slot[<player.inventory.find.scriptname[<[item].script.name>]>].quantity.sub[1]>]>
           - run reinforce_block def:<player>|<context.location>|<[item].script.yaml_key[block_reinforcement_strength]>
@@ -113,12 +113,13 @@ citadel_build_mode_command:
     - determine <list[self]>
   script:
     - if <player.item_in_hand.script.yaml_key[block_reinforcement_strength]||null> != null:
-      - flag <player> citadel_build_mode:!
-      - wait 1t
-      - flag <player> citadel_build_mode:<player.item_in_hand.script.name>
-      - narrate "<&b>You have entered Citadel Build Mode with <player.item_in_hand.script.yaml_key[display<&sp>name].parsed||<player.item_in_hand.material.name.substring[1,1].to_uppercase><player.item_in_hand.material.name.substring[2]>>."
-      - waituntil !<player.has_flag[citadel_build_mode]>
-      # exits build mode
+      - if <context.args.get[1]||null> != null:
+        - flag <player> citadel_build_mode:!
+        - wait 1t
+        - flag <player> citadel_build_mode:<player.item_in_hand.script.name>|<context.args.get[1]>
+        - narrate "<&b>You have entered Citadel Build Mode with <player.item_in_hand.script.yaml_key[display<&sp>name].parsed||<player.item_in_hand.material.name.substring[1,1].to_uppercase><player.item_in_hand.material.name.substring[2]>>."
+      - else:
+        - narrate "<&b>Not enough arguments."
     - else:
       - narrate "<&b>That item cannot be used to reinforce blocks."
 
