@@ -55,6 +55,7 @@ hat_shadow:
   type: item
   material: diamond_pickaxe
   category: hat
+  weight: 0
   mechanisms:
     custom_model_data: -1
     flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
@@ -64,6 +65,7 @@ shirt_shadow:
   type: item
   material: diamond_pickaxe
   category: shirt
+  weight: 0
   mechanisms:
     custom_model_data: -2
     flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
@@ -73,6 +75,7 @@ pants_shadow:
   type: item
   material: diamond_pickaxe
   category: pants
+  weight: 0
   mechanisms:
     custom_model_data: -3
     flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
@@ -82,6 +85,7 @@ shoes_shadow:
   type: item
   material: diamond_pickaxe
   category: shoes
+  weight: 0
   mechanisms:
     custom_model_data: -4
     flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
@@ -91,6 +95,7 @@ cape_shadow:
   type: item
   material: diamond_pickaxe
   category: cape
+  weight: 0
   mechanisms:
     custom_model_data: -5
     flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
@@ -100,6 +105,7 @@ gloves_shadow:
   type: item
   material: diamond_pickaxe
   category: gloves
+  weight: 0
   mechanisms:
     custom_model_data: -6
     flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
