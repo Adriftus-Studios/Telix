@@ -835,6 +835,7 @@ guild_gui_events:
     on player clicks in guild_bank_gui:
     - if <context.raw_slot> <= 54 && <context.raw_slot> > 45:
       - determine passively cancelled
+      - narrate <context.item.script.name>
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
     on player clicks in view_guild_members:
