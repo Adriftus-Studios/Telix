@@ -684,11 +684,11 @@ guild_bank_gui:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
   slots:
-  - "[] [] [] [] [] [] [] [] []"
-  - "[] [] [] [] [] [] [] [] []"
-  - "[] [] [] [] [] [] [] [] []"
-  - "[] [] [] [] [] [] [] [] []"
-  - "[] [] [] [] [] [] [] [] []"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [closeitem]"
 
 guild_flags_gui:
