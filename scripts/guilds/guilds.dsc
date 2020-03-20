@@ -415,8 +415,9 @@ remove_guild_flag:
   - define location:<location[<[location]>]>
   - modifyblock <[location]> air
   - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
-  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
-    - narrate player:<[player]> "<&c><[player].name> has removed a guild flag. (<yaml[guild.<[guild]>].read[flags.<[location]>.name]>)"
+  - if <[player]||null> != null:
+    - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
+      - narrate player:<[player]> "<&c><[player].name> has removed a guild flag. (<yaml[guild.<[guild]>].read[flags.<[location]>.name]>)"
   - yaml id:guild.<[guild]> set flags.<[location]>:!
   - foreach <server.list_online_players.filter[open_inventory.notable_name.contains[<[location]>]]>:
     - inventory close d:<[value]>
