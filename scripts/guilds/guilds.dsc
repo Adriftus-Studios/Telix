@@ -705,8 +705,8 @@ all_guilds_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[gui_all_guilds_top] [] [] [] [] [] [] [] [w_filler]"
+  - "[gui_all_guilds_bottom] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 view_guild_members:
@@ -772,8 +772,8 @@ guild_flags_gui:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[gui_guild_flags_top] [] [] [] [] [] [] [] [w_filler]"
+  - "[gui_guild_flags_bottom] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_flag_gui:
