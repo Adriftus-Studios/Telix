@@ -665,7 +665,7 @@ my_guild_gui:
 view_guild_members:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Guild Members<&r> <&6>◆
-  size: 45
+  size: 54
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
