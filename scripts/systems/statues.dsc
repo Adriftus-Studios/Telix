@@ -99,7 +99,7 @@ statues_events:
         - inventory adjust d:<inventory[statue_<context.relative>]> slot:1 nbt:entity/<entry[statue].spawned_entity>
         - inventory set d:<inventory[statue_<context.relative>]> slot:23 o:<context.item.with[quantity=1]>
         - inventory set d:<inventory[statue_<context.relative>]> slot:20 o:<context.item.script.yaml_key[statue.picture].as_item>
-        - narrate <context.item.script.yaml_key[statue.picture]>
+        - narrate <context.item.script>
     on player clicks barrier:
       - if <player.is_sneaking>:
         - if <inventory[statue_<context.location>]||null> != null:
