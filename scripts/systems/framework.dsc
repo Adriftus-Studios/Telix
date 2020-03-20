@@ -484,7 +484,7 @@ system_override:
             - stop
           - determine passively cancelled
           - if <[slotmap].map_get[<context.raw_slot>]||null> == guilds:
-            - if <yaml[player.<player.uuid>].read[guild]||null> != null:
+            - if <player.has_flag[guild]>:
               - inventory open d:my_guild_gui
             - else:
               - inventory open d:new_guild_gui
