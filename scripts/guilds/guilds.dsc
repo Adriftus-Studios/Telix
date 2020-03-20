@@ -834,6 +834,7 @@ guild_gui_events:
         - narrate "<&c>You are the guild leader, you must disband in order to leave."
     on player clicks in guild_bank_gui:
     - narrate <context.raw_slot>
+    - narrate <list[1|9|10|18|19|27|28|36|37].contains[<context.raw_slot>]>
     - if <context.raw_slot> <= 54 && <context.raw_slot> > 45 && <list[1|9|10|18|19|27|28|36|37].contains[<context.raw_slot>]>:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
