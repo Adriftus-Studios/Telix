@@ -409,9 +409,6 @@ remove_guild_flag:
   type: task
   definitions: guild|location|player
   script:
-  - narrate <[guild]>
-  - narrate <[location]>
-  - narrate <[player]>
   - define location:<location[<[location]>]>
   - modifyblock <[location]> air
   - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
