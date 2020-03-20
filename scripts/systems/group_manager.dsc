@@ -76,9 +76,9 @@ DO_NOT_USE:
                                               # subtype: aurora
                                               # player: <player>
     - narrate <proc[list_group_permissions].context[citadels|aurora|friend]>
-                                                    # type: citadels
-                                                    # subtype: aurora
-                                                    # group: friend
+                                              # type: citadels
+                                              # subtype: aurora
+                                              # group: friend
     - narrate <proc[get_group_property].context[citadels|aurora|friend|title]>
                                               # type: citadels
                                               # subtype: aurora

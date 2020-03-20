@@ -118,9 +118,26 @@ citadel_build_mode_command:
       - flag <player> citadel_build_mode:<player.item_in_hand.script.name>
       - narrate "<&b>You have entered Citadel Build Mode with <player.item_in_hand.script.yaml_key[display<&sp>name].parsed||<player.item_in_hand.material.name.substring[1,1].to_uppercase><player.item_in_hand.material.name.substring[2]>>."
       - waituntil !<player.has_flag[citadel_build_mode]>
-      - narrate something
+      # exits build mode
     - else:
       - narrate "<&b>That item cannot be used to reinforce blocks."
+
+citadel_command:
+  type: command
+  name: citadel
+  aliases:
+  - "c"
+  script:
+    - if <context.args.size> == 0:
+      - narrate "not enough args"
+    - else:
+      - choose <context.args.get[1]>:
+        - case create:
+          - if <context.args.size> > 2:
+            - narrate "to many args"
+          - else:
+            - run add_player_to_group def:citadels|<player>|<context.args.get[2]>|<player>
+            - narrate "citadel group '<context.args.get[2]>' created for player '<player.name>'"
 
 custom_citadel_test_item:
   type: item
