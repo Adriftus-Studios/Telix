@@ -402,6 +402,7 @@ place_guild_flag:
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&6><[player].name> has placed a guild flag."
   - inventory add d:<inventory[guild_<[guild]>_flags]> o:<item[guild_flag].with[display_name=flag<yaml[guild.<[guild]>].list_keys[flags].size>]>
+  - run update_guild_flags_gui def:<[guild]>
 
 remove_guild_flag:
   type: task
@@ -416,6 +417,7 @@ remove_guild_flag:
   - foreach <server.list_online_players.filter[open_inventory.notable_name.contains[<[location]>]]>:
     - inventory close d:<[value]>
   - note remove as:flag_<[guild]>_<[location]>
+  - run update_guild_flags_gui def:<[guild]>
   
 update_guild_flags_gui:
   type: task
@@ -446,6 +448,7 @@ damage_guild_flag:
     - flag <[entity]> attacking:d duration:5m
   - yaml id:guild.<[defending_guild]> set flags.<[location]>.health:--
   - inventory set d:<inventory[flag_<[defending_guild]>_<[location]>]> slot:13 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<[defending_guild]>].read[flags.<[location]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<[defending_guild]>].read[flags.<[location]>.health]>]>
+  - run update_guild_flags_gui def:<[defending_guild]>
   - if <[health]> < 1:
     - announce "<&4><yaml[guild.<[attacking_guild]>].read[name]> has destroyed <yaml[guild.<[attacking_guild]>].read[name]>'s flag."
     - foreach <server.list_online_players>:
