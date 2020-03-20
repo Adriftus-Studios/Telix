@@ -662,6 +662,21 @@ my_guild_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+view_guild_members:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Guild Members<&r> <&6>◆
+  size: 45
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
 edit_guild_ranks_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Guild Ranks<&r> <&6>◆
@@ -752,9 +767,20 @@ guild_gui_events:
       - determine passively cancelled
     on player clicks guilds_view_info_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+    on player clicks guilds_view_members_btn in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - inventory open d:view_guild_members
     on player clicks in guild_bank_gui:
     - if <context.raw_slot> <= 54 && <context.raw_slot> > 45:
       - determine passively cancelled
+      - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
+    on player clicks in view_guild_members:
+    - if <context.raw_slot> <= 54:
+      - determine passively cancelled
+    on player opens view_guild_members:
+    - foreach <yaml[guild.<player.flag[guild]>].read[members].as_list> as:member:
+      - narrate <[member]>
     on player clicks in guild_flags_gui:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
