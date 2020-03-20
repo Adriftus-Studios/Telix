@@ -780,7 +780,7 @@ guild_gui_events:
       - determine passively cancelled
     on player opens view_guild_members:
     - foreach <yaml[guild.<player.flag[guild]>].read[members].as_list> as:member:
-      - narrate <[member]>
+      - inventory add d:<player.open_inventory> o:<[member].as_player.skull_skin>
     on player clicks in guild_flags_gui:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
