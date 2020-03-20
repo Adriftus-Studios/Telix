@@ -812,6 +812,8 @@ guild_gui_events:
     on player clicks in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
+      - if <context.item.script.name> == gui_close_btn:
+        - inventory close
     on player clicks guilds_view_info_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
     on player clicks guilds_manage_claim_flags in my_guild_gui:
@@ -833,9 +835,13 @@ guild_gui_events:
     on player clicks in guild_bank_gui:
     - if <context.raw_slot> <= 54 && <context.raw_slot> > 45:
       - determine passively cancelled
+      - if <context.item.script.name> == gui_close_btn:
+        - inventory open d:<inventory[my_guild_gui]>
     on player clicks in view_guild_members:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
+      - if <context.item.script.name> == gui_close_btn:
+        - inventory open d:<inventory[my_guild_gui]>
     on player opens view_guild_members:
     - wait 1t
     - foreach <yaml[guild.<player.flag[guild]>].read[members].as_list> as:member:
@@ -843,6 +849,8 @@ guild_gui_events:
     on player clicks in guild_flags_gui:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
+      - if <context.item.script.name> == gui_close_btn:
+        - inventory open d:<inventory[my_guild_gui]>
     on player clicks in new_guild_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
@@ -851,6 +859,8 @@ guild_gui_events:
     on player clicks in guild_flag_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
+      - if <context.item.script.name> == gui_close_btn:
+        - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
     on player clicks new_guild_btn in new_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory add d:<player.inventory> o:<item[new_guild_book]>
