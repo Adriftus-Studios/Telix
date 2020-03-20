@@ -633,6 +633,12 @@ new_guild_btn:
   equipment_rating: 0
   display name: "<&c>Create a new Guild"
 
+list_all_guilds_btn:
+  type: item
+  material: snow
+  equipment_rating: 0
+  display name: "<&c>View all guilds"
+
 new_guild_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
@@ -643,7 +649,7 @@ new_guild_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [new_guild_btn] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [new_guild_btn] [] [] [] [list_all_guilds_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
   
 my_guild_gui:
@@ -655,7 +661,7 @@ my_guild_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [guilds_view_members_btn] [guilds_leave_btn] [guilds_manage_claim_flags] [guilds_settings_btn] [guilds_view_info_btn] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
@@ -720,7 +726,7 @@ guild_flag_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [guild_flag_rename_btn] [guild_flag_destroy_btn] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [guild_flag_health_icon] [guild_flag_rename_btn] [guild_flag_destroy_btn] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_flag_btn_icon:

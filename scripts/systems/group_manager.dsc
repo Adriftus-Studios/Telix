@@ -99,6 +99,11 @@ DO_NOT_USE:
                                               # subtype: aurora
                                               # group: friend
                                               # property: title
+    - narrate <proc[get_group_list].context[citadels|aurora|friend|blocks]>
+                                              # type: citadels
+                                              # subtype: aurora
+                                              # group: friend
+                                              # list_name: blocks
     - run edit_group_list def:citadels|aurora|mygroup|blocks|add|<context.location>
           # type: citadels
           # subtype: aurora
