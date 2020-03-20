@@ -304,6 +304,7 @@ custom_warped_shard:
 
 warped_shard_giver:
   type: world
+  debug: false
   events:
     on delta time minutely every:1:
       - foreach <server.list_online_players>:
