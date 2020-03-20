@@ -627,13 +627,16 @@ guilds_settings_btn:
 new_guild_btn:
   type: item
   material: snow
-  equipment_rating: 0
   display name: "<&c>Create a new Guild"
+
+guild_view_bank_btn:
+  type: item
+  material: snow
+  display name: "<&c>View guild bank"
 
 list_all_guilds_btn:
   type: item
   material: snow
-  equipment_rating: 0
   display name: "<&c>View all guilds"
 
 new_guild_gui:
@@ -658,7 +661,7 @@ my_guild_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [guilds_view_members_btn] [guilds_leave_btn] [guilds_manage_claim_flags] [guilds_settings_btn] [guilds_view_info_btn] [] [] [w_filler]"
+  - "[w_filler] [guilds_view_members_btn] [guilds_view_info_btn] [guild_view_bank_btn] [guilds_manage_claim_flags] [guilds_settings_btn] [guilds_leave_btn] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
@@ -771,6 +774,9 @@ guild_gui_events:
     on player clicks guilds_view_members_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[view_guild_members]>
+    on player clicks guild_view_bank_btn in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
     on player clicks guilds_leave_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <player>:
@@ -781,7 +787,6 @@ guild_gui_events:
     on player clicks in guild_bank_gui:
     - if <context.raw_slot> <= 54 && <context.raw_slot> > 45:
       - determine passively cancelled
-      - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
     on player clicks in view_guild_members:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
