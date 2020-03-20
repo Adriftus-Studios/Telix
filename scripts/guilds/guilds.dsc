@@ -578,6 +578,7 @@ guild_events:
         - narrate "<&c>You do not have permission to manage guild flags."
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
+      - narrate <player.held_item_slot>
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
         - determine passively NOT_SIGNING
