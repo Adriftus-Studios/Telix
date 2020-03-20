@@ -770,7 +770,7 @@ guild_gui_events:
       - determine passively cancelled
     on player clicks guilds_view_members_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
-      - inventory open d:view_guild_members
+      - inventory open d:<inventory[view_guild_members]>
     on player clicks in guild_bank_gui:
     - if <context.raw_slot> <= 54 && <context.raw_slot> > 45:
       - determine passively cancelled
