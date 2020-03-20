@@ -578,7 +578,6 @@ guild_events:
         - narrate "<&c>You do not have permission to manage guild flags."
     on player signs book:
     - if <context.book> == <item[new_guild_book]>:
-      - narrate <player.held_item_slot>
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
         - determine passively NOT_SIGNING
@@ -661,7 +660,7 @@ guild_view_bank_btn:
 
 list_all_guilds_btn:
   type: item
-  material: snow
+  material: white_banner
   display name: "<&c>View all guilds"
 
 new_guild_gui:
@@ -687,6 +686,24 @@ my_guild_gui:
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [guilds_view_members_btn] [guilds_view_info_btn] [guild_view_bank_btn] [guilds_manage_claim_flags] [guilds_settings_btn] [guilds_leave_btn] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+all_guilds_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>All Guilds<&r> <&6>◆
+  size: 54
+  procedural items:
+  - foreach <yaml.list.filter[starts_with[guild.]]> as:guild:
+    - define items:|:<item[white_banner].with[display_name=<[guild]>]>
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
