@@ -762,6 +762,9 @@ guild_gui_events:
     - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
     - foreach <[btns]> as:btn:
       - inventory add d:<context.inventory> o:<item[<[btn]>]>
+    on player opens my_guild_gui:
+    - if !<player.has_flag[guild]>:
+      - inventory open d:new_guild_gui
     on player clicks in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
