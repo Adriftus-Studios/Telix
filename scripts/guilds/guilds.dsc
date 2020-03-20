@@ -423,10 +423,10 @@ update_guild_flags_gui:
   script:
   - note <inventory[guild_flags_gui]> as:guild_<[guild]>_flags
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:location:
-    - define lore:|:<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[location]>.health]>
-    - define lore:|:X<&sp><[location].as_location.simple.x>
-    - define lore:|:Y<&sp><[location].as_location.simple.y>
-    - define lore:|:Z<&sp><[location].as_location.simple.z>
+    - define lore:<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[location]>.health]>
+    - define lore:|:X<&sp><[location].as_location.x.round>
+    - define lore:|:Y<&sp><[location].as_location.y.round>
+    - define lore:|:Z<&sp><[location].as_location.z.round>
     - define flag:<item[guild_flag].with[display_name=<yaml[guild.<[guild]>].read[flags.<[location]>.name]>;lore=<[lore]>]>
     - inventory add d:<inventory[guild_<[guild]>_flags]> o:<[flag]>
 
