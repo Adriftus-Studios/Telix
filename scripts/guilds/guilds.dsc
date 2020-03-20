@@ -597,6 +597,7 @@ guild_flag_health_icon:
 new_guild_book:
   type: item
   material: writable_book
+  display name: <&7>New Guild Book
 
 guild_flag_indicator:
   type: entity
