@@ -75,7 +75,7 @@ gui_all_guilds_bottom:
     custom_model_data: 31
   display name: <&7>
 
-gui_all_guilds_bottom:
+gui_all_guilds_top:
   type: item
   material: gold_nugget
   mechanisms:
