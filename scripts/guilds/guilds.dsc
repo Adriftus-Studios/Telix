@@ -835,7 +835,7 @@ guild_gui_events:
     on player clicks in guild_bank_gui:
     - narrate <context.raw_slot>
     - narrate <list[1|9|10|18|19|27|28|36|37].contains[<context.raw_slot>]>
-    - if <context.raw_slot> <= 54 && <context.raw_slot> > 45 && <list[1|9|10|18|19|27|28|36|37].contains[<context.raw_slot>]>:
+    - if <list[1|9|10|18|19|27|28|36|37|46|47|48|49|50|51|52|53|54].contains[<context.raw_slot>]>:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
