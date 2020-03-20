@@ -37,6 +37,12 @@ set_group_permission:
   - else:
     - yaml id:groups.<[type]>.<[subtype]> set <[group]>.permissions:->:<[permission]>
 
+list_groups:
+  type: procedure
+  definitions: type|subtype
+  script:
+  - determine <yaml[groups.<[type]>.<[subtype]>].list_keys[]>
+
 list_group_permissions:
   type: procedure
   definitions: type|subtype|group

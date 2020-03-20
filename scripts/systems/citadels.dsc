@@ -136,8 +136,11 @@ citadel_command:
           - if <context.args.size> > 2:
             - narrate "to many args"
           - else:
+            - run create_group def:citadels|<player>
             - run add_player_to_group def:citadels|<player>|<context.args.get[2]>|<player>
             - narrate "citadel group '<context.args.get[2]>' created for player '<player.name>'"
+        - case list:
+          - narrate <proc[list_groups].context[citadels|<player>]>
 
 custom_citadel_test_item:
   type: item
