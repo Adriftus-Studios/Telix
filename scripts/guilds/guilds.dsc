@@ -781,7 +781,7 @@ guild_gui_events:
     on player opens view_guild_members:
     - wait 1t
     - foreach <yaml[guild.<player.flag[guild]>].read[members].as_list> as:member:
-      - inventory add d:<player.open_inventory> o:<item[player_head].with[skull_skin=<[member].as_player.uuid>;display_name=<[member].as_player.name>]>
+      - inventory add d:<player.open_inventory> o:<item[player_head].with[skull_skin=<[member].as_player.uuid>;display_name=<&b><[member].as_player.name>]>
     on player clicks in guild_flags_gui:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
