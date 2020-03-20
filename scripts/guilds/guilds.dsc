@@ -850,17 +850,15 @@ guild_gui_events:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
         - inventory close
+      - if <context.item.script.name> == list_all_guilds_btn:
+        - inventory open d:<inventory[all_guilds_gui]>
+      - if <context.item.script.name> == new_guild_btn:
+        - inventory add d:<player.inventory> o:<item[new_guild_book]>
     on player clicks in guild_flag_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
-    on player clicks list_all_guilds_btn in new_guild_gui:
-    - if <context.raw_slot> <= 36:
-      - if <context.item.script.name> == list_all_guilds_btn:
-        - inventory open d:<inventory[all_guilds_gui]>
-      - if <context.item.script.name> == new_guild_btn:
-        - inventory add d:<player.inventory> o:<item[new_guild_book]>
     on player clicks guild_flag_destroy_btn in guild_flag_gui:
     - if <player.flag[guild]> == <context.inventory.notable_name.replace[flag_].with[].split[_l@].get[1]>:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[remove_flags]>:
