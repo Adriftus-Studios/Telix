@@ -772,7 +772,7 @@ guild_gui_events:
     - if <context.raw_slot> <= 36:
     on player clicks guilds_manage_claim_flags in my_guild_gui:
     - if <context.raw_slot> <= 36:
-      - inventory open d:<inventory[guild_<[guild]>_flags]>
+      - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
     on player clicks guilds_view_members_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[view_guild_members]>
