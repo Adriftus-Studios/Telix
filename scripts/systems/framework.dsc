@@ -476,7 +476,7 @@ system_override:
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
         - if <context.raw_slot> < 6:
-          - define slotmap:<list[1/in@workbench[holder=<player>]|2/recipe_book_inventory|3/citadels|4/guilds|5/settings]>
+          - define slotmap:<list[1/in@workbench[holder=<player>]|2/recipe_book_inventory|3/guilds|4/citadels|5/settings]>
           - if <context.cursor_item.quantity> != 0:
             - determine passively cancelled
             - wait 1t

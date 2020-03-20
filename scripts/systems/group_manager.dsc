@@ -22,6 +22,21 @@ create_type:
   script:
   - yaml id:groups.<[type]>.<[subtype]> create
 
+edit_group_list:
+  type: task
+  definitions: type|subtype|group|property|addorremove|value
+  script:
+  - if <[addorremove]> == remove:
+    - yaml id:groups.<[type]>.<[subtype]> set <[group]>.<[property]>:<-:<[value]>
+  - if <[addorremove]> == add:
+    - yaml id:groups.<[type]>.<[subtype]> set <[group]>.<[property]>:->:<[value]>
+
+get_group_list:
+  type: procedure
+  definitions: type|subtype|group|property
+  script:
+  - determine <yaml[groups.<[type]>.<[subtype]>].read[<[group]>.<[property]>]>
+
 edit_group_property:
   type: task
   definitions: type|subtype|group|property|value
@@ -36,12 +51,6 @@ set_group_permission:
     - yaml id:groups.<[type]>.<[subtype]> set <[group]>.permissions:<-:<[permission]>
   - else:
     - yaml id:groups.<[type]>.<[subtype]> set <[group]>.permissions:->:<[permission]>
-
-list_groups:
-  type: procedure
-  definitions: type|subtype
-  script:
-  - determine <yaml[groups.<[type]>.<[subtype]>].list_keys[]>
 
 list_group_permissions:
   type: procedure
@@ -90,6 +99,13 @@ DO_NOT_USE:
                                               # subtype: aurora
                                               # group: friend
                                               # property: title
+    - run edit_group_list def:citadels|aurora|mygroup|blocks|add|<context.location>
+          # type: citadels
+          # subtype: aurora
+          # group: mygroup
+          # property: blocks
+          # add or remove
+          # value: location
     - run create_type def:citadels|aurora
           # type: citadels
           # subtype: aurora
