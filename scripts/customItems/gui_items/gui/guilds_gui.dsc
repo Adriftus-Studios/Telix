@@ -1,11 +1,11 @@
-gui_guilds_bottom:
+gui_no_guild_bottom:
   type: item
   material: gold_nugget
   mechanisms:
     custom_model_data: 21
   display name: <&7>
 
-gui_guilds_top:
+gui_no_guild_top:
   type: item
   material: gold_nugget
   mechanisms:

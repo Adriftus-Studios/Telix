@@ -650,7 +650,7 @@ guilds_settings_btn:
 
 new_guild_btn:
   type: item
-  material: snow
+  material: book_and_quill
   display name: "<&c>Create a new Guild"
 
 guild_view_bank_btn:
@@ -666,7 +666,7 @@ list_all_guilds_btn:
 new_guild_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
-  size: 27
+  size: 36
   procedural items:
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -674,7 +674,8 @@ new_guild_gui:
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [new_guild_btn] [] [] [] [list_all_guilds_btn] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_no_guild_bottom] [gui_no_guild_top] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   
 my_guild_gui:
   type: inventory
