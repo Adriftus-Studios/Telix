@@ -401,6 +401,7 @@ place_guild_flag:
   - yaml id:guild.<[guild]> set flags.<[location]>.health:5000
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&6><[player].name> has placed a guild flag."
+  - inventory add d:<inventory[guild_<[guild]>_flags]> o:<item[guild_flag].with[display_name=<[location].simple>]>
 
 remove_guild_flag:
   type: task
@@ -415,6 +416,7 @@ remove_guild_flag:
   - foreach <server.list_online_players.filter[open_inventory.notable_name.contains[<[location]>]]>:
     - inventory close d:<[value]>
   - note remove as:flag_<[guild]>_<[location]>
+  
 
 damage_guild_flag:
   type: task
