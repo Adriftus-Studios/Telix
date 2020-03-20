@@ -384,6 +384,7 @@ disband_guild:
     - flag <[player].as_player> guild:!
     - flag <[player].as_player> guild_rank:!
   - note remove as:guild_<[guild]>_flags
+  - note remove as:guild_<[guild]>_bank
   - announce "<&6>The Guild <yaml[guild.<[guild]>].read[name]> has been disbanded!"
   - yaml unload id:guild.<[guild]>
   - adjust server delete_file:data/globalData/guilds/<server.flag[server.name]>/<[guild]>.yml
@@ -408,6 +409,9 @@ remove_guild_flag:
   type: task
   definitions: guild|location|player
   script:
+  - narrate <[guild]>
+  - narrate <[location]>
+  - narrate <[player]>
   - define location:<location[<[location]>]>
   - modifyblock <[location]> air
   - remove <entity[<yaml[guild.<[guild]>].read[flags.<[location]>.entity]>]>
