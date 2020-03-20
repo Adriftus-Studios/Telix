@@ -54,3 +54,17 @@ gui_guild_bank_top:
     custom_model_data: 28
   display name: <&7>
   
+gui_all_guilds_bottom:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: 29
+  display name: <&7>
+
+gui_all_guilds_top:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: 30
+  display name: <&7>
+  
