@@ -824,9 +824,15 @@ guild_gui_events:
         - inventory close
       - else:
         - narrate "<&c>You are the guild leader, you must disband in order to leave."
+    on player clicks in all_guilds_gui:
+    - determine passively cancelled
+    - if <context.item.script.name> == gui_close_btn:
+      - inventory open d:<inventory[new_guild_gui]>
+    on player clicks in guild_flags_gui:
+    - determine passively cancelled
+    - if <context.item.script.name> == gui_close_btn:
+      - inventory open d:<inventory[my_guild_gui]>
     on player clicks in guild_bank_gui:
-    - narrate <context.raw_slot>
-    - narrate <list[1|9|10|18|19|27|28|36|37].contains[<context.raw_slot>]>
     - if <list[1|9|10|18|19|27|28|36|37|46|47|48|49|50|51|52|53|54].contains[<context.raw_slot>]>:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
