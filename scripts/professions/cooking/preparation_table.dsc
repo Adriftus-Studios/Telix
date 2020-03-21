@@ -81,13 +81,15 @@ preparation_table_events:
           # find what items are needed for crafting
           - define crafting:air
           - foreach <yaml[server.cooking_recipes].list_keys[]> as:recipe:
+            - narrate 1<&sp><[recipe]>
             - define found:0
             - if <[crafting]> == air:
               - foreach <yaml[server.cooking_recipes].read[<[recipe]>.input]> as:input:
+                - narrate 2<&sp><[input]>
                 - if <[input].split[/].get[2]> <= <[contents].map_get[<[input].split[/].get[1]>]||0>:
                   - define ingredients:|:<[input]>
                   - define found:++
-                  - narrate 1<&sp><[input]>
+                  - narrate 3<&sp><[input]>
             - if <[found]> == <yaml[server.cooking_recipes].read[<[recipe]>.input].as_list.size> && <yaml[server.cooking_recipes].read[<[recipe]>.tier]> <= <[tier]>:
               - define crafting:<[recipe]>
               - foreach stop
