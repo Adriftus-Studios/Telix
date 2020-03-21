@@ -5,8 +5,8 @@ preparation_table_inventory:
   size: 54
   definitions:
     w_filler: <item[gui_invisible_item]>
-    gui_top: <item[gui_alchemy_station_top]>
-    gui_bottom: <item[gui_alchemy_station_bottom]>
+    gui_top: <item[gui_preparation_table_top]>
+    gui_bottom: <item[gui_preparation_table_bottom]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
