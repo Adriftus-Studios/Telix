@@ -1,4 +1,3 @@
-
 preparation_table_inventory:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Preparation<&r> <&6>◆
