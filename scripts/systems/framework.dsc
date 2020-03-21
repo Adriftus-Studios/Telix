@@ -113,6 +113,7 @@ reload_scripts:
       - yaml create id:server.smeltery_recipes
       - yaml create id:server.alchemy_recipes
       - yaml create id:server.altar_recipes
+      - yaml create id:server.cooking_recipes
       - yaml create id:server.recipe_book
       - yaml create id:server.recipe_fixer
       - yaml create id:server.mob_spawns
