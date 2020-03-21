@@ -48,7 +48,7 @@ custom_food_test_recipe:
       side_ingredients: custom_cooked_porkchop/1
       serving_dish: custom_oak_log/1
       # Can be serving_dish, main_ingredient, or side_ingredient
-      cook_time: 1m
+      cook_time: 5m
 
 preparation_table_events:
   type: world
@@ -131,11 +131,9 @@ preparation_table_events:
               #CHECK OVER THIS
               # craft item and remove required ingredients
               - define amount_needed:<yaml[server.cooking_recipes].read[<[crafting]>.output_quantity]>
-              - narrate <[amount_needed]>
               - foreach <[slotmap]> as:slot:
                 - if <[amount_needed]> > 0:
                   - if <[slot].split[/].get[2].starts_with[out]> && <[inventory].slot[<[slot].split[/].get[1]>].quantity> != 64:
-                    - narrate <[inventory].slot[<[slot].split[/].get[1]>]>
                     - if <[inventory].slot[<[slot].split[/].get[1]>].script.name||air> == <[crafting]> || <[inventory].slot[<[slot].split[/].get[1]>].material.name> == air:
                       - define has:<[inventory].slot[<[slot].split[/].get[1]>].quantity>
                       - if <[amount_needed].add[<[has]>]> > 64:
@@ -146,10 +144,6 @@ preparation_table_events:
                         - define remaining:0
                       - wait 1t
                       - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[add].add[<[has]>]>]>
-                      - narrate <[add]>
-                      - narrate <[has]>
-                      - narrate <[crafting]>
-                      - narrate <item[<[crafting]>]>
                       - define amount_needed:<[remaining]>
               - foreach <yaml[server.cooking_recipes].read[<[crafting]>.input]> as:input:
                 - inventory remove d:<[inventory]> o:<[inventory].slot[<[inventory].find.scriptname[<[input].split[/].get[1]>]>].with[quantity=<[input].split[/].get[2]>]>
