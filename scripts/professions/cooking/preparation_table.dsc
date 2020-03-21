@@ -46,9 +46,9 @@ custom_food:
     1:
       type: cooking
       output_quantity: 1
-      main_ingredient: custom_steak
-      side_ingredients: custom_cooked_porkchop
-      serving_dish: custom_oak_log
+      main_ingredient: custom_steak/1
+      side_ingredients: custom_cooked_porkchop/1
+      serving_dish: custom_oak_log/1
       # Can be serving_dish, main_ingredient, or side_ingredient
       cook_time: 5m
 
