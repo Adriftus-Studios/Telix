@@ -319,7 +319,10 @@ player_setup:
     - yaml id:player.<player.uuid> set lessons.current:10
     - yaml id:player.<player.uuid> set lessons.lifetime:0
     - foreach <script[abilitytrees].list_keys[trees]>:
-      - yaml id:player.<player.uuid> set skills.<[value]>.current:1
+      - if <server.has_flag[testing_mode]>:
+        - yaml id:player.<player.uuid> set skills.<[value]>.current:1000
+      - else:
+        - yaml id:player.<player.uuid> set skills.<[value]>.current:1
 
 equipt_command:
   type: command

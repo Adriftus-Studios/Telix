@@ -47,7 +47,6 @@ custom_food_test_recipe:
       main_ingredient: custom_cooked_beef/1
       side_ingredients: custom_cooked_porkchop/1
       serving_dish: custom_oak_log/1
-      # Can be serving_dish, main_ingredient, or side_ingredient
       cook_time: 5m
 
 preparation_table_events:
