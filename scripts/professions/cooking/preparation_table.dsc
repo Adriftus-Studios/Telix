@@ -167,7 +167,7 @@ preparation_table_events:
         - note <inventory[preparation_table_inventory]> as:preparation_table_<context.location.simple>
     on player breaks beehive:
       - if <inventory[preparation_table_<context.location.simple>]||null> != null:
-        - define slotmap:<list[12/side_in|20/side_in|21/main_in|22/side_in|30/serving_dish|25/out]>
+        - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
         - foreach <[slotmap]> as:slot:
           - drop <inventory[preparation_table_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
         - if <player.gamemode> == survival:
@@ -181,13 +181,13 @@ preparation_table_events:
             - determine passively cancelled
             - inventory open d:<inventory[preparation_table_<context.location.simple>]>
     on player drags in preparation_table_inventory:
-      - define slotmap:<list[12/side_in|20/side_in|21/main_in|22/side_in|30/serving_dish|25/out]>
+      - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
       - foreach <context.raw_slots> as:slot:
         - if <[slotmap].map_get[<[slot]>].starts_with[out]>:
           - determine passively cancelled
           - stop
     on player clicks in preparation_table_inventory:
-      - define slotmap:<list[12/side_in|20/side_in|21/main_in|22/side_in|30/serving_dish|25/out]>
+      - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
       - if <context.raw_slot> < 55:
         - if <[slotmap].map_get[<context.raw_slot>]||null> == null:
           - determine passively cancelled
