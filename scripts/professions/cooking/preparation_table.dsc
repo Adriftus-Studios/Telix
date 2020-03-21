@@ -111,7 +111,7 @@ preparation_table_events:
               - stop
             # countdown preparation timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.cooking_recipes].read[<[crafting]>.cook_time]>>
-            - narrate <item[<[crafting]>].script.yaml_key[display<&sp>name]>
+            - narrate <item[<[crafting]>].script>
             - if <[time]> > 0:
               - if <[clock]||null> == null:
                 - if <[time].ends_with[s]>:
