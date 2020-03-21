@@ -42,10 +42,11 @@ preparation_table_events:
     on delta time secondly every:1:
       - foreach <server.list_notables[inventories].filter[script_name.contains_text[preparation_table_inventory]]> as:inventory:
         - if <[inventory].script_name> == preparation_table_inventory:
-          - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
+          - define slotmap:<list[12/side_in|20/side_in|21/main_in|22/side_in|30/serving_dish|25/out]>
           - if <[inventory].slot[50].script.name> == preparation_table_timer:
             - define clock:<[inventory].slot[50]>
             # get the contents of all input slots
+          #CHECK OVER THIS
           - foreach <[slotmap]> as:slot:
             - if <[slot].split[/].get[2].starts_with[in]>:
               - define item:<[inventory].slot[<[slot].split[/].get[1]>].script.name||<item[air]>>
@@ -65,9 +66,17 @@ preparation_table_events:
             - define found:0
             #CHECK OVER THIS
             - if <[crafting]> == air:
-              - foreach <yaml[server.cooking_recipes].read[<[recipe]>.input]> as:input:
-                - if <[input].split[/].get[2]> <= <[contents].map_get[<[input].split[/].get[1]>]||0>:
-                  - define ingredients:|:<[input]>
+              - foreach <yaml[server.cooking_recipes].read[<[recipe]>.main_ingredient]> as:main:
+                - if <[main].split[/].get[2]> <= <[contents].map_get[<[main].split[/].get[1]>]||0>:
+                  - define ingredients:|:<[main]>
+                  - define found:++
+              - foreach <yaml[server.cooking_recipes].read[<[recipe]>.side_ingredient]> as:side:
+                - if <[side].split[/].get[2]> <= <[contents].map_get[<[side].split[/].get[1]>]||0>:
+                  - define ingredients:|:<[side]>
+                  - define found:++
+              - foreach <yaml[server.cooking_recipes].read[<[recipe]>.serving_dish]> as:dish:
+                - if <[dish].split[/].get[2]> <= <[contents].map_get[<[dish].split[/].get[1]>]||0>:
+                  - define ingredients:|:<[dish]>
                   - define found:++
             - if <[found]> == <yaml[server.cooking_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
@@ -140,7 +149,7 @@ preparation_table_events:
         - note <inventory[preparation_table_inventory]> as:preparation_table_<context.location.simple>
     on player breaks beehive:
       - if <inventory[preparation_table_<context.location.simple>]||null> != null:
-        - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
+        - define slotmap:<list[12/side_in|20/side_in|21/main_in|22/side_in|30/serving_dish|25/out]>
         - foreach <[slotmap]> as:slot:
           - drop <inventory[preparation_table_<context.location.simple>].slot[<[slot].split[/].get[1]>]> <context.location>
         - if <player.gamemode> == survival:
@@ -154,13 +163,13 @@ preparation_table_events:
             - determine passively cancelled
             - inventory open d:<inventory[preparation_table_<context.location.simple>]>
     on player drags in preparation_table_inventory:
-      - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
+      - define slotmap:<list[12/side_in|20/side_in|21/main_in|22/side_in|30/serving_dish|25/out]>
       - foreach <context.raw_slots> as:slot:
         - if <[slotmap].map_get[<[slot]>].starts_with[out]>:
           - determine passively cancelled
           - stop
     on player clicks in preparation_table_inventory:
-      - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
+      - define slotmap:<list[12/side_in|20/side_in|21/main_in|22/side_in|30/serving_dish|25/out]>
       - if <context.raw_slot> < 55:
         - if <[slotmap].map_get[<context.raw_slot>]||null> == null:
           - determine passively cancelled
