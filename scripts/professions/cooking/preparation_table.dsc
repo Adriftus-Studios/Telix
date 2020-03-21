@@ -85,8 +85,6 @@ preparation_table_events:
                 - if <[input].split[/].get[2]> <= <[contents].map_get[<[input].split[/].get[1]>]||0>:
                   - define ingredients:|:<[input]>
                   - define found:++
-            - narrate <[found]>
-            - narrate <yaml[server.cooking_recipes].read[<[recipe]>.input].as_list.size>
             - if <[found]> == <yaml[server.cooking_recipes].read[<[recipe]>.input].as_list.size>:
               - define crafting:<[recipe]>
               - foreach stop
@@ -111,7 +109,6 @@ preparation_table_events:
               - stop
             # countdown preparation timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.cooking_recipes].read[<[crafting]>.cook_time]>>
-            - narrate <[crafting].as_script.yaml_key[display<&sp>name].parsed>
             - if <[time]> > 0:
               - if <[clock]||null> == null:
                 - if <[time].ends_with[s]>:
@@ -119,18 +116,18 @@ preparation_table_events:
                 - if <[time].ends_with[m]>:
                   - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:50 o:<item[preparation_table_timer].with[display_name=<&7>Preparing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time].div[60].round_up>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:50 o:<item[preparation_table_timer].with[display_name=<&7>Preparing<&sp><[crafting].as_script.yaml_key[display<&sp>name].parsed>;quantity=<[time].div[60].round_up>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
-                  - inventory set d:<[inventory]> slot:50 o:<item[preparation_table_timer].with[display_name=<&7>Preparing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
+                  - inventory set d:<[inventory]> slot:50 o:<item[preparation_table_timer].with[display_name=<&7>Preparing<&sp><[crafting].as_script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
               - else:
                 - if <[time].ends_with[s]>:
                   - define time:<[time].replace[s].with[]>
                 - if <[time].ends_with[m]>:
                   - define time:<[time].replace[m].with[].mul[60]>
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:50 o:<item[preparation_table_timer].with[display_name=<&7>Preparing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time].div[60].round_up>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:50 o:<item[preparation_table_timer].with[display_name=<&7>Preparing<&sp><[crafting].as_script.yaml_key[display<&sp>name].parsed>;quantity=<[time].div[60].round_up>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
-                  - inventory set d:<[inventory]> slot:50 o:<item[preparation_table_timer].with[display_name=<&7>Preparing<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
+                  - inventory set d:<[inventory]> slot:50 o:<item[preparation_table_timer].with[display_name=<&7>Preparing<&sp><[crafting].as_script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
             - else:
               #CHECK OVER THIS
               # craft item and remove required ingredients
