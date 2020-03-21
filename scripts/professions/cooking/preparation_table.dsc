@@ -35,6 +35,23 @@ custom_preparation_table:
       - custom_iron_bars|custom_crafting_table|custom_iron_bars
       - custom_iron_bars|custom_iron_ingot|custom_iron_bars
 
+custom_food:
+  material: steak
+  display name: <&7>Custom food
+  weight: '1'
+  type: Item
+  on_consume:
+    - narrate "you ate a custom steak"
+  recipes:
+    1:
+      type: cooking
+      output_quantity: 1
+      main_ingredient: steak
+      side_ingredients: cooked_porkchop
+      serving_dish: oak_log
+      # Can be serving_dish, main_ingredient, or side_ingredient
+      cook_time: 5m
+
 preparation_table_events:
   type: world
   debug: false
@@ -42,7 +59,8 @@ preparation_table_events:
     on delta time secondly every:1:
       - foreach <server.list_notables[inventories].filter[script_name.contains_text[preparation_table_inventory]]> as:inventory:
         - if <[inventory].script_name> == preparation_table_inventory:
-          - define slotmap:<list[12/side_in|20/side_in|21/main_in|22/side_in|30/serving_dish|25/out]>
+          #- define slotmap:<list[12/side_in|20/side_in|21/main_in|22/side_in|30/serving_dish|25/out]>
+          - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
           - if <[inventory].slot[50].script.name> == preparation_table_timer:
             - define clock:<[inventory].slot[50]>
             # get the contents of all input slots
