@@ -40,8 +40,6 @@ custom_food:
   display name: <&7>Custom food
   weight: '1'
   type: Item
-  on_consume:
-    - narrate "you ate a custom steak"
   recipes:
     1:
       type: cooking
@@ -113,7 +111,7 @@ preparation_table_events:
               - stop
             # countdown preparation timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.cooking_recipes].read[<[crafting]>.cook_time]>>
-            - narrate <item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>
+            - narrate <item[<[crafting]>].script.yaml_key[display<&sp>name]>
             - if <[time]> > 0:
               - if <[clock]||null> == null:
                 - if <[time].ends_with[s]>:
