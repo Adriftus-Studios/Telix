@@ -46,7 +46,7 @@ custom_food:
     1:
       type: cooking
       output_quantity: 1
-      main_ingredient: custom_steak/1
+      main_ingredient: custom_cooked_beef/1
       side_ingredients: custom_cooked_porkchop/1
       serving_dish: custom_oak_log/1
       # Can be serving_dish, main_ingredient, or side_ingredient
