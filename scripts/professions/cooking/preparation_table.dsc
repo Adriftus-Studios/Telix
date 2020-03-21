@@ -35,7 +35,7 @@ custom_preparation_table:
       - custom_iron_bars|custom_crafting_table|custom_iron_bars
       - custom_iron_bars|custom_iron_ingot|custom_iron_bars
 
-custom_food:
+custom_food_test_recipe:
   material: steak
   display name: <&7>Custom food
   weight: '1'
