@@ -48,7 +48,7 @@ custom_food:
       side_ingredients: custom_cooked_porkchop/1
       serving_dish: custom_oak_log/1
       # Can be serving_dish, main_ingredient, or side_ingredient
-      cook_time: 5m
+      cook_time: 1m
 
 preparation_table_events:
   type: world
@@ -90,7 +90,6 @@ preparation_table_events:
               - foreach stop
           - if <[crafting]||null> == null:
             - foreach next
-          - narrate <[crafting]>
           # find if resulting items can fit in output slots
           - if <[crafting]||null> != null && <[crafting]> != air:
             - define amount_needed:<yaml[server.cooking_recipes].read[<[crafting]>.output_quantity]>
