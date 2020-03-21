@@ -148,7 +148,7 @@ preparation_table_events:
                       - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[add].add[<[has]>]>]>
                       - narrate <[add]>
                       - narrate <[has]>
-                      - narrate <[crafting].as_item.with[quantity=<[add].add[<[has]>]>]>
+                      - narrate <[crafting].as_item>
                       - define amount_needed:<[remaining]>
               - foreach <yaml[server.cooking_recipes].read[<[crafting]>.input]> as:input:
                 - inventory remove d:<[inventory]> o:<[inventory].slot[<[inventory].find.scriptname[<[input].split[/].get[1]>]>].with[quantity=<[input].split[/].get[2]>]>
