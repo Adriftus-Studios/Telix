@@ -87,11 +87,13 @@ preparation_table_events:
                 - if <[input].split[/].get[2]> <= <[contents].map_get[<[input].split[/].get[1]>]||0>:
                   - define ingredients:|:<[input]>
                   - define found:++
+                  - narrate 1<&sp><[input]>
             - if <[found]> == <yaml[server.cooking_recipes].read[<[recipe]>.input].as_list.size> && <yaml[server.cooking_recipes].read[<[recipe]>.tier]> <= <[tier]>:
               - define crafting:<[recipe]>
               - foreach stop
           - if <[crafting]||null> == null:
             - foreach next
+          - narrate <[crafting]>
           #CHECK OVER THIS
           # find if resulting items can fit in output slots
           - if <[crafting]||null> != null && <[crafting]> != air:
