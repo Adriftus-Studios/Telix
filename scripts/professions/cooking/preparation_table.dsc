@@ -82,25 +82,16 @@ preparation_table_events:
           - define crafting:air
           - foreach <yaml[server.cooking_recipes].list_keys[]> as:recipe:
             - define found:0
-            #CHECK OVER THIS
             - if <[crafting]> == air:
-              - foreach <yaml[server.cooking_recipes].read[<[recipe]>.main_ingredient]> as:main:
-                - if <[main].split[/].get[2]> <= <[contents].map_get[<[main].split[/].get[1]>]||0>:
-                  - define ingredients:|:<[main]>
+              - foreach <yaml[server.cooking_recipes].read[<[recipe]>.input]> as:input:
+                - if <[input].split[/].get[2]> <= <[contents].map_get[<[input].split[/].get[1]>]||0>:
+                  - define ingredients:|:<[input]>
                   - define found:++
-              - foreach <yaml[server.cooking_recipes].read[<[recipe]>.side_ingredient]> as:side:
-                - if <[side].split[/].get[2]> <= <[contents].map_get[<[side].split[/].get[1]>]||0>:
-                  - define ingredients:|:<[side]>
-                  - define found:++
-              - foreach <yaml[server.cooking_recipes].read[<[recipe]>.serving_dish]> as:dish:
-                - if <[dish].split[/].get[2]> <= <[contents].map_get[<[dish].split[/].get[1]>]||0>:
-                  - define ingredients:|:<[dish]>
-                  - define found:++
-            - if <[found]> == <yaml[server.cooking_recipes].read[<[recipe]>.input].as_list.size>:
+            - if <[found]> == <yaml[server.cooking_recipes].read[<[recipe]>.input].as_list.size> && <yaml[server.cooking_recipes].read[<[recipe]>.tier]> <= <[tier]>:
               - define crafting:<[recipe]>
               - foreach stop
           - if <[crafting]||null> == null:
-            - stop
+            - foreach next
           #CHECK OVER THIS
           # find if resulting items can fit in output slots
           - if <[crafting]||null> != null && <[crafting]> != air:
