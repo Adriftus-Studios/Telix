@@ -1090,11 +1090,6 @@ custom_cactus:
   display name: <&7>Cactus
   weight: '1'
   type: item
-custom_bowl:
-  material: bowl
-  display name: <&7>Bowl
-  weight: '1'
-  type: item
 custom_iron_trapdoor:
   material: iron_trapdoor
   display name: <&7>Iron Trapdoor
