@@ -668,7 +668,9 @@ guilds_view_members_btn:
 
 guilds_settings_btn:
   type: item
-  material: snow
+  material: iron_nugget
+  mechanisms:
+    custom_model_data: 36
   guild_permission: change_settings
   display name: <&9>Change Settings
 
