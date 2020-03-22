@@ -164,6 +164,11 @@ guild_command:
               - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
             - else:
               - narrate "<&c>You do not have permission to run that command."
+          - case setflag:
+            - if <player.item_in_hand.patterns||null> != null:
+              - yaml id:guild.<player.flag[guild]> set flag:<player.item_in_hand>
+            - else:
+              - narrate "<&c>You are not holding a banner"
           - case flags:
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
               - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
@@ -884,6 +889,8 @@ guild_gui_events:
     on player clicks guild_view_bank_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
+    on player opens my_guild_gui:
+    - inventory set d:<context.inventory> slot:14 o:<yaml[guild.<player.flag[guild]>].read[flag].as_item>
     on player clicks guilds_leave_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <player>:
