@@ -4,7 +4,7 @@ ability_dolphin_kick:
   ability_tree: Athleticism
   ability_type: passive
   points_to_unlock: 0
-  power_cost: 5
+  power_cost: 10
   description: Perform a fast kick while swimming to speed up.
   usage: Underwater > Swimming + Sneak
   icon:
