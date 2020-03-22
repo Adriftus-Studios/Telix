@@ -1,6 +1,6 @@
-ability_aer_strike:
+ability_wind_blade:
   type: task
-  name: aer_strike
+  name: wind_blade
   ability_tree: Test
   ability_type: active
   points_to_unlock: 0
@@ -19,8 +19,8 @@ ability_aer_strike:
     #Target Skill Tree: Aer, Target Points Requirement: 10, Target Power Cost: 10
     - inject abilities_check
     - inject abilities_cost
-    - define base:4
-    - define decay:-0.16
+    - define base:5
+    - define decay:-0.2
     - define points:<player.eye_location.points_between[<player.location.forward[25]>].distance[2]>
     - repeat <[points].size> as:number:
       - playeffect sweep_attack at:<[points].get[<[number]>].below[0.5]> quantity:1 visibility:50
