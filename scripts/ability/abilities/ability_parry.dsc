@@ -46,11 +46,11 @@ ability_parry:
         - flag player parrying:!
         #Riposte
         - look <player> <context.damager.eye_location>
-        - cast slow <context.damager> duration:10t power:255
-        - wait 10t
+        - cast slow <context.damager> duration:1s power:2
         - hurt <context.damager> <player.weapon_damage.*[<util.random.decimal[1.5].to[1.75].round>]||1>
         - adjust <context.damager> velocity:<player.location.direction.vector.with_y[0.25]>
         #Visual and Auditory
         - playeffect sweep_attack at:<player.location.forward.above> quantity:1
         #- playsound <player.location> sound:ability.fisticuffs.riposte custom
         - narrate "<&6>You have <&a>parried <&6>your opponent's attack!"
+        - determine 0
