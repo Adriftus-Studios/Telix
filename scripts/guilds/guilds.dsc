@@ -335,7 +335,7 @@ invite_to_guild:
   - yaml id:guild.<[guild]> set pending_invitations:|:<[invited]>
   - yaml id:player.<[invited].uuid> set pending_guild_invitation:<[guild]>
   - if <[invited].is_online>:
-    - narrate player:<[invited]> "<&6>You were invited to the guild <&2><guild.name><&6>! <&nl><&6>Click<&co> <&click[/guild accept]><&a><&l>ACCEPT<&end_click><&r><&6> or <&click[/guild decline]><&c><&l>DECLINE<&end_click>"
+    - narrate player:<[invited]> "<&6>You were invited to the guild <&2><yaml[guild.<[guild]>].read[name]><&6>! <&nl><&6>Click<&co> <&click[/guild accept]><&a><&l>ACCEPT<&end_click><&r><&6> or <&click[/guild decline]><&c><&l>DECLINE<&end_click>"
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&6><[inviter].name> has invited <[invited].name> to the guild."
 
