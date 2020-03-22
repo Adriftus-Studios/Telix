@@ -662,7 +662,7 @@ guilds_view_info_btn:
 
 guilds_view_members_btn:
   type: item
-  material: snow
+  material: player_head
   guild_permission: view_members
   display name: <&9>View Members
 
@@ -893,6 +893,7 @@ guild_gui_events:
     - inventory adjust d:<context.inventory> slot:14 material:<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>
     - inventory adjust d:<context.inventory> slot:14 patterns:<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>
     - inventory adjust d:<context.inventory> slot:14 base_color:<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>
+    - inventory adjust d:<context.inventory> slot:21 skull_skin:<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>
     on player clicks guilds_leave_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <player>:
