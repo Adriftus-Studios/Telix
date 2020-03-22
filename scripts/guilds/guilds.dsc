@@ -54,9 +54,15 @@ guild_command:
                     - else if <context.args.get[4]> == remove:
                       - determine <yaml[guild.<player.flag[guild]>].read[rank.<context.args.get[2]>.permissions]>
           - case invite:
-            - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name].filter[starts_with[<context.args.get[2]>]]>
+            - if <context.args.get[2].size||null> > 0:
+              - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name].filter[starts_with[<context.args.get[2]>]]>
+            - else:
+              - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
           - case kick:
-            - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[!=].to[<player>]].filter[is_online].parse[name]>
+            - if <context.args.get[2].size||null> > 0:
+              - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[!=].to[<player>]].filter[is_online].parse[name].filter[starts_with[<context.args.get[2]>]]>
+            - else:
+              - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[!=].to[<player>]].filter[is_online].parse[name]>
           - case relation:
             - if <context.args.size> == 2:
               - determine <list[neutral|ally|enemy|truce]>
