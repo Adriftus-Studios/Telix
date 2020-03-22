@@ -54,7 +54,7 @@ guild_command:
                     - else if <context.args.get[4]> == remove:
                       - determine <yaml[guild.<player.flag[guild]>].read[rank.<context.args.get[2]>.permissions]>
           - case invite:
-            - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
+            - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name].filter[starts_with[<context.args.get[2]>]]>
           - case kick:
             - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[!=].to[<player>]].filter[is_online].parse[name]>
           - case relation:
@@ -714,7 +714,7 @@ guild_leave_confirmation_gui:
 guild_info_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Guild Info<&r> <&6>◆
-  size: 36
+  size: 27
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
