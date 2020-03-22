@@ -3,8 +3,8 @@ ability_dolphin_kick:
   name: dolphin_kick
   ability_tree: Athleticism
   ability_type: passive
-  points_to_unlock: 20
-  power_cost: 10
+  points_to_unlock: 0
+  power_cost: 5
   description: Perform a fast kick while swimming to speed up.
   usage: Underwater > Swimming + Sneak
   icon:
@@ -13,6 +13,7 @@ ability_dolphin_kick:
   events:
     on player starts sneaking:
       - if <player.swimming>:
+        #Target Skill Tree: Athleticism, Target Points Requirement: 0, Target Power Cost: 5
         - inject abilities_check
         - determine passively cancelled
         - inject abilities_cost
