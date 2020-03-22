@@ -26,6 +26,7 @@ af_rod_basic:
     custom_model_data: 1
   lore:
   - "<&b>Basic rod for catching basic fish."
+  # building statistical lore is done with build_item task. dont include it here
 
 ### BAIT ###
 
