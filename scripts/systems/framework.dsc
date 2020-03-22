@@ -232,6 +232,13 @@ reload_scripts:
       - foreach <yaml[server.recipe_book].list_keys[used_for]> as:item:
         - yaml id:server.recipe_book set used_for.<[item]>:<yaml[server.recipe_book].read[used_for.<[item]>].as_list.deduplicate.exclude[air].exclude[<[item]>]>
       - yaml id:server.recipe_fixer savefile:recipe_fixer.yml
+      - foreach <server.list_recipe_ids[FURNACE]> as:recipe:
+        - define output:<[recipe].split[:].get[2]>
+        - if <server.recipe_items[<[recipe]>].as_list.get[1]||null> == null:
+          - narrate <[recipe]>
+        - yaml id:server.smeltery_recipes set <[output]>.cook_time:10
+        - yaml id:server.smeltery_recipes set <[output]>.input:<server.recipe_items[<[recipe]>].as_list.get[1]>
+        - yaml id:server.smeltery_recipes set <[output]>.output_quantity:1
     events:
       on server start:
         - inject locally reload
@@ -330,8 +337,7 @@ test_command:
   permission: test
   script:
   - foreach <server.list_recipe_ids[FURNACE]> as:recipe:
-    - define list:|:<server.recipe_items[<[recipe]>]||null>
-    - narrate <[recipe]>
+    - define output:<[recipe].split[:].get[2]>
 
 equipt_command:
   type: command
