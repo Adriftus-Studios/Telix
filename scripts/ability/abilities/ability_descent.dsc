@@ -24,5 +24,5 @@ ability_descent:
     - while <player.has_flag[descending]>:
       - playeffect sweep_attack at:<player.location.below[3]> quantity:1 visibility:50
       - cast slow_falling duration:1s power:3 <player> hide_particles
-      - cast speed duration:1s power:1 <player> hide_particles
+      - cast speed duration:1s power:2 <player> hide_particles
       - wait 1s
