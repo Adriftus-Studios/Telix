@@ -13,7 +13,7 @@ ability_aer_strike:
     - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]>:
       #Replace hurt with calculate_damage proc
       - hurt <[decay].*[<[number]>].+[<[base]>].round_up> <[value]>
-      - adjust <[value]> velocity:<player.location.direction.vector.with_y[0.10]>
+      - adjust <[value]> velocity:<player.location.direction.vector>
       - narrate <[decay].*[<[number]>].+[<[base]>].round_up>
   script:
     #Target Skill Tree: Aer, Target Points Requirement: 10, Target Power Cost: 10
@@ -23,7 +23,7 @@ ability_aer_strike:
     - define decay:-0.16
     - define points:<player.eye_location.points_between[<player.location.forward[25]>].distance[2]>
     - repeat <[points].size> as:number:
-      - playeffect sweep_attack at:<[points].get[<[number]>]> quantity:1
+      - playeffect sweep_attack at:<[points].get[<[number]>].below[0.5]> quantity:1
       - if !<[points].get[<[number]>].find.living_entities.within[3].exclude[<player>].is_empty>:
         - inject locally damage
       - wait 1t
