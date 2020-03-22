@@ -330,8 +330,7 @@ invite_to_guild:
   - yaml id:guild.<[guild]> set pending_invitations:|:<[invited]>
   - yaml id:player.<[invited].uuid> set pending_guild_invitation:<[guild]>
   - if <[invited].is_online>:
-    - narrate player:<[invited]> "<&6>You were invited to the guild '<yaml[guild.<[guild]>].read[name]>'."
-    - narrate player:<[invited]> "<&6>To accept this invitation, type /guild accept"
+    - narrate player:<[invited]> "<&6>You were invited to the guild <&2><guild.name><&6>! <&nl><&6>Click<&co> <&click[/guild accept]><&a><&l>ACCEPT<&end_click><&r><&6> or <&click[/guild decline]><&c><&l>DECLINE<&end_click>"
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&6><[inviter].name> has invited <[invited].name> to the guild."
 
@@ -592,9 +591,7 @@ guild_events:
         - wait 1t
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
         - stop
-      - narrate <context.book.book_pages>
       - wait 1t
-      - narrate <context.book.book_pages>
       - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.book.book_pages>
 
 guild_flag_health_icon:
