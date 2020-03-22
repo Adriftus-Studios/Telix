@@ -13,7 +13,7 @@ ability_aer_strike:
     - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]>:
       #Replace hurt with calculate_damage proc
       - hurt <[decay].*[<[number]>].+[<[base]>]> <[value]>
-      - adjust <[value]> velocity:<player.location.direction.vector>
+      - adjust <[value]> velocity:<player.location.direction.vector./[2]>
       - narrate <[decay].*[<[number]>].+[<[base]>]>
   script:
     #Target Skill Tree: Aer, Target Points Requirement: 10, Target Power Cost: 10
