@@ -21,7 +21,7 @@ ability_aer_strike:
     - define decay:-0.16
     - define points:<player.eye_location.points_between[<player.location.forward[25]>].distance[1]>
     - repeat <[points].size> as:number:
-      - playeffect sweep_attack at:<[points].get[<[number]>]> quantity:1
+      - playeffect sweep_attack at:<[points].get[<[number]>]> quantity:1 offset:1
       - if !<[points].get[<[number]>].find.living_entities.within[3].exclude[<player>].is_empty>:
         - inject locally damage
       - wait 1t
