@@ -233,7 +233,7 @@ reload_scripts:
         - yaml id:server.recipe_book set used_for.<[item]>:<yaml[server.recipe_book].read[used_for.<[item]>].as_list.deduplicate.exclude[air].exclude[<[item]>]>
       - yaml id:server.recipe_fixer savefile:recipe_fixer.yml
       - foreach <server.list_recipe_ids[FURNACE]> as:recipe:
-        - define output:<[recipe].split[:].get[2]>
+        - define output:<[recipe].replace[minecraft:].with[].replace[furnace_recipe_].with[].replace[_1].with[]>
         - if <server.recipe_items[<[recipe]>].as_list.get[1]||null> == null:
           - narrate <[recipe]>
         - yaml id:server.smeltery_recipes set <[output]>.cook_time:10s
