@@ -25,19 +25,7 @@ af_rod_basic:
   # starting at 1
     custom_model_data: 1
   lore:
-  - "<&6><&l><&m>-------------<&r><&6>  Fishing Rod  <&l><&m>-------------"
   - "<&b>Basic rod for catching basic fish."
-  - "<&6>"
-  - "<&6>Rarity<&b><&co><&6> <script.yaml_key[rod_rarity].parsed>"
-  - "<&6>"
-  - "<&6><&l><&m>-------------<&r><&6>   Upgrades    <&l><&m>-------------"
-  - "<&b>Slot: []"
-  - "<&b>Slot: []"
-  - "<&b>Slot: []"
-  - "<&6><&l><&m>--------------<&r><&6>     Bait      <&l><&m>--------------"
-  - "<&b>Right click to remove the bait"
-  - "<&6>Baited with: <&7>Nothing"
-
 
 ### BAIT ###
 
