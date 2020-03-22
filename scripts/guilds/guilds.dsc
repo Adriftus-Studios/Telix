@@ -864,6 +864,19 @@ guild_flag_destroy_btn:
   material: snow
   display name: <&6>Destroy Flag
 
+guild_manage_member_gui:
+  type: inventory
+  title: <&6>◆ <&c><&n><&l>Manage Member<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+
 guild_gui_events:
   type: world
   events:
@@ -923,11 +936,19 @@ guild_gui_events:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
+    on player clicks in guild_manage_member_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
     on player clicks in view_guild_members:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
+      - if <context.item.material> == player_head:
+        - define gui:<inventory[guild_manage_member_gui]>
+        - inventory open d:<[gui]>
+        - wait 1t
+        - inventory set d:<[gui]> slot:1 o:<context.item>
     on player opens view_guild_members:
     - wait 1t
     - foreach <yaml[guild.<player.flag[guild]>].read[members].as_list> as:member:
