@@ -32,7 +32,7 @@ custom_preparation_table:
       input:
       - air|custom_oak_planks|air
       - custom_iron_bars|custom_crafting_table|custom_iron_bars
-      - custom_iron_bars|custom_iron_ingot|custom_iron_bars
+      - custom_iron_bars|custom_steel_ingot|custom_iron_bars
 
 custom_food_test_recipe:
   material: cooked_beef
