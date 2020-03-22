@@ -289,6 +289,8 @@ player_leave_guild:
   type: task
   definitions: guild|player
   script:
+  - if <yaml[guild.<[player].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <[player]>:
+    - stop
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml id:guild.<[guild]> set members:<-:<[player]>
   - flag <[player]> guild:!
@@ -590,7 +592,7 @@ guild_events:
         - wait 1t
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
         - stop
-      - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.get[1]>
+      - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.pages.as_list.get[1]>
 
 guild_flag_health_icon:
   type: item
@@ -678,14 +680,14 @@ guild_leave_no_btn:
 guild_leave_confirmation_gui:
   type: inventory
   title: <&6>◆ <&c><&n><&l>Leave Guild?<&r> <&6>◆
-  size: 36
+  size: 27
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [guild_leave_yes_btn] [] [] [] [guild_leave_no_btn] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_info_gui:
   type: inventory
@@ -838,7 +840,7 @@ guild_gui_events:
     - foreach <[btns]> as:btn:
       - inventory add d:<context.inventory> o:<item[<[btn]>]>
     on player clicks in guild_leave_confirmation_gui:
-    - if <context.raw_slot> <= 36:
+    - if <context.raw_slot> <= 27:
       - determine passively cancelled
       - if <context.item.script.name||null> == guild_leave_yes_btn:
         - run player_leave_guild def:<player.flag[guild]>|<player>
@@ -853,6 +855,9 @@ guild_gui_events:
     on player clicks guilds_view_info_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_info_gui]>
+    on player opens guild_info_gui:
+    - wait 1t
+    - define desc:<yaml[guild.<player.flag[guild]>].read[description]>
     on player clicks guilds_manage_claim_flags in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
@@ -867,7 +872,7 @@ guild_gui_events:
       - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <player>:
         - inventory open d:<inventory[guild_leave_confirmation_gui]>
       - else:
-        - narrate "<&c>You are the guild leader, you must disband in order to leave."
+        - narrate "<&c>You are the guild leader; to leave, you must disband the guild, or assign a new leader."
     on player clicks in all_guilds_gui:
     - determine passively cancelled
     - if <context.item.script.name> == gui_close_btn:
