@@ -63,7 +63,7 @@ abilites_item_use:
 abilities_item_buildLore:
   type: task
   script:
-    - define "lore:!|:<&e>-------------------------"
+    - define "lore:<&e>-------------------------"
     - define "lore:|:<&b><script[ability_<context.item.nbt[skillname]>].yaml_key[description]>"
     - define "lore:|:<&c>Power Cost<&co> <script[ability_<context.item.nbt[skillname]>].yaml_key[power_cost]>"
     - define "lore:|:<&e>-------------------------"

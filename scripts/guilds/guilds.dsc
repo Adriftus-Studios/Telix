@@ -864,17 +864,31 @@ guild_flag_destroy_btn:
   material: snow
   display name: <&6>Destroy Flag
 
+guild_kick_member_btn:
+  type: item
+  material: snow
+  display name: <&6>Kick Member
+
+guild_promote_member_btn:
+  type: item
+  material: snow
+  display name: <&6>Promote Member
+
+guild_demote_member_btn:
+  type: item
+  material: snow
+  display name: <&6>Demote Member
+
 guild_manage_member_gui:
   type: inventory
   title: <&6>◆ <&c><&n><&l>Manage Member<&r> <&6>◆
-  size: 36
+  size: 27
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
   slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [guild_promote_member_btn] [] [guild_demote_member_btn] [] [guild_kick_member_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_gui_events:
@@ -900,6 +914,7 @@ guild_gui_events:
     on player clicks guilds_view_info_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_info_gui]>
+    on player clicks in guild_info_gui:
     on player opens guild_info_gui:
     - wait 1t
     - define desc:<yaml[guild.<player.flag[guild]>].read[description]>
@@ -948,7 +963,7 @@ guild_gui_events:
         - define gui:<inventory[guild_manage_member_gui]>
         - inventory open d:<[gui]>
         - wait 1t
-        - inventory set d:<[gui]> slot:1 o:<context.item>
+        - inventory set d:<[gui]> slot:11 o:<context.item>
     on player opens view_guild_members:
     - wait 1t
     - foreach <yaml[guild.<player.flag[guild]>].read[members].as_list> as:member:
