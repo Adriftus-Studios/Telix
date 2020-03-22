@@ -890,7 +890,9 @@ guild_gui_events:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
     on player opens my_guild_gui:
-    - inventory adjust d:<context.inventory> slot:14 <yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>
+    - inventory adjust d:<context.inventory> slot:14 block_material:<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>
+    - inventory adjust d:<context.inventory> slot:14 patterns:<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>
+    - inventory adjust d:<context.inventory> slot:14 base_color:<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>
     on player clicks guilds_leave_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <player>:
