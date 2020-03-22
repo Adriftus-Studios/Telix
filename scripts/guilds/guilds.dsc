@@ -294,7 +294,7 @@ player_leave_guild:
   type: task
   definitions: guild|player
   script:
-  - if <yaml[guild.<[player].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <[player]>:
+  - if <yaml[guild.<[player].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <[player]>:
     - stop
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml id:guild.<[guild]> set members:<-:<[player]>
