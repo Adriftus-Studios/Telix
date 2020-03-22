@@ -579,7 +579,6 @@ guild_events:
       - else:
         - narrate "<&c>You do not have permission to manage guild flags."
     on player signs book:
-    - narrate <context.book.is_book>
     - if <context.book> == <item[new_guild_book]>:
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
@@ -593,7 +592,10 @@ guild_events:
         - wait 1t
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
         - stop
-      - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.book.book_pages.get[1]>
+      - narrate <context.book.book_pages>
+      - wait 1t
+      - narrate <context.book.book_pages>
+      - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.book.book_pages>
 
 guild_flag_health_icon:
   type: item
