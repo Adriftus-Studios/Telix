@@ -942,9 +942,9 @@ guild_gui_events:
     on player clicks in view_guild_members:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
-      - if <context.item.script.name> == gui_close_btn:
+      - if <context.item.script.name||null> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
-      - if <context.item.material> == player_head:
+      - if <context.item.material.name> == player_head:
         - define gui:<inventory[guild_manage_member_gui]>
         - inventory open d:<[gui]>
         - wait 1t
