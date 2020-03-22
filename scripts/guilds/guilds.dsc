@@ -92,6 +92,11 @@ guild_command:
                 - narrate "<&c>Your invitation has expired."
             - else:
               - narrate "<&c>You have no pending invitations."
+          - case decline:
+            - if <yaml[player.<player.uuid>].read[pending_guild_invitation]||null> != null:
+              - run decline_guild_invitation def:<player>|<yaml[player.<player.uuid>].read[pending_guild_invitation]>
+            - else:
+              - narrate "<&c>You have no pending invitations."
           - default:
             - narrate "<&c>That is not a valid option."
       - else:
@@ -333,6 +338,16 @@ invite_to_guild:
     - narrate player:<[invited]> "<&6>You were invited to the guild <&2><guild.name><&6>! <&nl><&6>Click<&co> <&click[/guild accept]><&a><&l>ACCEPT<&end_click><&r><&6> or <&click[/guild decline]><&c><&l>DECLINE<&end_click>"
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&6><[inviter].name> has invited <[invited].name> to the guild."
+
+decline_guild_invitation:
+  type: task
+  definitions: player|guild
+  script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - yaml id:guild.<[guild]> set pending_invitations:<-:<[invited]>
+  - yaml id:player.<player.uuid> set pending_guild_invitation:!
+  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
+    - narrate player:<[member]> "<&6><[player].name> has refused to join the guild."
 
 accept_guild_invitation:
   type: task
