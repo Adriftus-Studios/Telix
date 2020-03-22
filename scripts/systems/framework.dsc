@@ -331,7 +331,7 @@ test_command:
   script:
   - foreach <server.list_recipe_ids[FURNACE]> as:recipe:
     - define list:|:<server.recipe_items[<[recipe]>]||null>
-  - narrate <[list].count[null]>
+    - narrate <[recipe]>
 
 equipt_command:
   type: command
