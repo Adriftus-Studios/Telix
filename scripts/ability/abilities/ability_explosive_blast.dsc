@@ -31,7 +31,7 @@ ability_explosive_blast:
       #Replace burn with calculate_burn proc
       - burn <[value]> duration:<[power].*[1.5]>
       #Replace hurt with calculate_damage proc
-      - hurt <[power].*[1.25].round_down> <[value]>
+      - hurt <[power].*[1.25].round_down> <[value]> cause:block_explosion
       - cast slow <[value]> duration:<[power].*[6].round_down>t power:2
     - playeffect explosion_huge at:<[target]> quantity:<[power]./[2].round_up> visibility:50
     - playeffect flash at:<[target]> quantity:5 visibility:50
