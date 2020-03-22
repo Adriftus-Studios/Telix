@@ -616,7 +616,9 @@ guild_flag:
 
 guilds_leave_btn:
   type: item
-  material: snow
+  material: iron_nugget
+  mechanisms:
+    custom_model_data: 35
   display name: <&9>Leave Guild
 
 guilds_manage_claim_flags:
@@ -633,7 +635,7 @@ guilds_edit_ranks_btn:
   
 guilds_view_info_btn:
   type: item
-  material: snow
+  material: book_and_quill
   display name: <&9>View Information
 
 guilds_view_members_btn:
@@ -662,6 +664,40 @@ list_all_guilds_btn:
   type: item
   material: white_banner
   display name: "<&c>View all guilds"
+
+guild_leave_yes_btn:
+  type: item
+  material: green_wool
+  display name: "<&a>Leave Guild"
+
+guild_leave_no_btn:
+  type: item
+  material: red_wool
+  display name: "<&c>Stay in Guild"
+
+guild_leave_confirmation_gui:
+  type: inventory
+  title: <&6>◆ <&c><&n><&l>Leave Guild?<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [guild_leave_yes_btn] [] [] [] [guild_leave_no_btn] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+guild_info_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Guild Info<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 new_guild_gui:
   type: inventory
@@ -801,6 +837,14 @@ guild_gui_events:
     - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
     - foreach <[btns]> as:btn:
       - inventory add d:<context.inventory> o:<item[<[btn]>]>
+    on player clicks in guild_leave_confirmation_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - if <context.item.script.name||null> == guild_leave_yes_btn:
+        - run player_leave_guild def:<player.flag[guild]>|<player>
+        - inventory close
+      - if <context.item.script.name||null> == guild_leave_no_btn:
+        - inventory open d:<inventory[my_guild_gui]>
     on player clicks in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
@@ -808,6 +852,7 @@ guild_gui_events:
         - inventory close
     on player clicks guilds_view_info_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
+      - inventory open d:<inventory[guild_info_gui]>
     on player clicks guilds_manage_claim_flags in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
@@ -820,8 +865,7 @@ guild_gui_events:
     on player clicks guilds_leave_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <player>:
-        - run player_leave_guild def:<player.flag[guild]>|<player>
-        - inventory close
+        - inventory open d:<inventory[guild_leave_confirmation_gui]>
       - else:
         - narrate "<&c>You are the guild leader, you must disband in order to leave."
     on player clicks in all_guilds_gui:
