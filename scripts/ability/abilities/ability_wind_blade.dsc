@@ -13,7 +13,7 @@ ability_wind_blade:
     - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]>:
       #Replace hurt with calculate_damage proc
       - hurt <[decay].*[<[number]>].+[<[base]>]> <[value]>
-      - cast slow duration:<[decay].*[<[number]>].+[<[base]>]./[2].round_up> power:2 <[value]> hide_particles
+      - cast slow duration:<[decay].*[<[number]>].+[<[base]>]./[2]> power:2 <[value]> hide_particles
       #- adjust <[value]> velocity:<player.location.direction.vector>
   script:
     #Target Skill Tree: Aer, Target Points Requirement: 10, Target Power Cost: 10
