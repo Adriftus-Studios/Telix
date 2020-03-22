@@ -4,7 +4,7 @@ ability_aer_strike:
   ability_tree: Test
   ability_type: active
   points_to_unlock: 0
-  power_cost: 1
+  power_cost: 0
   description: Launch a blade of wind to cut through opponents
   icon:
     material: stone
@@ -19,7 +19,7 @@ ability_aer_strike:
     - inject abilities_cost
     - define base:4
     - define decay:-0.16
-    - define points:<player.eye_location.points_between[<player.location.forward[25]>].distance[1]>
+    - define points:<player.eye_location.points_between[<player.location.forward[25]>].distance[2]>
     - repeat <[points].size> as:number:
       - playeffect sweep_attack at:<[points].get[<[number]>]> quantity:1
       - if !<[points].get[<[number]>].find.living_entities.within[3].exclude[<player>].is_empty>:
