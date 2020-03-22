@@ -646,6 +646,8 @@ guilds_leave_btn:
 guilds_manage_claim_flags:
   type: item
   material: snow
+  mechanisms:
+    flags: HIDE_ALL
   guild_permission: manage_claim_flags
   display name: <&9>Manage Claim Flags
 
