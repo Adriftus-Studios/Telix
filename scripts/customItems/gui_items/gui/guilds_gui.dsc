@@ -95,4 +95,18 @@ gui_leave_confirm_top:
   mechanisms:
     custom_model_data: 34
   display name: <&7>
+
+gui_guild_info_bottom:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: 35
+  display name: <&7>
+
+gui_guild_info_top:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: 36
+  display name: <&7>
   

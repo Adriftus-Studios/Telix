@@ -728,8 +728,8 @@ guild_info_gui:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
   slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[gui_guild_info_top] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_guild_info_bottom] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 new_guild_gui:
