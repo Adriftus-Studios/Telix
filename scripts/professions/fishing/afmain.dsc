@@ -44,7 +44,9 @@ fishing_inventory_listener:
     # Rod Shop Listen
     on player left clicks af_rod_* in afgui_rod_shop:
       - if <context.clicked_inventory.script_name> == "afgui_rod_shop":
-        - give <context.item>
+        - define item:<context.item>
+        - inject build_item
+        - give <[item]>
         - narrate "<&6>You have just purchased a <&a><context.item.display><&6>."
     
     # Gutting Station Listen
