@@ -750,7 +750,7 @@ all_guilds_gui:
   procedural items:
   - repeat 35:
     - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value]>]>
-    - define items:|:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>]>]||<item[air]>>
+    - define items:|:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
