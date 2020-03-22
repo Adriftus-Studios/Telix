@@ -716,9 +716,9 @@ guild_leave_confirmation_gui:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
   slots:
+  - "[gui_leave_confirm_top] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_leave_confirm_bottom] [] [guild_leave_yes_btn] [] [] [] [guild_leave_no_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_leave_confirm_top] [] [guild_leave_yes_btn] [] [] [] [guild_leave_no_btn] [] [w_filler]"
-  - "[gui_leave_confirm_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_info_gui:
   type: inventory
