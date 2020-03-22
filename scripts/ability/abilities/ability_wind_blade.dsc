@@ -1,10 +1,10 @@
 ability_wind_blade:
   type: task
   name: wind_blade
-  ability_tree: Test
+  ability_tree: Aer
   ability_type: active
-  points_to_unlock: 0
-  power_cost: 0
+  points_to_unlock: 15
+  power_cost: 10
   description: Launch a blade of wind to cut through opponents
   icon:
     material: stone
@@ -16,7 +16,7 @@ ability_wind_blade:
       - cast slow duration:<[decay].*[<[number]>].+[<[base]>]./[2]> power:2 <[value]> hide_particles
       #- adjust <[value]> velocity:<player.location.direction.vector>
   script:
-    #Target Skill Tree: Aer, Target Points Requirement: 10, Target Power Cost: 10
+    #Target Skill Tree: Aer, Target Points Requirement: 15, Target Power Cost: 10
     - inject abilities_check
     - inject abilities_cost
     - define base:5
