@@ -36,7 +36,6 @@ af_rod_basic:
   - "<&6><&l><&m>--------------<&r><&6>     Bait      <&l><&m>--------------"
   - "<&b>Right click to remove the bait"
   - "<&6>Baited with: <&7>Nothing"
-  - "<&8>Item Weight: <script.yaml_key[weight]>"
 
 
 ### BAIT ###
@@ -51,8 +50,6 @@ af_bait_chum:
   lore:
   - "<&b>Drag and drop this bait on any"
   - "<&b>rod to apply the bait."
-  - ""
-  - "<&8>Item Weight: <script.yaml_key[weight]>"
 
 af_bait_honeycomb:
   type: item
@@ -64,8 +61,6 @@ af_bait_honeycomb:
   lore:
   - "<&b>Drag and drop this bait on any"
   - "<&b>rod to apply the bait."
-  - ""
-  - "<&8>Item Weight: <script.yaml_key[weight]>"
 
 
 ### MISC ITEMS ###
@@ -140,7 +135,6 @@ af_gutting_station_info:
   - "<&b>Gut and prepare your catch for market"
   - "<&b>You can only sell prepared fish on the market"
 
-
 ### Fish being Caught ###
 
 af_fish_1:
@@ -151,8 +145,7 @@ af_fish_1:
     custom_model_data: 18
   weight: 0.20
   category: fish
-  lore:
-  - "<&8>Item Weight: <script.yaml_key[weight]>"
+  
 af_fish_2:
   type: item
   material: cod
@@ -162,7 +155,7 @@ af_fish_2:
   weight: 0.20
   category: fish
   lore:
-  - "<&8>Item Weight: <script.yaml_key[weight]>"
+  
 af_fish_3:
   type: item
   material: cod
@@ -171,8 +164,6 @@ af_fish_3:
     custom_model_data: 2
   weight: 0.20
   category: fish
-  lore:
-  - "<&8>Item Weight: <script.yaml_key[weight]>"
 
 debug_item_1:
   type: item
