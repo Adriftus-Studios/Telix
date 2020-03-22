@@ -679,7 +679,7 @@ new_guild_btn:
 
 guild_view_bank_btn:
   type: item
-  material: enderchest
+  material: ender_chest
   display name: "<&c>View guild bank"
 
 list_all_guilds_btn:
