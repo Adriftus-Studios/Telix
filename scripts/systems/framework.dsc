@@ -602,7 +602,7 @@ build_item:
           - else:
             - define line:<[line]><&7>[<&sp>]
         - define lore:|:<[line]>
-      - define lore:|:<[item].script.yaml_key[lore].parsed||<list[]>>
+      - define lore:|:<[item].script.yaml_key[lore].as_list.parse[parsed]||<list[]>>
       - define stat_names:<list[boss_damage/Boss<&sp>Damage|ore_drops/Ore<&sp>Drops|thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
       - if <[item].script.list_keys[equipment_modifiers]||null> != null:
         - define lore:|:<&9>
@@ -634,7 +634,7 @@ build_item:
         - adjust def:item nbt_attributes:generic.armor/chest/0/<[item].script.yaml_key[armor]>
         - adjust def:item lore:|:<&9>+<[item].script.yaml_key[armor]><&sp>Armor
     - else:
-      - define lore:|:<[item].script.yaml_key[lore].parsed||<list[]>>
+      - define lore:|:<[item].script.yaml_key[lore].as_list.parse[parsed]||<list[]>>
     - if <[item].script.yaml_key[damage]||null> != null:
       - adjust def:item nbt_attributes:generic.attackDamage/hand/0/<[item].script.yaml_key[damage]>
     - if <[item].script.yaml_key[attack_speed]||null> != null:

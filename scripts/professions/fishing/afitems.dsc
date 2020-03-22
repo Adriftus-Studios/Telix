@@ -20,6 +20,7 @@ af_rod_basic:
   rod_rarity: <&7>Common
   weight: 5
   category: fishing_rod
+  rod_upgrade_slots: 3
   mechanisms:
   # starting at 1
     custom_model_data: 1
