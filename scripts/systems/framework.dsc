@@ -324,6 +324,15 @@ player_setup:
       - else:
         - yaml id:player.<player.uuid> set skills.<[value]>.current:1
 
+test_command:
+  type: command
+  name: test
+  permission: test
+  script:
+  - foreach <server.list_recipe_ids[FURNACE]> as:recipe:
+    - define list:|:<server.recipe_items[<[recipe]>]||null>
+  - narrate <[list].count[null]>
+
 equipt_command:
   type: command
   name: equipt
