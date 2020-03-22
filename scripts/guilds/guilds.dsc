@@ -749,7 +749,7 @@ all_guilds_gui:
   size: 54
   procedural items:
   - foreach <yaml.list.filter[starts_with[guild.]]> as:guild:
-    - define items:|:<item[white_banner].with[display_name=<[guild].replace[guild.].with[].to_titlecase>]>
+    - define items:|:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>]>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
