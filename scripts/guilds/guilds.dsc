@@ -748,8 +748,9 @@ all_guilds_gui:
   title: <&6>◆ <&a><&n><&l>All Guilds<&r> <&6>◆
   size: 54
   procedural items:
-  - foreach <yaml.list.filter[starts_with[guild.]]> as:guild:
-    - define items:|:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>]>]>
+  - repeat 35:
+    - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value]>]>
+    - define items:|:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>]>]||<item[air]>>
   - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
