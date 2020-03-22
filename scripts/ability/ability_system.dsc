@@ -97,7 +97,7 @@ abilityTree_inventory_events:
 abilities_GUIitem_buildLore:
   type: task
   script:
-    - define "lore:|:<&e>-------------------------"
+    - define "lore:<&e>-------------------------"
     - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
     - define "lore:|:<&a>Ability Type<&co> <script[ability_<[ability]>].yaml_key[ability_type].to_titlecase>"
     - if <script[ability_<[ability]>].yaml_key[ability_type]> == command:
