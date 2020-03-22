@@ -81,4 +81,18 @@ gui_all_guilds_top:
   mechanisms:
     custom_model_data: 32
   display name: <&7>
+
+gui_leave_confirm_bottom:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: 33
+  display name: <&7>
+
+gui_leave_confirm_top:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: 34
+  display name: <&7>
   
