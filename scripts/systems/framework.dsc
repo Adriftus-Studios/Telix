@@ -583,18 +583,18 @@ build_item:
       - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>;custom_model_data=<[item].custom_model_data||0>;nbt=<[item].nbt||<list[]>>;enchantments=<[item].enchantments||<list[]>>;nbt_attributes=<[item].nbt_attributes||<list[]>>;patterns=<[item].patterns>;base_color=<[item].base_color>]>
     - if <[item].script.yaml_key[category]||null> != null:
       - if <[item].script.yaml_key[category]> == fishing_rod:
-        - define lore:|:"<&6><&l><&m>-------------<&r><&6>  Fishing Rod  <&l><&m>-------------"
+        - define lore:|:<&6><&l><&m>-------------<&r><&6>  Fishing Rod  <&l><&m>-------------
         - define lore:|:<&6>
-        - define lore:|:"<&6>Rarity<&b><&co><&6> <[item].script.yaml_key[rod_rarity]>"
+        - define lore:|:<&6>Rarity<&b><&co><&6> <[item].script.yaml_key[rod_rarity]>
         - define lore:|:<&6>
         - if <[item].script.yaml_key[rod_upgrade_slots]||null> != null:
           - if <[item].script.yaml_key[rod_upgrade_slots].mul[1]> == <[item].script.yaml_key[rod_upgrade_slots]>:
-            - define lore:|:"<&6><&l><&m>-------------<&r><&6>   Upgrades    <&l><&m>-------------"
+            - define lore:|:<&6><&l><&m>-------------<&r><&6>   Upgrades    <&l><&m>-------------
             - repeat <[item].script.yaml_key[rod_upgrade_slots]>:
-              - define lore:|:"<&b>Slot: [ ]"
-        - define lore:|:"<&6><&l><&m>--------------<&r><&6>     Bait      <&l><&m>--------------"
-        - define lore:|:"<&b>Right click to remove the bait"
-        - define lore:|:"<&6>Baited with: <&7><[item].nbt[baited].as_script.yaml_key[display<&sp>name].parsed||<el@Nothing>>"
+              - define lore:|:<&b>Slot: [ ]
+        - define lore:|:<&6><&l><&m>--------------<&r><&6>     Bait      <&l><&m>--------------
+        - define lore:|:<&b>Right click to remove the bait
+        - define lore:|:<&6>Baited with: <&7><[item].nbt[baited].as_script.yaml_key[display<&sp>name].parsed||<el@Nothing>>
       - if <[item].script.yaml_key[max_stars]||null> != null:
         - if <[item].nbt[stars]||null> == null:
           - adjust def:item nbt:stars/0
