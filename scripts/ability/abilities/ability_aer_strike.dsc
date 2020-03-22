@@ -4,7 +4,7 @@ ability_aer_strike:
   ability_tree: Test
   ability_type: active
   points_to_unlock: 0
-  power_cost: 1
+  power_cost: 0
   description: Launch a blade of wind to cut through opponents
   icon:
     material: stone
