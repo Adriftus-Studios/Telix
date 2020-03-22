@@ -30,7 +30,7 @@ custom_preparation_table:
       type: shaped
       output_quantity: 1
       input:
-      - air|custom_oak_planks|air
+      - custom_oak_planks|custom_oak_planks|custom_oak_planks
       - custom_iron_bars|custom_crafting_table|custom_iron_bars
       - custom_iron_bars|custom_steel_ingot|custom_iron_bars
 
