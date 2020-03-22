@@ -236,7 +236,7 @@ reload_scripts:
         - define output:<[recipe].split[:].get[2]>
         - if <server.recipe_items[<[recipe]>].as_list.get[1]||null> == null:
           - narrate <[recipe]>
-        - yaml id:server.smeltery_recipes set <[output]>.cook_time:10
+        - yaml id:server.smeltery_recipes set <[output]>.cook_time:10s
         - yaml id:server.smeltery_recipes set <[output]>.input:<server.recipe_items[<[recipe]>].as_list.get[1]>
         - yaml id:server.smeltery_recipes set <[output]>.output_quantity:1
     events:
