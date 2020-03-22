@@ -359,6 +359,7 @@ decline_guild_invitation:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml id:guild.<[guild]> set pending_invitations:<-:<[invited]>
   - yaml id:player.<player.uuid> set pending_guild_invitation:!
+  - narrate "<&6>You have declined this guilds invitation."
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&6><[player].name> has refused to join the guild."
 
@@ -894,6 +895,9 @@ guild_manage_member_gui:
 guild_gui_events:
   type: world
   events:
+    on player clicks in guild_manage_member_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
     on player opens edit_guild_ranks_gui:
     - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
     - foreach <[btns]> as:btn:
@@ -915,6 +919,8 @@ guild_gui_events:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_info_gui]>
     on player clicks in guild_info_gui:
+    - if <context.raw_slot> <= <player.open_inventory.size>:
+      - determine passively cancelled
     on player opens guild_info_gui:
     - wait 1t
     - define desc:<yaml[guild.<player.flag[guild]>].read[description]>
@@ -951,9 +957,6 @@ guild_gui_events:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
-    on player clicks in guild_manage_member_gui:
-    - if <context.raw_slot> <= 36:
-      - determine passively cancelled
     on player clicks in view_guild_members:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
