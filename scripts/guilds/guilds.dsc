@@ -35,6 +35,7 @@ guild_command:
   - if <context.args.size||0> != 0:
     - if <context.args.size> == 1:
       - if <context.args.get[1]> == invite:
+        - narrate '<context.args.space_separated.split[<&sp>].get[1]>'
         - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
       - define list:<list[invite|disband|kick|create|rank|accept|leave|accept|bank]>
       - determine <[list].filter[starts_with[<context.args.get[1]>]]>
