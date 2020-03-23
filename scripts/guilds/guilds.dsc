@@ -986,13 +986,13 @@ guild_choose_rank_to_edit_gui:
 guild_gui_events:
   type: world
   events:
-    on player clicks guilds_edit_ranks_btn in my_guild_gui:
+    on player clicks guilds_edit_ranks_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
     on player clicks guilds_settings_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_settings_gui]>
-    on player clicks gui_close_btn in my_guild_gui:
+    on player clicks gui_close_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[my_guild_gui]>
     on player clicks guild_transfer_leadership_yes_btn in guild_leadership_transfer_confirmation_gui:
