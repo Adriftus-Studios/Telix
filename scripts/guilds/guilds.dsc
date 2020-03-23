@@ -916,7 +916,9 @@ guild_gui_events:
           - if !<yaml[guild.<context.inventory.slot[11].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[promote_members]>:
             - narrate promote
       - if <context.item.script.name> == guild_demote_member_btn:
+        - narrate 1
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[demote_members]>:
+          - narrate 2
           - if !<yaml[guild.<context.inventory.slot[11].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[demote_members]>:
             - narrate demote
     on player clicks in guild_leave_confirmation_gui:
