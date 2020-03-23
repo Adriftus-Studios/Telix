@@ -656,7 +656,7 @@ new_guild_book:
   material: writable_book
   display name: <&7>New Guild Book
   lore:
-  - "<&b>Type the description of your guild on the first page,"
+  - "<&b>Use the pages to write your guild description,"
   - "<&b>Then sign the book with the name of your guild."
 
 guild_flag_indicator:
