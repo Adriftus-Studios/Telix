@@ -1012,6 +1012,8 @@ guild_gui_events:
   type: world
   events:
     on player clicks in inventory:
+    - wait 1t
+    - inventory set d:<context.inventory> slot:1 o:<item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
     - if <context.raw_slot> == 3:
       - narrate <context.inventory.anvil_rename_text>
     on player clicks in guild_choose_rank_to_edit_gui:
