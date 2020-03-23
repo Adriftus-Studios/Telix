@@ -952,7 +952,7 @@ guild_gui_events:
     on player clicks in guild_leadership_transfer_confirmation_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
-      - narrate <context.inventory.slot[5]>
+      - narrate <context.inventory.slot[5].skin>
       - if <context.item.script.name> == guild_transfer_leadership_yes_btn:
         - run player_transfer_guild_leadership def:<player>|<context.inventory.slot[5].skin.as_player>
         - inventory open d:<inventory[my_guild_gui]>
