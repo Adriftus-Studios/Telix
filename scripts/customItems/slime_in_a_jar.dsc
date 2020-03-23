@@ -5,5 +5,7 @@ slime_in_a_jar_listener:
     on player right clicks block with dirt:
     - if <context.chunk.spawn_slimes> == true:
       - narrate "True"
-    - else:
+    - else if <context.chunk.spawn_slimes> == false:
       - narrate "False"
+    - else:
+      - narrate "Shit didn't work"
