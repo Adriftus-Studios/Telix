@@ -922,7 +922,7 @@ guild_gui_events:
       - determine passively cancelled
       - narrate <context.inventory.slot[12].skin.as_player>
       - narrate <context.item.script.name>
-      - if <context.item.script.name> == closeitem:
+      - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[view_guild_members]>
       - if <context.item.script.name> == guild_kick_member_btn:
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[kick_members]>:
@@ -944,7 +944,7 @@ guild_gui_events:
     - narrate <context.item.script.name>
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
-      - if <context.item.script.name> == closeitem:
+      - if <context.item.script.name> == gui_close_btn:
         - define gui:<inventory[guild_manage_member_gui]>
         - inventory open d:<[gui]>
         - wait 1t
