@@ -5,7 +5,7 @@ guild_settings:
   rank_permissions:
   - manage_flags
   - edit_ranks
-  - view_members
+  - manage_members
   - change_settings
   - place_flag
   - remove_flags
@@ -115,6 +115,8 @@ guild_command:
             - else:
               - narrate "<&c>You are the guild leader, you must disband in order to leave."
           - case rank:
+            - narrate TODO
+            - stop
             - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_ranks]>:
               - if <context.args.size> == 2:
                 - narrate "<&c>Not enough arguments."
@@ -391,10 +393,14 @@ create_guild:
   - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - yaml id:guild.<[guild]> set ranks.leader.title:Leader
-  - yaml id:guild.<[guild]> set ranks.leader.priority:1000
-  - yaml id:guild.<[guild]> set default_rank:Peasent
-  - yaml id:guild.<[guild]> set ranks.peasent.title:Peasent
-  - yaml id:guild.<[guild]> set ranks.peasent.priority:1
+  - yaml id:guild.<[guild]> set ranks.leader.priority:3
+  - yaml id:guild.<[guild]> set default_rank:member
+  - yaml id:guild.<[guild]> set ranks.member.title:Member
+  - yaml id:guild.<[guild]> set ranks.member.priority:1
+  - yaml id:guild.<[guild]> set ranks.mod.title:Mod
+  - yaml id:guild.<[guild]> set ranks.mod.priority:2
+  - foreach <list[manage_flags|manage_members|place_flag|remove_flag|kick_members|invite_members|manage_relations|access_bank]> as:perm:
+    - yaml id:guild.<[guild]> set ranks.mod.permissions:|:<[perm]>
   - note <inventory[guild_flags_gui]> as:guild_<[guild]>_flags
   - note <inventory[guild_bank_gui]> as:guild_<[guild]>_bank
   - announce "<&6><[guild_leader].display_name> has created the guild <[guild_name]>"
@@ -898,10 +904,6 @@ guild_gui_events:
     on player clicks in guild_manage_member_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
-    on player opens edit_guild_ranks_gui:
-    - define btns:<list[guilds_view_info_btn|guilds_view_members_btn|guilds_edit_ranks_btn|guilds_manage_claim_flags|guilds_settings_btn|guilds_leave_btn]>
-    - foreach <[btns]> as:btn:
-      - inventory add d:<context.inventory> o:<item[<[btn]>]>
     on player clicks in guild_leave_confirmation_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
@@ -926,7 +928,8 @@ guild_gui_events:
     - define desc:<yaml[guild.<player.flag[guild]>].read[description]>
     on player clicks guilds_manage_claim_flags in my_guild_gui:
     - if <context.raw_slot> <= 36:
-      - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_flags]>:
+        - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
     on player clicks guilds_view_members_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[view_guild_members]>
