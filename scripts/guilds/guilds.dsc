@@ -311,7 +311,7 @@ player_transfer_guild_leadership:
   definitions: from|to
   script:
   - flag <[to]> guild_rank:<[from].flag[guild_rank]>
-  - yaml id:guild.<[to].flag[guild]> set leader:<context.inventory.slot[5].skin.as_player>
+  - yaml id:guild.<[to].flag[guild]> set leader:<[to]>
   - flag <[from]> guild_rank:<yaml[guild.<player.flag[guild]>].read[default_rank]>
   - foreach <yaml[guild.<[from].flag[guild]>].read[from].parse[as_player].filter[is_online]>:
     - narrate targets:<[value]> "<&6><[from].name> has transferred guild leadership to <[to].name>"
@@ -952,7 +952,6 @@ guild_gui_events:
     on player clicks in guild_leadership_transfer_confirmation_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
-      - narrate <context.inventory.slot[5].skin.as_player>
       - if <context.item.script.name> == guild_transfer_leadership_yes_btn:
         - run player_transfer_guild_leadership def:<player>|<context.inventory.slot[5].skin.as_player>
         - inventory open d:<inventory[my_guild_gui]>
