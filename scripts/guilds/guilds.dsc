@@ -914,21 +914,37 @@ guild_set_member_rank_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+guild_transfer_leadership_yes_btn:
+  type: item
+  material: green_wool
+  display name: "<&a>Transfer Guild Leadership"
+
+guild_transfer_leadership_no_btn:
+  type: item
+  material: red_wool
+  display name: "<&c>Remain Guild Leader"
+
 guild_leadership_transfer_confirmation_gui:
   type: inventory
-  title: <&6>◆ <&c><&n><&l>Leave Guild?<&r> <&6>◆
+  title: <&6>◆ <&c><&n><&l>Transfer Ownership?<&r> <&6>◆
   size: 27
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
   slots:
-  - "[gui_leave_confirm_top] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_leave_confirm_bottom] [] [guild_leave_yes_btn] [] [] [] [guild_leave_no_btn] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [guild_transfer_leadership_yes_btn] [] [] [] [guild_transfer_leadership_no_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_gui_events:
   type: world
   events:
+    on player clicks in guild_leadership_transfer_confirmation_gui:
+    - if <context.raw_slot> <= 27:
+      - determine passively cancelled
+      - if <context.item.script.name> == guild_transfer_leadership_yes_btn:
+        - run set_guild_member_rank def:<context.inventory.slot[5].skin.as_player>|<player.flag[guild_rank]>
+        - run set_guild_member_rank def:<player>|<yaml[guild.<player.flag[guild]>].read[default_rank]>
     on player clicks in guild_manage_member_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
