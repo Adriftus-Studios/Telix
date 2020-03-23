@@ -962,11 +962,11 @@ guild_gui_events:
         - inventory open d:<inventory[view_guild_members]>
       - if <context.item.script.name> == guild_kick_member_btn:
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[kick_members]>:
-          - if !<yaml[guild.<context.inventory.slot[12].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[kick_members]>:
-            - run kick_from_guild def:<player.flag[guild]>|<player>|<context.inventory.slot[11].skin.as_player>
+          - if !<yaml[guild.<context.inventory.slot[12].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[12].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[kick_members]>:
+            - run kick_from_guild def:<player.flag[guild]>|<player>|<context.inventory.slot[12].skin.as_player>
       - if <context.item.script.name> == guild_set_member_rank_btn:
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[set_member_rank]>:
-          - if !<yaml[guild.<context.inventory.slot[12].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[set_member_rank]> || <yaml[guild.<player.flag[guild]>].read[leader]> == <player>:
+          - if !<yaml[guild.<context.inventory.slot[12].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[12].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[set_member_rank]> || <yaml[guild.<player.flag[guild]>].read[leader]> == <player>:
             - define inv:<inventory[guild_set_member_rank_gui]>
             - inventory open d:<[inv]>
             - inventory set d:<[inv]> slot:1 o:<context.inventory.slot[12]>
