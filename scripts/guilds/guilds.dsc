@@ -904,7 +904,7 @@ guild_gui_events:
     on player clicks in guild_manage_member_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
-      - narrate <context.inventory.slot[11].skin>
+      - narrate <context.inventory.slot[11].skin.as_player.name>
       - if <context.item.script.name> == guild_kick_member_btn:
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_members]>:
 
