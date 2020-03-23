@@ -975,7 +975,7 @@ guild_gui_events:
           - if !<yaml[guild.<context.inventory.slot[12].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[12].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[set_member_rank]> || <yaml[guild.<player.flag[guild]>].read[leader]> == <player>:
             - define inv:<inventory[guild_set_member_rank_gui]>
             - inventory open d:<[inv]>
-            - inventory set d:<[inv]> slot:1 o:<context.inventory.slot[12]>
+            - inventory set d:<[inv]> slot:5 o:<context.inventory.slot[12]>
             - foreach <yaml[guild.<player.flag[guild]>].list_keys[ranks].reverse> as:rank:
               - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
               - define permissions:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions]||<list[]>>
@@ -989,16 +989,16 @@ guild_gui_events:
         - define gui:<inventory[guild_manage_member_gui]>
         - inventory open d:<[gui]>
         - wait 1t
-        - inventory set d:<[gui]> slot:12 o:<context.inventory.slot[1]>
+        - inventory set d:<[gui]> slot:12 o:<context.inventory.slot[5]>
       - if <context.item.nbt[rank]||null> != null:
         - if <context.item.nbt[rank]> == <yaml[guild.<player.flag[guild]>].read[leader].as_player.flag[guild_rank]>:
           - define inv:<inventory[guild_leadership_transfer_confirmation_gui]>
           - inventory open d:<[inv]>
           - wait 1t
-          - inventory set d:<[inv]> slot:5 o:<context.inventory.slot[1]>
+          - inventory set d:<[inv]> slot:5 o:<context.inventory.slot[5]>
         - else:
           - narrate <context.item.nbt[rank]>
-          - run set_guild_member_rank def:<context.inventory.slot[1].skin.as_player>|<context.item.nbt[rank]>
+          - run set_guild_member_rank def:<context.inventory.slot[5].skin.as_player>|<context.item.nbt[rank]>
           - inventory open d:<inventory[view_guild_members]>
     on player clicks in view_guild_members:
     - if <context.raw_slot> <= 54:
