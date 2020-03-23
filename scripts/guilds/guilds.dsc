@@ -933,19 +933,34 @@ guild_gui_events:
             - inventory set d:<[inv]> slot:1 o:<context.inventory.slot[12]>
             - foreach <yaml[guild.<player.flag[guild]>].list_keys[ranks].reverse> as:rank:
               - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
-              - define permissions:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions]>
-              - inventory add d:<[inv]> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<[permissions]>]>
+              - define permissions:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions]||<list[]>>
+              - inventory add d:<[inv]> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<[permissions]>;nbt=rank/<[rank]>]>
+          - else:
+            - narrate "<&c>You cannot edit this players permissions."
+    on player clicks in guild_set_member_rank_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
     on player clicks in view_guild_members:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
       - if <context.item.script.name||null> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
       - if <context.item.material.name> == player_head:
+        - if <context.item.skin.as_player> == <player>:
+          - narrate "<&c>You cannot edit this players permissions."
+          - stop
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_members]>:
           - define gui:<inventory[guild_manage_member_gui]>
           - inventory open d:<[gui]>
           - wait 1t
           - inventory set d:<[gui]> slot:12 o:<context.item>
+    on player opens view_guild_members:
+    - wait 1t
+    - foreach <yaml[guild.<player.flag[guild]>].read[members].as_list> as:member:
+      - if <[member].as_player> == <player>:
+        - inventory add d:<player.open_inventory> o:<item[player_head].with[skull_skin=<[member].as_player.uuid>;display_name=<&b><[member].as_player.name>;lore=<list[<&b>You|<&2><yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.title]>]>]>
+      - else:
+        - inventory add d:<player.open_inventory> o:<item[player_head].with[skull_skin=<[member].as_player.uuid>;display_name=<&b><[member].as_player.name>;lore=<list[<&2><yaml[guild.<[member].flag[guild]>].read[ranks.<[member].flag[guild_rank]>.title]>]>]>
     on player clicks in guild_leave_confirmation_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
@@ -1007,10 +1022,6 @@ guild_gui_events:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
-    on player opens view_guild_members:
-    - wait 1t
-    - foreach <yaml[guild.<player.flag[guild]>].read[members].as_list> as:member:
-      - inventory add d:<player.open_inventory> o:<item[player_head].with[skull_skin=<[member].as_player.uuid>;display_name=<&b><[member].as_player.name>]>
     on player clicks in guild_flags_gui:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
