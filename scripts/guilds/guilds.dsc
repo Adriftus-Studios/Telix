@@ -311,7 +311,7 @@ player_transfer_guild_leadership:
   definitions: from|to
   script:
   - flag <[to]> guild_rank:<[from].flag[guild_rank]>
-  - yaml id:guild.<player.flag[guild]> set leader:<context.inventory.slot[5].skin.as_player>
+  - yaml id:guild.<[to].flag[guild]> set leader:<context.inventory.slot[5].skin.as_player>
   - flag <[from]> guild_rank:<yaml[guild.<player.flag[guild]>].read[default_rank]>
   - foreach <yaml[guild.<[from].flag[guild]>].read[from].parse[as_player].filter[is_online]>:
     - narrate targets:<[value]> "<&6><[from].name> has transferred guild leadership to <[to].name>"
