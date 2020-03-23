@@ -55,6 +55,8 @@ guild_command:
                     - else if <context.args.get[4]> == remove:
                       - determine <yaml[guild.<player.flag[guild]>].read[rank.<context.args.get[2]>.permissions]>
           - case invite:
+            - if <context.args.size> == 1 && <context.args.get[1]> == invite:
+              - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
             - if <context.args.size> == 2:
               - if <context.args.get[2].size||null> > 0:
                 - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name].filter[starts_with[<context.args.get[2]>]]>
@@ -631,6 +633,12 @@ guild_events:
       - else:
         - narrate "<&c>You do not have permission to manage guild flags."
     on player signs book:
+    - if <player.item_in_offhand.script.name> == new_guild_book:
+      - stop
+      - determine passively NOT_SIGNING
+      - wait 1t
+      - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
+      - stop
     - if <context.book> == <item[new_guild_book]>:
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
