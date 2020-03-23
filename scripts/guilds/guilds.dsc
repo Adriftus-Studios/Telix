@@ -914,6 +914,18 @@ guild_set_member_rank_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+guild_leadership_transfer_confirmation_gui:
+  type: inventory
+  title: <&6>◆ <&c><&n><&l>Leave Guild?<&r> <&6>◆
+  size: 27
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[gui_leave_confirm_top] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_leave_confirm_bottom] [] [guild_leave_yes_btn] [] [] [] [guild_leave_no_btn] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+
 guild_gui_events:
   type: world
   events:
@@ -947,8 +959,11 @@ guild_gui_events:
         - wait 1t
         - inventory set d:<[gui]> slot:12 o:<context.inventory.slot[1]>
       - if <context.item.nbt[rank]||null> != null:
-        - if <context.item.nbt[rank]> == <yaml[guild.<player.flag[guild]>].read[leader].as_player.flag[guild_rank]>
-          - narrate 1
+        - if <context.item.nbt[rank]> == <yaml[guild.<player.flag[guild]>].read[leader].as_player.flag[guild_rank]>:
+          - define inv:<inventory[guild_leadership_transfer_confirmation_gui]>
+          - inventory open d:<[inv]>
+          - wait 1t
+          - inventory set d:<[inv]> slot:5 o:<context.inventory.slot[1]>
         - else:
           - narrate <context.item.nbt[rank]>
           - run set_guild_member_rank def:<context.inventory.slot[1].skin.as_player>|<context.item.nbt[rank]>
