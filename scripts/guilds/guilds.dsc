@@ -1009,6 +1009,7 @@ guild_gui_events:
   events:
     on player clicks in inventory:
     - if <context.raw_slot> == 3:
+      - inventory set d:<context.inventory> slot:1 o:<item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
       - narrate <context.inventory.anvil_rename_text>
     on player clicks in guild_choose_rank_to_edit_gui:
     - if <context.raw_slot> <= 36:
