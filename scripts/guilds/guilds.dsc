@@ -996,6 +996,14 @@ guild_edit_rank_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+create_guild_rank_btn:
+  type: item
+  material: iron_nugget
+
+create_guild_rank_name_btn:
+  type: item
+  material: iron_nugget
+
 player_anvil:
   type: inventory
   inventory: anvil
@@ -1004,7 +1012,6 @@ guild_gui_events:
   type: world
   events:
     on player clicks in inventory:
-    - narrate <context.inventory>
     - if <context.raw_slot> == 3:
       - narrate <context.inventory.anvil_rename_text>
     on player clicks in guild_choose_rank_to_edit_gui:
@@ -1012,6 +1019,11 @@ guild_gui_events:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[guild_settings_gui]>
+      - if <context.item.script.name> == create_guild_rank_btn:
+        - define inv:<inventory[player_anvil]>
+        - inventory open d:<[inv]>
+        - wait 1t
+        - inventory set d:<[inv]> slot:1 o:<item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
       - if <context.item.nbt[rank]||null> != null:
         - define inv:<inventory[guild_edit_rank_gui]>
         - inventory open d:<[inv]>
@@ -1021,6 +1033,7 @@ guild_gui_events:
     - foreach <yaml[guild.<player.flag[guild]>].list_keys[ranks]> as:rank:
       - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
       - inventory add d:<context.inventory> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<list[Click<&sp>to<&sp>edit<&sp><[title]>]>;nbt=rank/<[rank]>]>
+    - inventory add d:<context.inventory> o:<item[create_guild_rank_btn]>
     on player clicks guilds_edit_ranks_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
