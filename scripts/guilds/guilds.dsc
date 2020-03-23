@@ -983,17 +983,51 @@ guild_choose_rank_to_edit_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+guild_edit_rank_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Edit Rank<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
 guild_gui_events:
   type: world
   events:
+    on player prepares anvil craft item:
+    - narrate <context.new_name>
+    on player crafts item:
+    - narrate <context.item>
+    on player clicks in guild_choose_rank_to_edit_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - if <context.item.script.name> == gui_close_btn:
+        - inventory open d:<inventory[guild_settings_gui]>
+      - if <context.item.nbt[rank]||null> != null:
+        - define inv:<inventory[guild_edit_rank_gui]>
+        - inventory open d:<[inv]>
+        - wait 1t
+        - inventory adjust d:<[inv]> slot:1 nbt:rank/<context.item.nbt[rank]>
+    on player opens guild_choose_rank_to_edit_gui:
+    - foreach <yaml[guild.<player.flag[guild]>].list_keys[ranks]> as:rank:
+      - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
+      - inventory add d:<context.inventory> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<list[Click<&sp>to<&sp>edit<&sp><[title]>]>;nbt=rank/<[rank]>]>
     on player clicks guilds_edit_ranks_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
+      - determine passively cancelled
       - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
     on player clicks guilds_settings_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
+      - determine passively cancelled
       - inventory open d:<inventory[guild_settings_gui]>
     on player clicks gui_close_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
+      - determine passively cancelled
       - inventory open d:<inventory[my_guild_gui]>
     on player clicks guild_transfer_leadership_yes_btn in guild_leadership_transfer_confirmation_gui:
     - if <context.raw_slot> <= 27:
