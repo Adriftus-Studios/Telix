@@ -1004,6 +1004,7 @@ guild_gui_events:
   type: world
   events:
     on player clicks in inventory:
+    - narrate <context.inventory>
     - if <context.raw_slot> == 3:
       - narrate <context.inventory.anvil_rename_text>
     on player clicks in guild_choose_rank_to_edit_gui:
