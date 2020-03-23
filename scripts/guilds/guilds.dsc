@@ -1013,6 +1013,7 @@ guild_gui_events:
   events:
     on player clicks in inventory:
     - narrate <context.inventory>
+    - narrate <context.inventory.id_type>
     on player clicks in guild_choose_rank_to_edit_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
