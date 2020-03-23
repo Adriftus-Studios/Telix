@@ -1007,6 +1007,8 @@ create_guild_rank_name_btn:
 player_anvil:
   type: inventory
   inventory: anvil
+  procedural items:
+  - determine <item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
   
 guild_gui_events:
   type: world
