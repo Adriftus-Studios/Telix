@@ -918,9 +918,10 @@ guild_gui_events:
   type: world
   events:
     on player clicks in guild_manage_member_gui:
-    - if <context.raw_slot> <= 36:
+    - if <context.raw_slot> <= 27:
       - determine passively cancelled
       - narrate <context.inventory.slot[12].skin.as_player>
+      - narrate <context.item.script.name>
       - if <context.item.script.name> == closeitem:
         - inventory open d:<inventory[view_guild_members]>
       - if <context.item.script.name> == guild_kick_member_btn:
@@ -940,6 +941,7 @@ guild_gui_events:
           - else:
             - narrate "<&c>You cannot edit this players permissions."
     on player clicks in guild_set_member_rank_gui:
+    - narrate <context.item.script.name>
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
       - if <context.item.script.name> == closeitem:
