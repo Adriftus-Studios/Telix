@@ -1022,7 +1022,7 @@ guild_gui_events:
       - if <context.item.script.name> == create_guild_rank_btn:
         - define inv:<inventory[player_anvil]>
         - inventory open d:<[inv]>
-        - wait 1t
+        - wait 3t
         - inventory set d:<[inv]> slot:1 o:<item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
       - if <context.item.nbt[rank]||null> != null:
         - define inv:<inventory[guild_edit_rank_gui]>
