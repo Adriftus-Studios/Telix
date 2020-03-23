@@ -13,6 +13,8 @@ guild_settings:
   - invite_members
   - manage_relations
   - access_bank
+  - promote_members
+  - demote_members
   rank_properties:
   - title
   - priority
@@ -894,7 +896,7 @@ guild_manage_member_gui:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
   slots:
-  - "[] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [] [guild_promote_member_btn] [] [guild_demote_member_btn] [] [guild_kick_member_btn] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
@@ -904,10 +906,19 @@ guild_gui_events:
     on player clicks in guild_manage_member_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
-      - narrate <context.inventory.slot[11].skin.as_player.name>
+      - narrate <context.inventory.slot[11].skin.as_player>
       - if <context.item.script.name> == guild_kick_member_btn:
         - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_members]>:
-
+          - if !<yaml[guild.<context.inventory.slot[11].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[manage_members]>:
+            - run kick_from_guild def:<player.flag[guild]>|<player>|<context.inventory.slot[11].skin.as_player>
+      - if <context.item.script.name> == guild_promote_member_btn:
+        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[promote_members]>:
+          - if !<yaml[guild.<context.inventory.slot[11].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[promote_members]>:
+            - narrate promote
+      - if <context.item.script.name> == guild_demote_member_btn:
+        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[demote_members]>:
+          - if !<yaml[guild.<context.inventory.slot[11].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[demote_members]>:
+            - narrate demote
     on player clicks in guild_leave_confirmation_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
