@@ -1008,7 +1008,6 @@ guild_gui_events:
   type: world
   events:
     on player clicks in inventory:
-    - narrate <context.inventory>
     - if <context.raw_slot> == 3:
       - narrate <context.inventory.anvil_rename_text>
     on player clicks in guild_choose_rank_to_edit_gui:
@@ -1017,9 +1016,9 @@ guild_gui_events:
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[guild_settings_gui]>
       - if <context.item.script.name> == create_guild_rank_btn:
-        - inventory open d:<inventory[player_anvil]>
+        - inventory open d:inventory open d:in@generic[holder=ANVIL]
         - wait 1t
-        - inventory add d:<player.open_inventory> o:<item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
+        - inventory set d:<player.open_inventory> slot:1 o:<item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
       - if <context.item.nbt[rank]||null> != null:
         - define inv:<inventory[guild_edit_rank_gui]>
         - inventory open d:<[inv]>
