@@ -306,6 +306,24 @@ edit_guild_rank_permission:
     - else:
       - yaml id:guild.<[guild]> set ranks.<[rank]>.permissions:->:<[permission]>
 
+player_transfer_guild_leadership:
+  type: task
+  definitions: from|to
+  script:
+  - flag <[to]> guild_rank:<[from].flag[guild_rank]>
+  - yaml id:guild.<player.flag[guild]> set leader:<context.inventory.slot[5].skin.as_player>
+  - flag <[from]> guild_rank:<yaml[guild.<player.flag[guild]>].read[default_rank]>
+  - foreach <yaml[guild.<[from].flag[guild]>].read[from].parse[as_player].filter[is_online]>:
+    - narrate targets:<[value]> "<&6><[from].name> has transferred guild leadership to <[to].name>"
+
+set_guild_member_rank:
+  type: task
+  definitions: member|guild_rank
+  script:
+  - flag <[member]> guild_rank:<[guild_rank]>
+  - foreach <yaml[guild.<[member].flag[guild]>].read[members].parse[as_player].filter[is_online]>:
+    - narrate targets:<[value]> "<&6><[member].name>'s guild rank was set to <[guild_rank]>."
+
 player_leave_guild:
   type: task
   definitions: guild|player
@@ -341,14 +359,6 @@ kick_from_guild:
     - narrate player:<[kicked]> "<&c>You were kicked from the guild."
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&c><[kicker].name> has kicked <[kicked].name> from the guild."
-
-set_guild_member_rank:
-  type: task
-  definitions: member|guild_rank
-  script:
-  - flag <[member]> guild_rank:<[guild_rank]>
-  - foreach <yaml[guild.<[member].flag[guild]>].read[members].parse[as_player].filter[is_online]>:
-    - narrate targets:<[value]> "<&6><[member].name>'s guild rank was set to <[guild_rank]>."
 
 invite_to_guild:
   type: task
@@ -943,9 +953,7 @@ guild_gui_events:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
       - if <context.item.script.name> == guild_transfer_leadership_yes_btn:
-        - run set_guild_member_rank def:<context.inventory.slot[5].skin.as_player>|<player.flag[guild_rank]>
-        - yaml id:guild.<player.flag[guild]> set leader:<context.inventory.slot[5].skin.as_player>
-        - run set_guild_member_rank def:<player>|<yaml[guild.<player.flag[guild]>].read[default_rank]>
+        - run player_transfer_guild_leadership def:<player>|<context.inventory.slot[5].skin.as_player>
         - inventory open d:<inventory[my_guild_gui]>
     on player clicks in guild_manage_member_gui:
     - if <context.raw_slot> <= 27:
