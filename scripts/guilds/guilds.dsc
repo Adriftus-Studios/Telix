@@ -1004,6 +1004,10 @@ create_guild_rank_name_btn:
   type: item
   material: iron_nugget
 
+player_anvil:
+  type: inventory
+  inventory: anvil
+
 guild_gui_events:
   type: world
   events:
