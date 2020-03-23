@@ -955,6 +955,11 @@ guild_gui_events:
       - if <context.item.script.name> == guild_transfer_leadership_yes_btn:
         - run player_transfer_guild_leadership def:<player>|<context.inventory.slot[5].skin.as_player>
         - inventory open d:<inventory[my_guild_gui]>
+      - if <context.item.script.name> == guild_transfer_leadership_no_btn:
+        - define inv:<inventory[guild_set_member_rank_gui]>
+        - inventory open d:<[inv]>
+        - wait 1t
+        - inventory set d:<[inv]> slot:1 o:<context.inventory.slot[5]>
     on player clicks in guild_manage_member_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
