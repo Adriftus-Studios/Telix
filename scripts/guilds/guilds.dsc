@@ -1000,11 +1000,10 @@ guild_gui_events:
   type: world
   events:
     on player prepares anvil craft item:
-    - narrate <context.new_name>
-    on player crafts item:
-    - narrate <context.item>
-    on player clicks in inventory:
-    - narrate <context.slot>
+    - if <context.item.material.name> != air:
+      - wait 1t
+      - if <context.inventory.slot[1].material.name> == air:
+        - narrate <context.new_name>
     on player clicks in guild_choose_rank_to_edit_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
