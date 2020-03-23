@@ -987,10 +987,12 @@ guild_gui_events:
             - define inv:<inventory[guild_set_member_rank_gui]>
             - inventory open d:<[inv]>
             - inventory set d:<[inv]> slot:5 o:<context.inventory.slot[12]>
-            - foreach <yaml[guild.<player.flag[guild]>].list_keys[ranks].reverse> as:rank:
-              - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
-              - define permissions:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions]||<list[]>>
-              - inventory add d:<[inv]> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<[permissions].parse[replace[_].with[<&sp>].to_titlecase]>;nbt=rank/<[rank]>]>
+            - repeat 14:
+              - define rank:<yaml[guild.<player.flag[guild]>].list_keys[ranks].reverse.get[<[value]>]||null>
+              - if <[rank]> != null:
+                - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
+                - define permissions:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions]||<list[]>>
+                - inventory add d:<[inv]> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<[permissions].parse[replace[_].with[<&sp>].to_titlecase]>;nbt=rank/<[rank]>]>
           - else:
             - narrate "<&c>You cannot edit this players permissions."
     on player clicks in guild_set_member_rank_gui:
