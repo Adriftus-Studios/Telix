@@ -34,7 +34,7 @@ guild_command:
   tab complete:
   - if <context.args.size||0> != 0:
     - if <context.args.size> == 1:
-      - narrate <context.raw_args.split[<&sp>].size>
+      - narrate <context.raw_args>a
       - if <context.args.get[1]> == invite:
         - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
       - define list:<list[invite|disband|kick|create|rank|accept|leave|accept|bank]>
