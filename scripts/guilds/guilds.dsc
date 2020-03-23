@@ -1011,6 +1011,8 @@ player_anvil:
 guild_gui_events:
   type: world
   events:
+    on player clicks in inventory:
+    - narrate <context.inventory>
     on player clicks in guild_choose_rank_to_edit_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
