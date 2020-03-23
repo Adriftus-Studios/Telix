@@ -45,7 +45,7 @@ stats_events:
       - if <yaml[player.<[player].uuid>].read[stats.food.current]> > <yaml[player.<[player].uuid>].read[stats.food.max]>
         - yaml id:player.<player.uuid> set stats.food.current:<yaml[player.<[player].uuid>].read[stats.food.max]>
     on delta time secondly every:15:
-      - foreach <server.list_players> as:player:
+      - foreach <server.list_players.filter[is_online]> as:player:
         - if <yaml[player.<[player].uuid>].read[stats.food.current]> > <yaml[player.<[player].uuid>].read[stats.food.max].sub[10]>
           - heal <[player]> 1
 
