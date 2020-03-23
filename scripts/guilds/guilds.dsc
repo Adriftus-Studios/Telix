@@ -898,7 +898,7 @@ guild_manage_member_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [] [guild_set_member_rank_bt] [] [guild_kick_member_btn] [] [w_filler]"
+  - "[w_filler] [] [] [] [guild_set_member_rank_btn] [] [guild_kick_member_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_set_member_rank_gui:
