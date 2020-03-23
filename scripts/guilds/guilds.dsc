@@ -313,7 +313,7 @@ player_transfer_guild_leadership:
   - flag <[to]> guild_rank:<[from].flag[guild_rank]>
   - yaml id:guild.<[to].flag[guild]> set leader:<[to]>
   - flag <[from]> guild_rank:<yaml[guild.<player.flag[guild]>].read[default_rank]>
-  - foreach <yaml[guild.<[from].flag[guild]>].read[from].parse[as_player].filter[is_online]>:
+  - foreach <yaml[guild.<[from].flag[guild]>].read[members].parse[as_player].filter[is_online]>:
     - narrate targets:<[value]> "<&6><[from].name> has transferred guild leadership to <[to].name>"
 
 set_guild_member_rank:
