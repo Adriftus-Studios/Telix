@@ -1003,6 +1003,8 @@ guild_gui_events:
     - narrate <context.new_name>
     on player crafts item:
     - narrate <context.item>
+    on player clicks in inventory:
+    - narrate <context.slot>
     on player clicks in guild_choose_rank_to_edit_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
