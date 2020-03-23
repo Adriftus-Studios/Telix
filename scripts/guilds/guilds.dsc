@@ -1014,6 +1014,7 @@ guild_gui_events:
     on player clicks in inventory:
     - narrate <context.inventory>
     - narrate <context.inventory.id_type>
+    - adjust <context.inventory> input:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<list[Click<&sp>to<&sp>edit<&sp><[title]>]>;nbt=rank/<[rank]>]>
     on player clicks in guild_choose_rank_to_edit_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
