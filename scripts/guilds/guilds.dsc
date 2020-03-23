@@ -947,9 +947,12 @@ guild_gui_events:
         - wait 1t
         - inventory set d:<[gui]> slot:12 o:<context.inventory.slot[1]>
       - if <context.item.nbt[rank]||null> != null:
-        - narrate <context.item.nbt[rank]>
-        - run set_guild_member_rank def:<context.inventory.slot[1].skin.as_player>|<context.item.nbt[rank]>
-        - inventory open d:<inventory[view_guild_members]>
+        - if <context.item.nbt[rank]> == <yaml[guild.<player.flag[guild]>].read[leader].as_player.flag[guild_rank]>
+          - narrate 1
+        - else:
+          - narrate <context.item.nbt[rank]>
+          - run set_guild_member_rank def:<context.inventory.slot[1].skin.as_player>|<context.item.nbt[rank]>
+          - inventory open d:<inventory[view_guild_members]>
     on player clicks in view_guild_members:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
