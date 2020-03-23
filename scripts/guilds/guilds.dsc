@@ -895,7 +895,7 @@ guild_manage_member_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [guild_promote_member_btn] [] [guild_demote_member_btn] [] [guild_kick_member_btn] [] [w_filler]"
+  - "[w_filler] [] [] [guild_promote_member_btn] [] [guild_demote_member_btn] [] [guild_kick_member_btn] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_gui_events:
@@ -904,6 +904,10 @@ guild_gui_events:
     on player clicks in guild_manage_member_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
+      - narrate <context.inventory.slot[11].skin>
+      - if <context.item.script.name> == guild_kick_member_btn:
+        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_members]>:
+
     on player clicks in guild_leave_confirmation_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
@@ -935,7 +939,8 @@ guild_gui_events:
       - inventory open d:<inventory[view_guild_members]>
     on player clicks guild_view_bank_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
-      - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[access_bank]>:
+        - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
     on player opens my_guild_gui:
     - inventory adjust d:<context.inventory> slot:14 material:<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>
     - inventory adjust d:<context.inventory> slot:14 patterns:<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>
@@ -953,9 +958,13 @@ guild_gui_events:
       - inventory open d:<inventory[new_guild_gui]>
     on player clicks in guild_flags_gui:
     - determine passively cancelled
+    - if !<yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_flags]>:
+      - stop
     - if <context.item.script.name> == gui_close_btn:
       - inventory open d:<inventory[my_guild_gui]>
     on player clicks in guild_bank_gui:
+    - if !<yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[access_bank]>:
+      - inventory close
     - if <list[1|9|10|18|19|27|28|36|37|46|47|48|49|50|51|52|53|54].contains[<context.raw_slot>]>:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
@@ -966,10 +975,11 @@ guild_gui_events:
       - if <context.item.script.name||null> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
       - if <context.item.material.name> == player_head:
-        - define gui:<inventory[guild_manage_member_gui]>
-        - inventory open d:<[gui]>
-        - wait 1t
-        - inventory set d:<[gui]> slot:11 o:<context.item>
+        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_members]>:
+          - define gui:<inventory[guild_manage_member_gui]>
+          - inventory open d:<[gui]>
+          - wait 1t
+          - inventory set d:<[gui]> slot:11 o:<context.item>
     on player opens view_guild_members:
     - wait 1t
     - foreach <yaml[guild.<player.flag[guild]>].read[members].as_list> as:member:
@@ -977,6 +987,9 @@ guild_gui_events:
     on player clicks in guild_flags_gui:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
+      - if !<yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_flags]>:
+        - inventory close
+        - stop
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
     on player clicks in new_guild_gui:
@@ -991,6 +1004,9 @@ guild_gui_events:
     on player clicks in guild_flag_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
+      - if !<yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_flags]>:
+        - inventory close
+        - stop
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
     on player clicks guild_flag_destroy_btn in guild_flag_gui:
