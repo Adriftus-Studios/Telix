@@ -1004,16 +1004,11 @@ create_guild_rank_name_btn:
   type: item
   material: iron_nugget
 
-player_anvil:
-  type: inventory
-  inventory: anvil
-  
 guild_gui_events:
   type: world
   events:
     on player clicks in inventory:
-    - wait 1t
-    - inventory set d:<context.inventory> slot:1 o:<item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
+    - narrate <context.inventory>
     - if <context.raw_slot> == 3:
       - narrate <context.inventory.anvil_rename_text>
     on player clicks in guild_choose_rank_to_edit_gui:
@@ -1024,7 +1019,6 @@ guild_gui_events:
       - if <context.item.script.name> == create_guild_rank_btn:
         - inventory open d:<inventory[player_anvil]>
         - wait 1t
-        - adjust <player.open_inventory> input:<item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
         - inventory add d:<player.open_inventory> o:<item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
       - if <context.item.nbt[rank]||null> != null:
         - define inv:<inventory[guild_edit_rank_gui]>
