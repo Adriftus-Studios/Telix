@@ -944,7 +944,9 @@ guild_gui_events:
       - determine passively cancelled
       - if <context.item.script.name> == guild_transfer_leadership_yes_btn:
         - run set_guild_member_rank def:<context.inventory.slot[5].skin.as_player>|<player.flag[guild_rank]>
+        - yaml id:guild.<player.flag[guild]> set leader:<context.inventory.slot[5].skin.as_player>
         - run set_guild_member_rank def:<player>|<yaml[guild.<player.flag[guild]>].read[default_rank]>
+        - inventory open d:<inventory[my_guild_gui]>
     on player clicks in guild_manage_member_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
