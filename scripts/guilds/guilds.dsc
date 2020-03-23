@@ -931,8 +931,9 @@ guild_gui_events:
             - define inv:<inventory[guild_set_member_rank_gui]>
             - inventory open d:<[inv]>
             - inventory set d:<[inv]> slot:1 o:<context.inventory.slot[12]>
-            - foreach <yaml[guild.<player.flag[guild]>].list_keys[ranks]> as:rank:
-              - inventory add d:<[inv]> o:<item[iron_nugget].with[display_name=<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>]>
+            - foreach <yaml[guild.<player.flag[guild]>].list_keys[ranks].reverse> as:rank:
+              - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
+              - inventory add d:<[inv]> o:<item[iron_nugget].with[display_name=<&b><[title]>]>
     on player clicks in view_guild_members:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
