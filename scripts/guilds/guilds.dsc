@@ -693,12 +693,6 @@ guilds_manage_claim_flags:
   guild_permission: manage_claim_flags
   display name: <&9>Manage Claim Flags
 
-guilds_edit_ranks_btn:
-  type: item
-  material: snow
-  guild_permission: edit_ranks
-  display name: <&9>Edit Guild Ranks
-  
 guilds_view_info_btn:
   type: item
   material: book_and_quill
@@ -781,19 +775,6 @@ new_guild_gui:
   - "[gui_no_guild_bottom] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   
-my_guild_gui:
-  type: inventory
-  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆ <&a><&n><&l><yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[name]><&r> <&6>◆
-  size: 36
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    closeitem: <item[gui_close_btn]>
-  slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_my_guild_top] [] [guilds_view_info_btn] [] [guilds_manage_claim_flags] [] [guilds_leave_btn] [] [w_filler]"
-  - "[gui_my_guild_bottom] [] [guilds_view_members_btn] [] [guild_view_bank_btn] [] [guilds_settings_btn] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-
 all_guilds_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>All Guilds<&r> <&6>◆
@@ -912,7 +893,7 @@ guild_set_member_rank_btn:
 
 guild_manage_member_gui:
   type: inventory
-  title: <&6>◆ <&c><&n><&l>Manage Member<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Manage Member<&r> <&6>◆
   size: 27
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -924,7 +905,7 @@ guild_manage_member_gui:
 
 guild_set_member_rank_gui:
   type: inventory
-  title: <&6>◆ <&c><&n><&l>Set Member Rank<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Set Member Rank<&r> <&6>◆
   size: 36
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -947,7 +928,7 @@ guild_transfer_leadership_no_btn:
 
 guild_leadership_transfer_confirmation_gui:
   type: inventory
-  title: <&6>◆ <&c><&n><&l>Transfer Ownership?<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Transfer Ownership?<&r> <&6>◆
   size: 27
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -957,44 +938,153 @@ guild_leadership_transfer_confirmation_gui:
   - "[w_filler] [] [guild_transfer_leadership_yes_btn] [] [] [] [guild_transfer_leadership_no_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+my_guild_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆ <&a><&n><&l><yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[name]><&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_my_guild_top] [] [guilds_view_info_btn] [] [guilds_manage_claim_flags] [] [guilds_leave_btn] [] [w_filler]"
+  - "[gui_my_guild_bottom] [] [guilds_view_members_btn] [] [guild_view_bank_btn] [] [guilds_settings_btn] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+guilds_edit_ranks_btn:
+  type: item
+  material: snow
+  guild_permission: edit_ranks
+  display name: <&9>Edit Guild Ranks
+  
+guild_settings_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Guild Settings<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [guilds_edit_ranks_btn] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+guild_choose_rank_to_edit_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Edit Rank<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+guild_edit_rank_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Edit Rank<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+create_guild_rank_btn:
+  type: item
+  material: iron_nugget
+
+create_guild_rank_name_btn:
+  type: item
+  material: iron_nugget
+
+player_anvil:
+  type: inventory
+  inventory: anvil
+
 guild_gui_events:
   type: world
   events:
-    on player clicks in guild_leadership_transfer_confirmation_gui:
-    - if <context.raw_slot> <= 27:
+    on player clicks in guild_edit_rank_gui:
+    - if <context.raw_slot> <= 36:
       - determine passively cancelled
-      - if <context.item.script.name> == guild_transfer_leadership_yes_btn:
-        - run player_transfer_guild_leadership def:<player>|<context.inventory.slot[5].skin.as_player>
-        - inventory open d:<inventory[my_guild_gui]>
-      - if <context.item.script.name> == guild_transfer_leadership_no_btn:
-        - define inv:<inventory[guild_set_member_rank_gui]>
-        - inventory open d:<[inv]>
-        - wait 1t
-        - inventory set d:<[inv]> slot:1 o:<context.inventory.slot[5]>
-    on player clicks in guild_manage_member_gui:
-    - if <context.raw_slot> <= 27:
+    on player clicks in guild_choose_rank_to_edit_gui:
+    - if <context.raw_slot> <= 36:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
-        - inventory open d:<inventory[view_guild_members]>
-      - if <context.item.script.name> == guild_kick_member_btn:
-        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[kick_members]>:
-          - if !<yaml[guild.<context.inventory.slot[12].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[12].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[kick_members]>:
-            - run kick_from_guild def:<player.flag[guild]>|<player>|<context.inventory.slot[12].skin.as_player>
-            - inventory open d:<inventory[view_guild_members]>
-      - if <context.item.script.name> == guild_set_member_rank_btn:
-        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[set_member_rank]>:
-          - if !<yaml[guild.<context.inventory.slot[12].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[12].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[set_member_rank]> || <yaml[guild.<player.flag[guild]>].read[leader]> == <player>:
-            - define inv:<inventory[guild_set_member_rank_gui]>
-            - inventory open d:<[inv]>
-            - inventory set d:<[inv]> slot:5 o:<context.inventory.slot[12]>
-            - repeat 14:
-              - define rank:<yaml[guild.<player.flag[guild]>].list_keys[ranks].reverse.get[<[value]>]||null>
-              - if <[rank]> != null:
-                - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
-                - define permissions:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions]||<list[]>>
-                - inventory add d:<[inv]> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<[permissions].parse[replace[_].with[<&sp>].to_titlecase]>;nbt=rank/<[rank]>]>
-          - else:
-            - narrate "<&c>You cannot edit this players permissions."
+        - inventory open d:<inventory[guild_settings_gui]>
+      - if <context.item.script.name> == create_guild_rank_btn:
+        - define inv:in@generic[holder=ANVIL]
+        - inventory open d:<[inv]>
+        - wait 1t
+        - inventory set d:<[inv]> slot:1 o:<item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
+      - if <context.item.nbt[rank]||null> != null:
+        - define inv:<inventory[guild_edit_rank_gui]>
+        - inventory open d:<[inv]>
+        - wait 1t
+        - inventory adjust d:<[inv]> slot:1 nbt:rank/<context.item.nbt[rank]>
+    on player opens guild_choose_rank_to_edit_gui:
+    - foreach <yaml[guild.<player.flag[guild]>].list_keys[ranks]> as:rank:
+      - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
+      - inventory add d:<context.inventory> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<list[Click<&sp>to<&sp>edit<&sp><[title]>]>;nbt=rank/<[rank]>]>
+    - inventory add d:<context.inventory> o:<item[create_guild_rank_btn]>
+    on player clicks guilds_edit_ranks_btn in guild_settings_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
+    on player clicks guilds_settings_btn in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - inventory open d:<inventory[guild_settings_gui]>
+    on player clicks gui_close_btn in guild_settings_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - inventory open d:<inventory[my_guild_gui]>
+    on player clicks guild_transfer_leadership_yes_btn in guild_leadership_transfer_confirmation_gui:
+    - if <context.raw_slot> <= 27:
+      - determine passively cancelled
+      - run player_transfer_guild_leadership def:<player>|<context.inventory.slot[5].skin.as_player>
+      - inventory open d:<inventory[my_guild_gui]>
+    on player clicks guild_transfer_leadership_no_btn in guild_leadership_transfer_confirmation_gui:
+    - if <context.raw_slot> <= 27:
+      - determine passively cancelled
+      - define inv:<inventory[guild_set_member_rank_gui]>
+      - inventory open d:<[inv]>
+      - wait 1t
+      - inventory set d:<[inv]> slot:1 o:<context.inventory.slot[5]>
+    on player clicks gui_close_btn in guild_manage_member_gui:
+    - if <context.raw_slot> <= 27:
+      - determine passively cancelled
+      - inventory open d:<inventory[view_guild_members]>
+    on player clicks guild_kick_member_btn in guild_manage_member_gui:
+    - if <context.raw_slot> <= 27:
+      - determine passively cancelled
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[kick_members]>:
+        - if !<yaml[guild.<context.inventory.slot[12].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[12].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[kick_members]>:
+          - run kick_from_guild def:<player.flag[guild]>|<player>|<context.inventory.slot[12].skin.as_player>
+          - inventory open d:<inventory[view_guild_members]>
+    on player clicks guild_set_member_rank_btn in guild_manage_member_gui:
+    - if <context.raw_slot> <= 27:
+      - determine passively cancelled
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[set_member_rank]>:
+        - if !<yaml[guild.<context.inventory.slot[12].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[12].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[set_member_rank]> || <yaml[guild.<player.flag[guild]>].read[leader]> == <player>:
+          - define inv:<inventory[guild_set_member_rank_gui]>
+          - inventory open d:<[inv]>
+          - inventory set d:<[inv]> slot:5 o:<context.inventory.slot[12]>
+          - repeat 14:
+            - define rank:<yaml[guild.<player.flag[guild]>].list_keys[ranks].reverse.get[<[value]>]||null>
+            - if <[rank]> != null:
+              - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
+              - define permissions:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions]||<list[]>>
+              - inventory add d:<[inv]> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<[permissions].parse[replace[_].with[<&sp>].to_titlecase]>;nbt=rank/<[rank]>]>
+        - else:
+          - narrate "<&c>You cannot edit this players permissions."
     on player clicks in guild_set_member_rank_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled

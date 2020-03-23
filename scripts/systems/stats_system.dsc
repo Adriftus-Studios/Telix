@@ -40,6 +40,14 @@ stats_events:
         - yaml id:player.<context.damager.uuid> set values.kills:++
     on player heals:
       - yaml id:player.<player.uuid> set values.heals:+:<context.amount>
+    on player consumes item:
+      - yaml id:player.<player.uuid> set stats.food.current:+:10
+      - if <yaml[player.<[player].uuid>].read[stats.food.current]> > <yaml[player.<[player].uuid>].read[stats.food.max]>
+        - yaml id:player.<player.uuid> set stats.food.current:<yaml[player.<[player].uuid>].read[stats.food.max]>
+    on delta time secondly every:15:
+      - foreach <server.list_players.filter[is_online]> as:player:
+        - if <yaml[player.<[player].uuid>].read[stats.food.current]> > <yaml[player.<[player].uuid>].read[stats.food.max].sub[10]>
+          - heal <[player]> 1
 
 calculate_base_stats:
   type: task
