@@ -996,19 +996,16 @@ guild_edit_rank_gui:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+player_anvil:
+  type: inventory
+  inventory: anvil
+  
 guild_gui_events:
   type: world
   events:
-    on player prepares anvil craft item:
-    - if <context.item.material.name> != air:
-      - narrate <context.inventory.slot[1]>
-      - narrate <context.inventory.slot[3]>
-      - wait 1t
-      - narrate wait
-      - narrate <context.inventory.slot[1]>
-      - narrate <context.inventory.slot[3]>
-      - if <context.inventory.slot[1].material.name> == air:
-        - narrate <context.new_name>
+    on player clicks in player_anvil:
+    - if <context.raw_slot> == 3:
+      - narrate <context.inventory.anvil_rename_text>
     on player clicks in guild_choose_rank_to_edit_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
