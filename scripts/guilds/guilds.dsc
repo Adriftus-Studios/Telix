@@ -13,8 +13,7 @@ guild_settings:
   - invite_members
   - manage_relations
   - access_bank
-  - promote_members
-  - demote_members
+  - set_member_rank
   rank_properties:
   - title
   - priority
@@ -335,7 +334,6 @@ kick_from_guild:
   definitions: guild|kicker|kicked
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
-  - narrate <yaml[guild.<[guild]>].read[members].exclude[<[kicked]>]>
   - yaml id:guild.<[guild]> set members:<-:<[kicked]>
   - flag <[kicked]> guild_rank:!
   - flag <[kicked]> guild:!
@@ -343,6 +341,14 @@ kick_from_guild:
     - narrate player:<[kicked]> "<&c>You were kicked from the guild."
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&c><[kicker].name> has kicked <[kicked].name> from the guild."
+
+set_guild_member_rank:
+  type: task
+  definitions: member|guild_rank
+  script:
+  - flag <[member]> guild_rank:<[guild_rank]>
+  - foreach <yaml[guild.<[member].flag[guild]>].read[members].parse[as_player].filter[is_online]>:
+    - narrate targets:<[value]> "<&6><[member].name>'s guild rank was set to <[guild_rank]>."
 
 invite_to_guild:
   type: task
@@ -878,15 +884,10 @@ guild_kick_member_btn:
   material: snow
   display name: <&6>Kick Member
 
-guild_promote_member_btn:
+guild_set_member_rank_btn:
   type: item
   material: snow
-  display name: <&6>Promote Member
-
-guild_demote_member_btn:
-  type: item
-  material: snow
-  display name: <&6>Demote Member
+  display name: <&6>Set Member Rank
 
 guild_manage_member_gui:
   type: inventory
@@ -897,7 +898,20 @@ guild_manage_member_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [guild_promote_member_btn] [] [guild_demote_member_btn] [] [guild_kick_member_btn] [w_filler]"
+  - "[w_filler] [] [] [] [guild_set_member_rank_bt] [] [guild_kick_member_btn] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+guild_set_member_rank_gui:
+  type: inventory
+  title: <&6>◆ <&c><&n><&l>Set Member Rank<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_gui_events:
@@ -906,21 +920,28 @@ guild_gui_events:
     on player clicks in guild_manage_member_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
-      - narrate <context.inventory.slot[11].skin.as_player>
+      - narrate <context.inventory.slot[12].skin.as_player>
       - if <context.item.script.name> == guild_kick_member_btn:
-        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_members]>:
-          - if !<yaml[guild.<context.inventory.slot[11].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[manage_members]>:
+        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[kick_members]>:
+          - if !<yaml[guild.<context.inventory.slot[12].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[kick_members]>:
             - run kick_from_guild def:<player.flag[guild]>|<player>|<context.inventory.slot[11].skin.as_player>
-      - if <context.item.script.name> == guild_promote_member_btn:
-        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[promote_members]>:
-          - if !<yaml[guild.<context.inventory.slot[11].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[promote_members]>:
-            - narrate promote
-      - if <context.item.script.name> == guild_demote_member_btn:
-        - narrate 1
-        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[demote_members]>:
-          - narrate 2
-          - if !<yaml[guild.<context.inventory.slot[11].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[demote_members]>:
-            - narrate demote
+      - if <context.item.script.name> == guild_set_member_rank_btn:
+        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[set_member_rank]>:
+          - if !<yaml[guild.<context.inventory.slot[12].skin.as_player.flag[guild]>].read[ranks.<context.inventory.slot[11].skin.as_player.flag[guild_rank]>.permissions].as_list.contains[set_member_rank]>:
+            - define inv:<inventory[guild_set_member_rank_gui]>
+            - inventory open d:<[inv]>
+            - inventory set d:<[inv]> slot:1 o:<context.inventory.slot[12]>
+    on player clicks in view_guild_members:
+    - if <context.raw_slot> <= 54:
+      - determine passively cancelled
+      - if <context.item.script.name||null> == gui_close_btn:
+        - inventory open d:<inventory[my_guild_gui]>
+      - if <context.item.material.name> == player_head:
+        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_members]>:
+          - define gui:<inventory[guild_manage_member_gui]>
+          - inventory open d:<[gui]>
+          - wait 1t
+          - inventory set d:<[gui]> slot:12 o:<context.item>
     on player clicks in guild_leave_confirmation_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
@@ -982,17 +1003,6 @@ guild_gui_events:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
-    on player clicks in view_guild_members:
-    - if <context.raw_slot> <= 54:
-      - determine passively cancelled
-      - if <context.item.script.name||null> == gui_close_btn:
-        - inventory open d:<inventory[my_guild_gui]>
-      - if <context.item.material.name> == player_head:
-        - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_members]>:
-          - define gui:<inventory[guild_manage_member_gui]>
-          - inventory open d:<[gui]>
-          - wait 1t
-          - inventory set d:<[gui]> slot:11 o:<context.item>
     on player opens view_guild_members:
     - wait 1t
     - foreach <yaml[guild.<player.flag[guild]>].read[members].as_list> as:member:
