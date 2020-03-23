@@ -34,6 +34,8 @@ guild_command:
   tab complete:
   - if <context.args.size||0> != 0:
     - if <context.args.size> == 1:
+      - if <context.args.get[1]> == invite:
+        - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
       - define list:<list[invite|disband|kick|create|rank|accept|leave|accept|bank]>
       - determine <[list].filter[starts_with[<context.args.get[1]>]]>
     - else:
@@ -55,8 +57,6 @@ guild_command:
                     - else if <context.args.get[4]> == remove:
                       - determine <yaml[guild.<player.flag[guild]>].read[rank.<context.args.get[2]>.permissions]>
           - case invite:
-            - if <context.args.size> == 1 && <context.args.get[1]> == invite:
-              - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
             - if <context.args.size> == 2:
               - if <context.args.get[2].size||null> > 0:
                 - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name].filter[starts_with[<context.args.get[2]>]]>
