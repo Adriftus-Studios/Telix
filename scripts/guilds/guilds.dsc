@@ -1068,6 +1068,12 @@ guild_gui_events:
       - inventory open d:<[inv]>
       - wait 1t
       - inventory set d:<[inv]> slot:1 o:<context.inventory.slot[5]>
+    on player clicks in guild_leadership_transfer_confirmation_gui:
+    - if <context.raw_slot> <= 27:
+      - determine passively cancelled
+    on player clicks in guild_manage_member_gui:
+    - if <context.raw_slot> <= 27:
+      - determine passively cancelled
     on player clicks gui_close_btn in guild_manage_member_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
