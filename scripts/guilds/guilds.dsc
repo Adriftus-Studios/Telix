@@ -1049,7 +1049,7 @@ guild_gui_events:
       - determine passively cancelled
     on player opens guild_info_gui:
     - wait 1t
-    - define desc:<yaml[guild.<player.flag[guild]>].read[description].get[1]>
+    - define desc:<yaml[guild.<player.flag[guild]>].read[description].as_list.get[1]>
     - foreach <[desc].split[<&sp>]>:
       - define line:|:<[value]>
       - if <[line].length> > 30:
