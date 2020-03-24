@@ -367,7 +367,9 @@ rename_guild_rank:
   definitions: guild|rank|new_name
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
-  - yaml id:guild.<[guild]> copykey:ranks.<[rank].to_lowercase.replace[<&sp>].with[_]> ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>
+  - yaml id:guild.<[guild]> set ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>.permissions:<yaml[guild.<[guild]>].read[ranks.<[rank]>.permissions]>
+  - yaml id:guild.<[guild]> set ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>.priority:<yaml[guild.<[guild]>].read[ranks.<[rank]>.priority]>
+  - yaml id:guild.<[guild]> set ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>.title:<[new_name]>
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>:!
   - foreach <yaml[guild.<[guild]>].read[members]> as:member:
     - if <[member].as_player.flag[guild_rank]> == <[rank]>:
@@ -437,12 +439,12 @@ create_guild:
   - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - yaml id:guild.<[guild]> set ranks.leader.title:Leader
-  - yaml id:guild.<[guild]> set ranks.leader.priority:3
+  - yaml id:guild.<[guild]> set ranks.leader.priority:100
   - yaml id:guild.<[guild]> set default_rank:member
   - yaml id:guild.<[guild]> set ranks.member.title:Member
   - yaml id:guild.<[guild]> set ranks.member.priority:1
   - yaml id:guild.<[guild]> set ranks.mod.title:Mod
-  - yaml id:guild.<[guild]> set ranks.mod.priority:2
+  - yaml id:guild.<[guild]> set ranks.mod.priority:50
   - foreach <list[manage_flags|manage_members|place_flag|remove_flag|kick_members|invite_members|manage_relations|access_bank]> as:perm:
     - yaml id:guild.<[guild]> set ranks.mod.permissions:|:<[perm]>
   - note <inventory[guild_flags_gui]> as:guild_<[guild]>_flags
@@ -1062,6 +1064,7 @@ guild_gui_events:
       - if <context.item.script.name> == rename_guild_rank_btn:
         - flag <player> context:rename_guild_rank|<[rank]>
         - narrate "<&b>Type the new name of your rank here, or type 'cancel' to go back. (No one can see your chat)"
+        - inventory close
       - if <context.item.nbt[perm]||null> != null:
         - if <context.item.material.name> == red_wool:
           - run edit_guild_rank_permission def:<player.flag[guild]>|<[rank]>|<context.item.nbt[perm]>|add
