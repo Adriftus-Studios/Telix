@@ -1041,9 +1041,6 @@ create_guild_rank_btn:
   material: iron_nugget
   display name: <&a>Create new rank
 
-rename_guild_rank:
-  type: task
-  definitions: guild|rank|new_name
 guild_gui_events:
   type: world
   events:
@@ -1086,7 +1083,6 @@ guild_gui_events:
         - narrate "<&b>Cancelled"
       - else:
         - narrate "<&b>Renamed rank to <[new_name]>."
-        - narrate <player.flag[guild]>|<[rank]>|<[new_name]>
         - run rename_guild_rank def:<player.flag[guild]>|<[rank]>|<[new_name]>
       - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
     - if <player.flag[context]||null> == create_guild_rank:
