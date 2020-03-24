@@ -669,6 +669,7 @@ guild_events:
       - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
       - stop
     - if <context.book> == <item[new_guild_book]>:
+      - narrate <context.book.book_pages.get[1]>
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
         - determine passively NOT_SIGNING
@@ -1058,7 +1059,6 @@ guild_gui_events:
     - foreach <[desc].split[<&sp>]>:
       - define line:|:<&b><[value]>
       - if <[line].length> > 30:
-        - narrate <[line]>
         - define lore:|:<[line].space_separated.as_list.space_separated>
         - define line:!
     - define lore:|:<[line].space_separated.as_list.space_separated>
