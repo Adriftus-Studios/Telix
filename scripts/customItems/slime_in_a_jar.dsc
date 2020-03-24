@@ -4,7 +4,7 @@ custom_slime_jar_rest:
   material: music_disc_13
   mechanisms:
     custom_model_data: 1
-    flag: HIDE_ALL
+    flags: HIDE_ALL
   display name: <&b>Slime-in-a-Jar
   lore:
     - <&6>The <&a>Slime-in-a-Jar<&6> will start
