@@ -1061,6 +1061,7 @@ guild_gui_events:
         - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
       - if <context.item.script.name> == rename_guild_rank_btn:
         - flag <player> context:rename_guild_rank|<[rank]>
+        - narrate "<&b>Type the new name of your rank here, or type 'cancel' to go back. (No one can see your chat)"
       - if <context.item.nbt[perm]||null> != null:
         - if <context.item.material.name> == red_wool:
           - run edit_guild_rank_permission def:<player.flag[guild]>|<[rank]>|<context.item.nbt[perm]>|add
@@ -1074,11 +1075,11 @@ guild_gui_events:
       - determine passively cancelled
       - define rank:<player.flag[context].split[|].get[2]>
       - define new_name:<context.message>
-      - narrate <[rank]>
-      - narrate <[new_name]>
       - flag <player> context:!
-      - stop
-      - run rename_guild_rank def:<player.flag[guild]>|<[rank]>|<[new_name]>
+      - if <context.message> == cancel:
+        - narrate "<&b>Cancelled"
+      - else:
+        - run rename_guild_rank def:<player.flag[guild]>|<[rank]>|<[new_name]>
       
     - if <player.flag[context]||null> == create_guild_rank:
       - flag <player> context:!
@@ -1095,7 +1096,7 @@ guild_gui_events:
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[guild_settings_gui]>
       - if <context.item.script.name> == create_guild_rank_btn:
-        - narrate "<&b>Type the new name of your rank here, or type 'cancel' to go back. (No one can see your chat)"
+        - narrate "<&b>Type the name of your rank here, or type 'cancel' to go back. (No one can see your chat)"
         - flag <player> context:create_guild_rank
         - inventory close
       - if <context.item.nbt[rank]||null> != null:
