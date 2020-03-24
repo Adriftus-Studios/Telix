@@ -1036,6 +1036,9 @@ create_guild_rank_btn:
   material: iron_nugget
   display name: <&a>Create new rank
 
+rename_guild_rank:
+  type: task
+  definitions: guild|rank|new_name
 guild_gui_events:
   type: world
   events:
@@ -1048,7 +1051,7 @@ guild_gui_events:
       - else:
         - inventory add d:<context.inventory> o:<item[red_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>;nbt=perm/<[perm]>;lore=<list[Click<&sp>to<&sp>enable.]>]>
     on player clicks in guild_edit_rank_gui:
-    - if <context.raw_slot> <= 36:
+    - if <context.raw_slot> <= 45:
       - determine passively cancelled
       - define rank:<context.inventory.slot[1].nbt[rank]>
       - if <context.item.script.name> == gui_close_btn:
@@ -1057,7 +1060,7 @@ guild_gui_events:
         - run delete_guild_rank def:<player.flag[guild]>|<[rank]>
         - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
       - if <context.item.script.name> == rename_guild_rank_btn:
-
+        - flag <player> context:rename_guild_rank|<[rank]>
       - if <context.item.nbt[perm]||null> != null:
         - if <context.item.material.name> == red_wool:
           - run edit_guild_rank_permission def:<player.flag[guild]>|<[rank]>|<context.item.nbt[perm]>|add
@@ -1067,10 +1070,15 @@ guild_gui_events:
         - inventory open d:<[inv]>
         - inventory adjust d:<[inv]> slot:1 nbt:rank/<[rank]>
     on player chats:
-    - if <player.flag[context]||null> == rename_guild_rank:
-      - define rank:<player.flag[context]>
+    - if <player.flag[context].starts_with[rename_guild_rank||false> == true:
+      - define rank:<player.flag[context].split[|].get[2]>
       - define new_name:<context.message>
+      - narrate <[rank]>
+      - narrate <[new_rank]>
       - flag <player> context:!
+      - stop
+      - run rename_guild_rank def:<player.flag[guild]>|<[rank]>|<[new_name]>
+      
     - if <player.flag[context]||null> == create_guild_rank:
       - flag <player> context:!
       - determine passively cancelled
