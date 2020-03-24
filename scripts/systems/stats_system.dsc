@@ -41,9 +41,16 @@ stats_events:
     on player heals:
       - yaml id:player.<player.uuid> set values.heals:+:<context.amount>
     on player consumes item:
-      - yaml id:player.<player.uuid> set stats.food.current:+:10
-      - if <yaml[player.<[player].uuid>].read[stats.food.current]> > <yaml[player.<[player].uuid>].read[stats.food.max]>
+      - define food:<context.item.script.yaml_key[food]||10>
+      - define thirst:<context.item.script.yaml_key[thirst]||10>
+      - if <yaml[player.<[player].uuid>].read[stats.food.current].add[<[food]>]> > <yaml[player.<[player].uuid>].read[stats.food.max]>
         - yaml id:player.<player.uuid> set stats.food.current:<yaml[player.<[player].uuid>].read[stats.food.max]>
+      - else:
+        - yaml id:player.<player.uuid> set stats.food.current:+:<[food]>
+      - if <yaml[player.<[player].uuid>].read[stats.thirst.current].add[<[thirst]>]> > <yaml[player.<[player].uuid>].read[stats.thirst.max]>
+        - yaml id:player.<player.uuid> set stats.thirst.current:<yaml[player.<[player].uuid>].read[stats.thirst.max]>
+      - else:
+        - yaml id:player.<player.uuid> set stats.thirst.current:+:<[thirst]>
     on delta time secondly every:15:
       - foreach <server.list_players.filter[is_online]> as:player:
         - if <yaml[player.<[player].uuid>].read[stats.food.current]> > <yaml[player.<[player].uuid>].read[stats.food.max].sub[10]>
