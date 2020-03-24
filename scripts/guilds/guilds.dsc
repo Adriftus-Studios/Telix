@@ -1070,7 +1070,8 @@ guild_gui_events:
         - inventory open d:<[inv]>
         - inventory adjust d:<[inv]> slot:1 nbt:rank/<[rank]>
     on player chats:
-    - if <player.flag[context].starts_with[rename_guild_rank||false> == true:
+    - if <player.flag[context].starts_with[rename_guild_rank]||false> == true:
+      - determine passively cancelled
       - define rank:<player.flag[context].split[|].get[2]>
       - define new_name:<context.message>
       - narrate <[rank]>
