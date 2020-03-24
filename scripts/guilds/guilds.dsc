@@ -778,18 +778,6 @@ guild_leave_confirmation_gui:
   - "[gui_leave_confirm_bottom] [] [guild_leave_yes_btn] [] [] [] [guild_leave_no_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
-guild_info_gui:
-  type: inventory
-  title: <&6>◆ <&a><&n><&l>Guild Info<&r> <&6>◆
-  size: 27
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    closeitem: <item[gui_close_btn]>
-  slots:
-  - "[gui_guild_info_top] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_guild_info_bottom] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-
 new_guild_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>No Guild<&r> <&6>◆
@@ -1041,9 +1029,28 @@ create_guild_rank_btn:
   material: iron_nugget
   display name: <&a>Create new rank
 
+guild_info_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Guild Info<&r> <&6>◆
+  size: 27
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[gui_guild_info_top] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_guild_info_bottom] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
 guild_gui_events:
   type: world
   events:
+    on player clicks in guild_info_gui:
+    - if <context.raw_slot> <= <player.open_inventory.size>:
+      - determine passively cancelled
+    on player opens guild_info_gui:
+    - wait 1t
+    - define desc:<yaml[guild.<player.flag[guild]>].read[description]>
+    - inventory set d:<context.inventory> slot:11 o:<item[player_skull].with[skull_skin=<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>]>
     on player opens guild_edit_rank_gui:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt[rank]>
@@ -1225,12 +1232,6 @@ guild_gui_events:
     on player clicks guilds_view_info_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_info_gui]>
-    on player clicks in guild_info_gui:
-    - if <context.raw_slot> <= <player.open_inventory.size>:
-      - determine passively cancelled
-    on player opens guild_info_gui:
-    - wait 1t
-    - define desc:<yaml[guild.<player.flag[guild]>].read[description]>
     on player clicks guilds_manage_claim_flags in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_flags]>:
