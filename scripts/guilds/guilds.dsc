@@ -1026,7 +1026,7 @@ rename_guild_rank_btn:
 
 create_guild_rank_btn:
   type: item
-  material: iron_nugget
+  material: nether_star
   display name: <&a>Create new rank
 
 guild_info_gui:
@@ -1060,7 +1060,6 @@ guild_gui_events:
         - define line:|:<[value]>
         - if <[line].length> > 50:
           - define lore:|:<[line].separated_by[<&sp>]>
-          - narrate <[line].separated_by[<&sp>]>
           - define line:!
       - define lore:|:<[line].separated_by[<&sp>]>
     - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
