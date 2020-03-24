@@ -1015,7 +1015,7 @@ guild_gui_events:
   events:
     on player opens guild_edit_rank_gui:
     - wait 1t
-    - define rank:<context.inventory.slot[1].nbt[rank]>
+    - define rank:<context.inventory.slot[1]>
     - narrate <[rank]>
     - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
       - inventory add d:<context.inventory> o:<item[iron_nugget]>
