@@ -1079,12 +1079,14 @@ guild_gui_events:
       - if <context.message> == cancel:
         - narrate "<&b>Cancelled"
       - else:
+        - narrate "<&b>Renamed rank to <[new_name]>."
         - run rename_guild_rank def:<player.flag[guild]>|<[rank]>|<[new_name]>
+      - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
     - if <player.flag[context]||null> == create_guild_rank:
       - flag <player> context:!
       - determine passively cancelled
       - if <context.message> != cancel:
-        - narrate "<&b>Created rank '<context.message>'"
+        - narrate "<&b>Created rank '<context.message>'."
         - run create_guild_rank def:<player.flag[guild]>|<context.message>
       - else:
         - narrate "<&b>Cancelled."
