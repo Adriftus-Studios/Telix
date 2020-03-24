@@ -967,8 +967,8 @@ guild_settings_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [guilds_edit_ranks_btn] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[gui_settings_top] [] [guilds_edit_ranks_btn] [] [] [] [] [] [w_filler]"
+  - "[gui_settings_bottom] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_choose_rank_to_edit_gui:

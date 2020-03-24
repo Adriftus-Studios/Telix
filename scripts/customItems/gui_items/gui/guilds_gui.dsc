@@ -109,4 +109,19 @@ gui_guild_info_top:
   mechanisms:
     custom_model_data: 36
   display name: <&7>
+
+gui_settings_bottom:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: 37
+  display name: <&7>
+
+gui_settings_top:
+  type: item
+  material: gold_nugget
+  mechanisms:
+    custom_model_data: 38
+  display name: <&7>
+  
   
