@@ -33,11 +33,11 @@ slime_in_a_jar_listener:
   type: world
   events:
     on player right clicks block with custom_slime_jar_*:
-    - if <player.location.chunk.spawn_slimes> == true
+    - if <player.location.chunk.spawn_slimes> == true:
       - narrate "<&6>Your little slime starts to bounce around in its jar!"
       - take slot:<context.slot>
       - inventory set d:<player.inventory> o:custom_slime_jar_jump slot:<context.slot>
-    - else if <player.location.chunk.spawn_slimes> == false
+    - else if <player.location.chunk.spawn_slimes> == false:
       - narrate "<&6>Your little slime is calm now."
       - take slot:<context.slot>
       - inventory set d:<player.inventory> o:custom_slime_jar_rest slot:<context.slot>
