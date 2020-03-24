@@ -29,7 +29,7 @@ ability_parry:
     - glow <player> false
   events:
     #Start Parry
-    on player right clicks block with *_sword:
+    on player right clicks air with *_sword:
       - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]||20>
       - if !<player.has_flag[parrying]>:
         #Target Skill Tree: Fisticuffs, Target Points Requirement: 10, Target Power Cost: 5
