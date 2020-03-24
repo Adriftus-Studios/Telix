@@ -38,7 +38,7 @@ ability_parry:
         - flag player parrying:true duration:2s
         - run bb_timer def:<&5>Parrying|2s|purple
         #- playsound <player.location.forward> sound:ability.fisticuffs.parry custom
-        - inject locally animation
+        #- inject locally animation
     #Execute Riposte
     on player damaged by entity flagged:parrying:
       - if <context.damager.location.distance[<player.location>]||5> <= 3:
