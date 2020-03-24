@@ -1059,9 +1059,15 @@ guild_gui_events:
         - define line:!
     - define lore:|:<[line].separated_by[<&sp>]>
     - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
-    - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[display_name=<&a>Leader:<&sp><yaml[guild.<player.flag[guild]>].read[leader].as_player.name>;lore=<list[<&b>Members:<&sp><yaml[guild.<player.flag[guild]>].read[members].size>]>;skull_skin=<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>]>
-    - inventory set d:<context.inventory> slot:15 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<player.flag[guild]>].read[flags].size||0>patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
-    
+    - inventory set d:<context.inventory> slot:12 o:<item[player_head].with[display_name=<&a>Leader:<&sp><yaml[guild.<player.flag[guild]>].read[leader].as_player.name>;lore=<list[<&b>Members:<&sp><yaml[guild.<player.flag[guild]>].read[members].size>]>;skull_skin=<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>]>
+    - inventory set d:<context.inventory> slot:13 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<player.flag[guild]>].read[flags].size||0>patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
+    - inventory set d:<context.inventory> slot:14 o:<item[light_blue_wool].with[display_name=<&b>Allies:<&sp><yaml[guild.<player.flag[guild]>].read[relation.ally].size>;lore=<yaml[guild.<player.flag[guild]>].read[relation.ally]||None>]>
+      - yaml id:guild.<[guild]> set relation.enemy:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.enemy:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relation.truce:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.truce:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relation.ally:<-:<[other]>
+      - yaml id:guild.<[other]> set relation.ally:<-:<[guild]>
     on player opens guild_edit_rank_gui:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt[rank]>
