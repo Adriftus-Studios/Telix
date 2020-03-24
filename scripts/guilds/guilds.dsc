@@ -1016,9 +1016,11 @@ guild_gui_events:
     on player opens guild_edit_rank_gui:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt>
-    - narrate <[rank]>
     - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
-      - inventory add d:<context.inventory> o:<item[iron_nugget]>
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<[perm]>]>
+        - inventory add d:<context.inventory> o:<item[green_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>]>
+      - else:
+        - inventory add d:<context.inventory> o:<item[red_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>]>
     on player clicks in guild_edit_rank_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
