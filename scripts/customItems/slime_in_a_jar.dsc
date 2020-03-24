@@ -4,8 +4,7 @@ custom_slime_jar_rest:
   material: music_disc_13
   mechanisms:
     custom_model_data: 1
-# Uncomment when we get version upgrade.
-#    flags: HIDE_ALL
+    flags: hide_all
   display name: <&b>Slime-in-a-Jar
   lore:
     - <&6>The <&a>Slime-in-a-Jar<&6> will start
@@ -68,3 +67,5 @@ slime_in_a_jar_listener:
       - narrate "Shit broke somehow?"
 
 # Stop from putting the slime in a jukebox. That doesn't sound like fun.
+    on player right clicks jukebox with custom_slime_jar_*:
+    - determine cancelled
