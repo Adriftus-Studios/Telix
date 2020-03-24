@@ -345,6 +345,7 @@ create_guild_rank:
   definitions: guild|rank
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>:!
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>.title:<[rank]>
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>.priority:1
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>.permissions:|:view_members
@@ -1040,6 +1041,7 @@ guild_gui_events:
     on player opens guild_choose_rank_to_edit_gui:
     - foreach <yaml[guild.<player.flag[guild]>].list_keys[ranks]> as:rank:
       - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
+      
       - inventory add d:<context.inventory> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<list[Click<&sp>to<&sp>edit<&sp><[title]>]>;nbt=rank/<[rank]>]>
     - inventory add d:<context.inventory> o:<item[create_guild_rank_btn]>
     on player clicks guilds_edit_ranks_btn in guild_settings_gui:
