@@ -1050,7 +1050,7 @@ guild_gui_events:
     on player opens guild_info_gui:
     - wait 1t
     - define desc:<yaml[guild.<player.flag[guild]>].read[description]>
-    - inventory set d:<context.inventory> slot:11 o:<item[player_skull].with[skull_skin=<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>]>
+    - inventory set d:<context.inventory> slot:11 o:<item[player_head].with[skull_skin=<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>]>
     on player opens guild_edit_rank_gui:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt[rank]>
