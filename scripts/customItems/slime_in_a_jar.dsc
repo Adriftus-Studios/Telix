@@ -44,14 +44,21 @@ slime_in_a_jar_listener:
         - title title:<&a>Slime! "subtitle:<&6>Your little slime has found its family!"
         - playsound <player> sound:entity_player_levelup sound_category:master volume:1
         - flag player slimeWait duration:10s
+      - else:
+        - playsound <player> sound:block_dispenser_fail sound_category:master volume:1
+        - narrate "<&c>You are working your little slime too hard. Please wait."
     - else if <player.location.chunk.spawn_slimes> == false:
       - if <player.item_in_hand> == custom_slime_jar_rest:
         - stop
-      - else:
+      - else if !<player.has_flag[slimeWait2]>:
         - define slimeSlot:<player.held_item_slot>
         - narrate "<&6>Your little slime is calm now."
         - take slot:<[slimeSlot]> quantity:1
         - inventory set d:<player.inventory> o:custom_slime_jar_rest slot:<[slimeSlot]>
+        - flag player slimeWait2 duration:10s
+      - else:
+        - playsound <player> sound:block_dispenser_fail sound_category:master volume:1
+        - narrate "<&c>You are working your little slime too hard. Please wait."
     - else:
       - narrate "Shit broke somehow?"
 
