@@ -345,9 +345,9 @@ create_guild_rank:
   definitions: guild|rank
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
-  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.title:<[rank]>
-  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.priority:1
-  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase>.permissions:|:view_members
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>.title:<[rank]>
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>.priority:1
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>.permissions:|:view_members
 
 kick_from_guild:
   type: task
@@ -1014,16 +1014,22 @@ guild_gui_events:
     on player clicks in guild_edit_rank_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
+    on player chats:
+    - if <player.flag[context]||null> == create_guild_rank:
+      - flag <player> context:!
+      - if <context.message> == cancel:
+        - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
+      - else:
+        - run create_guild_rank def:<player.flag[guild]>|<context.message>
+
     on player clicks in guild_choose_rank_to_edit_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[guild_settings_gui]>
       - if <context.item.script.name> == create_guild_rank_btn:
-        - define inv:in@generic[holder=ANVIL]
-        - inventory open d:<[inv]>
-        - wait 1t
-        - inventory set d:<[inv]> slot:1 o:<item[create_guild_rank_name_btn].with[display_name=<&b>Please<&sp>specify<&sp>rank<&sp>name]>
+        - narrate "<&b>Please type the name of the rank in chat, or type 'cancel' to go back."
+        - flag <player> context:create_guild_rank
       - if <context.item.nbt[rank]||null> != null:
         - define inv:<inventory[guild_edit_rank_gui]>
         - inventory open d:<[inv]>
