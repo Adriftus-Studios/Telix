@@ -1058,7 +1058,7 @@ guild_gui_events:
     - foreach <[desc].split[<&sp>]>:
       - define line:|:<&b><[value]>
       - if <[line].length> > 30:
-        - define lore:|:<[line].space_separated.split[<n>].parse[]>
+        - define lore:|:<[line].space_separated.split[<n>].parse[strip_color]>
         - define line:!
     - define lore:|:<[line].space_separated.split[<n>]>
     - define line:!
