@@ -1075,7 +1075,7 @@ guild_gui_events:
       - define rank:<player.flag[context].split[|].get[2]>
       - define new_name:<context.message>
       - narrate <[rank]>
-      - narrate <[new_rank]>
+      - narrate <[new_name]>
       - flag <player> context:!
       - stop
       - run rename_guild_rank def:<player.flag[guild]>|<[rank]>|<[new_name]>
