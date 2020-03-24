@@ -1044,7 +1044,6 @@ guild_gui_events:
       - if <context.item.nbt[rank]||null> != null:
         - define inv:<inventory[guild_edit_rank_gui]>
         - inventory open d:<[inv]>
-        - wait 1t
         - inventory adjust d:<[inv]> slot:1 nbt:rank/<context.item.nbt[rank]>
     on player opens guild_choose_rank_to_edit_gui:
     - foreach <yaml[guild.<player.flag[guild]>].list_keys[ranks]> as:rank:
