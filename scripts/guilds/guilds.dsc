@@ -1028,8 +1028,9 @@ guild_gui_events:
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[guild_settings_gui]>
       - if <context.item.script.name> == create_guild_rank_btn:
-        - narrate "<&b>Please type the name of the rank in chat, or type 'cancel' to go back."
+        - narrate "<&b>Type the new name of your rank here, or type 'cancel' to go back. (No one can see your chat)"
         - flag <player> context:create_guild_rank
+        - inventory close
       - if <context.item.nbt[rank]||null> != null:
         - define inv:<inventory[guild_edit_rank_gui]>
         - inventory open d:<[inv]>
