@@ -669,8 +669,6 @@ guild_events:
       - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
       - stop
     - if <context.book> == <item[new_guild_book]>:
-      - wait 1t
-      - narrate <context.book.book_pages.get[1].replace[<&chr[240a]>].with[<&sp>]>
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
         - determine passively NOT_SIGNING
@@ -683,6 +681,7 @@ guild_events:
         - wait 1t
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
         - stop
+      - wait 1t
       - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.book.book_pages>
 
 guild_flag_health_icon:
@@ -1059,12 +1058,10 @@ guild_gui_events:
     - foreach <[desc].split[<&sp>]>:
       - define line:|:<&b><[value]>
       - if <[line].length> > 30:
-        - define lore:|:<[line].space_separated.as_list.space_separated>
+        - define lore:|:<[line].space_separated.replace[<n>].with[<&nl>]>
         - define line:!
-    - define lore:|:<[line].space_separated.as_list.space_separated>
+    - define lore:|:<[line].space_separated.replace[<n>].with[<&nl>]>
     - define line:!
-    - foreach <[lore]>:
-      - narrate <[value].as_list.space_separated>
     - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
     - inventory set d:<context.inventory> slot:12 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<player.flag[guild]>].read[flags].size||0>;patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
     - define lore:!
