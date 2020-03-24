@@ -1095,7 +1095,7 @@ guild_gui_events:
       - if <[rank]> != null:
         - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
         - define permissions:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions]||<list[]>>
-        - inventory add d:<[inv]> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<[permissions].parse[replace[_].with[<&sp>].to_titlecase]>;nbt=rank/<[rank]>]>
+        - inventory add d:<context.inventory> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<[permissions].parse[replace[_].with[<&sp>].to_titlecase]>;nbt=rank/<[rank]>]>
     on player clicks in guild_set_member_rank_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
