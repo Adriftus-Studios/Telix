@@ -1064,12 +1064,6 @@ guild_gui_events:
     - inventory set d:<context.inventory> slot:14 o:<item[light_blue_wool].with[display_name=<&b>Allies:<&sp><yaml[guild.<player.flag[guild]>].read[relation.ally].size||0>;lore=<yaml[guild.<player.flag[guild]>].read[relation.ally]||None>]>
     - inventory set d:<context.inventory> slot:15 o:<item[cyan_wool].with[display_name=<&b>Truces:<&sp><yaml[guild.<player.flag[guild]>].read[relation.truce].size||0>;lore=<yaml[guild.<player.flag[guild]>].read[relation.truce]||None>]>
     - inventory set d:<context.inventory> slot:16 o:<item[red_wool].with[display_name=<&b>Enemies:<&sp><yaml[guild.<player.flag[guild]>].read[relation.enemy].size||0>;lore=<yaml[guild.<player.flag[guild]>].read[relation.enemy]||None>]>
-      - yaml id:guild.<[guild]> set relation.enemy:<-:<[other]>
-      - yaml id:guild.<[other]> set relation.enemy:<-:<[guild]>
-      - yaml id:guild.<[guild]> set relation.truce:<-:<[other]>
-      - yaml id:guild.<[other]> set relation.truce:<-:<[guild]>
-      - yaml id:guild.<[guild]> set relation.ally:<-:<[other]>
-      - yaml id:guild.<[other]> set relation.ally:<-:<[guild]>
     on player opens guild_edit_rank_gui:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt[rank]>
