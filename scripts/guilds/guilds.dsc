@@ -1021,7 +1021,7 @@ delete_guild_rank_btn:
 
 rename_guild_rank_btn:
   type: item
-  material: barrier
+  material: ender_pearl
   display name: <&b>Rename Rank
 
 create_guild_rank_btn:
