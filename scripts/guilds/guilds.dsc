@@ -1010,9 +1010,27 @@ player_anvil:
   type: inventory
   inventory: anvil
 
+  rank_permissions:
+  - manage_flags
+  - edit_ranks
+  - manage_members
+  - change_settings
+  - place_flag
+  - remove_flags
+  - kick_members
+  - invite_members
+  - manage_relations
+  - access_bank
+  - set_member_rank
+
 guild_gui_events:
   type: world
   events:
+    on player opens guild_edit_rank_gui:
+    - define rank:<context.inventory.slot[1].nbt[rank]>
+    - narrate <[rank]>
+    - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
+      - inventory add d:<context.inventory> o:<item[iron_nugget]>
     on player clicks in guild_edit_rank_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
@@ -1023,6 +1041,8 @@ guild_gui_events:
       - if <context.message> != cancel:
         - narrate "<&b>Created rank '<context.message>'"
         - run create_guild_rank def:<player.flag[guild]>|<context.message>
+      - else:
+        - narrate "<&b>Cancelled."
       - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
     on player clicks in guild_choose_rank_to_edit_gui:
     - if <context.raw_slot> <= 36:
@@ -1117,7 +1137,6 @@ guild_gui_events:
           - wait 1t
           - inventory set d:<[inv]> slot:5 o:<context.inventory.slot[5]>
         - else:
-          - narrate <context.item.nbt[rank]>
           - run set_guild_member_rank def:<context.inventory.slot[5].skin.as_player>|<context.item.nbt[rank]>
           - inventory open d:<inventory[view_guild_members]>
     on player clicks in view_guild_members:
