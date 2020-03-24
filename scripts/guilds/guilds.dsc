@@ -669,7 +669,8 @@ guild_events:
       - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
       - stop
     - if <context.book> == <item[new_guild_book]>:
-      - narrate <context.book.book_pages.get[1]>
+      - wait 1t
+      - narrate <context.book.book_pages>
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
         - determine passively NOT_SIGNING
@@ -682,7 +683,6 @@ guild_events:
         - wait 1t
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
         - stop
-      - wait 1t
       - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.book.book_pages>
 
 guild_flag_health_icon:
