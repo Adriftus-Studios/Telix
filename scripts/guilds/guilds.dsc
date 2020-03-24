@@ -1064,6 +1064,7 @@ guild_gui_events:
     - define line:!
     - foreach <[l_desc]>:
       - define tmp:<[value].split[<n>].parse[strip_color.color[aqua].replace[reset=b].with[]]>
+      - narrate <[tmp].substring[1]>
       - define new_lore:|:<[tmp].substring[1]>
     - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[new_lore]>]>
     - inventory set d:<context.inventory> slot:12 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<player.flag[guild]>].read[flags].size||0>;patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
