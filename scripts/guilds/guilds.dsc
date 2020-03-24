@@ -345,6 +345,8 @@ delete_guild_rank:
   definitions: guild|rank
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - if <yaml[guild.<[guild]>].read[default_rank]> == <[rank]>:
+    - stop
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>:!
   - foreach <yaml[guild.<[guild]>].read[members]> as:member:
     - if <[member].as_player.flag[guild_rank]> == <[rank]>:
@@ -1023,7 +1025,7 @@ guild_gui_events:
   events:
     on player opens guild_edit_rank_gui:
     - wait 1t
-    - define rank:<context.inventory.slot[1].nbt>
+    - define rank:<context.inventory.slot[1].nbt[rank]>
     - narrate <[rank]>
     - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<[perm]>]>:
