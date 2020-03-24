@@ -1032,13 +1032,12 @@ create_guild_rank_btn:
 guild_info_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Guild Info<&r> <&6>◆
-  size: 36
+  size: 27
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
   slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_guild_info_top] [] [] [] [] [] [] [] [w_filler]"
+  - "[gui_guild_info_top] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[gui_guild_info_bottom] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
@@ -1061,27 +1060,27 @@ guild_gui_events:
     - define lore:|:<[line].separated_by[<&sp>]>
     - define lore:|:<&a>Leader:<&sp><yaml[guild.<player.flag[guild]>].read[leader].as_player.name>
     - define lore:|:<&b>Members:<&sp><yaml[guild.<player.flag[guild]>].read[members].size>
-    - inventory set d:<context.inventory> slot:20 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
-    - inventory set d:<context.inventory> slot:21 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<player.flag[guild]>].read[flags].size||0>;patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
+    - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
+    - inventory set d:<context.inventory> slot:12 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<player.flag[guild]>].read[flags].size||0>;patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
     - define lore:!
     - foreach <yaml[guild.<player.flag[guild]>].read[relations.ally]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
-    - inventory set d:<context.inventory> slot:24 o:<item[light_blue_wool].with[display_name=<&b>Allies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
+    - inventory set d:<context.inventory> slot:15 o:<item[light_blue_wool].with[display_name=<&b>Allies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
     - foreach <yaml[guild.<player.flag[guild]>].read[relations.truce]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
-    - inventory set d:<context.inventory> slot:25 o:<item[cyan_wool].with[display_name=<&b>Truces:<&sp><[lore].size||0>;lore=<[lore]||None>]>
+    - inventory set d:<context.inventory> slot:16 o:<item[cyan_wool].with[display_name=<&b>Truces:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
     - foreach <yaml[guild.<player.flag[guild]>].read[relations.enemy]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
-    - inventory set d:<context.inventory> slot:26 o:<item[red_wool].with[display_name=<&b>Enemies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
+    - inventory set d:<context.inventory> slot:17 o:<item[red_wool].with[display_name=<&b>Enemies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
     - define lore:|:<&6><yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.title]>
     - define lore:|:<&b>
     - define lore:|:<&b>Your<&sp>Permissions:
     - foreach <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]> as:perm:
       - define lore:|:<&a><[perm].replace[_].with[<&sp>].to_titlecase>
-    - inventory set d:<context.inventory> slot:22 o:<item[player_head].with[skull_skin=<player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
+    - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[skull_skin=<player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
     on player opens guild_edit_rank_gui:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt[rank]>
