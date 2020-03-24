@@ -340,6 +340,16 @@ player_leave_guild:
     - narrate player:<[member]> "<&c><[player].name> has left the guild."
   - narrate "<&c>You have left the guild."
 
+delete_guild_rank:
+  type: task
+  definitions: guild|rank
+  script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>:!
+  - foreach <yaml[guild.<[guild]>].read[members]> as:member:
+    - if <[member].as_player.flag[guild_rank]> == <[rank]>:
+      - flag <[member].as_player> guild_rank:<yaml[guild.<[guild]>].read[default_rank]>
+
 create_guild_rank:
   type: task
   definitions: guild|rank
@@ -987,7 +997,7 @@ guild_choose_rank_to_edit_gui:
 guild_edit_rank_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Edit Rank<&r> <&6>◆
-  size: 36
+  size: 45
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -995,20 +1005,18 @@ guild_edit_rank_gui:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [delete_guild_rank_btn] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+delete_guild_rank_btn:
+  type: item
+  material: barrier
+  display name: <&c>Delete Rank
 
 create_guild_rank_btn:
   type: item
   material: iron_nugget
   display name: <&a>Create new rank
-
-create_guild_rank_name_btn:
-  type: item
-  material: iron_nugget
-
-player_anvil:
-  type: inventory
-  inventory: anvil
 
 guild_gui_events:
   type: world
@@ -1025,8 +1033,11 @@ guild_gui_events:
     on player clicks in guild_edit_rank_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
-      - define rank:<context.inventory.slot[1].nbt>
+      - define rank:<context.inventory.slot[1].nbt[rank]>
       - if <context.item.script.name> == gui_close_btn:
+        - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
+      - if <context.item.script.name> == delete_guild_rank_btn:
+        - run delete_guild_rank def:<player.flag[guild]>|<[rank]>
         - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
       - if <context.item.nbt[perm]||null> != null:
         - if <context.item.material.name> == red_wool:
@@ -1035,7 +1046,7 @@ guild_gui_events:
           - run edit_guild_rank_permission def:<player.flag[guild]>|<[rank]>|<context.item.nbt[perm]>|remove
         - define inv:<inventory[guild_edit_rank_gui]>
         - inventory open d:<[inv]>
-        - inventory adjust d:<[inv]> slot:1 nbt:rank/<context.item.nbt[rank]>
+        - inventory adjust d:<[inv]> slot:1 nbt:rank/<[rank]>
     on player chats:
     - if <player.flag[context]||null> == create_guild_rank:
       - flag <player> context:!
