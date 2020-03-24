@@ -967,8 +967,8 @@ guild_settings_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_settings_top] [] [guilds_edit_ranks_btn] [] [] [] [] [] [w_filler]"
-  - "[gui_settings_bottom] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [guilds_edit_ranks_btn] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_choose_rank_to_edit_gui:
@@ -1009,19 +1009,6 @@ create_guild_rank_name_btn:
 player_anvil:
   type: inventory
   inventory: anvil
-
-  rank_permissions:
-  - manage_flags
-  - edit_ranks
-  - manage_members
-  - change_settings
-  - place_flag
-  - remove_flags
-  - kick_members
-  - invite_members
-  - manage_relations
-  - access_bank
-  - set_member_rank
 
 guild_gui_events:
   type: world
