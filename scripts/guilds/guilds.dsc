@@ -1018,12 +1018,23 @@ guild_gui_events:
     - define rank:<context.inventory.slot[1].nbt>
     - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<[perm]>]>:
-        - inventory add d:<context.inventory> o:<item[green_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>;nbt=perm/<[perm]>]>
+        - inventory add d:<context.inventory> o:<item[green_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>;nbt=perm/<[perm]>;lore=<list[Click<&sp>to<&sp>disable.]>]>
       - else:
-        - inventory add d:<context.inventory> o:<item[red_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>;nbt=perm/<[perm]>]>
+        - inventory add d:<context.inventory> o:<item[red_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>;nbt=perm/<[perm]>;lore=<list[Click<&sp>to<&sp>enable.]>]>
     on player clicks in guild_edit_rank_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
+      - define rank:<context.inventory.slot[1].nbt>
+      - if <context.item.script.name> == gui_close_btn:
+        - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
+      - if <context.item.nbt[perm]||null> != null:
+        - if <context.item.material.name> == red_wool:
+          - run edit_guild_rank_permission def:<player.flag[guild]>|<[rank]>|<context.item.nbt[perm]>|add
+        - if <context.item.material.name> == green_wool:
+          - run edit_guild_rank_permission def:<player.flag[guild]>|<[rank]>|<context.item.nbt[perm]>|remove
+        - define inv:<inventory[guild_edit_rank_gui]>
+        - inventory open d:<[inv]>
+        - inventory adjust d:<[inv]> slot:1 nbt:rank/<context.item.nbt[rank]>
     on player chats:
     - if <player.flag[context]||null> == create_guild_rank:
       - flag <player> context:!
