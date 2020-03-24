@@ -1055,7 +1055,7 @@ guild_gui_events:
     - define lore:|:<&a>Leader:<&sp><yaml[guild.<player.flag[guild]>].read[leader].as_player.name>
     - define lore:|:<&b>Members:<&sp><yaml[guild.<player.flag[guild]>].read[members].size>
     - define lore:|:<&b>
-    - foreach <[desc].split[<n>].parse[strip_color> as:p:
+    - foreach <[desc].split[<n>].parse[strip_color]> as:p:
       - foreach <[p].split[<&sp>]>:
         - define line:|:<[value]>
         - if <[line].length> > 30:
