@@ -1041,8 +1041,8 @@ guild_gui_events:
     on player opens guild_choose_rank_to_edit_gui:
     - foreach <yaml[guild.<player.flag[guild]>].list_keys[ranks]> as:rank:
       - define title:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.title]>
-      
-      - inventory add d:<context.inventory> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<list[Click<&sp>to<&sp>edit<&sp><[title]>]>;nbt=rank/<[rank]>]>
+      - define permissions:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions]||<list[]>>
+      - inventory add d:<context.inventory> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<list[<[permissions].parse[replace[_].with[<&sp>].to_titlecase]>|Click<&sp>to<&sp>edit<&sp><[title]>]>;nbt=rank/<[rank]>]>
     - inventory add d:<context.inventory> o:<item[create_guild_rank_btn]>
     on player clicks guilds_edit_ranks_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
