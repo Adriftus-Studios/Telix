@@ -1047,6 +1047,8 @@ guild_gui_events:
     on player clicks in guild_info_gui:
     - if <context.raw_slot> <= <player.open_inventory.size>:
       - determine passively cancelled
+      - if <context.item.script.name> == gui_close_item:
+        - inventory open d:<inventory[my_guild_gui]>
     on player opens guild_info_gui:
     - wait 1t
     - define desc:<yaml[guild.<player.flag[guild]>].read[description].as_list.get[1]>
@@ -1058,7 +1060,7 @@ guild_gui_events:
     - define lore:|:<[line].separated_by[<&sp>]>
     - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
     - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[display_name=<&a>Leader:<&sp><yaml[guild.<player.flag[guild]>].read[leader].as_player.name>;lore=<list[<&b>Members:<&sp><yaml[guild.<player.flag[guild]>].read[members].size>]>;skull_skin=<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>]>
-    - inventory set d:<context.inventory> slot:15 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<yaml[guild.<player.flag[guild]>].read[flags].size>patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
+    - inventory set d:<context.inventory> slot:15 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<player.flag[guild]>].read[flags].size||0>patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
     
     on player opens guild_edit_rank_gui:
     - wait 1t
