@@ -34,15 +34,26 @@ slime_in_a_jar_listener:
   events:
     on player right clicks block with custom_slime_jar_*:
     - if <player.location.chunk.spawn_slimes> == true:
-      - define slimeSlot:<player.held_item_slot>
-      - narrate "<&6>Your little slime starts to bounce around in its jar!"
-      - take slot:<[slimeSlot]> quantity:1
-      - inventory set d:<player.inventory> o:custom_slime_jar_jump slot:<[slimeSlot]>
+      - if <player.item_in_hand> == custom_slime_jar_jump:
+        - stop
+      - else if !<player.has_flag[slimeWait]>:
+        - define slimeSlot:<player.held_item_slot>
+        - narrate "<&6>Your little slime starts to bounce around in its jar!"
+        - take slot:<[slimeSlot]> quantity:1
+        - inventory set d:<player.inventory> o:custom_slime_jar_jump slot:<[slimeSlot]>
+        - title title:<&a>Slime! subtitle:<&6>Your little slime has found its family!
+        - playsound <player> sound:entity_player_levelup sound_category:master volume:1
+        - flag player slimeWait duration:10s
+      - else:
+        - narrate "<&c>You are moving to fast for your little slime!"
     - else if <player.location.chunk.spawn_slimes> == false:
-      - define slimeSlot:<player.held_item_slot>
-      - narrate "<&6>Your little slime is calm now."
-      - take slot:<[slimeSlot]> quantity:1
-      - inventory set d:<player.inventory> o:custom_slime_jar_rest slot:<[slimeSlot]>
+      - if <player.item_in_hand> == custom_slime_jar_rest
+        - stop
+      - else:
+        - define slimeSlot:<player.held_item_slot>
+        - narrate "<&6>Your little slime is calm now."
+        - take slot:<[slimeSlot]> quantity:1
+        - inventory set d:<player.inventory> o:custom_slime_jar_rest slot:<[slimeSlot]>
     - else:
       - narrate "Shit broke somehow?"
 
