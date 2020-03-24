@@ -999,6 +999,7 @@ guild_edit_rank_gui:
 create_guild_rank_btn:
   type: item
   material: iron_nugget
+  display name: <&a>Create new rank
 
 create_guild_rank_name_btn:
   type: item
