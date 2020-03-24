@@ -1057,7 +1057,8 @@ guild_gui_events:
         - define line:!
     - define lore:|:<[line].separated_by[<&sp>]>
     - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
-    - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[display_name=<&a>Leader:<&sp><yaml[guild.<player.flag[guild]>].read[leader].as_player.name>;lore=<list[<&c>Members:<&sp><yaml[guild.<player.flag[guild]>].read[members].size>]>;skull_skin=<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>]>
+    - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[display_name=<&a>Leader:<&sp><yaml[guild.<player.flag[guild]>].read[leader].as_player.name>;lore=<list[<&b>Members:<&sp><yaml[guild.<player.flag[guild]>].read[members].size>]>;skull_skin=<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>]>
+    - inventory set d:<context.inventory> slot:15 o:<yaml[guild.<player.flag[guild]>].read[flag].as_item>
     on player opens guild_edit_rank_gui:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt[rank]>
