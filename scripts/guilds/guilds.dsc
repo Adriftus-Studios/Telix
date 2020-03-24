@@ -1080,7 +1080,6 @@ guild_gui_events:
         - narrate "<&b>Cancelled"
       - else:
         - run rename_guild_rank def:<player.flag[guild]>|<[rank]>|<[new_name]>
-      
     - if <player.flag[context]||null> == create_guild_rank:
       - flag <player> context:!
       - determine passively cancelled
