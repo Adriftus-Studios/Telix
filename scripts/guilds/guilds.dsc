@@ -367,6 +367,9 @@ rename_guild_rank:
   definitions: guild|rank|new_name
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - narrate <[guild]>
+  - narrate <[rank]>
+  - narrate <[new_name]>
   - yaml id:guild.<[guild]> set ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>.permissions:<yaml[guild.<[guild]>].read[ranks.<[rank]>.permissions]>
   - yaml id:guild.<[guild]> set ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>.priority:<yaml[guild.<[guild]>].read[ranks.<[rank]>.priority]>
   - yaml id:guild.<[guild]> set ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>.title:<[new_name]>
