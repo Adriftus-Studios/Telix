@@ -1065,8 +1065,14 @@ guild_gui_events:
     - foreach <yaml[guild.<player.flag[guild]>].read[relations.ally]>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
     - inventory set d:<context.inventory> slot:14 o:<item[light_blue_wool].with[display_name=<&b>Allies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
-    - inventory set d:<context.inventory> slot:15 o:<item[cyan_wool].with[display_name=<&b>Truces:<&sp><yaml[guild.<player.flag[guild]>].read[relations.truce].size||0>;lore=<yaml[guild.<player.flag[guild]>].read[relations.truce]||None>]>
-    - inventory set d:<context.inventory> slot:16 o:<item[red_wool].with[display_name=<&b>Enemies:<&sp><yaml[guild.<player.flag[guild]>].read[relations.enemy].size||0>;lore=<yaml[guild.<player.flag[guild]>].read[relations.enemy]||None>]>
+    - define lore:!
+    - foreach <yaml[guild.<player.flag[guild]>].read[relations.truce]>:
+      - define lore:|:<yaml[guild.<[value]>].read[name]>
+    - inventory set d:<context.inventory> slot:14 o:<item[cyan_wool].with[display_name=<&b>Truces:<&sp><[lore].size||0>;lore=<[lore]||None>]>
+    - define lore:!
+    - foreach <yaml[guild.<player.flag[guild]>].read[relations.enemy]>:
+      - define lore:|:<yaml[guild.<[value]>].read[name]>
+    - inventory set d:<context.inventory> slot:14 o:<item[red_wool].with[display_name=<&b>Enemies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     on player opens guild_edit_rank_gui:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt[rank]>
