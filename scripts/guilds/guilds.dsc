@@ -1018,7 +1018,7 @@ guild_gui_events:
     - define rank:<context.inventory.slot[1].nbt>
     - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
       - narrate <[perm]>
-      - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<[perm]>]>
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<[perm]>]>:
         - inventory add d:<context.inventory> o:<item[green_wool]>
       - else:
         - inventory add d:<context.inventory> o:<item[red_wool]>
