@@ -1060,7 +1060,7 @@ guild_gui_events:
       - if <[line].length> > 30:
         - define lore:|:<[line].space_separated.split[<n>].parse[strip_color]>
         - define line:!
-    - define lore:|:<[line].space_separated.split[<n>].parse[strip_color]>
+    - define lore:|:<[line].space_separated.split[<n>].parse[strip_color].parse[color[aqua]]>
     - define line:!
     - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
     - inventory set d:<context.inventory> slot:12 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<player.flag[guild]>].read[flags].size||0>;patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
