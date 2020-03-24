@@ -22,7 +22,7 @@ ability_wind_blade:
     - define base:5
     - define decay:-0.2
     - define points:<player.eye_location.points_between[<player.location.forward[25]>].distance[2]>
-    - playeffect sweep_attack at:<player.location.forward.below[0.75]> quantity:1 visibility:50
+    - playeffect sweep_attack at:<[points].get[1].below[0.75]> quantity:1 visibility:50
     - repeat <[points].size> as:number:
       - if !<[points].get[<[number]>].find.living_entities.within[3].exclude[<player>].is_empty>:
         - playeffect sweep_attack at:<[points].get[<[number]>].below[0.75]> quantity:1 visibility:50
