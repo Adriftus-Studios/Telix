@@ -68,6 +68,3 @@ slime_in_a_jar_listener:
 # Stop from putting the slime in a jukebox. That doesn't sound like fun.
     on player right clicks jukebox with custom_slime_jar_*:
     - determine cancelled
-    on player right clicks block with red_wool:
-    - repeat 50:
-      - spawn <ender_crystal> <player.location>
