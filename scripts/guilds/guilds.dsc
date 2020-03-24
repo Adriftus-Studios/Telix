@@ -1047,7 +1047,7 @@ guild_gui_events:
     on player clicks in guild_info_gui:
     - if <context.raw_slot> <= <player.open_inventory.size>:
       - determine passively cancelled
-      - if <context.item.script.name> == gui_close_item:
+      - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
     on player opens guild_info_gui:
     - wait 1t
