@@ -1017,11 +1017,11 @@ guild_gui_events:
     on player chats:
     - if <player.flag[context]||null> == create_guild_rank:
       - flag <player> context:!
-      - if <context.message> == cancel:
-        - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
-      - else:
+      - determine passively cancelled
+      - if <context.message> != cancel:
+        - narrate "<&b>Created rank '<context.message>'"
         - run create_guild_rank def:<player.flag[guild]>|<context.message>
-
+      - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
     on player clicks in guild_choose_rank_to_edit_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
