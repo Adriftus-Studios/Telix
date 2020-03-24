@@ -34,6 +34,7 @@ slime_in_a_jar_listener:
   events:
     on player right clicks block with custom_slime_jar_*:
     - if <player.location.chunk.spawn_slimes> == true:
+      - flag player slimeWait2:!
       - if <player.item_in_hand> == custom_slime_jar_jump:
         - stop
       - else if !<player.has_flag[slimeWait]>:
@@ -46,8 +47,9 @@ slime_in_a_jar_listener:
         - flag player slimeWait duration:10s
       - else:
         - playsound <player> sound:block_dispenser_fail sound_category:master volume:1
-        - narrate "<&c>You are working your little slime too hard. Please wait."
+        - narrate "<&c>You are working your little slime too hard. Please wait another <&4><player.flag[slimeWait].expiration.as_duration.formatted><&c> seconds."
     - else if <player.location.chunk.spawn_slimes> == false:
+      - flag player slimeWait:!
       - if <player.item_in_hand> == custom_slime_jar_rest:
         - stop
       - else if !<player.has_flag[slimeWait2]>:
@@ -58,7 +60,7 @@ slime_in_a_jar_listener:
         - flag player slimeWait2 duration:10s
       - else:
         - playsound <player> sound:block_dispenser_fail sound_category:master volume:1
-        - narrate "<&c>You are working your little slime too hard. Please wait."
+        - narrate "<&c>You are working your little slime too hard. Please wait another <&4><player.flag[slimeWait2].expiration.as_duration.formatted><&c> seconds."
     - else:
       - narrate "Shit broke somehow?"
 
