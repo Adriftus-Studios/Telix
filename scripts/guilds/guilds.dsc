@@ -1074,8 +1074,8 @@ guild_gui_events:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
     - inventory set d:<context.inventory> slot:16 o:<item[red_wool].with[display_name=<&b>Enemies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
-    - define lore:|:<yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.title]>
-    - inventory set d:<context.inventory> slot:17 o:<item[player_head].with[skin_skull=<player.uuid>;lore=<[lore]>]>
+    - define lore:|:<&6><yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.title]>
+    - inventory set d:<context.inventory> slot:17 o:<item[player_head].with[skull_skin=<player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
     on player opens guild_edit_rank_gui:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt[rank]>
