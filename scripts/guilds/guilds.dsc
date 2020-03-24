@@ -1072,6 +1072,7 @@ guild_gui_events:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
     on player clicks in guild_manage_member_gui:
+    - narrate <context.item.script.name>
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
     on player clicks gui_close_btn in guild_manage_member_gui:
