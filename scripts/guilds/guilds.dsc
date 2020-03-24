@@ -670,7 +670,7 @@ guild_events:
       - stop
     - if <context.book> == <item[new_guild_book]>:
       - wait 1t
-      - narrate <context.book.book_pages>
+      - narrate <context.book.book_pages.get[1].replace[<&chr[240a]>].with[<&sp>]>
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
         - determine passively NOT_SIGNING
