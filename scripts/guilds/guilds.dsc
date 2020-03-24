@@ -1051,12 +1051,12 @@ guild_gui_events:
     - wait 1t
     - define desc:<yaml[guild.<player.flag[guild]>].read[description].as_list.get[1]>
     - foreach <[desc].split[<&sp>]>:
-      - define line:|:<[value]>
+      - define line:|:<&b><[value]>
       - if <[line].length> > 30:
         - define lore:|:<[line].separated_by[<&sp>]>
         - define line:!
     - define lore:|:<[line].separated_by[<&sp>]>
-    - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
+    - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
     - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[display_name=<&a>Leader:<&sp><yaml[guild.<player.flag[guild]>].read[leader].as_player.name>;lore=<list[<&c>Members:<&sp><yaml[guild.<player.flag[guild]>].read[members].size>]>;skull_skin=<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>]>
     on player opens guild_edit_rank_gui:
     - wait 1t
