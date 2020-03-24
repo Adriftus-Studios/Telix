@@ -1014,7 +1014,7 @@ guild_gui_events:
   type: world
   events:
     on player opens guild_edit_rank_gui:
-    - wait 1t
+    - wait 3t
     - define rank:<context.inventory.slot[1].nbt>
     - narrate <[rank]>
     - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
