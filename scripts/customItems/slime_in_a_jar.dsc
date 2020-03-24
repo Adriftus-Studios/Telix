@@ -1,7 +1,7 @@
 
 custom_slime_jar_rest:
   type: item
-  material: music_disk_13
+  material: music_disc_13
   mechanisms:
     custom_model_data: 1
   display name: <&b>Slime-in-a-Jar
@@ -15,7 +15,7 @@ custom_slime_jar_rest:
 
 custom_slime_jar_jump:
   type: item
-  material: music_disk_13
+  material: music_disc_13
   mechanisms:
     custom_model_data: 2
   display name: <&b>Slime-in-a-Jar
