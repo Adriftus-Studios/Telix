@@ -41,7 +41,7 @@ slime_in_a_jar_listener:
         - narrate "<&6>Your little slime starts to bounce around in its jar!"
         - take slot:<[slimeSlot]> quantity:1
         - inventory set d:<player.inventory> o:custom_slime_jar_jump slot:<[slimeSlot]>
-        - title title:<&a>Slime! subtitle:<&6>Your little slime has found its family!
+        - title title:<&a>Slime! subtitle:"<&6>Your little slime has found its family!"
         - playsound <player> sound:entity_player_levelup sound_category:master volume:1
         - flag player slimeWait duration:10s
       - else:
