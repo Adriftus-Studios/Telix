@@ -1062,8 +1062,8 @@ guild_gui_events:
     - inventory set d:<context.inventory> slot:12 o:<item[player_head].with[display_name=<&a>Leader:<&sp><yaml[guild.<player.flag[guild]>].read[leader].as_player.name>;lore=<list[<&b>Members:<&sp><yaml[guild.<player.flag[guild]>].read[members].size>]>;skull_skin=<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>]>
     - inventory set d:<context.inventory> slot:13 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<player.flag[guild]>].read[flags].size||0>patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
     - inventory set d:<context.inventory> slot:14 o:<item[light_blue_wool].with[display_name=<&b>Allies:<&sp><yaml[guild.<player.flag[guild]>].read[relation.ally].size||0>;lore=<yaml[guild.<player.flag[guild]>].read[relation.ally]||None>]>
-    - inventory set d:<context.inventory> slot:14 o:<item[light_blue_wool].with[display_name=<&b>Truces:<&sp><yaml[guild.<player.flag[guild]>].read[relation.truce].size||0>;lore=<yaml[guild.<player.flag[guild]>].read[relation.truce]||None>]>
-    - inventory set d:<context.inventory> slot:14 o:<item[light_blue_wool].with[display_name=<&b>Enemies:<&sp><yaml[guild.<player.flag[guild]>].read[relation.enemy].size||0>;lore=<yaml[guild.<player.flag[guild]>].read[relation.enemy]||None>]>
+    - inventory set d:<context.inventory> slot:15 o:<item[light_blue_wool].with[display_name=<&b>Truces:<&sp><yaml[guild.<player.flag[guild]>].read[relation.truce].size||0>;lore=<yaml[guild.<player.flag[guild]>].read[relation.truce]||None>]>
+    - inventory set d:<context.inventory> slot:16 o:<item[light_blue_wool].with[display_name=<&b>Enemies:<&sp><yaml[guild.<player.flag[guild]>].read[relation.enemy].size||0>;lore=<yaml[guild.<player.flag[guild]>].read[relation.enemy]||None>]>
       - yaml id:guild.<[guild]> set relation.enemy:<-:<[other]>
       - yaml id:guild.<[other]> set relation.enemy:<-:<[guild]>
       - yaml id:guild.<[guild]> set relation.truce:<-:<[other]>
