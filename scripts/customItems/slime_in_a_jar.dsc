@@ -70,4 +70,4 @@ slime_in_a_jar_listener:
     - determine cancelled
     on player right clicks block with red_wool:
     - repeat 50:
-        - spawn <end_crystal> <player.location>
+      - spawn <ender_crystal> <player.location>
