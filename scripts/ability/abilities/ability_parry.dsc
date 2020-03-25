@@ -29,7 +29,7 @@ ability_parry:
     - glow <player> false
   events:
     #Start Parry
-    on player right clicks block with *_sword:
+    on player right clicks air with *_sword:
       - yaml id:player.<player.uuid> set stats.power.current:<yaml[player.<player.uuid>].read[stats.power.max]||20>
       - if !<player.has_flag[parrying]>:
         #Target Skill Tree: Fisticuffs, Target Points Requirement: 10, Target Power Cost: 5
@@ -38,7 +38,7 @@ ability_parry:
         - flag player parrying:true duration:2s
         - run bb_timer def:<&5>Parrying|2s|purple
         #- playsound <player.location.forward> sound:ability.fisticuffs.parry custom
-        - inject locally animation
+        #- inject locally animation
     #Execute Riposte
     on player damaged by entity flagged:parrying:
       - if <context.damager.location.distance[<player.location>]||5> <= 3:

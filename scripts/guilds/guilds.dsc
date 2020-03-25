@@ -340,6 +340,18 @@ player_leave_guild:
     - narrate player:<[member]> "<&c><[player].name> has left the guild."
   - narrate "<&c>You have left the guild."
 
+delete_guild_rank:
+  type: task
+  definitions: guild|rank
+  script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - if <yaml[guild.<[guild]>].read[default_rank]> == <[rank]>:
+    - stop
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>:!
+  - foreach <yaml[guild.<[guild]>].read[members]> as:member:
+    - if <[member].as_player.flag[guild_rank]> == <[rank]>:
+      - flag <[member].as_player> guild_rank:<yaml[guild.<[guild]>].read[default_rank]>
+
 create_guild_rank:
   type: task
   definitions: guild|rank
@@ -349,6 +361,22 @@ create_guild_rank:
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>.title:<[rank]>
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>.priority:1
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>.permissions:|:view_members
+
+rename_guild_rank:
+  type: task
+  definitions: guild|rank|new_name
+  script:
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - narrate <[guild]>
+  - narrate <[rank]>
+  - narrate <[new_name]>
+  - yaml id:guild.<[guild]> set ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>.permissions:<yaml[guild.<[guild]>].read[ranks.<[rank]>.permissions]>
+  - yaml id:guild.<[guild]> set ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>.priority:<yaml[guild.<[guild]>].read[ranks.<[rank]>.priority]>
+  - yaml id:guild.<[guild]> set ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>.title:<[new_name]>
+  - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>:!
+  - foreach <yaml[guild.<[guild]>].read[members]> as:member:
+    - if <[member].as_player.flag[guild_rank]> == <[rank]>:
+      - flag <[member].as_player> guild_rank:<[new_name].to_lowercase.replace[<&sp>].with[_]>
 
 kick_from_guild:
   type: task
@@ -414,12 +442,12 @@ create_guild:
   - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
     - yaml id:guild.<[guild]> set ranks.leader.permissions:|:<[perm]>
   - yaml id:guild.<[guild]> set ranks.leader.title:Leader
-  - yaml id:guild.<[guild]> set ranks.leader.priority:3
+  - yaml id:guild.<[guild]> set ranks.leader.priority:100
   - yaml id:guild.<[guild]> set default_rank:member
   - yaml id:guild.<[guild]> set ranks.member.title:Member
   - yaml id:guild.<[guild]> set ranks.member.priority:1
   - yaml id:guild.<[guild]> set ranks.mod.title:Mod
-  - yaml id:guild.<[guild]> set ranks.mod.priority:2
+  - yaml id:guild.<[guild]> set ranks.mod.priority:50
   - foreach <list[manage_flags|manage_members|place_flag|remove_flag|kick_members|invite_members|manage_relations|access_bank]> as:perm:
     - yaml id:guild.<[guild]> set ranks.mod.permissions:|:<[perm]>
   - note <inventory[guild_flags_gui]> as:guild_<[guild]>_flags
@@ -563,12 +591,12 @@ change_guild_relation:
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&4><yaml[guild.<[guild]>].read[name]> has just declared war against your guild!"
     - case neutral:
-      - yaml id:guild.<[guild]> set relation.enemy:<-:<[other]>
-      - yaml id:guild.<[other]> set relation.enemy:<-:<[guild]>
-      - yaml id:guild.<[guild]> set relation.truce:<-:<[other]>
-      - yaml id:guild.<[other]> set relation.truce:<-:<[guild]>
-      - yaml id:guild.<[guild]> set relation.ally:<-:<[other]>
-      - yaml id:guild.<[other]> set relation.ally:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relations.enemy:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.enemy:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relations.truce:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.truce:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relations.ally:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.ally:<-:<[guild]>
       - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&a>Your guild is now at peace with <yaml[guild.<[other]>].read[name]>!"
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
@@ -665,7 +693,7 @@ new_guild_book:
   material: writable_book
   display name: <&7>New Guild Book
   lore:
-  - "<&b>Use the pages to write your guild description,"
+  - "<&b>Use the first page to write your guild description,"
   - "<&b>Then sign the book with the name of your guild."
 
 guild_flag_indicator:
@@ -749,18 +777,6 @@ guild_leave_confirmation_gui:
   - "[gui_leave_confirm_top] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[gui_leave_confirm_bottom] [] [guild_leave_yes_btn] [] [] [] [guild_leave_no_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-
-guild_info_gui:
-  type: inventory
-  title: <&6>◆ <&a><&n><&l>Guild Info<&r> <&6>◆
-  size: 27
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    closeitem: <item[gui_close_btn]>
-  slots:
-  - "[gui_guild_info_top] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_guild_info_bottom] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 new_guild_gui:
   type: inventory
@@ -987,7 +1003,7 @@ guild_choose_rank_to_edit_gui:
 guild_edit_rank_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Edit Rank<&r> <&6>◆
-  size: 36
+  size: 45
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -995,41 +1011,124 @@ guild_edit_rank_gui:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [rename_guild_rank_btn] [delete_guild_rank_btn] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+delete_guild_rank_btn:
+  type: item
+  material: barrier
+  display name: <&c>Delete Rank
+
+rename_guild_rank_btn:
+  type: item
+  material: ender_pearl
+  display name: <&b>Rename Rank
 
 create_guild_rank_btn:
   type: item
-  material: iron_nugget
+  material: nether_star
   display name: <&a>Create new rank
 
-create_guild_rank_name_btn:
-  type: item
-  material: iron_nugget
-
-player_anvil:
+guild_info_gui:
   type: inventory
-  inventory: anvil
+  title: <&6>◆ <&a><&n><&l>Guild Info<&r> <&6>◆
+  size: 27
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[gui_guild_info_top] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_guild_info_bottom] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_gui_events:
   type: world
   events:
+    on player clicks in guild_info_gui:
+    - if <context.raw_slot> <= <player.open_inventory.size>:
+      - determine passively cancelled
+      - if <context.item.script.name> == gui_close_btn:
+        - inventory open d:<inventory[my_guild_gui]>
+    on player opens guild_info_gui:
+    - wait 1t
+    - define desc:<yaml[guild.<player.flag[guild]>].read[description].as_list.get[1]>
+    - define lore:|:<&a>Leader:<&sp><yaml[guild.<player.flag[guild]>].read[leader].as_player.name>
+    - define lore:|:<&b>Members:<&sp><yaml[guild.<player.flag[guild]>].read[members].size>
+    - define lore:|:<&b>
+    - foreach <[desc].split[<n>].parse[strip_color]> as:p:
+      - foreach <[p].split[<&sp>]>:
+        - define line:|:<[value]>
+        - if <[line].length> > 50:
+          - define lore:|:<[line].separated_by[<&sp>]>
+          - define line:!
+      - define lore:|:<[line].separated_by[<&sp>]>
+    - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
+    - inventory set d:<context.inventory> slot:12 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<player.flag[guild]>].read[flags].size||0>;patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
+    - define lore:!
+    - foreach <yaml[guild.<player.flag[guild]>].read[relations.ally]||<list[]>>:
+      - define lore:|:<yaml[guild.<[value]>].read[name]>
+    - inventory set d:<context.inventory> slot:15 o:<item[light_blue_wool].with[display_name=<&b>Allies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
+    - define lore:!
+    - foreach <yaml[guild.<player.flag[guild]>].read[relations.truce]||<list[]>>:
+      - define lore:|:<yaml[guild.<[value]>].read[name]>
+    - inventory set d:<context.inventory> slot:16 o:<item[cyan_wool].with[display_name=<&b>Truces:<&sp><[lore].size||0>;lore=<[lore]||None>]>
+    - define lore:!
+    - foreach <yaml[guild.<player.flag[guild]>].read[relations.enemy]||<list[]>>:
+      - define lore:|:<yaml[guild.<[value]>].read[name]>
+    - inventory set d:<context.inventory> slot:17 o:<item[red_wool].with[display_name=<&b>Enemies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
+    - define lore:!
+    - define lore:|:<&6><yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.title]>
+    - define lore:|:<&b>
+    - define lore:|:<&b>Your<&sp>Permissions:
+    - foreach <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]> as:perm:
+      - define lore:|:<&a><[perm].replace[_].with[<&sp>].to_titlecase>
+    - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[skull_skin=<player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
     on player opens guild_edit_rank_gui:
     - wait 1t
-    - define rank:<context.inventory.slot[1].nbt>
+    - define rank:<context.inventory.slot[1].nbt[rank]>
     - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
-      - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<[perm]>]>
-        - inventory add d:<context.inventory> o:<item[green_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>]>
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<[perm]>]>:
+        - inventory add d:<context.inventory> o:<item[green_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>;nbt=perm/<[perm]>;lore=<list[Click<&sp>to<&sp>disable.]>]>
       - else:
-        - inventory add d:<context.inventory> o:<item[red_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>]>
+        - inventory add d:<context.inventory> o:<item[red_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>;nbt=perm/<[perm]>;lore=<list[Click<&sp>to<&sp>enable.]>]>
     on player clicks in guild_edit_rank_gui:
-    - if <context.raw_slot> <= 36:
+    - if <context.raw_slot> <= 45:
       - determine passively cancelled
+      - define rank:<context.inventory.slot[1].nbt[rank]>
+      - if <context.item.script.name> == gui_close_btn:
+        - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
+      - if <context.item.script.name> == delete_guild_rank_btn:
+        - run delete_guild_rank def:<player.flag[guild]>|<[rank]>
+        - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
+      - if <context.item.script.name> == rename_guild_rank_btn:
+        - flag <player> context:rename_guild_rank|<[rank]>
+        - narrate "<&b>Type the new name of your rank here, or type 'cancel' to go back. (No one can see your chat)"
+        - inventory close
+      - if <context.item.nbt[perm]||null> != null:
+        - if <context.item.material.name> == red_wool:
+          - run edit_guild_rank_permission def:<player.flag[guild]>|<[rank]>|<context.item.nbt[perm]>|add
+        - if <context.item.material.name> == green_wool:
+          - run edit_guild_rank_permission def:<player.flag[guild]>|<[rank]>|<context.item.nbt[perm]>|remove
+        - define inv:<inventory[guild_edit_rank_gui]>
+        - inventory open d:<[inv]>
+        - inventory adjust d:<[inv]> slot:1 nbt:rank/<[rank]>
     on player chats:
+    - if <player.flag[context].starts_with[rename_guild_rank]||false> == true:
+      - determine passively cancelled
+      - define rank:<player.flag[context].split[|].get[2]>
+      - define new_name:<context.message>
+      - flag <player> context:!
+      - if <context.message> == cancel:
+        - narrate "<&b>Cancelled"
+      - else:
+        - narrate "<&b>Renamed rank to <[new_name]>."
+        - run rename_guild_rank def:<player.flag[guild]>|<[rank]>|<[new_name]>
+      - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
     - if <player.flag[context]||null> == create_guild_rank:
       - flag <player> context:!
       - determine passively cancelled
       - if <context.message> != cancel:
-        - narrate "<&b>Created rank '<context.message>'"
+        - narrate "<&b>Created rank '<context.message>'."
         - run create_guild_rank def:<player.flag[guild]>|<context.message>
       - else:
         - narrate "<&b>Cancelled."
@@ -1040,7 +1139,7 @@ guild_gui_events:
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[guild_settings_gui]>
       - if <context.item.script.name> == create_guild_rank_btn:
-        - narrate "<&b>Type the new name of your rank here, or type 'cancel' to go back. (No one can see your chat)"
+        - narrate "<&b>Type the name of your rank here, or type 'cancel' to go back. (No one can see your chat)"
         - flag <player> context:create_guild_rank
         - inventory close
       - if <context.item.nbt[rank]||null> != null:
@@ -1165,12 +1264,6 @@ guild_gui_events:
     on player clicks guilds_view_info_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_info_gui]>
-    on player clicks in guild_info_gui:
-    - if <context.raw_slot> <= <player.open_inventory.size>:
-      - determine passively cancelled
-    on player opens guild_info_gui:
-    - wait 1t
-    - define desc:<yaml[guild.<player.flag[guild]>].read[description]>
     on player clicks guilds_manage_claim_flags in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_flags]>:
