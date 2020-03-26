@@ -6,7 +6,7 @@ ability_fireball:
   ability_type: active
   points_to_unlock: 15
   power_cost: 10
-  description: Shoot a fireball towards your targeted location
+  description: Shoot a fireball towards your targeted location.
   icon:
     material: stone
     custom_model_data: 1
@@ -26,5 +26,5 @@ ability_fireball_script:
       - hurt <[value].location.distance[<[hit]>].*[1.25].round_to[1]> <[value]>
       #Replace burn with calculate_burn proc
       - burn <[value]> duration:10t
-      - adjust <[value]> velocity:0,1,0
+      - adjust <[value]> velocity:0,0.8,0
     - playeffect explosion_large at:<[hit]> quantity:1 visibility:50

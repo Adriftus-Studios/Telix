@@ -6,7 +6,7 @@ ability_explosive_blast:
   ability_type: active
   points_to_unlock: 20
   power_cost: 15
-  description: Cast an explosion at your targeted location
+  description: Cast an explosion at your targeted location.
   usage: Power increases as the target distance increases.
   icon:
     material: stone
@@ -23,10 +23,17 @@ ability_explosive_blast:
       - stop
     - inject abilities_check
     - inject abilities_cost
+    #Keep power in bounds
     - if <[power]> < <[min]>:
       - define power:<[min]>
     - else if <[power]> > <[max]>:
       - define power:<[max]>
+    #Warmup
+    - define points:<player.location.cursor_on.above[15].points_between[<player.location.cursor_on>].distance[1.5]>
+    - repeat <[points].size> as:number:
+      - playeffect lava at:<[points].get[<[number]>]> quantity:5 visibility:50
+      - wait 1t
+    #Damage
     - foreach <[target].find.entities.within[<[power]>]>:
       #Replace burn with calculate_burn proc
       - burn <[value]> duration:<[power].*[1.5]>
