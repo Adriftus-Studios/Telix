@@ -29,7 +29,7 @@ ability_explosive_blast:
     - else if <[power]> > <[max]>:
       - define power:<[max]>
     #Warmup
-    - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[3]>
+    - define points:<player.location.cursor_on.points_between[<player.location.cursor_on.above[25]>].distance[3]>
     - repeat <[points].size> as:number:
       - playeffect flame at:<[points].get[<[number]>]> quantity:1 visibility:50
       - wait 1t
