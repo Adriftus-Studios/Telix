@@ -31,7 +31,7 @@ ability_explosive_blast:
     #Warmup
     - define points:<player.location.cursor_on.above[15].points_between[<player.location.cursor_on>].distance[1.5]>
     - repeat <[points].size> as:number:
-      - playeffect drip_lava at:<[points].get[<[number]>]> quantity:5visibility:50
+      - playeffect drip_lava at:<[points].get[<[number]>]> quantity:5 visibility:50
       - wait 1t
     #Damage
     - foreach <[target].find.entities.within[<[power]>]>:
