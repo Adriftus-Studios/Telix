@@ -6,7 +6,7 @@ ability_fireball:
   ability_type: active
   points_to_unlock: 15
   power_cost: 10
-  description: Shoot a fireball towards your targeted location
+  description: Shoot a fireball towards your targeted location.
   icon:
     material: stone
     custom_model_data: 1
@@ -14,7 +14,7 @@ ability_fireball:
     #Target Skill Tree: Nether, Target Points Requirement: 15, Target Power Cost: 10
     - inject abilities_check
     - inject abilities_cost
-    - shoot fireball d:<player.location.cursor_on> speed:2.20 height:0 shooter:<player> script:ability_fireball_script
+    - shoot fireball d:<player.location.cursor_on> speed:2.15 height:0 shooter:<player> script:ability_fireball_script
     
 ability_fireball_script:
   type: task
