@@ -29,7 +29,7 @@ ability_explosive_blast:
     - else if <[power]> > <[max]>:
       - define power:<[max]>
     #Warmup
-    - define points:<player.location.cursor_on.above[15].points_between[<player.location.cursor_on>].distance[1.5]>
+    - define points:<player.location.cursor_on.above[15].points_between[<player.location.cursor_on>].distance[1]>
     - repeat <[points].size> as:number:
       - playeffect lava at:<[points].get[<[number]>]> quantity:5 visibility:50
       - wait 1t
