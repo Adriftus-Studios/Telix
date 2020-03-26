@@ -107,6 +107,12 @@ bb_status:
       
     #Check for effect, define title
     - choose <[effect]>:
+      #Abilities
+      - case fire_arrows:
+        - define title:<&c><&l><[effect].replace[_].with[<&sp>].to_titlecase>
+        - define icon:<&c>⇱
+        - define color:RED
+      #Effects
       - case stun:
         - define title:<&e><&l><[effect].to_titlecase>
         - define icon:<&e>⚡
@@ -119,6 +125,7 @@ bb_status:
         - define title:<&c><&l><[effect].to_titlecase>
         - define icon:<&c>☀
         - define color:RED
+      #Default
       - default:
         - define title:<&7><&l><[effect].to_titlecase>
         - define icon:<&7>x
