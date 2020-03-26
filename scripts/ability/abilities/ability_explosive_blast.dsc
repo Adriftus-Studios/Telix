@@ -5,8 +5,8 @@ ability_explosive_blast:
   ability_tree: Nether
   ability_type: active
   points_to_unlock: 20
-  power_cost: 0
-  description: Cast an explosion at your targeted location
+  power_cost: 15
+  description: Cast an explosion at your targeted location.
   usage: Power increases as the target distance increases.
   icon:
     material: stone
