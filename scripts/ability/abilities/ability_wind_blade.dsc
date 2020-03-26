@@ -5,7 +5,7 @@ ability_wind_blade:
   ability_type: active
   points_to_unlock: 15
   power_cost: 10
-  description: Launch a blade of wind to cut through opponents
+  description: Launch a blade of wind to cut through opponents.
   icon:
     material: stone
     custom_model_data: 1
@@ -19,8 +19,8 @@ ability_wind_blade:
     #Target Skill Tree: Aer, Target Points Requirement: 15, Target Power Cost: 10
     - inject abilities_check
     - inject abilities_cost
-    - define base:5
-    - define decay:-0.2
+    - define base:6
+    - define decay:-0.24
     - define points:<player.eye_location.points_between[<player.location.forward[25]>].distance[2]>
     - playeffect sweep_attack at:<[points].get[2].below[0.75]> quantity:1 visibility:50
     - repeat <[points].size> as:number:
