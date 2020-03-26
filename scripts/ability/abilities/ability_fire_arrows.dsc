@@ -11,6 +11,7 @@ ability_fire_arrows:
     custom_model_data: 10
   script:
     - flag player fire_arrows:true duration:15s
+    - run bb_status def:fire_arrows|15s
 
 abilities_fire_arrows_events:
   type: world
