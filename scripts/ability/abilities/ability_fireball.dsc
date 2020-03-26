@@ -14,7 +14,7 @@ ability_fireball:
     #Target Skill Tree: Nether, Target Points Requirement: 15, Target Power Cost: 10
     - inject abilities_check
     - inject abilities_cost
-    - shoot fireball d:<player.location.cursor_on> speed:2.15 height:0 shooter:<player> script:ability_fireball_script
+    - shoot fireball d:<player.location.cursor_on> speed:2.20 height:0 shooter:<player> script:ability_fireball_script
     
 ability_fireball_script:
   type: task
