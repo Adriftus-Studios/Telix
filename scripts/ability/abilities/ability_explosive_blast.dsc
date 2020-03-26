@@ -23,10 +23,17 @@ ability_explosive_blast:
       - stop
     - inject abilities_check
     - inject abilities_cost
+    #Keep power in bounds
     - if <[power]> < <[min]>:
       - define power:<[min]>
     - else if <[power]> > <[max]>:
       - define power:<[max]>
+    #Warmup
+    - define points:<player.eye_location.points_between[<player.location.cursor_on>].distance[3]>
+    - repeat <[points].size> as:number:
+      - playeffect flame at:<[points].get[<[number]>]> quantity:1 visibility:50
+      - wait 1t
+    #Damage
     - foreach <[target].find.entities.within[<[power]>]>:
       #Replace burn with calculate_burn proc
       - burn <[value]> duration:<[power].*[1.5]>
