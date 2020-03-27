@@ -580,8 +580,8 @@ resend_recipes_command:
 
 testt_command:
   type: command
-  name: test
-  permission: test
+  name: testt
+  permission: testt
   script:
     - narrate 1
     - foreach <server.list_material_types.parse[name]>:
