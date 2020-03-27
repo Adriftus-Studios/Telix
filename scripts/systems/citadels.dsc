@@ -152,6 +152,7 @@ custom_citadel_test_item:
 get_citadel_durability:
   type: procedure
   definitions: location
+  debug: false
   script:
     - if <[location].material.side> == TOP:
       - define location:<[location].other_block>
@@ -165,6 +166,7 @@ get_citadel_durability:
 get_lock_durability:
   type: procedure
   definitions: location
+  debug: false
   script:
     - if <[location].material.name.ends_with[door]>:
       - if <[location].material.side> == TOP:
@@ -187,6 +189,7 @@ get_lock_durability:
 reinforce_block:
   type: task
   definitions: player|location|strength
+  debug: false
   script:
   - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<[location].simple>.yml]>:
     - if !<yaml.list.contains[reinforced_block_<[location].simple>]>:
@@ -201,6 +204,7 @@ reinforce_block:
 lock_container:
   type: task
   definitions: player|location|strength
+  debug: false
   script:
   - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_containers].contains[<[location].simple>.yml]>:
     - if !<yaml.list.contains[locked_container_<[location].simple>]>:
@@ -215,6 +219,7 @@ lock_container:
 lock_door:
   type: task
   definitions: player|location|strength
+  debug: false
   script:
   - if <[location].material.half> == TOP:
     - define location:<[location].down[1]>

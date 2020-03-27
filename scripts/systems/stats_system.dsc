@@ -146,6 +146,7 @@ calculate_encumberance_speed:
 calculate_contamination:
   type: task
   definitions: player
+  debug: false
   script:
     - wait 3t
     - if <player.is_online>:
@@ -170,6 +171,7 @@ calculate_contamination:
 
 contamination_events:
   type: world
+  debug: false
   events:
     on player respawns bukkit_priority:HIGHEST:
       - wait 1t
