@@ -2667,6 +2667,11 @@ custom_map:
   display name: <&7>Map
   weight: '1'
   type: item
+custom_cat_spawn_egg:
+  material: cat_spawn_egg
+  display name: <&7>Cat Spawn Egg
+  weight: '1'
+  type: item
 custom_cocoa:
   material: cocoa
   display name: <&7>Cocoa
