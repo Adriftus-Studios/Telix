@@ -1085,6 +1085,9 @@ guild_gui_events:
               - run change_guild_relation def:<player.flag[guild]>|<[guild]>|enemy|<player>
         - if <context.item.script.name||null> == neutral_guild_icon:
           - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_relations]>:
+            - narrate <yaml[guild.<[guild]>].read[relations.enemy].contains[<player.flag[guild]>]||false>
+            - narrate <yaml[guild.<[guild]>].read[relations.ally].contains[<player.flag[guild]>]||false>
+            - narrate <yaml[guild.<[guild]>].read[relations.truce].contains[<player.flag[guild]>]||false>
             - if <yaml[guild.<[guild]>].read[relations.enemy].contains[<player.flag[guild]>]||false> && <yaml[guild.<[guild]>].read[relations.ally].contains[<player.flag[guild]>]||false> && <yaml[guild.<[guild]>].read[relations.truce].contains[<player.flag[guild]>]||false>:
               - narrate "<&a>You already have neutrality with <yaml[guild.<[guild]>].read[name]>"
             - else:
