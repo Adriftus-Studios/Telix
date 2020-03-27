@@ -558,11 +558,19 @@ change_guild_relation:
     - case ally:
       - yaml id:guild.<[guild]> set relations.ally:->:<[other]>
       - yaml id:guild.<[other]> set relations.ally:->:<[guild]>
+      - yaml id:guild.<[guild]> set relations.enemy:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.enemy:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relations.truce:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.truce:<-:<[guild]>
       - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&b>Your guild is now an ally of <yaml[guild.<[other]>].read[name]>!"
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&b>Your guild is now an ally of <yaml[guild.<[guild]>].read[name]>!"
     - case truce:
+      - yaml id:guild.<[guild]> set relations.ally:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.ally:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relations.enemy:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.enemy:<-:<[guild]>
       - yaml id:guild.<[guild]> set relations.truce:->:<[other]>
       - yaml id:guild.<[other]> set relations.truce:->:<[guild]>
       - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
@@ -570,13 +578,23 @@ change_guild_relation:
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&3>Your guild is now in a truce with <yaml[guild.<[guild]>].read[name]>!"
     - case enemy:
+      - yaml id:guild.<[guild]> set relations.ally:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.ally:<-:<[guild]>
       - yaml id:guild.<[guild]> set relations.enemy:->:<[other]>
       - yaml id:guild.<[other]> set relations.enemy:->:<[guild]>
+      - yaml id:guild.<[guild]> set relations.truce:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.truce:<-:<[guild]>
       - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&4>You have just declared war against <yaml[guild.<[other]>].read[name]>!"
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&4><yaml[guild.<[guild]>].read[name]> has just declared war against your guild!"
     - default:
+      - yaml id:guild.<[guild]> set relations.ally:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.ally:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relations.enemy:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.enemy:<-:<[guild]>
+      - yaml id:guild.<[guild]> set relations.truce:<-:<[other]>
+      - yaml id:guild.<[other]> set relations.truce:<-:<[guild]>
       - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&a>Your guild is now at peace with <yaml[guild.<[other]>].read[name]>!"
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
