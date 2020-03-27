@@ -1079,16 +1079,16 @@ guild_gui_events:
                     - narrate player:<[value]> "<&3><yaml[guild.<player.flag[guild]>].read[name]> has requested a truce with your guild."
         - if <context.raw_slot> == 17:
           - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_relations]>:
-              - if <yaml[guild.<[guild]>].read[relations.enemy].contains[<player.flag[guild]>]||false>:
-                - narrate "Your guild is already at war with <yaml[guild.<[guild]>].read[name]>"
-              - else:
-                - run change_guild_relation def:<player.flag[guild]>|<[guild]>|enemy|<player>
+            - if <yaml[guild.<[guild]>].read[relations.enemy].contains[<player.flag[guild]>]||false>:
+              - narrate "Your guild is already at war with <yaml[guild.<[guild]>].read[name]>"
+            - else:
+              - run change_guild_relation def:<player.flag[guild]>|<[guild]>|enemy|<player>
         - if <context.item.script.name||null> == neutral_guild_icon:
           - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_relations]>:
             - if <yaml[guild.<[guild]>].read[relations.neutral].contains[<player.flag[guild]>]||false>:
-              - narrate "<&a>You are already at neutrality with <yaml[guild.<[guild]>].read[name]>"
+              - narrate "<&a>You already have neutrality with <yaml[guild.<[guild]>].read[name]>"
             - else:
-              - if <yaml[guild.<player.flag[guild]>].read[relations.request.ally].contains[<[guild]>]||false>:
+              - if <yaml[guild.<player.flag[guild]>].read[relations.request.neutral].contains[<[guild]>]||false>:
                 - run change_guild_relation def:<player.flag[guild]>|<[guild]>|neutral|<player>
               - else:
                 - if <yaml[guild.<[guild]>].read[relations.request.neutral].contains[<player.flag[guild]>]||false>:
