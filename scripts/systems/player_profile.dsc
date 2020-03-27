@@ -12,7 +12,7 @@ player_profile_events:
       - wait 1t
       - define playr:<context.inventory.slot[11].skin.as_player>
       - if <[playr].flag[guild]||null> != null:
-        - inventory set d:<context.inventory> slot:17 o:<yaml[guild.<[playr].flag[guild]>].read[flag].as_item>
+        - inventory set d:<context.inventory> slot:17 o:<yaml[guild.<[playr].flag[guild]>].read[flag].as_item.with[nbt=guild/<yaml[guild.<[playr].flag[guild]>].read[name]>]>
         - inventory adjust d:<context.inventory> slot:17 display_name:<&a><&l>Guild:<&sp><&r><&b><yaml[guild.<[playr].flag[guild]>].read[name]>
       - else:
         - inventory set d:<context.inventory> slot:17 o:<item[player_profile_no_guild_btn]>
