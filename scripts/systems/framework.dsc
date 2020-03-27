@@ -616,8 +616,8 @@ build_item:
         - adjust def:item patterns:<[old_item].patterns>
       - if <[old_item].base_color||null> != null:
         - adjust def:item base_color:<[old_item].base_color>
-      - if <[old_item].skull_skin||null> != null:
-        - adjust def:item skull_skin:<[old_item].skull_skin>
+      - if <[old_item].skin||null> != null:
+        - adjust def:item skull_skin:<[old_item].skin>
     - if <[item].script.yaml_key[category]||null> != null:
       - if <[item].script.yaml_key[category]> == fishing_rod:
         - define lore:|:<&6><&l><&m>-------------<&r><&6><&sp><&sp>Fishing<&sp>Rod<&sp><&sp><&l><&m>-------------
