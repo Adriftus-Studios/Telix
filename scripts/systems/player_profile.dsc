@@ -7,9 +7,7 @@ player_profile_events:
         - if <player.is_sneaking>:
           - define inv:<inventory[player_profile_gui]>
           - inventory open d:<[inv]>
-          - narrate <context.entity>
-          - wait 1t
-          - inventory set d:<[inv]> slot:11 o:<item[player_skull].with[skull_skin=<context.entity.uuid>]>
+          - inventory set d:<[inv]> slot:11 o:<item[player_head].with[skull_skin=<context.entity.uuid>]>
     on player opens player_profile_gui:
       - wait 2t
       - define player:<context.inventory.slot[1].nbt[player]>
