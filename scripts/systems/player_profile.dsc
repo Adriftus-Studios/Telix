@@ -11,7 +11,8 @@ player_profile_events:
     on player opens player_profile_gui:
       - wait 1t
       - define playr:<context.inventory.slot[11].skin.as_player>
-      - narrate <[playr]>
+      - if <[playr].flag[guild]||null> != null:
+        - inventory set <context.inventory> slot:17 o:<yaml[guild.<[playr].flag[guild]>].read[flag].as_item>
     on player clicks in player_profile_gui:
       - if <context.raw_slot> <= 27:
         - determine passively cancelled
