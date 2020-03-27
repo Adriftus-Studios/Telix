@@ -590,10 +590,11 @@ build_item_command:
 build_item:
   type: task
   script:
-  - if <[item].material.name> != air:
+  - if <[item].material.name||air> != air:
     - define old_item:<[item]>
     - if <[item].script||null> == null:
       - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>;custom_model_data=<[item].custom_model_data||0>;nbt=<[item].nbt||<list[]>>;enchantments=<[item].enchantments||<list[]>>;nbt_attributes=<[item].nbt_attributes||<list[]>>]>
+      - narrate <[old_item].material.name>
       - if <[old_item].patterns||null> != null:
         - adjust def:item patterns:<[old_item].patterns>
       - if <[old_item].base_color||null> != null:
