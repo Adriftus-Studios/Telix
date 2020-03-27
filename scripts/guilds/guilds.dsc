@@ -1191,7 +1191,6 @@ guild_gui_events:
       - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[skull_skin=<yaml[guild.<[guild]>].read[leader].as_player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
     - else:
       - inventory set d:<context.inventory> slot:13 o:<item[air]>
-      
     on player opens guild_edit_rank_gui:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt[rank]>
@@ -1265,9 +1264,9 @@ guild_gui_events:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[change_settings]>:
-
+        - narrate TODO
     on player clicks set_guild_flag_btn in guild_settings_gui:
-
+    - narrate TODO
     on player clicks guilds_edit_ranks_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
