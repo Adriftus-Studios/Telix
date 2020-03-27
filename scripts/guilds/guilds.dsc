@@ -1140,9 +1140,9 @@ guild_gui_events:
       - foreach <yaml[guild.<[guild]>].read[relations.truce]||<list[]>>:
         - define lore:|:<yaml[guild.<[value]>].read[name]>
     - if <[guild]> != <player.flag[guild]>:
-      - inventory set d:<context.inventory> slot:16 o:<item[light_blue_wool].with[display_name=<&3>Truces:<&sp><&b><[lore].size.sub[1]>;lore=<[lore]>]>
+      - inventory set d:<context.inventory> slot:16 o:<item[light_blue_wool].with[display_name=<&3>Truces:<&sp><&b><[lore].exclude[None].size.sub[1]>;lore=<[lore]>]>
     - else:
-      - inventory set d:<context.inventory> slot:16 o:<item[light_blue_wool].with[display_name=<&3>Truces:<&sp><&b><[lore].size||0>;lore=<[lore]>]>
+      - inventory set d:<context.inventory> slot:16 o:<item[light_blue_wool].with[display_name=<&3>Truces:<&sp><&b><[lore].exclude[None].size||0>;lore=<[lore]>]>
     - define lore:!
     - if <[guild]> != <player.flag[guild]>:
       - define lore:|:<&c>Click<&sp>to<&sp>declare<&sp>war.
@@ -1152,9 +1152,9 @@ guild_gui_events:
       - foreach <yaml[guild.<[guild]>].read[relations.enemy]||<list[]>>:
         - define lore:|:<yaml[guild.<[value]>].read[name]>
     - if <[guild]> != <player.flag[guild]>:
-      - inventory set d:<context.inventory> slot:17 o:<item[red_wool].with[display_name=<&4>Enemies:<&sp><&c><[lore].size.sub[1]>;lore=<[lore]>]>
+      - inventory set d:<context.inventory> slot:17 o:<item[red_wool].with[display_name=<&4>Enemies:<&sp><&c><[lore].exclude[None].size.sub[1]>;lore=<[lore]>]>
     - else:
-      - inventory set d:<context.inventory> slot:17 o:<item[red_wool].with[display_name=<&4>Enemies:<&sp><&c><[lore].size||0>;lore=<[lore]>]>
+      - inventory set d:<context.inventory> slot:17 o:<item[red_wool].with[display_name=<&4>Enemies:<&sp><&c><[lore].exclude[None].size||0>;lore=<[lore]>]>
     - define lore:!
     - if <[guild]> == <player.flag[guild]>:
       - define lore:|:<&b>Your<&sp>Permissions:
