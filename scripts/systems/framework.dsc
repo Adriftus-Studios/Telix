@@ -593,8 +593,15 @@ build_item:
   - if <[item].material.name||air> != air:
     - define old_item:<[item]>
     - if <[item].script||null> == null:
-      - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>;custom_model_data=<[item].custom_model_data||0>;nbt=<[item].nbt||<list[]>>;enchantments=<[item].enchantments||<list[]>>;nbt_attributes=<[item].nbt_attributes||<list[]>>]>
-      - narrate <[old_item].material.name>
+      - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]>
+      - if <[old_item].custom_model_data||null> != null:
+        - adjust def:item custom_model_data:<[old_item].custom_model_data>
+      - if <[old_item].nbt||null> != null:
+        - adjust def:item nbt:<[old_item].nbt>
+      - if <[old_item].enchantments||null> != null:
+        - adjust def:item enchantments:<[old_item].enchantments>
+      - if <[old_item].nbt_attributes||null> != null:
+        - adjust def:item nbt_attributes:<[old_item].nbt_attributes>
       - if <[old_item].patterns||null> != null:
         - adjust def:item patterns:<[old_item].patterns>
       - if <[old_item].base_color||null> != null:
