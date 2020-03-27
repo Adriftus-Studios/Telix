@@ -9,8 +9,12 @@ player_profile_events:
           - inventory open d:<[inv]>
           - inventory set d:<[inv]> slot:11 o:<item[player_head].with[skull_skin=<context.entity.uuid>]>
     on player opens player_profile_gui:
-      - wait 2t
-      - define player:<context.inventory.slot[1].nbt[player]>
+      - wait 1t
+      - define player:<context.inventory.slot[1].skin.as_player>
+      - narrate <[player]>
+    on player clicks in player_profile_gui:
+      - if <context.raw_slot> <= 27:
+        - determine passively cancelled
 
 player_profile_gui:
   type: inventory
