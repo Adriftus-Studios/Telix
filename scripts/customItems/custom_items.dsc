@@ -2662,6 +2662,26 @@ custom_fire_charge:
   display name: <&7>Fire Charge
   weight: '1'
   type: item
+custom_map:
+  material: map
+  display name: <&7>Map
+  weight: '1'
+  type: item
+custom_cocoa:
+  material: cocoa
+  display name: <&7>Cocoa
+  weight: '1'
+  type: item
+custom_campfire:
+  material: campfire
+  display name: <&7>Campfire
+  weight: '1'
+  type: item
+custom_torch:
+  material: torch
+  display name: <&7>Torch
+  weight: '1'
+  type: item
 custom_totem_of_undying:
   material: totem_of_undying
   display name: <&7>Totem of Undying
