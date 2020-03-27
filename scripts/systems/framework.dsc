@@ -453,6 +453,13 @@ system_override:
       - narrate "<&c> Script: <context.script.name>"
       - narrate "<&c> File: <context.script.filename.replace[/home/minecraft/servers/telix-test/plugins/Denizen].with[]>"
       - narrate "<&c> Line: <context.line>"
+      - foreach <server.list_players.filter[has_flag[debug]]> as:player:
+        - adjust queue linked_player:<[player]>
+        - narrate "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
+        - narrate "<&c> <context.message>"
+        - narrate "<&c> Script: <context.script.name>"
+        - narrate "<&c> File: <context.script.filename.replace[/home/minecraft/servers/telix-test/plugins/Denizen].with[]>"
+        - narrate "<&c> Line: <context.line>"
     on tick:
       - if !<server.list_online_players.filter[food_level.is[==].to[20]].is_empty>:
         - foreach <server.list_online_players.filter[food_level.is[==].to[20]]>:
