@@ -1050,13 +1050,12 @@ guild_gui_events:
         - define guild:<context.inventory.slot[1].nbt[guild]>
       - if <context.item.script.name> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
-      - if <player.flag[guild]> != <[guild]>
+      - if <player.flag[guild]> != <[guild]>:
         - if <context.raw_slot> == 15:
           - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_relations]>:
             - narrate 1
     on player opens guild_info_gui:
     - wait 1t
-    - narrate 1
     - define guild:<player.flag[guild]>
     - if <context.inventory.slot[1].nbt[guild]||null> != null:
       - define guild:<context.inventory.slot[1].nbt[guild]>
