@@ -593,8 +593,8 @@ build_item:
   - if <[item].material.name||air> != air:
     - define old_item:<[item]>
     - if <[item].script||null> == null || <[item].nbt[built]||null> == null:
-      - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]>
       - narrate <[item].quantity>
+      - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]>
       - if <[old_item].custom_model_data||null> != null:
         - adjust def:item custom_model_data:<[old_item].custom_model_data>
       - if <[old_item].nbt||null> != null:
