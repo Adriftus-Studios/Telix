@@ -9,6 +9,7 @@ abilities_power_system_tick:
 
 power_regain_tick:
   type: task
+  debug: false
   script:
     - if <yaml[player.<player.uuid>].read[stats.power.max]> > <yaml[player.<player.uuid>].read[stats.power.current]>:
       - if <yaml[player.<player.uuid>].read[stats.power.max]./[20].+[<yaml[player.<player.uuid>].read[stats.power.current]>]> > <yaml[player.<player.uuid>].read[stats.power.max]>:
