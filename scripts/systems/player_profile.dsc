@@ -29,6 +29,10 @@ player_profile_events:
           - else:
             - if <context.inventory.slot[17].nbt[guild]> == <player.flag[guild]||null>:
               - inventory open d:<inventory[my_guild_gui]>
+            - else:
+              - define inv:<inventory[guild_info_gui]>
+              - inventory open d:<[inv]>
+              - inventory adjust d:<[inv]> slot:1 nbt:guild/<context.inventory.slot[17].nbt[guild]>
 
 invite_to_guild:
   type: task
