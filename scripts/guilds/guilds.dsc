@@ -1132,8 +1132,15 @@ guild_gui_events:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
     - inventory set d:<context.inventory> slot:17 o:<item[red_wool].with[display_name=<&b>Enemies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
-    - define lore:|:"You are not in this guild."
-    - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[skull_skin=<player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
+    - if <[guild]> == <player.flag[guild]>
+      - define lore:|:<&b>Your<&sp>Permissions:
+      - foreach <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
+      - foreach <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
+        - define lore:|:<&a><[perm].replace[_].with[<&sp>].to_titlecase>
+      - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[skull_skin=<yaml[guild.<[guild]>].read[leader].as_player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
+    - else:
+      - inventory set d:<context.inventory> slot:13 o:<item[air]>
+      
     on player opens guild_edit_rank_gui:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt[rank]>
