@@ -1126,7 +1126,7 @@ guild_gui_events:
     - define lore:!
     - foreach <yaml[guild.<[guild]>].read[relations.truce]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
-    - inventory set d:<context.inventory> slot:16 o:<item[orange_wool].with[display_name=<&b>Truces:<&sp><[lore].size||0>;lore=<[lore]||None>]>
+    - inventory set d:<context.inventory> slot:16 o:<item[light_blue_wool].with[display_name=<&b>Truces:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
     - foreach <yaml[guild.<[guild]>].read[relations.enemy]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
