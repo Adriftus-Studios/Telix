@@ -1056,6 +1056,7 @@ guild_gui_events:
             - narrate 1
     on player opens guild_info_gui:
     - wait 1t
+    - narrate 1
     - define guild:<player.flag[guild]>
     - if <context.inventory.slot[1].nbt[guild]||null> != null:
       - define guild:<context.inventory.slot[1].nbt[guild]>
