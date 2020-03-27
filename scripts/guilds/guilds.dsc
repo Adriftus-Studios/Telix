@@ -1120,19 +1120,19 @@ guild_gui_events:
     - if <player.flag[guild]> != <[guild]>:
       - inventory set d:<context.inventory> slot:14 o:<item[neutral_guild_icon]>
     - define lore:!
-    - if <[guild]> == <player.flag[guild]>:
+    - if <[guild]> != <player.flag[guild]>:
       - define lore:|:<&a>Click<&sp>to<&sp>request<&sp>an<&sp>alliance.
     - foreach <yaml[guild.<[guild]>].read[relations.ally]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
     - inventory set d:<context.inventory> slot:15 o:<item[lime_wool].with[display_name=<&2>Allies:<&sp><&a><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
-    - if <[guild]> == <player.flag[guild]>:
+    - if <[guild]> != <player.flag[guild]>:
       - define lore:|:<&b>Click<&sp>to<&sp>request<&sp>a<&sp>truce.
     - foreach <yaml[guild.<[guild]>].read[relations.truce]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
     - inventory set d:<context.inventory> slot:16 o:<item[light_blue_wool].with[display_name=<&3>Truces:<&sp><&b><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
-    - if <[guild]> == <player.flag[guild]>:
+    - if <[guild]> != <player.flag[guild]>:
       - define lore:|:<&c>Click<&sp>to<&sp>declare<&sp>war.
     - foreach <yaml[guild.<[guild]>].read[relations.enemy]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
