@@ -8,12 +8,11 @@ player_profile_events:
           - define inv:<inventory[player_profile_gui]>
           - inventory open d:<[inv]>
           - narrate <context.entity>
+          - wait 1t
           - inventory set d:<[inv]> slot:11 o:<item[player_skull].with[skull_skin=<context.entity.uuid>]>
-          - narrate <[inv].slot[1].nbt[rank]>
     on player opens player_profile_gui:
       - wait 2t
       - define player:<context.inventory.slot[1].nbt[player]>
-      - narrate <[player]>
 
 player_profile_gui:
   type: inventory
