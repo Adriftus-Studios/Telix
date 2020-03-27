@@ -1039,6 +1039,13 @@ guild_info_gui:
   - "[gui_guild_info_bottom] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+neutral_guild_icon:
+  type: item
+  material: white_wool
+  display name: <&f>Request Peace
+  lore:
+  - Click to request peace with this guild.
+
 guild_gui_events:
   type: world
   events:
@@ -1053,7 +1060,59 @@ guild_gui_events:
       - if <player.flag[guild]> != <[guild]>:
         - if <context.raw_slot> == 15:
           - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_relations]>:
-            - narrate 1
+            - if <yaml[guild.<[guild]>].read[relations.ally].contains[<player.flag[guild]>]||false>:
+              - narrate "<&b>You already have an alliance with <yaml[guild.<[guild]>].read[name]>"
+            - else:
+              - if <yaml[guild.<player.flag[guild]>].read[relations.request.ally].contains[<[guild]>]||false>:
+                - run change_guild_relation def:<player.flag[guild]>|<[guild]>|ally|<player>
+              - else:
+                - if <yaml[guild.<[guild]>].read[relations.request.ally].contains[<player.flag[guild]>]||false>:
+                  - narrate "<&b>You have already requested a alliance with <yaml[guild.<[guild]>].read[name]>"
+                - else:
+                  - yaml id:guild.<[guild]> set relations.request.ally:->:<player.flag[guild]>
+                  - foreach <yaml[guild.<player.flag[guild]>].read[members].filter[is_online]>:
+                    - narrate player:<[value]> "<&b><player.name> has requested an alliance with <yaml[guild.<[guild]>].read[name]>"
+                  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
+                    - narrate player:<[value]> "<&b><yaml[guild.<player.flag[guild]>].read[name]> has requested an alliance with your guild."
+        - if <context.raw_slot> == 16:
+          - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_relations]>:
+            - if <yaml[guild.<[guild]>].read[relations.truce].contains[<player.flag[guild]>]||false>:
+              - narrate "<&3>You already have a truce with <yaml[guild.<[guild]>].read[name]>"
+            - else:
+              - if <yaml[guild.<player.flag[guild]>].read[relations.request.truce].contains[<[guild]>]||false>:
+                - run change_guild_relation def:<player.flag[guild]>|<[guild]>|truce|<player>
+              - else:
+                - if <yaml[guild.<[guild]>].read[relations.request.truce].contains[<player.flag[guild]>]||false>:
+                  - narrate "<&3>You have already requested a truce with <yaml[guild.<[guild]>].read[name]>"
+                - else:
+                  - yaml id:guild.<[guild]> set relations.request.truce:->:<player.flag[guild]>
+                  - foreach <yaml[guild.<player.flag[guild]>].read[members].filter[is_online]>:
+                    - narrate player:<[value]> "<&3><player.name> has requested a truce with <yaml[guild.<[guild]>].read[name]>"
+                  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
+                    - narrate player:<[value]> "<&3><yaml[guild.<player.flag[guild]>].read[name]> has requested a truce with your guild."
+        - if <context.raw_slot> == 17:
+          - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_relations]>:
+              - if <yaml[guild.<[guild]>].read[relations.enemy].contains[<player.flag[guild]>]||false>:
+                - narrate "Your guild is already at war with <yaml[guild.<[guild]>].read[name]>"
+              - else:
+                - run change_guild_relation def:<player.flag[guild]>|<[guild]>|enemy|<player>
+        - if <context.item.script.name||null> == neutral_guild_icon:
+          - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_relations]>:
+            - if <yaml[guild.<[guild]>].read[relations.neutral].contains[<player.flag[guild]>]||false>:
+              - narrate "<&a>You are already at peace with <yaml[guild.<[guild]>].read[name]>"
+            - else:
+              - if <yaml[guild.<player.flag[guild]>].read[relations.request.ally].contains[<[guild]>]||false>:
+                - run change_guild_relation def:<player.flag[guild]>|<[guild]>|neutral|<player>
+              - else:
+                - if <yaml[guild.<[guild]>].read[relations.request.neutral].contains[<player.flag[guild]>]||false>:
+                  - narrate "<&a>You have already requested peace with <yaml[guild.<[guild]>].read[name]>"
+                - else:
+                  - yaml id:guild.<[guild]> set relations.request.neutral:->:<player.flag[guild]>
+                  - foreach <yaml[guild.<player.flag[guild]>].read[members].filter[is_online]>:
+                    - narrate player:<[value]> "<&a><player.name> has requested peace with <yaml[guild.<[guild]>].read[name]>"
+                  - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
+                    - narrate player:<[value]> "<&a><yaml[guild.<player.flag[guild]>].read[name]> has requested peace with your guild."
+
     on player opens guild_info_gui:
     - wait 1t
     - define guild:<player.flag[guild]>
@@ -1072,6 +1131,8 @@ guild_gui_events:
       - define lore:|:<[line].separated_by[<&sp>]>
     - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<[guild]>].read[name]>;lore=<[lore]>]>
     - inventory set d:<context.inventory> slot:12 o:<item[<yaml[guild.<[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<[guild]>].read[flags].size||0>;patterns=<yaml[guild.<[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<[guild]>].read[flag].as_item.base_color>]>
+    - if <player.flag[guild]> != <[guild]>:
+      - inventory set d:<context.inventory> slot:14 o:<item[neutral_guild_icon]>
     - define lore:!
     - foreach <yaml[guild.<[guild]>].read[relations.ally]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
