@@ -1031,7 +1031,7 @@ neutral_guild_icon:
   material: white_wool
   display name: <&f>Request Peace
   lore:
-  - Click to request peace with this guild.
+  - <&a>Click to request peace with this guild.
 
 guild_gui_events:
   type: world
@@ -1120,17 +1120,23 @@ guild_gui_events:
     - if <player.flag[guild]> != <[guild]>:
       - inventory set d:<context.inventory> slot:14 o:<item[neutral_guild_icon]>
     - define lore:!
+    - if <[guild]> == <player.flag[guild]>:
+      - define lore:|:<&a>Click<&sp>to<&sp>request<&sp>an<&sp>alliance.
     - foreach <yaml[guild.<[guild]>].read[relations.ally]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
     - inventory set d:<context.inventory> slot:15 o:<item[lime_wool].with[display_name=<&b>Allies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
+    - if <[guild]> == <player.flag[guild]>:
+      - define lore:|:<&b>Click<&sp>to<&sp>request<&sp>a<&sp>truce.
     - foreach <yaml[guild.<[guild]>].read[relations.truce]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
     - inventory set d:<context.inventory> slot:16 o:<item[light_blue_wool].with[display_name=<&b>Truces:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
+    - if <[guild]> == <player.flag[guild]>:
+      - define lore:|:<&c>Click<&sp>to<&sp>declare<&sp>war.
     - foreach <yaml[guild.<[guild]>].read[relations.enemy]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
-    - inventory set d:<context.inventory> slot:17 o:<item[red_wool].with[display_name=<&b>Enemies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
+    - inventory set d:<context.inventory> slot:17 o:<item[red_wool].with[display_name=<&4>Enemies:<&sp><&c><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
     - if <[guild]> == <player.flag[guild]>:
       - define lore:|:<&b>Your<&sp>Permissions:
