@@ -11,6 +11,7 @@ player_profile_events:
     on player opens player_profile_gui:
       - wait 1t
       - define player:<context.inventory.slot[1].nbt[player]>
+      - narrate <[player]>
 
 player_profile_gui:
   type: inventory
