@@ -576,11 +576,16 @@ change_guild_relation:
         - narrate player:<[value]> "<&4>You have just declared war against <yaml[guild.<[other]>].read[name]>!"
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&4><yaml[guild.<[guild]>].read[name]> has just declared war against your guild!"
-    - case neutral:
+    - default:
       - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&a>Your guild is now at peace with <yaml[guild.<[other]>].read[name]>!"
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&a>Your guild is now at peace with <yaml[guild.<[guild]>].read[name]>!"
+  - foreach <server.list_players.filter[open_inventory.script_name.is[==].to[guild_info_gui]]> as:player:
+    - define guild:<[player].open_inventory.slot[1].nbt[guild]||<[player].flag[guild]||null>>
+    - define inv:<inventory[guild_info_gui]>
+    - inventory open d:<[inv]>
+    - inventory adjust d:<[inv]> slot:1 nbt:guild/<[guild]>
 
 guild_events:
   type: world
