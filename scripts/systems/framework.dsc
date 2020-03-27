@@ -193,7 +193,7 @@ reload_scripts:
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list.parse[split[/].get[1]]> as:entry:
                       - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
                   - else:
-                    - foreach <[value].yaml_key[recipes.<[recipe]>.input]>||<list[]> as:entry:
+                    - foreach <[value].yaml_key[recipes.<[recipe]>.input]||<list[]>> as:entry:
                       - foreach <[entry].as_list> as:entry:
                         - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
                 - yaml id:server.recipe_fixer set restricted.<[value].name>:<yaml[server.recipe_fixer].read[restricted.<[value].name>].as_list.deduplicate.exclude[air]||<list[]>>
