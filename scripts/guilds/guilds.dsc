@@ -1132,7 +1132,7 @@ guild_gui_events:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
     - inventory set d:<context.inventory> slot:17 o:<item[red_wool].with[display_name=<&b>Enemies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
-    - if <[guild]> == <player.flag[guild]>
+    - if <[guild]> == <player.flag[guild]>:
       - define lore:|:<&b>Your<&sp>Permissions:
       - foreach <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
       - foreach <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
