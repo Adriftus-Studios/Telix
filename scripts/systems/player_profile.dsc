@@ -8,8 +8,8 @@ player_profile_events:
           - define inv:<inventory[player_profile_gui]>
           - inventory open d:<[inv]>
           - narrate <context.entity>
-          - inventory adjust d:<[inv]> slot:1 nbt:player/<context.entity>
-          - narrate <[inv].slot[1].nbt[player]>
+          - inventory adjust d:<[inv]> slot:1 nbt:rank/<context.entity>
+          - narrate <[inv].slot[1].nbt[rank]>
     on player opens player_profile_gui:
       - wait 2t
       - define player:<context.inventory.slot[1].nbt[player]>
