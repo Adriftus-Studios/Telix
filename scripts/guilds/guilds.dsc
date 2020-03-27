@@ -600,10 +600,10 @@ change_guild_relation:
       - foreach <yaml[guild.<[other]>].read[members].filter[is_online]>:
         - narrate player:<[value]> "<&a>Your guild is now at peace with <yaml[guild.<[guild]>].read[name]>!"
   - foreach <server.list_players.filter[open_inventory.script_name.is[==].to[guild_info_gui]]> as:player:
-    - define guild:<[player].open_inventory.slot[1].nbt[guild]||<[player].flag[guild]||null>>
-    - define inv:<inventory[guild_info_gui]>
-    - inventory open d:<[inv]>
-    - inventory adjust d:<[inv]> slot:1 nbt:guild/<[guild]>
+    - if <[guild]> == <[player].open_inventory.slot[1].nbt[guild]||<[player].flag[guild]||null>> || <[other]> == <[player].open_inventory.slot[1].nbt[guild]||<[player].flag[guild]||null>>:
+      - define inv:<inventory[guild_info_gui]>
+      - inventory open d:<[inv]>
+      - inventory adjust d:<[inv]> slot:1 nbt:guild/<[player].open_inventory.slot[1].nbt[guild]||<[player].flag[guild]||null>>
 
 guild_events:
   type: world
