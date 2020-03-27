@@ -12,10 +12,20 @@ player_profile_events:
       - wait 1t
       - define playr:<context.inventory.slot[11].skin.as_player>
       - if <[playr].flag[guild]||null> != null:
-        - inventory set <context.inventory> slot:17 o:<yaml[guild.<[playr].flag[guild]>].read[flag].as_item>
+        - inventory set d:<context.inventory> slot:17 o:<yaml[guild.<[playr].flag[guild]>].read[flag].as_item>
+        - inventory adjust d:<context.inventory> slot:17 display_name:<&a><&l>Guild:<&sp><&r><&b><yaml[guild.<[playr].flag[guild]>].read[name]>
+      - else:
+        - inventory set d:<context.inventory> slot:17 o:<item[player_profile_no_guild_btn]>
     on player clicks in player_profile_gui:
       - if <context.raw_slot> <= 27:
         - determine passively cancelled
+
+player_profile_no_guild_btn:
+  type: item
+  material: white_banner
+  display name: <&a>No Guild
+  lore:
+  - <&b>Click to Invite.
 
 player_profile_gui:
   type: inventory
