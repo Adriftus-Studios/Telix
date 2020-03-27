@@ -583,7 +583,6 @@ testt_command:
   name: testt
   permission: testt
   script:
-    - narrate 1
     - foreach <server.list_material_types.parse[name]>:
       - if !<server.list_scripts.contains[s@custom_<[value]>]>:
         - narrate <[value]>
