@@ -77,7 +77,7 @@ custom_cat_spawn_egg:
   material: cat_spawn_egg
   display name: <&7>Cat Spawn Egg
   weight: '1'
-  type: itemitem
+  type: item
 custom_enderman_spawn_egg:
   material: enderman_spawn_egg
   display name: <&7>Enderman Spawn Egg
