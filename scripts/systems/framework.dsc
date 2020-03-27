@@ -578,6 +578,15 @@ resend_recipes_command:
     - adjust <[player]> quietly_discover_recipe:<server.list_recipe_ids>
     - adjust <[player]> resend_discovered_recipes
 
+testt_command:
+  type: command
+  name: test
+  permission: test
+  script:
+    - foreach <server.list_material_types.parse[name]>:
+      - if <server.list_scripts.contains[s@custom_<[value]>]>:
+        - narrate <[value]>
+
 build_item_command:
   type: command
   name: build_item
