@@ -1266,7 +1266,9 @@ guild_gui_events:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[change_settings]>:
         - narrate TODO
     on player clicks set_guild_flag_btn in guild_settings_gui:
-    - narrate TODO
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - narrate TODO
     on player clicks guilds_edit_ranks_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
