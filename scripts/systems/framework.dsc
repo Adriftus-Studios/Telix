@@ -593,7 +593,11 @@ build_item:
   - if <[item].material.name> != air:
     - define old_item:<[item]>
     - if <[item].script||null> == null:
-      - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>;custom_model_data=<[item].custom_model_data||0>;nbt=<[item].nbt||<list[]>>;enchantments=<[item].enchantments||<list[]>>;nbt_attributes=<[item].nbt_attributes||<list[]>>;patterns=<[item].patterns>;base_color=<[item].base_color>]>
+      - define item:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>;custom_model_data=<[item].custom_model_data||0>;nbt=<[item].nbt||<list[]>>;enchantments=<[item].enchantments||<list[]>>;nbt_attributes=<[item].nbt_attributes||<list[]>>]>
+      - if <[old_item].patterns||null> != null:
+        - adjust def:item patterns:<[old_item].patterns>
+      - if <[old_item].base_color||null> != null:
+        - adjust def:item base_color:<[old_item].base_color>
     - if <[item].script.yaml_key[category]||null> != null:
       - if <[item].script.yaml_key[category]> == fishing_rod:
         - define lore:|:<&6><&l><&m>-------------<&r><&6><&sp><&sp>Fishing<&sp>Rod<&sp><&sp><&l><&m>-------------
