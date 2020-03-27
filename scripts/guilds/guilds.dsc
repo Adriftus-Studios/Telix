@@ -1088,7 +1088,7 @@ guild_gui_events:
             - narrate <yaml[guild.<[guild]>].read[relations.enemy].contains[<player.flag[guild]>]||false>
             - narrate <yaml[guild.<[guild]>].read[relations.ally].contains[<player.flag[guild]>]||false>
             - narrate <yaml[guild.<[guild]>].read[relations.truce].contains[<player.flag[guild]>]||false>
-            - if <yaml[guild.<[guild]>].read[relations.enemy].contains[<player.flag[guild]>]||false> && <yaml[guild.<[guild]>].read[relations.ally].contains[<player.flag[guild]>]||false> && <yaml[guild.<[guild]>].read[relations.truce].contains[<player.flag[guild]>]||false>:
+            - if <yaml[guild.<[guild]>].read[relations.enemy].contains[<player.flag[guild]>]||false> || <yaml[guild.<[guild]>].read[relations.ally].contains[<player.flag[guild]>]||false> || <yaml[guild.<[guild]>].read[relations.truce].contains[<player.flag[guild]>]||false>:
               - narrate "<&a>You already have neutrality with <yaml[guild.<[guild]>].read[name]>"
             - else:
               - if <yaml[guild.<player.flag[guild]>].read[relations.request.neutral].contains[<[guild]>]||false>:
