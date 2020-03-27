@@ -1051,9 +1051,12 @@ guild_gui_events:
         - inventory open d:<inventory[my_guild_gui]>
     on player opens guild_info_gui:
     - wait 1t
-    - define desc:<yaml[guild.<player.flag[guild]>].read[description].as_list.get[1]>
-    - define lore:|:<&a>Leader:<&sp><yaml[guild.<player.flag[guild]>].read[leader].as_player.name>
-    - define lore:|:<&b>Members:<&sp><yaml[guild.<player.flag[guild]>].read[members].size>
+    - define guild:<player.flag[guild]>
+    - if <context.inventory.slot[1].nbt[guild]||null> != null:
+      - define guild:<context.inventory.slot[1].nbt[guild]>
+    - define desc:<yaml[guild.<[guild]>].read[description].as_list.get[1]>
+    - define lore:|:<&a>Leader:<&sp><yaml[guild.<[guild]>].read[leader].as_player.name>
+    - define lore:|:<&b>Members:<&sp><yaml[guild.<[guild]>].read[members].size>
     - define lore:|:<&b>
     - foreach <[desc].split[<n>].parse[strip_color]> as:p:
       - foreach <[p].split[<&sp>]>:
@@ -1062,25 +1065,25 @@ guild_gui_events:
           - define lore:|:<[line].separated_by[<&sp>]>
           - define line:!
       - define lore:|:<[line].separated_by[<&sp>]>
-    - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<player.flag[guild]>].read[name]>;lore=<[lore]>]>
-    - inventory set d:<context.inventory> slot:12 o:<item[<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<player.flag[guild]>].read[flags].size||0>;patterns=<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>]>
+    - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<[guild]>].read[name]>;lore=<[lore]>]>
+    - inventory set d:<context.inventory> slot:12 o:<item[<yaml[guild.<[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<[guild]>].read[flags].size||0>;patterns=<yaml[guild.<[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<[guild]>].read[flag].as_item.base_color>]>
     - define lore:!
-    - foreach <yaml[guild.<player.flag[guild]>].read[relations.ally]||<list[]>>:
+    - foreach <yaml[guild.<[guild]>].read[relations.ally]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
     - inventory set d:<context.inventory> slot:15 o:<item[lime_wool].with[display_name=<&b>Allies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
-    - foreach <yaml[guild.<player.flag[guild]>].read[relations.truce]||<list[]>>:
+    - foreach <yaml[guild.<[guild]>].read[relations.truce]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
     - inventory set d:<context.inventory> slot:16 o:<item[orange_wool].with[display_name=<&b>Truces:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
-    - foreach <yaml[guild.<player.flag[guild]>].read[relations.enemy]||<list[]>>:
+    - foreach <yaml[guild.<[guild]>].read[relations.enemy]||<list[]>>:
       - define lore:|:<yaml[guild.<[value]>].read[name]>
     - inventory set d:<context.inventory> slot:17 o:<item[red_wool].with[display_name=<&b>Enemies:<&sp><[lore].size||0>;lore=<[lore]||None>]>
     - define lore:!
-    - define lore:|:<&6><yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.title]>
+    - define lore:|:<&6><yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.title]>
     - define lore:|:<&b>
     - define lore:|:<&b>Your<&sp>Permissions:
-    - foreach <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
+    - foreach <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
       - define lore:|:<&a><[perm].replace[_].with[<&sp>].to_titlecase>
     - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[skull_skin=<player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
     on player opens guild_edit_rank_gui:
