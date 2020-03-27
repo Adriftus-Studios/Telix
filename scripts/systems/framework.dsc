@@ -447,6 +447,12 @@ system_override:
   type: world
   debug: false
   events:
+    on script generates error:
+      - narrate "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
+      - narrate "<&c> <context.message>"
+      - narrate "<&c> Script: <context.script.name>"
+      - narrate "<&c> File: <context.script.original_name>"
+      - narrate "<&c> Line: <context.line>"
     on tick:
       - if !<server.list_online_players.filter[food_level.is[==].to[20]].is_empty>:
         - foreach <server.list_online_players.filter[food_level.is[==].to[20]]>:
