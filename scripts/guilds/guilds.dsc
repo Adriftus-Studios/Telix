@@ -974,8 +974,17 @@ my_guild_gui:
 guilds_edit_ranks_btn:
   type: item
   material: snow
-  guild_permission: edit_ranks
   display name: <&9>Edit Guild Ranks
+  
+set_guild_flag_btn:
+  type: item
+  material: white_banner
+  display name: <&9>Set Guild Flag
+  
+change_guild_name_description_btn:
+  type: item
+  material: feather
+  display name: <&9>Change Guild Name / Description
   
 guild_settings_gui:
   type: inventory
@@ -986,7 +995,7 @@ guild_settings_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [guilds_edit_ranks_btn] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [guilds_edit_ranks_btn] [] [set_guild_flag_btn] [] [rename_guild_btn] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
@@ -1252,6 +1261,13 @@ guild_gui_events:
       - define permissions:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions]||<list[]>>
       - inventory add d:<context.inventory> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<list[<[permissions].parse[replace[_].with[<&sp>].to_titlecase]>|Click<&sp>to<&sp>edit<&sp><[title]>]>;nbt=rank/<[rank]>]>
     - inventory add d:<context.inventory> o:<item[create_guild_rank_btn]>
+    on player clicks change_guild_name_description_btn in guild_settings_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[change_settings]>:
+
+    on player clicks set_guild_flag_btn in guild_settings_gui:
+
     on player clicks guilds_edit_ranks_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
