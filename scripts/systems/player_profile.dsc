@@ -11,7 +11,7 @@ player_profile_events:
     on player opens player_profile_gui:
       - wait 1t
       - define player:<context.inventory.slot[11].skin.as_player>
-      - narrate <context.inventory.slot[11].skin.as_player>
+      - narrate <[player]>
     on player clicks in player_profile_gui:
       - if <context.raw_slot> <= 27:
         - determine passively cancelled
