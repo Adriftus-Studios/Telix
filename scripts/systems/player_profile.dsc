@@ -12,13 +12,27 @@ player_profile_events:
       - wait 1t
       - define playr:<context.inventory.slot[11].skin.as_player>
       - if <[playr].flag[guild]||null> != null:
-        - inventory set d:<context.inventory> slot:17 o:<yaml[guild.<[playr].flag[guild]>].read[flag].as_item.with[nbt=guild/<yaml[guild.<[playr].flag[guild]>].read[name]>]>
+        - inventory set d:<context.inventory> slot:17 o:<yaml[guild.<[playr].flag[guild]>].read[flag].as_item.with[nbt=guild/<[playr].flag[guild]>]>
         - inventory adjust d:<context.inventory> slot:17 display_name:<&a><&l>Guild:<&sp><&r><&b><yaml[guild.<[playr].flag[guild]>].read[name]>
       - else:
         - inventory set d:<context.inventory> slot:17 o:<item[player_profile_no_guild_btn]>
     on player clicks in player_profile_gui:
       - if <context.raw_slot> <= 27:
         - determine passively cancelled
+        - define playr:<context.inventory.slot[11].skin.as_player>
+        - if <context.raw_slot> == 17:
+          - if <context.inventory.slot[17].script.name||null> == player_profile_no_guild_btn:
+            - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[invite_members]||false>:
+              - run invite_to_guild def:<player.flag[guild]>|<player>|<[playr]>
+            - else:
+              - narrate "<&c>You do not have permission to invite players."
+          - else:
+            - if <context.inventory.slot[17].nbt[guild]> == <player.flag[guild]||null>:
+              - inventory open d:<inventory[my_guild_gui]>
+
+invite_to_guild:
+  type: task
+  definitions: guild|inviter|invited
 
 player_profile_no_guild_btn:
   type: item

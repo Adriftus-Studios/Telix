@@ -957,7 +957,7 @@ guild_leadership_transfer_confirmation_gui:
 
 my_guild_gui:
   type: inventory
-  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆ <&a><&n><&l><yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[name]><&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
   size: 36
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -1080,7 +1080,7 @@ guild_gui_events:
     - define lore:|:<&6><yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.title]>
     - define lore:|:<&b>
     - define lore:|:<&b>Your<&sp>Permissions:
-    - foreach <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]> as:perm:
+    - foreach <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
       - define lore:|:<&a><[perm].replace[_].with[<&sp>].to_titlecase>
     - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[skull_skin=<player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
     on player opens guild_edit_rank_gui:
