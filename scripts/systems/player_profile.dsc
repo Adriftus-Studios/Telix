@@ -7,6 +7,7 @@ player_profile_events:
         - if <player.is_sneaking>:
           - define inv:<inventory[player_profile_gui]>
           - inventory open d:<[inv]>
+          - wait 1t
           - inventory adjust d:<[inv]> slot:1 nbt:player/<context.entity.as_player>
     on player opens player_profile_gui:
       - wait 1t
