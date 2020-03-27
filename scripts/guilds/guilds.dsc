@@ -1128,9 +1128,9 @@ guild_gui_events:
       - foreach <yaml[guild.<[guild]>].read[relations.ally]||<list[]>>:
         - define lore:|:<yaml[guild.<[value]>].read[name]>
     - if <[guild]> != <player.flag[guild]>:
-      - inventory set d:<context.inventory> slot:15 o:<item[lime_wool].with[display_name=<&2>Allies:<&sp><&a><[lore].size.sub[1]>;lore=<[lore]>]>
+      - inventory set d:<context.inventory> slot:15 o:<item[lime_wool].with[display_name=<&2>Allies:<&sp><&a><[lore].exclude[None].size.sub[1]>;lore=<[lore]>]>
     - else:
-      - inventory set d:<context.inventory> slot:15 o:<item[lime_wool].with[display_name=<&2>Allies:<&sp><&a><[lore].size||0>;lore=<[lore]>]>
+      - inventory set d:<context.inventory> slot:15 o:<item[lime_wool].with[display_name=<&2>Allies:<&sp><&a><[lore].exclude[None].size||0>;lore=<[lore]>]>
     - define lore:!
     - if <[guild]> != <player.flag[guild]>:
       - define lore:|:<&b>Click<&sp>to<&sp>request<&sp>a<&sp>truce.
