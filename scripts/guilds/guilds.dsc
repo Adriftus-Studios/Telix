@@ -1037,12 +1037,6 @@ all_guilds_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>All Guilds<&r> <&6>◆
   size: 54
-  procedural items:
-  - repeat 35:
-    - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value]>]||null>
-    - if <[guild]> != null:
-      - define items:|:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
-  - determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
@@ -1081,6 +1075,7 @@ guild_gui_events:
       - repeat 35:
         #- define guild:<yaml.list.filter[starts_with[guild.]].get[<[value].mul[<[page]>].sub[35]>]||null>
         - define guild:<item[<server.list_material_types.get[<[value].mul[<[page]>].sub[35]>]>]>
+        - narrate <[value].mul[<[page]>].sub[35]>
         - if <[guild]> != null:
           - inventory add d:<context.inventory> o:<[guild]>
           #- inventory add d:<context.inventory> o:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
