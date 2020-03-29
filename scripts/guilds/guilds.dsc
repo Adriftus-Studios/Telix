@@ -1060,6 +1060,7 @@ neutral_guild_icon:
   lore:
   - <&7>Click to request peace with this guild.
 
+
 guild_gui_events:
   type: world
   events:
