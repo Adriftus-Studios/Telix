@@ -1074,8 +1074,8 @@ guild_gui_events:
       - define page:<context.inventory.slot[1].nbt[page]||1>
       - repeat 35:
         #- define guild:<yaml.list.filter[starts_with[guild.]].get[<[value].mul[<[page]>].sub[35]>]||null>
-        - define guild:<item[<server.list_material_types.get[<[value].mul[<[page]>].sub[35]>]>]>
-        - narrate <[value].mul[<[page]>].sub[35]>
+        - define guild:<item[<server.list_material_types.get[<[value].add[<[page].mul[35].sub[35]>]>]>]>
+        - narrate <[value].add[<[page].mul[35].sub[35]>]>
         - if <[guild]> != null:
           - inventory add d:<context.inventory> o:<[guild]>
           #- inventory add d:<context.inventory> o:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
