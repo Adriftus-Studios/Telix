@@ -958,7 +958,6 @@ guild_leadership_transfer_confirmation_gui:
   - "[w_filler] [] [guild_transfer_leadership_yes_btn] [] [] [] [guild_transfer_leadership_no_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
-
 guilds_edit_ranks_btn:
   type: item
   material: snow
