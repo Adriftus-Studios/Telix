@@ -1037,8 +1037,8 @@ my_guild_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_my_guild_top] [guilds_view_info_btn] [] [guilds_manage_claim_flags] [] [guilds_leave_btn] [] [] [w_filler]"
-  - "[gui_my_guild_bottom] [guilds_view_members_btn] [] [guild_view_bank_btn] [] [guilds_settings_btn] [] [] [w_filler]"
+  - "[gui_my_guild_top] [guilds_view_info_btn] [] [guilds_manage_claim_flags] [] [guilds_leave_btn] [] [list_all_guilds_btn] [w_filler]"
+  - "[gui_my_guild_bottom] [guilds_view_members_btn] [] [guild_view_bank_btn] [] [guilds_settings_btn] [] [view_other_guild_relations_btn] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_info_gui:
@@ -1060,6 +1060,12 @@ neutral_guild_icon:
   lore:
   - <&7>Click to request peace with this guild.
 
+view_other_guild_relations_btn:
+  type: item
+  material: white_wool
+  display name: <&f>Request Peace
+  lore:
+  - <&7>Click to view relations with other guilds.
 
 guild_gui_events:
   type: world
