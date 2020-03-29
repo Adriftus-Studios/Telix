@@ -601,7 +601,7 @@ build_item:
   script:
   - if <[item].material.name||air> != air:
     - define old_item:<[item]>
-    - if <[item].script||null> == null || <[item].nbt[built]||null> == null:
+    - if <[item].script||null> == null:
       - define item:<item[custom_<[item].material.name>]>
       - adjust def:item quantity:<[old_item].quantity>
       - if <[old_item].custom_model_data||null> != null:
