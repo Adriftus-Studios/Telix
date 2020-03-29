@@ -8,7 +8,7 @@
 ### RODS ###
 # Need to add more rods. This is supposed to be a fully immersive mini game type system, where players will have to fish for a long time
 # to unlock everything, and get the best rods. Fishing pays off, but only with the best bait, and best rods.
-#  With that beign said, they will not be paid insanely more. Only a fraction added to the top tiers. This will ensure that just because you're
+#  With that being said, they will not be paid insanely more. Only a fraction added to the top tiers. This will ensure that just because you're
 #  new, you won't be left extremely far behind, with no hope of catching up.
 
 
