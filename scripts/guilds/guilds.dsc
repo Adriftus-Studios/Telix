@@ -795,27 +795,6 @@ new_guild_gui:
   - "[gui_no_guild_bottom] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   
-all_guilds_gui:
-  type: inventory
-  title: <&6>◆ <&a><&n><&l>All Guilds<&r> <&6>◆
-  size: 54
-  procedural items:
-  - repeat 35:
-    - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value]>]||null>
-    - if <[guild]> != null:
-      - define items:|:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
-  - determine <[items]>
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    closeitem: <item[gui_close_btn]>
-  slots:
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[gui_all_guilds_top] [] [] [] [] [] [] [] [w_filler]"
-  - "[gui_all_guilds_bottom] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-
 view_guild_members:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Guild Members<&r> <&6>◆
@@ -1028,19 +1007,6 @@ create_guild_rank_btn:
   material: nether_star
   display name: <&a>Create new rank
 
-my_guild_gui:
-  type: inventory
-  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
-  size: 36
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    closeitem: <item[gui_close_btn]>
-  slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_my_guild_top] [guilds_view_info_btn] [] [guilds_manage_claim_flags] [] [guilds_leave_btn] [] [list_all_guilds_btn] [w_filler]"
-  - "[gui_my_guild_bottom] [guilds_view_members_btn] [] [guild_view_bank_btn] [] [guilds_settings_btn] [] [view_other_guild_relations_btn] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-
 guild_info_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Guild Info<&r> <&6>◆
@@ -1067,10 +1033,59 @@ view_other_guild_relations_btn:
   lore:
   - <&7>Click to view relations with other guilds.
 
+all_guilds_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>All Guilds<&r> <&6>◆
+  size: 54
+  procedural items:
+  - repeat 35:
+    - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value]>]||null>
+    - if <[guild]> != null:
+      - define items:|:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
+  - determine <[items]>
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+  - "[gui_all_guilds_top] [] [] [] [] [] [] [] [w_filler]"
+  - "[gui_all_guilds_bottom] [] [] [] [] [] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+my_guild_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_my_guild_top] [guilds_view_info_btn] [] [guilds_manage_claim_flags] [] [guilds_leave_btn] [] [list_all_guilds_btn] [w_filler]"
+  - "[gui_my_guild_bottom] [guilds_view_members_btn] [] [guild_view_bank_btn] [] [guilds_settings_btn] [] [view_other_guild_relations_btn] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_gui_events:
   type: world
   events:
+    on player clicks in all_guilds_gui:
+    - determine passively cancelled
+    - if <context.item.script.name> == gui_close_btn:
+      - inventory open d:<inventory[new_guild_gui]>
+    - if <context.item.nbt[guild]||null> != null:
+      
+    on player opens all_guilds_gui:
+      - define page:<context.inventory.slot[1].nbt[page]||1>
+      - repeat 35:
+        #- define guild:<yaml.list.filter[starts_with[guild.]].get[<[value].mul[<[page]>].sub[35]>]||null>
+        - define guild:<item[<server.list_material_types.get[<[value].mul[<[page]>].sub[35]>]>]>
+        - if <[guild]> != null:
+          - inventory add d:<context.inventory> o:<[guild]>
+          #- inventory add d:<context.inventory> o:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
+      
+      
     on player clicks guilds_settings_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
@@ -1080,6 +1095,9 @@ guild_gui_events:
       - determine passively cancelled
       - if <context.item.script.name> == gui_close_btn:
         - inventory close
+    on player clicks list_all_guilds_btn in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - inventory open d:<inventory[all_guilds_gui]>
     on player clicks guilds_view_info_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_info_gui]>
@@ -1411,10 +1429,6 @@ guild_gui_events:
         - inventory close
       - if <context.item.script.name||null> == guild_leave_no_btn:
         - inventory open d:<inventory[my_guild_gui]>
-    on player clicks in all_guilds_gui:
-    - determine passively cancelled
-    - if <context.item.script.name> == gui_close_btn:
-      - inventory open d:<inventory[new_guild_gui]>
     on player clicks in guild_flags_gui:
     - determine passively cancelled
     - if !<yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_flags]>:
