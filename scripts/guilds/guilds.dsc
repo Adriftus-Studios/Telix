@@ -1067,6 +1067,7 @@ view_other_guild_relations_btn:
   lore:
   - <&7>Click to view relations with other guilds.
 
+
 guild_gui_events:
   type: world
   events:
