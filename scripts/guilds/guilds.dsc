@@ -1071,7 +1071,7 @@ guild_gui_events:
     - if <context.item.nbt[guild]||null> != null:
       
     on player opens all_guilds_gui:
-      - define page:<context.inventory.slot[1].nbt[page]||1>
+      - define page:<context.inventory.slot[1].nbt[page]||2>
       - repeat 35:
         #- define guild:<yaml.list.filter[starts_with[guild.]].get[<[value].mul[<[page]>].sub[35]>]||null>
         - define guild:<item[<server.list_material_types.get[<[value].add[<[page].mul[35].sub[35]>]>]>]>
