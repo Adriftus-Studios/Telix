@@ -1063,6 +1063,15 @@ neutral_guild_icon:
 guild_gui_events:
   type: world
   events:
+    on player clicks change_guild_name_description_btn in guild_settings_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[change_settings]>:
+        - narrate TODO
+    on player clicks set_guild_flag_btn in guild_settings_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - narrate TODO
     on player clicks in guild_info_gui:
     - if <context.raw_slot> <= <player.open_inventory.size>:
       - determine passively cancelled
@@ -1260,15 +1269,6 @@ guild_gui_events:
       - define permissions:<yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions]||<list[]>>
       - inventory add d:<context.inventory> o:<item[iron_nugget].with[display_name=<&b><[title]>;lore=<list[<[permissions].parse[replace[_].with[<&sp>].to_titlecase]>|Click<&sp>to<&sp>edit<&sp><[title]>]>;nbt=rank/<[rank]>]>
     - inventory add d:<context.inventory> o:<item[create_guild_rank_btn]>
-    on player clicks change_guild_name_description_btn in guild_settings_gui:
-    - if <context.raw_slot> <= 36:
-      - determine passively cancelled
-      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[change_settings]>:
-        - narrate TODO
-    on player clicks set_guild_flag_btn in guild_settings_gui:
-    - if <context.raw_slot> <= 36:
-      - determine passively cancelled
-      - narrate TODO
     on player clicks guilds_edit_ranks_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled

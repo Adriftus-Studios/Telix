@@ -616,6 +616,8 @@ build_item:
         - adjust def:item patterns:<[old_item].patterns>
       - if <[old_item].base_color||null> != null:
         - adjust def:item base_color:<[old_item].base_color>
+      - if <[old_item].book||null> != null:
+        - adjust def:item book:<[old_item].book>
       - if <[old_item].skin||null> != null:
         - adjust def:item skull_skin:<[old_item].skin>
         - if <[item].script.name> == custom_player_head:
