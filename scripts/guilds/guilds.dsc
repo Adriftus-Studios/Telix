@@ -958,19 +958,6 @@ guild_leadership_transfer_confirmation_gui:
   - "[w_filler] [] [guild_transfer_leadership_yes_btn] [] [] [] [guild_transfer_leadership_no_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
-my_guild_gui:
-  type: inventory
-  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
-  size: 36
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    closeitem: <item[gui_close_btn]>
-  slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_my_guild_top] [] [guilds_view_info_btn] [] [guilds_manage_claim_flags] [] [guilds_leave_btn] [] [w_filler]"
-  - "[gui_my_guild_bottom] [] [guilds_view_members_btn] [] [guild_view_bank_btn] [] [guilds_settings_btn] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-
 guilds_edit_ranks_btn:
   type: item
   material: snow
@@ -1041,6 +1028,19 @@ create_guild_rank_btn:
   material: nether_star
   display name: <&a>Create new rank
 
+my_guild_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>My Guild<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[gui_my_guild_top] [guilds_view_info_btn] [] [guilds_manage_claim_flags] [] [guilds_leave_btn] [] [] [w_filler]"
+  - "[gui_my_guild_bottom] [guilds_view_members_btn] [] [guild_view_bank_btn] [] [guilds_settings_btn] [] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
 guild_info_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Guild Info<&r> <&6>◆
@@ -1063,6 +1063,40 @@ neutral_guild_icon:
 guild_gui_events:
   type: world
   events:
+    on player clicks guilds_settings_btn in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - inventory open d:<inventory[guild_settings_gui]>
+    on player clicks in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - if <context.item.script.name> == gui_close_btn:
+        - inventory close
+    on player clicks guilds_view_info_btn in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - inventory open d:<inventory[guild_info_gui]>
+    on player clicks guilds_manage_claim_flags in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_flags]>:
+        - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
+    on player clicks guilds_view_members_btn in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - inventory open d:<inventory[view_guild_members]>
+    on player clicks guild_view_bank_btn in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[access_bank]>:
+        - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
+    on player opens my_guild_gui:
+    - inventory adjust d:<context.inventory> slot:13 material:<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>
+    - inventory adjust d:<context.inventory> slot:13 patterns:<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>
+    - inventory adjust d:<context.inventory> slot:13 base_color:<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>
+    - inventory adjust d:<context.inventory> slot:20 skull_skin:<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>
+    on player clicks guilds_leave_btn in my_guild_gui:
+    - if <context.raw_slot> <= 36:
+      - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <player>:
+        - inventory open d:<inventory[guild_leave_confirmation_gui]>
+      - else:
+        - narrate "<&c>You are the guild leader; to leave, you must disband the guild, or assign a new leader."
     on player clicks change_guild_name_description_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
@@ -1273,10 +1307,6 @@ guild_gui_events:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
       - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
-    on player clicks guilds_settings_btn in my_guild_gui:
-    - if <context.raw_slot> <= 36:
-      - determine passively cancelled
-      - inventory open d:<inventory[guild_settings_gui]>
     on player clicks gui_close_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
@@ -1373,36 +1403,6 @@ guild_gui_events:
         - inventory close
       - if <context.item.script.name||null> == guild_leave_no_btn:
         - inventory open d:<inventory[my_guild_gui]>
-    on player clicks in my_guild_gui:
-    - if <context.raw_slot> <= 36:
-      - determine passively cancelled
-      - if <context.item.script.name> == gui_close_btn:
-        - inventory close
-    on player clicks guilds_view_info_btn in my_guild_gui:
-    - if <context.raw_slot> <= 36:
-      - inventory open d:<inventory[guild_info_gui]>
-    on player clicks guilds_manage_claim_flags in my_guild_gui:
-    - if <context.raw_slot> <= 36:
-      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_flags]>:
-        - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
-    on player clicks guilds_view_members_btn in my_guild_gui:
-    - if <context.raw_slot> <= 36:
-      - inventory open d:<inventory[view_guild_members]>
-    on player clicks guild_view_bank_btn in my_guild_gui:
-    - if <context.raw_slot> <= 36:
-      - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[access_bank]>:
-        - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
-    on player opens my_guild_gui:
-    - inventory adjust d:<context.inventory> slot:14 material:<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>
-    - inventory adjust d:<context.inventory> slot:14 patterns:<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>
-    - inventory adjust d:<context.inventory> slot:14 base_color:<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>
-    - inventory adjust d:<context.inventory> slot:21 skull_skin:<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>
-    on player clicks guilds_leave_btn in my_guild_gui:
-    - if <context.raw_slot> <= 36:
-      - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <player>:
-        - inventory open d:<inventory[guild_leave_confirmation_gui]>
-      - else:
-        - narrate "<&c>You are the guild leader; to leave, you must disband the guild, or assign a new leader."
     on player clicks in all_guilds_gui:
     - determine passively cancelled
     - if <context.item.script.name> == gui_close_btn:
