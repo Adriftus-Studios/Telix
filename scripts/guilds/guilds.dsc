@@ -1063,7 +1063,7 @@ neutral_guild_icon:
 view_other_guild_relations_btn:
   type: item
   material: white_wool
-  display name: <&f>Request Peace
+  display name: <&f>View Relations
   lore:
   - <&7>Click to view relations with other guilds.
 
