@@ -970,19 +970,6 @@ change_guild_name_description_btn:
   material: feather
   display name: <&9>Change Guild Name / Description
   
-guild_settings_gui:
-  type: inventory
-  title: <&6>◆ <&a><&n><&l>Guild Settings<&r> <&6>◆
-  size: 36
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    closeitem: <item[gui_close_btn]>
-  slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [guilds_edit_ranks_btn] [] [set_guild_flag_btn] [] [rename_guild_btn] [] [w_filler]"
-  - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
-
 guild_choose_rank_to_edit_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Edit Rank<&r> <&6>◆
