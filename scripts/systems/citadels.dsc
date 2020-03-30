@@ -30,9 +30,9 @@ citadel_block_protection_events:
             - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/other/<[value].replace[unload_timer.].with[].to_lowercase>.yml
           - yaml id:<[value].replace[unload_timer.].with[]> unload
     on player right clicks *door:
-      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]> || <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.down[1].simple>.yml]>:
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]||false> || <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.down[1].simple>.yml]||false>:
         - define loc:<context.location.simple>
-        - if <context.location.material.half> == TOP:
+        - if <context.location.material.half||null> == TOP:
           - define loc:<context.location.down[1].simple>
         - if !<yaml.list.contains[locked_door_<[loc]>]>:
           - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc]>.yml id:locked_door_<[loc]>
