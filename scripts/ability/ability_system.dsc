@@ -90,7 +90,7 @@ abilityTree_inventory_events:
         - determine passively cancelled
         - if <context.item.script.name> == gui_invisible_item:
           - inventory open d:abilities_characterAbilityTrees
-        - if <script[ability_<context.item.nbt[skillname]>].yaml_key[ability_type]||nope> == active:
+        - if <script[ability_<context.item.nbt[skillname]||null>].yaml_key[ability_type]||null> == active:
           - inject abilities_item_BuildLore
           - adjust <player> item_on_cursor:<item[abilities_item].with[display_name=<context.item.nbt[skillname].replace[_].with[<&sp>].to_titlecase>;lore=<[lore]>;nbt=skillname/<context.item.nbt[skillname]>;material=<script[ability_<context.item.nbt[skillname]>].yaml_key[icon.material]>;custom_model_data=<script[ability_<context.item.nbt[skillname]>].yaml_key[icon.custom_model_data]>]>
 
