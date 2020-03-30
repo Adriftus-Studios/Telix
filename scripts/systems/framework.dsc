@@ -448,7 +448,7 @@ system_override:
   debug: false
   events:
     on script generates error:
-      - define cause:<player||None>
+      - define cause:<player.name||None>
       - announce to_console "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
       - announce to_console "<&c> <context.message>"
       - announce to_console "<&c> Player: <[cause]>"
