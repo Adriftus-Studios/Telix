@@ -448,7 +448,6 @@ system_override:
   debug: false
   events:
     on script generates error:
-      - stop
       - announce to_console "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
       - announce to_console "<&c> <context.message>"
       - announce to_console "<&c> Script: <context.script.name>"
