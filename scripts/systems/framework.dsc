@@ -448,6 +448,7 @@ system_override:
   debug: false
   events:
     on script generates error:
+      - stop
       - narrate "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
       - narrate "<&c> <context.message>"
       - narrate "<&c> Script: <context.script.name>"
