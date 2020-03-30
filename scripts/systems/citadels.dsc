@@ -51,8 +51,8 @@ citadel_block_protection_events:
                 - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/locked_doors/<[loc]>.yml
                 - narrate "<&7><&o>Click..."
     on player breaks block:
-      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]>:
-        - if !<yaml.list.contains[reinforced_block_<context.location.simple>]>:
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/reinforced_block].contains[<context.location.simple>.yml]||false>:
+        - if !<yaml.list.contains[reinforced_block_<context.location.simple>]||false>:
           - yaml load:DONT_PUT_SHIT_IN_HERE/reinforced_block/<context.location.simple>.yml id:reinforced_block_<context.location.simple>
         - if <yaml[reinforced_block_<context.location.simple>].read[owner]> != <player>:
           - flag server unload_timer.reinforced_block_<context.location.simple> duration:10s
@@ -67,7 +67,7 @@ citadel_block_protection_events:
         - else:
           - flag server unload_timer.reinforced_block_<context.location.simple>:!
           - yaml id:reinforced_block_<context.location.simple> unload
-      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>:
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]||false>:
         - if !<yaml.list.contains[locked_door_<context.location.simple>]>:
           - yaml load:DONT_PUT_SHIT_IN_HERE/locked_doors/<context.location.simple>.yml id:locked_door_<context.location.simple>
         - flag server unload_timer.locked_door_<context.location.simple> duration:10s
