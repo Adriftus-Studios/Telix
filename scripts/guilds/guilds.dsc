@@ -1097,11 +1097,11 @@ guild_gui_events:
     - if <context.item.nbt[guild]||null> != null:
     on player opens all_guilds_gui:
     - define page:<context.inventory.slot[1].nbt[page]||1>
-    - while <context.inventory.slot[44].material.name||air> != air:
+    - while <context.inventory.slot[44].material.name||air> == air:
       - define value:<[value]||1>
+      - narrate <[value]>
       - if <[value]> > <yaml.list.filter[starts_with[guild.]].size>:
         - while stop
-      - narrate <[value]>
       - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value].add[<[page].mul[35].sub[35]>]>]||null>
       - if <[guild]> != null:
         - define value:<[value].add[1]>
