@@ -573,6 +573,14 @@ player_reset_command:
   - yaml id:player.<player.uuid> unload
   - adjust server delete_file:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml
 
+testt_command:
+  type: command
+  name: test
+  permission: test
+  script:
+  - foreach <server.list_notables> as:notable:
+    - note remove as:<[notable]>
+
 resend_recipes_command:
   type: command
   name: resend_recipes
