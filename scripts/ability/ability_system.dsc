@@ -10,8 +10,9 @@ abilities_cost:
     - if <yaml[player.<player.uuid>].read[stats.power.current]> < <queue.script.yaml_key[power_cost]>:
       - stop
     - yaml id:player.<player.uuid> set stats.power.current:-:<queue.script.yaml_key[power_cost]>
-    - adjust <player> food_level:<yaml[player.<player.uuid>].read[stats.power.current]./[<yaml[player.<player.uuid>].read[stats.power.max]>].*[20]>
-    - inject actionbar_stats_update
+    - if <yaml[player.<player.uuid>].read[stats.power.current]./[<yaml[player.<player.uuid>].read[stats.power.max]>].*[20]||null> != null:
+      - adjust <player> food_level:<yaml[player.<player.uuid>].read[stats.power.current]./[<yaml[player.<player.uuid>].read[stats.power.max]>].*[20]>
+      - inject actionbar_stats_update
 
 
 # check systems/script_reload.dsc
