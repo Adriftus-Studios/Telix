@@ -1091,12 +1091,11 @@ guild_gui_events:
         - inventory open d:new_guild_gui
     - if <context.item.nbt[guild]||null> != null:
     on player opens all_guilds_gui:
-    - define page:<context.inventory.slot[1].nbt[page]||>
+    - define page:<context.inventory.slot[1].nbt[page]||1>
     - repeat 35:
-      - if <yaml.list.filter[starts_with[guild.]].size> > <[value].add[<[page].mul[35].sub[35]>]>:
-        - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value].add[<[page].mul[35].sub[35]>]>]||null>
-        - if <[guild]> != null:
-          - inventory add d:<context.inventory> o:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
+      - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value].add[<[page].mul[35].sub[35]>]>]||null>
+      - if <[guild]> != null:
+        - inventory add d:<context.inventory> o:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
     on player clicks guilds_settings_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
