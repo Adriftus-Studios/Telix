@@ -683,13 +683,13 @@ guild_events:
       - else:
         - narrate "<&c>You do not have permission to manage guild flags."
     on player signs book:
-    - if <player.item_in_offhand.script.name> == new_guild_book:
+    - if <player.item_in_offhand.script.name||null> == new_guild_book:
       - stop
       - determine passively NOT_SIGNING
       - wait 1t
       - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
       - stop
-    - if <context.book> == <item[new_guild_book]>:
+    - if <context.book||null> == <item[new_guild_book]>:
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
         - determine passively NOT_SIGNING
@@ -1075,8 +1075,21 @@ my_guild_gui:
     closeitem: <item[gui_close_btn]>
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_my_guild_top] [guilds_view_info_btn] [] [guilds_manage_claim_flags] [] [guilds_leave_btn] [] [list_all_guilds_btn] [w_filler]"
-  - "[gui_my_guild_bottom] [guilds_view_members_btn] [] [guild_view_bank_btn] [] [guilds_settings_btn] [] [view_other_guild_relations_btn] [w_filler]"
+  - "[gui_my_guild_top] [] [guilds_view_info_btn] [] [guild_view_bank_btn] [] [guilds_leave_btn] [] [w_filler]"
+  - "[gui_my_guild_bottom] [] [guilds_view_members_btn] [] [list_all_guilds_btn] [] [guilds_settings_btn] [] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+guild_settings_gui:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Guild Settings<&r> <&6>◆
+  size: 36
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [guilds_edit_ranks_btn] [] [set_guild_flag_btn] [] [rename_guild_btn] [] [w_filler]"
+  - "[w_filler] [] [view_other_guild_relations_btn] [] [guilds_manage_claim_flags] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 guild_gui_events:
@@ -1087,15 +1100,12 @@ guild_gui_events:
     - if <context.item.script.name> == gui_close_btn:
       - inventory open d:<inventory[new_guild_gui]>
     - if <context.item.nbt[guild]||null> != null:
-      
     on player opens all_guilds_gui:
-      - define page:<context.inventory.slot[1].nbt[page]||>
-      - repeat 35:
-        - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value].add[<[page].mul[35].sub[35]>]>]||null>
-        - if <[guild]> != null:
-          - inventory add d:<context.inventory> o:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
-          
-      
+    - define page:<context.inventory.slot[1].nbt[page]||>
+    - repeat 35:
+      - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value].add[<[page].mul[35].sub[35]>]>]||null>
+      - if <[guild]> != null:
+        - inventory add d:<context.inventory> o:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
     on player clicks guilds_settings_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
@@ -1111,7 +1121,7 @@ guild_gui_events:
     on player clicks guilds_view_info_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_info_gui]>
-    on player clicks guilds_manage_claim_flags in my_guild_gui:
+    on player clicks guilds_manage_claim_flags in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[manage_flags]>:
         - inventory open d:<inventory[guild_<player.flag[guild]>_flags]>
@@ -1122,11 +1132,12 @@ guild_gui_events:
     - if <context.raw_slot> <= 36:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].as_list.contains[access_bank]>:
         - inventory open d:<inventory[guild_<player.flag[guild]>_bank]>
-    on player opens my_guild_gui:
+    on player opens guild_settings_gui:
     - inventory adjust d:<context.inventory> slot:13 material:<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>
     - inventory adjust d:<context.inventory> slot:13 patterns:<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>
     - inventory adjust d:<context.inventory> slot:13 base_color:<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>
-    - inventory adjust d:<context.inventory> slot:20 skull_skin:<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>
+    on player opens my_guild_gui:
+    - inventory adjust d:<context.inventory> slot:21 skull_skin:<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>
     on player clicks guilds_leave_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> != <player>:
