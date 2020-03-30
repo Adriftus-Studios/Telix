@@ -1101,6 +1101,7 @@ guild_gui_events:
       - define value:<[value]||1>
       - if <[value]> > <yaml.list.filter[starts_with[guild.]].size>:
         - while stop
+      - narrate <[value]>
       - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value].add[<[page].mul[35].sub[35]>]>]||null>
       - if <[guild]> != null:
         - define value:<[value].add[1]>
