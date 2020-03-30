@@ -405,7 +405,7 @@ custom_item_override:
         - inject build_item
         - determine ITEM:<[item]>
     on player clicks in inventory:
-      - if !<context.cursor_item.has_nbt[built]> && <context.cursor_item.material.name> != air:
+      - if !<context.cursor_item.has_nbt[built]> && <context.cursor_item.material.name> != air && <context.slot> != -998:
         - define item:<context.cursor_item>
         - inject build_item
         - wait 1t
