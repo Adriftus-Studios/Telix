@@ -449,11 +449,11 @@ system_override:
   events:
     on script generates error:
       - stop
-      - narrate "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
-      - narrate "<&c> <context.message>"
-      - narrate "<&c> Script: <context.script.name>"
-      - narrate "<&c> File: <context.script.filename.replace[/home/minecraft/servers/telix-test/plugins/Denizen].with[]>"
-      - narrate "<&c> Line: <context.line>"
+      - announce to_console "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
+      - announce to_console "<&c> <context.message>"
+      - announce to_console "<&c> Script: <context.script.name>"
+      - announce to_console "<&c> File: <context.script.filename.replace[/home/minecraft/servers/telix-test/plugins/Denizen].with[]>"
+      - announce to_console "<&c> Line: <context.line>"
       - foreach <server.list_players||<list[]>> as:player:
         - adjust queue linked_player:<[player]>
         - if <player.has_flag[debug]>:
