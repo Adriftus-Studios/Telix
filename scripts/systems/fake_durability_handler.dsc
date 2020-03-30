@@ -2,7 +2,9 @@ fake_durability_handler:
   type: world
   events:
     on player item takes damage:
-      - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
+      - define item:<proc[fake_durability_use].context[<player.item_in_hand>]||null>
+      - if <[item]> != null:
+        - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
     on player mends item:
       - if <context.item.script.yaml_key[fake_durability]||null> == null:
         - stop
