@@ -454,7 +454,7 @@ system_override:
       - announce to_console "<&c> File: <context.script.filename.replace[/home/minecraft/servers/telix-test/plugins/Denizen].with[]>"
       - announce to_console "<&c> Line: <context.line>"
       - foreach <server.list_players||<list[]>> as:player:
-        - adjust queue linked_player:<[player]>
+        - adjust <queue> linked_player:<[player]>
         - if <player.has_flag[debug]>:
           - narrate "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
           - narrate "<&c> <context.message>"
