@@ -682,8 +682,6 @@ guild_events:
         - determine passively cancelled
       - else:
         - narrate "<&c>You do not have permission to manage guild flags."
-    - else:
-      - announce to_console
     on player signs book:
     - if <player.item_in_offhand.script.name> == new_guild_book:
       - stop
