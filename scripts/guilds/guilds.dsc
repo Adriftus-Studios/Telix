@@ -1103,6 +1103,8 @@ guild_gui_events:
       - define value:<[value].add[1]>
       - if <[guild]> != null && <yaml[<[guild]>].read[leader].as_player.flag[guild]||null> == <[guild].replace[guild.].with[]>:
         - inventory add d:<context.inventory> o:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
+      - else:
+        - announce to_console "broken guild: <[guild]>"
     on player clicks guilds_settings_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
