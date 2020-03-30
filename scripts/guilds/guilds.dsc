@@ -1066,6 +1066,10 @@ my_guild_gui:
   - "[gui_my_guild_bottom] [] [guilds_view_members_btn] [] [list_all_guilds_btn] [] [guilds_settings_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+rename_guild_btn:
+  type: item
+  material: book_and_quill
+
 guild_settings_gui:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Guild Settings<&r> <&6>◆
@@ -1116,6 +1120,11 @@ guild_gui_events:
     on player clicks guilds_view_info_btn in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - inventory open d:<inventory[guild_info_gui]>
+    on player drags in guild_settings_gui:
+    - foreach <context.raw_slots>:
+      - if <[value]> <= 36:
+        - determine passively cancelled
+        - stop
     on player clicks guilds_manage_claim_flags in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - narrate <context.raw_slot>
@@ -1287,6 +1296,11 @@ guild_gui_events:
         - inventory add d:<context.inventory> o:<item[green_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>;nbt=perm/<[perm]>;lore=<list[Click<&sp>to<&sp>disable.]>]>
       - else:
         - inventory add d:<context.inventory> o:<item[red_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>;nbt=perm/<[perm]>;lore=<list[Click<&sp>to<&sp>enable.]>]>
+    on player drags in guild_edit_rank_gui:
+    - foreach <context.raw_slots>:
+      - if <[value]> <= 45:
+        - determine passively cancelled
+        - stop
     on player clicks in guild_edit_rank_gui:
     - if <context.raw_slot> <= 45:
       - determine passively cancelled
@@ -1329,6 +1343,11 @@ guild_gui_events:
       - else:
         - narrate "<&b>Cancelled."
       - inventory open d:<inventory[guild_choose_rank_to_edit_gui]>
+    on player drags in guild_choose_rank_to_edit_gui:
+    - foreach <context.raw_slots>:
+      - if <[value]> <= 36:
+        - determine passively cancelled
+        - stop
     on player clicks in guild_choose_rank_to_edit_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
@@ -1433,6 +1452,11 @@ guild_gui_events:
           - inventory open d:<[gui]>
           - wait 1t
           - inventory set d:<[gui]> slot:12 o:<context.item>
+    on player drags in view_guild_members:
+    - foreach <context.raw_slots>:
+      - if <[value]> <= 54:
+        - determine passively cancelled
+        - stop
     on player opens view_guild_members:
     - wait 1t
     - foreach <yaml[guild.<player.flag[guild]>].read[members].as_list> as:member:
@@ -1469,6 +1493,11 @@ guild_gui_events:
         - stop
       - if <context.item.script.name||null> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
+    on player drags in guild_flags_gui:
+    - foreach <context.raw_slots>:
+      - if <[value]> <= 54:
+        - determine passively cancelled
+        - stop
     on player clicks in new_guild_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
