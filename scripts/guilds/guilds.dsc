@@ -1085,7 +1085,10 @@ guild_gui_events:
     on player clicks in all_guilds_gui:
     - determine passively cancelled
     - if <context.item.script.name> == gui_close_btn:
-      - inventory open d:<inventory[new_guild_gui]>
+      - if <player.flag[guild]||null> != null:
+        - inventory open d:my_guild_gui
+      - else:
+        - inventory open d:new_guild_gui
     - if <context.item.nbt[guild]||null> != null:
     on player opens all_guilds_gui:
     - define page:<context.inventory.slot[1].nbt[page]||>
