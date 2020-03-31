@@ -34,10 +34,6 @@ player_profile_events:
               - inventory open d:<[inv]>
               - inventory adjust d:<[inv]> slot:1 nbt:guild/<context.inventory.slot[17].nbt[guild]>
 
-invite_to_guild:
-  type: task
-  definitions: guild|inviter|invited
-
 player_profile_no_guild_btn:
   type: item
   material: white_banner
