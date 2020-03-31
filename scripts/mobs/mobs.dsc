@@ -29,6 +29,7 @@ mob_drops_events:
         - determine <[list]||<list[]>>
     on entity damages entity:
       - narrate <context.entity.health>
+      - narrate <context.entity.health_percentage>%
       - if <context.entity.script||null> != null:
         - if <context.entity.script.yaml_key[custom.aggressive]||true>:
           - attack <context.entity> target:<context.damager>
