@@ -8,7 +8,7 @@ custom_bowl:
 ##Custom Recipes
 #Kebabs
 custom_beef_kebab:
-  material: stick
+  material: cooked_beef
   display name: <&7>Beef Kebab
   #mechanisms:
   #  custom_model_data: 0
@@ -25,7 +25,7 @@ custom_beef_kebab:
       xp_given: 10
       
 custom_chicken_kebab:
-  material: stick
+  material: cooked_chicken
   display name: <&7>Chicken Kebab
   #mechanisms:
   #  custom_model_data: 0
