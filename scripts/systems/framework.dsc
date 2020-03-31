@@ -574,10 +574,10 @@ player_reset_command:
   - yaml id:player.<player.uuid> unload
   - adjust server delete_file:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml
 
-testt_command:
+testtttt_command:
   type: command
   name: test
-  permission: test
+  permission: testt
   script:
   - define book:<yaml[guild.<player.flag[guild]>].read[book].as_item>
   - adjust def:book material:book_and_quill
