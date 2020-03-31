@@ -115,7 +115,7 @@ custom_cooked_beef_kebab:
     2:
       type: smoker
       output_quantity: 1
-      input: custom_raw_beef_kebab
+      input: <item[custom_raw_beef_kebab]>
       
 custom_cooked_chicken_kebab:
   type: item
@@ -138,7 +138,8 @@ custom_cooked_chicken_kebab:
     2:
       type: smoker
       output_quantity: 1
-      input: custom_raw_chicken_kebab
+      input: <item[custom_raw_chicken_kebab]>
+      
 
 #Soups
 custom_mushroom_soup:
