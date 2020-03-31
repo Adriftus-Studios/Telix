@@ -168,9 +168,9 @@ preparation_table_events:
             - drop <inventory[preparation_table_<[block].simple>].slot[<[slot].split[/].get[1]>]> <[block].simple>
           - note remove as:preparation_table_<[block].simple>
           - define list:|:<[block]>
-      - determine <context.blocks.exclude[<[list]||<list[]>>]>
       - foreach <[list]||<list[]>> as:loc:
         - drop <item[custom_preparation_table]> <[loc].above>
+      - determine <context.blocks.exclude[<[list]||<list[]>>]>
     on player clicks beehive:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:
