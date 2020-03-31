@@ -579,7 +579,10 @@ testt_command:
   name: test
   permission: test
   script:
-  - adjust <player> show_book:<item[guild_rename_book]>
+  - define book:<yaml[guild.<player.flag[guild]>].read[book].as_item>
+  - adjust def:book material:book_and_quill
+  - narrate <[book]>
+  - adjust <player> show_book:<[book]>
   - wait 5t
   - narrate <player.open_inventory>
 
