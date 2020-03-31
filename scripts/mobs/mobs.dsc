@@ -30,8 +30,7 @@ mob_drops_events:
     on entity damages entity:
       - if <context.entity.script||null> != null:
         - if <context.entity.script.yaml_key[custom.kill_health]||null> != null:
-          - if <context.entity.health> <= <context.entity.script.yaml_key[custom.kill_health]>:
-            - hurt <context.entity.health> <context.entity> source:<context.damager>
+          - if <entity.health.-[<context.final_damage>]> <= <context.entity.script.yaml_key[custom.kill_health]>:
             - determine <context.entity.health>
         - if <context.entity.script.yaml_key[custom.aggressive]||true>:
           - attack <context.entity> target:<context.damager>
