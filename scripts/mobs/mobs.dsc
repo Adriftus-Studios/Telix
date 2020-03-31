@@ -58,8 +58,9 @@ mob_spawning_events:
             - define list:<-:<[mob]>
           - if <list[<yaml[server.mobs].read[<[mob]>.time]>].as_list.contains[<player.location.world.time.period>]> && <yaml[server.mobs].read[<[mob]>.time]> != all:
             - define list:<-:<[mob]>
-          - if <player.location.world.living_entities.filter[scriptname.to_lowercase.is[==].to[<[mob]>]].size> >= <yaml[server.mobs].read[<[mob]>.per_world_limit]>:
-            - define list:<-:<[mob]>
+          - if <player.location.world.living_entities.filter[scriptname.to_lowercase.is[==].to[<[mob]>]].size||0> != 0:
+            - if <player.location.world.living_entities.filter[scriptname.to_lowercase.is[==].to[<[mob]>]].size> >= <yaml[server.mobs].read[<[mob]>.per_world_limit]>:
+              - define list:<-:<[mob]>
           - if <player.location.highest.y> >= <player.location.y.add[1]>:
             - define list:<-:<[mob]>
           - if <util.random.int[1].to[<yaml[server.mobs].read[<[mob]>.chance].mul[60]>]> == 1 && <yaml[server.mobs].read[<[mob]>.chance]> != 0:
