@@ -112,10 +112,11 @@ custom_chicken_soup:
       main_ingredient: custom_raw_chicken/2
       serving_dish: custom_bowl/1
       cook_time: 1m
-      xp_given: 10
+      xp_given: 12
     2:
       type: cooking
       output_quantity: 1
       main_ingredient: custom_cooked_chicken/2
       serving_dish: custom_bowl/1
       cook_time: 30s
+      xp_given: 10
