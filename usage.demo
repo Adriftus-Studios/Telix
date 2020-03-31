@@ -14,6 +14,7 @@ custom_food_test_recipe:
       side_ingredients: custom_cooked_porkchop/1
       serving_dish: custom_oak_log/1
       cook_time: 5m
+      xp_given: 10
 
 # -----[ Custom Cooking Ingredient ]-----
 
