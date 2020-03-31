@@ -576,7 +576,7 @@ player_reset_command:
 
 testtttt_command:
   type: command
-  name: test
+  name: testt
   permission: testt
   script:
   - define book:<yaml[guild.<player.flag[guild]>].read[book].as_item>
