@@ -579,6 +579,9 @@ testtttt_command:
   name: testt
   permission: testt
   script:
+  - wait 1s
+  - narrate <player.open_inventory>
+  - stop
   - define book:<yaml[guild.<player.flag[guild]>].read[book].as_item.with[material=writable_book]>
   - define item:<player.item_in_hand>
   - fakeitem <[item]> duration:1t slot:<player.held_item_slot>
