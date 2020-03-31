@@ -261,7 +261,10 @@ entity_desert_golem:
   health: 200
   speed: 0.1
   custom:
+<<<<<<< HEAD
     kill_health: 0
+=======
+>>>>>>> 9eec21e735c606f4f6ed028f75b860e579296f04
     xp_dropped: 40
     spawning_conditions:
       world: tor_mainland

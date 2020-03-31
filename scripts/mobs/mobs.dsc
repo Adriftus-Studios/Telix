@@ -28,11 +28,10 @@ mob_drops_events:
           - define list:|:<[drop].with[quantity=<[drop].quantity.mul[<server.flag[global_mob_drop_multiplier]>]>]>
         - determine <[list]||<list[]>>
     on entity damages entity:
-      - narrate <context.entity.health>
-      - narrate <context.entity.health_percentage>%
-      - narrate <context.entity.health.-[<context.final_damage>]>
-      - narrate <context.entity.script.yaml_key[health]>
       - if <context.entity.script||null> != null:
+        - if <context.entity.script.yaml_key[custom.kill_health]||null> != null:
+          - if <entity.health> <= <context.entity.script.yaml_key[custom.kill_health]>:
+            - hurt <context.entity.health> <context.entity> source:<context.damager>
         - if <context.entity.script.yaml_key[custom.aggressive]||true>:
           - attack <context.entity> target:<context.damager>
       - if <context.entity.script.yaml_key[custom.events.on<&sp>attacked]||null> != null:
@@ -65,7 +64,7 @@ mob_spawning_events:
             - define list:<-:<[mob]>
           - if <util.random.int[1].to[<yaml[server.mobs].read[<[mob]>.chance].mul[60]>]> == 1 && <yaml[server.mobs].read[<[mob]>.chance]> != 0:
             - define list:<-:<[mob]>
-        - define mob_limiter:25
+        - define mob_limiter:50
         - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
           - foreach <[list]> as:mob:
             - repeat 5:
