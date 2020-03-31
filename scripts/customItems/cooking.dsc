@@ -63,6 +63,8 @@ custom_raw_beef_kebab:
   #mechanisms:
   #  custom_model_data: 0
   weight: '1'
+  food: -10
+  thirst: -5
   recipes:
     1:
       type: cooking
@@ -80,6 +82,8 @@ custom_raw_chicken_kebab:
   #mechanisms:
   #  custom_model_data: 0
   weight: '1'
+  food: -10
+  food: -5
   recipes:
     1:
       type: cooking
@@ -97,6 +101,8 @@ custom_cooked_beef_kebab:
   #mechanisms:
   #  custom_model_data: 0
   weight: '1'
+  food: 15
+  thirst: 2
   recipes:
     1:
       type: cooking
@@ -118,6 +124,8 @@ custom_cooked_chicken_kebab:
   #mechanisms:
   #  custom_model_data: 0
   weight: '1'
+  food: 15
+  thirst: 2
   recipes:
     1:
       type: cooking
@@ -138,6 +146,8 @@ custom_mushroom_soup:
   material: mushroom_stew
   display name: <&7>Mushroom Soup
   weight: '1'
+  food: 5
+  thirst: 15
   recipes:
     1:
       type: cooking
@@ -152,6 +162,8 @@ custom_chicken_soup:
   material: mushroom_stew
   display name: <&7>Chicken Soup
   weight: '1'
+  food: 8
+  thirst: 15
   recipes:
     1:
       type: cooking
