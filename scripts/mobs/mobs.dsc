@@ -64,7 +64,7 @@ mob_spawning_events:
             - define list:<-:<[mob]>
           - if <util.random.int[1].to[<yaml[server.mobs].read[<[mob]>.chance].mul[60]>]> == 1 && <yaml[server.mobs].read[<[mob]>.chance]> != 0:
             - define list:<-:<[mob]>
-        - define mob_limiter:50
+        - define mob_limiter:25
         - if <player.location.find.living_entities.within[50].size> < <[mob_limiter]>:
           - foreach <[list]> as:mob:
             - repeat 5:
