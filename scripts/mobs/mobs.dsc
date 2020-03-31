@@ -129,7 +129,7 @@ golem_repair_events:
   type: world
   debug: false
   script:
-    on player right clicks entity with:custom_iron_ingot:
+    on player right clicks entity with:iron_ingot:
       - if <context.entity.entity_type> == IRON_GOLEM:
         - narrate "NOPE"
         - determine cancelled
