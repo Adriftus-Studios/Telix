@@ -46,11 +46,11 @@ stats_events:
     on player consumes item:
       - define food:<context.item.script.yaml_key[food]||10>
       - define thirst:<context.item.script.yaml_key[thirst]||10>
-      - if <yaml[player.<[player].uuid>].read[stats.food.current].add[<[food]>]> > <yaml[player.<[player].uuid>].read[stats.food.max]>
+      - if <yaml[player.<[player].uuid>].read[stats.food.current].add[<[food]>]> > <yaml[player.<[player].uuid>].read[stats.food.max]>:
         - yaml id:player.<player.uuid> set stats.food.current:<yaml[player.<[player].uuid>].read[stats.food.max]>
       - else:
         - yaml id:player.<player.uuid> set stats.food.current:+:<[food]>
-      - if <yaml[player.<[player].uuid>].read[stats.thirst.current].add[<[thirst]>]> > <yaml[player.<[player].uuid>].read[stats.thirst.max]>
+      - if <yaml[player.<[player].uuid>].read[stats.thirst.current].add[<[thirst]>]> > <yaml[player.<[player].uuid>].read[stats.thirst.max]>:
         - yaml id:player.<player.uuid> set stats.thirst.current:<yaml[player.<[player].uuid>].read[stats.thirst.max]>
       - else:
         - yaml id:player.<player.uuid> set stats.thirst.current:+:<[thirst]>
