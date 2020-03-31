@@ -127,10 +127,10 @@ mob_use_ability_handler:
         
 golem_repair_events:
   type: world
-  debug: false
+  debug: true
   script:
     on player right clicks entity:
+      - narrate "<context.entity.entity_type>"
+      - narrate "<context.item.material.name>"
       - if <context.entity.entity_type> == IRON_GOLEM && <context.item.material.name> == iron_ingot:
-        - narrate "<context.entity.entity_type>"
-        - narrate "<context.item.material.name>"
         - determine cancelled
