@@ -5,6 +5,20 @@ custom_bowl:
   display name: <&7>Bowl
   weight: '1'
   
+custom_skewer:
+  type: item
+  material: stick
+  display name: <&7>Skewer
+  weight: '1'
+  recipes:
+    1:
+      type: shapeless
+      output_quantity: 1
+      input:
+      - air|air|air
+      - custom_iron_ingot|air|air
+      - custom_iron_ingot|air|air
+  
 ##Custom Recipes
 #Kebabs
 custom_raw_beef_kebab:
@@ -58,7 +72,7 @@ custom_cooked_beef_kebab:
       cook_time: 30s
       xp_given: 10
     2:
-      type: smeltery
+      type: smoker
       output_quantity: 1
       input: custom_coal/1|custom_raw_beef_kebab/1
       cook_time: 1m
@@ -80,7 +94,7 @@ custom_cooked_chicken_kebab:
       cook_time: 30s
       xp_given: 10
     2:
-      type: smeltery
+      type: smoker
       output_quantity: 1
       input: custom_coal/1|custom_raw_chicken_kebab/1
       cook_time: 1m
