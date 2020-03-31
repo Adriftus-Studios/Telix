@@ -18,6 +18,41 @@ custom_skewer:
         - air|air|air
         - custom_iron_ingot|air|air
         - custom_iron_ingot|air|air
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - custom_iron_ingot|air|air
+        - custom_iron_ingot|air|air
+        - air|air|air
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - air|custom_iron_ingot|air
+        - air|custom_iron_ingot|air
+        - air|air|air
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - air|air|air
+        - air|custom_iron_ingot|air
+        - air|custom_iron_ingot|air
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - air|air|custom_iron_ingot
+        - air|air|custom_iron_ingot
+        - air|air|air
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
+        - air|air|air
+        - air|air|custom_iron_ingot
+        - air|air|custom_iron_ingot
   
 ##Custom Recipes
 #Kebabs
