@@ -124,3 +124,12 @@ mob_use_ability_handler:
         - adjust def:entity speed:<[normal_speed]>
         - run <[ability]> def:<[entity]>
         - flag <[entity]> <[ability]>
+        
+golem_repair_events:
+  type: world
+  debug: false
+  script:
+    on player right clicks entity with:custom_iron_ingot:
+      - if <context.entity.entity_type> == IRON_GOLEM:
+        - narrate "NOPE"
+        - determine cancelled
