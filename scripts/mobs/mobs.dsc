@@ -28,6 +28,7 @@ mob_drops_events:
           - define list:|:<[drop].with[quantity=<[drop].quantity.mul[<server.flag[global_mob_drop_multiplier]>]>]>
         - determine <[list]||<list[]>>
     on entity damages entity:
+      - narrate <context.entity.health>
       - if <context.entity.script||null> != null:
         - if <context.entity.script.yaml_key[custom.aggressive]||true>:
           - attack <context.entity> target:<context.damager>
