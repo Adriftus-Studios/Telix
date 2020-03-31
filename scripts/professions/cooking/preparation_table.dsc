@@ -178,6 +178,8 @@ preparation_table_events:
         - if <[slotmap].map_get[<context.raw_slot>]||null> == null:
           - determine passively cancelled
           - stop
+        - if <[slotmap].map_get[<context.raw_slot>]> == out:
+          - narrate test
       - if !<context.is_shift_click>:
         - if <context.raw_slot> < 55:
           - if <[slotmap].map_get[<context.raw_slot>].starts_with[out]>:
