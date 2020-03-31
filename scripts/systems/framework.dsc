@@ -616,6 +616,8 @@ build_item:
     - if <[item].script||null> == null:
       - define item:<item[custom_<[item].material.name>]>
       - adjust def:item quantity:<[old_item].quantity>
+      - if <[old_item].potion_base||null> != null:
+        - adjust def:item potion_effects:<[old_item].potion_base>
       - if <[old_item].custom_model_data||null> != null:
         - adjust def:item custom_model_data:<[old_item].custom_model_data>
       - if <[old_item].nbt||null> != null:
