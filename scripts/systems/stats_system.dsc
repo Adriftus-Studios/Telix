@@ -28,9 +28,12 @@ stats_events:
   type: world
   events:
     on player consumes item:
-      - yaml id:player.<[value].uuid> set stats.food.current:+:10
+      - yaml id:player.<[value].uuid> set stats.food.current:+:<context.item.script.yaml_key[food]||10>
       - if <yaml[player.<player.uuid>].read[stats.food.current]> > <yaml[player.<player.uuid>].read[stats.food.max]>:
         - yaml id:player.<[value].uuid> set stats.food.current:<yaml[player.<player.uuid>].read[stats.food.max]>
+      - yaml id:player.<[value].uuid> set stats.thirst.current:+:<context.item.script.yaml_key[thirst]||10>
+      - if <yaml[player.<player.uuid>].read[stats.thirst.current]> > <yaml[player.<player.uuid>].read[stats.thirst.max]>:
+        - yaml id:player.<[value].uuid> set stats.thirst.current:<yaml[player.<player.uuid>].read[stats.thirst.max]>
     on player damages player:
       - yaml id:player.<player.uuid> set values.damage_to_players:+:<context.damage.round>
     on player kills player:
