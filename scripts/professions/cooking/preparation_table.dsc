@@ -169,6 +169,9 @@ preparation_table_events:
           - note remove as:preparation_table_<[block].simple>
           - define list:|:<[block]>
       - determine <context.blocks.exclude[<[list]||<list[]>>]>
+      - foreach <[list]||<list[]>>:
+        - remove <[value]>
+        - drop <item[custom_preparation_table]> <[value]>
     on player clicks beehive:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:
