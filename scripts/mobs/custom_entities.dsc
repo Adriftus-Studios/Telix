@@ -260,8 +260,8 @@ entity_desert_golem:
   max_health: 1000
   health: 240
   speed: 0.1
-  kill_number: 0
   custom:
+    kill_number: 0
     xp_dropped: 40
     spawning_conditions:
       world: tor_mainland
