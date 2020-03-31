@@ -143,6 +143,16 @@ alchemy_station_events:
           - drop <item[custom_alchemy_station]> <context.location>
         - note remove as:alchemy_station_<context.location.simple>
         - determine NOTHING
+    on entity explodes:
+      - foreach <context.blocks> as:block:
+        - if <inventory[alchemy_station_<[block]>]||null> != null:
+        - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
+          - foreach <[slotmap]> as:slot:
+            - drop <inventory[alchemy_station_<[block]>].slot[<[slot].split[/].get[1]>]> <[block]>
+          - if <player.gamemode> == survival:
+            - drop <item[custom_alchemy_station]> <[block]>
+          - note remove as:alchemy_station_<[block]>
+          - determine NOTHING
     on player clicks brewing_stand:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:

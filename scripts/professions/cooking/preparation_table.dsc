@@ -162,7 +162,14 @@ preparation_table_events:
         - determine NOTHING
     on entity explodes:
       - foreach <context.blocks> as:block:
-        - announce <[block]>
+        - if <inventory[preparation_table_<[block]>]||null> != null:
+          - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
+          - foreach <[slotmap]> as:slot:
+            - drop <inventory[preparation_table_<[block]>].slot[<[slot].split[/].get[1]>]> <[block]>
+          - if <player.gamemode> == survival:
+            - drop <item[custom_preparation_table]> <[block]>
+          - note remove as:preparation_table_<[block]>
+          - determine NOTHING
     on player clicks beehive:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:
