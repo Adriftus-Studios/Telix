@@ -153,7 +153,6 @@ alchemy_station_events:
           - if <player.gamemode> == survival:
             - drop <item[custom_alchemy_station]> <[block]>
           - note remove as:alchemy_station_<[block]>
-          - determine NOTHING
     on player clicks brewing_stand:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:

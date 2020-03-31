@@ -170,7 +170,8 @@ preparation_table_events:
           - if <player.gamemode> == survival:
             - drop <item[custom_preparation_table]> <[block]>
           - note remove as:preparation_table_<[block]>
-          - determine NOTHING
+          - define list:|:<[block]>
+      - determine <context.blocks.exclude[<[list]>]>
     on player clicks beehive:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:
