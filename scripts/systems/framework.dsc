@@ -189,6 +189,7 @@ reload_scripts:
                     - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[recipes.<[recipe]>.side_ingredients]>
                     - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[recipes.<[recipe]>.serving_dish]>
                     - yaml id:server.cooking_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
+                    - yaml id:server.cooking_recipes set <[value].name>.xp_given:<[value].yaml_key[recipes.<[recipe]>.xp_given]||1>
                   - if <list[altar|alchemy|smeltery].contains[<[value].yaml_key[recipes.<[recipe]>.type]>]>:
                     - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list.parse[split[/].get[1]]> as:entry:
                       - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
