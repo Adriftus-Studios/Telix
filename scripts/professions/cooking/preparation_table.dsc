@@ -163,7 +163,6 @@ preparation_table_events:
     on entity explodes:
       - foreach <context.blocks> as:block:
         - if <inventory[preparation_table_<[block].simple>]||null> != null:
-          - wait 2t
           - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
           - foreach <[slotmap]> as:slot:
             - drop <inventory[preparation_table_<[block]>].slot[<[slot].split[/].get[1]>]> <[block].simple>
