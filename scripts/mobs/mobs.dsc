@@ -74,6 +74,10 @@ mob_spawning_events:
                 - define spawning_point:<location[<player.location.x.add[<[offset].get[1]>]>,<player.location.y>,<player.location.z.add[<[offset].get[2]>]>,<player.location.world.name>]>
                 - chunkload <[spawning_point].chunk> duration:2m
                 - if <yaml[server.mobs].read[<[mob]>.air]>:
+                  - if <[spawning_point].highest.y||null> == null || <[spawning_point].y||null> == null:
+                    - narrate <[spawning_point].y>
+                    - narrate <[spawning_point].highest.y>
+                    - narrate <[mob]>
                   - if !<[spawning_point].highest.y> < <[spawning_point].y>:
                     - if <[spawning_point].y> < <yaml[server.mobs].read[<[mob]>.min_y]>:
                       - define spawning_point:<[spawning_point].with_y[<util.random.int[<yaml[server.mobs].read[<[mob]>.min_y]>].to[<yaml[server.mobs].read[<[mob]>.max_y]>]>]>
