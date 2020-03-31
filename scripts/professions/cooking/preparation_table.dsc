@@ -179,7 +179,9 @@ preparation_table_events:
           - determine passively cancelled
           - stop
         - if <[slotmap].map_get[<context.raw_slot>]> == out:
-          - narrate test
+          - if <context.inventory.slot[<context.raw_slot>].material.name> != air:
+            - if <player.item_on_cursor.material.name> == air:
+              - narrate test
       - if !<context.is_shift_click>:
         - if <context.raw_slot> < 55:
           - if <[slotmap].map_get[<context.raw_slot>].starts_with[out]>:
