@@ -258,7 +258,7 @@ entity_desert_golem:
   entity_type: iron_golem
   custom_name: Tomb Golem
   max_health: 1000
-  health: 250
+  health: 245
   speed: 0.1
   kill_number: 0
   custom:
