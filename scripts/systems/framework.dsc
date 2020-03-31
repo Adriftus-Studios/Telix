@@ -185,9 +185,9 @@ reload_scripts:
                     - yaml id:server.altar_recipes set <[value].name>.required_tier:<[value].yaml_key[recipes.<[recipe]>.tier]||5>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == cooking:
                     - yaml id:server.cooking_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
-                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[recipes.<[recipe]>.main_ingredient]>
-                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[recipes.<[recipe]>.side_ingredients]>
-                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[recipes.<[recipe]>.serving_dish]>
+                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[recipes.<[recipe]>.main_ingredient]||<list[]>>
+                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[recipes.<[recipe]>.side_ingredients]||<list[]>>
+                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[recipes.<[recipe]>.serving_dish]||<list[]>>
                     - yaml id:server.cooking_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
                     - yaml id:server.cooking_recipes set <[value].name>.xp_given:<[value].yaml_key[recipes.<[recipe]>.xp_given]||1>
                   - if <list[altar|alchemy|smeltery].contains[<[value].yaml_key[recipes.<[recipe]>.type]>]>:
