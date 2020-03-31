@@ -144,13 +144,14 @@ smeltery_events:
     on entity explodes:
       - foreach <context.blocks> as:block:
         - if <inventory[smeltery_<[block]>]||null> != null:
+          - wait 2t
           - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
-            - foreach <[slotmap]> as:slot:
-              - drop <inventory[smeltery_<[block]>].slot[<[slot].split[/].get[1]>]> <[block]>
-            - if <player.gamemode> == survival:
-              - drop <item[custom_smeltery]> <[block]>
-            - note remove as:smeltery_<[block]>
-            - determine NOTHING
+          - foreach <[slotmap]> as:slot:
+            - drop <inventory[smeltery_<[block]>].slot[<[slot].split[/].get[1]>]> <[block]>
+          - if <player.gamemode> == survival:
+            - drop <item[custom_smeltery]> <[block]>
+          - note remove as:smeltery_<[block]>
+          - determine NOTHING
     on player clicks blast_furnace:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:

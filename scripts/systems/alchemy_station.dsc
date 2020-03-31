@@ -146,7 +146,8 @@ alchemy_station_events:
     on entity explodes:
       - foreach <context.blocks> as:block:
         - if <inventory[alchemy_station_<[block]>]||null> != null:
-        - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
+          - wait 2t
+          - define slotmap:<list[12/in|16/in|30/in|34/in|23/out]>
           - foreach <[slotmap]> as:slot:
             - drop <inventory[alchemy_station_<[block]>].slot[<[slot].split[/].get[1]>]> <[block]>
           - if <player.gamemode> == survival:
