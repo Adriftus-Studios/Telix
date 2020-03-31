@@ -116,7 +116,7 @@ custom_cooked_beef_kebab:
       type: smoker
       output_quantity: 1
       input: custom_raw_beef_kebab
-    2:
+    3:
       type: campfire
       output_quantity: 1
       input: custom_raw_beef_kebab
@@ -143,7 +143,7 @@ custom_cooked_chicken_kebab:
       type: smoker
       output_quantity: 1
       input: custom_raw_chicken_kebab
-    2:
+    3:
       type: campfire
       output_quantity: 1
       input: custom_raw_chicken_kebab
