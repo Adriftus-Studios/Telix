@@ -9,10 +9,9 @@ update_stats_command:
 update_stats:
   type: task
   debug: false
-  definitions: player
   script:
-    - if <[player]||null> != null:
-      - adjust <queue> linked_player:<[player]>
+    - if <player||null> != null:
+      - adjust <queue> linked_player:<player>
     - inject calculate_base_stats
     - inject calculate_weight_equipment_stats
     - inject calculate_encumberance_speed
