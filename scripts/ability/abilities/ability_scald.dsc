@@ -10,7 +10,7 @@ ability_scald:
     material: stone
     custom_model_data: 1
   burn:
-    - foreach <[points].get[<[number]>].find.living_entities.within[3].exclude[<player>]>:
+    - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]>:
       #Replace burn with calculate_burn proc
       - burn <[value]> duration:5s
   script:
