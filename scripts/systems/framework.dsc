@@ -579,8 +579,12 @@ testt_command:
   name: test
   permission: test
   script:
-  - foreach <server.list_notables> as:notable:
-    - note remove as:<[notable]>
+  - adjust <player> show_book:<item[guild_rename_book]>
+  - wait 5t
+  - narrate <player.open_inventory>
+
+guild_rename_book:
+  type: book
 
 resend_recipes_command:
   type: command
@@ -590,15 +594,6 @@ resend_recipes_command:
   - foreach <server.list_online_players> as:player:
     - adjust <[player]> quietly_discover_recipe:<server.list_recipe_ids>
     - adjust <[player]> resend_discovered_recipes
-
-testt_command:
-  type: command
-  name: testt
-  permission: testt
-  script:
-    - foreach <server.list_material_types.parse[name]>:
-      - if !<server.list_scripts.contains[s@custom_<[value]>]>:
-        - narrate <[value]>
 
 build_item_command:
   type: command

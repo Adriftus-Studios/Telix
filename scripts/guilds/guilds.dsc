@@ -1149,7 +1149,6 @@ guild_gui_events:
     on player opens guild_settings_gui:
     - inventory adjust d:<context.inventory> slot:23 material:<yaml[guild.<player.flag[guild]>].read[flag].as_item.material>
     - inventory adjust d:<context.inventory> slot:23 patterns:<yaml[guild.<player.flag[guild]>].read[flag].as_item.patterns>
-    - inventory adjust d:<context.inventory> slot:23 base_color:<yaml[guild.<player.flag[guild]>].read[flag].as_item.base_color>
     on player opens my_guild_gui:
     - inventory adjust d:<context.inventory> slot:21 skull_skin:<yaml[guild.<player.flag[guild]>].read[leader].as_player.uuid>
     on player clicks guilds_leave_btn in my_guild_gui:
