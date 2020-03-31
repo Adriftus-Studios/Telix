@@ -169,7 +169,8 @@ preparation_table_events:
           - note remove as:preparation_table_<[block].simple>
           - define list:|:<[block]>
       - foreach <[list]||<list[]>> as:loc:
-        - drop <item[custom_preparation_table]> <[loc].above>
+        - remove <[loc]>
+        - drop <item[custom_preparation_table]> <[loc]>
       - determine <context.blocks.exclude[<[list]||<list[]>>]>
     on player clicks beehive:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
