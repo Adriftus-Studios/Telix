@@ -181,7 +181,7 @@ preparation_table_events:
         - if <[slotmap].map_get[<context.raw_slot>]> == out:
           - if <context.inventory.slot[<context.raw_slot>].material.name> != air:
             - if <player.item_on_cursor.material.name> == air:
-              - run playerLevel_GiveXP def:<yaml[server.cooking_recipes].read[<context.inventory.slot[<context.raw_slot>].script.name>.xp_given]>
+              - run playerLevel_GiveXP def:<yaml[server.cooking_recipes].read[<context.inventory.slot[<context.raw_slot>].script.name>.xp_given]||10>
       - if !<context.is_shift_click>:
         - if <context.raw_slot> < 55:
           - if <[slotmap].map_get[<context.raw_slot>].starts_with[out]>:
