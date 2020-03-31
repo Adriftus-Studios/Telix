@@ -253,12 +253,12 @@ entity_mountain_golem:
       aggressive_on_spawn: true
       chance: 1
 
-entity_mountain_golem2:
+entity_mountain_golem_crack:
   type: entity
   entity_type: iron_golem
-  custom_name: Mountain Golem
+  custom_name: Mountain Golem2
   max_health: 1000
-  health: 200
+  health: 1000
   speed: 0.1
   custom:
     xp_dropped: 20
