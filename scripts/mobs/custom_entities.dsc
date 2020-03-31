@@ -307,7 +307,7 @@ entity_amazonian_golem:
 entity_frost_golem:
   type: entity
   entity_type: iron_golem
-  custom_name: Mountain Golem4
+  custom_name: Frost Golem
   max_health: 1000
   health: 740
   speed: 0.2
