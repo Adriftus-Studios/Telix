@@ -113,6 +113,10 @@ custom_cooked_beef_kebab:
       cook_time: 30s
       xp_given: 10
     2:
+      type: smoker
+      output_quantity: 1
+      input: custom_raw_beef_kebab
+    2:
       type: campfire
       output_quantity: 1
       input: custom_raw_beef_kebab
@@ -135,6 +139,10 @@ custom_cooked_chicken_kebab:
       serving_dish: custom_skewer/1
       cook_time: 30s
       xp_given: 10
+    2:
+      type: smoker
+      output_quantity: 1
+      input: custom_raw_chicken_kebab
     2:
       type: campfire
       output_quantity: 1
