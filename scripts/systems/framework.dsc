@@ -579,12 +579,12 @@ testtttt_command:
   name: testt
   permission: testt
   script:
-  - define book:<yaml[guild.<player.flag[guild]>].read[book].as_item>
-  - adjust def:book material:book_and_quill
-  - narrate <[book]>
-  - adjust <player> show_book:<[book]>
-  - wait 5t
-  - narrate <player.open_inventory>
+  - define book:<yaml[guild.<player.flag[guild]>].read[book].as_item.with[material=writable_book]>
+  - define item:<player.item_in_hand>
+  - fakeitem <[item]> duration:1t slot:<player.held_item_slot>
+  - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[book]>
+  - adjust <player> open_book
+  - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
 
 resend_recipes_command:
   type: command
