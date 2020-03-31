@@ -6,6 +6,8 @@ custom_food_test_recipe:
   display name: <&7>Custom food
   weight: '1'
   type: Item
+  food: 10
+  thirst: 10
   recipes:
     1:
       type: cooking
