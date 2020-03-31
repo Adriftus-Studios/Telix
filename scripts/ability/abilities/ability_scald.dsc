@@ -12,7 +12,7 @@ ability_scald:
   burn:
     - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]>:
       #Replace burn with calculate_burn proc
-      - burn <[value]> duration:5s
+      - burn <[value]>
   script:
     #Target Skill Tree: Ocean, Target Points Requirement: 15, Target Power Cost: 10
     - inject abilities_check
