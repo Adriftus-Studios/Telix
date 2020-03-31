@@ -584,7 +584,8 @@ testt_command:
   - narrate <player.open_inventory>
 
 guild_rename_book:
-  type: book
+  type: item
+  material: book_and_quill
 
 resend_recipes_command:
   type: command
