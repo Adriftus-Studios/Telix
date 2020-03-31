@@ -620,7 +620,7 @@ build_item:
         - define upgraded:true
         - if <[old_item].potion_base.split[,].get[2]> == 1:
           - define upgraded:false
-        - adjust def:item potion_effects:<[old_item].potion_base.split[,].get[1]>,<[upgraded]>,<[old_item].potion_base.split[,].get[3]>,<[old_item].potion_base.split[,].get[4]>
+        - adjust def:item potion_effects:<[old_item].potion_base.split[,].get[1]>,<[upgraded]>,<[old_item].potion_base.split[,].get[3]>
       - if <[old_item].custom_model_data||null> != null:
         - adjust def:item custom_model_data:<[old_item].custom_model_data>
       - if <[old_item].nbt||null> != null:
