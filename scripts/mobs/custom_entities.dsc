@@ -260,7 +260,6 @@ entity_desert_golem:
   max_health: 1000
   health: 240
   speed: 0.1
-  kill_number: 0
   custom:
     xp_dropped: 40
     spawning_conditions:
