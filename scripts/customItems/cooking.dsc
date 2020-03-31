@@ -15,7 +15,8 @@ custom_skewer:
       type: shapeless
       output_quantity: 1
       input:
-      - custom_iron_ingot|custom_iron_ingot
+      - custom_iron_ingot
+      - custom_iron_ingot
   
 ##Custom Recipes
 #Kebabs
