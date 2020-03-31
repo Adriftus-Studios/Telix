@@ -179,7 +179,9 @@ preparation_table_events:
           - determine passively cancelled
           - stop
         - if <[slotmap].map_get[<context.raw_slot>]> == out:
+          - narrate 1
           - if <context.inventory.slot[<context.raw_slot>].material.name> != air:
+            - narrate 2
             - if <player.item_on_cursor.material.name> == air:
               - narrate test
               - run playerLevel_GiveXP def:<yaml[server.cooking_recipes].read[<context.inventory.slot[<context.raw_slot>].script.name>.xp_given]>
