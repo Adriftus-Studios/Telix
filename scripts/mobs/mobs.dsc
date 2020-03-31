@@ -128,7 +128,7 @@ mob_use_ability_handler:
 golem_repair_events:
   type: world
   debug: true
-  script:
+  events:
     on player right clicks entity:
       - narrate "<context.entity.entity_type>"
       - narrate "<context.item.material.name>"
