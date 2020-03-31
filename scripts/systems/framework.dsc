@@ -583,10 +583,6 @@ testt_command:
   - wait 5t
   - narrate <player.open_inventory>
 
-guild_rename_book:
-  type: item
-  material: book_and_quill
-
 resend_recipes_command:
   type: command
   name: resend_recipes

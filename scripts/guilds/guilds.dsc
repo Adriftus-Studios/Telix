@@ -426,7 +426,7 @@ accept_guild_invitation:
 
 create_guild:
   type: task
-  definitions: guild|guild_name|guild_leader|guild_description
+  definitions: guild|guild_name|guild_leader|guild_book
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - yaml create id:guild.<[guild]>
@@ -434,7 +434,8 @@ create_guild:
   - flag <player> guild_rank:leader
   - yaml id:guild.<[guild]> set name:<[guild_name]>
   - yaml id:guild.<[guild]> set leader:<[guild_leader]>
-  - yaml id:guild.<[guild]> set description:<[guild_description]>
+  - yaml id:guild.<[guild]> set book:<[guild_book]>
+  - yaml id:guild.<[guild]> set description:<[guild_book].book_pages>
   - yaml id:guild.<[guild]> set flag:i@white_banner
   - yaml id:guild.<[guild]> set members:|:<player>
   - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
@@ -703,7 +704,7 @@ guild_events:
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
         - stop
       - wait 1t
-      - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.book.book_pages>
+      - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.book>
 
 guild_flag_health_icon:
   type: item
