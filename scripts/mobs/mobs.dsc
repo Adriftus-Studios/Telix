@@ -129,8 +129,8 @@ golem_repair_events:
   type: world
   debug: true
   events:
-    on player right clicks entity:
+    on player right clicks entity with:custom_iron_ingot:
       - narrate "<context.entity.entity_type>"
       - narrate "<context.item.material.name>"
-      - if <context.entity.entity_type> == IRON_GOLEM && <context.item.material.name> == iron_ingot:
+      - if <context.entity.entity_type> == iron_golem && <context.item.material.name> == iron_ingot:
         - determine cancelled
