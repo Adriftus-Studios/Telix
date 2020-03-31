@@ -265,7 +265,7 @@ entity_desert_golem:
     xp_dropped: 40
     spawning_conditions:
       world: tor_mainland
-      biome: mountains|snowy_mountains|mountain_edge|wooded_mountains|gravelly_mountains|taiga_mountains|snowy_taiga_mountains|modified_gravelly_mountains
+      biome: desert|desert_hills|desert_lakes|beach
       every: 20m
       air: false
       max_y: 255
@@ -279,10 +279,10 @@ entity_desert_golem:
       aggressive_on_spawn: true
       chance: 1
 
-entity_mountain_golem3:
+entity_amazonian_golem:
   type: entity
   entity_type: iron_golem
-  custom_name: Mountain Golem3
+  custom_name: Amazonian Golem
   max_health: 1000
   health: 450
   speed: 0.1
@@ -290,7 +290,7 @@ entity_mountain_golem3:
     xp_dropped: 20
     spawning_conditions:
       world: tor_mainland
-      biome: mountains|snowy_mountains|mountain_edge|wooded_mountains|gravelly_mountains|taiga_mountains|snowy_taiga_mountains|modified_gravelly_mountains
+      biome: jungle|jungle_hills|jungle_edge|modified_jungle|modified_jungle_edge|bamboo_jungle|bamboo_jungle_hills
       every: 20m
       air: false
       max_y: 255
@@ -304,39 +304,12 @@ entity_mountain_golem3:
       aggressive_on_spawn: true
       chance: 1
 
-entity_mountain_golem4:
+entity_frost_golem:
   type: entity
   entity_type: iron_golem
   custom_name: Mountain Golem4
   max_health: 1000
   health: 740
-  speed: 0.1
-  custom:
-    xp_dropped: 20
-    spawning_conditions:
-      world: tor_mainland
-      biome: mountains|snowy_mountains|mountain_edge|wooded_mountains|gravelly_mountains|taiga_mountains|snowy_taiga_mountains|modified_gravelly_mountains
-      every: 20m
-      air: false
-      max_y: 255
-      min_y: 0
-      max_distance: 40
-      min_distance: 15
-      water: false
-      max_quantity: 1
-      min_quantity: 1
-      time: all
-      aggressive_on_spawn: true
-      chance: 1
-
-
-
-entity_frost_golem:
-  type: entity
-  entity_type: iron_golem
-  custom_name: Frost Golem
-  max_health: 80
-  health: 80
   speed: 0.2
   custom:
     xp_dropped: 20
