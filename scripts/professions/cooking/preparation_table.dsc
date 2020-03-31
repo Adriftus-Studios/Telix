@@ -160,6 +160,9 @@ preparation_table_events:
           - drop <item[custom_preparation_table]> <context.location>
         - note remove as:preparation_table_<context.location.simple>
         - determine NOTHING
+    on entity explodes:
+      - foreach <context.blocks> as:block:
+        - announce <[block]>
     on player clicks beehive:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
         - if !<player.is_sneaking>:
