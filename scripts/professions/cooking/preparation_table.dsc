@@ -166,8 +166,6 @@ preparation_table_events:
           - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
           - foreach <[slotmap]> as:slot:
             - drop <inventory[preparation_table_<[block]>].slot[<[slot].split[/].get[1]>]> <[block].simple>
-          - if <player.gamemode> == survival:
-            - drop <item[custom_preparation_table]> <[block].simple>
           - note remove as:preparation_table_<[block].simple>
           - define list:|:<[block].simple>
       - determine <context.blocks.exclude[<[list]||<list[]>>]>
