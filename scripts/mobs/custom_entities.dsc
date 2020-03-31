@@ -253,6 +253,84 @@ entity_mountain_golem:
       aggressive_on_spawn: true
       chance: 1
 
+entity_desert_golem:
+  type: entity
+  entity_type: iron_golem
+  custom_name: Tomb Golem
+  max_health: 1000
+  health: 240
+  speed: 0.1
+  kill_number: 0
+  custom:
+    xp_dropped: 40
+    spawning_conditions:
+      world: tor_mainland
+      biome: mountains|snowy_mountains|mountain_edge|wooded_mountains|gravelly_mountains|taiga_mountains|snowy_taiga_mountains|modified_gravelly_mountains
+      every: 20m
+      air: false
+      max_y: 255
+      min_y: 0
+      max_distance: 40
+      min_distance: 15
+      water: false
+      max_quantity: 1
+      min_quantity: 1
+      time: all
+      aggressive_on_spawn: true
+      chance: 1
+
+entity_mountain_golem3:
+  type: entity
+  entity_type: iron_golem
+  custom_name: Mountain Golem3
+  max_health: 1000
+  health: 450
+  speed: 0.1
+  custom:
+    xp_dropped: 20
+    spawning_conditions:
+      world: tor_mainland
+      biome: mountains|snowy_mountains|mountain_edge|wooded_mountains|gravelly_mountains|taiga_mountains|snowy_taiga_mountains|modified_gravelly_mountains
+      every: 20m
+      air: false
+      max_y: 255
+      min_y: 0
+      max_distance: 40
+      min_distance: 15
+      water: false
+      max_quantity: 1
+      min_quantity: 1
+      time: all
+      aggressive_on_spawn: true
+      chance: 1
+
+entity_mountain_golem4:
+  type: entity
+  entity_type: iron_golem
+  custom_name: Mountain Golem4
+  max_health: 1000
+  health: 740
+  speed: 0.1
+  custom:
+    xp_dropped: 20
+    spawning_conditions:
+      world: tor_mainland
+      biome: mountains|snowy_mountains|mountain_edge|wooded_mountains|gravelly_mountains|taiga_mountains|snowy_taiga_mountains|modified_gravelly_mountains
+      every: 20m
+      air: false
+      max_y: 255
+      min_y: 0
+      max_distance: 40
+      min_distance: 15
+      water: false
+      max_quantity: 1
+      min_quantity: 1
+      time: all
+      aggressive_on_spawn: true
+      chance: 1
+
+
+
 entity_frost_golem:
   type: entity
   entity_type: iron_golem
