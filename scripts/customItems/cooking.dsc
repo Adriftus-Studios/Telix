@@ -12,7 +12,7 @@ custom_skewer:
   weight: '1'
   recipes:
     1:
-      type: shapeless
+      type: shaped
       output_quantity: 1
       input:
         - air|air|air
