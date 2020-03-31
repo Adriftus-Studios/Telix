@@ -621,7 +621,7 @@ build_item:
       - if <[old_item].nbt||null> != null:
         - adjust def:item nbt:<[old_item].nbt>
       - if <[old_item].enchantments||null> != null:
-        - adjust def:item enchantments:<[old_item].enchantments>
+        - adjust def:item enchantments:<[old_item].enchantments.with_levels>
       - if <[old_item].nbt_attributes||null> != null:
         - adjust def:item nbt_attributes:<[old_item].nbt_attributes>
       - if <[old_item].patterns||null> != null:
