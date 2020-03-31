@@ -1,7 +1,7 @@
 
 smeltery_inventory:
   type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
+  title: <&6>◆ <&a><&n><&l>Smeltery<&r> <&6>◆
   size: 54
   definitions:
     w_filler: <item[gui_invisible_item]>
