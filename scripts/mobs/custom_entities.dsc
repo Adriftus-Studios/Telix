@@ -258,9 +258,10 @@ entity_desert_golem:
   entity_type: iron_golem
   custom_name: Tomb Golem
   max_health: 1000
-  health: 240
+  health: 200
   speed: 0.1
   custom:
+    kill_health: 0
     xp_dropped: 40
     spawning_conditions:
       world: tor_mainland
