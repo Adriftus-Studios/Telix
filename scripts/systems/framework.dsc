@@ -613,7 +613,7 @@ build_item:
   - if <[item].material.name||air> != air:
     - define old_item:<[item]>
     - if <[item].script||null> == null:
-      - ex narrate <[item].enchantments>
+      - narrate <[item].enchantments>
       - define item:<item[custom_<[item].material.name>]>
       - adjust def:item quantity:<[old_item].quantity>
       - if <[old_item].custom_model_data||null> != null:
