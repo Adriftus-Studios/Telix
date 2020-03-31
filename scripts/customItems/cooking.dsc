@@ -33,7 +33,7 @@ custom_raw_beef_kebab:
       output_quantity: 1
       main_ingredient: custom_beef/1
       side_ingredients: custom_beef/1
-      serving_dish: custom_stick/1
+      serving_dish: custom_skewer/1
       cook_time: 30s
       xp_given: 5
       
@@ -50,7 +50,7 @@ custom_raw_chicken_kebab:
       output_quantity: 1
       main_ingredient: custom_chicken/1
       side_ingredients: custom_chicken/1
-      serving_dish: custom_stick/1
+      serving_dish: custom_skewer/1
       cook_time: 30s
       xp_given: 5
 
@@ -67,7 +67,7 @@ custom_cooked_beef_kebab:
       output_quantity: 1
       main_ingredient: custom_cooked_beef/1
       side_ingredients: custom_cooked_beef/1
-      serving_dish: custom_stick/1
+      serving_dish: custom_skewer/1
       cook_time: 30s
       xp_given: 10
     2:
@@ -88,7 +88,7 @@ custom_cooked_chicken_kebab:
       output_quantity: 1
       main_ingredient: custom_cooked_chicken/1
       side_ingredients: custom_cooked_chicken/1
-      serving_dish: custom_stick/1
+      serving_dish: custom_skewer
       cook_time: 30s
       xp_given: 10
     2:
