@@ -253,15 +253,16 @@ entity_mountain_golem:
       aggressive_on_spawn: true
       chance: 1
 
-entity_mountain_golem2:
+entity_desert_golem:
   type: entity
   entity_type: iron_golem
-  custom_name: Mountain Golem2
+  custom_name: Tomb Golem
   max_health: 1000
-  health: 200
+  health: 250
   speed: 0.1
+  kill_number: 0
   custom:
-    xp_dropped: 20
+    xp_dropped: 40
     spawning_conditions:
       world: tor_mainland
       biome: mountains|snowy_mountains|mountain_edge|wooded_mountains|gravelly_mountains|taiga_mountains|snowy_taiga_mountains|modified_gravelly_mountains
