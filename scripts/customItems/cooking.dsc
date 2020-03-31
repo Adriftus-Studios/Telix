@@ -113,9 +113,9 @@ custom_cooked_beef_kebab:
       cook_time: 30s
       xp_given: 10
     2:
-      type: smoker
+      type: campfire
       output_quantity: 1
-      input: <item[custom_raw_beef_kebab]>
+      input: custom_raw_beef_kebab
       
 custom_cooked_chicken_kebab:
   type: item
@@ -136,9 +136,9 @@ custom_cooked_chicken_kebab:
       cook_time: 30s
       xp_given: 10
     2:
-      type: smoker
+      type: campfire
       output_quantity: 1
-      input: <item[custom_raw_chicken_kebab]>
+      input: custom_raw_chicken_kebab
       
 
 #Soups
