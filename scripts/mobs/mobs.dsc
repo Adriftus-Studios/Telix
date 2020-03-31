@@ -35,9 +35,6 @@ mob_drops_events:
       - if <context.entity.script||null> != null:
         - if <context.entity.script.yaml_key[custom.aggressive]||true>:
           - attack <context.entity> target:<context.damager>
-        #Specifically for the iron_golem custom entities
-        - if <context.entity.health.-[<context.final_damage>]> <= <context.entity.script.yaml_key[health]> && <context.entity.health.-[<context.final_damage>]> > 0:
-          - determine 1000
       - if <context.entity.script.yaml_key[custom.events.on<&sp>attacked]||null> != null:
         - run <context.entity.script.name> path:custom.events.on<&sp>attacked def:<context.entity>
       
