@@ -115,6 +115,7 @@ custom_cooked_beef_kebab:
     2:
       type: campfire
       output_quantity: 1
+      cook_time: 20s
       input: custom_raw_beef_kebab
       
 custom_cooked_chicken_kebab:
@@ -138,6 +139,7 @@ custom_cooked_chicken_kebab:
     2:
       type: campfire
       output_quantity: 1
+      cook_time: 20s
       input: custom_raw_chicken_kebab
       
 
