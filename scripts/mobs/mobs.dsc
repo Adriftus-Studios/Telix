@@ -124,3 +124,12 @@ mob_use_ability_handler:
         - adjust def:entity speed:<[normal_speed]>
         - run <[ability]> def:<[entity]>
         - flag <[entity]> <[ability]>
+      
+#When pets are a thing, sort out - if <player.target.scriptname> != entity_*
+golem_repair_events:
+  type: world
+  debug: false
+  events:
+    on player right clicks entity with:custom_iron_ingot:
+      - if <context.entity.entity_type> == iron_golem && <context.item.material.name> == iron_ingot:
+        - determine cancelled
