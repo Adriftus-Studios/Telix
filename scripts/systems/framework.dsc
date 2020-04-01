@@ -242,6 +242,7 @@ reload_scripts:
     events:
       on server start:
         - createworld spawn environment:normal
+        - createworld boss_world environment:normal worldtype:flag
         - inject locally reload
       on script reload:
         - inject locally reload
