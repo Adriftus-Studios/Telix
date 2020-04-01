@@ -241,6 +241,7 @@ reload_scripts:
         - yaml id:server.smeltery_recipes set <[output]>.output_quantity:1
     events:
       on server start:
+        - createworld spawn environment:normal
         - inject locally reload
       on script reload:
         - inject locally reload
