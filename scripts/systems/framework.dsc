@@ -612,6 +612,7 @@ build_item_command:
 
 build_item:
   type: task
+  definitions: item
   script:
   - if <[item].material.name||air> != air:
     - define old_item:<[item]>
