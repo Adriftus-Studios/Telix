@@ -459,7 +459,7 @@ system_override:
         - announce to_console "<&c> Line: <context.line>"
         - foreach <server.list_players||<list[]>> as:player:
           - adjust <queue> linked_player:<[player]>
-          - if <player.has_flag[debug]>:
+          - if <player.has_flag[debug]> && <player.is_online>:
             - narrate "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
             - narrate "<&c> <context.message>"
             - narrate "<&c> Player: <[cause]>"
