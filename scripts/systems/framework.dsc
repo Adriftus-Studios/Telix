@@ -722,7 +722,10 @@ build_item:
             - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
             - define stats:|:<[modifier]>/<[value]>
             - define modifiers:|:<[modifier]>
-            - define lore:|:<&9>+<[value].mul[100].round>%<&sp><[modifier].to_titlecase><&sp>Damage<&sp>Resistance
+            - if <[value]> > 0:
+              - define lore:|:<&9>+<[value].mul[100].round[1]>%<&sp><[modifier].to_titlecase><&sp>Damage<&sp>Resistance
+            - else:
+              - define lore:|:<&c><[value].mul[100].round[1]>%<&sp><[modifier].to_titlecase><&sp>Damage<&sp>Resistance
         - if <[item].script.list_keys[damage_modifiers.damage_dealt]||null> != null:
           - foreach <[item].script.list_keys[damage_modifiers.damage_dealt]> as:modifier:
             - define value:<[item].nbt[damage_modifiers.damage_dealt.<[modifier]>]||<[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>]>>
@@ -738,7 +741,10 @@ build_item:
             - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
             - define stats:|:<[modifier]>/<[value]>
             - define modifiers:|:<[modifier]>
-            - define lore:|:<&9>+<[value].mul[100].round>%<&sp><[modifier].to_titlecase><&sp>Damage<&sp>Dealt
+            - if <[value]> > 0:
+              - define lore:|:<&9>+<[value].mul[100].round[1]>%<&sp><[modifier].to_titlecase><&sp>Damage<&sp>Dealt
+            - else:
+              - define lore:|:<&c><[value].mul[100].round[1]>%<&sp><[modifier].to_titlecase><&sp>Damage<&sp>Dealt
         - adjust def:item flags:HIDE_ATTRIBUTES
         - if <[item].script.yaml_key[armor]||null> != null:
           - adjust def:item nbt_attributes:generic.armor/chest/0/<[item].script.yaml_key[armor]>
