@@ -17,6 +17,8 @@ fake_durability_handler:
     on player picks up item:
       - if <context.item.script.yaml_key[fake_durability]||null> != null:
         - if <context.entity.entity_type> == TRIDENT:
+    on player activates riptide:
+      - narrate <context.item>
 
 fake_durability_use:
   type: procedure
