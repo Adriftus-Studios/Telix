@@ -95,6 +95,39 @@ test_hat:
     drop_rate_multiplier:
       max: 100
       min: 10
+  damage_modifiers:
+    damage_resistance:
+      earth:
+        max: 0.05
+        min: 0.01
+      fire:
+        max: 0.05
+        min: 0.01
+      ender:
+        max: 0.05
+        min: 0.01
+      air:
+        max: 0.05
+        min: 0.01
+      water:
+        max: 0.05
+        min: 0.01
+    damage_dealt:
+      earth:
+        max: 0.05
+        min: 0.01
+      fire:
+        max: 0.05
+        min: 0.01
+      ender:
+        max: 0.05
+        min: 0.01
+      air:
+        max: 0.05
+        min: 0.01
+      water:
+        max: 0.05
+        min: 0.01
   display name: "<&c>Test Hat"
   lore:
     - "Something something Hat,"
@@ -126,6 +159,14 @@ test_ring:
     melee_damage:
       max: 100
       min: 10
+  damage_modifiers:
+    damage_resistance:
+      earth: 0.06
+      fire: 0.02
+    damage_dealt:
+      ender: 0.04
+      air: 0.03
+      water: 0.01
   display name: "<&c>Test Ring"
   lore:
     - "Something something ring,"
