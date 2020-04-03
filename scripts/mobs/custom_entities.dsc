@@ -288,6 +288,7 @@ entity_amazonian_golem:
   speed: 0.1
   custom:
     xp_dropped: 20
+    kill_health: 270
     spawning_conditions:
       world: tor_mainland
       biome: jungle|jungle_hills|jungle_edge|modified_jungle|modified_jungle_edge|bamboo_jungle|bamboo_jungle_hills
@@ -313,6 +314,7 @@ entity_frost_golem:
   speed: 0.2
   custom:
     xp_dropped: 20
+    kill_health: 500
     spawning_conditions:
       world: tor_mainland
       biome: snowy_tundra|snowy_mountains|snowy_beach|snowy_taiga|snowy_taiga_hills|snowy_taiga_mountains
