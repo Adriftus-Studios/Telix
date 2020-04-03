@@ -6,22 +6,18 @@ ability_scald:
   points_to_unlock: 0
   power_cost: 0
   description: Burn your opponents with a beam of water.
+  usage: Underwater > Damage for 4HP, Slow for 2s
   icon:
     material: stone
     custom_model_data: 1
   burn:
-    - foreach <[points].get[<[number]>].find.living_entities.within[1].exclude[<player>]> as:hit:
-      - if <[hit].location.material.name> == water:
-        - wait 1t
-        - if <[hit].has_flag[scalded]>:
-          - stop
-        - flag <[hit]> scalded:true duration:5s
-        - repeat 5:
-          - hurt 1 <[hit]>
-          - wait 1s
-      - else:
-        #Replace burn with calculate_burn proc
-        - burn <[hit]> 5s
+    - foreach <[points].get[<[number]>].find.living_entities.within[1].exclude[<player>]>:
+      - if <[value].location.material.name> == water:
+        - hurt 4 <[value]>
+        - cast slow d:2s p:1 <[value]>
+        - stop
+      #Replace burn with calculate_burn proc
+      - burn <[value]> 5s
   script:
     #Target Skill Tree: Ocean, Target Points Requirement: 15, Target Power Cost: 10
     - inject abilities_check
