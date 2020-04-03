@@ -681,9 +681,10 @@ build_item:
           - define lore:|:<[line]>
         - define lore:|:<[item].script.yaml_key[lore].as_list.parse[parsed]||<list[]>>
         - define stat_names:<list[boss_damage/Boss<&sp>Damage|ore_drops/Ore<&sp>Drops|thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
-        - if <[item].script.list_keys[equipment_modifiers]||null> != null:
+        - if <[item].script.list_keys[equipment_modifiers]||null> != null || <[item].script.list_keys[damage_modifiers.damage_resistance]||null> != null || <[item].script.list_keys[damage_modifiers.damage_dealt]||null> != null:
           - define lore:|:<&9>
           - define lore:|:<&9>When<&sp>Equipped:<&co>
+        - if <[item].script.list_keys[equipment_modifiers]||null> != null:
           - foreach <[item].script.list_keys[equipment_modifiers]> as:modifier:
             - define value:<[item].nbt[base_stats.<[modifier]>]||<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>>
             - if <[item].nbt[base_stats.<[modifier]>]||null> == null:
@@ -706,6 +707,22 @@ build_item:
                 - define lore:|:<&c><[value]>%<&sp><[stat_names].map_get[<[modifier]>]>
               - else:
                 - define lore:|:<&c><[value]><&sp><[stat_names].map_get[<[modifier]>]>
+        - if <[item].script.list_keys[damage_modifiers.damage_resistance]||null> != null:
+          - foreach <[item].script.list_keys[damage_modifiers.damage_resistance]||<list[]>> as:modifier:
+            - define value:<[item].nbt[damage_modifiers.damage_resistance.<[modifier]>]||<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>]>>
+            - if <[item].nbt[damage_modifiers.damage_resistance.<[modifier]>]||null> == null:
+              - if <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]||null> != null:
+                - if <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]||null> != null:
+                  - define value:<util.random.int[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]>]>
+                  - define value:<util.random.int[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
+                  - define value:<util.random.int[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
+                  - define value:<util.random.int[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
+            - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
+            - narrate <[modifer]>/<[value]>
+            - define stats:|:<[modifier]>/<[value]>
+            - define modifiers:|:<[modifier]>
+        - if <[item].script.list_keys[damage_modifiers.damage_dealt]||null> != null:
+          - foreach <[item].script.list_keys[damage_modifiers.damage_dealt]||<list[]>> as:modifier:
         - adjust def:item flags:HIDE_ATTRIBUTES
         - if <[item].script.yaml_key[armor]||null> != null:
           - adjust def:item nbt_attributes:generic.armor/chest/0/<[item].script.yaml_key[armor]>
