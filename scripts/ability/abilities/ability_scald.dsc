@@ -13,8 +13,8 @@ ability_scald:
   burn:
     - foreach <[points].get[<[number]>].find.living_entities.within[1].exclude[<player>]>:
       - if <[value].location.material.name> == water:
-        - hurt 4 <[value]>
         - cast slow duration:2s power:1 <[value]>
+        - hurt 4 <[value]>
         - stop
       #Replace burn with calculate_burn proc
       - burn <[value]> 5s
