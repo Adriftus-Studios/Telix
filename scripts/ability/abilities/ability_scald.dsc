@@ -10,7 +10,7 @@ ability_scald:
     material: stone
     custom_model_data: 1
   burn:
-    - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]> as:hit:
+    - foreach <[points].get[<[number]>].find.living_entities.within[1].exclude[<player>]> as:hit:
       - if <[hit].location.material.name> == water:
         - wait 1t
         - if <[hit].has_flag[scalded]>:
