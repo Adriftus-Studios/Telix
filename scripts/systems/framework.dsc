@@ -720,11 +720,25 @@ build_item:
                   - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
                   - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
             - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
-            - narrate <[modifier]>/<[value]>
             - define stats:|:<[modifier]>/<[value]>
             - define modifiers:|:<[modifier]>
+            - define lore:|:<&9>+<[value].mul[100]>%<&sp><[modifier].to_titlecase><&sp>Damage<&sp>Resistance
         - if <[item].script.list_keys[damage_modifiers.damage_dealt]||null> != null:
-          - foreach <[item].script.list_keys[damage_modifiers.damage_dealt]||<list[]>> as:modifier:
+          - foreach <[item].script.list_keys[damage_modifiers.damage_dealt]> as:modifier:
+            - define value:<[item].nbt[damage_modifiers.damage_dealt.<[modifier]>]||<[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>]>>
+            - if <[item].nbt[damage_modifiers.damage_dealt.<[modifier]>]||null> == null:
+              - if <[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.max]||null> != null:
+                - if <[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.min]||null> != null:
+                  - narrate <[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.min]>
+                  - narrate <[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.max]>
+                  - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.min]>].to[<[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.max]>]>
+                  - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.min]>].to[<[value]>]>
+                  - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.min]>].to[<[value]>]>
+                  - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.min]>].to[<[value]>]>
+            - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
+            - define stats:|:<[modifier]>/<[value]>
+            - define modifiers:|:<[modifier]>
+            - define lore:|:<&9>+<[value].mul[100]>%<&sp><[modifier].to_titlecase><&sp>Damage<&sp>Dealt
         - adjust def:item flags:HIDE_ATTRIBUTES
         - if <[item].script.yaml_key[armor]||null> != null:
           - adjust def:item nbt_attributes:generic.armor/chest/0/<[item].script.yaml_key[armor]>
