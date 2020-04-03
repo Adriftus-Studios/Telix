@@ -14,6 +14,7 @@ ability_scald:
       - if <[hit].location.material.name> == water:
         - flag <[hit]> scalded:true duration:5s
         - if <[hit].has_flag[scalded]>:
+          - flag <[hit]> scalded:!
           - repeat 5:
             - hurt 1 <[hit]>
             - wait 1s
