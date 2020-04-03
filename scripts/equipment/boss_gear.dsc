@@ -1,3 +1,10 @@
+# Boss weakenesses:
+# Water > Fire
+# Fire > Air
+# Air > Earth
+# Earth > Ender
+# Ender > Water
+
 custom_boss_dagon_helmet:
   type: item
   material: diamond_helmet
@@ -23,7 +30,7 @@ custom_boss_dagon_helmet:
         min: 0.01
     damage_dealt:
       water:
-        max: 0.05
+        max: 0.02
         min: 0.01
   display name: "<&a><&lb><&6>Dagon's Helm of the Deep<&a><&rb>"
   lore:
