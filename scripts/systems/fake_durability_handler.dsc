@@ -14,6 +14,10 @@ fake_durability_handler:
       - define item:<[new_item]>
       - inject build_item
       - inventory set slot:<context.slot> d:<player.inventory> o:<[item]>
+    on player picks up item:
+      - if <context.item.script.yaml_key[fake_durability]||null> != null:
+        - if <context.entity.entity_type> == TRIDENT:
+          - determine ITEM:<proc[fake_durability_use].context[<context.item>]>
 
 fake_durability_use:
   type: procedure
