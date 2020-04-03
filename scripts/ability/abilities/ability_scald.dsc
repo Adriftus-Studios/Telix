@@ -12,12 +12,12 @@ ability_scald:
   burn:
     - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]> as:hit:
       - if <[hit].location.material.name> == water:
-        - flag <[hit]> scalded:true duration:5s
         - if <[hit].has_flag[scalded]>:
-          - flag <[hit]> scalded:!
-          - repeat 5:
-            - hurt 1 <[hit]>
-            - wait 1s
+          - stop
+        - flag <[hit]> scalded:true duration:5s
+        - repeat 5:
+          - hurt 1 <[hit]>
+          - wait 1s
       - else:
         #Replace burn with calculate_burn proc
         - burn <[value]> 5s
