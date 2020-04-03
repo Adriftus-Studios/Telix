@@ -12,6 +12,7 @@ ability_scald:
   burn:
     - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]> as:hit:
       - if <[hit].location.material.name> == water:
+        - wait 1t
         - if <[hit].has_flag[scalded]>:
           - stop
         - flag <[hit]> scalded:true duration:5s
@@ -20,7 +21,7 @@ ability_scald:
           - wait 1s
       - else:
         #Replace burn with calculate_burn proc
-        - burn <[value]> 5s
+        - burn <[hit]> 5s
   script:
     #Target Skill Tree: Ocean, Target Points Requirement: 15, Target Power Cost: 10
     - inject abilities_check
