@@ -11,8 +11,13 @@ ability_scald:
     custom_model_data: 1
   burn:
     - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]>:
-      #Replace burn with calculate_burn proc
-      - burn <[value]> 5s
+      - if <[value].location.material.name> == water:
+        - repeat 5:
+          - hurt 1 <[value]>
+          - wait 1s
+      - else:
+        #Replace burn with calculate_burn proc
+        - burn <[value]> 5s
   script:
     #Target Skill Tree: Ocean, Target Points Requirement: 15, Target Power Cost: 10
     - inject abilities_check
