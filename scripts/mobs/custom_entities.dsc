@@ -232,10 +232,11 @@ entity_mountain_golem:
   type: entity
   entity_type: iron_golem
   custom_name: Mountain Golem
-  max_health: 120
-  health: 120
+  max_health: 1000
+  health: 1000
   speed: 0.1
   custom:
+    kill_health: 900
     xp_dropped: 20
     spawning_conditions:
       world: tor_mainland
@@ -261,7 +262,6 @@ entity_desert_golem:
   health: 200
   speed: 0.1
   custom:
-    kill_health: 0
     xp_dropped: 40
     spawning_conditions:
       world: tor_mainland
@@ -279,19 +279,19 @@ entity_desert_golem:
       aggressive_on_spawn: true
       chance: 1
 
-entity_amazonian_golem:
+entity_fiery_golem:
   type: entity
   entity_type: iron_golem
-  custom_name: Amazonian Golem
+  custom_name: Fiery Golem
   max_health: 1000
   health: 450
   speed: 0.1
   custom:
     xp_dropped: 20
-    kill_health: 270
+    kill_health: 300
     spawning_conditions:
-      world: tor_mainland
-      biome: jungle|jungle_hills|jungle_edge|modified_jungle|modified_jungle_edge|bamboo_jungle|bamboo_jungle_hills
+      world: tor_mainland|tor_mainland_nether
+      biome: nether
       every: 20m
       air: false
       max_y: 255

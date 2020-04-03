@@ -14,7 +14,7 @@ map_test:
       - while <player.item_in_hand.material.name> == "filled_map":
         - map <player.item_in_hand.map> reset:<player.location>
         - wait 1s
-    
+
     on player holds item item:filled_map:
     - wait 1t
     - while <player.item_in_hand.material.name> == "filled_map":
