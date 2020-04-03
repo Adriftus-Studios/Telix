@@ -19,7 +19,7 @@ ability_dolphin_kick:
         - inject abilities_cost
         - playeffect water_bubble at:<player.location.forward_flat.center.below[1]> visibility:15 quantity:30
         #- cast speed duration:1.5s power:5 <player> hide_particles Pre 2020-04-03
-        - shoot <player> d:<player.location.forward[10]> height:0 speed:3
+        - shoot <player> d:<player.location.forward[10]> height:0 speed:1
         - cast dolphins_grace duration:6s power:10 <player> hide_particles
         - playeffect water_bubble at:<player.location.forward_flat.center.below[1]> visibility:15 quantity:30
         - playsound <player.location> sound:entity_generic_splash volume:1.0
