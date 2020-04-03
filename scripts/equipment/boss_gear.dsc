@@ -27,6 +27,5 @@ custom_boss_dagon_helmet:
         min: 0.01
   display name: "<&a><&lb><&6>Dagon's Helm of the Deep<&a><&rb>"
   lore:
-    - "<&6>"
-    - "<&6>"
+    - <&6>
   drops_on_death: false
