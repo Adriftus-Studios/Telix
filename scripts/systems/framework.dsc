@@ -708,7 +708,7 @@ build_item:
               - else:
                 - define lore:|:<&c><[value]><&sp><[stat_names].map_get[<[modifier]>]>
         - if <[item].script.list_keys[damage_modifiers.damage_resistance]||null> != null:
-          - foreach <[item].script.list_keys[damage_modifiers.damage_resistance]||<list[]>> as:modifier:
+          - foreach <[item].script.list_keys[damage_modifiers.damage_resistance]> as:modifier:
             - define value:<[item].nbt[damage_modifiers.damage_resistance.<[modifier]>]||<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>]>>
             - if <[item].nbt[damage_modifiers.damage_resistance.<[modifier]>]||null> == null:
               - if <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]||null> != null:
@@ -720,7 +720,7 @@ build_item:
                   - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
                   - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
             - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
-            - narrate <[modifer]>/<[value]>
+            - narrate <[modifier]>/<[value]>
             - define stats:|:<[modifier]>/<[value]>
             - define modifiers:|:<[modifier]>
         - if <[item].script.list_keys[damage_modifiers.damage_dealt]||null> != null:
