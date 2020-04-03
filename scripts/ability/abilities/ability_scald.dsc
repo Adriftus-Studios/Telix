@@ -10,10 +10,10 @@ ability_scald:
     material: stone
     custom_model_data: 1
   burn:
-    - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]>:
-      - if <[value].location.material.name> == water:
+    - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]> as:hit:
+      - if <[hit].location.material.name> == water:
         - repeat 5:
-          - hurt 1 <[value]>
+          - hurt 1 <[hit]>
           - wait 1s
       - else:
         #Replace burn with calculate_burn proc
