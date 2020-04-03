@@ -713,6 +713,8 @@ build_item:
             - if <[item].nbt[damage_modifiers.damage_resistance.<[modifier]>]||null> == null:
               - if <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]||null> != null:
                 - if <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]||null> != null:
+                  - narrate <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>
+                  - narrate <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]>
                   - define value:<util.random.int[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]>]>
                   - define value:<util.random.int[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
                   - define value:<util.random.int[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
