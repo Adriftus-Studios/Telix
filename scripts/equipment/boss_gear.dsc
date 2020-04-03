@@ -47,7 +47,7 @@ custom_boss_dagon_trident:
   # Can be a Necklace, Earrings, Ring, Trinket, Pants, Shoes, Shirt, Gloves, Cape, or a Hat
   weight: 10
   # Max durability that the item has. Fake durability system
-  durability: 250
+  durability: 0
   # How good is this piece of equipment
   max_stars: 6
   # How many times can this piece of equipment be enhanced
