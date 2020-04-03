@@ -715,10 +715,10 @@ build_item:
                 - if <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]||null> != null:
                   - narrate <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>
                   - narrate <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]>
-                  - define value:<util.random.int[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]>]>
-                  - define value:<util.random.int[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
-                  - define value:<util.random.int[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
-                  - define value:<util.random.int[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
+                  - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]>]>
+                  - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
+                  - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
+                  - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
             - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
             - narrate <[modifer]>/<[value]>
             - define stats:|:<[modifier]>/<[value]>
