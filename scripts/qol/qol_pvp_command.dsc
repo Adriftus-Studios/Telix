@@ -17,7 +17,7 @@ qol_pvp_command:
 qol_pvp_settings_inventory:
   type: inventory
   debug: true
-  title: <&5>◆ <&c><&n><&l>Player Versus Player Settings<&r> <&5>◆
+  title: <&5>◆ <&c><&n><&l>Player VS Player Settings<&r> <&5>◆
   size: 27
   definitions:
     w_filler: <item[gui_invisible_item]>
@@ -41,14 +41,15 @@ qol_pvp_settings_inventory_events:
         - define options:<context.item.script.yaml_key[options]>
         - narrate <[setting]>
         - narrate <[options]>
-        - if <yaml[player.<player.uuid>].read[pvp.<[setting]>]||null> == null:
+        - narrate <[options].get[1]>
+        - narrate <[options].contains[<yaml[player.<player.uuid>].read[pvp.<[setting]>]||null>]>
+        - if !<[options].contains[<yaml[player.<player.uuid>].read[pvp.<[setting]>]||null>]>:
           - yaml id:player.<player.uuid> set pvp.<[setting]>:<[options].get[1]>
-        - define new:<[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>].+[1]>
         - narrate <[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>]>
         - narrate <[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>].+[1]>
-        - yaml id:player.<player.uuid> set pvp.<[setting]>:<[new]||<[options].get[1]>>
-        - narrate "<&d>Set PvP setting <&b><[setting].replace[_].with[<&sp>].to_titlecase> <&d>to <&5><[new].to_titlecase>."
-        - inventory open d:<inventory[qol_pvp_settings_inventory]>
+        #- yaml id:player.<player.uuid> set pvp.<[setting]>:<[new]||<[options].get[1]>>
+        #- narrate "<&d>Set PvP setting <&b><[setting].replace[_].with[<&sp>].to_titlecase> <&d>to <&5><[new].to_titlecase>."
+        #- inventory open d:<inventory[qol_pvp_settings_inventory]>
 
 #Items
 qol_pvp_settings_damage_notifier:
