@@ -30,5 +30,5 @@ boss_dagon_summon_minion:
   definitions: entity
   script:
   - foreach <[entity].location.find.players.within[30]> as:player:
-    - inject spawn_custom_mob def:<entity[entity_dagon_deity]>|<[entity].location>
+    - inject spawn_custom_mob def:<el@entity_dagon_deity>|<[entity].location>
     - attack <[entity]> target:<[player]>
