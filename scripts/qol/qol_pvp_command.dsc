@@ -38,7 +38,7 @@ qol_pvp_settings_inventory_events:
     on player clicks in qol_pvp_settings_inventory:
       - if <context.item.script.yaml_key[setting]||null> != null && <context.item.script.yaml_key[options]||null> != null:
         - define setting:<context.item.script.yaml_key[setting]>
-        - define options:<context.item.script.yaml_key[options]>
+        - define options:<context.item.script.yaml_key[options].as_list>
         - narrate <[setting]>
         - narrate <[options]>
         - narrate <[options].get[1]>
@@ -62,7 +62,7 @@ qol_pvp_settings_damage_notifier:
   mechanisms:
     custom_model_data: 0
   setting: damage_notifier
-  options: bossbar|chat|false
+  options: <list[bossbar|chat|false]>
 
 qol_pvp_settings_effect_notifier:
   type: item
@@ -74,6 +74,6 @@ qol_pvp_settings_effect_notifier:
   mechanisms:
     custom_model_data: 0
   setting: effect_notifier
-  options: bossbar|chat|false
+  options: <list[bossbar|chat|false]>
     
   
