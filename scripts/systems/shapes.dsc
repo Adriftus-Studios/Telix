@@ -30,8 +30,8 @@ define_sphere:
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
   - repeat <[cir].div[0.2].round>:
-    - narrate <[value]>
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
+    - narrate <[offset].get[1]><&sp><[offset].get[2]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
