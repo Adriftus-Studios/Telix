@@ -42,7 +42,6 @@ define_sphere_helper:
   type: procedure
   definitions: location|radius
   script:
-  - narrate <[location]>
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.4]>]>
   - repeat <[cir].div[0.4].round>:
