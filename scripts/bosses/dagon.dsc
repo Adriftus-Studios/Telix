@@ -11,6 +11,7 @@ boss_dagon:
     ability_usage:
       - boss_dagon_aqua_burst
       - boss_dagon_summon_minion
+      - boss_dagon_aqua_shield
 
 entity_dagon_deity:
   type: entity
@@ -18,6 +19,31 @@ entity_dagon_deity:
   custom_name: <&c>Dagon Diety
   max_health: 16
   
+boss_dagon_aqua_shield:
+  type: task
+  ability_tree: water
+  cooldown: 60s
+  warmup: 5s
+  requires_target: false
+  requires_target_in_sight: false
+  definitions: entity
+  warmup_script:
+  - define sphere:<proc[define_sphere1].context[<[entity].location>|2|1]>
+  - define center:<[entity].location>
+  - repeat 100:
+    - playeffect redstone <[sphere].random[20]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
+    - wait 1t
+  script:
+  - define layers:<proc[define_sphere2].context[<player.location.above>|2|0.5]>
+  - define center:<[entity].location>
+  - repeat 20:
+    - repeat <[layers].size>:
+      - define offset:<[entity].location.sub[<[center]>]>
+      - define points:<[layers].get[<[value]>].unescaped>
+      - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
+      - playeffect redstone at:<[points].parse[add[<[offset]>]]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+      - wait 2t
+
 boss_dagon_aqua_burst:
   type: task
   ability_tree: water
@@ -27,9 +53,6 @@ boss_dagon_aqua_burst:
   requires_target_in_sight: false
   definitions: entity
   warmup_script:
-  - foreach <[entity].location.find.players.within[30]> as:player:
-    - adjust <queue> linked_player:<[player]>
-    - narrate "<&b>Dagon is absorbing energy!"
   - define sphere:<proc[define_sphere1].context[<[entity].location>|3|1]>
   - define center:<[entity].location>
   - repeat 40:
@@ -61,7 +84,6 @@ boss_dagon_aqua_burst_animation:
       - repeat stop
     - wait 1t
 
-
 boss_dagon_summon_minion:
   type: task
   ability_tree: water
@@ -70,7 +92,7 @@ boss_dagon_summon_minion:
   requires_target: false
   requires_target_in_sight: false
   additional_conditions:
-  - <[entity].health.is[less].to[1200]>
+  - <[entity].health.is[less].to[300]>
   definitions: entity
   warmup_script:
   - foreach <[entity].location.find.players.within[30]> as:player:
