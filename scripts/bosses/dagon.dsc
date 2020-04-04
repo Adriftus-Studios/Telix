@@ -35,18 +35,18 @@ boss_dagon_aqua_burst:
   script:
   - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
   - repeat 5:
-    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
-    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
-    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
-    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
-    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
-    - playeffect redstone <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
+    - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[sphere].random>
+    - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[sphere].random>
+    - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[sphere].random>
+    - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[sphere].random>
+    - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[sphere].random>
     - wait 1t
 
 boss_dagon_aqua_burst_animation:
   type: task
-  definitions: points
+  definitions: start|end
   script:
+  - define points:<proc[define_curve1].context[<[start]>|<[end]>|1|<util.random.int[0].to[360]>|0.2]>
   - playeffect redstone <[points]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
   - foreach <[points]> as:point:
     - playeffect redstone <[point]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
