@@ -17,8 +17,8 @@ fake_durability_handler:
     on player picks up item:
       - if <context.item.script.yaml_key[fake_durability]||null> != null:
         - if <context.entity.item.material.name> == TRIDENT:
-          - narrate <proc[fake_durability_use].context[<context.item>]>
-          - determine ITEM:<proc[fake_durability_use].context[<context.item>]>
+          - despawn <context.entity>
+          - give <proc[fake_durability_use].context[<context.entity.item>]>
 
 fake_durability_use:
   type: procedure
