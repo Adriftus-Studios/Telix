@@ -43,7 +43,7 @@ boss_dagon_aqua_burst:
       - define offset:<[entity].location.sub[<[center]>]>
       - narrate <[offset]>
       - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[offset].add[<[point]>]>
-    - wait 5t
+    - wait 2t
 
 boss_dagon_aqua_burst_animation:
   type: task
