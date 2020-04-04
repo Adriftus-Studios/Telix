@@ -56,8 +56,8 @@ boss_dagon_aqua_burst_animation:
   - repeat <[points].size.div[2]>:
     - playeffect redstone <[points].get[<[value].mul[2].sub[1]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - playeffect redstone <[points].get[<[value].mul[2]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
-    - if <[points].get[<[value].mul[2].sub[1]>].find.living_entities.within[0.5].size> != 0:
-      - hurt 3 <[points].get[<[value]>].find.living_entities.within[0.5]>
+    - if <[points].get[<[value].mul[2].sub[1]>].find.living_entities.within[0.5].filter[script.name.is[!=].to[boss_dagon]].size> != 0:
+      - hurt 3 <[points].get[<[value]>].find.living_entities.within[0.5].filter[script.name.is[!=].to[boss_dagon]]>
       - repeat stop
     - wait 1t
 
