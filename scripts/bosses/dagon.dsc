@@ -10,6 +10,7 @@ boss_dagon:
   custom:
     ability_usage:
       - boss_dagon_aqua_burst
+      - boss_dagon_summon_minion
 
 entity_dagon_deity:
   type: entity
@@ -26,6 +27,9 @@ boss_dagon_aqua_burst:
   requires_target_in_sight: false
   definitions: entity
   warmup_script:
+  - foreach <[entity].location.find.players.within[30]> as:player:
+    - adjust <queue> linked_player:<[player]>
+    - narrate "<&b>Dagon is absorbing energy!"
   - define sphere:<proc[define_sphere1].context[<[entity].location>|3|1]>
   - define center:<[entity].location>
   - repeat 40:
@@ -48,11 +52,15 @@ boss_dagon_aqua_burst_animation:
   type: task
   definitions: start|end
   script:
-  - define points:<proc[define_curve1].context[<[start]>|<[end]>|1|<util.random.int[0].to[360]>|0.4]>
+  - define points:<proc[define_curve1].context[<[start]>|<[end]>|1|<util.random.int[0].to[360]>|0.3]>
   - repeat <[points].size.div[2]>:
     - playeffect redstone <[points].get[<[value].mul[2].sub[1]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - playeffect redstone <[points].get[<[value].mul[2]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
+    - if <[points].get[<[value].mul[2].sub[1]>].find.living_entities.within[0.5].size> != 0:
+      - hurt 3 <[points].get[<[value]>].find.living_entities.within[0.5]>
+      - repeat stop
     - wait 1t
+
 
 boss_dagon_summon_minion:
   type: task
@@ -67,7 +75,7 @@ boss_dagon_summon_minion:
   warmup_script:
   - foreach <[entity].location.find.players.within[30]> as:player:
     - adjust <queue> linked_player:<[player]>
-    - narrate "Dagon is calling for help!"
+    - narrate "<&b>Dagon is calling for help!"
   script:
   - foreach <[entity].location.find.players.within[30]> as:player:
     - adjust <queue> linked_player:<[player]>
