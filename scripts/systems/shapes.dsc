@@ -32,9 +32,6 @@ define_sphere:
   - define between:<element[180].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
   - repeat <[cir].div[0.2].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>].add[90]>]>
-    - narrate <proc[define_circle].context[<[location].up[<[offset].get[1]>]>|<[offset].get[2]>]>
-    - narrate <[location].up[<[offset].get[1]>]>
-    - narrate <[offset].get[2]>
     - define points:|:<proc[define_circle].context[<[location].up[<[offset].get[1]>]>|<[offset].get[2]>]>
   - determine <[points]>
 
@@ -44,9 +41,11 @@ define_circle:
   script:
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
+  - narrate <[cir].div[0.2].round>
   - repeat <[cir].div[0.2].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+    - narrate <[value]>
   - determine <[points]>
 
 define_star2:
