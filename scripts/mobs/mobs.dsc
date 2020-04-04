@@ -112,6 +112,7 @@ mob_use_ability_handler:
   type: task
   definitions: entity
   script:
+    - announce 0
     - while <[entity].is_spawned||false>:
       - wait 1s
       - announce 1
