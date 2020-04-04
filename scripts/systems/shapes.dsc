@@ -27,6 +27,7 @@ define_sphere:
   type: procedure
   definitions: location|radius|between
   script:
+  - define between:<[between]||0.2>
   - define location:<[location].with_pitch[90].with_yaw[0]>
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<element[180].div[<[radius].mul[<util.pi>].mul[2].div[<[between]>]>]>
