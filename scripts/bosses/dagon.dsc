@@ -30,10 +30,11 @@ boss_dagon_aqua_burst:
   - define center:<[entity].location>
   - repeat 40:
     - define offset:<[entity].location.sub[<[center]>]>
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]> offset:0 visibility:300 quantity:1
-    - wait 1t
+    - narrate <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]]>
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
+    - wait 2t
   script:
   - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
   - define center:<[entity].location>
