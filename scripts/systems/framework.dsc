@@ -344,13 +344,13 @@ test_command:
   name: test
   permission: test
   script:
-  - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
-  - define center:<[entity].location>
+  - define sphere:<proc[define_sphere1].context[<player.location>|7|1]>
+  - define center:<player.location>
   - repeat 5:
     - repeat 5:
       - define point:<[sphere].random>
       - define offset:<[point].sub[<[center]>]>
-      - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[offset].add[<[point]>]>
+      - run boss_dagon_aqua_burst_animation def:<player.location>|<[offset].add[<[point]>]>
     - wait 1t
 
 equipt_command:
