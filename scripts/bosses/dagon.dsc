@@ -42,7 +42,6 @@ boss_dagon_aqua_burst:
     - repeat 5:
       - define point:<[sphere].random>
       - define offset:<[entity].location.sub[<[center]>]>
-      - narrate <[offset]>
       - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[offset].add[<[point]>]>
     - wait 2t
 
@@ -51,8 +50,10 @@ boss_dagon_aqua_burst_animation:
   definitions: start|end
   script:
   - define points:<proc[define_curve1].context[<[start]>|<[end]>|1|<util.random.int[0].to[360]>|0.4]>
-  - playeffect redstone <[points]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
-  - foreach <[points]> as:point:
+  - repeat <[points].div[2]>:
+    - define point:<[points].get[<[value].mul[2]>]>
+    - playeffect redstone <[point]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
+    - define point:<[points].get[<[value].mul[2].add[1]>]>
     - playeffect redstone <[point]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - wait 1t
 
