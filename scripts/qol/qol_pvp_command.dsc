@@ -56,7 +56,8 @@ qol_pvp_challenge_command:
     - narrate "<&6>They have 5 minutes to accept it."
     #Receive
     - flag <[receiver]> challenges_received:->:<[sender]>
-    - run bb_notification def:<&e>⚠️<&c>CHALLENGER<&sp>APPROACHING<&sp><&e>⚠️|15s|yellow|1|<[receiver]>
+    - run bb_notification def:<&6>⚠<&sp><&c>CHALLENGER<&sp>APPROACHING<&sp><&6>⚠|15s|yellow|1|<[receiver]>
+    - title "title:<&6><&l>⚠" "subtitle:<&c>New Challenger!" targets:<[receiver]>
     - narrate "<&c>You have been challenged by <&6><[sender].name> to a duel!" targets:<[receiver]>
     - narrate "<&c>You have 5 minutes to accept their challenge." targets:<[receiver]>
     - narrate "<&a>/challenge accept <[sender].name><&8>| <&c>/challenge decline <[sender].name>." targets:<[receiver]>
