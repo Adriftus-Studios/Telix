@@ -37,8 +37,8 @@ define_sphere:
       - define B:<[offset].get[2].mul[-1]>
     - else:
       - define B:<[offset].get[2]>
+    - define location2:<[location].above[<[A]>]>
     - repeat <[cir].div[0.4].round> as:value2:
-      - define location2:<[location].above[<[A]>].with_pitch[<[value2].mul[<[between]>]>]>
       - define offset2:<proc[find_offset].context[<[radius]>|<[value2].mul[<[between]>]>]>
       - define points:|:<[location2].up[<[offset2].get[1]>].right[<[offset2].get[2]>]>
   - determine <[points]>
@@ -58,7 +58,6 @@ define_circle:
   type: procedure
   definitions: location|radius
   script:
-  - narrate <[location]>
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
   - repeat <[cir].div[0.2].round>:
