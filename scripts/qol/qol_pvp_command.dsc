@@ -10,7 +10,7 @@ qol_pvp_command:
     - else if <context.args.size> == 1 && <context.raw_args.ends_with[<&sp>].not>:
       - determine <[arguments].filter[starts_with[<context.args.get[1]>]]>
   help:
-    - narrate "help me"
+    - narrate "<&a>Use <&e>/pvp settings <&a>to change your PvP settings!"
   script:
     - if <context.args.get[1]||null> == null:
       - narrate "<&c>Command argument missing! (Argument #1)"
@@ -71,7 +71,7 @@ qol_pvp_settings_effect_notifier:
   type: item
   debug: false
   material: stone
-  display name: <&e>Effect Notifier
+  display name: <&d>Effect Notifier
   lore:
     - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
