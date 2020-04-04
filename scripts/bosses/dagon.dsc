@@ -34,7 +34,7 @@ boss_dagon_aqua_shield:
     - playeffect redstone <[sphere].random[20]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - wait 1t
   script:
-  - define layers:<proc[define_sphere2].context[<player.location.above>|2|0.5]>
+  - define layers:<proc[define_sphere2].context[<[entity].location.above>|2|0.5]>
   - define center:<[entity].location>
   - repeat 20:
     - repeat <[layers].size>:
