@@ -33,7 +33,7 @@ define_sphere:
   - repeat <[cir].div[0.2].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>].add[90]>]>
     - narrate <[offset].get[1]><&sp><[offset].get[2]>
-    - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+    - define points:|:<proc[define_circle].context[<[location].up[<[offset].get[1]>]>|<[offset].get[2]>]>
   - determine <[points]>
 
 define_circle:
