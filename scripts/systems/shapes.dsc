@@ -197,7 +197,7 @@ test_effects_command:
         - define points:<[layers].get[<[value]>].unescaped>
         - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
         - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
-        - wait 1t
+        - wait 2t
   - if <context.args.get[1]> == circle:
     - define points:<proc[define_circle].context[<player.location.forward[4]>|3]>
     - foreach <[points]>:
