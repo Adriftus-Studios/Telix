@@ -17,3 +17,6 @@ flag_handler:
         - if <player||null> != null:
             - if <player.has_flag[no_jump]>:
                 - determine cancelled
+        on entity knocks back entity:
+        - if <context.entity.has_flag[no_knockback]>:
+            - determine cancelled
