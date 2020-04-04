@@ -21,11 +21,11 @@ qol_pvp_settings_inventory:
   size: 27
   definitions:
     w_filler: <item[gui_invisible_item]>
-    #damage_notifier:
-    #effect_notifier:
+    dmg_n: <item[qol_pvp_settings_damage_notifier]>
+    fx_n: <item[qol_pvp_settings_effect_notifier]>
   slots:
     - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-    - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
+    - "[w_filler] [dmg_n] [fx_n] [] [] [] [] [] [w_filler]"
     - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
     
 qol_pvp_settings_inventory_events:
@@ -37,8 +37,10 @@ qol_pvp_settings_inventory_events:
     
     on player clicks in qol_pvp_settings_inventory:
       - if <context.item.has_nbt[setting]> && <context.item.has_nbt[options]>:
-        - define setting:<context.item.has_nbt[setting]>
-        - define options:<context.item.has_nbt[options]>
+        - define setting:<context.item.nbt[setting]>
+        - define options:<context.item.nbt[options]>
+        - narrate <[setting]>
+        - narrate <[options]>
         - if <yaml[player.<player.uuid>].read[pvp.<[setting]>]||null> == null:
           - yaml id:player.<player.uuid> set pvp.<[setting]>:<[options].get[1]>
         - define new:<[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>].+[1]>
