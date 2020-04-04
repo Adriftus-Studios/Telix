@@ -349,7 +349,7 @@ test_command:
   - repeat 15:
     - repeat 5:
       - define point:<[sphere].random>
-      - define offset:<[point].sub[<[center]>]>
+      - define offset:<player.location.sub[<[center]>]>
       - narrate <[offset]>
       - run boss_dagon_aqua_burst_animation def:<player.location>|<[offset].add[<[point]>]>
     - wait 5t
