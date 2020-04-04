@@ -349,7 +349,7 @@ test_command:
   - define center:<[entity].location>
   - repeat 40:
     - define offset:<[entity].location.sub[<[center]>]>
-    - narrate <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[x]>
+    - narrate <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]]>
     - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2]> offset:0 visibility:300 quantity:1
     - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2]> offset:0 visibility:300 quantity:1
     - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2]> offset:0 visibility:300 quantity:1
