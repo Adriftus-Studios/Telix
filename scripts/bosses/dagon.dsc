@@ -40,6 +40,7 @@ boss_dagon_aqua_burst:
     - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
     - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
     - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
+    - playeffect redstone <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - wait 1t
 
 boss_dagon_aqua_burst_animation:
@@ -48,7 +49,6 @@ boss_dagon_aqua_burst_animation:
   script:
   - playeffect spell_witch <[points]> offset:0 visibility:300 quantity:1
   - foreach <[points]> as:point:
-    - announce <[point]>
     - playeffect spell_witch <[point]> offset:0 visibility:300 quantity:1
     - wait 1t
 
