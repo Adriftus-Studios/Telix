@@ -25,7 +25,7 @@ define_curve2:
   
 define_sphere:
   type: procedure
-  definitions: location|radius
+  definitions: location|radius|blocks_between
   script:
   - define blocks_between:<[blocks_between]||0.4>
   - define location:<[location].with_pitch[90].with_yaw[0]>
