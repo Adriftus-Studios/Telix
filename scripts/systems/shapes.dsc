@@ -153,7 +153,7 @@ test_effects_command:
   usage: /test_effects
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
-    - determine <list[curve1|curve2|star1|star2|circle|spiral|zigzag|sphere].filter[starts_with[<context.args.get[1]>]]||<list[curve|star1|star2|circle|spiral|zigzag|sphere]>>
+    - determine <list[curve1|curve2|star1|star2|circle|spiral|zigzag|sphere1|sphere2].filter[starts_with[<context.args.get[1]>]]||<list[curve|star1|star2|circle|spiral|zigzag|sphere1|sphere2]>>
   - else if <context.raw_args.split[].count[<&sp>]> == 1:
     - determine <server.list_particles.parse[to_lowercase].filter[starts_with[<context.args.get[2]||<server.list_particles>>]]>
   script:
@@ -190,6 +190,12 @@ test_effects_command:
   - if <context.args.get[1]> == sphere1:
     - define points:<proc[define_sphere1].context[<player.location.forward[4]>|3]>
     - repeat 1:
+      - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100
+      - wait 1t
+  - if <context.args.get[1]> == sphere2:
+    - define layers:<proc[define_sphere2].context[<player.location.forward[4]>|3]>
+    - foreach <[layer]> as:layer:
+      - define points:<[layer].unescaped>
       - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == circle:
