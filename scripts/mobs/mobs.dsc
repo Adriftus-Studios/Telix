@@ -114,7 +114,10 @@ spawnmob_command:
   type: command
   name: spawnmob
   tab complete:
-    - determine <server.list_scripts.filter[name.as_entity.type.is[==].to[entity]].parse[name.to_lowercase].filter[starts_with[<context.args.get[1]>]]>
+    - if <context.args.get[1]||null> == null:
+      - determine <server.list_scripts.filter[name.as_entity.type.is[==].to[entity]].parse[name.to_lowercase]>
+    - else:
+      - determine <server.list_scripts.filter[name.as_entity.type.is[==].to[entity]].parse[name.to_lowercase].filter[starts_with[<context.args.get[1]>]]>
   script:
     - run spawn_custom_mob def:<context.args.get[1]>|<player.location>
 
