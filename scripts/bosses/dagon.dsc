@@ -30,7 +30,6 @@ boss_dagon_aqua_burst:
   - define center:<[entity].location>
   - repeat 40:
     - define offset:<[entity].location.sub[<[center]>]>
-    - narrate <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]]>
     - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
     - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
     - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
@@ -51,10 +50,8 @@ boss_dagon_aqua_burst_animation:
   script:
   - define points:<proc[define_curve1].context[<[start]>|<[end]>|1|<util.random.int[0].to[360]>|0.4]>
   - repeat <[points].size.div[2]>:
-    - define point:<[points].get[<[value].mul[2]>]>
-    - playeffect redstone <[point]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
-    - define point:<[points].get[<[value].mul[2].add[1]>]>
-    - playeffect redstone <[point]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
+    - playeffect redstone <[points].get[<[value].mul[2]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
+    - playeffect redstone <[points].get[<[value].mul[2].add[1]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - wait 1t
 
 boss_dagon_summon_minion:
