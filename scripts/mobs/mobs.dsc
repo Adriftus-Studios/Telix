@@ -110,13 +110,13 @@ spawn_custom_mob:
     - if <yaml[server.mobs].read[<[mob]>.abilities]||null> != null:
       - run mob_use_ability_handler def:<[spawned_entity]>
 
-citadel_build_mode_command:
+spawnmob_command:
   type: command
   name: spawnmob
   tab complete:
     - determine <server.list_scripts.filter[name.as_entity.type.is[==].to[entity]].parse[name.to_lowercase].filter[starts_with[<context.args.get[1]>]]>
   script:
-    
+    - run spawn_custom_mob def:<context.args.get[1]>|<player.location>
 
 mob_use_ability_handler:
   type: task
