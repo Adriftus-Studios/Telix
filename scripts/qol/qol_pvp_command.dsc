@@ -39,32 +39,64 @@ qol_pvp_challenge_command:
   debug: false
   name: challenge
   tab complete:
-    - define arguments:<server.list_online_players.parse[name]>
+    - define args1:<list[send|accept|decline]>
+    - define args2:<server.list_online_players.parse[name]>
     - if <context.args.size||0> == 0:
-      - determine <[arguments]>
+      - determine <[args1]>
     - else if <context.args.size> == 1 && <context.raw_args.ends_with[<&sp>].not>:
-      - determine <[arguments].filter[starts_with[<context.args.get[1]>]]>
+      - determine <[args1].filter[starts_with[<context.args.get[1]>]]>
+    - else if <context.args.size> == 1 && <context.raw_args.ends_with[<&sp>]>:
+      - determine <[args2]>
+    - else if <context.args.size> == 2 && <context.raw_args.ends_with[<&sp>].not>:
+      - determine <[args2].filter[starts_with[<context.args.get[2]>]]>
+  send:
+    #Send
+    - flag <[sender]> challenges_sent:->:<[receiver]>
+    - narrate "<&6>You have successfully sent a challenge to <&e><[receiver].name>."
+    - narrate "<&6>They have 5 minutes to accept it."
+    #Receive
+    - flag <[receiver]> challenges_received:->:<[sender]>
+    - run bb_notification def:<&e>⚠️<&c>CHALLENGER<&sp>APPROACHING<&sp><&e>⚠️|15s|yellow|1|<[receiver]>
+    - narrate "<&c>You have been challenged by <&6><[sender].name> to a duel!" targets:<[receiver]>
+    - narrate "<&c>You have 5 minutes to accept their challenge." targets:<[receiver]>
+    - narrate "<&a>/challenge accept <[sender].name><&8>| <&c>/challenge decline <[sender].name>." targets:<[receiver]>
+    #Remove challenges
+    - wait 5m
+    - flag <[sender]> challenges_sent:<-:<[receiver]>
+    - flag <[receiver]> challenges_received:<-:<[sender]>
+  accept:
+    #Sender
+    - flag <player> challenges_received:<-:<server.match_player[<context.args.get[2]>]>
+    #Receiver
+    - flag <server.match_player[<context.args.get[2]>]> challenges_received:<-:<player>
+    - narrate "wip lmao"
+  decline:
+    #Sender
+    - flag <server.match_player[<context.args.get[2]>]> challenges_received:<-:<player>
+    #Receiver
+    - flag <player> challenges_received:<-:<server.match_player[<context.args.get[2]>]>
+    - narrate "wip lol"
   script:
     - if <context.args.get[1]||null> == null:
       - narrate "<&c>Command argument missing! (Argument #1)"
-    - if <server.match_player[<context.args.get[1]>]||null> != null:
-      - if <server.match_player[<context.args.get[1]>].is_online>:
-        #Send
-        - flag <player> challenges_sent:->:<server.match_player[<context.args.get[1]>]>
-        - narrate "<&6>You have successfully sent a challenge to <&e><server.match_player[<context.args.get[1]>].name>."
-        - narrate "<&6>They have 5 minutes to accept it."
-        #Receive
-        - flag <server.match_player[<context.args.get[1]>]> challenges_received:->:<player>
-        - run bb_notification def:<&e>⚠️<&c>CHALLENGER<&sp>APPROACHING<&sp><&e>⚠️|15s|yellow|1.0|<server.match_player[<context.args.get[1]>]>
-        - narrate "<&c>You have been challenged by <&6><player.name> to a duel!"
-        - narrate "<&c>You have 5 minutes to accept their challenge."
-        - narrate "<&a>/challenge accept <&8>| <&c>/challenge decline"
-        #Remove challenges
-        - wait 5m
-        - flag <player> challenges_sent:<-:<server.match_player[<context.args.get[1]>]>
-        - flag <server.match_player[<context.args.get[1]>]> challenges_received:<-:<player>
+    - if <context.args.get[1].to_lowercase> == send:
+      - if <server.match_player[<context.args.get[2]>]||null> != null:
+        - if <server.match_player[<context.args.get[2]>].is_online> && <player> != <server.match_player[<context.args.get[2]>]>:
+          - define sender:<player>
+          - define receiver:<server.match_player[<context.args.get[2]>]>
+          - inject locally send
+        - else:
+          - narrate "<&c>You cannot challenge this player."
       - else:
-        - narrate "<&c>You cannot challenge this player, as they are not online!"
+        - narrate "<&c>Command argument invalid! (Argument #2)"
+    - if <context.args.get[1].to_lowercase> == accept:
+      - if <server.match_player[<context.args.get[2]>]||null> != null:
+        - if <server.match_player[<context.args.get[2]>].is_online>:
+          - inject locally accept
+    - if <context.args.get[1].to_lowercase> == decline:
+      - if <server.match_player[<context.args.get[2]>]||null> != null:
+        - if <server.match_player[<context.args.get[2]>].is_online>:
+          - inject locally decline
     - else:
       - narrate "<&c>Command argument invalid! (Argument #1)"
       
