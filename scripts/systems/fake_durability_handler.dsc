@@ -16,8 +16,7 @@ fake_durability_handler:
       - inventory set slot:<context.slot> d:<player.inventory> o:<[item]>
     on player picks up item:
       - if <context.item.script.yaml_key[fake_durability]||null> != null:
-        - narrate <context.entity.entity_type>
-        - if <context.entity.entity_type> == TRIDENT:
+        - if <context.entity.item.material.name> == TRIDENT:
           - determine ITEM:<proc[fake_durability_use].context[<context.item>]>
 
 fake_durability_use:
