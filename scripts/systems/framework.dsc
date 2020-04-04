@@ -346,12 +346,12 @@ test_command:
   script:
   - define sphere:<proc[define_sphere1].context[<player.location>|7|1]>
   - define center:<player.location>
-  - repeat 5:
+  - repeat 15:
     - repeat 5:
       - define point:<[sphere].random>
       - define offset:<[point].sub[<[center]>]>
       - run boss_dagon_aqua_burst_animation def:<player.location>|<[offset].add[<[point]>]>
-    - wait 3t
+    - wait 5t
 
 equipt_command:
   type: command
