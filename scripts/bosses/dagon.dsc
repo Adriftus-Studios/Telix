@@ -46,7 +46,9 @@ boss_dagon_aqua_burst_animation:
   type: task
   definitions: points
   script:
+  - playeffect spell_witch <[points]> offset:0 visibility:300 quantity:3
   - foreach <[points]> as:point:
+    - announce <[point]>
     - playeffect spell_witch <[point]> offset:0 visibility:300 quantity:3
     - wait 1t
 
