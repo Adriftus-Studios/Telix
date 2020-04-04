@@ -106,6 +106,7 @@ spawn_custom_mob:
       - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
     - if <yaml[server.mobs].read[<[mob]>.abilities]||null> != null:
       - run mob_use_ability_handler def:<entry[entity1].spawned_entity>
+    - define spawned_entity:<entry[entity1].spawned_entity>
 
 mob_use_ability_handler:
   type: task

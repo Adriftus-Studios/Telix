@@ -15,3 +15,19 @@ entity_dagon_deity:
   entity_type: guardian
   custom_name: <&c>Dagon Diety
   max_health: 16
+  
+boss_dagon_summon_minion:
+  type: task
+  name: boss_dagon_summon_minion
+  ability_tree: water
+  cooldown: 40s
+  warmup: 5s
+  requires_target: true
+  requires_target_in_sight: false
+  #additional_conditions:
+  #- <[entity].health.is[less].to[15]>
+  definitions: entity
+  script:
+  - foreach <[entity].location.find.players.within[30]> as:player:
+    - inject spawn_custom_mob def:<entity[entity_dagon_deity]>|<[entity].location>
+    - attack <[spawned_entity]> target:<[player]>
