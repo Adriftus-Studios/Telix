@@ -40,6 +40,8 @@ boss_dagon_aqua_shield:
   - define time:<util.date.time>
   - repeat 20:
     - repeat <[layers].size>:
+      - if <[entity].is_spawned||false> == false:
+        - stop
       - define offset:<[entity].location.sub[<[center]>]>
       - define points:<[layers].get[<[value]>].unescaped>
       - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
