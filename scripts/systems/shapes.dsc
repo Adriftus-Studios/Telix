@@ -30,6 +30,7 @@ define_sphere:
   - define location:<[location].with_pitch[90].with_yaw[0]>
   - define cir:<[radius].mul[<util.pi>].mul[2]>
   - define between:<element[180].div[<[radius].mul[<util.pi>].mul[2].div[0.4]>]>
+  - define between2:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.4]>]>
   - repeat <[cir].div[0.4].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>].add[90]>]>
     - if <[offset].get[1]> < 0:
@@ -42,7 +43,7 @@ define_sphere:
       - define B:<[offset].get[2]>
     - define location2:<[location].above[<[A]>]>
     - repeat <[cir].div[0.4].round> as:value2:
-      - define offset2:<proc[find_offset].context[<[A]>|<[value2].mul[<[between]>]>]>
+      - define offset2:<proc[find_offset].context[<[A]>|<[value2].mul[<[between2]>]>]>
       - define points:|:<[location2].up[<[offset2].get[1]>].right[<[offset2].get[2]>]>
   - determine <[points]>
 
