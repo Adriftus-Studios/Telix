@@ -16,7 +16,7 @@ qol_pvp_command:
 #Inventory
 qol_pvp_settings_inventory:
   type: inventory
-  debug: false
+  debug: true
   title: <&5>◆ <&c><&n><&l>Player Versus Player Settings<&r> <&5>◆
   size: 27
   definitions:
@@ -30,7 +30,7 @@ qol_pvp_settings_inventory:
     
 qol_pvp_settings_inventory_events:
   type: world
-  debug: false
+  debug: true
   events:
     on player clicks in qol_pvp_settings_inventory priority:10:
       - determine cancelled
@@ -51,7 +51,7 @@ qol_pvp_settings_inventory_events:
 #Items
 qol_pvp_settings_damage_notifier:
   type: item
-  debug: false
+  debug: true
   material: stone
   display name: <&c>Damage Notifier
   lore:
@@ -62,7 +62,7 @@ qol_pvp_settings_damage_notifier:
 
 qol_pvp_settings_effect_notifier:
   type: item
-  debug: false
+  debug: true
   material: stone
   display name: <&e>Effect Notifier
   lore:
