@@ -44,7 +44,7 @@ boss_dagon_aqua_burst_animation:
   type: task
   definitions: start|end
   script:
-  
+  - narrate TODO
 
 boss_dagon_summon_minion:
   type: task
