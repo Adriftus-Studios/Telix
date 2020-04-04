@@ -37,7 +37,9 @@ define_sphere:
       - define B:<[offset].get[2].mul[-1]>
     - else:
       - define B:<[offset].get[2]>
-    - define points:|:<proc[define_sphere_helper].context[<[location].above[<[A]>]>|<[B]>]>
+    - repeat <[cir].div[0.4].round> as:value2:
+      - define offset:<proc[find_offset].context[<[radius]>|<[value2].mul[<[between]>]>]>
+      - define points:|:<[location].up[<[A]>].right[<[B]>]>
   - determine <[points]>
 
 define_sphere_helper:
