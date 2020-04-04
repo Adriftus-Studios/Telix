@@ -2,6 +2,7 @@ fake_durability_handler:
   type: world
   events:
     on player item takes damage:
+      - stop
       - define item:<proc[fake_durability_use].context[<player.item_in_hand>]||null>
       - if <[item]> != null:
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
@@ -14,11 +15,6 @@ fake_durability_handler:
       - define item:<[new_item]>
       - inject build_item
       - inventory set slot:<context.slot> d:<player.inventory> o:<[item]>
-    on player picks up item:
-      - if <context.item.script.yaml_key[fake_durability]||null> != null:
-        - if <context.entity.entity_type> == TRIDENT:
-    on player activates riptide:
-      - narrate <context.item>
 
 fake_durability_use:
   type: procedure
