@@ -37,7 +37,7 @@ define_sphere:
       - define B:<[offset].get[2].mul[-1]>
     - else:
       - define B:<[offset].get[2]>
-    - define points:|:<proc[define_sphere_helper].context[<[location].above[<[A]>|<[B]>]>]>
+    - define points:|:<proc[define_sphere_helper].context[<[location].above[<[A]>]>|<[B]>]>
   - determine <[points]>
 
 define_sphere_helper:
