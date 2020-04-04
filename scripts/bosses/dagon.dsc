@@ -47,7 +47,7 @@ boss_dagon_aqua_shield:
       - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
       - playeffect redstone at:<[points].parse[add[<[offset]>]]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
       - wait 1t
-  - playeffect redstone at:<proc[define_sphere1].context[<[entity].location.above>|2|0.5]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+  - playeffect redstone at:<proc[define_sphere1].context[<[entity].location.above>|2|0.5]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,200>
 
 boss_dagon_aqua_burst:
   type: task
