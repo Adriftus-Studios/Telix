@@ -34,9 +34,9 @@ define_sphere:
   - repeat <[cir].div[0.4].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>].add[90]>]>
     - if <[offset].get[1]> < 0:
-      - define A:<[offset].get[1].sub[3]>
-    - else:
       - define A:<[offset].get[1].add[3]>
+    - else:
+      - define A:<[offset].get[1].sub[3]>
     - if <[offset].get[2]> < 0:
       - define B:<[offset].get[2].mul[-1]>
     - else:
