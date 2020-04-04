@@ -298,6 +298,8 @@ mob_ability_test:
   # Must be a single tag conditional
   definitions: entity
   # All mob ability scripts must have this
+  warmup_script:
+    - playeffect heart at:<[entity].location.above[1]> visibility:50 quantity:2 offset:1.0
   script:
     - heal 5 <[entity]>
     - playeffect heart at:<[entity].location.above[1]> visibility:50 quantity:10 offset:1.0

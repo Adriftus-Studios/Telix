@@ -28,9 +28,13 @@ boss_dagon_summon_minion:
   additional_conditions:
   - <[entity].health.is[less].to[1200]>
   definitions: entity
+  warmup_script:
+  - foreach <[entity].location.find.players.within[30]> as:player:
+    - adjust <queue> linked_player:<[player]>
+    - narrate "Dagon is calling for help!"
   script:
   - foreach <[entity].location.find.players.within[30]> as:player:
     - define location:<[entity].location>
     - define mob:entity_dagon_deity
-    - inject spawn_custom_mob
-    - attack <[entity]> target:<[player]>
+    - inject spawn_custom_mobs
+    - attack <[spawned_entity]> target:<[player]>
