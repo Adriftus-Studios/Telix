@@ -62,7 +62,7 @@ qol_pvp_settings_damage_notifier:
   mechanisms:
     custom_model_data: 0
   setting: damage_notifier
-  options: <list[bossbar|chat|false]>
+  options: bossbar|chat|false
 
 qol_pvp_settings_effect_notifier:
   type: item
@@ -74,6 +74,6 @@ qol_pvp_settings_effect_notifier:
   mechanisms:
     custom_model_data: 0
   setting: effect_notifier
-  options: <list[bossbar|chat|false]>
+  options: bossbar|chat|false
     
   
