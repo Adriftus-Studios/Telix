@@ -27,7 +27,7 @@ boss_dagon_aqua_burst:
   definitions: entity
   warmup_script:
   - define sphere:<proc[define_sphere1].context[<[entity].location>|3|1]>
-  - narrate a
+  - announce test
   - repeat 40:
     - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2]> offset:0 visibility:300 quantity:1
     - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2]> offset:0 visibility:300 quantity:1
