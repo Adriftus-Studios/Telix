@@ -48,6 +48,11 @@ define_sphere_helper:
   - repeat <[cir].div[0.4].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
     - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+    - if <[location].up[<[offset].get[1]>].right[<[offset].get[2]>]||null> == null:
+      - narrate broken
+      - narrate <[offset].get[1]>
+      - narrate <[offset].get[2]>
+      - narrate <[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
 define_circle:
