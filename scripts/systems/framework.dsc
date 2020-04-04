@@ -350,9 +350,9 @@ test_command:
   - repeat 40:
     - define offset:<[entity].location.sub[<[center]>]>
     - narrate <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]]>
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.add[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.add[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.add[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
     - wait 5t
 
 equipt_command:
