@@ -29,29 +29,17 @@ define_sphere:
   script:
   - define location:<[location].with_pitch[90].with_yaw[0]>
   - define cir:<[radius].mul[<util.pi>].mul[2]>
-  - define between:<element[180].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
-  - repeat <[cir].div[0.2].round>:
-    - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>].add[90]>]>
-    - if <[offset].get[2]> < 0:
-      - define points:|:<proc[define_sphere_helper].context[<[location].above[<[offset].get[1]>]>|<[offset].get[2].mul[-1]>]>
-    - else:
-      - define points:|:<proc[define_sphere_helper].context[<[location].above[<[offset].get[1]>]>|<[offset].get[2]>]>
-  - determine <[points]>
-
-define_sphere_helper:
-  type: procedure
-  definitions: location|radius
-  script:
-  - define cir:<[radius].mul[<util.pi>].mul[2]>
-  - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.4]>]>
+  - define between:<element[180].div[<[radius].mul[<util.pi>].mul[2].div[0.4]>]>
   - repeat <[cir].div[0.4].round>:
-    - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
-    - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-    - if <[location].up[<[offset].get[1]>].right[<[offset].get[2]>]||null> == null:
-      - narrate broken
-      - narrate <[offset].get[1]>
-      - narrate <[offset].get[2]>
-      - narrate <[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+    - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>].add[90]>]>
+    - define A:<[offset].get[1]>
+    - if <[offset].get[2]> < 0:
+      - define B:<[offset].get[2].mul[-1]>
+    - else:
+      - define B:<[offset].get[2]>
+    - repeat <[cir].div[0.4].round>:
+      - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
+      - define points:|:<[location].up[<[A]>].right[<[B]>]>
   - determine <[points]>
 
 define_circle:
