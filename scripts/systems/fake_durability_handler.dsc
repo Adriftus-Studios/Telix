@@ -19,7 +19,7 @@ fake_durability_handler:
         - if <context.entity.item.material.name> == TRIDENT:
           - despawn <context.entity>
           - give <proc[fake_durability_use].context[<context.entity.item>]>
-          - determine ITEM:<item[air]>
+          - determine passively cancelled
 
 fake_durability_use:
   type: procedure
