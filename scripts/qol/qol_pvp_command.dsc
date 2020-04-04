@@ -36,9 +36,9 @@ qol_pvp_settings_inventory_events:
       - determine cancelled
     
     on player clicks in qol_pvp_settings_inventory:
-      - if <context.item.has_nbt[setting]> && <context.item.has_nbt[options]>:
-        - define setting:<context.item.nbt[setting]>
-        - define options:<context.item.nbt[options]>
+      - if <context.item.script.yaml_key[setting]||null> != null && <context.item.script.yaml_key[options]||null> != null:
+        - define setting:<context.item.script.yaml_key[setting]>
+        - define options:<context.item.script.yaml_key[options]>
         - narrate <[setting]>
         - narrate <[options]>
         - if <yaml[player.<player.uuid>].read[pvp.<[setting]>]||null> == null:
@@ -58,7 +58,8 @@ qol_pvp_settings_damage_notifier:
     - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
     custom_model_data: 0
-    nbt: <list[setting/damage_notifier|options/<list[bossbar|chat|false]>]>
+  setting: damage_notifier
+  options: <list[bossbar|chat|false]>
 
 qol_pvp_settings_effect_notifier:
   type: item
@@ -69,6 +70,7 @@ qol_pvp_settings_effect_notifier:
     - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
     custom_model_data: 0
-    nbt: <list[setting/effect_notifier|options/<list[chat|bossbar|false]>]>
+  setting: effect_notifier
+  options: <list[bossbar|chat|false]>
     
   
