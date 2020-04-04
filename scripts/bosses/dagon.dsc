@@ -13,10 +13,10 @@ boss_dagon:
       - boss_dagon_summon_minion
       - boss_dagon_aqua_shield
 
-entity_dagon_deity:
+entity_dagon_minion:
   type: entity
   entity_type: guardian
-  custom_name: <&c>Dagon Diety
+  custom_name: <&c>Dagon Minion
   max_health: 16
   
 boss_dagon_aqua_shield:
@@ -37,13 +37,15 @@ boss_dagon_aqua_shield:
   script:
   - define layers:<proc[define_sphere2].context[<[entity].location.above>|2|0.5]>
   - define center:<[entity].location>
+  - define time:<util.date.time>
   - repeat 20:
     - repeat <[layers].size>:
       - define offset:<[entity].location.sub[<[center]>]>
       - define points:<[layers].get[<[value]>].unescaped>
       - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
       - playeffect redstone at:<[points].parse[add[<[offset]>]]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
-      - wait 2t
+      - wait 1t
+  - playeffect redstone at:<proc[define_sphere1].context[<[entity].location.above>|2|0.5]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
 
 boss_dagon_aqua_burst:
   type: task
@@ -102,4 +104,4 @@ boss_dagon_summon_minion:
   script:
   - foreach <[entity].location.find.players.within[30]> as:player:
     - adjust <queue> linked_player:<[player]>
-    - run spawn_custom_mob def:<entity[entity_dagon_deity]>|<[entity].location>
+    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<[entity].location>
