@@ -26,7 +26,7 @@ boss_dagon_aqua_burst:
   requires_target_in_sight: false
   definitions: entity
   warmup_script:
-  - define sphere:<proc[define_sphere].context[<[entity].location>|2]>
+  - define sphere:<proc[define_sphere].context[<[entity].location>|4|1]>
   - narrate a
   - repeat 40:
     - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2]> offset:0 visibility:300 quantity:1
