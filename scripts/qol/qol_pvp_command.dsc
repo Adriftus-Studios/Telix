@@ -18,6 +18,8 @@ qol_pvp_command:
       - inject locally help
     - else if <context.args.get[1].to_lowercase> == settings:
       - inventory open d:<inventory[qol_pvp_settings_inventory]>
+    - else:
+      - narrate "<&c>Command argument invalid! (Argument #1)"
     
 ##Settings
 #Inventory
