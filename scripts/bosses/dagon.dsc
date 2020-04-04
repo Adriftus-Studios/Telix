@@ -9,7 +9,7 @@ boss_dagon:
   speed: 0.3
   custom:
     ability_usage:
-      - boss_dagon_summon_minion
+      - boss_dagon_aqua_burst
 
 entity_dagon_deity:
   type: entity
@@ -21,13 +21,16 @@ boss_dagon_aqua_burst:
   type: task
   ability_tree: water
   cooldown: 12s
-  warmup: 1s
+  warmup: 2s
   requires_target: false
   requires_target_in_sight: false
   definitions: entity
   warmup_script:
-  - repeat 20:
-    - define points:<proc[define_curve1].context[start|end|intensity|angle|between]>
+  - define sphere:<proc[define_sphere].context[<[entity].location>|2]>
+  - repeat 40:
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2]> offset:0 visibility:300 quantity:1
     - wait 1t
   script:
   - foreach <[entity].location.find.players.within[30]> as:player:
