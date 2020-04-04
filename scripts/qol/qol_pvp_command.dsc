@@ -44,6 +44,8 @@ qol_pvp_settings_inventory_events:
         - if <yaml[player.<player.uuid>].read[pvp.<[setting]>]||null> == null:
           - yaml id:player.<player.uuid> set pvp.<[setting]>:<[options].get[1]>
         - define new:<[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>].+[1]>
+        - narrate <[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>]>
+        - narrate <[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>].+[1]>
         - yaml id:player.<player.uuid> set pvp.<[setting]>:<[new]||<[options].get[1]>>
         - narrate "<&d>Set PvP setting <&b><[setting].replace[_].with[<&sp>].to_titlecase> <&d>to <&5><[new].to_titlecase>."
         - inventory open d:<inventory[qol_pvp_settings_inventory]>
