@@ -39,19 +39,8 @@ define_sphere:
       - define B:<[offset].get[2]>
     - define location2:<[location].above[<[A]>]>
     - repeat <[cir].div[0.4].round> as:value2:
-      - define offset2:<proc[find_offset].context[<[radius]>|<[value2].mul[<[between]>]>]>
+      - define offset2:<proc[find_offset].context[<[A]>|<[value2].mul[<[between]>]>]>
       - define points:|:<[location2].up[<[offset2].get[1]>].right[<[offset2].get[2]>]>
-  - determine <[points]>
-
-define_sphere_helper:
-  type: procedure
-  definitions: location|radius
-  script:
-  - define cir:<[radius].mul[<util.pi>].mul[2]>
-  - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.4]>]>
-  - repeat <[cir].div[0.4].round>:
-    - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
-    - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
 define_circle:
