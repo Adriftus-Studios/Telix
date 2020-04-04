@@ -100,13 +100,13 @@ spawn_custom_mob:
   definitions: mob|location
   script:
     - spawn <[mob]> <[location].above> save:entity1
+    - define spawned_entity:<entry[entity1].spawned_entity>
     - if <yaml[server.mobs].read[<[mob]>.aggressive_on_spawn]||true> && !<player.has_flag[safemode]>:
-      - attack <entry[entity1].spawned_entity> target:<player>
+      - attack <[spawned_entity]> target:<player>
     - if <yaml[server.mobs].read[<[mob]>.spawn_script]||none> != none:
       - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
     - if <yaml[server.mobs].read[<[mob]>.abilities]||null> != null:
-      - run mob_use_ability_handler def:<entry[entity1].spawned_entity>
-    - define spawned_entity:<entry[entity1].spawned_entity>
+      - run mob_use_ability_handler def:<[spawned_entity]>
 
 mob_use_ability_handler:
   type: task
