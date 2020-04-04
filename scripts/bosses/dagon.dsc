@@ -35,21 +35,21 @@ boss_dagon_aqua_burst:
   script:
   - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
   - repeat 5:
-    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]>
-    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]>
-    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]>
-    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]>
-    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]>
+    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
+    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
+    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
+    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
+    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.2]>
     - wait 1t
 
 boss_dagon_aqua_burst_animation:
   type: task
   definitions: points
   script:
-  - playeffect spell_witch <[points]> offset:0 visibility:300 quantity:3
+  - playeffect spell_witch <[points]> offset:0 visibility:300 quantity:1
   - foreach <[points]> as:point:
     - announce <[point]>
-    - playeffect spell_witch <[point]> offset:0 visibility:300 quantity:3
+    - playeffect spell_witch <[point]> offset:0 visibility:300 quantity:1
     - wait 1t
 
 boss_dagon_summon_minion:
