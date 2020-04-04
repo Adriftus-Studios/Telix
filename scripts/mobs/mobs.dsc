@@ -101,7 +101,7 @@ spawn_custom_mob:
   script:
     - spawn <[mob]> <[location].above> save:entity1
     - define spawned_entity:<entry[entity1].spawned_entity>
-    - narrate <yaml[server.mobs].read[<[mob]>.abilities]||null>
+    - narrate <yaml[server.mobs].read[<[mob]>]||null>
     - if <yaml[server.mobs].read[<[mob]>.aggressive_on_spawn]||true> && !<player.has_flag[safemode]>:
       - attack <[spawned_entity]> target:<player>
     - if <yaml[server.mobs].read[<[mob]>.spawn_script]||none> != none:
