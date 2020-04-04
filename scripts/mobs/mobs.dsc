@@ -147,6 +147,7 @@ mob_use_ability_handler:
         - define normal_speed:<[entity].speed>
         - adjust def:entity speed:0
         - if <script[<[ability]>].yaml_key[warmup_script]||null> != null:
+          - announce test1
           - run <[ability]> def:<[entity]> path:warmup_script
         - wait <script[<[ability]>].yaml_key[warmup]>
         - if !<[entity].is_spawned>:
