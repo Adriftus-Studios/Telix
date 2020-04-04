@@ -53,7 +53,7 @@ qol_pvp_settings_damage_notifier:
   type: item
   debug: false
   material: stone
-  display_name: <&c>Damage Notifier
+  display name: <&c>Damage Notifier
   lore:
     - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
@@ -64,7 +64,7 @@ qol_pvp_settings_effect_notifier:
   type: item
   debug: false
   material: stone
-  display_name: <&e>Effect Notifier
+  display name: <&e>Effect Notifier
   lore:
     - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
