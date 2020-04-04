@@ -217,12 +217,8 @@ find_offset:
     - define degrees:<[degrees].sub[360]>
   - define hyp:<[degrees].to_radians.sin.mul[<[C]>]>
   - define adj:<[C].power[2].sub[<[hyp].power[2]>].sqrt>
-  - if <[degrees]> > 89 && <[degrees]> < 180:
+  - if <[degrees]> > 89 && <[degrees]> < 270:
     - define adj:<[adj].mul[-1]>
-  - else if <[degrees]> > 179 && <[degrees]> < 270:
-    - define adj:<[adj].mul[-1]>
-  - else if <[degrees]> > 269 && <[degrees]> < 360:
-    - define adj:<[adj]>
   - determine <list[<[hyp]>|<[adj]>]>
 
 play_animation:
