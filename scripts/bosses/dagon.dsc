@@ -35,4 +35,4 @@ boss_dagon_summon_minion:
   script:
   - foreach <[entity].location.find.players.within[30]> as:player:
     - adjust <queue> linked_player:<[player]>
-    - run spawn_custom_mobs def:<entity[entity_dagon_deity]>|<[entity].location>
+    - run spawn_custom_mobs defs:<entity[entity_dagon_deity]>|<[entity].location>
