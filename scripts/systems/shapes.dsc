@@ -33,9 +33,21 @@ define_sphere:
   - repeat <[cir].div[0.2].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>].add[90]>]>
     - if <[offset].get[2]> < 0:
-      - define points:|:<proc[define_circle].context[<[location].above[<[offset].get[1]>]>|<[offset].get[2].mul[-1]>]>
+      - define points:|:<proc[define_sphere_helper].context[<[location].above[<[offset].get[1]>]>|<[offset].get[2].mul[-1]>]>
     - else:
-      - define points:|:<proc[define_circle].context[<[location].above[<[offset].get[1]>]>|<[offset].get[2]>]>
+      - define points:|:<proc[define_sphere_helper].context[<[location].above[<[offset].get[1]>]>|<[offset].get[2]>]>
+  - determine <[points]>
+
+define_sphere_helper:
+  type: procedure
+  definitions: location|radius
+  script:
+  - narrate <[location]>
+  - define cir:<[radius].mul[<util.pi>].mul[2]>
+  - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.4]>]>
+  - repeat <[cir].div[0.4].round>:
+    - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
+    - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
 define_circle:
