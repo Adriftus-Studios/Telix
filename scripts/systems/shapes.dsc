@@ -193,7 +193,7 @@ test_effects_command:
       - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == sphere2:
-    - define layers:<proc[define_sphere2].context[<player.location>|3|0.5]>
+    - define layers:<proc[define_sphere2].context[<player.location.above>|2|0.5]>
     - foreach <[layers]> as:layer:
       - define points:<[layer].unescaped>
       - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100
