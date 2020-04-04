@@ -27,7 +27,6 @@ boss_dagon_aqua_burst:
   definitions: entity
   warmup_script:
   - define sphere:<proc[define_sphere1].context[<[entity].location>|3|1]>
-  - announce test2
   - repeat 40:
     - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2]> offset:0 visibility:300 quantity:1
     - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2]> offset:0 visibility:300 quantity:1
@@ -36,8 +35,11 @@ boss_dagon_aqua_burst:
   script:
   - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
   - repeat 5:
-    - define points:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]>
-    - playeffect spell_witch <[points]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]> offset:0 visibility:300 quantity:1
     - wait 1t
 
 boss_dagon_aqua_burst_animation:
