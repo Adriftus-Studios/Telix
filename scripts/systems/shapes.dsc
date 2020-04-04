@@ -157,7 +157,7 @@ test_effects_command:
   - else if <context.raw_args.split[].count[<&sp>]> == 1:
     - determine <server.list_particles.parse[to_lowercase].filter[starts_with[<context.args.get[2]||<server.list_particles>>]]>
   script:
-  - define particle:<context.args.get[2]||redstone>
+  - define particle:<context.args.get[2]||spell_witch>
   - if <context.args.get[1]> == zigzag:
     - define points:<proc[define_zigzag].context[<player.location>|<player.location.forward[20]>|2]>
     - foreach <[points]>:
@@ -196,7 +196,7 @@ test_effects_command:
       - repeat <[layers].size>:
         - define points:<[layers].get[<[value]>].unescaped>
         - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
-        - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+        - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
         - wait 2t
   - if <context.args.get[1]> == circle:
     - define points:<proc[define_circle].context[<player.location.forward[4]>|3]>
