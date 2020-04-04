@@ -23,6 +23,18 @@ define_curve2:
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
   
+define_sphere:
+  type: procedure
+  definitions: location|radius
+  script:
+  - define cir:<[radius].mul[<util.pi>].mul[2]>
+  - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
+  - repeat <[cir].div[0.2].round>:
+    - narrate <[value]>
+    - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
+    - define points:|:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+  - determine <[points]>
+
 define_circle:
   type: procedure
   definitions: location|radius
@@ -101,7 +113,7 @@ test_effects_command:
   usage: /test_effects
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
-    - determine <list[curve1|curve2|star1|star2|circle|spiral|zigzag].filter[starts_with[<context.args.get[1]>]]||<list[curve|star1|star2|circle|spiral|zigzag]>>
+    - determine <list[curve1|curve2|star1|star2|circle|spiral|zigzag|sphere].filter[starts_with[<context.args.get[1]>]]||<list[curve|star1|star2|circle|spiral|zigzag|sphere]>>
   - else if <context.raw_args.split[].count[<&sp>]> == 1:
     - determine <server.list_particles.parse[to_lowercase].filter[starts_with[<context.args.get[2]||<server.list_particles>>]]>
   script:
@@ -115,6 +127,7 @@ test_effects_command:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
     - repeat 90:
+      #- define points:<proc[define_curve1].context[start|end|intensity|angle|between]>
       - define points:<proc[define_curve1].context[<[start]>|<[end]>|5|<[value].mul[4]>|1]>
       - playeffect <[particle]> at:<[points]> quantity:5 offset:0 visibility:100
       - wait 1t
@@ -133,6 +146,11 @@ test_effects_command:
     - repeat <[points].size.div[<[num]>]>:
       - repeat <[num]>:
         - playeffect <[particle]> at:<[points].get[<[value].mul[<[num]>].add[<[value]>]>]> quantity:5 offset:0 visibility:100
+      - wait 1t
+  - if <context.args.get[1]> == sphere:
+    - define points:<proc[define_sphere].context[<player.location.forward[4]>|3]>
+    - repeat 40:
+      - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == circle:
     - define points:<proc[define_circle].context[<player.location.forward[4]>|3]>
