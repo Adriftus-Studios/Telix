@@ -28,7 +28,7 @@ define_sphere:
   definitions: location|radius
   script:
   - define cir:<[radius].mul[<util.pi>].mul[2]>
-  - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
+  - define between:<element[180].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
   - repeat <[cir].div[0.2].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
     - narrate <[offset].get[1]><&sp><[offset].get[2]>
