@@ -35,18 +35,20 @@ boss_dagon_aqua_burst:
   script:
   - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
   - repeat 5:
-    - playeffect spell_witch <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]> offset:0 visibility:300 quantity:1
+    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]>
+    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]>
+    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]>
+    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]>
+    - run boss_dagon_aqua_burst_animation def:<proc[define_curve1].context[<[entity].location>|<[sphere].random>|1|<util.random.int[0].to[360]>|0.5]>
     - wait 1t
 
 boss_dagon_aqua_burst_animation:
   type: task
-  definitions: start|end
+  definitions: points
   script:
-  - narrate TODO
+  - foreach <[points]> as:point:
+    - playeffect spell_witch <[point]> offset:0 visibility:300 quantity:3
+    - wait 1t
 
 boss_dagon_summon_minion:
   type: task
