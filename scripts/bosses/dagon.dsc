@@ -2,7 +2,8 @@
 boss_dagon:
   type: entity
   entity_type: elder_guardian
-  custom_name: <&4>Dagon
+  custom_name: <&l><&4>Dagon
+  custom_name_visible: true
   max_health: 1200
   health: 1200
   speed: 0.3
@@ -22,8 +23,6 @@ boss_dagon_summon_minion:
   ability_tree: water
   cooldown: 40s
   warmup: 5s
-  requires_target: true
-  requires_target_in_sight: false
   #additional_conditions:
   #- <[entity].health.is[less].to[15]>
   definitions: entity
