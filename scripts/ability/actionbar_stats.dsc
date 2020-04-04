@@ -4,7 +4,7 @@ actionbar_stats:
   debug: false
   events:
     on delta time secondly:
-      - stop
+      #- stop
       - foreach <server.list_online_players>:
         - actionbar "<&c><[value].health.round_to[0]>/<[value].health_max>❤ <&0>· <&b>✧<yaml[player.<[value].uuid>].read[stats.power.current].round_to[0]>/<yaml[player.<[value].uuid>].read[stats.power.max]>" targets:<[value]>
 
