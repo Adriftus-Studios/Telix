@@ -21,7 +21,7 @@ altar_timer:
     custom_model_data: -5
   display name: <&7>Not Imbuing
 
-altar_tier_2:
+altar_tier_1:
   type: item
   material: obsidian
   display name: <&b>Altar I
