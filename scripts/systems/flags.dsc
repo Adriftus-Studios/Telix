@@ -15,8 +15,12 @@ flag_handler:
                 - determine 0.0
         on player jumps:
         - if <player||null> != null:
-            - if <player.has_flag[no_jump]>:
+            - if <player.has_flag[no_jump]> || <player.has_flag[no_move]>:
                 - determine cancelled
         on entity knocks back entity:
-        - if <context.entity.has_flag[no_knockback]>:
+        - if <context.entity.has_flag[no_knockback]> || <context.entity.has_flag[no_move]>:
             - determine cancelled
+        on player walks:
+        - if <player||null> != null:
+            - if <player.has_flag[no_move]>:
+                - determine cancelled
