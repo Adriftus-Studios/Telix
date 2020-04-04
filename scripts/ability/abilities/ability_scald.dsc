@@ -17,7 +17,7 @@ ability_scald:
         - hurt 4 <[value]>
         - stop
       #Replace burn with calculate_burn proc
-      - burn <[value]> 5s
+      - burn <[value]> 4s
   script:
     #Target Skill Tree: Ocean, Target Points Requirement: 15, Target Power Cost: 10
     - inject abilities_check
