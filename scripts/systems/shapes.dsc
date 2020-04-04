@@ -150,7 +150,7 @@ test_effects_command:
       - wait 1t
   - if <context.args.get[1]> == sphere:
     - define points:<proc[define_sphere].context[<player.location.forward[4]>|3]>
-    - repeat 40:
+    - repeat 1:
       - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == circle:
