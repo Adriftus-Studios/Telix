@@ -191,7 +191,6 @@ contamination_events:
       - run calculate_contamination def:<player>
       - inject calculate_encumberance_speed
 
-
 default_stats:
   type: yaml data
   stats:

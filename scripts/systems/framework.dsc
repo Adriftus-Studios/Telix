@@ -102,6 +102,12 @@ setspawn_command:
   script:
     - note <player.location> as:spawn
 
+smelted_into:
+  # used for mob drops for burning mobs
+  type: yaml data
+  items:
+    porkchop: cooked_porkchop
+
 reload_scripts:
     type: world
     reload:
