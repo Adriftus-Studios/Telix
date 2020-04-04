@@ -16,7 +16,7 @@ qol_pvp_command:
 #Inventory
 qol_pvp_settings_inventory:
   type: inventory
-  debug: true
+  debug: false
   title: <&5>◆ <&c><&n><&l>Player VS Player Settings<&r> <&5>◆
   size: 27
   definitions:
