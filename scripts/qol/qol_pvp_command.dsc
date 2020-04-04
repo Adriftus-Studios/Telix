@@ -93,10 +93,20 @@ qol_pvp_challenge_command:
       - if <server.match_player[<context.args.get[2]>]||null> != null:
         - if <server.match_player[<context.args.get[2]>].is_online>:
           - inject locally accept
+        - else:
+          - narrate "<&c>This player is not online!"
+          - inject locally decline
+      - else:
+        - narrate "<&c>Command argument invalid! (Argument #2)"
     - else if <context.args.get[1].to_lowercase> == decline:
       - if <server.match_player[<context.args.get[2]>]||null> != null:
         - if <server.match_player[<context.args.get[2]>].is_online>:
           - inject locally decline
+        - else:
+          - narrate "<&c>This player is not online!"
+          - inject locally decline
+      - else:
+        - narrate "<&c>Command argument invalid! (Argument #2)"
     - else:
       - narrate "<&c>Command argument invalid! (Argument #1)"
       
