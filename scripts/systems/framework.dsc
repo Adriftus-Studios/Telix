@@ -344,15 +344,15 @@ test_command:
   name: test
   permission: test
   script:
-  - define sphere:<proc[define_sphere1].context[<player.location>|7|1]>
-  - define center:<player.location>
-  - repeat 15:
-    - repeat 5:
-      - define point:<[sphere].random>
-      - define offset:<player.location.sub[<[center]>]>
-      - narrate <[offset]>
-      - run boss_dagon_aqua_burst_animation def:<player.location>|<[offset].add[<[point]>]>
-    - wait 5t
+  - define entity:<player>
+  - define sphere:<proc[define_sphere1].context[<[entity].location>|3|1]>
+  - define center:<[entity].location>
+  - repeat 40:
+    - define offset:<[entity].location.sub[<[center]>]>
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]> offset:0 visibility:300 quantity:1
+    - wait 1t
 
 equipt_command:
   type: command
