@@ -79,8 +79,12 @@ qol_pvp_challenge_command:
   script:
     - if <context.args.get[1]||null> == null:
       - narrate "<&c>Command argument missing! (Argument #1)"
+      - stop
+    - else if <context.args.get[2]||null> == null:
+      - narrate "<&c>Command argument missing! (Argument #2)"
+      - stop
     - else if <context.args.get[1].to_lowercase> == send:
-      - if <context.args.get[2]||null> == null || <server.match_player[<context.args.get[2]>]||null> != null:
+      - if <server.match_player[<context.args.get[2]>]||null> != null:
         - if <server.match_player[<context.args.get[2]>].is_online> && <player> != <server.match_player[<context.args.get[2]>]>:
           - define sender:<player>
           - define receiver:<server.match_player[<context.args.get[2]>]>
@@ -90,7 +94,7 @@ qol_pvp_challenge_command:
       - else:
         - narrate "<&c>Command argument invalid! (Argument #2)"
     - else if <context.args.get[1].to_lowercase> == accept:
-      - if <context.args.get[2]||null> == null || <server.match_player[<context.args.get[2]>]||null> != null:
+      - if <server.match_player[<context.args.get[2]>]||null> != null:
         - if <server.match_player[<context.args.get[2]>].is_online>:
           - inject locally accept
         - else:
@@ -99,7 +103,7 @@ qol_pvp_challenge_command:
       - else:
         - narrate "<&c>Command argument invalid! (Argument #2)"
     - else if <context.args.get[1].to_lowercase> == decline:
-      - if <context.args.get[2]||null> == null || <server.match_player[<context.args.get[2]>]||null> != null:
+      - if <server.match_player[<context.args.get[2]>]||null> != null:
         - if <server.match_player[<context.args.get[2]>].is_online>:
           - inject locally decline
         - else:
