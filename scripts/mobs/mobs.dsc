@@ -100,9 +100,9 @@ spawn_custom_mob:
   definitions: mob|location
   script:
     - spawn <[mob]> <[location].above> save:entity1
-    - if <yaml[server.mobs].read[<[mob]>.aggressive_on_spawn]> && !<player.has_flag[safemode]>:
+    - if <yaml[server.mobs].read[<[mob]>.aggressive_on_spawn]||true> && !<player.has_flag[safemode]>:
       - attack <entry[entity1].spawned_entity> target:<player>
-    - if <yaml[server.mobs].read[<[mob]>.spawn_script]> != none:
+    - if <yaml[server.mobs].read[<[mob]>.spawn_script]||none> != none:
       - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
     - if <yaml[server.mobs].read[<[mob]>.abilities]||null> != null:
       - run mob_use_ability_handler def:<entry[entity1].spawned_entity>
@@ -114,17 +114,21 @@ mob_use_ability_handler:
   script:
     - while <[entity].is_spawned||false>:
       - wait 1s
+      - announce 1
       - define ability:<yaml[server.mobs].read[<[entity].scriptname>.abilities].as_list.random||null>
       - if <[ability]> == null:
-        - while stop
+        - while next
+      - announce 2
       - if !<script[<[ability]>].yaml_key[additional_conditions].parse[parsed].contains[false]||false>:
         - while next
+      - announce 3
       - if <script[<[ability]>].yaml_key[requires_target]>:
         - if <[entity].target||null> == null:
           - while next
         - if <script[<[ability]>].yaml_key[requires_target_in_sight]>:
           - if !<[entity].target.location.line_of_sight[<[entity].location>]>:
             - while next
+      - announce 4
       - if <[entity].flag[<[ability]>]||null> == null:
         - define normal_speed:<[entity].speed>
         - adjust def:entity speed:0
