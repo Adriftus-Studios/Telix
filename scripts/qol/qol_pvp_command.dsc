@@ -9,8 +9,15 @@ qol_pvp_command:
       - determine <[arguments]>
     - else if <context.args.size> == 1 && <context.raw_args.ends_with[<&sp>].not>:
       - determine <[arguments].filter[starts_with[<context.args.get[1]>]]>
+  help:
+    - narrate "help me"
   script:
-    - narrate "Work in Progress! -Kyu"
+    - if <context.args.get[1]||null> == null:
+      - narrate "<&c>Command argument missing! (Argument #1)"
+    - else if <context.args.get[1].to_lowercase> == help:
+      - inject locally help
+    - else if <context.args.get[1].to_lowercase> == settings:
+      - inventory open d:<inventory[qol_pvp_settings_inventory]>
     
 ##Settings
 #Inventory
@@ -30,7 +37,7 @@ qol_pvp_settings_inventory:
     
 qol_pvp_settings_inventory_events:
   type: world
-  debug: true
+  debug: false
   events:
     on player clicks in qol_pvp_settings_inventory priority:10:
       - determine cancelled
@@ -39,8 +46,6 @@ qol_pvp_settings_inventory_events:
       - if <context.item.script.yaml_key[setting]||null> != null && <context.item.script.yaml_key[options]||null> != null:
         - define setting:<context.item.script.yaml_key[setting]>
         - define options:<context.item.script.yaml_key[options].as_list>
-        - narrate <[setting]>
-        - narrate <[options]>
         - if !<[options].contains[<yaml[player.<player.uuid>].read[pvp.<[setting]>]||null>]>:
           - yaml id:player.<player.uuid> set pvp.<[setting]>:<[options].get[1]>
         - define next:<[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>].+[1]>
@@ -52,7 +57,7 @@ qol_pvp_settings_inventory_events:
 #Items
 qol_pvp_settings_damage_notifier:
   type: item
-  debug: true
+  debug: false
   material: stone
   display name: <&c>Damage Notifier
   lore:
@@ -64,7 +69,7 @@ qol_pvp_settings_damage_notifier:
 
 qol_pvp_settings_effect_notifier:
   type: item
-  debug: true
+  debug: false
   material: stone
   display name: <&e>Effect Notifier
   lore:
@@ -73,5 +78,3 @@ qol_pvp_settings_effect_notifier:
     custom_model_data: 0
   setting: effect_notifier
   options: chat|bossbar|false
-    
-  
