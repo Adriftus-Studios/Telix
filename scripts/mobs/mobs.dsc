@@ -147,9 +147,11 @@ mob_use_ability_handler:
       - if <[entity].flag[<[ability]>]||null> == null:
         - define normal_speed:<[entity].speed>
         - adjust def:entity speed:0
+        - flag <[entity]> no_knockback
         - if <script[<[ability]>].yaml_key[warmup_script]||null> != null:
           - run <[ability]> def:<[entity]> path:warmup_script
         - wait <script[<[ability]>].yaml_key[warmup]>
+        - flag <[entity]> no_knockback:!
         - if !<[entity].is_spawned>:
           - while stop
         - adjust def:entity speed:<[normal_speed]>
