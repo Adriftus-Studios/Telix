@@ -117,28 +117,25 @@ mob_use_ability_handler:
     - announce 0
     - while <[entity].is_spawned||false>:
       - wait 1s
-      - announce 1
       - define ability:<yaml[server.mobs].read[<[entity].scriptname>.abilities].as_list.random||null>
       - if <[ability]> == null:
         - while next
-      - announce 2
       - if !<script[<[ability]>].yaml_key[additional_conditions].parse[parsed].contains[false]||false>:
         - while next
-      - announce 3
       - if <script[<[ability]>].yaml_key[requires_target]>:
         - if <[entity].target||null> == null:
           - while next
         - if <script[<[ability]>].yaml_key[requires_target_in_sight]>:
           - if !<[entity].target.location.line_of_sight[<[entity].location>]>:
             - while next
-      - announce 4
       - if <[entity].flag[<[ability]>]||null> == null:
         - define normal_speed:<[entity].speed>
         - adjust def:entity speed:0
         - wait <script[<[ability]>].yaml_key[warmup]>
-        - adjust def:entity speed:<[normal_speed]>
-        - run <[ability]> def:<[entity]>
-        - flag <[entity]> <[ability]> duration:<script[<[ability]>].yaml_key[cooldown]>
+        - if <[entity].is_spawned>:
+          - adjust def:entity speed:<[normal_speed]>
+          - run <[ability]> def:<[entity]>
+          - flag <[entity]> <[ability]> duration:<script[<[ability]>].yaml_key[cooldown]>
       
 #When pets are a thing, sort out - if <player.target.scriptname> != entity_*
 golem_repair_events:
