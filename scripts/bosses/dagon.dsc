@@ -34,7 +34,5 @@ boss_dagon_summon_minion:
     - narrate "Dagon is calling for help!"
   script:
   - foreach <[entity].location.find.players.within[30]> as:player:
-    - define location:<[entity].location>
-    - define mob:entity_dagon_deity
-    - inject spawn_custom_mobs
-    - attack <[spawned_entity]> target:<[player]>
+    - adjust <queue> linked_player:<[player]>
+    - run spawn_custom_mobs def:entity_dagon_deity|<[entity].location>

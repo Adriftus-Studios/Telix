@@ -129,9 +129,10 @@ mob_use_ability_handler:
   type: task
   definitions: entity
   script:
-    - announce 0
     - while <[entity].is_spawned||false>:
       - wait 1s
+      - if !<[entity].is_spawned>:
+        - stop
       - define ability:<yaml[server.mobs].read[<[entity].scriptname>.abilities].as_list.random||null>
       - if <[ability]> == null:
         - while next
@@ -149,10 +150,11 @@ mob_use_ability_handler:
         - if <script[<[ability]>].yaml_key[warmup_script]||null> != null:
           - run <[ability]> def:<[entity]> path:warmup_script
         - wait <script[<[ability]>].yaml_key[warmup]>
-        - if <[entity].is_spawned>:
-          - adjust def:entity speed:<[normal_speed]>
-          - run <[ability]> def:<[entity]>
-          - flag <[entity]> <[ability]> duration:<script[<[ability]>].yaml_key[cooldown]>
+        - if !<[entity].is_spawned>:
+          - stop
+        - adjust def:entity speed:<[normal_speed]>
+        - run <[ability]> def:<[entity]>
+        - flag <[entity]> <[ability]> duration:<script[<[ability]>].yaml_key[cooldown]>
       
 #When pets are a thing, sort out - if <player.target.scriptname> != entity_*
 golem_repair_events:
