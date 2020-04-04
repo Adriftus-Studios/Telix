@@ -113,11 +113,15 @@ spawn_custom_mob:
 spawnmob_command:
   type: command
   name: spawnmob
+  permission: spawnmob
   tab complete:
-    - if <context.args.get[1]||null> == null:
-      - determine <server.list_scripts.filter[name.as_entity.type.is[==].to[entity]].parse[name.to_lowercase]>
+    - if <player.has_permission[spawnmob]>:
+      - if <context.args.get[1]||null> == null:
+        - determine <server.list_scripts.filter[name.as_entity.type.is[==].to[entity]].parse[name.to_lowercase]>
+      - else:
+        - determine <server.list_scripts.filter[name.as_entity.type.is[==].to[entity]].parse[name.to_lowercase].filter[starts_with[<context.args.get[1]>]]>
     - else:
-      - determine <server.list_scripts.filter[name.as_entity.type.is[==].to[entity]].parse[name.to_lowercase].filter[starts_with[<context.args.get[1]>]]>
+      - determine <list[]>
   script:
     - run spawn_custom_mob def:<context.args.get[1]>|<player.location>
 
