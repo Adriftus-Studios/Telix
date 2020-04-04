@@ -50,8 +50,8 @@ boss_dagon_aqua_burst_animation:
   script:
   - define points:<proc[define_curve1].context[<[start]>|<[end]>|1|<util.random.int[0].to[360]>|0.4]>
   - repeat <[points].size.div[2]>:
+    - playeffect redstone <[points].get[<[value].mul[2].sub[1]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - playeffect redstone <[points].get[<[value].mul[2]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
-    - playeffect redstone <[points].get[<[value].mul[2].add[1]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - wait 1t
 
 boss_dagon_summon_minion:
