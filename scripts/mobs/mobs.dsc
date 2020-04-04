@@ -137,7 +137,7 @@ mob_use_ability_handler:
       - if <[ability]> == null:
         - while next
       - announce 2
-      - if !<script[<[ability]>].yaml_key[additional_conditions]||null> != null:
+      - if <script[<[ability]>].yaml_key[additional_conditions]||null> != null:
         - if !<script[<[ability]>].yaml_key[additional_conditions].parse[parsed].contains[false]||false>:
           - while next
       - announce 3
