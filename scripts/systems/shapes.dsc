@@ -34,17 +34,17 @@ define_sphere:
   - repeat <[cir].div[0.4].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>].add[90]>]>
     - if <[offset].get[1]> < 0:
-      - define A:<[offset].get[1].add[3]>
+      - define A:<[offset].get[1].add[<[radius]>]>
     - else:
-      - define A:<[offset].get[1].sub[3]>
+      - define A:<[offset].get[1].sub[<[radius]>]>
     - if <[offset].get[2]> < 0:
-      - define B:<[offset].get[2]>
-    - else:
       - define B:<[offset].get[2].mul[-1]>
+    - else:
+      - define B:<[offset].get[2]>
     - define location2:<[location].above[<[A]>]>
     - repeat <[cir].div[0.4].round> as:value2:
       - define offset2:<proc[find_offset].context[<[A]>|<[value2].mul[<[between2]>]>]>
-      - define points:|:<[location2].up[<[offset2].get[1]>].right[<[offset2].get[2]>]>
+      - define points:|:<[location2].up[<[offset2].get[1]>].right[<[B]>]>
   - determine <[points]>
 
 define_circle:
