@@ -344,6 +344,7 @@ test_command:
   name: test
   permission: test
   script:
+  - narrate <[sphere].random.points_between[<player.location>].distance[0.2].size>
   - repeat 40:
     - define sphere:<proc[define_sphere].context[<player.location>|2]>
     - playeffect spell_witch <[sphere].random.points_between[<player.location>].distance[0.2]> offset:0 visibility:300 quantity:1
