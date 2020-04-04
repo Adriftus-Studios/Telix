@@ -7,7 +7,6 @@ qol_cosmetics_command:
   script:
     - inventory open d:<inventory[abilities_characterAbilityTrees]>
 
-
 qol_equipment_command:
   type: command
   debug: false
@@ -17,7 +16,6 @@ qol_equipment_command:
     - eq
   script:
     - inventory open d:<inventory[equipment_character]>
-
 
 qol_statistics_command:
   type: command
@@ -29,7 +27,6 @@ qol_statistics_command:
   script:
     - inventory open d:<inventory[stats_character]>
 
-
 qol_skills_command:
   type: command
   debug: false
@@ -40,3 +37,12 @@ qol_skills_command:
     - ab
   script:
     - inventory open d:<inventory[abilities_characterAbilityTrees]>
+    
+qol_recipebook_command:
+  type: command
+  debug: false
+  name: recipebook
+  aliases:
+    - rb
+  script:
+    - inventory open d:<inventory[recipe_book_inventory]>
