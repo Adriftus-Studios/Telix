@@ -351,7 +351,7 @@ test_command:
       - define point:<[sphere].random>
       - define offset:<[point].sub[<[center]>]>
       - run boss_dagon_aqua_burst_animation def:<player.location>|<[offset].add[<[point]>]>
-    - wait 1t
+    - wait 3t
 
 equipt_command:
   type: command
