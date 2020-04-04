@@ -67,6 +67,6 @@ qol_pvp_settings_effect_notifier:
     - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
     custom_model_data: 0
-    nbt: <list[setting/effect_notifier|options/<list[bossbar|chat|false]>]>
+    nbt: <list[setting/effect_notifier|options/<list[chat|bossbar|false]>]>
     
   
