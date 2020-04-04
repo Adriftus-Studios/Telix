@@ -188,13 +188,13 @@ test_effects_command:
         - playeffect <[particle]> at:<[points].get[<[value].mul[<[num]>].add[<[value]>]>]> quantity:5 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == sphere1:
-    - define points:<proc[define_sphere1].context[<player.location.forward[4]>|3]>
+    - define points:<proc[define_sphere1].context[<player.location.forward[4]>|3|0.5]>
     - repeat 1:
       - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100
       - wait 1t
   - if <context.args.get[1]> == sphere2:
-    - define layers:<proc[define_sphere2].context[<player.location.forward[4]>|3]>
-    - foreach <[layer]> as:layer:
+    - define layers:<proc[define_sphere2].context[<player.location.forward[4]>|3|0.5]>
+    - foreach <[layers]> as:layer:
       - define points:<[layer].unescaped>
       - narrate <[points]>
       - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100
