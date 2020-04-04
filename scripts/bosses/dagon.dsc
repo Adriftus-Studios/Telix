@@ -23,8 +23,10 @@ boss_dagon_summon_minion:
   ability_tree: water
   cooldown: 40s
   warmup: 5s
-  #additional_conditions:
-  #- <[entity].health.is[less].to[15]>
+  requires_target: false
+  requires_target_in_sight: false
+  additional_conditions:
+  - <[entity].health.is[less].to[1200]>
   definitions: entity
   script:
   - foreach <[entity].location.find.players.within[30]> as:player:
