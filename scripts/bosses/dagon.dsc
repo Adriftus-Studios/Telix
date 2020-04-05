@@ -132,10 +132,10 @@ test_command:
     - playeffect redstone <[sphere4].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - wait 1t
 
-  - define layers1:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_1]>|2|0.5]>
-  - define layers2:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_2]>|2|0.5]>
-  - define layers3:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_3]>|2|0.5]>
-  - define layers4:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_4]>|2|0.5]>
+  - define layers1:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_1]>|2|1]>
+  - define layers2:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_2]>|2|1]>
+  - define layers3:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_3]>|2|1]>
+  - define layers4:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_4]>|2|1]>
   - repeat 5:
     - repeat <[layers1].size>:
       - define points:<[layers1].get[<[value]>].unescaped>
