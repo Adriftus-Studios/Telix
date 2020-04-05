@@ -156,11 +156,11 @@ test_command:
   script:
   - define sphere:<proc[define_sphere1].context[<player.location>|7|1]>
   - define center:<player.location>
-  - repeat 15:
+  - repeat 30:
     - repeat 5:
       - define point:<[sphere].random>
       - define offset:<player.location.sub[<[center]>]>
-      - define points:<proc[define_curve1].context[<[point]>|<player.location.add[<[offset]>]>|1|0|0.5]>
+      - define points:<proc[define_curve1].context[<[point]>|<player.location.add[<[offset]>]>|1|0|0.2]>
       - run testt_animation def:<[points]>
     - wait 2t
 
@@ -169,5 +169,5 @@ testt_animation:
   definitions: points
   script:
   - foreach <[points]> as:point:
-    - playeffect redstone at:<[point]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+    - playeffect spell_witch at:<[point]> quantity:3 offset:0 visibility:100
     - wait 1t
