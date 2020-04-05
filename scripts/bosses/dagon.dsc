@@ -11,14 +11,14 @@ spawn_boss_dagon:
   - if <[difficulty]> == easy:
     - define subtitle:"<&c>Difficulty: Easy"
     - title title:<[title]> subtitle:<[subtitle]> stay:4s
-    - define sphere:<proc[define_sphere1].context[<location[boss_dagon_spawnpoint]>|2|0.2]>
+    - define sphere:<proc[define_sphere1].context[<location[boss_dagon_spawnpoint]>|2|0.4]>
     - repeat 100:
       - playeffect redstone <[sphere].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
       - wait 1t
     - repeat 100:
       - playeffect redstone <[sphere]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
       - wait 1t
-    - run spawn_custom_mob def:<entity[boss_dagon_easy]>|<location[boss_dagon_spawnpoint]>
+    - run spawn_custom_mob def:<entity[boss_dagon_easy]>|<location[boss_dagon_spawnpoint].below>
 
 boss_dagon_easy_kill_script:
   type: task
@@ -198,20 +198,25 @@ test_command:
   name: test
   permission: test
   script:
-  - define sphere:<proc[define_sphere1].context[<player.location>|4|1]>
-  - define center:<player.location>
-  - repeat 100:
-    - repeat 2:
+  - define entity:<player>
+  - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
+  - define center:<[entity].location>
+  - repeat 20:
+    - repeat 5:
+      - if <[entity].is_spawned||false> == false:
+        - stop
       - define point:<[sphere].random>
-      - define offset:<player.location.sub[<[center]>]>
-      - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|3|0|0.1]>
-      - run testt_animation def:<[points].escaped>
+      - define offset:<[entity].location.sub[<[center]>]>
+      - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<[entity].location.add[<[offset]>]>|3|0|0.2]>
+      - run boss_dagon_aqua_burst_warmup_animation def:<[points].escaped>
     - wait 2t
-
-testt_animation:
-  type: task
-  definitions: points
-  script:
-  - foreach <[points].unescaped> as:point:
-    - playeffect redstone <[point]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
+  - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
+  - define center:<[entity].location>
+  - repeat 15:
+    - repeat 5:
+      - if <[entity].is_spawned||false> == false:
+        - stop
+      - define point:<[sphere].random>
+      - define offset:<[entity].location.sub[<[center]>]>
+      - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[offset].add[<[point]>]>
     - wait 2t
