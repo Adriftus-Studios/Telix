@@ -121,9 +121,6 @@ test_command:
   name: test
   permission: test
   script:
-  - foreach <[entity].location.find.players.within[30]> as:player:
-    - adjust <queue> linked_player:<[player]>
-    - narrate "<&b>Dagon is calling for help!"
   - define sphere1:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_1]>|2|1]>
   - define sphere2:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_2]>|2|1]>
   - define sphere3:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_3]>|2|1]>
@@ -134,3 +131,19 @@ test_command:
     - playeffect redstone <[sphere3].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - playeffect redstone <[sphere4].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - wait 1t
+  - define layers1:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_1]>|2|0.5]>
+  - define layers2:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_2]>|2|0.5]>
+  - define layers3:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_3]>|2|0.5]>
+  - define layers4:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_4]>|2|0.5]>
+  - repeat 5:
+    - repeat <[layers1].size>:
+      - define points:<[layers1].get[<[value]>].unescaped>
+      - define points:|:<[layers1].get[<[layers].size.sub[<[value]>]>].unescaped>
+      - define points:|:<[layers2].get[<[value]>].unescaped>
+      - define points:|:<[layers2].get[<[layers].size.sub[<[value]>]>].unescaped>
+      - define points:|:<[layers3].get[<[value]>].unescaped>
+      - define points:|:<[layers3].get[<[layers].size.sub[<[value]>]>].unescaped>
+      - define points:|:<[layers4].get[<[value]>].unescaped>
+      - define points:|:<[layers4].get[<[layers].size.sub[<[value]>]>].unescaped>
+      - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+      - wait 1t
