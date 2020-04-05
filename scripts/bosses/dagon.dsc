@@ -160,7 +160,7 @@ test_command:
     - repeat 5:
       - define point:<[sphere].random>
       - define offset:<player.location.sub[<[center]>]>
-      - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|1|0|0.05]>
+      - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|1|0|0.2]>
       - run testt_animation def:<[points].escaped>
     - wait 2t
 
