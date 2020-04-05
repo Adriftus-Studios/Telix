@@ -28,6 +28,8 @@ define_cone1:
   definitions: start|end|angle|blocks_between
   script:
   - define points1:<[start].points_between[<[end]>].distance[<[blocks_between]>]>
+  - define opp:<[angle].to_radians.tan.mul[<[blocks_between]>]>
+  - narrate <[opp]>
   - foreach <[points1]> as:point:
     - define radius:2
     - define cir:<[radius].mul[<util.pi>].mul[2]>
@@ -226,6 +228,7 @@ test_effects_command:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
     - define points:<proc[define_cone1].context[<[start]>|<[end]>|45|0.2]>
+    - narrate <[points].size>
     - repeat 40:
       - playeffect <[particle]> at:<[points]> quantity:5 offset:0 visibility:100
       - wait 1t
