@@ -32,7 +32,7 @@ boss_dagon_easy:
   custom_name: <&l><&4>Dagon
   custom_name_visible: true
   max_health: 600
-  health: 10
+  health: 600
   speed: 0.1
   custom:
     has_bossbar: true
