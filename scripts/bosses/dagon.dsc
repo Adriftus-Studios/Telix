@@ -170,7 +170,7 @@ test_command:
       - define point:<[sphere].random>
       - define offset:<player.location.sub[<[center]>]>
       - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|3|0|0.2]>
-      - run boss_dagon_aqua_burst_warmup_animation def:<[points].escaped>
+      - run testt_animation def:<[points].escaped>
     - wait 2t
 
 testt_animation:
