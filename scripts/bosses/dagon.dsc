@@ -128,7 +128,7 @@ test_command:
   - define sphere2:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_2]>|2|1]>
   - define sphere3:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_3]>|2|1]>
   - define sphere4:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_4]>|2|1]>
-  - repeat 100:
+  - repeat 200:
     - playeffect redstone <[sphere1].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - playeffect redstone <[sphere2].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - playeffect redstone <[sphere3].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
