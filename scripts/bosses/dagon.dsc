@@ -17,16 +17,23 @@ spawn_boss_dagon:
       - wait 1t
     - run spawn_custom_mob def:<entity[boss_dagon_easy]>|<location[boss_dagon_spawnpoint]>
 
+boss_dagon_easy_kill_script:
+  type: task
+  definitions: killer
+  script:
+  - narrate stuff
+
 boss_dagon_easy:
   type: entity
   entity_type: elder_guardian
   custom_name: <&l><&4>Dagon
   custom_name_visible: true
   max_health: 600
-  health: 600
+  health: 10
   speed: 0.1
   custom:
     has_bossbar: true
+    kill_script: boss_dagon_easy_kill_script
     ability_usage:
       - boss_dagon_aqua_burst_easy
       - boss_dagon_summon_minion_easy

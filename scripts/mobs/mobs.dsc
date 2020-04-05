@@ -8,6 +8,8 @@ mob_drops_events:
         - foreach <yaml[server.drop_rates].list_keys[<context.entity.script.name||<context.entity.entity_type>>.<[value]>]> as:key:
           - define drops:|:<[value]>/<el@1.div[<[key]>]>/<yaml[server.drop_rates].read[<context.entity.script.name||<context.entity.entity_type>>.<[value]>.<[key]>].split[/].get[1]>/<yaml[server.drop_rates].read[<context.entity.script.name||<context.entity.entity_type>>.<[value]>.<[key]>].split[/].get[2]>
           - define num:+:<el@1.div[<[key]>]>
+      - if <context.entity.script.yaml_key[custom.kill_script]||null> != null:
+        - run <context.entity.script.yaml_key[custom.kill_script]> def:<context.damager>
       - define num:<[num]||0>
       - define to_drop:<list[]>
       - run playerLevel_GiveXP def:<context.entity.script.yaml_key[custom.xp_dropped]||1>
