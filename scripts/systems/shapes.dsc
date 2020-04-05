@@ -250,6 +250,7 @@ test_effects_command:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
     - define layers:<proc[define_cone2].context[<[start].above>|<[end]>|20|1]>
+    - narrate <[layers].size>
     - foreach <[layers]> as:layer:
       - playeffect <[particle]> at:<[layer].unescaped> quantity:5 offset:0 visibility:100
       - wait 1t
