@@ -148,7 +148,7 @@ test_command:
       - define points:|:<[layers4].get[<[layers1].size.sub[<[value]>]>].unescaped>
       - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
       - wait 1t
-    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_1]>
-    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_2]>
-    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_3]>
-    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_4]>
+    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_1].below>
+    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_2].below>
+    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_3].below>
+    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_4].below>
