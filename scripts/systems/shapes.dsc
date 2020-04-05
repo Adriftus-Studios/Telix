@@ -37,6 +37,22 @@ define_cone1:
       - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
 
+define_cone2:
+  type: procedure
+  definitions: start|end|angle|blocks_between
+  script:
+  - define points1:<[start].points_between[<[end]>].distance[<[blocks_between]>]>
+  - foreach <[points1]> as:point:
+    - define radius:<[angle].to_radians.tan.mul[<[blocks_between].mul[<[loop_index]>]>]>
+    - define cir:<[radius].mul[<util.pi>].mul[2]>
+    - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
+    - define layer:!
+    - repeat <[cir].div[0.2].round>:
+      - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
+      - define layer:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+    - define layers:|:<[layer]>
+  - determine <[layers]>
+
 define_sphere1:
   type: procedure
   definitions: location|radius|blocks_between
@@ -225,10 +241,17 @@ test_effects_command:
   - if <context.args.get[1]> == cone1:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
-    - define points:<proc[define_cone1].context[<[start]>|<[end]>|20|1]>
+    - define points:<proc[define_cone1].context[<[start].above>|<[end]>|20|1]>
     - narrate <[points].size>
     - repeat 1:
       - playeffect <[particle]> at:<[points]> quantity:5 offset:0 visibility:100
+      - wait 1t
+  - if <context.args.get[1]> == cone2:
+    - define start:<player.location>
+    - define end:<player.location.forward[20]>
+    - define layers:<proc[define_cone1].context[<[start].above>|<[end]>|20|1]>
+    - foreach <[layers]> as:layer:
+      - playeffect <[particle]> at:<[layer].unescaped> quantity:5 offset:0 visibility:100
       - wait 1t
 
 find_offset:
