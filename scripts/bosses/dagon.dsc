@@ -138,12 +138,12 @@ test_command:
   - repeat 5:
     - repeat <[layers1].size>:
       - define points:<[layers1].get[<[value]>].unescaped>
-      - define points:|:<[layers1].get[<[layers].size.sub[<[value]>]>].unescaped>
+      - define points:|:<[layers1].get[<[layers1].size.sub[<[value]>]>].unescaped>
       - define points:|:<[layers2].get[<[value]>].unescaped>
-      - define points:|:<[layers2].get[<[layers].size.sub[<[value]>]>].unescaped>
+      - define points:|:<[layers2].get[<[layers1].size.sub[<[value]>]>].unescaped>
       - define points:|:<[layers3].get[<[value]>].unescaped>
-      - define points:|:<[layers3].get[<[layers].size.sub[<[value]>]>].unescaped>
+      - define points:|:<[layers3].get[<[layers1].size.sub[<[value]>]>].unescaped>
       - define points:|:<[layers4].get[<[value]>].unescaped>
-      - define points:|:<[layers4].get[<[layers].size.sub[<[value]>]>].unescaped>
+      - define points:|:<[layers4].get[<[layers1].size.sub[<[value]>]>].unescaped>
       - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
       - wait 1t
