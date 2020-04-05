@@ -11,7 +11,7 @@ spawn_boss_dagon:
   - if <[difficulty]> == easy:
     - define subtitle:"<&c>Difficulty: Easy"
     - title title:<[title]> subtitle:<[subtitle]> stay:4s
-    - define sphere:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_1]>|2|1]>
+    - define sphere:<proc[define_sphere1].context[<location[boss_dagon_spawnpoint]>|2|0.2]>
     - repeat 100:
       - playeffect redstone <[sphere].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
       - wait 1t
