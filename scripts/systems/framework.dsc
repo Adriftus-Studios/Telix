@@ -469,6 +469,9 @@ system_override:
             - narrate "<&c> Script: <context.script.name>"
             - narrate "<&c> File: <context.script.filename.replace[/home/minecraft/servers/telix-test/plugins/Denizen].with[]>"
             - narrate "<&c> Line: <context.line>"
+            - foreach <context.queue.definitions||<list[]>> as:definition:
+              - define definitions:|:<el@<[definition]>.on_hover[<context.queue.definition[<[definition]>]>]>
+            - narrate "<&c> Definitions: <[definitions].separated_by[<&sp>]||None>"
     on tick:
       - if !<server.list_online_players.filter[food_level.is[==].to[20]].is_empty>:
         - foreach <server.list_online_players.filter[food_level.is[==].to[20]]>:
