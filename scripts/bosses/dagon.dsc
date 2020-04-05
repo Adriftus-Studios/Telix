@@ -5,11 +5,11 @@ spawn_boss_dagon:
   script:
   - define difficulty:<[difficulty]||easy>
   - announce "<&c>-------------------------------"
-  - announce "<&c>   Dagon has been summoned!"
+  - announce "<&c>      Dagon has been summoned!"
   - announce "<&c>-------------------------------"
-  - define title:"<&c>Dagon has been summoned!"
+  - define title:<&c>Dagon<&sp>has<&sp>been<&sp>summoned!
   - if <[difficulty]> == easy:
-    - define subtitle:"<&c>Difficulty: Easy"
+    - define subtitle:<&c>Difficulty:<&sp>Easy
     - title title:<[title]> subtitle:<[subtitle]> stay:4s
     - define sphere:<proc[define_sphere1].context[<location[boss_dagon_spawnpoint]>|2|0.4]>
     - repeat 100:
