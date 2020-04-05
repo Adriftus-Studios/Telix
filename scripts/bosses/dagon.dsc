@@ -21,7 +21,7 @@ boss_dagon_easy_kill_script:
   type: task
   definitions: killer
   script:
-  - title title:stuff
+  - narrate stuff
 
 boss_dagon_easy:
   type: entity
@@ -63,7 +63,9 @@ boss_dagon_aqua_shield_easy:
   - define sphere:<proc[define_sphere1].context[<[entity].location>|2|1]>
   - define center:<[entity].location>
   - repeat 100:
-    - define offset:<[entity].location.sub[<[center]>]>
+    - define offset:<[entity].location.sub[<[center]>]||null>
+    - if <[offset]> == null:
+      - stop
     - playeffect redstone <[sphere].random[10].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - wait 1t
   script:
@@ -94,6 +96,8 @@ boss_dagon_aqua_burst_easy:
   - define center:<[entity].location>
   - repeat 20:
     - repeat 5:
+      - if <[entity].is_spawned||false> == false:
+        - stop
       - define point:<[sphere].random>
       - define offset:<[entity].location.sub[<[center]>]>
       - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<[entity].location.add[<[offset]>]>|3|0|0.2]>
@@ -104,6 +108,8 @@ boss_dagon_aqua_burst_easy:
   - define center:<[entity].location>
   - repeat 15:
     - repeat 5:
+      - if <[entity].is_spawned||false> == false:
+        - stop
       - define point:<[sphere].random>
       - define offset:<[entity].location.sub[<[center]>]>
       - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[offset].add[<[point]>]>
