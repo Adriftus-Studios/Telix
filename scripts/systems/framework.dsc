@@ -562,9 +562,9 @@ kill_queue_command:
   type: command
   name: kill_queue
   tab complete:
-  - foreach <yaml[server.executable_scripts].read[scripts].filter[to_lowercase.starts_with[<context.args.get[1].to_lowercase||<empty>>]]||<list[]>>:
+  - foreach <yaml[server.executable_scripts].read[scripts].filter[to_lowercase.starts_with[<context.args.get[1].to_lowercase||null>]]||<list[]>>:
     - define list:|:<[value]>
-  - determine <[list]||<list[]>>
+  - determine <[list]||<yaml[server.executable_scripts].read[scripts]>>
   permission: kill_queue
   script:
     - foreach <script[<context.args.get[1]>].list_queues>:
