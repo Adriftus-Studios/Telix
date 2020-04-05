@@ -64,13 +64,14 @@ boss_dagon_aqua_burst_easy:
   requires_target_in_sight: false
   definitions: entity
   warmup_script:
-  - define sphere:<proc[define_sphere1].context[<[entity].location>|3|1]>
-  - define center:<[entity].location>
-  - repeat 40:
-    - define offset:<[entity].location.sub[<[center]>]>
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
+  - define sphere:<proc[define_sphere1].context[<player.location>|7|1]>
+  - define center:<player.location>
+  - repeat 20:
+    - repeat 5:
+      - define point:<[sphere].random>
+      - define offset:<player.location.sub[<[center]>]>
+      - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|3|0|0.2]>
+      - run boss_dagon_aqua_burst_warmup_animation def:<[points].escaped>
     - wait 2t
   script:
   - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
@@ -81,6 +82,14 @@ boss_dagon_aqua_burst_easy:
       - define offset:<[entity].location.sub[<[center]>]>
       - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[offset].add[<[point]>]>
     - wait 2t
+
+boss_dagon_aqua_burst_warmup_animation:
+  type: task
+  definitions: points
+  script:
+  - foreach <[points].unescaped> as:point:
+    - playeffect spell_witch at:<[point]> quantity:3 offset:0 visibility:100
+    - wait 1t
 
 boss_dagon_aqua_burst_animation:
   type: task
@@ -156,11 +165,12 @@ test_command:
   script:
   - define sphere:<proc[define_sphere1].context[<player.location>|7|1]>
   - define center:<player.location>
-  - repeat 15:
+  - repeat 30:
     - repeat 5:
       - define point:<[sphere].random>
       - define offset:<player.location.sub[<[center]>]>
-      - run boss_dagon_aqua_burst_animation def:<player.location>|<[offset].add[<[point]>]>
+      - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|3|0|0.2]>
+      - run testt_animation def:<[points].escaped>
     - wait 2t
 
 testt_animation:
