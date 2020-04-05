@@ -210,6 +210,7 @@ test_command:
       - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<[entity].location.add[<[offset]>]>|3|0|0.2]>
       - run boss_dagon_aqua_burst_warmup_animation def:<[points].escaped>
     - wait 2t
+  - wait 1s
   - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
   - define center:<[entity].location>
   - repeat 15:
