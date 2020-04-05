@@ -131,6 +131,7 @@ test_command:
     - playeffect redstone <[sphere3].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - playeffect redstone <[sphere4].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - wait 1t
+
   - define layers1:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_1]>|2|0.5]>
   - define layers2:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_2]>|2|0.5]>
   - define layers3:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_3]>|2|0.5]>
@@ -147,3 +148,7 @@ test_command:
       - define points:|:<[layers4].get[<[layers1].size.sub[<[value]>]>].unescaped>
       - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
       - wait 1t
+    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_1]>
+    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_2]>
+    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_3]>
+    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_4]>
