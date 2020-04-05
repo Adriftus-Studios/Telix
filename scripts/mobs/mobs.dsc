@@ -112,7 +112,7 @@ boss_bossbar_handler:
     - else if <[entity].health||-1> < 50:
       - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:YELLOW players:<[entity].location.find.players.within[50]>
     - else:
-      - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:GREEN players:<[entity].location.find.players.within[50]>
+      - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:GREEN players:<list[]>
     - wait 1t
 
 spawn_custom_mob:
