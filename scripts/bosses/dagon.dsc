@@ -21,7 +21,7 @@ boss_dagon_easy_kill_script:
   type: task
   definitions: killer
   script:
-  - narrate stuff
+  - title title:stuff
 
 boss_dagon_easy:
   type: entity
