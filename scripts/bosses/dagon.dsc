@@ -165,8 +165,8 @@ test_command:
   script:
   - define sphere:<proc[define_sphere1].context[<player.location>|4|1]>
   - define center:<player.location>
-  - repeat 20:
-    - repeat 5:
+  - repeat 100:
+    - repeat 2:
       - define point:<[sphere].random>
       - define offset:<player.location.sub[<[center]>]>
       - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|3|0|0.2]>
