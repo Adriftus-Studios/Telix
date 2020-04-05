@@ -29,9 +29,7 @@ define_cone1:
   script:
   - define points1:<[start].points_between[<[end]>].distance[<[blocks_between]>]>
   - foreach <[points1]> as:point:
-    - define radius:2
-    - define opp:<[angle].to_radians.tan.mul[<[blocks_between].mul[<[loop_index]>]>]>
-    - narrate <[opp]>
+    - define radius:<[angle].to_radians.tan.mul[<[blocks_between].mul[<[loop_index]>]>]>
     - define cir:<[radius].mul[<util.pi>].mul[2]>
     - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
     - repeat <[cir].div[0.2].round>:
