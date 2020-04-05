@@ -4,9 +4,12 @@ spawn_boss_dagon:
   definitions: difficulty
   script:
   - define difficulty:<[difficulty]||easy>
-  - define title:"Dagon has been summoned!"
+  - announce "<&c>-------------------------------"
+  - announce "<&c>   Dagon has been summoned!"
+  - announce "<&c>-------------------------------"
+  - define title:"<&c>Dagon has been summoned!"
   - if <[difficulty]> == easy:
-    - define subtitle:"Difficulty: Easy"
+    - define subtitle:"<&c>Difficulty: Easy"
     - title title:<[title]> subtitle:<[subtitle]> stay:4s
     - define sphere:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_1]>|2|1]>
     - repeat 100:
