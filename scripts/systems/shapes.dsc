@@ -50,7 +50,7 @@ define_cone2:
     - repeat <[cir].div[0.2].round>:
       - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
       - define layer:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-    - define layers:|:<[layer]>
+    - define layers:|:<[layer].escaped>
   - determine <[layers]>
 
 define_sphere1:
