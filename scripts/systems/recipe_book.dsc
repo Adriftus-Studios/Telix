@@ -290,8 +290,6 @@ show_recipe:
       - foreach <list[3|5|7|21|25|39|41|43]> as:in:
         - if <[loop_index]> <= <[input].size>:
           - inventory set d:<[inv]> slot:<[in]> o:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[quantity=<[input].get[<[loop_index]>].split[/].get[2]>;flags=HIDE_ATTRIBUTES]||<item[air]>>
-      - if <yaml[server.recipe_book].read[altar.<[item]>.tier]||null> == null:
-        - announce to_flagged:debug "broken recipe <[item]>"
       - inventory set d:<[inv]> slot:1 o:<item[altar_tier_<yaml[server.recipe_book].read[altar.<[item]>.tier]>]>
       - inventory set d:<[inv]> slot:23 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[altar.<[item]>.output_quantity]>].with[flags=HIDE_ATTRIBUTES]>
       - inventory adjust d:<[inv]> slot:27 display_name:<&7>Imbuing<&sp><item[<[item]>].script.yaml_key[display<&sp>name].parsed>
