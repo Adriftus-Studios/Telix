@@ -157,6 +157,7 @@ test_command:
   - define layers3:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_3]>|2|1]>
   - define layers4:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_4]>|2|1]>
   - repeat 5:
+    - define count:<[value]>
     - repeat <[layers1].size>:
       - define points:<[layers1].get[<[value]>].unescaped>
       - define points:|:<[layers1].get[<[layers1].size.sub[<[value]>]>].unescaped>
@@ -168,8 +169,8 @@ test_command:
       - define points:|:<[layers4].get[<[layers1].size.sub[<[value]>]>].unescaped>
       - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
       - wait 1t
-    - announce <[value]>
-    - if <[value]> == 5:
+    - announce <[count]>
+    - if <[count]> == 5:
       - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_1].below>
       - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_2].below>
       - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_3].below>
