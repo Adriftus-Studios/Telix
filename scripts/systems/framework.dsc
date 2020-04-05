@@ -470,7 +470,6 @@ system_override:
             - narrate "<&c> File: <context.script.filename.replace[/home/minecraft/servers/telix-test/plugins/Denizen].with[]>"
             - narrate "<&c> Line: <context.line>"
             - foreach <context.queue.definitions||<list[]>> as:definition:
-              - narrate <[definition]>
               - define definitions:|:<el@[<[definition]>].on_hover[<context.queue.definition[<[definition]>]>]>
             - narrate "<&c> Definitions: <[definitions].separated_by[<&sp>]||None>"
     on tick:
