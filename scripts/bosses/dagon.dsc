@@ -1,25 +1,31 @@
 
-boss_dagon:
+boss_dagon_easy:
   type: entity
   entity_type: elder_guardian
   custom_name: <&l><&4>Dagon
   custom_name_visible: true
-  max_health: 1200
-  health: 1200
-  speed: 0.3
+  max_health: 600
+  health: 600
+  speed: 0.1
   custom:
     ability_usage:
-      - boss_dagon_aqua_burst
-      - boss_dagon_summon_minion
-      - boss_dagon_aqua_shield
+      - boss_dagon_aqua_burst_easy
+      - boss_dagon_summon_minion_easy
+      - boss_dagon_aqua_shield_easy
 
-entity_dagon_minion:
+entity_dagon_warrior_easy:
+  type: entity
+  entity_type: drowned
+  custom_name: <&c>Dagon Warrior
+  max_health: 30
+  
+entity_dagon_minion_easy:
   type: entity
   entity_type: guardian
   custom_name: <&c>Dagon Minion
   max_health: 16
   
-boss_dagon_aqua_shield:
+boss_dagon_aqua_shield_easy:
   type: task
   ability_tree: water
   cooldown: 60s
@@ -49,7 +55,7 @@ boss_dagon_aqua_shield:
       - wait 1t
   - playeffect redstone at:<proc[define_sphere1].context[<[entity].location.above>|2|0.5]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,200>
 
-boss_dagon_aqua_burst:
+boss_dagon_aqua_burst_easy:
   type: task
   ability_tree: water
   cooldown: 12s
@@ -89,7 +95,7 @@ boss_dagon_aqua_burst_animation:
       - repeat stop
     - wait 1t
 
-boss_dagon_summon_minion:
+boss_dagon_summon_minion_easy:
   type: task
   ability_tree: water
   cooldown: 40s
@@ -107,31 +113,13 @@ boss_dagon_summon_minion:
   - define sphere2:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_2]>|2|1]>
   - define sphere3:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_3]>|2|1]>
   - define sphere4:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_4]>|2|1]>
-  - repeat 100:
-    - define offset:<[entity].location.sub[<[center]>]>
-    - playeffect redstone <[sphere].random[10].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
-    - wait 1t
-  script:
-  - foreach <[entity].location.find.players.within[30]> as:player:
-    - adjust <queue> linked_player:<[player]>
-    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<[entity].location>
-    
-test_command:
-  type: command
-  name: test
-  permission: test
-  script:
-  - define sphere1:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_1]>|2|1]>
-  - define sphere2:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_2]>|2|1]>
-  - define sphere3:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_3]>|2|1]>
-  - define sphere4:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_4]>|2|1]>
   - repeat 200:
     - playeffect redstone <[sphere1].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - playeffect redstone <[sphere2].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - playeffect redstone <[sphere3].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - playeffect redstone <[sphere4].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
     - wait 1t
-
+  script:
   - define layers1:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_1]>|2|1]>
   - define layers2:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_2]>|2|1]>
   - define layers3:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_3]>|2|1]>
@@ -148,7 +136,45 @@ test_command:
       - define points:|:<[layers4].get[<[layers1].size.sub[<[value]>]>].unescaped>
       - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
       - wait 1t
-    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_1].below>
-    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_2].below>
-    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_3].below>
-    - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<location[water_boss_minion_spawnpoint_4].below>
+    - if <[value]> == 5:
+      - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_1].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_2].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_3].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_4].below>
+    - else:
+      - run spawn_custom_mob def:<entity[entity_dagon_minion_easy]>|<location[water_boss_minion_spawnpoint_1].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_minion_easy]>|<location[water_boss_minion_spawnpoint_2].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_minion_easy]>|<location[water_boss_minion_spawnpoint_3].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_minion_easy]>|<location[water_boss_minion_spawnpoint_4].below>
+
+test_command:
+  type: command
+  name: test
+  permission: test
+  script:
+  - define layers1:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_1]>|2|1]>
+  - define layers2:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_2]>|2|1]>
+  - define layers3:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_3]>|2|1]>
+  - define layers4:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_4]>|2|1]>
+  - repeat 5:
+    - repeat <[layers1].size>:
+      - define points:<[layers1].get[<[value]>].unescaped>
+      - define points:|:<[layers1].get[<[layers1].size.sub[<[value]>]>].unescaped>
+      - define points:|:<[layers2].get[<[value]>].unescaped>
+      - define points:|:<[layers2].get[<[layers1].size.sub[<[value]>]>].unescaped>
+      - define points:|:<[layers3].get[<[value]>].unescaped>
+      - define points:|:<[layers3].get[<[layers1].size.sub[<[value]>]>].unescaped>
+      - define points:|:<[layers4].get[<[value]>].unescaped>
+      - define points:|:<[layers4].get[<[layers1].size.sub[<[value]>]>].unescaped>
+      - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+      - wait 1t
+    - if <[value]> == 5:
+      - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_1].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_2].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_3].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_4].below>
+    - else:
+      - run spawn_custom_mob def:<entity[entity_dagon_minion_easy]>|<location[water_boss_minion_spawnpoint_1].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_minion_easy]>|<location[water_boss_minion_spawnpoint_2].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_minion_easy]>|<location[water_boss_minion_spawnpoint_3].below>
+      - run spawn_custom_mob def:<entity[entity_dagon_minion_easy]>|<location[water_boss_minion_spawnpoint_4].below>

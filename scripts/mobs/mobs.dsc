@@ -156,7 +156,10 @@ mob_use_ability_handler:
           - while stop
         - adjust def:entity speed:<[normal_speed]>
         - run <[ability]> def:<[entity]>
-        - flag <[entity]> <[ability]> duration:<script[<[ability]>].yaml_key[cooldown]>
+        - if <script[<[ability]>].yaml_key[one_time_use]||false>:
+          - flag <[entity]> <[ability]>
+        - else:
+          - flag <[entity]> <[ability]> duration:<script[<[ability]>].yaml_key[cooldown]>
       
 #When pets are a thing, sort out - if <player.target.scriptname> != entity_*
 golem_repair_events:
