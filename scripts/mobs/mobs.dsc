@@ -99,7 +99,7 @@ boss_bossbar_handler:
   type: task
   definitions: entity
   script:
-  - bossbar <[entity].uuid> players:<server.list_online_players> "title:<[entity].custom_name>" color:green
+  - bossbar <[entity].uuid> players:<server.list_online_players> "title:<[entity].custom_name>" color:green style:SOLID
 
 spawn_custom_mob:
   type: task
@@ -112,8 +112,10 @@ spawn_custom_mob:
       - attack <[spawned_mob]> target:<player>
     - if <yaml[server.mobs].read[<[mob]>.spawn_script]||none> != none:
       - inject <yaml[server.mobs].read[<[mob]>.spawn_script]>
+    - narrate 1
     - if <yaml[server.mobs].read[<[mob]>.has_bossbar]||false>:
       - run boss_bossbar_handler def:<[spawned_mob]>
+      - narrate 2
     - if <yaml[server.mobs].read[<[mob]>.abilities]||null> != null:
       - run mob_use_ability_handler def:<[spawned_mob]>
 
