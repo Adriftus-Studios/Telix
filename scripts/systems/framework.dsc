@@ -545,6 +545,14 @@ system_override:
         - wait 1t
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory].parsed>
 
+cause_error_command:
+  type: command
+  name: cause_error
+  permission: cause_error
+  script:
+  - define item:<player.item_in_hand>
+  - narrate <el@1.mul[b]>
+
 player_crafting:
   type: inventory
   inventory: workbench
