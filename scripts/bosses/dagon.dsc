@@ -161,13 +161,13 @@ test_command:
       - define point:<[sphere].random>
       - define offset:<player.location.sub[<[center]>]>
       - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|1|0|0.05]>
-      - run testt_animation def:<[points]>
+      - run testt_animation def:<[points].escaped>
     - wait 2t
 
 testt_animation:
   type: task
   definitions: points
   script:
-  - foreach <[points]> as:point:
+  - foreach <[points].unescaped> as:point:
     - playeffect spell_witch at:<[point]> quantity:3 offset:0 visibility:100
     - wait 1t
