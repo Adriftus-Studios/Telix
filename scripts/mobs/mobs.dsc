@@ -100,9 +100,12 @@ boss_bossbar_handler:
   definitions: entity
   script:
   - bossbar <[entity].uuid> players:<server.list_online_players> "title:<[entity].custom_name>" color:green style:SOLID
-  - while <[entity].health||null> != null:
+  - while true:
     - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]>
-  - bossbar remove <[entity].uuid>
+    - if <[entity].health> < 0:
+      - bossbar remove <[entity].uuid>
+      - while stop
+    - wait 1t
 
 spawn_custom_mob:
   type: task
