@@ -698,8 +698,8 @@ build_item:
         - define lore:|:<[item].script.yaml_key[lore].as_list.parse[parsed]||<list[]>>
         - define stat_names:<list[boss_damage/Boss<&sp>Damage|ore_drops/Ore<&sp>Drops|thirst/Thirst|constitution/Constitution|melee_damage/Damage|drop_rate_multiplier/Drop<&sp>Rate|health/Health|weight/Weights|experience_multiplier/Experience|power/Power|speed/Movement<&sp>Speed|food/Food]>
         - if <[item].script.list_keys[equipment_modifiers]||null> != null || <[item].script.list_keys[damage_modifiers.damage_resistance]||null> != null || <[item].script.list_keys[damage_modifiers.damage_dealt]||null> != null:
-          - define lore:|:<&9>
-          - define lore:|:<&9>When<&sp>Equipped:<&co>
+          - define lore:|:<&f>
+          - define lore:|:<&7>When<&sp>equipped:
         - if <[item].script.list_keys[equipment_modifiers]||null> != null:
           - foreach <[item].script.list_keys[equipment_modifiers]> as:modifier:
             - define value:<[item].nbt[base_stats.<[modifier]>]||<[item].script.yaml_key[equipment_modifiers.<[modifier]>]>>
