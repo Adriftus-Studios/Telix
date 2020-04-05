@@ -205,6 +205,7 @@ reload_scripts:
                         - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
                 - yaml id:server.recipe_fixer set restricted.<[value].name>:<yaml[server.recipe_fixer].read[restricted.<[value].name>].as_list.deduplicate.exclude[air]||<list[]>>
           - if <[value].yaml_key[type]> == entity:
+            - yaml id:server.mobs set <[value].name>.has_bossbar:<[value].yaml_key[custom.has_bossbar]||false>
             - if <[value].yaml_key[custom.spawning_conditions]||null> != null:
               - foreach <list[<[value].yaml_key[custom.spawning_conditions.world]>]> as:world:
                 - foreach <list[<[value].yaml_key[custom.spawning_conditions.biome]>]> as:biome:
@@ -225,7 +226,6 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.above_ground:<[value].yaml_key[custom.spawning_conditions.above_ground]||true>
               - yaml id:server.mobs set <[value].name>.chance:<[value].yaml_key[custom.spawning_conditions.chance]||1>
               - yaml id:server.mobs set <[value].name>.xp:<[value].yaml_key[custom.xp_dropped]||1>
-              - yaml id:server.mobs set <[value].name>.has_bossbar:<[value].yaml_key[custom.has_bossbar]||1>
               - yaml id:server.recipe_book set mob_info.<[value].name>.every:<[value].yaml_key[custom.spawning_conditions.every]||1m>
               - yaml id:server.recipe_book set mob_info.<[value].name>.max_y:<[value].yaml_key[custom.spawning_conditions.max_y]||255>
               - yaml id:server.recipe_book set mob_info.<[value].name>.min_y:<[value].yaml_key[custom.spawning_conditions.min_y]||0>
