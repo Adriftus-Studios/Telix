@@ -103,15 +103,15 @@ boss_bossbar_handler:
   script:
   - bossbar <[entity].uuid> players:<server.list_online_players> "title:<[entity].custom_name>" color:green style:SOLID
   - while true:
-    - else if <[entity].health||-1> < 20:
+    - if <[entity].health||-1> < 0:
+      - bossbar remove <[entity].uuid>
+      - while stop
+    - if <[entity].health||-1> < 20:
       - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:RED
     - else if <[entity].health||-1> < 50:
       - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:YELLOW
     - else:
       - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:GREEN
-    - if <[entity].health||-1> < 0:
-      - bossbar remove <[entity].uuid>
-      - while stop
     - wait 1t
 
 spawn_custom_mob:
