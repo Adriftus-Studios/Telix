@@ -163,7 +163,7 @@ test_command:
   name: test
   permission: test
   script:
-  - define sphere:<proc[define_sphere1].context[<player.location>|7|1]>
+  - define sphere:<proc[define_sphere1].context[<player.location>|4|1]>
   - define center:<player.location>
   - repeat 20:
     - repeat 5:
@@ -178,5 +178,5 @@ testt_animation:
   definitions: points
   script:
   - foreach <[points].unescaped> as:point:
-    - playeffect spell_witch at:<[point]> quantity:3 offset:0 visibility:100
-    - wait 1t
+    - playeffect spell_witch at:<[point]> quantity:1 offset:0 visibility:100
+    - wait 2t
