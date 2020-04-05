@@ -18,7 +18,7 @@ spawn_boss_dagon:
     - repeat 100:
       - playeffect redstone <[sphere]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
       - wait 1t
-    - run spawn_custom_mob def:<entity[boss_dagon_easy]>|<location[boss_dagon_spawnpoint].below>
+    #- run spawn_custom_mob def:<entity[boss_dagon_easy]>|<location[boss_dagon_spawnpoint].below>
 
 boss_dagon_easy_kill_script:
   type: task
