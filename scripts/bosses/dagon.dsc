@@ -169,7 +169,7 @@ test_command:
     - repeat 2:
       - define point:<[sphere].random>
       - define offset:<player.location.sub[<[center]>]>
-      - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|3|0|0.2]>
+      - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|3|0|0.1]>
       - run testt_animation def:<[points].escaped>
     - wait 2t
 
@@ -178,5 +178,5 @@ testt_animation:
   definitions: points
   script:
   - foreach <[points].unescaped> as:point:
-    - playeffect redstone <[point]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
+    - playeffect redstone <[point]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
     - wait 2t
