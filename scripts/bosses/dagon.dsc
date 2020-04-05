@@ -102,6 +102,7 @@ boss_dagon_summon_minion_easy:
   warmup: 5s
   requires_target: false
   requires_target_in_sight: false
+  one_time_use: true
   additional_conditions:
   - <[entity].health.is[less].to[300]>
   definitions: entity
@@ -124,7 +125,7 @@ boss_dagon_summon_minion_easy:
   - define layers2:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_2]>|2|1]>
   - define layers3:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_3]>|2|1]>
   - define layers4:<proc[define_sphere2].context[<location[water_boss_minion_spawnpoint_4]>|2|1]>
-  - repeat 5:
+  - repeat 3:
     - define count:<[value]>
     - repeat <[layers1].size>:
       - define points:<[layers1].get[<[value]>].unescaped>
@@ -137,7 +138,7 @@ boss_dagon_summon_minion_easy:
       - define points:|:<[layers4].get[<[layers1].size.sub[<[value]>]>].unescaped>
       - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
       - wait 1t
-    - if <[count]> == 5:
+    - if <[count]> == 3:
       - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_1].below>
       - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_2].below>
       - run spawn_custom_mob def:<entity[entity_dagon_warrior_easy]>|<location[water_boss_minion_spawnpoint_3].below>

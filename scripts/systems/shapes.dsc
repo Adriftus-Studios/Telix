@@ -23,6 +23,19 @@ define_curve2:
     - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
   - determine <[points]>
   
+define_cone1:
+  type: procedure
+  definitions: start|end|angle|blocks_between
+  script:
+  - define points1:<[start].points_between[<[end]>].distance[<[blocks_between]>]>
+  - foreach <[points1]> as:point:
+    - define cir:<[radius].mul[<util.pi>].mul[2]>
+    - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[0.2]>]>
+    - repeat <[cir].div[0.2].round>:
+      - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>]>]>
+      - define points:|:<[point].up[<[offset].get[1]>].right[<[offset].get[2]>]>
+  - determine <[points]>
+
 define_sphere1:
   type: procedure
   definitions: location|radius|blocks_between
@@ -207,6 +220,13 @@ test_effects_command:
     - define points:<proc[define_spiral].context[<player.location>|<player.location.forward[20]>|0.5|0]>
     - foreach <[points]> as:point:
       - playeffect <[particle]> at:<[point]> quantity:5 offset:0 visibility:100
+      - wait 1t
+  - if <context.args.get[1]> == curve1:
+    - define start:<player.location>
+    - define end:<player.location.forward[20]>
+    - define points:<proc[define_cone1].context[<[start]>|<[end]>|45|0.2]>
+    - repeat 40:
+      - playeffect <[particle]> at:<[points]> quantity:5 offset:0 visibility:100
       - wait 1t
 
 find_offset:
