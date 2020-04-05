@@ -90,12 +90,12 @@ boss_dagon_aqua_burst_easy:
   type: task
   ability_tree: water
   cooldown: 12s
-  warmup: 2s
+  warmup: 3s
   requires_target: false
   requires_target_in_sight: false
   definitions: entity
   warmup_script:
-  - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
+  - define sphere:<proc[define_sphere1].context[<[entity].location>|3|1]>
   - define center:<[entity].location>
   - repeat 20:
     - repeat 5:
@@ -106,6 +106,7 @@ boss_dagon_aqua_burst_easy:
       - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<[entity].location.add[<[offset]>]>|3|0|0.2]>
       - run boss_dagon_aqua_burst_warmup_animation def:<[points].escaped>
     - wait 2t
+  - wait 1s
   script:
   - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
   - define center:<[entity].location>
@@ -124,7 +125,7 @@ boss_dagon_aqua_burst_warmup_animation:
   script:
   - foreach <[points].unescaped> as:point:
     - playeffect spell_witch at:<[point]> quantity:3 offset:0 visibility:100
-    - wait 1t
+    - wait 2t
 
 boss_dagon_aqua_burst_animation:
   type: task
