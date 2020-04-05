@@ -86,7 +86,7 @@ boss_dagon_aqua_burst_animation:
   type: task
   definitions: start|end
   script:
-  - define points:<proc[define_curve1].context[<[start]>|<[end]>|1|<util.random.int[0].to[360]>|0.3]>
+  - define points:<proc[define_curve1].context[<[start]>|<[end]>|3|0|0.3]>
   - repeat <[points].size.div[2]>:
     - playeffect redstone <[points].get[<[value].mul[2].sub[1]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - playeffect redstone <[points].get[<[value].mul[2]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
@@ -156,12 +156,11 @@ test_command:
   script:
   - define sphere:<proc[define_sphere1].context[<player.location>|7|1]>
   - define center:<player.location>
-  - repeat 30:
+  - repeat 15:
     - repeat 5:
       - define point:<[sphere].random>
       - define offset:<player.location.sub[<[center]>]>
-      - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|3|0|0.2]>
-      - run testt_animation def:<[points].escaped>
+      - run boss_dagon_aqua_burst_animation def:<player.location>|<[offset].add[<[point]>]>
     - wait 2t
 
 testt_animation:
