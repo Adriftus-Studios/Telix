@@ -102,7 +102,7 @@ boss_bossbar_handler:
   - bossbar <[entity].uuid> players:<server.list_online_players> "title:<[entity].custom_name>" color:green style:SOLID
   - while true:
     - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]>
-    - if <[entity].health> < 0:
+    - if <[entity].health||-1> < 0:
       - bossbar remove <[entity].uuid>
       - while stop
     - wait 1t
