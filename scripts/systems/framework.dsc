@@ -341,22 +341,6 @@ player_setup:
       - else:
         - yaml id:player.<player.uuid> set skills.<[value]>.current:1
 
-test_command:
-  type: command
-  name: test
-  permission: test
-  script:
-  - define entity:<player>
-  - define sphere:<proc[define_sphere1].context[<[entity].location>|3|1]>
-  - define center:<[entity].location>
-  - repeat 40:
-    - define offset:<[entity].location.sub[<[center]>]>
-    - narrate <[sphere].random.points_between[<[entity].location>].distance[0.2].parse[add[<[offset]>]]>
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <[sphere].random.points_between[<[entity].location.sub[<[offset]>]>].distance[0.2].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:1
-    - wait 5t
-
 equipt_command:
   type: command
   name: equipt

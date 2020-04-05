@@ -103,7 +103,34 @@ boss_dagon_summon_minion:
   - foreach <[entity].location.find.players.within[30]> as:player:
     - adjust <queue> linked_player:<[player]>
     - narrate "<&b>Dagon is calling for help!"
+  - define sphere1:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_1]>|2|1]>
+  - define sphere2:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_2]>|2|1]>
+  - define sphere3:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_3]>|2|1]>
+  - define sphere4:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_4]>|2|1]>
+  - repeat 100:
+    - define offset:<[entity].location.sub[<[center]>]>
+    - playeffect redstone <[sphere].random[10].parse[add[<[offset]>]]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
+    - wait 1t
   script:
   - foreach <[entity].location.find.players.within[30]> as:player:
     - adjust <queue> linked_player:<[player]>
     - run spawn_custom_mob def:<entity[entity_dagon_minion]>|<[entity].location>
+    
+test_command:
+  type: command
+  name: test
+  permission: test
+  script:
+  - foreach <[entity].location.find.players.within[30]> as:player:
+    - adjust <queue> linked_player:<[player]>
+    - narrate "<&b>Dagon is calling for help!"
+  - define sphere1:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_1]>|2|1]>
+  - define sphere2:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_2]>|2|1]>
+  - define sphere3:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_3]>|2|1]>
+  - define sphere4:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_4]>|2|1]>
+  - repeat 100:
+    - playeffect redstone <[sphere1].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
+    - playeffect redstone <[sphere2].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
+    - playeffect redstone <[sphere3].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
+    - playeffect redstone <[sphere4].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
+    - wait 1t
