@@ -178,5 +178,5 @@ testt_animation:
   definitions: points
   script:
   - foreach <[points].unescaped> as:point:
-    - playeffect spell_witch at:<[point]> quantity:1 offset:0 visibility:100
+    - playeffect redstone <[point]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - wait 2t
