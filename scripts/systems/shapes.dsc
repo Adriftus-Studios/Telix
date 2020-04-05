@@ -221,7 +221,7 @@ test_effects_command:
     - foreach <[points]> as:point:
       - playeffect <[particle]> at:<[point]> quantity:5 offset:0 visibility:100
       - wait 1t
-  - if <context.args.get[1]> == curve1:
+  - if <context.args.get[1]> == cone1:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
     - define points:<proc[define_cone1].context[<[start]>|<[end]>|45|0.2]>
