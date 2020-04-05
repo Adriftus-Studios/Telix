@@ -199,7 +199,7 @@ test_command:
   permission: test
   script:
   - define entity:<player>
-  - define sphere:<proc[define_sphere1].context[<[entity].location>|7|1]>
+  - define sphere:<proc[define_sphere1].context[<[entity].location>|3|1]>
   - define center:<[entity].location>
   - repeat 20:
     - repeat 5:
