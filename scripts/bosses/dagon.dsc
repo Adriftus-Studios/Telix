@@ -165,12 +165,12 @@ test_command:
   script:
   - define sphere:<proc[define_sphere1].context[<player.location>|7|1]>
   - define center:<player.location>
-  - repeat 30:
+  - repeat 20:
     - repeat 5:
       - define point:<[sphere].random>
       - define offset:<player.location.sub[<[center]>]>
       - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<player.location.add[<[offset]>]>|3|0|0.2]>
-      - run testt_animation def:<[points].escaped>
+      - run boss_dagon_aqua_burst_warmup_animation def:<[points].escaped>
     - wait 2t
 
 testt_animation:
