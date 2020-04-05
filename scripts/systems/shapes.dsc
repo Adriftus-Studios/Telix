@@ -225,7 +225,7 @@ test_effects_command:
   - if <context.args.get[1]> == cone1:
     - define start:<player.location>
     - define end:<player.location.forward[20]>
-    - define points:<proc[define_cone1].context[<[start]>|<[end]>|45|1]>
+    - define points:<proc[define_cone1].context[<[start]>|<[end]>|20|1]>
     - narrate <[points].size>
     - repeat 1:
       - playeffect <[particle]> at:<[points]> quantity:5 offset:0 visibility:100
