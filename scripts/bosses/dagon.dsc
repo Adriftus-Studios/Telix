@@ -1,4 +1,22 @@
 
+spawn_boss_dagon:
+  type: task
+  definitions: difficulty
+  script:
+  - define difficulty:<[difficulty]||easy>
+  - define title:"Dagon has been summoned!"
+  - if <[difficulty]> == easy:
+    - define subtitle:"Difficulty: Easy"
+    - title title:<[title]> subtitle:<[subtitle]> stay:4s
+    - define sphere:<proc[define_sphere1].context[<location[water_boss_minion_spawnpoint_1]>|2|1]>
+    - repeat 100:
+      - playeffect redstone <[sphere].random[10]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
+      - wait 1t
+    - repeat 100:
+      - playeffect redstone <[sphere]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,200>
+      - wait 1t
+    - run spawn_custom_mob def:<entity[boss_dagon_easy]>|<location[boss_dagon_spawnpoint]>
+
 boss_dagon_easy:
   type: entity
   entity_type: elder_guardian
@@ -8,6 +26,7 @@ boss_dagon_easy:
   health: 600
   speed: 0.1
   custom:
+    has_bossbar: true
     ability_usage:
       - boss_dagon_aqua_burst_easy
       - boss_dagon_summon_minion_easy
