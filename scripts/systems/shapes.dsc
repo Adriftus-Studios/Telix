@@ -178,6 +178,9 @@ define_zigzag:
 cosmetic_command:
   type: command
   name: cosmetic
+  tab complete:
+  - if <context.raw_args.split[].count[<&sp>]> == 0:
+    - determine <list[curve1|sphere2].filter[starts_with[<context.args.get[1]>]]||<list[curve1|sphere2]>>
   script:
   - if <player.has_flag[cosmetic]>:
     - if <context.args.get[1]> == sphere2:
