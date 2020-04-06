@@ -181,7 +181,7 @@ cosmetic_command:
   script:
   - if <player.has_flag[cosmetic]>:
     - if <context.args.get[1]> == sphere2:
-      - define layers:<proc[define_sphere2].context[<player.location.above>|1|0.5]>
+      - define layers:<proc[define_sphere2].context[<player.location.above>|1.5|0.5]>
       - define center:<player.location>
       - flag <player> sphere2:true
       - if <player.has_flag[sphere]>:
@@ -197,6 +197,17 @@ cosmetic_command:
           - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
           - playeffect redstone at:<[points].parse[add[<[offset]>].with_world[<player.location.world>]]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
           - wait 1t
+    - else if <context.args.get[1]> == curve1:
+      - define sphere:<proc[define_sphere1].context[<player.location>|3|1]>
+      - define center:<player.location>
+      - repeat 15:
+        - repeat 5:
+          - if <player.is_spawned||false> == false:
+            - stop
+          - define point:<[sphere].random>
+          - define offset:<player.location.sub[<[center]>]>
+          - run boss_dagon_aqua_burst_animation def:<player.location>|<[offset].add[<[point]>]>
+        - wait 2t
   - else:
     - narrate "<&c>You do not have permission for this command."
 
