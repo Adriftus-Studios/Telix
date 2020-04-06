@@ -201,7 +201,7 @@ cosmetic_command:
       - define sphere:<proc[define_sphere1].context[<player.location>|3|1]>
       - define center:<player.location>
       - repeat 30:
-        - repeat 5:
+        - repeat 1:
           - if <player.is_spawned||false> == false:
             - stop
           - define point:<[sphere].random>
