@@ -186,7 +186,7 @@ cosmetic_command:
   script:
   - if <player.has_flag[cosmetic]>:
     - if <context.args.get[1]> == sphere2:
-      - define layers:<proc[define_sphere2].context[<player.location.above>|1.5|0.5]>
+      - define layers:<proc[define_sphere2].context[<player.location.above>|1.5|0.2]>
       - define center:<player.location>
       - flag <player> sphere2:true
       - if <player.has_flag[sphere]>:
