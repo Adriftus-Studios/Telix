@@ -210,10 +210,10 @@ cosmetic_command:
       - while <player.has_flag[wings]||false>:
         - narrate <&sp><[body_yaw]>
         - narrate <&sp><player.body_yaw.add[360]>
-        - if <[body_yaw]> > <player.body_yaw.add[360]>:
+        - if <[body_yaw]> >= <player.body_yaw.add[360]>:
           - narrate 1
           - define body_yaw:<player.body_yaw.add[390]>
-        - if <[body_yaw]> < <player.body_yaw.add[360]>:
+        - if <[body_yaw]> <= <player.body_yaw.add[360]>:
           - narrate 2
           - define body_yaw:<player.body_yaw.add[330]>
         - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
