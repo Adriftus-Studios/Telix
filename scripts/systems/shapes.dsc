@@ -212,13 +212,12 @@ cosmetic_command:
         - narrate "<&b>Activated cosmetic effect curve1"
         - flag <player> curve
       - while <player.has_flag[curve]||false>:
-        - repeat 1:
-          - if <player.is_spawned||false> == false:
-            - stop
-          - define point:<[sphere].random>
-          - define offset:<player.location.sub[<[center]>]>
-          - run cosmetic_command_curve1_animation def:<player.location>|<[offset].add[<[point]>].with_world[<player.location.world>]>
-        - wait 2t
+        - if <player.is_spawned||false> == false:
+          - stop
+        - define point:<[sphere].random>
+        - define offset:<player.location.sub[<[center]>]>
+        - run cosmetic_command_curve1_animation def:<player.location>|<[offset].add[<[point]>].with_world[<player.location.world>]>
+        - wait 4t
   - else:
     - narrate "<&c>You do not have permission for this command."
 
