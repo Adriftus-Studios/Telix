@@ -230,7 +230,7 @@ cosmetic_command:
           - define offset:<player.location.sub[<[center]>]>
           - define points:<[layers].get[<[value]>].unescaped>
           - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
-          - playeffect redstone at:<[points].parse[add[<[offset]>].with_world[<player.location.world>]]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+          - playeffect redstone at:<[points].parse[add[<[offset]>].with_world[<player.location.world>]]> quantity:1 offset:0 visibility:100 special_data:1|<co@159,152,216>
           - wait 1t
     - else if <context.args.get[1]> == curve1:
       - define sphere:<proc[define_sphere1].context[<player.location>|1.5|1]>
