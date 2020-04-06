@@ -630,6 +630,8 @@ build_item:
         - adjust def:item base_color:<[old_item].base_color>
       - if <[old_item].book||null> != null:
         - adjust def:item book:<[old_item].book>
+      - if <[old_item].has_inventory>:
+        - adjust def:item inventory:<[old_item].inventory>
       - if <[old_item].skin||null> != null:
         - adjust def:item skull_skin:<[old_item].skin.full>
         - if <[item].script.name> == custom_player_head:
