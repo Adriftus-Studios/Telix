@@ -11,7 +11,8 @@ abilities_cost:
       - stop
     - yaml id:player.<player.uuid> set stats.power.current:-:<queue.script.yaml_key[power_cost]>
     - if <yaml[player.<player.uuid>].read[stats.power.current]./[<yaml[player.<player.uuid>].read[stats.power.max]>].*[20]||null> != null:
-      - adjust <player> food_level:<yaml[player.<player.uuid>].read[stats.power.current]./[<yaml[player.<player.uuid>].read[stats.power.max]>].*[20]>
+      - define food:<yaml[player.<player.uuid>].read[stats.power.current]./[<yaml[player.<player.uuid>].read[stats.power.max]>].*[20]>
+      - adjust <player> food_level:<[food].round>
       - inject actionbar_stats_update
 
 
