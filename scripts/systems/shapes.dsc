@@ -222,11 +222,13 @@ test_effects_command:
     - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100
   - if <context.args.get[1]> == sphere2:
     - define layers:<proc[define_sphere2].context[<player.location.above>|2|0.5]>
+    - define center:<player.location>
     - repeat 5:
       - repeat <[layers].size>:
+        - define offset:<[center].sub[<player.location>]>
         - define points:<[layers].get[<[value]>].unescaped>
         - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
-        - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+        - playeffect redstone at:<[points].parse[add[<[offset]>]]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
         - wait 2t
   - if <context.args.get[1]> == circle:
     - define points:<proc[define_circle].context[<player.location.forward[4]>|3]>
