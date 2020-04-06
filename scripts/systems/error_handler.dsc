@@ -29,7 +29,7 @@ error_handler_events:
                   - define "info:|:Material: <[data].material.name||Unknown>"
                   - if <[data].has_lore>:
                     - foreach <[data].lore> as:line:
-                      - define "info:|:Lore line <[loop_index]>: <[line]>"
+                      - define "info:|:Lore line <[loop_index]>: <&r><[line]><&r>"
               - define "info:|:Raw: <[data]>"
               - define definitions:|:<&l><el@[<[definition]>].on_hover[<[info].separated_by[<&nl>]>]>
             - narrate "<&c> Definitions: <[definitions].separated_by[<&sp>]||None>"
