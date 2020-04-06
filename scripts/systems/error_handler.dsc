@@ -22,8 +22,8 @@ error_handler_events:
             - narrate "<&c> Line: <context.line>"
             - foreach <context.queue.definitions||<list[]>> as:definition:
               - define data:<context.queue.definition[<[definition]>]>
-              - define info:'Type: <[data].type>'
+              - define "info:Type: <[data].type>"
 
-              - define info:|:'Raw: <[data]>'
+              - define "info:|:Raw: <[data]>"
               - define definitions:|:<&l><el@[<[definition]>].on_hover[<[info].separated_by[<&nl>]>]>
             - narrate "<&c> Definitions: <[definitions].separated_by[<&sp>]||None>"
