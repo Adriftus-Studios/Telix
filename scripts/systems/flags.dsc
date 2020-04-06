@@ -26,4 +26,4 @@ flag_handler:
                 - determine cancelled
         on tick:
         - foreach <server.list_online_players.filter[has_flag[downpull]]> as:player:
-            - adjust <[player]> velocity:<[player].velocity.add[<location[0,<[player].flag[downpull]||0.02>,0]>]>
+            - adjust <[player]> velocity:<[player].velocity.add[<location[0,<[player].flag[downpull]||-0.02>,0]>]>
