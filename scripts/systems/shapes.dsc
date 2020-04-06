@@ -206,10 +206,15 @@ cosmetic_command:
         - define right_wing:<entry[wing2].spawned_entity>
         - define sphere:<proc[define_sphere1].context[<player.location>|3|1]>
         - define center:<player.location>
-      - while <player.has_flag[wings]||false>:
         - define body_yaw:<player.body_yaw>
-        - narrate <player.location.yaw>
-        - narrate <player.body_yaw>
+      - while <player.has_flag[wings]||false>:
+        - if <player.body_yaw> > 0 || <player.body_yaw> < -360:
+          - narrate 1
+        - else:
+          - if <[body_yaw]> >= <player.body_yaw.add[50]>:
+            - define body_yaw:<player.body_yaw.add[50]>
+          - if <[body_yaw]> <= <player.body_yaw.sub[50]>:
+            - define body_yaw:<player.body_yaw.sub[50]>
         - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
         - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].sub[30]>]>
         - define offset:<player.location.sub[<[center]>]>
