@@ -12,7 +12,6 @@ ability_double_jump:
     custom_model_data: 1
   events:
     on player starts sneaking flagged:jumped:
-      - narrate <player.location.below[0.15].material.name>
       - if <player.location.below[0.15].material.name> == air:
         - inject abilities_cost
         - adjust <player> velocity:<player.velocity.add[0,0.4,0]>
@@ -20,7 +19,9 @@ ability_double_jump:
 
     on player jumps:
       - inject abilities_check
-      - flag player jumped:true duration:1s
+      - flag player jumped:true
+      - waituntil <player.location.below[0.15].material.name> != air
+      - flag player jumped:!
 
 GUI_double_jump:
   type: item
