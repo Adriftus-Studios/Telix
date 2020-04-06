@@ -224,7 +224,7 @@ cosmetic_command_curve1_animation:
   type: task
   definitions: start|end
   script:
-  - define points:<proc[define_curve1].context[<[start]>|<[end]>|3|0|0.1]>
+  - define points:<proc[define_curve1].context[<[start]>|<[end]>|1|0|0.1]>
   - foreach <[points]> as:point:
     - playeffect spell_witch <[point]> offset:0 visibility:300 quantity:1
     - wait 1t
