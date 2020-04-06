@@ -204,7 +204,7 @@ cosmetic_command:
         - spawn lucids_wing <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
         - define right_wing:<entry[wing2].spawned_entity>
-        - define sphere:<proc[define_sphere1].context[<player.location>|1.5|1]>
+        - define sphere:<proc[define_sphere1].context[<player.location>|3|1]>
         - define center:<player.location>
       - while <player.has_flag[wings]||false>:
         - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]>
