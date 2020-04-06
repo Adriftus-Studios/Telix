@@ -210,6 +210,7 @@ cosmetic_command:
         - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]>
         - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]>
         - define offset:<player.location.sub[<[center]>]>
+        - narrate <player.body_yaw>
         - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
       - remove <[left_wing]>
