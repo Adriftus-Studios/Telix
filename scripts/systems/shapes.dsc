@@ -180,6 +180,7 @@ lucids_wing:
   entity_type: armor_stand
   equipment: <item[air]>|<item[air]>|<item[air]>|<item[dirt].with[custom_model_data=1]>
   gravity: false
+  visible: false
   invulnerable: true
 
 cosmetic_command:
@@ -205,7 +206,7 @@ cosmetic_command:
         - define right_wing:<entry[wing2].spawned_entity>
       - while <player.has_flag[wings]||false>:
         - teleport <[left_wing]> <player.location>
-        - teleport <[right_wing]> <player.location>
+        - teleport <[right_wing]> <player.location.with_yaw[<player.body_yaw.add[30]>]>
         - wait 1t
       - remove <[left_wing]>
       - remove <[right_wing]>
