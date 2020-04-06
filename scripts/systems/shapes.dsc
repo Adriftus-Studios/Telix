@@ -193,7 +193,7 @@ cosmetic_command:
   script:
   - if <player.has_flag[cosmetic]>:
     - if <context.args.get[1]> == wings:
-      - if <player.has_flag[sphere]>:
+      - if <player.has_flag[wings]>:
         - narrate "<&b>Deactivated cosmetic effect wings"
         - flag <player> wings:!
       - else:
