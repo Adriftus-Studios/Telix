@@ -212,8 +212,8 @@ cosmetic_command:
           - define body_yaw:<player.body_yaw.add[390]>
         - if <[body_yaw]> <= <player.body_yaw.add[330]>:
           - define body_yaw:<player.body_yaw.add[330]>
-        - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
-        - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].sub[30]>]>
+        - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[50]>]>
+        - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].sub[50]>]>
         - define offset:<player.location.sub[<[center]>]>
         - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
