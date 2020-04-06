@@ -7,7 +7,6 @@ custom_bronze_dagger:
   fake_durability: 150
   damage: 6
   attack_speed: 5
-  speed: 10
   recipes:
     1:
       type: shaped
