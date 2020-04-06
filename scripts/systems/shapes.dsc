@@ -179,7 +179,6 @@ lucids_wing:
   type: entity
   entity_type: armor_stand
   equipment: <item[air]>|<item[air]>|<item[air]>|<item[dirt].with[custom_model_data=1]>
-  visible: false
   gravity: false
   invulnerable: true
 
@@ -200,6 +199,8 @@ cosmetic_command:
       - else:
         - narrate "<&b>Activated cosmetic effect wings"
         - flag <player> wings
+      - while <player.has_flag[wings]||false>:
+        
     - if <context.args.get[1]> == sphere2:
       - define layers:<proc[define_sphere2].context[<player.location.above>|1.5|0.3]>
       - define center:<player.location>
