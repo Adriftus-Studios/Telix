@@ -209,9 +209,8 @@ cosmetic_command:
       - while <player.has_flag[wings]||false>:
         - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]>
         - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]>
-        - define point:<[sphere].random>
         - define offset:<player.location.sub[<[center]>]>
-        - run cosmetic_command_lucid_animation def:<player.location>|<[offset].add[<[point]>].with_world[<player.location.world>]>
+        - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
       - remove <[left_wing]>
       - remove <[right_wing]>
@@ -257,7 +256,7 @@ cosmetic_command_lucid_animation:
   script:
   - define points:<proc[define_curve1].context[<[start]>|<[end]>|1|0|0.1]>
   - foreach <[points]> as:point:
-    - playeffect redstone <[point]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
+    - playeffect redstone <[point]> offset:0 visibility:300 quantity:1 special_data:1|<co@221,91,182>
     - wait 1t
 
 cosmetic_command_curve1_animation:
