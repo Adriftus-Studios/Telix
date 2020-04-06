@@ -631,7 +631,7 @@ build_item:
       - if <[old_item].book||null> != null:
         - adjust def:item book:<[old_item].book>
       - if <[old_item].skin||null> != null:
-        - adjust def:item skull_skin:<[old_item].skin>
+        - adjust def:item skull_skin:<[old_item].skin.full>
         - if <[item].script.name> == custom_player_head:
           - adjust def:item display_name:<&r><&e><[old_item].skin.as_player.name>'s<&sp>Head
     - if <[item].script.yaml_key[category]||null> != null:
