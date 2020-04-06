@@ -200,7 +200,13 @@ cosmetic_command:
     - else if <context.args.get[1]> == curve1:
       - define sphere:<proc[define_sphere1].context[<player.location>|3|1]>
       - define center:<player.location>
-      - repeat 30:
+      - if <player.has_flag[curve]>:
+        - narrate "<&b>Deactivated cosmetic effect curve1"
+        - flag <player> curve:!
+      - else:
+        - narrate "<&b>Activated cosmetic effect curve1"
+        - flag <player> curve
+      - while <player.has_flag[curve]||false>:
         - repeat 1:
           - if <player.is_spawned||false> == false:
             - stop
