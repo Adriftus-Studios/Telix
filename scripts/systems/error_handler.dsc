@@ -30,7 +30,7 @@ error_handler_events:
                   - define "info:|:Display Name: <[data].display>"
                   - if <[data].has_lore>:
                     - foreach <[data].lore> as:line:
-                      - define "info:|:Lore line <[loop_index]>: <&r><[line]><&r>"
+                      - define "info:|:Lore line <[loop_index]>: <[line]>"
               - define "info:|:Raw: <[data]>"
-              - define definitions:|:<&l><el@[<[definition]>].on_hover[<[info].separated_by[<&nl>]>]>
+              - define definitions:|:<&l><el@[<[definition]>].on_hover[<[info].separated_by[<&nl><&r>]>]>
             - narrate "<&c> Definitions: <[definitions].separated_by[<&sp>]||None>"
