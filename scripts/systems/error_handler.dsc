@@ -27,6 +27,7 @@ error_handler_events:
               - choose <[data].type>:
                 - case item:
                   - define "info:|:Material: <[data].material.name||Unknown>"
+                  - define "info:|:Display Name: <[data].display>"
                   - if <[data].has_lore>:
                     - foreach <[data].lore> as:line:
                       - define "info:|:Lore line <[loop_index]>: <&r><[line]><&r>"
