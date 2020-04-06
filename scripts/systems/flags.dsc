@@ -27,4 +27,4 @@ flag_handler:
         on tick:
         - foreach <server.list_online_players.filter[has_flag[downpull]]> as:player:
             - adjust <queue> linked_player:<[player]>
-            - narrate <player.velocity>
+            - adjust <[player]> velocity:<[player].velocity.add[<location[0,0.02,0]>]>
