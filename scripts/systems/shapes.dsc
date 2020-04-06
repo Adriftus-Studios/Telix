@@ -206,11 +206,17 @@ cosmetic_command:
         - define right_wing:<entry[wing2].spawned_entity>
         - define sphere:<proc[define_sphere1].context[<player.location>|3|1]>
         - define center:<player.location>
+        - define body_yaw:<player.body_yaw.add[360]>
       - while <player.has_flag[wings]||false>:
-        - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]>
-        - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]>
+        - if <[body_yaw].add[390]> < <player.body_yaw>:
+          - narrate 1
+          - define body_yaw:<player.body_yaw.add[390]>
+        - if <[body_yaw].add[330]> > <player.body_yaw>:
+          - narrate 2
+          - define body_yaw:<player.body_yaw.add[330]>
+        - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
+        - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].sub[30]>]>
         - define offset:<player.location.sub[<[center]>]>
-        - narrate <player.body_yaw>
         - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
       - remove <[left_wing]>
