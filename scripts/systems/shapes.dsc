@@ -212,7 +212,7 @@ cosmetic_command:
             - stop
           - define point:<[sphere].random>
           - define offset:<player.location.sub[<[center]>]>
-          - run cosmetic_command_curve1_animation def:<player.location>|<[offset].add[<[point]>]>
+          - run cosmetic_command_curve1_animation def:<player.location>|<[offset].add[<[point]>].with_world[<player.location.world>]>
         - wait 2t
   - else:
     - narrate "<&c>You do not have permission for this command."
