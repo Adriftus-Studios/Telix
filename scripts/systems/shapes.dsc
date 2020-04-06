@@ -209,6 +209,8 @@ cosmetic_command:
         - define body_yaw:<player.body_yaw>
       - while <player.has_flag[wings]||false>:
         - if <player.body_yaw> > 0 || <player.body_yaw> < -360:
+          - narrate <player.body_yaw>
+          - narrate <[body_yaw]>
           - if <player.body_yaw> < -360:
             - narrate 2
             - define body_yaw:<player.body_yaw.add[360]>
