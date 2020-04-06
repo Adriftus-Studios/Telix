@@ -30,3 +30,6 @@ flag_handler:
         on player joins:
         - if <player.has_flag[vanish]>:
             - determine NONE
+        on player quit:
+        - if <player.has_flag[vanish]>:
+            - determine NONE
