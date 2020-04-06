@@ -216,9 +216,8 @@ cosmetic_command_curve1_animation:
   definitions: start|end
   script:
   - define points:<proc[define_curve1].context[<[start]>|<[end]>|3|0|0.1]>
-  - repeat <[points].size.div[2]>:
-    - playeffect spell_witch <[points].get[<[value].mul[2].sub[1]>]> offset:0 visibility:300 quantity:1
-    - playeffect spell_witch <[points].get[<[value].mul[2]>]> offset:0 visibility:300 quantity:1
+  - foreach <[points]> as:point:
+    - playeffect spell_witch <[point]> offset:0 visibility:300 quantity:1
     - wait 1t
 
 test_effects_command:
