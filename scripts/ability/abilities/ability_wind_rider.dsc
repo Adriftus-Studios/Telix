@@ -17,11 +17,13 @@ ability_wind_rider:
     - wait 15t
     - inventory adjust d:<player.inventory> slot:39 material:<material[elytra]>
     - adjust <player> gliding:true
-    - flag player wind_rider:true
+    - flag <player> wind_rider:true
+    - flag <player> downpull:-0.5
 
 abilities_wind_rider:
   type: world
   events:
     on player stops gliding flagged:wind_rider:
       - inventory adjust d:<player.inventory> slot:39 material:<material[golden_chestplate]>
+      - flag <player> downpull:!
       - flag <player> wind_rider:!
