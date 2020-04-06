@@ -747,7 +747,7 @@ build_item:
     - if <[item].script.yaml_key[damage]||null> != null:
       - adjust def:item nbt_attributes:generic.attackDamage/hand/0/<[item].script.yaml_key[damage]>
     - if <[item].script.yaml_key[attack_speed]||null> != null:
-      - adjust def:item nbt_attributes:attackSpeed/hand/0/<[item].script.yaml_key[attack_speed]>
+      - adjust def:item nbt_attributes:generic.attackSpeed/hand/0/<[item].script.yaml_key[attack_speed]>
     - if <[item].script.yaml_key[fake_durability]||null> != null:
       - define lore:|:<&f>Durability:<&sp><[item].nbt[durability]||<[item].script.yaml_key[fake_durability]>><&sp>/<&sp><[item].script.yaml_key[fake_durability]>
     - if <[item].script.yaml_key[contaminated]||null> != null:
