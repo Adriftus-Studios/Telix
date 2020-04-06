@@ -181,6 +181,8 @@ cosmetic_command:
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
     - determine <list[curve1|sphere2].filter[starts_with[<context.args.get[1]||>]]>
+  - else:
+    - determine <list[]>
   script:
   - if <player.has_flag[cosmetic]>:
     - if <context.args.get[1]> == sphere2:
