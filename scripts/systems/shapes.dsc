@@ -199,7 +199,16 @@ cosmetic_command:
       - else:
         - narrate "<&b>Activated cosmetic effect wings"
         - flag <player> wings
+        - spawn lucids_wing <player.location> save:wing1
+        - spawn lucids_wing <player.location> save:wing2
+        - define left_wing:<entry[wing1].spawned_entity>
+        - define right_wing:<entry[wing2].spawned_entity>
       - while <player.has_flag[wings]||false>:
+        - teleport <[left_wing]> <player.location>
+        - teleport <[right_wing]> <player.location>
+        - wait 1t
+      - remove <[left_wing]>
+      - remove <[right_wing]>
         
     - if <context.args.get[1]> == sphere2:
       - define layers:<proc[define_sphere2].context[<player.location.above>|1.5|0.3]>
