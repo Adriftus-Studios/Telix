@@ -27,3 +27,6 @@ flag_handler:
         on tick:
         - foreach <server.list_online_players.filter[has_flag[downpull]]> as:player:
             - adjust <[player]> velocity:<[player].velocity.add[<location[0,<[player].flag[downpull]||-0.02>,0]>]>
+        on player joins:
+        - if <player.has_flag[vanish]>:
+            - determine NONE

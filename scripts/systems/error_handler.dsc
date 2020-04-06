@@ -20,7 +20,7 @@ error_handler_events:
             - narrate "<&c> Script: <context.script.name>"
             - narrate "<&c> File: <context.script.filename.replace[/home/minecraft/servers/telix-test/plugins/Denizen].with[]>"
             - narrate "<&c> Line: <context.line>"
-            - foreach <context.queue.definitions||<list[]>> as:definition:
+            - foreach <context.queue.definitions.deduplicate||<list[]>> as:definition:
               - define data:<context.queue.definition[<[definition]>]>
               - define "info:Type: <[data].type||Unknown>"
               - define "info:|:Script: <[data].script.name||None>"
