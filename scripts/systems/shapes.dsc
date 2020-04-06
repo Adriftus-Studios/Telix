@@ -211,15 +211,14 @@ cosmetic_command:
         - if <player.body_yaw> > 0 || <player.body_yaw> < -360:
           - if <player.body_yaw> < -360:
             - narrate 2
-            - define body_yaw:<player.body_yaw.add[410]>
+            - define body_yaw:<player.body_yaw.add[360]>
           - if <player.body_yaw> > 0:
             - narrate 3
-            - define body_yaw:<player.body_yaw.sub[410]>
-        - else:
-          - if <[body_yaw]> >= <player.body_yaw.add[50]>:
-            - define body_yaw:<player.body_yaw.add[50]>
-          - if <[body_yaw]> <= <player.body_yaw.sub[50]>:
-            - define body_yaw:<player.body_yaw.sub[50]>
+            - define body_yaw:<player.body_yaw.sub[360]>
+        - if <[body_yaw]> >= <player.body_yaw.add[50]>:
+          - define body_yaw:<player.body_yaw.add[50]>
+        - if <[body_yaw]> <= <player.body_yaw.sub[50]>:
+          - define body_yaw:<player.body_yaw.sub[50]>
         - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
         - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].sub[30]>]>
         - define offset:<player.location.sub[<[center]>]>
