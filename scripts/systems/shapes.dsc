@@ -208,6 +208,7 @@ cosmetic_command:
         - define center:<player.location>
         - define body_yaw:<player.body_yaw>
       - while <player.has_flag[wings]||false>:
+        - narrate <player.body_yaw>
         - if <[body_yaw]> >= <player.body_yaw.add[50]>:
           - define body_yaw:<player.body_yaw.add[50]>
         - if <[body_yaw]> <= <player.body_yaw.sub[50]>:
