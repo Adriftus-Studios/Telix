@@ -200,17 +200,26 @@ cosmetic_command:
     - else if <context.args.get[1]> == curve1:
       - define sphere:<proc[define_sphere1].context[<player.location>|3|1]>
       - define center:<player.location>
-      - repeat 15:
+      - repeat 30:
         - repeat 5:
           - if <player.is_spawned||false> == false:
             - stop
           - define point:<[sphere].random>
           - define offset:<player.location.sub[<[center]>]>
-          - run boss_dagon_aqua_burst_animation def:<player.location>|<[offset].add[<[point]>]>
+          - run cosmetic_command_curve1_animation def:<player.location>|<[offset].add[<[point]>]>
         - wait 2t
   - else:
     - narrate "<&c>You do not have permission for this command."
 
+cosmetic_command_curve1_animation:
+  type: task
+  definitions: start|end
+  script:
+  - define points:<proc[define_curve1].context[<[start]>|<[end]>|3|0|0.1]>
+  - repeat <[points].size.div[2]>:
+    - playeffect spell_witch <[points].get[<[value].mul[2].sub[1]>]> offset:0 visibility:300 quantity:1
+    - playeffect spell_witch <[points].get[<[value].mul[2]>]> offset:0 visibility:300 quantity:1
+    - wait 1t
 
 test_effects_command:
   type: command
