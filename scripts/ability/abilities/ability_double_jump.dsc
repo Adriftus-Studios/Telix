@@ -20,6 +20,7 @@ ability_double_jump:
     on player jumps:
       - inject abilities_check
       - flag player jumped:true
+      - wait 2t
       - waituntil <player.location.below[0.15].material.name> != air
       - flag player jumped:!
 
