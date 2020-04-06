@@ -24,3 +24,7 @@ flag_handler:
         - if <player||null> != null:
             - if <player.has_flag[no_move]>:
                 - determine cancelled
+        on tick:
+        - foreach <server.list_online_players.filter[has_flag[downpull]]> as:player:
+            - adjust <queue> linked_player:<[player]>
+            - narrate <player.velocity>
