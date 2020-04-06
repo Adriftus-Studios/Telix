@@ -175,6 +175,14 @@ define_zigzag:
     - define current:<[new_point]>
   - determine <[points]>
 
+lucids_wing:
+  type: entity
+  entity_type: armor_stand
+  equipment: <item[air]>|<item[air]>|<item[air]>|<item[dirt].with[custom_model_data=1]>
+  visible: false
+  gravity: false
+  invulnerable: true
+
 cosmetic_command:
   type: command
   name: cosmetic
@@ -185,6 +193,13 @@ cosmetic_command:
     - determine <list[]>
   script:
   - if <player.has_flag[cosmetic]>:
+    - if <context.args.get[1]> == wings:
+      - if <player.has_flag[sphere]>:
+        - narrate "<&b>Deactivated cosmetic effect wings"
+        - flag <player> wings:!
+      - else:
+        - narrate "<&b>Activated cosmetic effect wings"
+        - flag <player> wings
     - if <context.args.get[1]> == sphere2:
       - define layers:<proc[define_sphere2].context[<player.location.above>|1.5|0.3]>
       - define center:<player.location>
