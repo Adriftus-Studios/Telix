@@ -193,24 +193,28 @@ cosmetic_command:
     - determine <list[]>
   script:
   - if <player.has_flag[cosmetic]>:
-    - if <context.args.get[1]> == wings:
+    - if <context.args.get[1]> == lucid:
       - if <player.has_flag[wings]>:
         - narrate "<&b>Deactivated cosmetic effect wings"
         - flag <player> wings:!
       - else:
         - narrate "<&b>Activated cosmetic effect wings"
         - flag <player> wings
-        - spawn lucids_wing <player.location> save:wing1
-        - spawn lucids_wing <player.location> save:wing2
+        - spawn lucids_wing <player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]> save:wing1
+        - spawn lucids_wing <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
         - define right_wing:<entry[wing2].spawned_entity>
+        - define sphere:<proc[define_sphere1].context[<player.location>|1.5|1]>
+        - define center:<player.location>
       - while <player.has_flag[wings]||false>:
         - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]>
         - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]>
+        - define point:<[sphere].random>
+        - define offset:<player.location.sub[<[center]>]>
+        - run cosmetic_command_lucid_animation def:<player.location>|<[offset].add[<[point]>].with_world[<player.location.world>]>
         - wait 1t
       - remove <[left_wing]>
       - remove <[right_wing]>
-        
     - if <context.args.get[1]> == sphere2:
       - define layers:<proc[define_sphere2].context[<player.location.above>|1.5|0.3]>
       - define center:<player.location>
@@ -246,6 +250,15 @@ cosmetic_command:
         - wait 3t
   - else:
     - narrate "<&c>You do not have permission for this command."
+
+cosmetic_command_lucid_animation:
+  type: task
+  definitions: start|end
+  script:
+  - define points:<proc[define_curve1].context[<[start]>|<[end]>|1|0|0.1]>
+  - foreach <[points]> as:point:
+    - playeffect redstone <[point]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
+    - wait 1t
 
 cosmetic_command_curve1_animation:
   type: task
