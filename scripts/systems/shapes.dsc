@@ -181,14 +181,14 @@ cosmetic_command:
   script:
   - if <player.has_flag[cosmetic]>:
     - if <context.args.get[1]> == sphere2:
-      - define layers:<proc[define_sphere2].context[<player.location.above>|2|0.5]>
+      - define layers:<proc[define_sphere2].context[<player.location.above>|1|0.5]>
       - define center:<player.location>
       - flag <player> sphere2:true
       - if <player.has_flag[sphere]>:
-        - narrate "<&b>Activated cosmetic effect sphere2"
+        - narrate "<&b>Deactivated cosmetic effect sphere2"
         - flag <player> sphere:!
       - else:
-        - narrate "<&b>Deactivated cosmetic effect sphere2"
+        - narrate "<&b>Activated cosmetic effect sphere2"
         - flag <player> sphere
       - while <player.has_flag[sphere]||false>:
         - repeat <[layers].size>:
