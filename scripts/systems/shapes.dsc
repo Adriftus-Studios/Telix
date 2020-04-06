@@ -209,7 +209,10 @@ cosmetic_command:
         - define body_yaw:<player.location.yaw>
       - while <player.has_flag[wings]||false>:
         - if <[body_yaw]> >= <player.location.yaw.add[50]>:
-          - define body_yaw:<player.location.yaw.add[50]>
+          - if <player.location.yaw.add[50]> < -180 || <player.location.yaw.add[50]> > 180:
+            - define body_yaw:<player.location.yaw.add[50].mul[-1]>
+          - else:
+            - define body_yaw:<player.location.yaw.add[50]>
         - if <[body_yaw]> <= <player.location.yaw.sub[50]>:
           - define body_yaw:<player.location.yaw.sub[50]>
         - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
