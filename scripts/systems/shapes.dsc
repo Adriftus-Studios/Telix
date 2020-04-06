@@ -209,12 +209,12 @@ cosmetic_command:
         - define body_yaw:<player.body_yaw>
       - while <player.has_flag[wings]||false>:
         - if <[body_yaw]> >= <player.body_yaw.add[50]>:
-          - if <player.body_yaw.add[50]> < -180 || <player.body_yaw.add[50]> > 180:
+          - if <player.body_yaw.add[50]> < -180:
             - define body_yaw:<player.body_yaw.mul[-1].add[50]>
           - else:
             - define body_yaw:<player.body_yaw.add[50]>
         - if <[body_yaw]> <= <player.body_yaw.sub[50]>:
-          - if <player.body_yaw.sub[50]> < -180 || <player.body_yaw.sub[50]> > 180:
+          - if <player.body_yaw.sub[50]> < -180:
             - define body_yaw:<player.body_yaw.mul[-1].sub[50]>
           - else:
             - define body_yaw:<player.body_yaw.sub[50]>
