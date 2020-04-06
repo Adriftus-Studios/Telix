@@ -205,8 +205,8 @@ cosmetic_command:
         - define left_wing:<entry[wing1].spawned_entity>
         - define right_wing:<entry[wing2].spawned_entity>
       - while <player.has_flag[wings]||false>:
-        - teleport <[left_wing]> <player.location.below.with_yaw[<player.body_yaw.add[30]>]>
-        - teleport <[right_wing]> <player.location.below.with_yaw[<player.body_yaw.sub[30]>]>
+        - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]>
+        - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]>
         - wait 1t
       - remove <[left_wing]>
       - remove <[right_wing]>
