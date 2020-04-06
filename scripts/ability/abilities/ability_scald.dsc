@@ -6,7 +6,6 @@ ability_scald:
   points_to_unlock: 0
   power_cost: 0
   description: Burn your opponents with a hot stream of water.
-  usage: Underwater > Damage for 2❤, Slow for 2s
   icon:
     material: stone
     custom_model_data: 1
