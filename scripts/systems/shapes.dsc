@@ -206,14 +206,13 @@ cosmetic_command:
         - define right_wing:<entry[wing2].spawned_entity>
         - define sphere:<proc[define_sphere1].context[<player.location>|3|1]>
         - define center:<player.location>
-        - define body_yaw:<player.location.yaw>
+        - define body_yaw:<player.location.head_rotation>
       - while <player.has_flag[wings]||false>:
-        - if <[body_yaw]> >= <player.location.yaw.add[50]>:
-          - define body_yaw:<player.location.yaw.add[50]>
-        - if <[body_yaw]> <= <player.location.yaw.sub[50]>:
-          - define body_yaw:<player.location.yaw.sub[50]>
-        - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
-        - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].sub[30]>]>
+        - define body_yaw:<player.location.head_rotation>
+        - teleport <[left_wing]> <player.location.below[0.5]>
+        - teleport <[right_wing]> <player.location.below[0.5]>
+        - adjust <[left_wing]> head_rotation:<[body_yaw].add[4]>
+        - adjust <[right_wing]> head_rotation:<[body_yaw].sub[4]>
         - define offset:<player.location.sub[<[center]>]>
         - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
