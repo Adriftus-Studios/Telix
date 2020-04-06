@@ -175,12 +175,36 @@ define_zigzag:
     - define current:<[new_point]>
   - determine <[points]>
 
+cosmetic_command:
+  type: command
+  name: cosmetic
+  script:
+  - if <player.has_flag[cosmetic]>:
+    - if <context.args.get[1]> == sphere2:
+      - define layers:<proc[define_sphere2].context[<player.location.above>|2|0.5]>
+      - define center:<player.location>
+      - flag <player> sphere2:true
+      - if <player.has_flag[sphere]>:
+        - narrate "<&b>Activated cosmetic effect sphere2"
+        - flag <player> sphere:!
+      - else:
+        - narrate "<&b>Deactivated cosmetic effect sphere2"
+        - flag <player> sphere
+      - while <player.has_flag[sphere]||false>:
+        - repeat <[layers].size>:
+          - define offset:<player.location.sub[<[center]>]>
+          - define points:<[layers].get[<[value]>].unescaped>
+          - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
+          - playeffect redstone at:<[points].parse[add[<[offset]>].with_world[<player.location.world>]]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+          - wait 1t
+  - else:
+    - narrate "<&c>You do not have permission for this command."
+
+
 test_effects_command:
   type: command
   debug: false
   name: test_effects
-  description: test_effects
-  usage: /test_effects
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
     - determine <list[curve1|curve2|star1|star2|circle|spiral|zigzag|sphere1|sphere2].filter[starts_with[<context.args.get[1]>]]||<list[curve|star1|star2|circle|spiral|zigzag|sphere1|sphere2]>>
@@ -228,7 +252,7 @@ test_effects_command:
         - define offset:<[center].sub[<player.location>]>
         - define points:<[layers].get[<[value]>].unescaped>
         - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
-        - playeffect redstone at:<[points].parse[add[<[offset]>]]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+        - playeffect redstone at:<[points].parse[sub[<[offset]>]]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
         - wait 2t
   - if <context.args.get[1]> == circle:
     - define points:<proc[define_circle].context[<player.location.forward[4]>|3]>
