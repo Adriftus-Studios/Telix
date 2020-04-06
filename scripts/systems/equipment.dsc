@@ -221,7 +221,7 @@ equipment_inventory_handler:
         - if <context.item.script.yaml_key[category]||null> != <[value]>:
           - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].material.name> == air:
             - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[<[value]>_shadow]>
-      - run update_stats def:<player[<player.open_inventory.notable_name.split[_].get[2]>]>
+      - run update_stats def:<player[<player.open_inventory.notable_name.split[_].get[2]>]||<player>>
 
 invisible_placeholder:
   type: item
