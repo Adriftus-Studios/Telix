@@ -14,7 +14,7 @@ ability_beam_spline:
     #- inject abilities_cost
     - define points:<proc[define_circle].context[<player.location.forward[1]>|2]>
     - repeat 1:
-      - define num:<util.random.int[1].to[<[points].size.div[2].round>]>
+      - define num:<util.random.int[1].to[12]>
       - define start:<[points].get[<[num]>]>
       - define end:<[points].get[<[num].add[<[points].size.div[2].round>]>]>
       - narrate <[num]>
