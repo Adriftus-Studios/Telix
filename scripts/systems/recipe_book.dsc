@@ -254,8 +254,11 @@ show_recipe:
       - define item:<[item].script.name>
     - if <[type]> == cooking:
       - define inv:<inventory[recipe_book_preparation_table]>
+      - define slotmap:<list[12/in|20/in|21/in|22/in|30/in|25/out]>
       - inventory open d:<[inv]>
-      - inventory set d:<[inv]> 
+      - inventory set d:<[inv]> slot:25 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.output_quantity]>]>
+      - inventory set d:<[inv]> slot:21 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.main_ingredient].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.main_ingredient].split[/].get[2]>]>
+
     - if <[type]> == notes:
       - define inv:<inventory[recipe_book_note]>
       - inventory open d:<[inv]>
