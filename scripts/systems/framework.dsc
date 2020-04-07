@@ -658,7 +658,8 @@ build_item:
       - if <[item].script.yaml_key[category]> == nodestone:
         - adjust def:item nbt:teleport_charges/<[item].nbt[teleport_charges]||<[item].script.yaml_key[teleport_charges]>>
         - define "lore:|:<&b><[item].nbt[teleport_charges]> Charges"
-        - define "lore:|:<&b>Saved Location: <[item].nbt[saved_location].as_location.x.round>X, <[item].nbt[saved_location].as_location.y.round>Y, <[item].nbt[saved_location].as_location.z.round>Z"
+        - if <[item].nbt[saved_location]||null> != null:
+          - define "lore:|:<&b>Saved Location: <[item].nbt[saved_location].as_location.x.round>X, <[item].nbt[saved_location].as_location.y.round>Y, <[item].nbt[saved_location].as_location.z.round>Z"
         - define "lore:|:<&b>"
         - define "lore:|:<&b>Shift Click to store your current location"
         - define "lore:|:<&b>Activate a teleport ability with the"

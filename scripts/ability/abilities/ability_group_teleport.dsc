@@ -17,7 +17,7 @@ ability_group_teleport:
       - define location:<player.location>
       - define layers:<proc[define_sphere2].context[<[location].above>|2.5|0.3]>
       - define sphere:<proc[define_sphere1].context[<[location].above>|2.5|0.3]>
-      - repeat 8:
+      - repeat 5:
         - repeat <[layers].size>:
           - define points:<[layers].get[<[value]>].unescaped>
           - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
