@@ -16,9 +16,13 @@ ability_group_teleport:
       - inject abilities_cost
       - define location:<player.location>
       - define destination:<location[spawn]>
-      - foreach <player.inventory.list_contents> as:item:
+      - repeat 36:
+        - define item:<player.inventory.slot[<[value]>]>
         - if <[item].nbt[saved_location]||null> != null:
-          - define destination:<[item].nbt[saved_location].as_location>
+          - define slot:<[value]>
+      - if <[slot]||null> != null:
+        - define destination:<player.inventory.slot[<[slot]>].nbt[saved_location].as_location>
+        - inventory adjust d:<player.inventory> slot:<[slot]> quantity:<player.inventory.slot[<[slot]>].quantity.sub[1]>
       - define layers:<proc[define_sphere2].context[<[location].above>|2.5|0.3]>
       - define sphere:<proc[define_sphere1].context[<[location].above>|2.5|0.3]>
       - repeat 5:
