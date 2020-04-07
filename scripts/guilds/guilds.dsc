@@ -31,9 +31,7 @@ fixguilds_command:
   script:
   - foreach <yaml.list.filter[starts_with[guild.]]||<list[]>> as:guild:
     - if <[guild]> == null || <yaml[<[guild]>].read[leader].as_player.flag[guild]||null> != <[guild].replace[guild.].with[]>:
-      - announce "<&c>[FixerUpper] Resolving broken values in guild '<yaml[<[guild]>].read[name]>'."
-    - foreach <yaml[<[guild]>].read[members].parse[as_player]> as:player:
-      - narrate <[player].name>
+      - run disband_guild def:<[guild]>
 
 guild_command:
   type: command
