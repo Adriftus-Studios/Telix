@@ -220,8 +220,6 @@ show_recipes:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
     - if <[list].size> == 0:
-      - inventory close d:<player.open_inventory>
-      - narrate "<&c>This item does not use a custom recipe."
       - stop
     - if <[list].size> == 1:
       - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>
@@ -235,6 +233,7 @@ show_recipe:
   type: task
   definitions: item|type
   script:
+    - narrate <[type]>
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
     - if <[type]> == notes:
