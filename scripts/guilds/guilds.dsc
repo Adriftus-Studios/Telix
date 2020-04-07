@@ -31,7 +31,7 @@ fixguilds_command:
   script:
   - foreach <yaml.list.filter[starts_with[guild.]]||<list[]>> as:guild:
     - if <[guild]> == null || <yaml[<[guild]>].read[leader].as_player.flag[guild]||null> != <[guild].replace[guild.].with[]>:
-      #- run disband_guild def:<[guild]>
+      - run disband_guild def:<[guild]>
 
 guild_command:
   type: command
