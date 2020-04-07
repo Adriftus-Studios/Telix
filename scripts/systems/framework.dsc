@@ -526,6 +526,12 @@ system_override:
         - determine passively cancelled
         - wait 1t
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory].parsed>
+    on player clicks block:
+      - if <context.item.script.yaml_key[category]||null> == nodestone && <player.is_sneaking>:
+        - inventory adjust d:<player.inventory> slot:<player.held_item_slot> nbt:saved_location/<player.location.round>
+        - define item:<context.item>
+        - inject build_item
+        - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
 
 cause_error_command:
   type: command
@@ -650,6 +656,10 @@ build_item:
           - define "lore:|:<&a>Usage<&co> <&e><script[ability_<[ability]>].yaml_key[usage]>"
         - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
         - define "lore:|:<&e>-------------------------"
+      - if <[item].script.yaml_key[category]> == nodestone:
+        - adjust def:item nbt:teleport_charges/<[item].nbt[teleport_charges]||<[item].script.yaml_key[teleport_charges]>>
+        - define "lore:|:<&b><[item].nbt[teleport_charges]> Charges"
+        - define "lore:|:<&b>Saved Location: <[item].nbt[saved_location].parsed.round>"
       - if <[item].script.yaml_key[category]> == fishing_rod:
         - define lore:|:<&6><&l><&m>-------------<&r><&6><&sp><&sp>Fishing<&sp>Rod<&sp><&sp><&l><&m>-------------
         - define lore:|:<[item].script.yaml_key[lore].as_list.parse[parsed]||<list[]>>

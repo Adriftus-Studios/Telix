@@ -960,3 +960,40 @@ custom_iridium_ore:
       biome: all
       block: stone
       chance: 700
+custom_mundane_basic_nodestone:
+  material: obsidian
+  recipe_book_category: crafting.magic
+  display name: <&7>Mundane Basic Nodestone
+  lore:
+  - "<&7>Inactive. Use an altar to charge."
+  weight: '5'
+  type: item
+  recipes:
+    1:
+      type: shaped
+      output_quantity: 1
+      hide_in_recipebook: true
+      input:
+      - custom_aluminum_nugget|custom_aluminum_ingot|custom_aluminum_nugget
+      - custom_aluminum_ingot|custom_silver_ingot|custom_aluminum_ingot
+      - custom_aluminum_nugget|custom_aluminum_ingot|custom_aluminum_nugget
+custom_charged_basic_nodestone:
+  material: obsidian
+  recipe_book_category: crafting.magic
+  category: nodestone
+  teleport_charges: 2
+  display name: <&b>Basic Nodestone
+  lore:
+  - "<&b>Shift Click to store your current location"
+  - "<&b>Activate a teleport ability with the"
+  - "<&b>nodestone in your inventory to teleport"
+  - "<&b>to that location."
+  weight: '5'
+  type: item
+  recipes:
+    1:
+      type: altar
+      tier: 1
+      output_quantity: 1
+      input: custom_mundane_basic_nodestone/1|custom_diamond/2
+      cook_time: 30s
