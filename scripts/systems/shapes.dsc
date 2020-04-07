@@ -262,8 +262,9 @@ cosmetic_command_lucid_animation:
   definitions: start|end
   script:
   - define points:<proc[define_curve1].context[<[start]>|<[end]>|1|0|0.1]>
+  - define color:<list[<co@221,91,182>|<co@169,191,250>|<co@121,160,213>|<co@135,172,169>].random>
   - foreach <[points]> as:point:
-    - playeffect redstone <[point]> offset:0 visibility:300 quantity:1 special_data:1|<co@221,91,182>
+    - playeffect redstone <[point]> offset:0 visibility:300 quantity:1 special_data:1|<[color]>
     - wait 1t
 
 cosmetic_command_curve1_animation:

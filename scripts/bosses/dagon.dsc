@@ -116,7 +116,7 @@ boss_dagon_aqua_burst_easy:
         - stop
       - define point:<[sphere].random>
       - define offset:<[entity].location.sub[<[center]>]>
-      - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[offset].add[<[point]>]>
+      - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[offset].add[<[point]>]>|<[entity]>
     - wait 2t
 
 boss_dagon_aqua_burst_warmup_animation:
@@ -129,15 +129,16 @@ boss_dagon_aqua_burst_warmup_animation:
 
 boss_dagon_aqua_burst_animation:
   type: task
-  definitions: start|end
+  definitions: start|end|entity
   script:
   - define points:<proc[define_curve1].context[<[start]>|<[end]>|3|0|0.3]>
   - repeat <[points].size.div[2]>:
     - playeffect redstone <[points].get[<[value].mul[2].sub[1]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - playeffect redstone <[points].get[<[value].mul[2]>]> offset:0 visibility:300 quantity:3 special_data:1|<co@91,225,245>
     - if <[points].get[<[value].mul[2].sub[1]>].find.living_entities.within[0.5].filter[script.name.is[!=].to[boss_dagon]].filter[script.name.is[!=].to[entity_dagon_deity]].size> != 0:
-      - hurt 3 <[points].get[<[value]>].find.living_entities.within[0.5].filter[script.name.is[!=].to[boss_dagon]].filter[script.name.is[!=].to[entity_dagon_deity]]>
-      - repeat stop
+      - foreach <[points].get[<[value]>].find.living_entities.within[0.5].filter[script.name.is[!=].to[boss_dagon]].filter[script.name.is[!=].to[entity_dagon_deity]]> as:damaged:
+        - hurt <proc[calculate_damage].context[<[entity]>|<[damaged]>|7|water]> <[damaged]>
+        - repeat stop
     - wait 1t
 
 boss_dagon_summon_minion_easy:

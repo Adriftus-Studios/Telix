@@ -21,6 +21,7 @@ combat_log_events:
           - wait 1s
           - narrate "<&b>You are no longer in combat."
 
+# can use earth, fire, ender, air, or water
 calculate_damage:
   type: procedure
   definitions: damager|damaged|damage|type
