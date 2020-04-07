@@ -34,7 +34,6 @@ fixguilds_command:
       - announce "<&c>[FixerUpper] Resolving broken values in guild '<yaml[<[guild]>].read[name]>'."
     - foreach <yaml[<[guild]>].read[members].parse[as_player]> as:player:
       - narrate <[player].name>
-      
 
 guild_command:
   type: command
