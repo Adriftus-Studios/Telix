@@ -1323,7 +1323,7 @@ guild_gui_events:
     - wait 1t
     - define rank:<context.inventory.slot[1].nbt[rank]>
     - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
-      - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].contains[<[perm]>]>:
+      - if <yaml[guild.<player.flag[guild]>].read[ranks.<[rank]>.permissions].as_list.contains[<[perm]>]>:
         - inventory add d:<context.inventory> o:<item[green_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>;nbt=perm/<[perm]>;lore=<list[Click<&sp>to<&sp>disable.]>]>
       - else:
         - inventory add d:<context.inventory> o:<item[red_wool].with[display_name=<[perm].to_titlecase.replace[_].with[<&sp>]>;nbt=perm/<[perm]>;lore=<list[Click<&sp>to<&sp>enable.]>]>
