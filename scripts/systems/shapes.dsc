@@ -178,7 +178,7 @@ define_zigzag:
 lucids_wing:
   type: entity
   entity_type: armor_stand
-  equipment: <item[air]>|<item[air]>|<item[air]>|<item[dirt].with[custom_model_data=1]>
+  equipment: <item[air]>|<item[air]>|<item[air]>|<item[rabbit_hide].with[custom_model_data=1]>
   gravity: false
   visible: false
   invulnerable: true
