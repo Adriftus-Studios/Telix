@@ -24,7 +24,7 @@ guild_settings:
   - total_heads_collected
   - age
 
-guild_command:
+fixguilds_command:
   type: command
   name: fixguilds
   permission: fixguilds
