@@ -13,6 +13,9 @@ ability_beam_spline:
     #- inject abilities_check
     #- inject abilities_cost
     - define points:<proc[define_circle].context[<player.location.forward[1]>|2]>
+    - repeat 5:
+      - playeffect spell_witch at:<[points]> quantity:1 offset:0 visibility:100
+      - wait 2t
     - repeat 3:
       - define curve:<proc[define_curve1].context[<[points].random>|<[points].random>|3|<util.random.int[0].to[360]>|0.2]>
       - foreach <[curve]> as:point:
