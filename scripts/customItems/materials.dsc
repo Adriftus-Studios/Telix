@@ -982,11 +982,6 @@ custom_charged_basic_nodestone:
   category: nodestone
   teleport_charges: 2
   display name: <&b>Basic Nodestone
-  lore:
-  - "<&b>Shift Click to store your current location"
-  - "<&b>Activate a teleport ability with the"
-  - "<&b>nodestone in your inventory to teleport"
-  - "<&b>to that location."
   weight: '5'
   type: item
   recipes:
