@@ -517,6 +517,7 @@ place_guild_flag:
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&6><[player].name> has placed a guild flag."
   - inventory add d:<inventory[guild_<[guild]>_flags]> o:<item[guild_flag].with[display_name=flag<yaml[guild.<[guild]>].list_keys[flags].size>]>
+  - inventory set d:<inventory[flag_<[guild]>_<[location]>]> slot:13 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<[guild]>].read[flags.<[location]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<[guild]>].read[flags.<[location]>.health]>]>
   - run update_guild_flags_gui def:<[guild]>
 
 remove_guild_flag:
