@@ -26,5 +26,6 @@ ability_group_teleport:
       - playeffect spell_witch at:<[sphere]> quantity:2 offset:0.1 visibility:100
       - foreach <[location].find.players.within[2.5]> as:player:
         - teleport <[player]> <location[spawn]>
+      - flag <player> group_teleport_cooldown duration:10m
     - else:
       - narrate "<&c>You cannot use this ability for another <player.flag[group_teleport_cooldown].expiration.formatted>."
