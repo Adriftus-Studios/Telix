@@ -31,7 +31,7 @@ fixguilds_command:
   script:
   - foreach <yaml.list.filter[starts_with[guild.]]||<list[]>> as:guild:
     - if <[guild]> == null || <yaml[<[guild]>].read[leader].as_player.flag[guild]||null> != <[guild].replace[guild.].with[]>:
-      - run disband_guild def:<[guild]>
+      #- run disband_guild def:<[guild]>
 
 guild_command:
   type: command
@@ -297,7 +297,7 @@ edit_guild_rank_property:
   type: task
   definitions: guild|rank|property|value
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - if !<yaml[guild.<[guild]>].list_keys[ranks].contains[<[rank]>]>:
     - stop
   - if !<script[guild_settings].yaml_key[rank_properties].contains[<[property]>]>:
@@ -308,7 +308,7 @@ edit_guild_rank_permission:
   type: task
   definitions: guild|rank|permission|value
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - if <list[add|remove].contains[<[value]>]>:
     - if <[value]> == remove:
       - yaml id:guild.<[guild]> set ranks.<[rank]>.permissions:<-:<[permission]>
@@ -339,7 +339,7 @@ player_leave_guild:
   script:
   - if <yaml[guild.<[player].flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <[player]>:
     - stop
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - yaml id:guild.<[guild]> set members:<-:<[player]>
   - flag <[player]> guild:!
   - flag <[player]> guild_rank:!
@@ -351,7 +351,7 @@ delete_guild_rank:
   type: task
   definitions: guild|rank
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - if <yaml[guild.<[guild]>].read[default_rank]> == <[rank]>:
     - stop
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>:!
@@ -363,7 +363,7 @@ create_guild_rank:
   type: task
   definitions: guild|rank
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>:!
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>.title:<[rank]>
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>.priority:1
@@ -373,7 +373,7 @@ rename_guild_rank:
   type: task
   definitions: guild|rank|new_name
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - narrate <[guild]>
   - narrate <[rank]>
   - narrate <[new_name]>
@@ -389,7 +389,7 @@ kick_from_guild:
   type: task
   definitions: guild|kicker|kicked
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - yaml id:guild.<[guild]> set members:<-:<[kicked]>
   - flag <[kicked]> guild_rank:!
   - flag <[kicked]> guild:!
@@ -402,7 +402,7 @@ invite_to_guild:
   type: task
   definitions: guild|inviter|invited
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - yaml id:guild.<[guild]> set pending_invitations:|:<[invited]>
   - yaml id:player.<[invited].uuid> set pending_guild_invitation:<[guild]>
   - if <[invited].is_online>:
@@ -414,7 +414,7 @@ decline_guild_invitation:
   type: task
   definitions: player|guild
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - yaml id:guild.<[guild]> set pending_invitations:<-:<[invited]>
   - yaml id:player.<player.uuid> set pending_guild_invitation:!
   - narrate "<&6>You have declined this guilds invitation."
@@ -425,7 +425,7 @@ accept_guild_invitation:
   type: task
   definitions: player|guild
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - yaml id:guild.<[guild]> set members:|:<[player]>
   - yaml id:player.<player.uuid> set pending_guild_invitation:!
   - flag <[player]> guild:<[guild]>
@@ -437,7 +437,7 @@ create_guild:
   type: task
   definitions: guild|guild_name|guild_leader|guild_book
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - yaml create id:guild.<[guild]>
   - flag <player> guild:<[guild]>
   - flag <player> guild_rank:leader
@@ -467,7 +467,7 @@ disband_guild:
   type: task
   definitions: guild
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - if <[guild]||null> == null:
     - stop
   - foreach <yaml[guild.<[guild]>].list_keys[flags]||<list[]>> as:flag:
@@ -486,7 +486,7 @@ quietly_disband_guild:
   type: task
   definitions: guild
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - if <[guild]||null> == null:
     - stop
   - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:flag:
@@ -504,7 +504,7 @@ place_guild_flag:
   type: task
   definitions: guild|location|player
   script:
-  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
+  - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[GUILD.].to[]>
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<l@0.5,0,0.5,<[location].world.name>>]> save:indicator
   - note <inventory[guild_flag_gui]> as:flag_<[guild]>_<[location]>
   - yaml id:guild.<[guild]> set flags.<[location]>.entity:<entry[indicator].spawned_entity.uuid>
