@@ -5,7 +5,8 @@
 		"layer0": "item/rabbit_hide"
 	},
 	"overrides": [
-		{ "predicate": { "custom_model_data": 0}, "model": "item/custom/wings/green_wings" }
+		{ "predicate": { "custom_model_data": 0}, "model": "item/custom/wings/green_wings" },
+		{ "predicate": { "custom_model_data": 1}, "model": "item/custom/wings/lucid_wings" }
 	]
 }
 
