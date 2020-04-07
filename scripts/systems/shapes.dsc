@@ -217,8 +217,10 @@ cosmetic_command:
           - define offset:<player.location.sub[<[center]>]>
           - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
           - wait 1t
-      - remove <[left_wing]>
-      - remove <[right_wing]>
+      - if <[left_wing]||null> != null:
+        - remove <[left_wing]>
+      - if <[right_wing]||null> != null:
+        - remove <[right_wing]>
     - if <context.args.get[1]> == sphere2:
       - define layers:<proc[define_sphere2].context[<player.location.above>|1.5|0.3]>
       - define center:<player.location>
