@@ -1,4 +1,4 @@
-ability_group_teleport:
+ability_teleport:
   type: command
   name: teleport
   ability_tree: Test
