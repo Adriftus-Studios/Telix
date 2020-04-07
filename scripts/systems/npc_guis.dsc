@@ -6,8 +6,7 @@ guild_master_assignment:
     on assignment:
     - trigger name:click state:true
     on click:
-    - define "words:<&a><&lb><&6>Guild Master<&a><&rb><&6> Make sure to watch your guild funds!|<&a><&lb><&6>Guild Master<&a><&rb><&6> When I was a young lad, I tried to start a guild too.|<&a><&lb><&6>Guild Master<&a><&rb><&6> You look like a person of character!|<&a><&lb><&6>Guild Master<&a><&rb><&6> HAHA! So, you want to start a guild, eh?"
-    - narrate "<[words].random>"
+    - narrate "<list.[<&a><&lb><&6>Guild Master<&a><&rb><&6> Make sure to watch your guild funds!|<&a><&lb><&6>Guild Master<&a><&rb><&6> When I was a young lad, I tried to start a guild too.|<&a><&lb><&6>Guild Master<&a><&rb><&6> You look like a person of character!|<&a><&lb><&6>Guild Master<&a><&rb><&6> HAHA! So, you want to start a guild, eh?].random>"
   interact scripts:
   - 1 guild_master_interact_handler
 
