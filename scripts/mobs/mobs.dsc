@@ -101,20 +101,20 @@ boss_bossbar_handler:
   type: task
   definitions: entity
   script:
-  - bossbar <[entity].uuid> "title:<[entity].custom_name>" color:green style:SOLID
-  - define uuid:<[entity].uuid>
-  - while true:
-    - if <[entity].health||-1> < 0:
-      - bossbar remove <[uuid]>
-      - while stop
-    - bossbar remove <[entity].uuid> players:<server.list_online_players.include[<[entity].location.find.players.within[50]>].deduplicate>
-    - if <[entity].health||-1> < 20:
-      - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:RED players:<[entity].location.find.players.within[50]>
-    - else if <[entity].health||-1> < 50:
-      - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:YELLOW players:<[entity].location.find.players.within[50]>
-    - else:
-      - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:GREEN players:<[entity].location.find.players.within[50]>
-    - wait 1t
+    - bossbar <[entity].uuid> "title:<&l><[entity].custom_name>" color:green style:SOLID
+    - define uuid:<[entity].uuid>
+    - while true:
+      - if <[entity].health||-1> < 0:
+        - bossbar remove <[uuid]>
+        - while stop
+      - bossbar remove <[entity].uuid> players:<server.list_online_players.include[<[entity].location.find.players.within[50]>].deduplicate>
+      - if <[entity].health||-1> < 20:
+        - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:RED players:<[entity].location.find.players.within[50]>
+      - else if <[entity].health||-1> < 50:
+        - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:YELLOW players:<[entity].location.find.players.within[50]>
+      - else:
+        - bossbar update <[entity].uuid> progress:<[entity].health.div[<[entity].health_max>]> color:GREEN players:<[entity].location.find.players.within[50]>
+      - wait 1t
 
 spawn_custom_mob:
   type: task
