@@ -1,0 +1,22 @@
+{
+"textures": {
+    "texture": "guis/custom/invisible_item"
+},
+"elements": [ 
+{
+    "from": [ -16, -16, 16 ],
+    "to": [ 32, 32, 16 ],
+    "faces": {
+        "north": { "uv": [ 11, 16, 0, 5 ], "rotation": 180, "texture": "#texture" },
+        "south": { "uv": [ 0, 5, 11, 16 ], "texture": "#texture" }
+    }
+}
+],
+"display": {
+    "gui": {
+        "rotation": [ 0, 0, 0 ],
+        "translation": [ 0, 0, -200 ],
+        "scale": [ 0.1, 0.1, 0.1 ]
+    }
+}
+}

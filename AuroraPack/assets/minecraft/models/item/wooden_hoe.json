@@ -5,11 +5,11 @@
 		"layer0": "item/wooden_hoe"
 	},
 	"overrides": [
-		{ "predicate": { "custom_model_data": -1}, "model": "item/swag/top_hat" },
+		{"predicate": { "custom_model_data": -1}, "model": "item/swag/top_hat"},
     {"predicate": { "custom_model_data": 0}, "model": "item/wooden_hoe"},
     {"predicate": { "custom_model_data": 1}, "model": "item/custom/mage/cleric_basic"},
     {"predicate": { "custom_model_data": 2}, "model": "item/custom/mage/basic_staff"},
-    {"predicate": { "custom_model_data": 5}, "model": "item/custom/mage/wizard_staff"},
+    {"predicate": { "custom_model_data": 5}, "model": "item/custom/mage/wizard_staff"}
 	]
 }
 

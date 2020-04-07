@@ -1,0 +1,12 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "item/music_disc_13"
+	},
+	"overrides": [
+		{ "predicate": { "custom_model_data": 1}, "model": "item/custom/machines/slime_jar" },
+		{ "predicate": { "custom_model_data": 2}, "model": "item/custom/machines/slime_jar_jump" }
+	]
+}
+
+
