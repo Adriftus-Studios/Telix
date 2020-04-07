@@ -198,7 +198,6 @@ recipe_book_events:
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
       - if <context.raw_slot> != -998 && <context.raw_slot> <= <player.open_inventory.size> && <context.item.material.name> != air:
-        - narrate <context.raw_slot>
         - if <player.open_inventory.script_name> == recipe_book_inventory:
           - if <context.item.nbt[category]||null> != null:
             - flag <player> context:<context.item.nbt[category]>
