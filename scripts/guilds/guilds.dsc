@@ -26,6 +26,13 @@ guild_settings:
 
 guild_command:
   type: command
+  name: fixguilds
+  permission: fixguilds
+  script:
+  - narrate TODO
+
+guild_command:
+  type: command
   name: guild
   description: guild
   usage: /guild
