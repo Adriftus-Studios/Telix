@@ -608,7 +608,6 @@ build_item:
   type: task
   definitions: item
   script:
-  - stop
   - if <[item].material.name||air> != air:
     - define old_item:<[item]>
     - if <[item].script||null> == null:
@@ -640,6 +639,17 @@ build_item:
         - if <[item].script.name> == custom_player_head:
           - adjust def:item display_name:<&r><&e><[old_item].skin.as_player.name>'s<&sp>Head
     - if <[item].script.yaml_key[category]||null> != null:
+      - if <[item].script.yaml_key[category]> == ability:
+        - define ability:<[old_item].nbt[skillname]>
+        - define "lore:<&e>-------------------------"
+        - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
+        - define "lore:|:<&a>Ability Type<&co> <script[ability_<[ability]>].yaml_key[ability_type].to_titlecase>"
+        - if <script[ability_<[ability]>].yaml_key[ability_type]> == command:
+          - define "lore:|:<&a>Usage<&co> <&e>/<script[ability_<[ability]>].yaml_key[command_usage]>"
+        - else if <script[ability_<[ability]>].yaml_key[usage]||null> != null:
+          - define "lore:|:<&a>Usage<&co> <&e><script[ability_<[ability]>].yaml_key[usage]>"
+        - define "lore:|:<&c>Power Cost<&co> <script[ability_<[ability]>].yaml_key[power_cost]>"
+        - define "lore:|:<&e>-------------------------"
       - if <[item].script.yaml_key[category]> == fishing_rod:
         - define lore:|:<&6><&l><&m>-------------<&r><&6><&sp><&sp>Fishing<&sp>Rod<&sp><&sp><&l><&m>-------------
         - define lore:|:<[item].script.yaml_key[lore].as_list.parse[parsed]||<list[]>>
