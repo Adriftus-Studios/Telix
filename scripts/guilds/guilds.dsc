@@ -705,6 +705,7 @@ guild_events:
         - stop
       - wait 1t
       - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.book>
+      - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[air]>
 
 guild_flag_health_icon:
   type: item
