@@ -310,6 +310,8 @@ edit_guild_rank_permission:
   definitions: guild|rank|permission|value
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[guild.].with[]>
+  - if <yaml[guild.<[guild]>].read[leader].as_player.flag[guild_rank]> == <[rank]>:
+    - stop
   - if <list[add|remove].contains[<[value]>]>:
     - if <[value]> == remove:
       - yaml id:guild.<[guild]> set ranks.<[rank]>.permissions:<-:<[permission]>
