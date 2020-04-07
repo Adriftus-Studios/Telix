@@ -104,7 +104,7 @@ boss_dagon_aqua_burst_easy:
       - define point:<[sphere].random>
       - define offset:<[entity].location.sub[<[center]>]>
       - define points:<proc[define_curve1].context[<[point].add[<[offset]>]>|<[entity].location.add[<[offset]>]>|3|0|0.2]>
-      - run boss_dagon_aqua_burst_warmup_animation def:<[points].escaped>
+      - run boss_dagon_aqua_burst_easy_warmup_animation def:<[points].escaped>
     - wait 2t
   - wait 1s
   script:
@@ -116,10 +116,10 @@ boss_dagon_aqua_burst_easy:
         - stop
       - define point:<[sphere].random>
       - define offset:<[entity].location.sub[<[center]>]>
-      - run boss_dagon_aqua_burst_animation def:<[entity].location>|<[offset].add[<[point]>]>|<[entity]>
+      - run boss_dagon_aqua_burst_easy_animation def:<[entity].location>|<[offset].add[<[point]>]>|<[entity]>
     - wait 2t
 
-boss_dagon_aqua_burst_warmup_animation:
+boss_dagon_aqua_burst_easy_warmup_animation:
   type: task
   definitions: points
   script:
@@ -127,7 +127,7 @@ boss_dagon_aqua_burst_warmup_animation:
     - playeffect spell_witch at:<[point]> quantity:3 offset:0 visibility:100
     - wait 2t
 
-boss_dagon_aqua_burst_animation:
+boss_dagon_aqua_burst_easy_animation:
   type: task
   definitions: start|end|entity
   script:
