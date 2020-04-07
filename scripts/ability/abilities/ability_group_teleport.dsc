@@ -14,8 +14,8 @@ ability_group_teleport:
     - inject abilities_check
     - inject abilities_cost
     - define location:<player.location>
-    - define layers:<proc[define_sphere2].context[<[location]>|2.5|0.3]>
-    - define sphere:<proc[define_sphere1].context[<[location]>|2.5|0.3]>
+    - define layers:<proc[define_sphere2].context[<[location].above>|2.5|0.3]>
+    - define sphere:<proc[define_sphere1].context[<[location].above>|2.5|0.3]>
     - repeat 8:
       - repeat <[layers].size>:
         - define points:<[layers].get[<[value]>].unescaped>
