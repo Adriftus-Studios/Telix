@@ -500,7 +500,6 @@ quietly_disband_guild:
   - yaml unload id:guild.<[guild]>
   - adjust server delete_file:data/globalData/guilds/<server.flag[server.name]>/<[guild]>.yml
 
-
 place_guild_flag:
   type: task
   definitions: guild|location|player
