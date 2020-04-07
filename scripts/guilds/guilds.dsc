@@ -101,7 +101,7 @@ guild_command:
       - if <player.flag[guild]||null> != null:
         - inventory open d:my_guild_gui
       - else:
-        - inventory open d:new_guild_gui
+        - narrate "<&b>Talk to the guild master at spawn to create a guild."
     - else:
       - if <player.flag[guild]||null> == null:
         - choose <context.args.get[1]>:

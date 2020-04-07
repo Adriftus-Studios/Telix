@@ -518,7 +518,7 @@ system_override:
             - if <player.has_flag[guild]>:
               - inventory open d:my_guild_gui
             - else:
-              - inventory open d:new_guild_gui
+              - narrate "<&b>Talk to the guild master at spawn to create a guild."
             - stop
           - if <inventory[<[slotmap].map_get[<context.raw_slot>]||null>]||null> != null:
             - inventory open d:<inventory[<[slotmap].map_get[<context.raw_slot>]>]>
