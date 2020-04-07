@@ -2,14 +2,14 @@
 	"__comment": "/minecraft:give @p minecraft:stick{CustomModelData:1}",
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "item/stick"
+	  "layer0": "item/stick"
 	},
 	"overrides": [
 		{ "predicate": { "custom_model_data": 1}, "model": "item/snowball_game/1" },
 		{ "predicate": { "custom_model_data": 2}, "model": "item/snowball_game/2" },
 		{ "predicate": { "custom_model_data": 3}, "model": "item/snowball_game/3" },
 		{ "predicate": { "custom_model_data": 4}, "model": "item/snowball_game/4" },
-		{ "predicate": { "custom_model_data": 10000002}, "model": "item/custom/machines/grapple" }
+		{ "predicate": { "custom_model_data": 5}, "model": "item/custom/machines/grapple" }
 	]
 }
 

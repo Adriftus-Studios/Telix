@@ -1,5 +1,5 @@
 {
-	"__comment": "/give @s minecraft:sponge{CustomModelData:1000000[1-7]}",
+	"__comment": "/give @s minecraft:sponge{CustomModelData:1}",
 	"parent": "block/sponge",
 	"textures": {
 		"layer0": "item/sponge"

@@ -1,10 +1,21 @@
 {
-	"__comment": "/give @s minecraft:iron_nugget{CustomModelData:1}", 
+	"__comment": "/minecraft:give @p minecraft:iron_nugget{CustomModelData:1}", 
 	"parent": "item/handheld",
 	"textures": {
 		"layer0": "item/iron_nugget"
 	},
 	"overrides": [
+		{ "predicate": { "custom_model_data": -15}, "model": "item/abilities/-15" },
+		{ "predicate": { "custom_model_data": -14}, "model": "item/abilities/-14" },
+		{ "predicate": { "custom_model_data": -13}, "model": "item/abilities/-13" },
+		{ "predicate": { "custom_model_data": -12}, "model": "item/abilities/-12" },
+		{ "predicate": { "custom_model_data": -11}, "model": "item/abilities/-11" },
+		{ "predicate": { "custom_model_data": -10}, "model": "item/abilities/-10" },
+		{ "predicate": { "custom_model_data": -9}, "model": "item/abilities/-9" },
+		{ "predicate": { "custom_model_data": -8}, "model": "item/abilities/-8" },
+		{ "predicate": { "custom_model_data": -7}, "model": "item/abilities/-7" },
+		{ "predicate": { "custom_model_data": -6}, "model": "item/abilities/-6" },
+		{ "predicate": { "custom_model_data": -5}, "model": "item/abilities/-5" },
 		{ "predicate": { "custom_model_data": -4}, "model": "item/abilities/-4" },
 		{ "predicate": { "custom_model_data": -3}, "model": "item/abilities/-3" },
 		{ "predicate": { "custom_model_data": -2}, "model": "item/abilities/0" },
@@ -43,7 +54,9 @@
 		{ "predicate": { "custom_model_data": 31}, "model": "item/stats/31" },
 		{ "predicate": { "custom_model_data": 32}, "model": "item/stats/32" },
 		{ "predicate": { "custom_model_data": 33}, "model": "item/stats/33" },
-		{ "predicate": { "custom_model_data": 34},"model": "item/icons/scales" }
+		{ "predicate": { "custom_model_data": 34},"model": "item/icons/scales" },
+		{ "predicate": { "custom_model_data": 35},"model": "item/icons/guild_leave" },
+		{ "predicate": { "custom_model_data": 36},"model": "item/icons/settings" }
 	]
 }
 

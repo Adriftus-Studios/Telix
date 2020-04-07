@@ -15,7 +15,7 @@
 		{ "predicate": { "custom_model_data": -4}, "model": "item/custom/drops/mnote" },
 		{ "predicate": { "custom_model_data": -3}, "model": "item/custom/drops/cnote" },
 		{ "predicate": { "custom_model_data": -2}, "model": "item/custom/drops/inote" },
-		{ "predicate": { "custom_model_data": -1}, "model": "guis/invis_item" },
+		{ "predicate": { "custom_model_data": -1}, "model": "guis/invisible_item" },
 		{ "predicate": { "custom_model_data": 0}, "model": "item/gold_nugget" },
 		{ "predicate": { "custom_model_data": 1}, "model": "guis/template_bottom" },
 		{ "predicate": { "custom_model_data": 2}, "model": "guis/template_top" },
@@ -34,7 +34,27 @@
 		{ "predicate": { "custom_model_data": 15}, "model": "guis/alchemy_bottom" },
 		{ "predicate": { "custom_model_data": 16}, "model": "guis/alchemy_top" },
 		{ "predicate": { "custom_model_data": 17}, "model": "guis/statues_bottom" },
-		{ "predicate": { "custom_model_data": 18}, "model": "guis/statues_top" }
+		{ "predicate": { "custom_model_data": 18}, "model": "guis/statues_top" },
+		{ "predicate": { "custom_model_data": 19}, "model": "guis/craft_book_bottom" },
+		{ "predicate": { "custom_model_data": 20}, "model": "guis/craft_book_top" },
+		{ "predicate": { "custom_model_data": 21}, "model": "guis/guilds_bottom" },
+		{ "predicate": { "custom_model_data": 22}, "model": "guis/guilds_top" },
+		{ "predicate": { "custom_model_data": 23}, "model": "guis/my_guild_bottom" },
+		{ "predicate": { "custom_model_data": 24}, "model": "guis/my_guild_top" },
+		{ "predicate": { "custom_model_data": 25}, "model": "guis/members_guild_bottom" },
+		{ "predicate": { "custom_model_data": 26}, "model": "guis/members_guild_top" },
+		{ "predicate": { "custom_model_data": 27}, "model": "guis/bank_guild_bottom" },
+		{ "predicate": { "custom_model_data": 28}, "model": "guis/bank_guild_top" },
+		{ "predicate": { "custom_model_data": 29}, "model": "guis/flag_guild_bottom" },
+		{ "predicate": { "custom_model_data": 30}, "model": "guis/flag_guild_top" },
+		{ "predicate": { "custom_model_data": 31}, "model": "guis/all_guilds_bottom" },
+		{ "predicate": { "custom_model_data": 32}, "model": "guis/all_guilds_top" },
+		{ "predicate": { "custom_model_data": 33}, "model": "guis/guilds_confirm_bottom" },
+		{ "predicate": { "custom_model_data": 34}, "model": "guis/guilds_confirm_top" },
+		{ "predicate": { "custom_model_data": 35}, "model": "guis/guild_info_bottom" },
+		{ "predicate": { "custom_model_data": 36}, "model": "guis/guild_info_top" },
+		{ "predicate": { "custom_model_data": 37}, "model": "guis/guild_settings_bottom" },
+		{ "predicate": { "custom_model_data": 38}, "model": "guis/guild_settings_top" }
 	]
 }
 
