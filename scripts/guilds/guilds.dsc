@@ -445,7 +445,7 @@ create_guild:
   - yaml id:guild.<[guild]> set name:<[guild_name]>
   - yaml id:guild.<[guild]> set leader:<[guild_leader]>
   - yaml id:guild.<[guild]> set book:<[guild_book]>
-  - yaml id:guild.<[guild]> set description:<[guild_book].book_pages>
+  - yaml id:guild.<[guild]> set description:<[guild_book].book_pages||>
   - yaml id:guild.<[guild]> set flag:i@white_banner
   - yaml id:guild.<[guild]> set members:|:<player>
   - foreach <script[guild_settings].yaml_key[rank_permissions]> as:perm:
@@ -1277,7 +1277,7 @@ guild_gui_events:
     - define lore:!
     - if <[guild]> != <player.flag[guild]>:
       - define lore:|:<&a>Click<&sp>to<&sp>request<&sp>an<&sp>alliance.
-    - if <yaml[guild.<[guild]>].read[relations.ally].is_empty>:
+    - if <yaml[guild.<[guild]>].read[relations.ally].is_empty||true>:
       - define lore:|:None
     - else:
       - foreach <yaml[guild.<[guild]>].read[relations.ally]||<list[]>>:
@@ -1289,7 +1289,7 @@ guild_gui_events:
     - define lore:!
     - if <[guild]> != <player.flag[guild]>:
       - define lore:|:<&b>Click<&sp>to<&sp>request<&sp>a<&sp>truce.
-    - if <yaml[guild.<[guild]>].read[relations.truce].is_empty>:
+    - if <yaml[guild.<[guild]>].read[relations.truce].is_empty||true>:
       - define lore:|:None
     - else:
       - foreach <yaml[guild.<[guild]>].read[relations.truce]||<list[]>>:
@@ -1301,7 +1301,7 @@ guild_gui_events:
     - define lore:!
     - if <[guild]> != <player.flag[guild]>:
       - define lore:|:<&c>Click<&sp>to<&sp>declare<&sp>war.
-    - if <yaml[guild.<[guild]>].read[relations.enemy].is_empty>:
+    - if <yaml[guild.<[guild]>].read[relations.enemy].is_empty||true>:
       - define lore:|:None
     - else:
       - foreach <yaml[guild.<[guild]>].read[relations.enemy]||<list[]>>:
@@ -1314,8 +1314,8 @@ guild_gui_events:
     - if <[guild]> == <player.flag[guild]>:
       - define lore:|:<&b>Your<&sp>Permissions:
       - foreach <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
-      - foreach <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
-        - define lore:|:<&a><[perm].replace[_].with[<&sp>].to_titlecase>
+        - foreach <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
+          - define lore:|:<&a><[perm].replace[_].with[<&sp>].to_titlecase>
       - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[skull_skin=<yaml[guild.<[guild]>].read[leader].as_player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
     - else:
       - inventory set d:<context.inventory> slot:13 o:<item[air]>
