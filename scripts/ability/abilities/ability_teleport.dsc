@@ -13,7 +13,7 @@ ability_teleport:
     - if !<player.has_flag[teleport_cooldown]>:
       - inject abilities_check
       - inject abilities_cost
-      - define location:<player.location>
+      - define location:<player.location.with_pitch[90]>
       - define destination:<location[spawn]>
       - repeat 36:
         - define item:<player.inventory.slot[<[value]>]>
@@ -28,8 +28,9 @@ ability_teleport:
           - adjust def:item nbt:teleport_charges/<[item].nbt[teleport_charges].sub[1]>
         - inject build_item
         - inventory set d:<player.inventory> slot:<[slot]> o:<[item]>
-      - define layers:<proc[define_sphere2].context[<[location].above>|1|0.3]>
       - define sphere:<proc[define_sphere1].context[<[location].above>|1|0.3]>
+      - repeat 10:
+        - define layers:|:<proc[define_circle].context[<[location].below[<[value].mul[0.2].sub[1]>]>|1].escaped>
       - repeat 5:
         - repeat <[layers].size>:
           - define points:<[layers].get[<[value]>].unescaped>
