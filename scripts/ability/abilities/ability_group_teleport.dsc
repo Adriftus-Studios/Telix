@@ -22,7 +22,7 @@ ability_group_teleport:
         - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
         - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
         - wait 1t
-    - playeffect spell_witch at:<[sphere]> quantity:3 offset:0 visibility:100
+    - playeffect spell_witch at:<[sphere]> quantity:2 offset:0.1 visibility:100
     - foreach <[location].find.players.within[2.5]> as:player:
       - teleport <[player]> <location[spawn]>
     # teleport inside players
