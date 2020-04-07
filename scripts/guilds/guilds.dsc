@@ -1070,6 +1070,10 @@ my_guild_gui:
 rename_guild_btn:
   type: item
   material: book_and_quill
+  display name: <&f>Change Guild Name or Description
+  lore:
+  - "<&b>To change your guild's name or description,"
+  - "<&b>you must go to the guild master at spawn."
 
 guild_settings_gui:
   type: inventory

@@ -5,40 +5,25 @@ ability_group_teleport:
   ability_type: active
   range: 20
   points_to_unlock: 1
-  power_cost: 1
-  description: Group Teleport
+  power_cost: 20
+  description: Teleports all players within the space bubble to spawn.
   color: <co@91,225,245>
   icon:
-    material: iron_nugget
-    custom_model_data: 1001
+    material: nether_star
+    custom_model_data: 0
   script:
-    - define location:<player.location.with_pitch[-90]>
-    - run animation_group_teleport1 def:<[location]>
-    - wait 40t
-    - run animation_group_teleport2 def:<[location]>
-    - wait 100t
+    - inject abilities_check
+    - inject abilities_cost
+    - define location:<player.location>
+    - define layers:<proc[define_sphere2].context[<[location]>|1.5|0.3]>
+    - define sphere:<proc[define_sphere1].context[<[location]>|1.5|0.3]>
+    - repeat 8:
+      - repeat <[layers].size>:
+        - define points:<[layers].get[<[value]>].unescaped>
+        - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
+        - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@159,152,216>
+        - wait 1t
+    - playeffect spell_witch at:<[sphere]> quantity:3 offset:0 visibility:100
+    - foreach <[location].find.players.within[2.5]> as:player:
+      - teleport <[player]> <location[spawn]>
     # teleport inside players
-
-animation_group_teleport1:
-  type: task
-  definitions: location
-  script:
-  - repeat 140:
-    - define points1:<proc[define_star].context[<[location]>|3|<[value].mul[2]>|5]>
-    - define points2:<proc[define_circle].context[<[location]>|3]>
-    - playeffect redstone at:<[points1]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
-    - playeffect redstone at:<[points2]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
-    - wait 1t
-
-animation_group_teleport2:
-  type: task
-  definitions: location
-  script:
-  - repeat 100:
-    - define rotation:<[value]>
-    - repeat 4:
-      - define offset:<proc[find_offset].context[3|<[rotation].mul[2].add[<[value].mul[90]>]>]>
-      - define point1:<[location].up[<[offset].get[1]>].right[<[offset].get[2]>]>
-      - define curve:<proc[define_curve1].context[<[point1]>|<[location].above[5]>|1|90|0.4]>
-      - playeffect redstone at:<[curve]> offset:0 visibility:300 quantity:1 special_data:1|<co@91,225,245>
-    - wait 1t
