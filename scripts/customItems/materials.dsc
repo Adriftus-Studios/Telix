@@ -972,7 +972,6 @@ custom_mundane_basic_nodestone:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_aluminum_nugget|custom_aluminum_ingot|custom_aluminum_nugget
       - custom_aluminum_ingot|custom_silver_ingot|custom_aluminum_ingot
