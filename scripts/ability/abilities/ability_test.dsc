@@ -18,7 +18,7 @@ ability_beam_spline:
       - define start:<[points].get[<[num]>]>
       - define end:<[points].get[<[num].add[<[points].size.div[2].round>]>]>
       - narrate <[num]>
-      - define curve:<proc[define_curve1].context[<[start]>|<[end]>|6|0|0.2]>
+      - define curve:<proc[define_curve1].context[<[start]>|<[end]>|9|0|0.2]>
       - foreach <[curve]> as:point:
         - playeffect spell_witch at:<[point]> quantity:1 offset:0 visibility:100
         - wait 1t
