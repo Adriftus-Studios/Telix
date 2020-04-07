@@ -516,7 +516,6 @@ place_guild_flag:
   - yaml id:guild.<[guild]> set flags.<[location]>.health:5000
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&6><[player].name> has placed a guild flag."
-  - inventory add d:<inventory[guild_<[guild]>_flags]> o:<item[guild_flag].with[display_name=flag<yaml[guild.<[guild]>].list_keys[flags].size>]>
   - inventory set d:<inventory[flag_<[guild]>_<[location]>]> slot:13 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<[guild]>].read[flags.<[location]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<[guild]>].read[flags.<[location]>.health]>]>
   - run update_guild_flags_gui def:<[guild]>
 
@@ -541,7 +540,7 @@ update_guild_flags_gui:
   definitions: guild
   script:
   - note <inventory[guild_flags_gui]> as:guild_<[guild]>_flags
-  - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:location:
+  - foreach <yaml[guild.<[guild]>].list_keys[flags]||<list[]>> as:location:
     - define lore:<&c><&chr[2764]><&sp><yaml[guild.<player.flag[guild]>].read[flags.<[location]>.health]>
     - define lore:|:X<&sp><[location].as_location.x.round>
     - define lore:|:Y<&sp><[location].as_location.y.round>
