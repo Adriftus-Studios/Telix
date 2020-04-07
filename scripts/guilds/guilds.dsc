@@ -507,6 +507,7 @@ place_guild_flag:
   definitions: guild|location|player
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[guild.].with[]>
+  - narrate flag_<[guild]>_<[location]>
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<location[0.5,0,0.5,<[location].world.name>]>]> save:indicator
   - note <inventory[guild_flag_gui]> as:flag_<[guild]>_<[location]>
   - yaml id:guild.<[guild]> set flags.<[location]>.entity:<entry[indicator].spawned_entity.uuid>
@@ -687,6 +688,7 @@ guild_events:
           - else:
             - narrate "<&c>You cannot attack your own guild's flag."
     on player right clicks block:
+    - narrate flag_<player.flag[guild]>_<context.location>
     - if <server.list_notables[inventories].parse[script_name].contains[<inventory[flag_<player.flag[guild]>_<context.location>]>]||false>:
       - if <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions].contains[manage_flags]>:
         - inventory open d:<inventory[flag_<player.flag[guild]>_<context.location>]>
