@@ -23,7 +23,10 @@ ability_group_teleport:
       - if <[slot]||null> != null:
         - define item:<player.inventory.slot[<[slot]>]>
         - define destination:<[item].nbt[saved_location].as_location>
-        - adjust def:item nbt:teleport_charges/<[item].nbt[teleport_charges].sub[1]>
+        - if <[item].nbt[teleport_charges].sub[1]> < 1:
+          - define item:<item[custom_depleted_nodestone]>
+        - else:
+          - adjust def:item nbt:teleport_charges/<[item].nbt[teleport_charges].sub[1]>
         - inject build_item
         - inventory set d:<player.inventory> slot:<[slot]> o:<[item]>
       - define layers:<proc[define_sphere2].context[<[location].above>|2.5|0.3]>

@@ -991,3 +991,8 @@ custom_charged_basic_nodestone:
       output_quantity: 1
       input: custom_mundane_basic_nodestone/1|custom_diamond/2
       cook_time: 30s
+custom_depleted_nodestone:
+  material: obsidian
+  display name: <&7>Depleted Nodestone
+  weight: '5'
+  type: item
