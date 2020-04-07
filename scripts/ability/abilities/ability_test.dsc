@@ -17,6 +17,7 @@ ability_beam_spline:
       - define num:<util.random.int[1].to[<[points].size.div[2]>]>
       - define start:<[points].get[<[num]>]>
       - define end:<[points].get[<[num].add[<[points].size.div[2]>]>]>
+      - narrate <[points].size.div[2]>
       - narrate <[num]>
       - narrate <[start]>
       - narrate <[end]>
