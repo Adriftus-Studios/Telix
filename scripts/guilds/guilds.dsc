@@ -30,7 +30,7 @@ fixguilds_command:
   permission: fixguilds
   script:
   - foreach <yaml.list.filter[starts_with[guild.]]||<list[]>> as:guild:
-    - if <[guild]> != null && <yaml[<[guild]>].read[leader].as_player.flag[guild]||null> == <[guild].replace[guild.].with[]>:
+    - if <[guild]> == null || <yaml[<[guild]>].read[leader].as_player.flag[guild]||null> != <[guild].replace[guild.].with[]>:
       - announce "<&c>[FixerUpper] Found broken values in guild '<yaml[<[guild]>].read[name]>'. Resolving now."
 
 guild_command:
