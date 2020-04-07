@@ -18,11 +18,14 @@ ability_group_teleport:
       - define destination:<location[spawn]>
       - repeat 36:
         - define item:<player.inventory.slot[<[value]>]>
-        - if <[item].nbt[saved_location]||null> != null:
+        - if <[item].nbt[saved_location]||null> != null && <[item].nbt[teleport_charges]> > 0:
           - define slot:<[value]>
       - if <[slot]||null> != null:
-        - define destination:<player.inventory.slot[<[slot]>].nbt[saved_location].as_location>
-        - inventory adjust d:<player.inventory> slot:<[slot]> quantity:<player.inventory.slot[<[slot]>].quantity.sub[1]>
+        - define item:<player.inventory.slot[<[slot]>]>
+        - define destination:<[item].nbt[saved_location].as_location>
+        - adjust def:item nbt:teleport_charges/<[item].nbt[teleport_charges].sub[1]>
+        - inject build_item
+        - inventory set d:<player.inventory> slot:<[slot]> o:<[item]>
       - define layers:<proc[define_sphere2].context[<[location].above>|2.5|0.3]>
       - define sphere:<proc[define_sphere1].context[<[location].above>|2.5|0.3]>
       - repeat 5:
