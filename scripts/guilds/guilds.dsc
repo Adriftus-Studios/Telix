@@ -1121,7 +1121,7 @@ guild_gui_events:
       - define guild:<yaml.list.filter[starts_with[guild.]].get[<[value].add[<[page].mul[35].sub[35]>]>]||null>
       - define value:<[value].add[1]>
       - if <[guild]> != null && <yaml[<[guild]>].read[leader].as_player.flag[guild]||null> == <[guild].replace[guild.].with[]>:
-        - inventory add d:<context.inventory> o:<item[white_banner].with[display_name=<&r><&b><[guild].replace[guild.].with[].to_titlecase>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
+        - inventory add d:<context.inventory> o:<item[white_banner].with[display_name=<&r><&b><yaml[<[guild]>].read[name]>;nbt=guild/<[guild]>;lore=<list[<&b>Leader:<&sp><&a><yaml[<[guild]>].read[leader].as_player.name>|<&b>Members:<&sp><&a><yaml[<[guild]>].read[members].size>|<&b>Flags:<&sp><&a><yaml[<[guild]>].list_keys[flags].size||0>]>]||<item[air]>>
       - else:
         - announce to_console "broken guild: <[guild]>"
         - announce to_flagged:debug "<&c>broken guild: <[guild]>"
