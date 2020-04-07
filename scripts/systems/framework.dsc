@@ -528,8 +528,7 @@ system_override:
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory].parsed>
     on player clicks block:
       - if <context.item.script.yaml_key[category]||null> == nodestone && <player.is_sneaking>:
-        - inventory adjust d:<player.inventory> slot:<player.held_item_slot> nbt:saved_location/<player.location.center>
-        - define item:<context.item>
+        - define item:<context.item.with[nbt=saved_location/<player.location.center>]>
         - inject build_item
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
 
