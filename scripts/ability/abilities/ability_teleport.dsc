@@ -29,8 +29,8 @@ ability_teleport:
         - inject build_item
         - inventory set d:<player.inventory> slot:<[slot]> o:<[item]>
       - define sphere:<proc[define_sphere1].context[<[location].above>|1|0.3]>
-      - repeat 10:
-        - define layers:|:<proc[define_circle].context[<[location].below[<[value].mul[0.2].sub[1]>]>|1].escaped>
+      - repeat 20:
+        - define layers:|:<proc[define_circle].context[<[location].below[<[value].mul[0.1]>]>|1].escaped>
       - repeat 5:
         - repeat <[layers].size>:
           - define points:<[layers].get[<[value]>].unescaped>
