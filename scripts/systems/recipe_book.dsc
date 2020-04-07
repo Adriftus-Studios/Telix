@@ -259,8 +259,7 @@ show_recipe:
       - inventory set d:<[inv]> slot:25 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.output_quantity]>]>
       - inventory set d:<[inv]> slot:21 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.main_ingredient].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.main_ingredient].split[/].get[2]>]||<item[air]>>
       - inventory set d:<[inv]> slot:30 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.serving_dish].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.serving_dish].split[/].get[2]>]||<item[air]>>
-      - inventory set d:<[inv]> slot:20 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[|].get[1].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[|].get[1].split[/].get[2]>]||<item[air]>>
-      - inventory set d:<[inv]> slot:20 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[|].get[2].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[|].get[2].split[/].get[2]>]||<item[air]>>
+      - inventory set d:<[inv]> slot:20 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[/].get[2]>]||<item[air]>>
     - if <[type]> == notes:
       - define inv:<inventory[recipe_book_note]>
       - inventory open d:<[inv]>
