@@ -10,11 +10,11 @@ ability_beam_spline:
     material: iron_nugget
     custom_model_data: 1000
   script:
-    - inject abilities_check
-    - inject abilities_cost
+    #- inject abilities_check
+    #- inject abilities_cost
     - define points:<proc[define_circle].context[<player.location.forward[1]>|2]>
-    - define curve:<proc[define_curve1].context[<[points].random>|<[points].random>|3|<util.random.int[0].to[360]>|0.2]>
     - repeat 3:
+      - define curve:<proc[define_curve1].context[<[points].random>|<[points].random>|3|<util.random.int[0].to[360]>|0.2]>
       - foreach <[curve]> as:point:
-        - playeffect spell_witch at:<[point]> quantity:5 offset:0 visibility:100
+        - playeffect spell_witch at:<[point]> quantity:1 offset:0 visibility:100
         - wait 1t
