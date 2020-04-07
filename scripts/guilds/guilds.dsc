@@ -721,7 +721,7 @@ guild_flag_health_icon:
   material: snow
 
 new_guild_book:
-  type: book
+  type: item
   material: writable_book
   display name: <&7>New Guild Book
   lore:
