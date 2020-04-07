@@ -507,7 +507,7 @@ place_guild_flag:
   definitions: guild|location|player
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[guild.].with[]>
-  - narrate flag_<[guild]>_<[location]>
+  - define location:<[location].as_location>
   - spawn guild_flag_indicator[custom_name=<&6><yaml[guild.<[guild]>].read[name]>] <[location].add[<location[0.5,0,0.5,<[location].world.name>]>]> save:indicator
   - note <inventory[guild_flag_gui]> as:flag_<[guild]>_<[location]>
   - yaml id:guild.<[guild]> set flags.<[location]>.entity:<entry[indicator].spawned_entity.uuid>
