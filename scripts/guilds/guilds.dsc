@@ -353,7 +353,7 @@ delete_guild_rank:
   definitions: guild|rank
   script:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[guild.].with[]>
-  - if <yaml[guild.<[guild]>].read[default_rank]> == <[rank]>:
+  - if <yaml[guild.<[guild]>].read[default_rank]> == <[rank]> || <yaml[guild.<[guild]>].read[leader].as_player.flag[guild_rank]> == <[rank]>:
     - stop
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>:!
   - foreach <yaml[guild.<[guild]>].read[members]> as:member:
