@@ -51,6 +51,7 @@ abilities_item:
   material: stone
   display name: <&c>BROKEN - REPORT THIS
   drops_on_death: false
+  category: ability
 
 abilites_item_use:
   type: world
