@@ -12,7 +12,7 @@ ability_beam_spline:
   script:
     #- inject abilities_check
     #- inject abilities_cost
-    - define points:<proc[define_circle].context[<player.location.forward[1]>|2]>
+    - define points:<proc[define_circle].context[<player.location.forward[1]>|1]>
     - repeat 1:
       - define num:<util.random.int[1].to[12]>
       - define start:<[points].get[<[num]>]>
