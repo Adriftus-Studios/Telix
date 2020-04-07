@@ -468,7 +468,7 @@ disband_guild:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_]>
   - if <[guild]||null> == null:
     - stop
-  - foreach <yaml[guild.<[guild]>].list_keys[flags]> as:flag:
+  - foreach <yaml[guild.<[guild]>].list_keys[flags]||<list[]>> as:flag:
     - run remove_guild_flag def:<[guild]>|<[flag]>
     - note remove as:<server.list_notables[inventories].filter[starts_with[in@flag_]].filter[ends_with[<[flag]>]].get[1]>
   - foreach <yaml[guild.<[guild]>].read[members]> as:player:
