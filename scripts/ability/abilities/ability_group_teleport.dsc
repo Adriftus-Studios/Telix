@@ -15,9 +15,10 @@ ability_group_teleport:
       - inject abilities_check
       - inject abilities_cost
       - define location:<player.location>
+      - define destination:<location[spawn]>
       - foreach <player.inventory.list_contents> as:item:
         - if <[item].nbt[saved_location]||null> != null:
-          - define location:<[item].nbt[saved_location].as_location>
+          - define destination:<[item].nbt[saved_location].as_location>
       - define layers:<proc[define_sphere2].context[<[location].above>|2.5|0.3]>
       - define sphere:<proc[define_sphere1].context[<[location].above>|2.5|0.3]>
       - repeat 5:
@@ -28,7 +29,7 @@ ability_group_teleport:
           - wait 1t
       - playeffect spell_witch at:<[sphere]> quantity:2 offset:0.1 visibility:100
       - foreach <[location].find.players.within[2.5]> as:player:
-        - teleport <[player]> <location[spawn]>
+        - teleport <[player]> <[destination]>
       - flag <player> group_teleport_cooldown duration:10m
     - else:
       - narrate "<&c>You cannot use this ability for <player.flag[group_teleport_cooldown].expiration.formatted.replace[s].with[<&sp>seconds].replace[m].with[<&sp>minutes]>."
