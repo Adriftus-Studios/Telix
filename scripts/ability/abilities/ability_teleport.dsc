@@ -32,14 +32,13 @@ ability_teleport:
       - define sphere:<proc[define_sphere1].context[<[location].above>|1|0.3]>
       - repeat 5:
         - repeat <[layers].size>:
-          - define offset:<player.location.sub[<[location]>]>
-          - define points:<[layers].get[<[value]>].unescaped.parse[add[<[offset]>]]>
-          - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped.parse[add[<[offset]>]]>
+          - define points:<[layers].get[<[value]>].unescaped>
+          - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
           - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
           - wait 1t
-      - define offset:<player.location.sub[<[location]>]>
-      - playeffect spell_witch at:<[sphere].parse[add[<[offset]>]]> quantity:2 offset:0.1 visibility:100
-      - teleport <player> <[destination]>
+      - playeffect spell_witch at:<[sphere]> quantity:2 offset:0.1 visibility:100
+      - if <[location].find.players.within[1].contains[<player>]>:
+        - teleport <player> <[destination]>
       - flag <player> teleport_cooldown duration:10m
     - else:
       - narrate "<&c>You cannot use this ability for <player.flag[teleport_cooldown].expiration.formatted.replace[s].with[<&sp>seconds].replace[m].with[<&sp>minutes]>."
