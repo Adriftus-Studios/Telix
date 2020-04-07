@@ -33,7 +33,7 @@ fixguilds_command:
     - if <[guild]> == null || <yaml[<[guild]>].read[leader].as_player.flag[guild]||null> != <[guild].replace[guild.].with[]>:
       - announce "<&c>[FixerUpper] Resolving broken values in guild '<yaml[<[guild]>].read[name]>'."
     - foreach <yaml[<[guild]>].read[members].parse[as_player]> as:player:
-      - narrate <[player]>
+      - narrate <[player].name>
       
 
 guild_command:
