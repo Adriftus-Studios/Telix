@@ -760,7 +760,7 @@ guilds_manage_claim_flags:
 
 guilds_view_info_btn:
   type: item
-  material: book_and_quill
+  material: writable_book
   display name: <&9>View Information
 
 guilds_view_members_btn:
@@ -779,7 +779,7 @@ guilds_settings_btn:
 
 new_guild_btn:
   type: item
-  material: book_and_quill
+  material: writable_book
   display name: "<&c>Create a new Guild"
 
 guild_view_bank_btn:
@@ -1083,7 +1083,7 @@ my_guild_gui:
 
 rename_guild_btn:
   type: item
-  material: book_and_quill
+  material: writable_book
   display name: <&f>Change Guild Description
   lore:
   - "<&b>To change your guild's description,"
@@ -1270,7 +1270,7 @@ guild_gui_events:
           - define lore:|:<[line].separated_by[<&sp>]>
           - define line:!
       - define lore:|:<[line].separated_by[<&sp>]>
-    - inventory set d:<context.inventory> slot:11 o:<item[book_and_quill].with[display_name=<&6><yaml[guild.<[guild]>].read[name]>;lore=<[lore]>]>
+    - inventory set d:<context.inventory> slot:11 o:<item[writable_book].with[display_name=<&6><yaml[guild.<[guild]>].read[name]>;lore=<[lore]>]>
     - inventory set d:<context.inventory> slot:12 o:<item[<yaml[guild.<[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<[guild]>].read[flags].size||0>;patterns=<yaml[guild.<[guild]>].read[flag].as_item.patterns>;base_color=<yaml[guild.<[guild]>].read[flag].as_item.base_color>]>
     - if <player.flag[guild]> != <[guild]>:
       - inventory set d:<context.inventory> slot:14 o:<item[neutral_guild_icon]>
