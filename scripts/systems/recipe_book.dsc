@@ -143,6 +143,22 @@ recipe_book_mob_drops:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+recipe_book_preparation_table:
+  type: inventory
+  title: <&6>◆ <&a><&n><&l>Preparation<&r> <&6>◆
+  size: 54
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    gui_top: <item[gui_preparation_table_top]>
+    gui_bottom: <item[gui_preparation_table_bottom]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [] [w_filler] [w_filler] [] [w_filler] [w_filler]"
+  - "[] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [preparation_table_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
+
 recipe_book_used_for:
   type: inventory
   title: <&6>◆ <&a><&n><&l>Recipe Book<&r> <&6>◆
@@ -233,9 +249,11 @@ show_recipe:
   type: task
   definitions: item|type
   script:
-    - narrate <[type]>
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
+    - if <[type]> == cooking:
+      - define inv:<inventory[recipe_book_preparation_table]>
+      - inventory open d:<[inv]>
     - if <[type]> == notes:
       - define inv:<inventory[recipe_book_note]>
       - inventory open d:<[inv]>
