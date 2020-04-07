@@ -658,7 +658,7 @@ build_item:
       - if <[item].script.yaml_key[category]> == nodestone:
         - adjust def:item nbt:teleport_charges/<[item].nbt[teleport_charges]||<[item].script.yaml_key[teleport_charges]>>
         - define "lore:|:<&b><[item].nbt[teleport_charges]> Charges"
-        - define "lore:|:<&b>Saved Location: <[item].nbt[saved_location]>"
+        - define "lore:|:<&b>Saved Location: <[item].nbt[saved_location].x>X, <[item].nbt[saved_location].y>Y, <[item].nbt[saved_location].z>Z"
       - if <[item].script.yaml_key[category]> == fishing_rod:
         - define lore:|:<&6><&l><&m>-------------<&r><&6><&sp><&sp>Fishing<&sp>Rod<&sp><&sp><&l><&m>-------------
         - define lore:|:<[item].script.yaml_key[lore].as_list.parse[parsed]||<list[]>>
