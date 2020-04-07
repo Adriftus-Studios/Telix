@@ -212,10 +212,11 @@ cosmetic_command:
         - if <[left_wing]||null> == null || <[right_wing]||null> == null:
           - while stop
         - else:
-          - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
-          - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].sub[30]>]>
-          - define offset:<player.location.sub[<[center]>]>
-          - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
+          - repeat 20:
+            - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
+            - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].sub[30]>]>
+            - define offset:<player.location.sub[<[center]>]>
+            - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
           - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
