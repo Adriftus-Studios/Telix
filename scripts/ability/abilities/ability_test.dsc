@@ -1,6 +1,6 @@
 ability_beam_spline:
   type: task
-  name: Beam Spline
+  name: beam_spline
   ability_tree: Test
   ability_type: active
   points_to_unlock: 1000
