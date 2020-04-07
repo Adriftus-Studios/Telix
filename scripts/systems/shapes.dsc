@@ -209,11 +209,14 @@ cosmetic_command:
         - define body_yaw:<player.location.yaw>
       - while <player.has_flag[wings]||false>:
         - define body_yaw:<player.location.yaw>
-        - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
-        - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].sub[30]>]>
-        - define offset:<player.location.sub[<[center]>]>
-        - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
-        - wait 1t
+        - if <[left_wing]||null> == null || <[right_wing]||null> == null:
+          - while stop
+        - else:
+          - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
+          - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].sub[30]>]>
+          - define offset:<player.location.sub[<[center]>]>
+          - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
+          - wait 1t
       - remove <[left_wing]>
       - remove <[right_wing]>
     - if <context.args.get[1]> == sphere2:
