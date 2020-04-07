@@ -312,6 +312,11 @@ player_setup:
     - yaml id:player.<player.uuid> set values.damage_to_players:0
     - yaml id:player.<player.uuid> set pvp.damage_notifier:bossbar
     - yaml id:player.<player.uuid> set pvp.effect_notifier:chat
+    - yaml id:player.<player.uuid> set social.facebook:None
+    - yaml id:player.<player.uuid> set social.instagram:None
+    - yaml id:player.<player.uuid> set social.twitter:None
+    - yaml id:player.<player.uuid> set social.twitch:None
+    - yaml id:player.<player.uuid> set social.discord:None
     - yaml id:player.<player.uuid> set stats.health.current:20
     - yaml id:player.<player.uuid> set stats.health.max:20
     - yaml id:player.<player.uuid> set stats.power.current:20
