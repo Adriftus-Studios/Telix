@@ -15,6 +15,9 @@ ability_group_teleport:
       - inject abilities_check
       - inject abilities_cost
       - define location:<player.location>
+      - foreach <player.inventory.list_contents> as:item:
+        - if <[item].nbt[saved_location]||null> != null:
+          - define location:<[item].nbt[saved_location].as_location>
       - define layers:<proc[define_sphere2].context[<[location].above>|2.5|0.3]>
       - define sphere:<proc[define_sphere1].context[<[location].above>|2.5|0.3]>
       - repeat 5:
