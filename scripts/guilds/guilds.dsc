@@ -718,6 +718,9 @@ new_guild_book:
   lore:
   - "<&b>Use the first page to write your guild description,"
   - "<&b>Then sign the book with the name of your guild."
+  - ""
+  - "<&c>Once a guild has been created, the name of the"
+  - "<&c>guild cannot be changed."
 
 guild_flag_indicator:
   type: entity
@@ -1071,9 +1074,9 @@ my_guild_gui:
 rename_guild_btn:
   type: item
   material: book_and_quill
-  display name: <&f>Change Guild Name or Description
+  display name: <&f>Change Guild Description
   lore:
-  - "<&b>To change your guild's name or description,"
+  - "<&b>To change your guild's description,"
   - "<&b>you must go to the guild master at spawn."
 
 guild_settings_gui:

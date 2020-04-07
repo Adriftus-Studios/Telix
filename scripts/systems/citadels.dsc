@@ -2,22 +2,6 @@ citadel_block_protection_events:
   type: world
   debug: false
   events:
-    on player clicks block with *_lock:
-      - wait 1t
-      - if <context.location.material.name.ends_with[_door]> || <context.location.material.name.ends_with[_trapdoor]>:
-        - if !<server.list_files[DONT_PUT_SHIT_IN_HERE/locked_doors].contains[<context.location.simple>.yml]>:
-          - run lock_door def:<player>|<context.location>|<context.item.script.yaml_key[lock_strength]>
-          - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
-          - narrate "<&7><&o>Click..."
-        - else:
-          - narrate "<&c>That door is already locked."
-      - if <context.location.inventory||null> != null:
-        - if !<server.list_files[DONT_PUT_SHIT_IN_HERE/locked_containers].contains[<context.location.simple>.yml]>:
-          - run lock_container def:<player>|<context.location>|<context.item.script.yaml_key[lock_strength]>
-          - inventory adjust d:<player.inventory> slot:<player.held_item_slot> quantity:<player.item_in_hand.quantity.sub[1]>
-          - narrate "<&7><&o>Click..."
-        - else:
-          - narrate "<&c>That container is already locked."
     on delta time secondly every:1:
       # unload timer
       - foreach <server.list_flags.filter[starts_with[unload_timer.]]>:
