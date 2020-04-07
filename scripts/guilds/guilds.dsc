@@ -381,6 +381,8 @@ rename_guild_rank:
   - yaml id:guild.<[guild]> set ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>.priority:<yaml[guild.<[guild]>].read[ranks.<[rank]>.priority]>
   - yaml id:guild.<[guild]> set ranks.<[new_name].to_lowercase.replace[<&sp>].with[_]>.title:<[new_name]>
   - yaml id:guild.<[guild]> set ranks.<[rank].to_lowercase.replace[<&sp>].with[_]>:!
+  - if <yaml[guild.<[guild]>].read[default_rank]> == <[rank]>:
+    - yaml id:guild.<[guild]> set default_rank:<[new_name]>
   - foreach <yaml[guild.<[guild]>].read[members]> as:member:
     - if <[member].as_player.flag[guild_rank]> == <[rank]>:
       - flag <[member].as_player> guild_rank:<[new_name].to_lowercase.replace[<&sp>].with[_]>
