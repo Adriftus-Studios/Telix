@@ -5,7 +5,7 @@ ability_beam_spline:
   ability_type: active
   points_to_unlock: 1000
   power_cost: 9
-  description: Lashes out with the Whip Blade twice to deal damage to enemies
+  description: beam_spline
   icon:
     material: iron_nugget
     custom_model_data: 1000
