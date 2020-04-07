@@ -528,7 +528,7 @@ system_override:
         - inventory open d:<context.item.script.yaml_key[GUI_Inventory].parsed>
     on player clicks block:
       - if <context.item.script.yaml_key[category]||null> == nodestone && <player.is_sneaking>:
-        - inventory adjust d:<player.inventory> slot:<player.held_item_slot> nbt:saved_location/<player.location.round_to[3]>
+        - inventory adjust d:<player.inventory> slot:<player.held_item_slot> nbt:saved_location/<player.location.center>
         - define item:<context.item>
         - inject build_item
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
@@ -659,7 +659,7 @@ build_item:
       - if <[item].script.yaml_key[category]> == nodestone:
         - adjust def:item nbt:teleport_charges/<[item].nbt[teleport_charges]||<[item].script.yaml_key[teleport_charges]>>
         - define "lore:|:<&b><[item].nbt[teleport_charges]> Charges"
-        - define "lore:|:<&b>Saved Location: <[item].nbt[saved_location].parsed.round>"
+        - define "lore:|:<&b>Saved Location: <[item].nbt[saved_location].parsed.center>"
       - if <[item].script.yaml_key[category]> == fishing_rod:
         - define lore:|:<&6><&l><&m>-------------<&r><&6><&sp><&sp>Fishing<&sp>Rod<&sp><&sp><&l><&m>-------------
         - define lore:|:<[item].script.yaml_key[lore].as_list.parse[parsed]||<list[]>>
