@@ -29,6 +29,7 @@ fixguilds_command:
   name: fixguilds
   permission: fixguilds
   script:
+  - announce "<&c>[FixerUpper] Fixing broken guilds..."
   - foreach <yaml.list.filter[starts_with[guild.]]||<list[]>> as:guild:
     - if <[guild]> == null || <yaml[<[guild]>].read[leader].as_player.flag[guild]||null> != <[guild].replace[guild.].with[]>:
       - run disband_guild def:<[guild]>
