@@ -208,6 +208,10 @@ cosmetic_command:
       - while <player.has_flag[test]||false>:
         - narrate <[left_wing].rotation>
         - wait 1t
+      - if <[left_wing]||null> != null:
+        - remove <[left_wing]>
+      - if <[right_wing]||null> != null:
+        - remove <[right_wing]>
     - if <context.args.get[1]> == lucid:
       - if <player.has_flag[lucid]>:
         - narrate "<&b>Deactivated cosmetic effect lucid"
