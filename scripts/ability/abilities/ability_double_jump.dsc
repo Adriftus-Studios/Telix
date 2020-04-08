@@ -12,7 +12,7 @@ ability_double_jump:
     custom_model_data: 1
   events:
     on player starts sneaking flagged:jumped:
-      - if <player.location.below[0.15].material.name> == air:
+      - if <player.location.below[0.15].material.name> == air && !<player.is_flying>:
         - inject abilities_cost
         - adjust <player> velocity:<player.velocity.add[0,0.4,0]>
         - flag player jumped:!
