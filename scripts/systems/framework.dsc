@@ -469,8 +469,6 @@ system_override:
       - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/5373c12d2df73f4b69714710bf767a1d.zip>
       - wait 60t
       - adjust <player> resource_pack:<[rp_url]>
-      - adjust <player> quietly_discover_recipe:<server.list_recipe_ids>
-      - adjust <player> resend_discovered_recipes
     on resource pack status:
       - if <context.status> == FAILED_DOWNLOAD:
         - narrate "<&6>Please accept the resource pack."
