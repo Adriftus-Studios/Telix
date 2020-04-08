@@ -662,7 +662,7 @@ guild_events:
     - foreach <[nearby_flags]> as:flag:
       - if <[flag].custom_name.strip_color> != <yaml[guild.<[guild]>].read[name]>:
         - narrate "<&6>You are too close to another guild's flag."
-        - determine cancelled
+        - determine passively cancelled
         - stop
     - if <context.item_in_hand.script.name||null> == guild_flag:
       - if <player.flag[guild]||null> != null:
@@ -674,7 +674,7 @@ guild_events:
     on player breaks block:
     - if <context.location.above.material.name.ends_with[banner]>:
       - if <server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location.above>]].size> != 0:
-        - determine cancelled
+        - determine passively cancelled
     - if <context.material.name.ends_with[banner]>:
       - if <server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].size> != 0:
         - define flag:<server.list_notables[inventories].filter[notable_name.starts_with[flag_]].filter[notable_name.ends_with[<context.location>]].get[1]>
@@ -1114,17 +1114,6 @@ disband_guild_btn:
 guild_gui_events:
   type: world
   events:
-    on player clicks disband_guild_btn in guild_settings_gui:
-    - narrate 0
-    - if <context.raw_slot> <= 36:
-      - determine passively cancelled
-      - narrate 1
-      - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
-        - narrate 2
-        - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
-    - else:
-      - if <context.is_shift_click>:
-        - determine passively cancelled
     on player clicks in guild_flags_gui:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
@@ -1182,7 +1171,11 @@ guild_gui_events:
         - announce to_flagged:debug "<&c>broken guild: <[guild]>"
     on player clicks in guild_settings_gui:
     - if <context.raw_slot> <= 36:
+      - narrate 1
       - determine passively cancelled
+      - if <context.item.script.name||null> == disband_guild_btn:
+        - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
+          - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
     - else:
       - if <context.is_shift_click>:
         - determine passively cancelled
