@@ -656,10 +656,10 @@ guild_events:
         - if <def[value].substring[1,5]> == guild:
           - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
     on player places block:
-    - define guild:<player.flag[guild]>
+    - define guild:<player.flag[guild]||null>
     - define location:<context.location>
     - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[100]>
-    - foreach <[nearby_flags]> as:flag:
+    - foreach <[nearby_flags]||<list[]>> as:flag:
       - if <[flag].custom_name.strip_color> != <yaml[guild.<[guild]>].read[name]>:
         - narrate "<&6>You are too close to another guild's flag."
         - determine passively cancelled
