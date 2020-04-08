@@ -1176,6 +1176,7 @@ guild_gui_events:
       - if <context.item.script.name||null> == disband_guild_btn:
         - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
           - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
+          - inventory close
     - else:
       - if <context.is_shift_click>:
         - determine passively cancelled
