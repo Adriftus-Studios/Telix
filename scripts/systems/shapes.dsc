@@ -212,6 +212,8 @@ cosmetic_command:
         - teleport <[right_wing]> <player.location.below[0.5]>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
         - wait 1t
+        - if !<player.is_online>:
+          - while stop
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
       - if <[right_wing]||null> != null:
@@ -239,6 +241,8 @@ cosmetic_command:
         - define offset:<player.location.sub[<[center]>]>
         - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
+        - if !<player.is_online>:
+          - while stop
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
       - if <[right_wing]||null> != null:
@@ -260,6 +264,8 @@ cosmetic_command:
           - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
           - playeffect redstone at:<[points].parse[add[<[offset]>].with_world[<player.location.world>]]> quantity:1 offset:0 visibility:100 special_data:1|<co@159,152,216>
           - wait 1t
+        - if !<player.is_online>:
+          - while stop
     - else if <context.args.get[1]> == curve1:
       - define sphere:<proc[define_sphere1].context[<player.location>|1.5|1]>
       - define center:<player.location>
@@ -270,12 +276,12 @@ cosmetic_command:
         - narrate "<&b>Activated cosmetic effect curve1"
         - flag <player> curve
       - while <player.has_flag[curve]||false>:
-        - if <player.is_spawned||false> == false:
-          - stop
         - define point:<[sphere].random>
         - define offset:<player.location.sub[<[center]>]>
         - run cosmetic_command_curve1_animation def:<player.location>|<[offset].add[<[point]>].with_world[<player.location.world>]>
         - wait 3t
+        - if !<player.is_online>:
+          - while stop
   - else:
     - narrate "<&c>You do not have permission for this command."
 
