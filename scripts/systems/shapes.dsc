@@ -200,8 +200,8 @@ cosmetic_command:
       - else:
         - narrate "<&b>Activated cosmetic effect test"
         - flag <player> test
-        - spawn lucids_wing <player.location.below[0.5]> save:wing1
-        - spawn lucids_wing <player.location.below[0.5]> save:wing2
+        - spawn lucids_wing <player.location.below[0.5].with_yaw[0]> save:wing1
+        - spawn lucids_wing <player.location.below[0.5].with_yaw[0]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
         - define right_wing:<entry[wing2].spawned_entity>
       - while <player.has_flag[test]>:
