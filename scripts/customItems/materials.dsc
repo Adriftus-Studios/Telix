@@ -996,6 +996,13 @@ custom_depleted_nodestone:
   display name: <&7>Depleted Nodestone
   weight: '5'
   type: item
+cannon_base_entity:
+  type: entity
+  entity_type: armor_stand
+  equipment: <item[air]>|<item[air]>|<item[air]>|<item[stick].with[custom_model_data=7]>
+  gravity: false
+  visible: false
+  invulnerable: true
 cannon_entity:
   type: entity
   entity_type: armor_stand
@@ -1014,12 +1021,12 @@ cannon_events:
         - adjust <player> velocity:<context.entity.location.forward[2].sub[<context.entity.location>]>
         - wait 1t
 
-
 spawn_cannon_command:
   type: command
   name: spawn_cannon
   permission: spawn_cannon
   script:
+  - spawn cannon_base_entity <player.location.forward_flat[0.4]>
   - spawn cannon_entity <player.location> save:cannon
   - define cannon:<entry[cannon].spawned_entity>
   - adjust <[cannon]> armor_pose:head|<player.location.pitch.to_radians>,0,0
