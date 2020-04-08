@@ -195,10 +195,10 @@ cosmetic_command:
   - if <player.has_flag[cosmetic]>:
     - if <context.args.get[1]> == lucid2:
       - if <player.has_flag[lucid]>:
-        - narrate "<&b>Deactivated cosmetic effect lucid1"
+        - narrate "<&b>Deactivated cosmetic effect lucid"
         - flag <player> lucid:!
       - else:
-        - narrate "<&b>Activated cosmetic effect lucid1"
+        - narrate "<&b>Activated cosmetic effect lucid"
         - flag <player> lucid
         - spawn lucids_wing <player.location.below[0.5]> save:wing1
         - spawn lucids_wing <player.location.below[0.5]> save:wing2
@@ -218,10 +218,10 @@ cosmetic_command:
         - remove <[right_wing]>
     - if <context.args.get[1]> == lucid1:
       - if <player.has_flag[lucid]>:
-        - narrate "<&b>Deactivated cosmetic effect lucid1"
+        - narrate "<&b>Deactivated cosmetic effect lucid"
         - flag <player> lucid:!
       - else:
-        - narrate "<&b>Activated cosmetic effect lucid1"
+        - narrate "<&b>Activated cosmetic effect lucid"
         - flag <player> lucid
         - spawn lucids_wing <player.location.below[0.5]> save:wing1
         - spawn lucids_wing <player.location.below[0.5]> save:wing2
