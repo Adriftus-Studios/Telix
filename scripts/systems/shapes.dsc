@@ -206,8 +206,8 @@ cosmetic_command:
         - define right_wing:<entry[wing2].spawned_entity>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
       - while <player.has_flag[test]>:
-        - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<player.location.yaw.add[60]>]>
-        - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<player.location.yaw.sub[60]>]>
+        - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<player.location.yaw.add[300]>]>
+        - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<player.location.yaw.sub[300]>]>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
         - wait 1t
       - if <[left_wing]||null> != null:
