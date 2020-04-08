@@ -696,6 +696,11 @@ guild_events:
       - else:
         - narrate "<&c>You do not have permission to manage guild flags."
     on player signs book:
+    - if <player.item_in_offhand.script.name||null> == new_guild_book:
+      - determine passively NOT_SIGNING
+      - wait 1t
+      - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
+      - stop
     - if <context.book.script.name||null> == new_guild_book:
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
@@ -703,8 +708,6 @@ guild_events:
         - wait 1t
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
         - stop
-      - narrate <context.title.to_lowercase.replace[<&sp>].with[_]>
-      - narrate <yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>
       - if <yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>:
         - narrate "<&c>That guild already exists"
         - determine passively NOT_SIGNING
