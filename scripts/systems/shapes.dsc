@@ -208,7 +208,6 @@ cosmetic_command:
       - while <player.has_flag[test]>:
         - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<player.location.yaw.add[30]>]>
         - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<player.location.yaw.sub[30]>]>
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
         - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
