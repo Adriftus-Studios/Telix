@@ -205,8 +205,8 @@ cosmetic_command:
         - define left_wing:<entry[wing1].spawned_entity>
         - define right_wing:<entry[wing2].spawned_entity>
       - while <player.has_flag[test]||false>:
-        - rotate <[left_wing]> yaw:<player.location.yaw.to_radians.add[<element[30].to_radians>].to_degrees> duration:1s frequency:1s
-        - rotate <[right_wing]> yaw:<player.location.yaw.to_radians.sub[<element[30].to_radians>].to_degrees> duration:1s frequency:1s
+        - rotate <[left_wing]> yaw:<player.location.yaw.add[<element[30]>]> duration:1s frequency:1s
+        - rotate <[right_wing]> yaw:<player.location.yaw.sub[<element[30]>]> duration:1s frequency:1s
         - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
