@@ -206,8 +206,8 @@ cosmetic_command:
         - define right_wing:<entry[wing2].spawned_entity>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
       - while <player.has_flag[test]>:
-        - adjust <[left_wing]> armor_pose:head|0,<player.location.yaw.add[30].to_radians>,0
-        - adjust <[right_wing]> armor_pose:head|0,<player.location.yaw.sub[30].to_radians>,0
+        - adjust <[left_wing]> armor_pose:head|0,<player.location.yaw.to_radians>,0
+        - adjust <[right_wing]> armor_pose:head|0,<player.location.yaw.to_radians>,0
         - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
