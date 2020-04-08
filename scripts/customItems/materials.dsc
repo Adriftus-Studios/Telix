@@ -1014,6 +1014,12 @@ cannon_events:
   type: world
   debug: false
   events:
+    on player right clicks cannon_base_entity:
+      - determine passively cancelled
+      - teleport <player> <context.entity.location>
+      - repeat 100:
+        - adjust <player> velocity:<context.entity.location.forward[2].sub[<context.entity.location>]>
+        - wait 1t
     on player right clicks cannon_entity:
       - determine passively cancelled
       - teleport <player> <context.entity.location>
