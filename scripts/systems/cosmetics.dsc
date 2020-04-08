@@ -6,6 +6,8 @@ pink_lucids_wing:
   gravity: false
   visible: false
   invulnerable: true
+  custom:
+    interactable: false
 
 lucids_wing:
   type: entity
@@ -14,6 +16,8 @@ lucids_wing:
   gravity: false
   visible: false
   invulnerable: true
+  custom:
+    interactable: false
 
 cosmetic_command:
   type: command
