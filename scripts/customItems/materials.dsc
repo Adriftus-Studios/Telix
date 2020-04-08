@@ -1021,3 +1021,5 @@ spawn_cannon_command:
   permission: spawn_cannon
   script:
   - spawn cannon_entity <player.location> save:cannon
+  - define cannon:<entry[cannon].spawned_entity>
+  - adjust <[cannon]> armor_pose:head|<player.location.pitch.to_radians>,0,0
