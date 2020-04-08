@@ -201,7 +201,7 @@ cosmetic_command:
         - narrate "<&b>Activated cosmetic effect test"
         - flag <player> test
       - while <player.has_flag[test]||false>:
-        - teleport <player> <player.location.with_yaw[<player.location.yaw.add[4]>]>
+        - rotate <player> yaw:<player.location.yaw.add[4]>
         - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
