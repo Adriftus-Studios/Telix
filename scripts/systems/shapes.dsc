@@ -204,8 +204,8 @@ cosmetic_command:
         - spawn lucids_wing <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
         - define right_wing:<entry[wing2].spawned_entity>
-        - adjust <[left_wing]> attach_to:<player>|<player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]>
-        - adjust <[right_wing]> attach_to:<player>|<player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]>
+        - adjust <[left_wing]> attach_to:<player>|<player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]>|true
+        - adjust <[right_wing]> attach_to:<player>|<player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]>|true
     - if <context.args.get[1]> == lucid:
       - if <player.has_flag[lucid]>:
         - narrate "<&b>Deactivated cosmetic effect lucid"
