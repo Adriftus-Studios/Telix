@@ -15,7 +15,6 @@ lucids_wing:
   visible: false
   invulnerable: true
 
-
 cosmetic_command:
   type: command
   name: cosmetic
