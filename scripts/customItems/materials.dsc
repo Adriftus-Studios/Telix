@@ -996,3 +996,24 @@ custom_depleted_nodestone:
   display name: <&7>Depleted Nodestone
   weight: '5'
   type: item
+cannon_entity:
+  type: entity
+  entity_type: armor_stand
+  equipment: <item[air]>|<item[air]>|<item[air]>|<item[stick].with[custom_model_data=6]>
+  gravity: false
+  visible: false
+  invulnerable: true
+cannon_events:
+  type: world
+  debug: false
+  events:
+    on player right clicks cannon_entity:
+      
+
+
+spawn_cannon_command:
+  type: command
+  name: spawn_cannon
+  permission: spawn_cannon
+  script:
+  - spawn cannon_entity <player.location>
