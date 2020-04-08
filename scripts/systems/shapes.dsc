@@ -214,7 +214,7 @@ cosmetic_command:
         - teleport <[right_wing]> <player.location.below[0.5]>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
         - define offset:<player.location.sub[<[center]>]>
-        - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
+        #- run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
