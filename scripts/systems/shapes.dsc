@@ -209,7 +209,7 @@ cosmetic_command:
         - adjust <player> passengers:<list[<[left_wing]>]>
       - while <player.has_flag[test]>:
         - adjust <[left_wing]> armor_pose:head|0,0,0
-        - narrate <[left_wing].armor_pose[head].y>
+        - narrate <[left_wing].location.yaw>
         - adjust <[right_wing]> armor_pose:head|0,0,0
         - wait 1t
       - if <[left_wing]||null> != null:
