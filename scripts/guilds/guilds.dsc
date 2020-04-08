@@ -696,6 +696,7 @@ guild_events:
       - else:
         - narrate "<&c>You do not have permission to manage guild flags."
     on player signs book:
+    - narrate <context.book||null>
     - if <context.book||null> == <item[new_guild_book]>:
       - if <player.flag[guild]||null> != null:
         - narrate "<&c>You are already in a guild."
