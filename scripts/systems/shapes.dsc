@@ -208,8 +208,8 @@ cosmetic_command:
         - adjust <[right_wing]> armor_pose:head|0,<element[-30].to_radians>,0
         - adjust <player> passengers:<list[<[left_wing]>]>
       - while <player.has_flag[test]>:
-        - adjust <[left_wing]> armor_pose:head|0,<element[30].to_radians>,0
-        - adjust <[right_wing]> armor_pose:head|0,<element[-30].to_radians>,0
+        - adjust <[left_wing]> armor_pose:head|0,0,0
+        - adjust <[right_wing]> armor_pose:head|0,0,0
         - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
