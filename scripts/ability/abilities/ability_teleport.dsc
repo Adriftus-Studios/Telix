@@ -1,11 +1,11 @@
 ability_teleport:
   type: command
   name: teleport
-  ability_tree: Test
+  ability_tree: ender
   ability_type: active
   points_to_unlock: 1
   power_cost: 20
-  description: teleport
+  description: Teleports yourself to spawn. Use nodestones to teleport yourself to saved locations.
   icon:
     material: nether_star
     custom_model_data: 0
