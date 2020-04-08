@@ -715,6 +715,7 @@ guild_events:
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
         - stop
       - wait 1t
+      - narrate testt
       - run create_guild def:<context.title.to_lowercase.replace[<&sp>].with[_]>|<context.title>|<player>|<context.book>
       - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[air]>
 
