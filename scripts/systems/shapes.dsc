@@ -204,13 +204,11 @@ cosmetic_command:
         - spawn lucids_wing <player.location.below[0.5]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
         - define right_wing:<entry[wing2].spawned_entity>
-        - adjust <player> passengers:<list[<[left_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
       - while <player.has_flag[test]>:
-        - narrate <[left_wing].location.yaw>
-        - rotate <[left_wing]> yaw:<[left_wing].location.yaw.to_radians> duration:1t frequency:1t
-        - rotate <[right_wing]> yaw:<[right_wing].location.yaw.to_radians> duration:1t frequency:1t
-        - adjust <[left_wing]> armor_pose:head|0,0,0
-        - adjust <[right_wing]> armor_pose:head|0,0,0
+        - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<player.location.yaw.add[30]>]>
+        - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<player.location.yaw.sub[30]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
         - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
