@@ -204,6 +204,8 @@ cosmetic_command:
         - spawn lucids_wing <player.location.below[0.5]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
         - define right_wing:<entry[wing2].spawned_entity>
+        - define sphere:<proc[define_sphere1].context[<player.location>|3|1]>
+        - define center:<player.location>
         - adjust <[left_wing]> armor_pose:head|0,<element[30].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<element[-30].to_radians>,0
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
@@ -211,6 +213,8 @@ cosmetic_command:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - define offset:<player.location.sub[<[center]>]>
+        - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
