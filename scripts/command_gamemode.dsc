@@ -87,6 +87,6 @@ gamemode_handle_command:
           - narrate "<&e>You have been to set to <&6><[gamemode].to_titlecase> Mode<&e> by <&b><player.name||Console>" targets:<[target]>
           - narrate "<&e>You have set <&b><[target].name><&e> to <&6><[gamemode].to_titlecase> Mode<&e>."
         - else:
-          - adjust <[target]> gamemode:<gamemode]>
+          - adjust <[target]> gamemode:<[gamemode]>
           - narrate "<&e>You have set <&b><[target].name><&6>(<&7>OFFLINE<&6>)<&e> to <&6><[gamemode].to_titlecase> Mode<&e>."
         - define completed:|:<[target]>
