@@ -206,8 +206,7 @@ cosmetic_command:
         - define right_wing:<entry[wing2].spawned_entity>
         - adjust <player> passengers:<list[<[left_wing]>]>
       - while <player.has_flag[test]>:
-        - rotate <[left_wing]> yaw:<[left_wing].location.yaw> duration:1t frequency:1t
-        - rotate <[right_wing]> yaw:<[right_wing].location.yaw> duration:1t frequency:1t
+        - narrate <[left_wing].location.yaw>
         - adjust <[left_wing]> armor_pose:head|0,<player.location.yaw.to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<player.location.yaw.to_radians>,0
         - wait 1t
