@@ -204,10 +204,9 @@ cosmetic_command:
         - spawn lucids_wing <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
         - define right_wing:<entry[wing2].spawned_entity>
+        - adjust <[left_wing]> attach_to:<player>
+        - adjust <[right_wing]> attach_to:<player>
       - while <player.has_flag[test]||false>:
-        - rotate <[left_wing]> yaw:<player.location.yaw.add[<element[30]>]> duration:1s frequency:1s
-        - rotate <[right_wing]> yaw:<player.location.yaw.sub[<element[30]>]> duration:1s frequency:1s
-        - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
       - if <[right_wing]||null> != null:
