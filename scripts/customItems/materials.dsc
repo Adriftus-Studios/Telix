@@ -1008,7 +1008,10 @@ cannon_events:
   debug: false
   events:
     on player right clicks cannon_entity:
-      
+      - teleport <player> <context.entity.location>
+      - repeat 100:
+        - adjust <player> velocity:<context.entity.location.forward[2].sub[<context.entity.location>]>
+        - wait 1t
 
 
 spawn_cannon_command:
