@@ -1115,6 +1115,7 @@ guild_gui_events:
   type: world
   events:
     on player clicks disband_guild_btn in guild_settings_gui:
+    - narrate 0
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
       - narrate 1
