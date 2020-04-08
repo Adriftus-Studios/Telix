@@ -1008,6 +1008,7 @@ cannon_events:
   debug: false
   events:
     on player right clicks cannon_entity:
+      - determine passively cancelled
       - teleport <player> <context.entity.location>
       - repeat 100:
         - adjust <player> velocity:<context.entity.location.forward[2].sub[<context.entity.location>]>
@@ -1019,4 +1020,4 @@ spawn_cannon_command:
   name: spawn_cannon
   permission: spawn_cannon
   script:
-  - spawn cannon_entity <player.location>
+  - spawn cannon_entity <player.location> save:cannon
