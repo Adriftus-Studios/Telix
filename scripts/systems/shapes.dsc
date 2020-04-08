@@ -204,6 +204,7 @@ cosmetic_command:
         - spawn lucids_wing <player.location.below[0.5].with_yaw[0]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
         - define right_wing:<entry[wing2].spawned_entity>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
       - while <player.has_flag[test]>:
         - adjust <[left_wing]> armor_pose:head|0,<player.location.yaw.add[30].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<player.location.yaw.sub[30].to_radians>,0
