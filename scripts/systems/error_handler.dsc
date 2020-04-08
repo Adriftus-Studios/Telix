@@ -3,7 +3,7 @@ error_handler_events:
   debug: false
   events:
     on script generates error:
-      - if <context.script||null> != null && <context.line||null> != null:
+      - if <context.script||null> != null && <context.line||null> != null && <context.message> != The list_flags tag is meant for testing/debugging only. Do not use it in scripts (ignore this warning if using for testing reasons).:
         - define cause:<player.name||None>
         - announce to_console "<&c>|----------------------| <&4>Error<&c> |-----------------------|"
         - announce to_console "<&c> <context.message>"
