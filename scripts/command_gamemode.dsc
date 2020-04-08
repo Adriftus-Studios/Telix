@@ -83,7 +83,7 @@ gamemode_handle_command:
           - adjust <player> gamemode:<[gamemode]>
           - narrate "<&e>You have set yourself to <&6><[gamemode].to_titlecase> Mode<&e>."
         - else if <[target].is_online>:
-          - adjust <[target]> gamemode:<gamemode]>
+          - adjust <[target]> gamemode:<[gamemode]>
           - narrate "<&e>You have been to set to <&6><[gamemode].to_titlecase> Mode<&e> by <&b><player.name||Console>" targets:<[target]>
           - narrate "<&e>You have set <&b><[target].name><&e> to <&6><[gamemode].to_titlecase> Mode<&e>."
         - else:
