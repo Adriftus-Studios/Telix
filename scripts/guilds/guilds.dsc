@@ -1101,12 +1101,27 @@ guild_settings_gui:
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [guilds_edit_ranks_btn] [] [set_guild_flag_btn] [] [rename_guild_btn] [] [w_filler]"
-  - "[w_filler] [] [view_other_guild_relations_btn] [] [guilds_manage_claim_flags] [] [] [] [w_filler]"
+  - "[w_filler] [] [view_other_guild_relations_btn] [] [guilds_manage_claim_flags] [] [disband_guild_btn] [] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
+disband_guild_btn:
+  type: item
+  material: iron_nugget
+  display name: <&c>Disband Guild
+  mechanisms:
+    custom_model_data: 35
+    
 guild_gui_events:
   type: world
   events:
+    on player clicks disband_guild_btn in guild_settings_gui:
+    - if <context.raw_slot> <= 36:
+      - determine passively cancelled
+      - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
+        - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
+    - else:
+      - if <context.is_shift_click>:
+        - determine passively cancelled
     on player clicks in guild_flags_gui:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
