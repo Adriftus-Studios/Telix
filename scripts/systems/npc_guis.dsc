@@ -18,4 +18,7 @@ guild_master_interact_handler:
     1:
       Click trigger:
         script:
-         - inventory open d:new_guild_gui
+        - if <player.has_flag[guild]>:
+          - inventory open d:my_guild_gui
+        - else:
+          - inventory open d:new_guild_gui
