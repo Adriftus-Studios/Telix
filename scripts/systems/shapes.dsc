@@ -206,7 +206,7 @@ cosmetic_command:
         - define right_wing:<entry[wing2].spawned_entity>
         - adjust <[left_wing]> attach_to:<player>
         - adjust <[right_wing]> attach_to:<player>
-      - while <player.has_flag[test]||false>:
+      - waituntil !<player.has_flag[test]>
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
       - if <[right_wing]||null> != null:
