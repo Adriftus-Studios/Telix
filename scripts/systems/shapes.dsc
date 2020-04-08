@@ -207,6 +207,7 @@ cosmetic_command:
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
       - while <player.has_flag[test]||false>:
         - narrate <[left_wing].rotation>
+        - wait 1t
     - if <context.args.get[1]> == lucid:
       - if <player.has_flag[lucid]>:
         - narrate "<&b>Deactivated cosmetic effect lucid"
