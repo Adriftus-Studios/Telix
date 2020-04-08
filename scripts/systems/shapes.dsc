@@ -193,13 +193,13 @@ cosmetic_command:
     - determine <list[]>
   script:
   - if <player.has_flag[cosmetic]>:
-    - if <context.args.get[1]> == test:
-      - if <player.has_flag[test]>:
-        - narrate "<&b>Deactivated cosmetic effect test"
-        - flag <player> test:!
+    - if <context.args.get[1]> == lucid:
+      - if <player.has_flag[lucid]>:
+        - narrate "<&b>Deactivated cosmetic effect lucid1"
+        - flag <player> lucid:!
       - else:
-        - narrate "<&b>Activated cosmetic effect test"
-        - flag <player> test
+        - narrate "<&b>Activated cosmetic effect lucid1"
+        - flag <player> lucid
         - spawn lucids_wing <player.location.below[0.5]> save:wing1
         - spawn lucids_wing <player.location.below[0.5]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
@@ -209,41 +209,13 @@ cosmetic_command:
         - adjust <[left_wing]> armor_pose:head|0,<element[30].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<element[-30].to_radians>,0
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
-      - while <player.has_flag[test]>:
+      - while <player.has_flag[lucid]>:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
         - define offset:<player.location.sub[<[center]>]>
         - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
-      - if <[left_wing]||null> != null:
-        - remove <[left_wing]>
-      - if <[right_wing]||null> != null:
-        - remove <[right_wing]>
-    - if <context.args.get[1]> == lucid:
-      - if <player.has_flag[lucid]>:
-        - narrate "<&b>Deactivated cosmetic effect lucid"
-        - flag <player> lucid:!
-      - else:
-        - narrate "<&b>Activated cosmetic effect lucid"
-        - flag <player> lucid
-        - spawn lucids_wing <player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]> save:wing1
-        - spawn lucids_wing <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]> save:wing2
-        - define left_wing:<entry[wing1].spawned_entity>
-        - define right_wing:<entry[wing2].spawned_entity>
-        - define sphere:<proc[define_sphere1].context[<player.location>|3|1]>
-        - define center:<player.location>
-        - define body_yaw:<player.location.yaw>
-      - while <player.has_flag[lucid]||false>:
-        - define body_yaw:<player.location.yaw>
-        - if <[left_wing]||null> == null || <[right_wing]||null> == null:
-          - while stop
-        - else:
-          - teleport <[left_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].add[30]>]>
-          - teleport <[right_wing]> <player.location.below[0.5].with_yaw[<[body_yaw].sub[30]>]>
-          - define offset:<player.location.sub[<[center]>]>
-          - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
-          - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
       - if <[right_wing]||null> != null:
