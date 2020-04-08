@@ -207,8 +207,10 @@ cosmetic_command:
         - adjust <player> passengers:<list[<[left_wing]>]>
       - while <player.has_flag[test]>:
         - narrate <[left_wing].location.yaw>
-        - adjust <[left_wing]> armor_pose:head|0,<player.location.yaw.to_radians>,0
-        - adjust <[right_wing]> armor_pose:head|0,<player.location.yaw.to_radians>,0
+        - rotate <[left_wing]> yaw:<[left_wing].location.yaw.to_radians> duration:1t frequency:1t
+        - rotate <[right_wing]> yaw:<[right_wing].location.yaw.to_radians> duration:1t frequency:1t
+        - adjust <[left_wing]> armor_pose:head|0,0,0
+        - adjust <[right_wing]> armor_pose:head|0,0,0
         - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
