@@ -999,8 +999,6 @@ custom_depleted_nodestone:
 cannon_entity:
   type: entity
   entity_type: armor_stand
-  custom_name: <&b>Click to go to the mainland.
-  custom_name_visible: true
   equipment: <item[air]>|<item[air]>|<item[air]>|<item[stick].with[custom_model_data=6]>
   gravity: false
   visible: false
