@@ -1002,14 +1002,14 @@ cannon_base_entity:
   equipment: <item[air]>|<item[air]>|<item[air]>|<item[stick].with[custom_model_data=7]>
   gravity: false
   visible: false
-  invulnerable: true
+  invulnerable: false
 cannon_entity:
   type: entity
   entity_type: armor_stand
   equipment: <item[air]>|<item[air]>|<item[air]>|<item[stick].with[custom_model_data=6]>
   gravity: false
   visible: false
-  invulnerable: true
+  invulnerable: false
 cannon_events:
   type: world
   debug: false
