@@ -194,11 +194,19 @@ cosmetic_command:
   script:
   - if <player.has_flag[cosmetic]>:
     - if <context.args.get[1]> == test:
-      - spawn lucids_wing <player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]> save:wing1
-      - spawn lucids_wing <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]> save:wing2
-      - define left_wing:<entry[wing1].spawned_entity>
-      - define right_wing:<entry[wing2].spawned_entity>
-      - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+      - if <player.has_flag[test]>:
+        - narrate "<&b>Deactivated cosmetic effect test"
+        - flag <player> test:!
+      - else:
+        - narrate "<&b>Activated cosmetic effect test"
+        - flag <player> test
+        - spawn lucids_wing <player.location.below[0.5].with_yaw[<player.body_yaw.add[30]>]> save:wing1
+        - spawn lucids_wing <player.location.below[0.5].with_yaw[<player.body_yaw.sub[30]>]> save:wing2
+        - define left_wing:<entry[wing1].spawned_entity>
+        - define right_wing:<entry[wing2].spawned_entity>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+      - while <player.has_flag[test]||false>:
+        - narrate <[left_wing].rotation>
     - if <context.args.get[1]> == lucid:
       - if <player.has_flag[lucid]>:
         - narrate "<&b>Deactivated cosmetic effect lucid"
