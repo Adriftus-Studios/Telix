@@ -188,12 +188,35 @@ cosmetic_command:
   name: cosmetic
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
-    - determine <list[curve1|sphere2].filter[starts_with[<context.args.get[1]||>]]>
+    - determine <list[curve1|sphere2|lucid1|lucid2].filter[starts_with[<context.args.get[1]||>]]>
   - else:
     - determine <list[]>
   script:
   - if <player.has_flag[cosmetic]>:
-    - if <context.args.get[1]> == lucid:
+    - if <context.args.get[1]> == lucid2:
+      - if <player.has_flag[lucid]>:
+        - narrate "<&b>Deactivated cosmetic effect lucid1"
+        - flag <player> lucid:!
+      - else:
+        - narrate "<&b>Activated cosmetic effect lucid1"
+        - flag <player> lucid
+        - spawn lucids_wing <player.location.below[0.5]> save:wing1
+        - spawn lucids_wing <player.location.below[0.5]> save:wing2
+        - define left_wing:<entry[wing1].spawned_entity>
+        - define right_wing:<entry[wing2].spawned_entity>
+        - adjust <[left_wing]> armor_pose:head|0,<element[30].to_radians>,0
+        - adjust <[right_wing]> armor_pose:head|0,<element[-30].to_radians>,0
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+      - while <player.has_flag[lucid]>:
+        - teleport <[left_wing]> <player.location.below[0.5]>
+        - teleport <[right_wing]> <player.location.below[0.5]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - wait 1t
+      - if <[left_wing]||null> != null:
+        - remove <[left_wing]>
+      - if <[right_wing]||null> != null:
+        - remove <[right_wing]>
+    - if <context.args.get[1]> == lucid1:
       - if <player.has_flag[lucid]>:
         - narrate "<&b>Deactivated cosmetic effect lucid1"
         - flag <player> lucid:!
@@ -214,7 +237,7 @@ cosmetic_command:
         - teleport <[right_wing]> <player.location.below[0.5]>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
         - define offset:<player.location.sub[<[center]>]>
-        #- run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
+        - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
