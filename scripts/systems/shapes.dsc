@@ -207,6 +207,8 @@ cosmetic_command:
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
       - define yaw:<player.location.yaw>
       - while <player.has_flag[test]>:
+        - rotate <[left_wing]> yaw:<[yaw].sub[<player.location.yaw>]> duration:1t frequency:1t
+        - define yaw:<player.location.yaw>
         - wait 1t
       - if <[left_wing]||null> != null:
         - remove <[left_wing]>
