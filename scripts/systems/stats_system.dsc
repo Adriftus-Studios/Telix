@@ -55,7 +55,7 @@ stats_events:
         - yaml id:player.<player.uuid> set stats.thirst.current:+:<[thirst]>
     on delta time secondly every:15:
       - foreach <server.list_players.filter[is_online]> as:player:
-        - if <yaml[player.<[player].uuid>].read[stats.food.current]> > <yaml[player.<[player].uuid>].read[stats.food.max].sub[10]>
+        - if <yaml[player.<[player].uuid>].read[stats.food.current]> > <yaml[player.<[player].uuid>].read[stats.food.max].sub[10]>:
           - heal <[player]> 1
 
 calculate_base_stats:

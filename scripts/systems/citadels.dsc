@@ -6,8 +6,6 @@ citadel_block_protection_events:
       # unload timer
       - foreach <server.list_flags.filter[starts_with[unload_timer.]]>:
         - if <server.flag[<[value]>].expiration.in_seconds> <= 1:
-          - if <[value].replace[unload_timer.].with[].starts_with[locked_door_]>:
-            - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/locked_doors/<[value].replace[unload_timer.locked_door_].with[].to_lowercase>.yml
           - if <[value].replace[unload_timer.].with[].starts_with[reinforced_block_]>:
             - yaml id:<[value].replace[unload_timer.].with[]> savefile:DONT_PUT_SHIT_IN_HERE/reinforced_block/<[value].replace[unload_timer.reinforced_block_].with[].to_lowercase>.yml
           - else:
