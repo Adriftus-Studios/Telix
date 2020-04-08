@@ -1117,7 +1117,9 @@ guild_gui_events:
     on player clicks disband_guild_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
+      - narrate 1
       - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
+        - narrate 2
         - run disband_guild def:<player.flag[guild].replace[<&sp>].with[_]>
     - else:
       - if <context.is_shift_click>:
