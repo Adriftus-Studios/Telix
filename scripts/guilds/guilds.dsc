@@ -703,6 +703,8 @@ guild_events:
         - wait 1t
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<item[new_guild_book]>
         - stop
+      - narrate <context.title.to_lowercase.replace[<&sp>].with[_]>
+      - narrate <yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>
       - if <yaml.list.contains[guild.<context.title.to_lowercase.replace[<&sp>].with[_]>]>:
         - narrate "<&c>That guild already exists"
         - determine passively NOT_SIGNING
