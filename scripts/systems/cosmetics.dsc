@@ -4,6 +4,7 @@ cosmetic_bunny_ears:
   material: rabbit_hide
   mechanisms:
     custom_model_data: 4
+  display name: <&b>Bunny Ears
 
 entity_tail1:
   type: entity
@@ -42,11 +43,20 @@ cosmetics_command:
     - co
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
-    - determine <list[curve1|sphere2|lucid1|lucid2|tail1].filter[starts_with[<context.args.get[1]||>]]>
+    - determine <list[curve1|sphere2|lucid1|lucid2|tail1|rabbitears].filter[starts_with[<context.args.get[1]||>]]>
   - else:
     - determine <list[]>
   script:
   - if <player.has_flag[cosmetic]>:
+    - if <context.args.get[1]> == rabbitears:
+      - if <player.has_flag[head]>:
+        - narrate "<&b>Deactivated cosmetic effect rabbitears"
+        - flag <player> head:!
+        - adjust <player> equipment:<item[equipment_boots_slot]>|<item[equipment_leg_slot]>|<item[equipment_chest_slot]>|<item[equipment_head_slot]>
+      - else:
+        - narrate "<&b>Activated cosmetic effect rabbitears"
+        - adjust <player> equipment:<item[equipment_boots_slot]>|<item[equipment_leg_slot]>|<item[equipment_chest_slot]>|<item[cosmetic_bunny_ears]>
+        - flag <player> head
     - if <context.args.get[1]> == tail1:
       - if <player.has_flag[tail]>:
         - narrate "<&b>Deactivated cosmetic effect tail1"
