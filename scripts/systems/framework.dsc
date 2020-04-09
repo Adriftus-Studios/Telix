@@ -299,15 +299,17 @@ rtp_task:
     - if <location[<[x]>,300,<[z]>,tor_mainland].biome.name.contains_text[ocean]>:
       - repeat next
     - teleport <player> <location[<[x]>,300,<[z]>,tor_mainland]>
-    - wait 1s
     - define x:<util.random.decimal[-1].to[1].round_to[3]>
     - define z:<util.random.decimal[-1].to[1].round_to[3]>
     - flag <player> no_fall
     - while <player.location.below[0.15].material.name> == air || <player.location.below[0.15].material.name> == void_air:
+      - if !<player.is_online>:
+        - stop
       - adjust <player> velocity:<location[<[x]>,-1,<[z]>]>
       - wait 1t
     - repeat stop
     - wait 1t
+    - flag <player> no_fly_kick:!
     - flag <player> no_fall:!
 
 rp_command:
