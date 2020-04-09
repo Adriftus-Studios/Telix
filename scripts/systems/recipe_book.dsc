@@ -195,6 +195,7 @@ recipe_book_events:
         - repeat 45:
           - inventory add d:<context.inventory> o:<[items].get[<[value]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
     on player clicks in recipe_book_*:
+      - narrate <context.raw_slot>
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
       - if <context.raw_slot> != -998 && <context.raw_slot> <= <player.open_inventory.size> && <context.item.material.name> != air:
@@ -260,6 +261,10 @@ show_recipe:
       - inventory set d:<[inv]> slot:30 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.serving_dish].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.serving_dish].split[/].get[2]>]||<item[air]>>
       - if <yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients]||null> != null:
         - inventory set d:<[inv]> slot:20 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[/].get[2]>]||<item[air]>>
+      - if <yaml[server.recipe_book].read[altar.<[item]>.cook_time].as_duration.in_seconds> >= 60:
+        - inventory adjust d:<[inv]> slot:27 lore:<&f><yaml[server.recipe_book].read[altar.<[item]>.cook_time].as_duration.in_minutes.round_up><&sp>Minutes
+      - else:
+        - inventory adjust d:<[inv]> slot:27 lore:<&f><yaml[server.recipe_book].read[altar.<[item]>.cook_time].as_duration.in_seconds.round_up><&sp>Seconds
     - if <[type]> == notes:
       - define inv:<inventory[recipe_book_note]>
       - inventory open d:<[inv]>
