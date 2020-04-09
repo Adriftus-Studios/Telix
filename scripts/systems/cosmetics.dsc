@@ -46,7 +46,7 @@ cosmetic_command:
       - else:
         - narrate "<&b>Activated cosmetic effect lucid"
         - flag <player> tail
-        - spawn tail <player.location.below[0.5]> save:tail
+        - spawn entity_tail1 <player.location.below[0.5]> save:tail
         - define tail:<entry[tail].spawned_entity>
         - adjust <[tail]> armor_pose:head|0,0,0
         - adjust <player> passengers:<list[<[tail]>]>
