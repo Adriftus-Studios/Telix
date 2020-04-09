@@ -34,7 +34,7 @@ cosmetic_command:
   name: cosmetic
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
-    - determine <list[curve1|sphere2|lucid1|lucid2].filter[starts_with[<context.args.get[1]||>]]>
+    - determine <list[curve1|sphere2|lucid1|lucid2|lucid3|tail1].filter[starts_with[<context.args.get[1]||>]]>
   - else:
     - determine <list[]>
   script:
