@@ -287,31 +287,6 @@ ott_command:
       - narrate "<&6>It allows you to teleport to a player of your choice within those 2 hours. When you teleport, you won't be able to use OTT again."
       - narrate "<&a>|----------------------------------------------------|"
 
-rtp_task:
-  type: task
-  definitions: player
-  script:
-  - adjust <queue> linked_player:<[player]||<player>>
-  - repeat 100:
-    - define x:<util.random.decimal[<element[-4000]>].to[<element[4000]>].round_to[3]>
-    - define z:<util.random.decimal[<element[-4000]>].to[<element[4000]>].round_to[3]>
-    - chunkload <location[<[x]>,300,<[z]>,tor_mainland].chunk> duration:1s
-    - if <location[<[x]>,300,<[z]>,tor_mainland].biome.name.contains_text[ocean]>:
-      - repeat next
-    - teleport <player> <location[<[x]>,300,<[z]>,tor_mainland]>
-    - define x:<util.random.decimal[-1].to[1].round_to[3]>
-    - define z:<util.random.decimal[-1].to[1].round_to[3]>
-    - flag <player> no_fall
-    - while <player.location.below[0.15].material.name> == air || <player.location.below[0.15].material.name> == void_air:
-      - if !<player.is_online>:
-        - stop
-      - adjust <player> velocity:<location[<[x]>,-1,<[z]>]>
-      - wait 1t
-    - wait 1s
-    - flag <player> no_fly_kick:!
-    - flag <player> no_fall:!
-    - repeat stop
-
 rp_command:
   type: command
   name: rp
