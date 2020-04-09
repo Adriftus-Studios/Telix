@@ -305,6 +305,7 @@ rtp_task:
     - while <[player].location.below[0.15].material.name> == air || <[player].location.below[0.15].material.name> == void_air:
       - adjust <[player]> velocity:<location[<[x]>,-1,<[z]>]>
       - wait 1t
+    - repeat stop
 
 rp_command:
   type: command
