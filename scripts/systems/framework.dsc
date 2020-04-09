@@ -661,7 +661,6 @@ build_item:
         - define ability:<[old_item].nbt[skillname]>
         - define "lore:<&e>-------------------------"
         - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
-        - define "lore:|:<&a>Ability Type<&co> <script[ability_<[ability]>].yaml_key[ability_type].to_titlecase>"
         - if <script[ability_<[ability]>].yaml_key[ability_type]> == command:
           - define "lore:|:<&a>Usage<&co> <&e>/<script[ability_<[ability]>].yaml_key[command_usage]>"
         - else if <script[ability_<[ability]>].yaml_key[usage]||null> != null:
