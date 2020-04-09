@@ -21,29 +21,48 @@ altar_timer:
     custom_model_data: -5
   display name: <&7>Not Imbuing
 
+altar_entity:
+  type: entity
+  entity_type: armor_stand
+  gravity: false
+  visible: false
+  invulnerable: false
+  custom:
+    interactable: false
+
 altar_tier_1:
   type: item
-  material: obsidian
+  material: sponge
+  mechanisms:
+    custom_model_data: 1
   display name: <&b>Altar I
 
 altar_tier_2:
   type: item
-  material: obsidian
+  material: sponge
+  mechanisms:
+    custom_model_data: 1
   display name: <&b>Altar II
 
 altar_tier_3:
   type: item
-  material: obsidian
+  material: sponge
+  mechanisms:
+    custom_model_data: 1
   display name: <&b>Altar III
 
 altar_tier_4:
   type: item
-  material: obsidian
+  material: sponge
+  mechanisms:
+    custom_model_data: 1
   display name: <&b>Altar IV
 
 altar_tier_5:
   type: item
-  material: obsidian
+  material: sponge
+  mechanisms:
+    custom_model_data: 1
   display name: <&b>Altar V
 
 altar_events:
@@ -148,17 +167,20 @@ altar_events:
               - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
           - else:
             - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
-    on player places obsidian:
+    on player places sponge:
       - if <context.item_in_hand.script.name.starts_with[altar_tier_]>:
         - note <context.location> as:altar_<context.location.simple>_<context.item_in_hand.script.name.replace[altar_tier_].with[]>
-    on player breaks obsidian:
+        - spawn altar_entity <context.location.below[1].with_yaw[<player.location.yaw.add[180]>]> save:altar
+        - define altar:<entry[altar].spawned_entity>
+        - adjust <[altar]> equipment:<item[air]>|<item[air]>|<item[air]>|<context.item_in_hand>
+    on player breaks barrier:
       - if <context.location.notable_name.starts_with[altar_]>:
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
         - note remove as:<context.location.notable_name>
         - determine NOTHING
         - if <player.gamemode> == SURVIVAL:
           - drop <item[altar_<[tier]>]> <context.location>
-    on player clicks obsidian:
+    on player clicks barrier:
       - if <context.location.notable_name.starts_with[altar_]>:
         - define loc:<context.location.notable_name.split[_].get[2]>
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
