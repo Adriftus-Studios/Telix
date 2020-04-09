@@ -287,6 +287,15 @@ ott_command:
       - narrate "<&6>It allows you to teleport to a player of your choice within those 2 hours. When you teleport, you won't be able to use OTT again."
       - narrate "<&a>|----------------------------------------------------|"
 
+rtp_task:
+  type: task
+  definitions: player
+  script:
+  - define x:<util.random.int[<element[-4900]>].to[<element[4900]>]>
+  - define z:<util.random.int[<element[-4900]>].to[<element[4900]>]>
+  - chunkload <chunk[<[x].div[16]>,<[z].div[16]>,tor_mainland]> duration:1m
+  - teleport <[player]> <location[<[x]>,300,<[z]>,tor_mainland]>
+
 rp_command:
   type: command
   name: rp
