@@ -297,15 +297,12 @@ rtp_task:
     - define z:<util.random.decimal[<element[-4000]>].to[<element[4000]>].round_to[3]>
     - chunkload <location[<[x]>,300,<[z]>,tor_mainland].chunk> duration:1s
     - if <location[<[x]>,300,<[z]>,tor_mainland].biome.name.contains_text[ocean]>:
-      - narrate 1
       - repeat next
     - teleport <[player]> <location[<[x]>,300,<[z]>,tor_mainland]>
     - wait 1s
     - define x:<util.random.decimal[-2].to[2].round_to[3]>
     - define z:<util.random.decimal[-2].to[2].round_to[3]>
-    - narrate <[player].location.below[0.15].material.name>
-    - while <[player].location.below[0.15].material.name> == air:
-      - narrate 2
+    - while <[player].location.below[0.15].material.name> == air || <[player].location.below[0.15].material.name> == void_air:
       - adjust <[player]> velocity:<location[<[x]>,-1,<[z]>]>
       - wait 1t
 
