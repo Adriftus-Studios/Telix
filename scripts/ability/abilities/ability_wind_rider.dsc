@@ -11,6 +11,8 @@ ability_wind_rider:
     material: iron_nugget
     custom_model_data: 1
   script:
+    - inject abilities_check
+    - inject abilities_cost
     - shoot <player> destination:<player.location.forward[10]> speed:3
     - wait 15t
     - inventory adjust d:<player.inventory> slot:39 material:<material[elytra]>

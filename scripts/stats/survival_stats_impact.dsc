@@ -113,11 +113,11 @@ survival_stats_food_impact_events:
   events:
     on player starts sprinting:
     - while <player.is_sprinting>:
-      - yaml id:player.<[value].uuid> set stats.food.current:--
+      - yaml id:player.<player.uuid> set stats.food.current:--
       - wait 3s
     on player starts swimming:
     - while <player.swimming>:
-      - yaml id:player.<[value].uuid> set stats.food.current:--
+      - yaml id:player.<player.uuid> set stats.food.current:--
       - wait 3s
 
 survival_stats_reset:
