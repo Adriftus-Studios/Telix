@@ -507,8 +507,6 @@ system_override:
         - yaml create id:player.<player.uuid>
     on player respawns:
       - flag <player> contaminated:!
-      - if <context.location.notable_name> == default_spawn:
-        - determine <location[spawn]>
       - wait 1t
       - narrate 1
       - inject system_equipment_set
