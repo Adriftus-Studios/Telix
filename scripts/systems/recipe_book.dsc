@@ -261,10 +261,10 @@ show_recipe:
       - inventory set d:<[inv]> slot:30 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.serving_dish].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.serving_dish].split[/].get[2]>]||<item[air]>>
       - if <yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients]||null> != null:
         - inventory set d:<[inv]> slot:20 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[/].get[2]>]||<item[air]>>
-      - if <yaml[server.recipe_book].read[altar.<[item]>.cook_time].as_duration.in_seconds> >= 60:
-        - inventory adjust d:<[inv]> slot:27 lore:<&f><yaml[server.recipe_book].read[altar.<[item]>.cook_time].as_duration.in_minutes.round_up><&sp>Minutes
+      - if <yaml[server.recipe_book].read[cooking.<[item]>.cook_time].as_duration.in_seconds> >= 60:
+        - inventory adjust d:<[inv]> slot:50 lore:<&f><yaml[server.recipe_book].read[cooking.<[item]>.cook_time].as_duration.in_minutes.round_up><&sp>Minutes
       - else:
-        - inventory adjust d:<[inv]> slot:27 lore:<&f><yaml[server.recipe_book].read[altar.<[item]>.cook_time].as_duration.in_seconds.round_up><&sp>Seconds
+        - inventory adjust d:<[inv]> slot:50 lore:<&f><yaml[server.recipe_book].read[cooking.<[item]>.cook_time].as_duration.in_seconds.round_up><&sp>Seconds
     - if <[type]> == notes:
       - define inv:<inventory[recipe_book_note]>
       - inventory open d:<[inv]>
