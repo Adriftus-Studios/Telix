@@ -170,7 +170,8 @@ altar_events:
     on player places sponge:
       - if <context.item_in_hand.script.name.starts_with[altar_tier_]>:
         - note <context.location> as:altar_<context.location.simple>_<context.item_in_hand.script.name.replace[altar_tier_].with[]>
-        - spawn altar_entity <context.location.below[1].with_yaw[<player.location.yaw.add[180]>]> save:altar
+        - modifyblock <context.location> barrier
+        - spawn altar_entity <context.location.below[1].with_yaw[<player.location.yaw.add[180]>].center> save:altar
         - define altar:<entry[altar].spawned_entity>
         - adjust <[altar]> equipment:<item[air]>|<item[air]>|<item[air]>|<context.item_in_hand>
     on player breaks barrier:
