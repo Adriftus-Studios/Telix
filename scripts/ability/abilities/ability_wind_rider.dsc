@@ -17,7 +17,9 @@ ability_wind_rider:
     - wait 15t
     - inventory adjust d:<player.inventory> slot:39 material:<material[elytra]>
     - adjust <player> gliding:true
-    - flag <player> wind_rider:true
+    - repeat 20:
+      - flag <player> wind_rider:true
+      - wait 1t
     - flag <player> downpull:-0.2
 
 abilities_wind_rider:
