@@ -152,7 +152,7 @@ recipe_book_preparation_table:
     gui_top: <item[gui_preparation_table_top]>
     gui_bottom: <item[gui_preparation_table_bottom]>
   slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[custom_preparation_table] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [] [] [w_filler] [w_filler] [] [w_filler] [w_filler]"
   - "[] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
