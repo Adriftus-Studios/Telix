@@ -186,12 +186,10 @@ altar_events:
     on player clicks barrier:
       - wait 1t
       - if <context.location.notable_name.starts_with[altar_]||false>:
-        - narrate <context.location.notable_name>
         - define loc:<context.location.notable_name.split[_e@].get[1].split[_].get[2]>
         - define tier:<context.location.notable_name.split[_e@].get[1].split[_].get[3]>
         - if !<inventory[altar_<player.uuid>_<[tier]>]||null> == null:
           - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
-        - narrate <[tier]>
         - inventory set d:<inventory[altar_<player.uuid>_<[tier]>]> slot:1 o:<item[altar_tier_<[tier]>].with[nbt=tier/<[tier]>]>
         - inventory open d:<inventory[altar_<player.uuid>_<[tier]>]>
     on player drags in altar_inventory:
