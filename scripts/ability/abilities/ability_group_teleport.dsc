@@ -42,6 +42,6 @@ ability_group_teleport:
           - teleport <[player]> <[destination]>
         - flag <player> group_teleport_cooldown duration:10m
       - else:
-        - narrate "<&c>You cannot use this ability for <player.flag[group_teleport_cooldown].expiration.formatted.replace[s].with[<&sp>seconds].replace[m].with[<&sp>minutes]>."
+        - narrate "<&c>You cannot use this ability for <player.flag[group_teleport_cooldown].expiration.formatted>."
     - else:
       - narrate "<&c>You cannot use this ability in spawn."

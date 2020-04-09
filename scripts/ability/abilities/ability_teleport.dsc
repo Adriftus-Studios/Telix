@@ -42,4 +42,4 @@ ability_teleport:
         - teleport <player> <[destination]>
       - flag <player> teleport_cooldown duration:10m
     - else:
-      - narrate "<&c>You cannot use this ability for <player.flag[teleport_cooldown].expiration.formatted.replace[s].with[<&sp>seconds].replace[m].with[<&sp>minutes]>."
+      - narrate "<&c>You cannot use this ability for <player.flag[teleport_cooldown].expiration.formatted>."
