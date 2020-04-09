@@ -23,7 +23,7 @@ cannon_events:
   type: world
   debug: false
   events:
-    on player right clicks cannon_base_entity:
+    on player right clicks cannon_base_entity ignorecancelled:true:
       - determine passively cancelled
       - teleport <player> <context.entity.location>
       - flag <player> no_fly_kick
@@ -35,7 +35,7 @@ cannon_events:
         - adjust <player> velocity:<context.entity.location.forward[4].sub[<context.entity.location>]>
         - wait 1t
       - inject rtp_task
-    on player right clicks cannon_entity:
+    on player right clicks cannon_entity ignorecancelled:true:
       - determine passively cancelled
       - teleport <player> <context.entity.location>
       - flag <player> no_fly_kick
