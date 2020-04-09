@@ -461,6 +461,8 @@ system_override:
   debug: false
   events:
     on player respawns:
+      - narrate <context.location>
+      - narrate <context.location.notable_name>
       - if <context.location.notable_name> == default_spawn:
         - determine <location[spawn]>
     on player right clicks entity:
