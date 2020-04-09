@@ -195,7 +195,6 @@ recipe_book_events:
         - repeat 45:
           - inventory add d:<context.inventory> o:<[items].get[<[value]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
     on player clicks in recipe_book_*:
-      - narrate <context.raw_slot>
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
       - if <context.raw_slot> != -998 && <context.raw_slot> <= <player.open_inventory.size> && <context.item.material.name> != air:
