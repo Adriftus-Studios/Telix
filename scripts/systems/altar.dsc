@@ -172,13 +172,14 @@ altar_events:
         - spawn altar_entity <context.location.below[1].with_yaw[<player.location.yaw.add[180]>].center> save:altar
         - define altar:<entry[altar].spawned_entity>
         - adjust <[altar]> equipment:<item[air]>|<item[air]>|<item[air]>|<context.item_in_hand>
-        - note <context.location> as:altar_<context.location.simple>_<context.item_in_hand.script.name.replace[altar_tier_].with[]>_<[altar]>
+        - note <context.location> as:altar_<context.location.simple>_<context.item_in_hand.script.name.replace[altar_tier_].with[]>_<[altar]>_<[altar]>
         - modifyblock <context.location> barrier
     on player breaks barrier:
       - if <context.location.notable_name.starts_with[altar_]>:
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
         - define entity:<context.location.notable_name.split[@e].get[2]>
         - narrate <[entity]>
+        - narrate <context.location.entity_name>
         - note remove as:<context.location.notable_name>
         - determine NOTHING
         - if <player.gamemode> == SURVIVAL:
