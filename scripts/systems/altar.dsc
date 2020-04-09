@@ -188,7 +188,7 @@ altar_events:
       - if <context.location.notable_name.starts_with[altar_]||false>:
         - narrate <context.location.notable_name>
         - define loc:<context.location.notable_name.split[_e@].get[1].split[_].get[2]>
-        - define tier:<context.location.notable_name.split[_e@].get[1].split[_].get[<context.location.notable_name.split[_].size>]>
+        - define tier:<context.location.notable_name.split[_e@].get[1].split[_].get[3]>
         - if !<inventory[altar_<player.uuid>_<[tier]>]||null> == null:
           - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
         - narrate <[tier]>
