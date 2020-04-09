@@ -461,7 +461,7 @@ system_override:
   debug: false
   events:
     on player respawns:
-      - if !<context.is_bed_spawn>:
+      - if <context.location.notable_name> == default_spawn:
         - determine <location[spawn]>
     on player right clicks entity:
       - if <context.entity.script.yaml_key[custom.interactable]||false>:
