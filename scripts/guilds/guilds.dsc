@@ -70,13 +70,13 @@ guild_command:
           - case invite:
             - if <context.args.size> == 2:
               - if <context.args.get[2].size||null> > 0:
-                - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name].filter[starts_with[<context.args.get[2]>]]>
+                - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name].filter[starts_with[<context.args.get[2]||>]]>
               - else:
                 - determine <server.list_online_players.filter[is[!=].to[<player>]].parse[name]>
           - case kick:
             - if <context.args.size> == 2:
               - if <context.args.get[2].size||null> > 0:
-                - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[!=].to[<player>]].filter[is_online].parse[name].filter[starts_with[<context.args.get[2]>]]>
+                - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[!=].to[<player>]].filter[is_online].parse[name].filter[starts_with[<context.args.get[2]||>]]>
               - else:
                 - determine <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[members].filter[is[!=].to[<player>]].filter[is_online].parse[name]>
           - case relation:
