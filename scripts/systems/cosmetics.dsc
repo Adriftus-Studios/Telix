@@ -1,4 +1,10 @@
 
+cosmetic_bunny_ears:
+  type: item
+  material: rabbit_hide
+  mechanisms:
+    custom_model_data: 4
+
 entity_tail1:
   type: entity
   entity_type: armor_stand
