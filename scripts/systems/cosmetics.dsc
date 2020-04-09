@@ -41,10 +41,10 @@ cosmetic_command:
   - if <player.has_flag[cosmetic]>:
     - if <context.args.get[1]> == tail1:
       - if <player.has_flag[tail]>:
-        - narrate "<&b>Deactivated cosmetic effect lucid"
+        - narrate "<&b>Deactivated cosmetic effect tail1"
         - flag <player> tail:!
       - else:
-        - narrate "<&b>Activated cosmetic effect lucid"
+        - narrate "<&b>Activated cosmetic effect tail1"
         - flag <player> tail
         - spawn entity_tail1 <player.location.below[0.5]> save:tail
         - define tail:<entry[tail].spawned_entity>
