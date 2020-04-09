@@ -1171,7 +1171,6 @@ guild_gui_events:
         - announce to_flagged:debug "<&c>broken guild: <[guild]>"
     on player clicks in guild_settings_gui:
     - if <context.raw_slot> <= 36:
-      - narrate 1
       - determine passively cancelled
       - if <context.item.script.name||null> == disband_guild_btn:
         - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
@@ -1363,9 +1362,8 @@ guild_gui_events:
     - define lore:!
     - if <[guild]> == <player.flag[guild]>:
       - define lore:|:<&b>Your<&sp>Permissions:
-      - foreach <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
-        - foreach <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
-          - define lore:|:<&a><[perm].replace[_].with[<&sp>].to_titlecase>
+      - foreach <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
+        - define lore:|:<&a><[perm].replace[_].with[<&sp>].to_titlecase>
       - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[skull_skin=<yaml[guild.<[guild]>].read[leader].as_player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
     - else:
       - inventory set d:<context.inventory> slot:13 o:<item[air]>
