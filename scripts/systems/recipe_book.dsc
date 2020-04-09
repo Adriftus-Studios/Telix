@@ -303,7 +303,8 @@ show_recipe:
       - inventory open d:<[inv]>
       - repeat 9:
         - if <[value]> <= <yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.size>:
-          - inventory set d:<[inv]> slot:<[value].add[1]> o:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
+          - define item:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
+          - inventory set d:<[inv]> slot:<[value].add[1]> o:<[item]>
       - inventory set d:<[inv]> slot:1 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.output_quantity]>;flags=HIDE_ATTRIBUTES]>
     - if <[type]> == altar:
       - define inv:<inventory[recipe_book_altar]>
