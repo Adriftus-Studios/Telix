@@ -510,7 +510,6 @@ system_override:
       - if <context.location.notable_name> == default_spawn:
         - determine <location[spawn]>
       - wait 1t
-      - narrate 1
       - inject system_equipment_set
     on player drags in inventory:
       - if <player.open_inventory> == <player.inventory>:
@@ -673,10 +672,9 @@ build_item:
         - if <[item].nbt[saved_location]||null> != null:
           - define "lore:|:<&b>Saved Location: <[item].nbt[saved_location].as_location.x.round>X, <[item].nbt[saved_location].as_location.y.round>Y, <[item].nbt[saved_location].as_location.z.round>Z"
         - define "lore:|:<&b>"
-        - define "lore:|:<&b>Shift Click to store your current location"
-        - define "lore:|:<&b>Activate a teleport ability with the"
-        - define "lore:|:<&b>nodestone in your inventory to teleport"
-        - define "lore:|:<&b>to that location."
+        - define "lore:|:<&b>Shift Click while holding to store your current location"
+        - define "lore:|:<&b>Activate a teleport ability with the nodestone in your"
+        - define "lore:|:<&b>inventory to teleport to that location."
       - if <[item].script.yaml_key[category]> == fishing_rod:
         - define lore:|:<&6><&l><&m>-------------<&r><&6><&sp><&sp>Fishing<&sp>Rod<&sp><&sp><&l><&m>-------------
         - define lore:|:<[item].script.yaml_key[lore].as_list.parse[parsed]||<list[]>>
