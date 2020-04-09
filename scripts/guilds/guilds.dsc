@@ -42,6 +42,7 @@ guild_command:
   aliases:
   - "g"
   tab complete:
+  - stop
   - if <context.args.size||0> != 0:
     - if <context.args.size> == 1:
       - if <context.args.get[1]> == invite:
