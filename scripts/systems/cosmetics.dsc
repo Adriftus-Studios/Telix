@@ -76,7 +76,6 @@ cosmetic_command:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
-        - narrate <[left_wing].location.yaw.sub[50]>
         - wait 1t
         - if !<player.is_online>:
           - while stop
