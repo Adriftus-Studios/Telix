@@ -460,11 +460,6 @@ system_override:
   type: world
   debug: false
   events:
-    on player respawns:
-      - narrate <context.location>
-      - narrate <context.location.notable_name>
-      - if <context.location.notable_name> == default_spawn:
-        - determine <location[spawn]>
     on player right clicks entity:
       - if <context.entity.script.yaml_key[custom.interactable]||false>:
         - determine passively cancelled
@@ -512,7 +507,10 @@ system_override:
         - yaml create id:player.<player.uuid>
     on player respawns:
       - flag <player> contaminated:!
+      - if <context.location.notable_name> == default_spawn:
+        - determine <location[spawn]>
       - wait 1t
+      - narrate 1
       - inject system_equipment_set
     on player drags in inventory:
       - if <player.open_inventory> == <player.inventory>:
