@@ -25,7 +25,6 @@ entity_drowned:
 
 entity_boomboom:
   type: entity
-  definitions: entity
   entity_type: cow
   custom_name: BoomBoom
   custom:
