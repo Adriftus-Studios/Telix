@@ -460,6 +460,9 @@ system_override:
   type: world
   debug: false
   events:
+    on player respawns:
+      - if !<context.is_bed_spawn>:
+        - determine <location[spawn]>
     on player right clicks entity:
       - if <context.entity.script.yaml_key[custom.interactable]||false>:
         - determine passively cancelled
