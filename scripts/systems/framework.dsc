@@ -293,8 +293,10 @@ rtp_task:
   script:
   - define x:<util.random.int[<element[-4900]>].to[<element[4900]>]>
   - define z:<util.random.int[<element[-4900]>].to[<element[4900]>]>
-  - chunkload <chunk[<[x].div[16]>,<[z].div[16]>,tor_mainland]> duration:1m
   - teleport <[player]> <location[<[x]>,300,<[z]>,tor_mainland]>
+  - while <[player].location.below[0.15].material.name> == air:
+    - adjust <[player]> velocity:<location[<util.random.decimal[-2].to[2]>,-1,<util.random.decimal[-2].to[2]>]>
+    - wait 1t
 
 rp_command:
   type: command
