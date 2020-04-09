@@ -90,7 +90,7 @@ spawn_command:
   name: spawn
   permission: spawn
   tab complete:
-    - determine <server.list_online_players.parse[name]>
+    - determine <server.list_online_players.parse[name].filter[starts_with[<context.args.get[1]||>]]>
   script:
     - if <location[spawn]||null> != null:
       - teleport <server.match_player[<context.args.get[1]||null>]||<player>> <location[spawn]>
@@ -469,6 +469,7 @@ system_override:
           - adjust <[value]> food_level:19
     on player first login:
       - flag <player> ott:1 duration:2h
+      - wait 1t
       - teleport <player> <location[spawn]>
     on player joins:
       - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/5373c12d2df73f4b69714710bf767a1d.zip>
@@ -544,6 +545,7 @@ system_override:
         - define item:<context.item.with[nbt=saved_location/<player.location.center>]>
         - inject build_item
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
+        - determine passively cancelled
 
 kill_queue_command:
   type: command
