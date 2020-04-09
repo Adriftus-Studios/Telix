@@ -1,7 +1,7 @@
 abilities_check:
   type: task
   script:
-    - if <yaml[player.<player.uuid>].read[skills.<queue.script.yaml_key[ability_tree]>.current]||0> < <queue.script.yaml_key[points_to_unlock]||100>:
+    - if <yaml[player.<player.uuid>].read[skills.<queue.script.yaml_key[ability_tree]>.current]||0> < <queue.script.yaml_key[points_to_unlock]||100> || <player.location.world.name> == spawn:
       - stop
 
 abilities_cost:
