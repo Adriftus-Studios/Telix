@@ -298,14 +298,17 @@ rtp_task:
     - chunkload <location[<[x]>,300,<[z]>,tor_mainland].chunk> duration:1s
     - if <location[<[x]>,300,<[z]>,tor_mainland].biome.name.contains_text[ocean]>:
       - repeat next
-    - teleport <[player]> <location[<[x]>,300,<[z]>,tor_mainland]>
+    - teleport <player> <location[<[x]>,300,<[z]>,tor_mainland]>
     - wait 1s
     - define x:<util.random.decimal[-2].to[2].round_to[3]>
     - define z:<util.random.decimal[-2].to[2].round_to[3]>
-    - while <[player].location.below[0.15].material.name> == air || <[player].location.below[0.15].material.name> == void_air:
-      - adjust <[player]> velocity:<location[<[x]>,-1,<[z]>]>
+    - flag <player> no_fall
+    - while <player.location.below[0.15].material.name> == air || <player.location.below[0.15].material.name> == void_air:
+      - adjust <player> velocity:<location[<[x]>,-1,<[z]>]>
       - wait 1t
     - repeat stop
+    - wait 1t
+    - flag <player> no_fall:!
 
 rp_command:
   type: command
