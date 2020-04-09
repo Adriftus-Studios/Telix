@@ -3844,11 +3844,6 @@ custom_red_sandstone_slab:
   display name: <&7>Red Sandstone Slab
   weight: '1'
   type: item
-custom_obsidian:
-  material: obsidian
-  display name: <&7>Obsidian
-  weight: '1'
-  type: item
 custom_wither_skeleton_skull:
   material: wither_skeleton_skull
   display name: <&7>Wither Skeleton Skull

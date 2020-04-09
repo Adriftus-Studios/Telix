@@ -641,6 +641,17 @@ custom_nickel_ore:
       biome: all
       block: stone
       chance: 110
+custom_obsidian:
+  material: obsidian
+  display name: <&7>Obsidian
+  weight: '1'
+  type: item
+  recipe_book_category: equipment.obsidian|materials.blocks
+  ore:
+    1:
+      biome: all
+      block: stone
+      chance: 60
 custom_obsidian_ingot:
   material: iron_ingot
   recipe_book_category: equipment.obsidian|materials.ingots
