@@ -294,6 +294,7 @@ rtp_task:
   - define x:<util.random.int[<element[-4900]>].to[<element[4900]>]>
   - define z:<util.random.int[<element[-4900]>].to[<element[4900]>]>
   - teleport <[player]> <location[<[x]>,300,<[z]>,tor_mainland]>
+  - wait 1s
   - while <[player].location.below[0.15].material.name> == air:
     - adjust <[player]> velocity:<location[<util.random.decimal[-2].to[2]>,-1,<util.random.decimal[-2].to[2]>]>
     - wait 1t
