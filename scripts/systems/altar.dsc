@@ -178,6 +178,7 @@ altar_events:
       - if <context.location.notable_name.starts_with[altar_]>:
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
         - note remove as:<context.location.notable_name>
+        - remove <context.location.center.find.entities[altar_entity].within[0.1].get[1]>
         - determine NOTHING
         - if <player.gamemode> == SURVIVAL:
           - drop <item[altar_<[tier]>]> <context.location>
