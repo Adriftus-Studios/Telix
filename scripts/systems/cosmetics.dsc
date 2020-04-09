@@ -43,7 +43,7 @@ cosmetics_command:
     - co
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
-    - determine <list[curve1|sphere2|lucid1|lucid2|tail1|rabbitears].filter[starts_with[<context.args.get[1]||>]]>
+    - determine <list[curve1|sphere2|lucid1|lucid2|tail1|bunnyears].filter[starts_with[<context.args.get[1]||>]]>
   - else:
     - determine <list[]>
   script:
@@ -77,12 +77,12 @@ cosmetics_command:
       - if <[tail]||null> != null:
         - remove <[tail]>
     - if <context.args.get[1]> == lucid3:
-      - if <player.has_flag[wings]>:
+      - if <player.has_flag[cosmetic_shirt]>:
         - narrate "<&b>Deactivated cosmetic effect lucid"
-        - flag <player> wings:!
+        - flag <player> cosmetic_shirt:!
       - else:
         - narrate "<&b>Activated cosmetic effect lucid"
-        - flag <player> wings
+        - flag <player> cosmetic_shirt
         - spawn pink_lucids_wing <player.location.below[0.5]> save:wing1
         - spawn pink_lucids_wing <player.location.below[0.5]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
@@ -90,7 +90,7 @@ cosmetics_command:
         - adjust <[left_wing]> armor_pose:head|0,<element[50].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<element[-50].to_radians>,0
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
-      - while <player.has_flag[wings]>:
+      - while <player.has_flag[cosmetic_shirt]>:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
@@ -102,12 +102,12 @@ cosmetics_command:
       - if <[right_wing]||null> != null:
         - remove <[right_wing]>
     - if <context.args.get[1]> == lucid2:
-      - if <player.has_flag[wings]>:
+      - if <player.has_flag[cosmetic_shirt]>:
         - narrate "<&b>Deactivated cosmetic effect lucid"
-        - flag <player> wings:!
+        - flag <player> cosmetic_shirt:!
       - else:
         - narrate "<&b>Activated cosmetic effect lucid"
-        - flag <player> wings
+        - flag <player> cosmetic_shirt
         - spawn lucids_wing <player.location.below[0.5]> save:wing1
         - spawn lucids_wing <player.location.below[0.5]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
@@ -115,7 +115,7 @@ cosmetics_command:
         - adjust <[left_wing]> armor_pose:head|0,<element[30].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<element[-30].to_radians>,0
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
-      - while <player.has_flag[wings]>:
+      - while <player.has_flag[cosmetic_shirt]>:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
@@ -127,12 +127,12 @@ cosmetics_command:
       - if <[right_wing]||null> != null:
         - remove <[right_wing]>
     - if <context.args.get[1]> == lucid1:
-      - if <player.has_flag[wings]>:
+      - if <player.has_flag[cosmetic_shirt]>:
         - narrate "<&b>Deactivated cosmetic effect lucid"
-        - flag <player> wings:!
+        - flag <player> cosmetic_shirt:!
       - else:
         - narrate "<&b>Activated cosmetic effect lucid"
-        - flag <player> wings
+        - flag <player> cosmetic_shirt
         - spawn lucids_wing <player.location.below[0.5]> save:wing1
         - spawn lucids_wing <player.location.below[0.5]> save:wing2
         - define left_wing:<entry[wing1].spawned_entity>
@@ -142,7 +142,7 @@ cosmetics_command:
         - adjust <[left_wing]> armor_pose:head|0,<element[30].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<element[-30].to_radians>,0
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
-      - while <player.has_flag[wings]>:
+      - while <player.has_flag[cosmetic_shirt]>:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
         - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
