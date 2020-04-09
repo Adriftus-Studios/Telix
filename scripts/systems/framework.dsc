@@ -507,7 +507,6 @@ system_override:
         - yaml create id:player.<player.uuid>
     on player respawns:
       - flag <player> contaminated:!
-      - note <context.location> as:default_spawn
       - if <context.location.notable_name> == default_spawn:
         - determine <location[spawn]>
       - wait 1t
