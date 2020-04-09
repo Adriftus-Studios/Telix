@@ -1312,6 +1312,7 @@ guild_gui_events:
     - define lore:|:<&b>Members:<&sp><yaml[guild.<[guild]>].read[members].size>
     - define lore:|:<&b>
     - foreach <[desc].split[<n>].parse[strip_color]> as:p:
+      - narrate <[p]>
       - foreach <[p].split[<&sp>]>:
         - define line:|:<[value]>
         - define lore:!
