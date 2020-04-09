@@ -16,7 +16,7 @@ custom_animal_pelt:
   display name: <&7>Animal Pelt
   mob_drops:
     1:
-      dropped_by: entity_direwolf|entity_mountain_wolf|entity_icewolf|entity_hyena
+      dropped_by: entity_direwolf|entity_mountain_wolf|entity_icewolf|entity_hyena|entity_elk
       chance: 2
       max_quantity: 1
       min_quantity: 1
