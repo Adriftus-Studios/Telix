@@ -303,6 +303,7 @@ rtp_task:
     - wait 1s
     - define x:<util.random.decimal[-2].to[2].round_to[3]>
     - define z:<util.random.decimal[-2].to[2].round_to[3]>
+    - narrate <[player].location.below[0.15].material.name>
     - while <[player].location.below[0.15].material.name> == air:
       - narrate 2
       - adjust <[player]> velocity:<location[<[x]>,-1,<[z]>]>
