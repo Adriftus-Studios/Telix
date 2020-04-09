@@ -48,13 +48,13 @@ cosmetics_command:
     - determine <list[]>
   script:
   - if <player.has_flag[cosmetic]>:
-    - if <context.args.get[1]> == rabbitears:
+    - if <context.args.get[1]> == bunnyears:
       - if <player.has_flag[head]>:
-        - narrate "<&b>Deactivated cosmetic effect rabbitears"
+        - narrate "<&b>Deactivated cosmetic effect bunny ears"
         - flag <player> head:!
         - adjust <player> equipment:<item[equipment_boots_slot]>|<item[equipment_leg_slot]>|<item[equipment_chest_slot]>|<item[equipment_head_slot]>
       - else:
-        - narrate "<&b>Activated cosmetic effect rabbitears"
+        - narrate "<&b>Activated cosmetic effect bunny ears"
         - adjust <player> equipment:<item[equipment_boots_slot]>|<item[equipment_leg_slot]>|<item[equipment_chest_slot]>|<item[cosmetic_bunny_ears]>
         - flag <player> head
     - if <context.args.get[1]> == tail1:
