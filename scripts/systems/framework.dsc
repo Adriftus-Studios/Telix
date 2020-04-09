@@ -544,14 +544,6 @@ system_override:
         - inject build_item
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
 
-cause_error_command:
-  type: command
-  name: cause_error
-  permission: cause_error
-  script:
-  - define item:<player.item_in_hand>
-  - narrate <el@1.mul[b]>
-
 kill_queue_command:
   type: command
   name: kill_queue
