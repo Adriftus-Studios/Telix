@@ -177,9 +177,8 @@ altar_events:
     on player breaks barrier:
       - if <context.location.notable_name.starts_with[altar_]>:
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
-        - define entity:<context.location.notable_name.split[@e].get[2]>
-        - narrate <[entity]>
-        - narrate <context.location.notable_name>
+        - define entity:<context.location.notable_name.split[_e@].get[2].as_entity>
+        - remove <[entity]>
         - note remove as:<context.location.notable_name>
         - determine NOTHING
         - if <player.gamemode> == SURVIVAL:
