@@ -95,13 +95,6 @@ spawn_command:
     - if <location[spawn]||null> != null:
       - teleport <server.match_player[<context.args.get[1]||null>]||<player>> <location[spawn]>
 
-setspawn_command:
-  type: command
-  name: setspawn
-  permission: setspawn
-  script:
-    - note <player.location> as:spawn
-
 smelted_into:
   # used for mob drops for burning mobs
   type: yaml data
