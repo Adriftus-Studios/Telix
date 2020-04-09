@@ -293,8 +293,8 @@ rtp_task:
   script:
   - adjust <queue> linked_player:<[player]>
   - repeat 10:
-    - define x:<util.random.decimal[<element[-4900]>].to[<element[4900]>].round_to[3]>
-    - define z:<util.random.decimal[<element[-4900]>].to[<element[4900]>].round_to[3]>
+    - define x:<util.random.decimal[<element[-4000]>].to[<element[4000]>].round_to[3]>
+    - define z:<util.random.decimal[<element[-4000]>].to[<element[4000]>].round_to[3]>
     - chunkload <location[<[x]>,300,<[z]>,tor_mainland].chunk> duration:1s
     - if <location[<[x]>,300,<[z]>,tor_mainland].biome.name.contains_text[ocean]>:
       - narrate 1
@@ -304,6 +304,7 @@ rtp_task:
     - define x:<util.random.decimal[-2].to[2].round_to[3]>
     - define z:<util.random.decimal[-2].to[2].round_to[3]>
     - while <[player].location.below[0.15].material.name> == air:
+      - narrate 2
       - adjust <[player]> velocity:<location[<[x]>,-1,<[z]>]>
       - wait 1t
 
