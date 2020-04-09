@@ -29,9 +29,11 @@ lucids_wing:
   custom:
     interactable: false
 
-cosmetic_command:
+cosmetics_command:
   type: command
-  name: cosmetic
+  name: cosmetics
+  aliases:
+    - co
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
     - determine <list[curve1|sphere2|lucid1|lucid2|tail1].filter[starts_with[<context.args.get[1]||>]]>

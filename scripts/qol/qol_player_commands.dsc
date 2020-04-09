@@ -1,11 +1,5 @@
-qol_cosmetics_command:
-  type: command
-  debug: false
-  name: cosmetics
-  aliases:
-    - co
-  script:
-    - inventory open d:<inventory[abilities_characterAbilityTrees]>
+
+# cosmetics command moved to cosmetics.dsc
 
 qol_equipment_command:
   type: command
