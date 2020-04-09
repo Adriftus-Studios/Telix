@@ -291,11 +291,13 @@ rtp_task:
   type: task
   definitions: player
   script:
+  - adjust <queue> linked_player:<[player]>
   - repeat 10:
     - define x:<util.random.decimal[<element[-4900]>].to[<element[4900]>].round_to[3]>
     - define z:<util.random.decimal[<element[-4900]>].to[<element[4900]>].round_to[3]>
     - chunkload <location[<[x]>,300,<[z]>,tor_mainland].chunk> duration:1s
     - if <location[<[x]>,300,<[z]>,tor_mainland].biome.name.contains_text[ocean]>:
+      - narrate 1
       - repeat next
     - teleport <[player]> <location[<[x]>,300,<[z]>,tor_mainland]>
     - wait 1s
