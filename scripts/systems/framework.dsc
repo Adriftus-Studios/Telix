@@ -307,6 +307,7 @@ rtp_task:
         - stop
       - adjust <player> velocity:<location[<[x]>,-1,<[z]>]>
       - wait 1t
+    - wait 1s
     - flag <player> no_fly_kick:!
     - flag <player> no_fall:!
     - repeat stop
