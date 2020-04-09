@@ -552,10 +552,6 @@ cause_error_command:
   - define item:<player.item_in_hand>
   - narrate <el@1.mul[b]>
 
-player_crafting:
-  type: inventory
-  inventory: workbench
-  
 kill_queue_command:
   type: command
   name: kill_queue
@@ -587,21 +583,6 @@ player_reset_command:
   - kick <player> reason:Standby<&sp>while<&sp>we<&sp>reset<&sp>your<&sp>player<&sp>data.
   - yaml id:player.<player.uuid> unload
   - adjust server delete_file:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml
-
-testtttt_command:
-  type: command
-  name: testt
-  permission: testt
-  script:
-  - wait 1s
-  - narrate <player.open_inventory>
-  - stop
-  - define book:<yaml[guild.<player.flag[guild]>].read[book].as_item.with[material=writable_book]>
-  - define item:<player.item_in_hand>
-  - fakeitem <[item]> duration:1t slot:<player.held_item_slot>
-  - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[book]>
-  - adjust <player> open_book
-  - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
 
 resend_recipes_command:
   type: command
