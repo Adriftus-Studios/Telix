@@ -28,7 +28,7 @@ cannon_events:
       - repeat 100:
         - if !<player.is_online>:
           - stop
-        - adjust <player> velocity:<context.entity.location.forward[2].sub[<context.entity.location>]>
+        - adjust <player> velocity:<context.entity.location.forward[4].sub[<context.entity.location>]>
         - wait 1t
       - inject rtp_task
     on player right clicks cannon_entity:
@@ -38,7 +38,7 @@ cannon_events:
       - repeat 100:
         - if !<player.is_online>:
           - stop
-        - adjust <player> velocity:<context.entity.location.forward[2].sub[<context.entity.location>]>
+        - adjust <player> velocity:<context.entity.location.forward[4].sub[<context.entity.location>]>
         - wait 1t
       - inject rtp_task
     on player kicked for flying:
