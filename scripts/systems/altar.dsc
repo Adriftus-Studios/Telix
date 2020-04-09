@@ -183,8 +183,8 @@ altar_events:
         - determine NOTHING
         - if <player.gamemode> == SURVIVAL:
           - drop <item[altar_<[tier]>]> <context.location>
-        - inventory close
     on player clicks barrier:
+      - wait 1t
       - if <context.location.notable_name.starts_with[altar_]>:
         - define loc:<context.location.notable_name.split[_].get[2]>
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
