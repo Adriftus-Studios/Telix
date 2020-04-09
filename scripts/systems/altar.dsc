@@ -179,7 +179,7 @@ altar_events:
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
         - define entity:<context.location.notable_name.split[@e].get[2]>
         - narrate <[entity]>
-        - narrate <context.location.entity_name>
+        - narrate <context.location.notable_name>
         - note remove as:<context.location.notable_name>
         - determine NOTHING
         - if <player.gamemode> == SURVIVAL:
