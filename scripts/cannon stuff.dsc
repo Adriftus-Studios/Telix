@@ -8,7 +8,7 @@ cannon_base_entity:
   invulnerable: false
   custom:
     interactable: false
-    
+
 cannon_entity:
   type: entity
   entity_type: armor_stand
@@ -29,6 +29,8 @@ cannon_events:
       - flag <player> no_fly_kick
       - repeat 100:
         - if !<player.is_online>:
+          - flag <player> no_fly_kick:!
+          - flag <player> no_fall:!
           - stop
         - adjust <player> velocity:<context.entity.location.forward[4].sub[<context.entity.location>]>
         - wait 1t
@@ -39,6 +41,8 @@ cannon_events:
       - flag <player> no_fly_kick
       - repeat 100:
         - if !<player.is_online>:
+          - flag <player> no_fly_kick:!
+          - flag <player> no_fall:!
           - stop
         - adjust <player> velocity:<context.entity.location.forward[4].sub[<context.entity.location>]>
         - wait 1t
@@ -74,6 +78,8 @@ rtp_task:
     - flag <player> no_fall
     - while <player.location.below[0.15].material.name> == air || <player.location.below[0.15].material.name> == void_air:
       - if !<player.is_online>:
+        - flag <player> no_fly_kick:!
+        - flag <player> no_fall:!
         - stop
       - adjust <player> velocity:<location[<[x]>,-1,<[z]>]>
       - wait 1t
