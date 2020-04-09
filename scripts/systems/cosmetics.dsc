@@ -1,4 +1,14 @@
 
+entity_tail1:
+  type: entity
+  entity_type: armor_stand
+  equipment: <item[air]>|<item[air]>|<item[air]>|<item[rabbit_hide].with[custom_model_data=3]>
+  gravity: false
+  visible: false
+  invulnerable: true
+  custom:
+    interactable: false
+
 pink_lucids_wing:
   type: entity
   entity_type: armor_stand
@@ -29,6 +39,25 @@ cosmetic_command:
     - determine <list[]>
   script:
   - if <player.has_flag[cosmetic]>:
+    - if <context.args.get[1]> == tail1:
+      - if <player.has_flag[tail]>:
+        - narrate "<&b>Deactivated cosmetic effect tail1"
+        - flag <player> tail:!
+      - else:
+        - narrate "<&b>Activated cosmetic effect tail1"
+        - flag <player> tail
+        - spawn entity_tail1 <player.location.below[0.5]> save:tail
+        - define tail:<entry[tail].spawned_entity>
+        - adjust <[tail]> armor_pose:head|0,0,0
+        - adjust <player> passengers:<list[<[tail]>]>
+      - while <player.has_flag[tail]>:
+        - teleport <[tail]> <player.location.below[0.5]>
+        - adjust <player> passengers:<list[<[tail]>]>
+        - wait 1t
+        - if !<player.is_online>:
+          - while stop
+      - if <[tail]||null> != null:
+        - remove <[tail]>
     - if <context.args.get[1]> == lucid3:
       - if <player.has_flag[lucid]>:
         - narrate "<&b>Deactivated cosmetic effect lucid"
