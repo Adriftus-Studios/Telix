@@ -291,7 +291,7 @@ rtp_task:
   type: task
   definitions: player
   script:
-  - adjust <queue> linked_player:<[player]>
+  - adjust <queue> linked_player:<[player]||<player>>
   - repeat 100:
     - define x:<util.random.decimal[<element[-4000]>].to[<element[4000]>].round_to[3]>
     - define z:<util.random.decimal[<element[-4000]>].to[<element[4000]>].round_to[3]>
