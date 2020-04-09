@@ -292,7 +292,7 @@ rtp_task:
   definitions: player
   script:
   - adjust <queue> linked_player:<[player]>
-  - repeat 10:
+  - repeat 100:
     - define x:<util.random.decimal[<element[-4000]>].to[<element[4000]>].round_to[3]>
     - define z:<util.random.decimal[<element[-4000]>].to[<element[4000]>].round_to[3]>
     - chunkload <location[<[x]>,300,<[z]>,tor_mainland].chunk> duration:1s
