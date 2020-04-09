@@ -3,6 +3,7 @@ darkness_handler_events:
   debug: false
   events:
     on delta time secondly:
+      - stop
       - if !<server.list_worlds.parse[name].contains[tor_mainland]>:
         - stop
       - if <world[tor_mainland].time> >= 13500 && <world[tor_mainland].time> <= 22500:
