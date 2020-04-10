@@ -469,8 +469,6 @@ system_override:
           - adjust <[value]> food_level:19
     on player first login:
       - flag <player> ott:1 duration:2h
-      - wait 1t
-      - teleport <player> <location[spawn]>
     on player joins:
       - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/84f6509bd461ef7d8888c475abd1a69c.zip>
       - wait 60t
@@ -509,8 +507,6 @@ system_override:
         - yaml create id:player.<player.uuid>
     on player respawns:
       - flag <player> contaminated:!
-      - if <context.location.notable_name> == default_spawn:
-        - determine <location[spawn]>
       - wait 1t
       - inject system_equipment_set
     on player drags in inventory:
