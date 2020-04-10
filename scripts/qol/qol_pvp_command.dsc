@@ -139,7 +139,7 @@ qol_pvp_settings_inventory_events:
     on player clicks in qol_pvp_settings_inventory priority:10:
       - determine cancelled
     
-    on player clicks in qol_pvp_settings_inventory:
+    on player left clicks in qol_pvp_settings_inventory:
       - if <context.item.script.yaml_key[setting]||null> != null && <context.item.script.yaml_key[options]||null> != null:
         - define setting:<context.item.script.yaml_key[setting]>
         - define options:<context.item.script.yaml_key[options].as_list>
