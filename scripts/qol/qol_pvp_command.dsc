@@ -23,7 +23,7 @@ qol_pvp_command:
     - narrate "<&6>If a player accepts your challenge, they get to pick an arena to fight in."
   script:
     - if <context.args.get[1]||null> == null:
-      - narrate "<&c>Command argument missing! (Argument #1)"
+      - inject locally help
     - else if <context.args.get[1].to_lowercase> == help:
       - inject locally help
     - else if <context.args.get[1].to_lowercase> == challenge:
@@ -125,9 +125,11 @@ qol_pvp_settings_inventory:
     w_filler: <item[gui_invisible_item]>
     dmg_n: <item[qol_pvp_settings_damage_notifier]>
     fx_n: <item[qol_pvp_settings_effect_notifier]>
+    dmg_f: <item[qol_pvp_settings_damage_flash]>
+    pwr_f: <item[qol_pvp_settings_power_flash]>
   slots:
     - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-    - "[w_filler] [dmg_n] [fx_n] [] [] [] [] [] [w_filler]"
+    - "[w_filler] [dmg_n] [fx_n] [dmg_f] [pwr_f] [] [] [] [w_filler]"
     - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
     
 qol_pvp_settings_inventory_events:
@@ -137,16 +139,30 @@ qol_pvp_settings_inventory_events:
     on player clicks in qol_pvp_settings_inventory priority:10:
       - determine cancelled
     
-    on player clicks in qol_pvp_settings_inventory:
+    on player left clicks in qol_pvp_settings_inventory:
       - if <context.item.script.yaml_key[setting]||null> != null && <context.item.script.yaml_key[options]||null> != null:
         - define setting:<context.item.script.yaml_key[setting]>
         - define options:<context.item.script.yaml_key[options].as_list>
         - if !<[options].contains[<yaml[player.<player.uuid>].read[pvp.<[setting]>]||null>]>:
-          - yaml id:player.<player.uuid> set pvp.<[setting]>:<[options].get[1]>
+          - yaml id:player.<player.uuid> set pvp.<[setting]>:<[options].first>
         - define next:<[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>].+[1]>
-        - define new:<[options].get[<[next]>]||<[options].get[1]>>
+        - define new:<[options].get[<[next]>]||<[options].first>>
         - yaml id:player.<player.uuid> set pvp.<[setting]>:<[new]>
-        - narrate "<&d>Set PvP setting <&b><[setting].replace[_].with[<&sp>].to_titlecase> <&d>to <&5><[new].to_titlecase>."
+        - actionbar "<&d>Set PvP setting <&b><[setting].replace[_].with[<&sp>].to_titlecase> <&d>to <&e><[new].to_titlecase>."
+        - inventory open d:<inventory[qol_pvp_settings_inventory]>
+    on player right clicks in qol_pvp_settings_inventory:
+      - if <context.item.script.yaml_key[setting]||null> != null && <context.item.script.yaml_key[options]||null> != null:
+        - define setting:<context.item.script.yaml_key[setting]>
+        - define options:<context.item.script.yaml_key[options].as_list>
+        - if !<[options].contains[<yaml[player.<player.uuid>].read[pvp.<[setting]>]||null>]>:
+          - yaml id:player.<player.uuid> set pvp.<[setting]>:<[options].first>
+        - define prev:<[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>].-[1]>
+        - if <[prev]> == 0:
+          - define new:<[options].last>
+        - else:
+          - define new:<[options].get[<[prev]>]>
+        - yaml id:player.<player.uuid> set pvp.<[setting]>:<[new]>
+        - actionbar "<&d>Set PvP setting <&b><[setting].replace[_].with[<&sp>].to_titlecase> <&d>to <&e><[new].to_titlecase>."
         - inventory open d:<inventory[qol_pvp_settings_inventory]>
 
 #Items
@@ -156,7 +172,8 @@ qol_pvp_settings_damage_notifier:
   material: stone
   display name: <&c>Damage Notifier
   lore:
-    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier]||<script.as_item.nbt[options].get[1]>>"
+    - "<&7>Display damage amount when attacking."
+    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier].to_titlecase||<script.as_item.nbt[options].get[1].to_titlecase>>"
   mechanisms:
     custom_model_data: 0
   setting: damage_notifier
@@ -168,8 +185,35 @@ qol_pvp_settings_effect_notifier:
   material: stone
   display name: <&d>Effect Notifier
   lore:
-    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier]||<script.as_item.nbt[options].get[1]>>"
+    - "<&7>Display effects given when attacking."
+    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.effect_notifier].to_titlecase||<script.as_item.nbt[options].get[1].to_titlecase>>"
   mechanisms:
     custom_model_data: 0
   setting: effect_notifier
-  options: chat|bossbar|false
+  options: chat|bossbar|disabled
+  
+qol_pvp_settings_damage_flash:
+  type: item
+  debug: false
+  material: stone
+  display name: <&4>Damage Flash
+  lore:
+    - "<&7>Flash the actionbar when taking damage."
+    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_flash].to_titlecase||<script.as_item.nbt[options].get[1].to_titlecase>>"
+  mechanisms:
+    custom_model_data: 0
+  setting: damage_flash
+  options: both|values|dot|disabled
+  
+qol_pvp_settings_power_flash:
+  type: item
+  debug: false
+  material: stone
+  display name: <&3>Power Flash
+  lore:
+    - "<&7>Flash the actionbar when using an ability."
+    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.power_flash].to_titlecase||<script.as_item.nbt[options].get[1].to_titlecase>>"
+  mechanisms:
+    custom_model_data: 0
+  setting: power_flash
+  options: both|values|dot|disabled
