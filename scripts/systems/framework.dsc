@@ -226,7 +226,7 @@ reload_scripts:
               - yaml id:server.mobs set <[value].name>.per_world_limit:<[value].yaml_key[custom.spawning_conditions.per_world_limit]||100>
               - yaml id:server.mobs set <[value].name>.above_ground:<[value].yaml_key[custom.spawning_conditions.above_ground]||true>
               - yaml id:server.mobs set <[value].name>.chance:<[value].yaml_key[custom.spawning_conditions.chance]||1>
-              - yaml id:server.mobs set <[value].name>.xp:<[value].yaml_key[custom.xp_dropped]||1>
+              - yaml id:server.mobs set <[value].name>.worlds:<[value].yaml_key[custom.spawning_conditions.world]||tor_mainland>
               - yaml id:server.recipe_book set mob_info.<[value].name>.every:<[value].yaml_key[custom.spawning_conditions.every]||1m>
               - yaml id:server.recipe_book set mob_info.<[value].name>.max_y:<[value].yaml_key[custom.spawning_conditions.max_y]||255>
               - yaml id:server.recipe_book set mob_info.<[value].name>.min_y:<[value].yaml_key[custom.spawning_conditions.min_y]||0>
@@ -236,6 +236,7 @@ reload_scripts:
               - yaml id:server.recipe_book set mob_info.<[value].name>.aggressive_on_spawn:<[value].yaml_key[custom.spawning_conditions.aggressive_on_spawn]||false>
               - yaml id:server.recipe_book set mob_info.<[value].name>.above_ground:<[value].yaml_key[custom.spawning_conditions.above_ground]||true>
               - yaml id:server.recipe_book set mob_info.<[value].name>.entity_type:<[value].yaml_key[entity_type]>
+            - yaml id:server.mobs set <[value].name>.xp:<[value].yaml_key[custom.xp_dropped]||1>
             - if <[value].yaml_key[custom.ability_usage]||null> != null:
               - yaml id:server.mobs set <[value].name>.abilities:<[value].yaml_key[custom.ability_usage]>
       - foreach <yaml[server.recipe_book].list_keys[used_for]> as:item:

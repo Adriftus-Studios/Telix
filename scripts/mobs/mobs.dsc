@@ -53,6 +53,8 @@ mob_spawning_events:
           - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
           - define list:<[list].deduplicate>
           - foreach <[list]> as:mob:
+            - if <yaml[server.mobs].read[<[mob]>.worlds].as_list.contains[<player.location.world.name>]>:
+              - define list:<-:<[mob]>
             - if <yaml[server.mobs].read[<[mob]>.max_y]> < <player.location.y>:
               - define list:<-:<[mob]>
             - if <yaml[server.mobs].read[<[mob]>.min_y]> > <player.location.y>:
