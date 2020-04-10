@@ -1315,9 +1315,9 @@ guild_gui_events:
         - determine passively cancelled
     on player opens guild_info_gui:
     - wait 1t
-    - define guild:<player.flag[guild]>
+    - define guild:<player.flag[guild].replace[guild.].with[]>
     - if <context.inventory.slot[1].nbt[guild]||null> != null:
-      - define guild:<context.inventory.slot[1].nbt[guild]>
+      - define guild:<context.inventory.slot[1].nbt[guild].replace[guild.].with[]>
     - define desc:<yaml[guild.<[guild]>].read[description].as_list.get[1]>
     - define lore:|:<&a>Leader:<&sp><yaml[guild.<[guild]>].read[leader].as_player.name>
     - define lore:|:<&b>Members:<&sp><yaml[guild.<[guild]>].read[members].size>
