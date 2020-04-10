@@ -23,7 +23,7 @@ qol_pvp_command:
     - narrate "<&6>If a player accepts your challenge, they get to pick an arena to fight in."
   script:
     - if <context.args.get[1]||null> == null:
-      - narrate "<&c>Command argument missing! (Argument #1)"
+      - inject locally help
     - else if <context.args.get[1].to_lowercase> == help:
       - inject locally help
     - else if <context.args.get[1].to_lowercase> == challenge:
