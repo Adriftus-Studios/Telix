@@ -157,6 +157,7 @@ qol_pvp_settings_inventory_events:
         - if !<[options].contains[<yaml[player.<player.uuid>].read[pvp.<[setting]>]||null>]>:
           - yaml id:player.<player.uuid> set pvp.<[setting]>:<[options].first>
         - define prev:<[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>].-[1]>
+        - narrate <[prev]>
         - if <[prev]> == 0:
           - define new:<[options].last>>
         - else:
