@@ -1163,6 +1163,10 @@ guild_gui_events:
         - inventory open d:my_guild_gui
       - else:
         - inventory open d:new_guild_gui
+    - if <context.item.nbt[guild]||null> != null:
+      - define inv:<inventory[guild_info_gui]>
+      - inventory open d:<[inv]>
+      - inventory adjust d:<[inv]> slot:1 nbt:guild/<context.item.nbt[guild]>
     on player opens all_guilds_gui:
     - define page:<context.inventory.slot[1].nbt[page]||1>
     - while <context.inventory.slot[44].material.name||air> == air:
