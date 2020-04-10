@@ -1251,7 +1251,6 @@ guild_gui_events:
       - define guild:<player.flag[guild]>
       - if <context.inventory.slot[1].nbt[guild]||null> != null:
         - define guild:<context.inventory.slot[1].nbt[guild]>
-      - define guild:<[guild].replace[guild.].with[]>
       - if <context.item.script.name||null> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
       - if <player.flag[guild]||null> == null:
