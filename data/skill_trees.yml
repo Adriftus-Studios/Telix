@@ -21,11 +21,11 @@ abilitytrees:
     Nether:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -4
     Ender:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -5
     Ocean:
       available_check: true
       GUIItem: iron_nugget
@@ -37,7 +37,7 @@ abilitytrees:
     Aer:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -6
     Archery:
       available_check: true
       GUIItem: iron_nugget
@@ -45,7 +45,7 @@ abilitytrees:
     Fisticuffs:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -8
     Endurance:
       available_check: true
       GUIItem: iron_nugget
@@ -65,7 +65,7 @@ abilitytrees:
     Thievery:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -7
     Athleticism:
       available_check: true
       GUIItem: iron_nugget
