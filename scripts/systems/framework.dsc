@@ -158,15 +158,16 @@ reload_scripts:
               - if <[value].yaml_key[category]||null> != null:
                   - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
               - if <[value].yaml_key[recipes]||null> != null:
-                - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
-                  - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
-                    - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - if <[value].yaml_key[recipe_book_category]||null> != null:
                   - foreach <[value].yaml_key[recipe_book_category].as_list> as:cat:
                     - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
                 - else:
                   - yaml id:server.recipe_book set categories.other:|:<[value].name>
                 - foreach <[value].list_keys[recipes]> as:recipe:
+                  - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
+                    - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
+                      - if <[value].yaml_key[recipes.<[recipe]>.type]> != furnace:
+                        - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
                     - yaml id:server.recipe_fixer set restricted.shaped.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
