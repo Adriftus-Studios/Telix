@@ -455,6 +455,12 @@ custom_item_override:
           - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
           - inject build_item
           - adjust <player.open_inventory> result:<[item]>
+    on player places block:
+      - if <context.location.world.name> != tor_mainland:
+        - determine cancelled
+    on player breaks block:
+      - if <context.location.world.name> != tor_mainland:
+        - determine cancelled
 
 system_override:
   type: world
@@ -545,6 +551,7 @@ system_override:
         - inject build_item
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
         - determine passively cancelled
+
 
 kill_queue_command:
   type: command
