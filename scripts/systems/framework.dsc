@@ -314,8 +314,8 @@ player_setup:
     - yaml id:player.<player.uuid> set values.damage_to_players:0
     - yaml id:player.<player.uuid> set pvp.damage_notifier:bossbar
     - yaml id:player.<player.uuid> set pvp.effect_notifier:chat
-    - yaml id:player.<player.uuid> set pvp.damage_flash:enabled
-    - yaml id:player.<player.uuid> set pvp.power_flash:enabled
+    - yaml id:player.<player.uuid> set pvp.damage_flash:both
+    - yaml id:player.<player.uuid> set pvp.power_flash:both
     - yaml id:player.<player.uuid> set social.facebook:None
     - yaml id:player.<player.uuid> set social.instagram:None
     - yaml id:player.<player.uuid> set social.twitter:None
