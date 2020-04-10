@@ -31,7 +31,7 @@ portal_tender_assignment:
     on click:
     - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Talk to the Temple Guardian when your ready to leave."
     - teleport <player> <location[altars]>
-    - wait 2s
+    - wait 6s
     - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Welcome traveler!"
 
 temple_guardian_assignment:
