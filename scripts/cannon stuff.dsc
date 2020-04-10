@@ -27,6 +27,7 @@ cannon_events:
       - determine passively cancelled
       - teleport <player> <context.entity.location>
       - flag <player> no_fly_kick
+      - playeffect explosion_huge at:<context.entity.location.forward[3]>  offset:0 visibility:300 quantity:1
       - repeat 100:
         - if !<player.is_online>:
           - flag <player> no_fly_kick:!
@@ -39,6 +40,7 @@ cannon_events:
       - determine passively cancelled
       - teleport <player> <context.entity.location>
       - flag <player> no_fly_kick
+      - playeffect explosion_huge at:<context.entity.location.forward[3]>  offset:0 visibility:300 quantity:1
       - repeat 100:
         - if !<player.is_online>:
           - flag <player> no_fly_kick:!
