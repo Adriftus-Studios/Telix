@@ -167,6 +167,9 @@ altar_events:
               - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
           - else:
             - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
+            
+    on player right clicks altar_entity:
+      - determine cancelled
     on player places sponge:
       - if <context.item_in_hand.script.name.starts_with[altar_tier_]>:
         - spawn altar_entity <context.location.below[1].with_yaw[<player.location.yaw.add[180]>].center> save:altar
