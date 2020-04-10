@@ -129,7 +129,7 @@ qol_pvp_settings_inventory:
     pwr_f: <item[qol_pvp_settings_power_flash]>
   slots:
     - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-    - "[w_filler] [dmg_n] [fx_n] [] [] [] [] [] [w_filler]"
+    - "[w_filler] [dmg_n] [fx_n] [dmg_f] [pwr_f] [] [] [] [w_filler]"
     - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
     
 qol_pvp_settings_inventory_events:
