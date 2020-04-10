@@ -43,7 +43,7 @@ temple_guardian_assignment:
     - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> How may I help you?"
     - narrate " - <&click[/temple_guardian_confirm leave]><&6>I am ready to leave.<&end_click>"
 
-kill_queue_command:
+temple_guardian_confirm_command:
   type: command
   name: temple_guardian_confirm
   script:
