@@ -24,7 +24,7 @@ ability_ground_slam:
       - playeffect crit at:<[value].location> quantity:10 targets:<[value]>
       - cast slow <[value]> duration:5s power:255
       - flag <[value]> no_jump:true duration:5s
-    - run bb_status stun|5s|<player.location.find.players.within[3].exclude[<player>]>
+    #- run bb_status stun|5s|<player.location.find.players.within[3].exclude[<player>]>
     - playeffect flash at:<player.location> quantity:1 visibility:50
     - cast slow <player> duration:15t power:6
   script:
