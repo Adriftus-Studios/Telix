@@ -29,8 +29,10 @@ portal_tender_assignment:
     on assignment:
     - trigger name:click state:true
     on click:
-    - narrate "<&b>Talk to the Temple Guardian when your ready to leave."
+    - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Talk to the Temple Guardian when your ready to leave."
     - teleport <player> <location[altars]>
+    - wait 2s
+    - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Welcome traveler!"
 
 temple_guardian_assignment:
   type: assignment
@@ -38,5 +40,5 @@ temple_guardian_assignment:
     on assignment:
     - trigger name:click state:true
     on click:
-    - narrate "<&b>Farewell, and safe travels."
+    - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Farewell, and safe travels."
     - teleport <player> <location[spawn]>
