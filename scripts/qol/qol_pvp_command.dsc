@@ -156,6 +156,7 @@ qol_pvp_settings_damage_notifier:
   material: stone
   display name: <&c>Damage Notifier
   lore:
+    - "<&7>Display damage amount when attacking."
     - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
     custom_model_data: 0
@@ -168,8 +169,35 @@ qol_pvp_settings_effect_notifier:
   material: stone
   display name: <&d>Effect Notifier
   lore:
-    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier]||<script.as_item.nbt[options].get[1]>>"
+    - "<&7>Display effects given when attacking."
+    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.effect_notifier]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
     custom_model_data: 0
   setting: effect_notifier
-  options: chat|bossbar|false
+  options: chat|bossbar|disabled
+  
+  qol_pvp_settings_damage_flash:
+  type: item
+  debug: false
+  material: stone
+  display name: <&4>Damage Flash
+  lore:
+    - "<&7>Flash the actionbar when taking damage."
+    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_flash]||<script.as_item.nbt[options].get[1]>>"
+  mechanisms:
+    custom_model_data: 0
+  setting: damage_flash
+  options: enabled|disabled
+  
+  qol_pvp_settings_power_flash:
+  type: item
+  debug: false
+  material: stone
+  display name: <&3>Power Flash
+  lore:
+    - "<&7>Flash the actionbar when using an ability."
+    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.power_flash]||<script.as_item.nbt[options].get[1]>>"
+  mechanisms:
+    custom_model_data: 0
+  setting: power_flash
+  options: enabled|disabled
