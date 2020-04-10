@@ -456,13 +456,11 @@ custom_item_override:
           - inject build_item
           - adjust <player.open_inventory> result:<[item]>
     on player places block:
-      - if <player.has_permission[place]>:
-        - if <context.location.world.name> != tor_mainland:
-          - determine cancelled
+      - if <context.location.world.name> != tor_mainland || <player.has_permission[place]>:
+        - determine cancelled
     on player breaks block:
-      - if <player.has_permission[break]>:
-        - if <context.location.world.name> != tor_mainland:
-          - determine cancelled
+      - if <context.location.world.name> != tor_mainland || <player.has_permission[break]>:
+        - determine cancelled
     on entity damages entity:
       - if <context.entity.type> == player && <context.damager.type> == player:
         - if <context.entity.location.world.name> != tor_mainland:
