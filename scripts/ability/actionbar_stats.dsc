@@ -12,4 +12,12 @@ actionbar_stats:
 actionbar_stats_update:
   type: task
   script:
-    - actionbar "<&c><player.health.round_to[0]>/<player.health_max>❤ <&f>· <&b>✧<yaml[player.<player.uuid>].read[stats.power.current].round_to[0]>/<yaml[player.<player.uuid>].read[stats.power.max]>" targets:<player>
+    - actionbar "<&c><player.health.round_to[0]>/<player.health_max>❤ <&f><&l>· <&b>✧<yaml[player.<player.uuid>].read[stats.power.current].round_to[0]>/<yaml[player.<player.uuid>].read[stats.power.max]>" targets:<player>
+    
+#Experimenting with stuff
+actionbar_stats_on_damage:
+  type: world
+  debug: false
+  events:
+    on player damaged:
+      - actionbar "<&4><player.health.round_to[0]>/<player.health_max>❤ <&c><&l>· <&b>✧<yaml[player.<player.uuid>].read[stats.power.current].round_to[0]>/<yaml[player.<player.uuid>].read[stats.power.max]>" targets:<player>
