@@ -47,9 +47,7 @@ temple_guardian_confirm_command:
   type: command
   name: temple_guardian_confirm
   script:
-  - narrate 1
-  - if <player.location.find.npcs.within[10].filter[script.is[==].to[temple_guardian_assignment]].size> != 0:
-    - narrate 2
+  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[temple_guardian_assignment]].size> != 0:
     - if <context.args.get[1]> == leave:
       - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Farewell, and safe travels."
       - teleport <player> <location[spawn]>
