@@ -465,6 +465,12 @@ custom_item_override:
       - if <context.entity.type> == player && <context.damager.type> == player:
         - if <context.entity.location.world.name> != tor_mainland:
           - determine passively cancelled
+    on entity damaged by suffocation:
+      - if <context.entity.location.world.name> != tor_mainland:
+        - determine passively cancelled
+    on entity damaged by fall:
+      - if <context.entity.location.world.name> != tor_mainland:
+        - determine passively cancelled
 
 system_override:
   type: world
