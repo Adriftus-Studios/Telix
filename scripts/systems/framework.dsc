@@ -461,6 +461,10 @@ custom_item_override:
     on player breaks block:
       - if <context.location.world.name> != tor_mainland:
         - determine cancelled
+    on entity damages entity:
+      - if <context.entity.type> == player && <context.damager.type> == player:
+        - if <context.entity.location.world.name> != tor_mainland:
+          - determine passively cancelled
 
 system_override:
   type: world
