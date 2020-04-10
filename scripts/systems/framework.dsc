@@ -403,7 +403,7 @@ custom_item_override:
     on player crafts item:
       - define item:<context.item>
       - inject build_item
-      - determine ITEM:<[item]>
+      - determine ITEM:<[item].as_item>
     on furnace smelts item:
       - define item:<context.result_item>
       - narrate <[item]>
