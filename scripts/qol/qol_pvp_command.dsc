@@ -189,7 +189,7 @@ qol_pvp_settings_damage_flash:
   mechanisms:
     custom_model_data: 0
   setting: damage_flash
-  options: enabled|disabled
+  options: both|values|dot|disabled
   
 qol_pvp_settings_power_flash:
   type: item
@@ -202,4 +202,4 @@ qol_pvp_settings_power_flash:
   mechanisms:
     custom_model_data: 0
   setting: power_flash
-  options: enabled|disabled
+  options: both|values|dot|disabled
