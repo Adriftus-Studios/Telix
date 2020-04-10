@@ -12,4 +12,4 @@ darkness_handler_events:
             - if !<[value].has_flag[darkness_notification]>:
               - adjust <queue> linked_player:<[value]>
               - narrate "<&7>Your field of vision begins to lessen as the light around you fades away."
-              - flag <[value]> darkness_notification:1 duration:2m
+              - flag <[value]> darkness_notification:1 duration:3h
