@@ -1128,7 +1128,7 @@ guild_gui_events:
         - inventory close
         - stop
       - else:
-        - foreach <yaml[guild.<player.flag[guild]>].list_keys[flags]> as:loc:
+        - foreach <yaml[guild.<player.flag[guild]>].list_keys[flags]||<list[]>> as:loc:
           - if <yaml[guild.<player.flag[guild]>].read[flags.<[loc]>.name]> == <context.item.display>:
             - inventory open d:<inventory[flag_<player.flag[guild]>_<[loc]>]>
       - if <context.item.script.name||null> == gui_close_btn:
