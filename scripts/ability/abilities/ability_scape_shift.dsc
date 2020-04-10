@@ -19,10 +19,11 @@ ability_scape_shift:
     - flag <player> no_suffocate:true
     - define firstblock:<player.location.below.material.name>
     - define target:<player.location.forward_flat[<script.yaml_key[distance]>]||null>
-    - if <[target]> == null:
-      - narrate "<&c>Unsuitable Target"
+    - define y_target:<cuboid[<[target].with_y[1]>|<[target].with_y[255]>].blocks[<script.yaml_key[whitelist_materials]>].filter[above.material.name.is[==].to[air]].parse[y].highest||null>
+    - if <[y_target]> == null:
+      - narrate "<&c>Unsuitable Location."
       - stop
-    - define block_target:<location[<[target].x>,<cuboid[<[target].with_y[1]>|<[target].with_y[255]>].blocks[<script.yaml_key[whitelist_materials]>].filter[above.material.name.is[==].to[air]].parse[y].highest>,<[target].z>,<[target].world>]||null>
+    - define block_target:<location[<[target].x>,<[y_target]>,<[target].z>,<[target].world>]||null>
     - if <[block_target]> == null:
       - narrate "<&c>Unsuitable Target Location"
       - stop
