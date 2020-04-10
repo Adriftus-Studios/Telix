@@ -159,7 +159,7 @@ qol_pvp_settings_damage_notifier:
   display name: <&c>Damage Notifier
   lore:
     - "<&7>Display damage amount when attacking."
-    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.<script.as_item.nbt[setting]>]||<script.as_item.nbt[options].get[1]>>"
+    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_notifier]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
     custom_model_data: 0
   setting: damage_notifier
@@ -172,7 +172,7 @@ qol_pvp_settings_effect_notifier:
   display name: <&d>Effect Notifier
   lore:
     - "<&7>Display effects given when attacking."
-    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.<script.as_item.nbt[setting]>]||<script.as_item.nbt[options].get[1]>>"
+    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.effect_notifier]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
     custom_model_data: 0
   setting: effect_notifier
@@ -185,7 +185,7 @@ qol_pvp_settings_damage_flash:
   display name: <&4>Damage Flash
   lore:
     - "<&7>Flash the actionbar when taking damage."
-    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.<script.as_item.nbt[setting]>]||<script.as_item.nbt[options].get[1]>>"
+    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.damage_flash]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
     custom_model_data: 0
   setting: damage_flash
@@ -198,7 +198,7 @@ qol_pvp_settings_power_flash:
   display name: <&3>Power Flash
   lore:
     - "<&7>Flash the actionbar when using an ability."
-    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.<script.as_item.nbt[setting]>]||<script.as_item.nbt[options].get[1]>>"
+    - "<&a>Current Setting: <yaml[player.<player.uuid>].read[pvp.power_flash]||<script.as_item.nbt[options].get[1]>>"
   mechanisms:
     custom_model_data: 0
   setting: power_flash
