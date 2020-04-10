@@ -65,7 +65,7 @@ custom_air_rune:
       type: altar
       tier: 1
       output_quantity: 1
-      input: custom_glass_bottle/13|custom_blank_rune/1|custom_air_shard/4|custom_white_wool/8|custom_feather/19
+      input: custom_glass_bottle/13|custom_blank_rune/1|custom_air_shard/4|custom_white_wool/8|custom_feather/19|custom_aerotheum/8
       cook_time: 5m
 
 custom_air_shard:
@@ -119,7 +119,7 @@ custom_earth_rune:
       type: altar
       tier: 3
       output_quantity: 1
-      input: custom_blank_rune/1|custom_steel_ingot/12|custom_bronze_ingot/5|custom_obsidian_ingot/2|custom_stone/64|custom_cobblestone/64|custom_earth_shard/6
+      input: custom_blank_rune/1|custom_steel_ingot/12|custom_bronze_ingot/5|custom_obsidian_ingot/2|custom_stone/64|custom_cobblestone/64|custom_earth_shard/6|custom_small_husk/11
       cook_time: 10m
 
 custom_earth_shard:

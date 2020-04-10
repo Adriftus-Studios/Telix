@@ -44,58 +44,56 @@ mob_spawning_events:
   type: world
   events:
     on delta time secondly every:30:
-      - foreach <server.list_online_players> as:player:
-        - adjust <queue> linked_player:<[player]>
-        - define list:|:<yaml[server.mob_spawns].list_keys[all.all]||<list[]>>
-        - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.all]||<list[]>>
-        - define list:|:<yaml[server.mob_spawns].list_keys[all.<player.location.biome.name>]||<list[]>>
-        - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
-        - define list:<[list].deduplicate>
-        - foreach <[list]> as:mob:
-          - if <yaml[server.mobs].read[<[mob]>.max_y]> < <player.location.y>:
-            - define list:<-:<[mob]>
-          - if <yaml[server.mobs].read[<[mob]>.min_y]> > <player.location.y>:
-            - define list:<-:<[mob]>
-          - if <player.location.material.name.is[==].to[water]> != <yaml[server.mobs].read[<[mob]>.water]>:
-            - define list:<-:<[mob]>
-          - if <list[<yaml[server.mobs].read[<[mob]>.time]>].as_list.contains[<player.location.world.time.period>]> && <yaml[server.mobs].read[<[mob]>.time]> != all:
-            - define list:<-:<[mob]>
-          - if <player.location.world.living_entities.filter[scriptname.to_lowercase.is[==].to[<[mob]>]].size||0> != 0:
-            - if <player.location.world.living_entities.filter[scriptname.to_lowercase.is[==].to[<[mob]>]].size> >= <yaml[server.mobs].read[<[mob]>.per_world_limit]>:
-              - define list:<-:<[mob]>
-          - if <player.location.highest.y> >= <player.location.y.add[1]>:
-            - define list:<-:<[mob]>
-          - if <util.random.int[1].to[<yaml[server.mobs].read[<[mob]>.chance].mul[60]>]> == 1 && <yaml[server.mobs].read[<[mob]>.chance]> != 0:
-            - define list:<-:<[mob]>
-        - define mob_limiter:25
-        - if <player.location.find.living_entities.within[25].size||0> < <[mob_limiter]>:
+      - if !<server.has_flag[no_mob_spawning]>:
+        - foreach <server.list_online_players> as:player:
+          - adjust <queue> linked_player:<[player]>
+          - define list:|:<yaml[server.mob_spawns].list_keys[all.all]||<list[]>>
+          - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.all]||<list[]>>
+          - define list:|:<yaml[server.mob_spawns].list_keys[all.<player.location.biome.name>]||<list[]>>
+          - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.<player.location.biome.name>]||<list[]>>
+          - define list:<[list].deduplicate>
           - foreach <[list]> as:mob:
-            - repeat 5:
-              - if <player.flag[<[mob]>]||null> == null:
-                - define offset:<proc[find_offset].context[<util.random.int[<yaml[server.mobs].read[<[mob]>.min_distance]>].to[<yaml[server.mobs].read[<[mob]>.max_distance]>]>|<util.random.int[0].to[360]>]>
-                - define spawning_point:<location[<player.location.x.add[<[offset].get[1]>]>,<player.location.y>,<player.location.z.add[<[offset].get[2]>]>,<player.location.world.name>]>
-                - chunkload <[spawning_point].chunk> duration:2m
-                - if <yaml[server.mobs].read[<[mob]>.air]>:
-                  - if <[spawning_point].highest.y||null> == null || <[spawning_point].y||null> == null:
-                    - narrate <[spawning_point].y>
-                    - narrate <[spawning_point].highest.y>
-                    - narrate <[mob]>
-                  - if !<[spawning_point].highest.y||128> < <[spawning_point].y>:
-                    - if <[spawning_point].y> < <yaml[server.mobs].read[<[mob]>.min_y]>:
-                      - define spawning_point:<[spawning_point].with_y[<util.random.int[<yaml[server.mobs].read[<[mob]>.min_y]>].to[<yaml[server.mobs].read[<[mob]>.max_y]>]>]>
-                - else:
-                  - if <[spawning_point].y> > <[spawning_point].highest.y>:
-                    - define spawning_point:<[spawning_point].highest>
+            - if <yaml[server.mobs].read[<[mob]>.max_y]> < <player.location.y>:
+              - define list:<-:<[mob]>
+            - if <yaml[server.mobs].read[<[mob]>.min_y]> > <player.location.y>:
+              - define list:<-:<[mob]>
+            - if <player.location.material.name.is[==].to[water]> != <yaml[server.mobs].read[<[mob]>.water]>:
+              - define list:<-:<[mob]>
+            - if <list[<yaml[server.mobs].read[<[mob]>.time]>].as_list.contains[<player.location.world.time.period>]> && <yaml[server.mobs].read[<[mob]>.time]> != all:
+              - define list:<-:<[mob]>
+            - if <player.location.world.living_entities.filter[scriptname.to_lowercase.is[==].to[<[mob]>]].size||0> != 0:
+              - if <player.location.world.living_entities.filter[scriptname.to_lowercase.is[==].to[<[mob]>]].size> >= <yaml[server.mobs].read[<[mob]>.per_world_limit]>:
+                - define list:<-:<[mob]>
+            - if <player.location.highest.y> >= <player.location.y.add[1]>:
+              - define list:<-:<[mob]>
+            - if <util.random.int[1].to[<yaml[server.mobs].read[<[mob]>.chance].mul[60]>]> == 1 && <yaml[server.mobs].read[<[mob]>.chance]> != 0:
+              - define list:<-:<[mob]>
+          - define mob_limiter:25
+          - if <player.location.find.living_entities.within[25].size||0> < <[mob_limiter]>:
+            - foreach <[list]> as:mob:
+              - repeat 5:
+                - if <player.flag[<[mob]>]||null> == null:
+                  - define offset:<proc[find_offset].context[<util.random.int[<yaml[server.mobs].read[<[mob]>.min_distance]>].to[<yaml[server.mobs].read[<[mob]>.max_distance]>]>|<util.random.int[0].to[360]>]>
+                  - define spawning_point:<location[<player.location.x.add[<[offset].get[1]>]>,<player.location.y>,<player.location.z.add[<[offset].get[2]>]>,<player.location.world.name>]>
+                  - chunkload <[spawning_point].chunk> duration:2m
+                  - if <yaml[server.mobs].read[<[mob]>.air]>:
+                    - define y1:<[spawning_point].y>
+                    - define y2:<[spawning_point].highest.y>
+                    - if <[spawning_point].highest.y> >= <[spawning_point].y>:
+                      - if <[spawning_point].y> < <yaml[server.mobs].read[<[mob]>.min_y]>:
+                        - define spawning_point:<[spawning_point].with_y[<util.random.int[<yaml[server.mobs].read[<[mob]>.min_y]>].to[<yaml[server.mobs].read[<[mob]>.max_y]>]>]>
                   - else:
-                    - repeat <[spawning_point].y.sub[<yaml[server.mobs].read[<[mob]>.max_y]>]>:
-                      - define y:<[spawning_point].y.add[<[value]>]>
-                      - if <[spawning_point].with_y[<[y]>].material.name> == air && <[spawning_point].with_y[<[y].add[1]>].material.name> == air && <[spawning_point].with_y[<[y].add[2]>].material.name> == air && <[spawning_point].with_y[<[y].sub[1]>].material.is_solid>:
-                        - define spawning_point:<[spawning_point].with_y[<[y]>].above[2]>
-                - if <[spawning_point].material.name.is[==].to[water]> == <yaml[server.mobs].read[<[mob]>.water]>:
-                  - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
-                    - if !<server.has_flag[no_mob_spawning]>:
+                    - if <[spawning_point].y> > <[spawning_point].highest.y>:
+                      - define spawning_point:<[spawning_point].highest>
+                    - else:
+                      - repeat <[spawning_point].y.sub[<yaml[server.mobs].read[<[mob]>.max_y]>]>:
+                        - define y:<[spawning_point].y.add[<[value]>]>
+                        - if <[spawning_point].with_y[<[y]>].material.name> == air && <[spawning_point].with_y[<[y].add[1]>].material.name> == air && <[spawning_point].with_y[<[y].add[2]>].material.name> == air && <[spawning_point].with_y[<[y].sub[1]>].material.is_solid>:
+                          - define spawning_point:<[spawning_point].with_y[<[y]>].above[2]>
+                  - if <[spawning_point].material.name.is[==].to[water]> == <yaml[server.mobs].read[<[mob]>.water]>:
+                    - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
                       - run spawn_custom_mob def:<[mob]>|<[spawning_point].with_y[<[spawning_point].y.add[2]>]>
-                  - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
+                    - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
 
 boss_bossbar_handler:
   type: task

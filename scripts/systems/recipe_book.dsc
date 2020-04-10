@@ -152,7 +152,7 @@ recipe_book_preparation_table:
     gui_top: <item[gui_preparation_table_top]>
     gui_bottom: <item[gui_preparation_table_bottom]>
   slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[custom_preparation_table] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [] [] [] [w_filler] [w_filler] [] [w_filler] [w_filler]"
   - "[] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
@@ -260,6 +260,10 @@ show_recipe:
       - inventory set d:<[inv]> slot:30 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.serving_dish].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.serving_dish].split[/].get[2]>]||<item[air]>>
       - if <yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients]||null> != null:
         - inventory set d:<[inv]> slot:20 o:<item[<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[/].get[1]>].with[quantity=<yaml[server.recipe_book].read[cooking.<[item]>.side_ingredients].split[/].get[2]>]||<item[air]>>
+      - if <yaml[server.recipe_book].read[cooking.<[item]>.cook_time].as_duration.in_seconds> >= 60:
+        - inventory adjust d:<[inv]> slot:50 lore:<&f><yaml[server.recipe_book].read[cooking.<[item]>.cook_time].as_duration.in_minutes.round_up><&sp>Minutes
+      - else:
+        - inventory adjust d:<[inv]> slot:50 lore:<&f><yaml[server.recipe_book].read[cooking.<[item]>.cook_time].as_duration.in_seconds.round_up><&sp>Seconds
     - if <[type]> == notes:
       - define inv:<inventory[recipe_book_note]>
       - inventory open d:<[inv]>
@@ -303,7 +307,11 @@ show_recipe:
       - inventory open d:<[inv]>
       - repeat 9:
         - if <[value]> <= <yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.size>:
-          - inventory set d:<[inv]> slot:<[value].add[1]> o:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>].with[flags=HIDE_ATTRIBUTES]>
+          - if <item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>].material.name> == air:
+            - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>]||<item[air]>>
+          - else:
+            - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
+          - inventory set d:<[inv]> slot:<[value].add[1]> o:<[item1]>
       - inventory set d:<[inv]> slot:1 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.output_quantity]>;flags=HIDE_ATTRIBUTES]>
     - if <[type]> == altar:
       - define inv:<inventory[recipe_book_altar]>
@@ -341,7 +349,7 @@ show_recipe:
       - inventory open d:<[inv]>
       - inventory set d:<[inv]> slot:16 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[smeltery.<[item]>.output_quantity]>].with[flags=HIDE_ATTRIBUTES]>
       - foreach <list[11|12|20|21|29|30]> as:in:
-        - if <[loop_index]> <= <[input].size>
+        - if <[loop_index]> <= <[input].size>:
           - inventory set d:<[inv]> slot:<[in]> o:<item[<[input].get[<[loop_index]>].split[/].get[1]>].with[flags=HIDE_ATTRIBUTES;quantity=<[input].get[<[loop_index]>].split[/].get[2]>]||<item[air]>>
       - inventory adjust d:<[inv]> slot:50 display_name:<&7>Cooking<&sp><item[<[item]>].script.yaml_key[display<&sp>name].parsed>
       - if <yaml[server.recipe_book].read[smeltery.<[item]>.cook_time].as_duration.in_seconds> >= 60:

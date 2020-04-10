@@ -16,9 +16,9 @@ ability_wind_rider:
     - shoot <player> destination:<player.location.forward[10]> speed:3
     - wait 15t
     - inventory adjust d:<player.inventory> slot:39 material:<material[elytra]>
-    - adjust <player> gliding:true
     - flag <player> wind_rider:true
-    - flag <player> downpull:-0.5
+    - adjust <player> gliding:true
+    - flag <player> downpull:-0.2
 
 abilities_wind_rider:
   type: world

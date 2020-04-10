@@ -11,7 +11,6 @@ ability_teleport:
     custom_model_data: 0
   script:
     - if !<player.has_flag[teleport_cooldown]>:
-      - inject abilities_check
       - inject abilities_cost
       - define location:<player.location.with_pitch[90]>
       - define destination:<location[spawn]>

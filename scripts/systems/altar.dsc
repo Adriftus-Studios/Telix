@@ -21,29 +21,48 @@ altar_timer:
     custom_model_data: -5
   display name: <&7>Not Imbuing
 
+altar_entity:
+  type: entity
+  entity_type: armor_stand
+  gravity: false
+  visible: false
+  invulnerable: false
+  custom:
+    interactable: false
+
 altar_tier_1:
   type: item
-  material: obsidian
+  material: sponge
+  mechanisms:
+    custom_model_data: 1
   display name: <&b>Altar I
 
 altar_tier_2:
   type: item
-  material: obsidian
+  material: sponge
+  mechanisms:
+    custom_model_data: 1
   display name: <&b>Altar II
 
 altar_tier_3:
   type: item
-  material: obsidian
+  material: sponge
+  mechanisms:
+    custom_model_data: 1
   display name: <&b>Altar III
 
 altar_tier_4:
   type: item
-  material: obsidian
+  material: sponge
+  mechanisms:
+    custom_model_data: 1
   display name: <&b>Altar IV
 
 altar_tier_5:
   type: item
-  material: obsidian
+  material: sponge
+  mechanisms:
+    custom_model_data: 1
   display name: <&b>Altar V
 
 altar_events:
@@ -148,24 +167,33 @@ altar_events:
               - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
           - else:
             - inventory set d:<[inventory]> slot:27 o:<item[altar_timer]>
-    on player places obsidian:
+            
+    on player right clicks altar_entity:
+      - determine cancelled
+    on player places sponge:
       - if <context.item_in_hand.script.name.starts_with[altar_tier_]>:
-        - note <context.location> as:altar_<context.location.simple>_<context.item_in_hand.script.name.replace[altar_tier_].with[]>
-    on player breaks obsidian:
+        - spawn altar_entity <context.location.below[1].with_yaw[<player.location.yaw.add[180]>].center> save:altar
+        - define altar:<entry[altar].spawned_entity>
+        - adjust <[altar]> equipment:<item[air]>|<item[air]>|<item[air]>|<context.item_in_hand>
+        - note <context.location> as:altar_<context.location.simple>_<context.item_in_hand.script.name.replace[altar_tier_].with[]>_<[altar]>
+        - modifyblock <context.location> barrier
+    on player breaks barrier:
       - if <context.location.notable_name.starts_with[altar_]>:
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
+        - define entity:<context.location.notable_name.split[_e@].get[2].as_entity>
+        - remove <[entity]>
         - note remove as:<context.location.notable_name>
         - determine NOTHING
         - if <player.gamemode> == SURVIVAL:
           - drop <item[altar_<[tier]>]> <context.location>
-    on player clicks obsidian:
-      - if <context.location.notable_name.starts_with[altar_]>:
-        - define loc:<context.location.notable_name.split[_].get[2]>
-        - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
-        - if !<server.list_notables[inventories].contains[altar_<player.uuid>_<[tier]>]>:
+    on player right clicks barrier:
+      - if <context.location.notable_name.starts_with[altar_]||false>:
+        - define tier:<context.location.notable_name.split[_e@].get[1].split[_].get[<context.location.notable_name.split[_e@].get[1].split[_].size>]>
+        - if <inventory[altar_<player.uuid>_<[tier]>]||null> == null:
           - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
         - inventory set d:<inventory[altar_<player.uuid>_<[tier]>]> slot:1 o:<item[altar_tier_<[tier]>].with[nbt=tier/<[tier]>]>
         - inventory open d:<inventory[altar_<player.uuid>_<[tier]>]>
+        - determine passively cancelled
     on player drags in altar_inventory:
       - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
       - foreach <context.raw_slots> as:slot:

@@ -3,70 +3,70 @@ abilitytrees:
   trees:
     Test:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -16
     # Magic
     Arcane:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -16
     Electric:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -16
     Earth:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -16
     Nether:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -4
     Ender:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -5
     Ocean:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -16
     Musical:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -16
     Aer:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -6
     Archery:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -16
     Fisticuffs:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -8
     Endurance:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -16
     Stealth:
       available_check: true
       GUIItem: iron_nugget
       custom_model_data: -3
     Acrobatics:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -16
     Perception:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -16
     Thievery:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -7
     Athleticism:
       available_check: true
-      GUIItem: snow
-      custom_model_data: 1
+      GUIItem: iron_nugget
+      custom_model_data: -16

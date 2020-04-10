@@ -25,7 +25,6 @@ entity_drowned:
 
 entity_boomboom:
   type: entity
-  definitions: entity
   entity_type: cow
   custom_name: BoomBoom
   custom:
@@ -50,7 +49,8 @@ entity_boomboom:
       on attacked:
         - wait 1t
         - if <[entity].health> > 0:
-          - hurt 1 <player> source:<[entity]>
+          - foreach <[entity].location.find.players.within[7]>:
+            - hurt 1 <[value]> source:<[entity]>
           - explode power:5 <[entity].location> fire breakblocks
         
 entity_direwolf:

@@ -656,8 +656,15 @@ guild_events:
       - foreach <yaml.list>:
         - if <def[value].substring[1,5]> == guild:
           - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
+    on delta time secondly every:5:
+    - foreach <server.list_online_players> as:player:
+      - adjust <queue> linked_player:<[player]>
+      - define nearby_flags:<player.location.find.entities[guild_flag_indicator].within[25]>
+      - foreach <[nearby_flags]||<list[]>> as:flag:
+        - if <[flag].custom_name.strip_color> != <yaml[guild.<[guild]>].read[name]>:
+          - cast slow_mining duration:10
     on player places block:
-    - if <context.item_in_hand.script.name||null> == guild_flag:
+    - if <context.item_in_hand.script.name||null> == guild_flag && <context.location.world.name> != spawn && <context.location.world.name> != boss_world:
       - define guild:<player.flag[guild]||null>
       - define location:<context.location>
       - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[100]>
@@ -1121,7 +1128,7 @@ guild_gui_events:
         - inventory close
         - stop
       - else:
-        - foreach <yaml[guild.<player.flag[guild]>].list_keys[flags]> as:loc:
+        - foreach <yaml[guild.<player.flag[guild]>].list_keys[flags]||<list[]>> as:loc:
           - if <yaml[guild.<player.flag[guild]>].read[flags.<[loc]>.name]> == <context.item.display>:
             - inventory open d:<inventory[flag_<player.flag[guild]>_<[loc]>]>
       - if <context.item.script.name||null> == gui_close_btn:
@@ -1156,6 +1163,10 @@ guild_gui_events:
         - inventory open d:my_guild_gui
       - else:
         - inventory open d:new_guild_gui
+    - if <context.item.nbt[guild]||null> != null:
+      - define inv:<inventory[guild_info_gui]>
+      - inventory open d:<[inv]>
+      - inventory adjust d:<[inv]> slot:1 nbt:guild/<context.item.nbt[guild]>
     on player opens all_guilds_gui:
     - define page:<context.inventory.slot[1].nbt[page]||1>
     - while <context.inventory.slot[44].material.name||air> == air:
@@ -1171,7 +1182,6 @@ guild_gui_events:
         - announce to_flagged:debug "<&c>broken guild: <[guild]>"
     on player clicks in guild_settings_gui:
     - if <context.raw_slot> <= 36:
-      - narrate 1
       - determine passively cancelled
       - if <context.item.script.name||null> == disband_guild_btn:
         - if <yaml[guild.<player.flag[guild].to_lowercase.replace[<&sp>].with[_]>].read[leader]> == <player>:
@@ -1313,12 +1323,7 @@ guild_gui_events:
     - define lore:|:<&b>Members:<&sp><yaml[guild.<[guild]>].read[members].size>
     - define lore:|:<&b>
     - foreach <[desc].split[<n>].parse[strip_color]> as:p:
-      - foreach <[p].split[<&sp>]>:
-        - define line:|:<[value]>
-        - if <[line].length> > 50:
-          - define lore:|:<[line].separated_by[<&sp>]>
-          - define line:!
-      - define lore:|:<[line].separated_by[<&sp>]>
+      - define "lore:|:<&f><[p]>"
     - inventory set d:<context.inventory> slot:11 o:<item[writable_book].with[display_name=<&6><yaml[guild.<[guild]>].read[name]>;lore=<[lore]>]>
     - inventory set d:<context.inventory> slot:12 o:<item[<yaml[guild.<[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<[guild]>].read[flags].size||0>;patterns=<yaml[guild.<[guild]>].read[flag].as_item.patterns>]>
     - if <player.flag[guild]> != <[guild]>:
@@ -1362,9 +1367,8 @@ guild_gui_events:
     - define lore:!
     - if <[guild]> == <player.flag[guild]>:
       - define lore:|:<&b>Your<&sp>Permissions:
-      - foreach <yaml[guild.<player.flag[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
-        - foreach <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
-          - define lore:|:<&a><[perm].replace[_].with[<&sp>].to_titlecase>
+      - foreach <yaml[guild.<[guild]>].read[ranks.<player.flag[guild_rank]>.permissions]||<list[]>> as:perm:
+        - define lore:|:<&a><[perm].replace[_].with[<&sp>].to_titlecase>
       - inventory set d:<context.inventory> slot:13 o:<item[player_head].with[skull_skin=<yaml[guild.<[guild]>].read[leader].as_player.uuid>;display_name=<&b><player.name>;lore=<[lore]>]>
     - else:
       - inventory set d:<context.inventory> slot:13 o:<item[air]>

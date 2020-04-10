@@ -1,7 +1,7 @@
 abilities_check:
   type: task
   script:
-    - if <yaml[player.<player.uuid>].read[skills.<queue.script.yaml_key[ability_tree]>.current]||0> < <queue.script.yaml_key[points_to_unlock]||100>:
+    - if <yaml[player.<player.uuid>].read[skills.<queue.script.yaml_key[ability_tree]>.current]||0> < <queue.script.yaml_key[points_to_unlock]||100> || <player.location.world.name> == spawn:
       - stop
 
 abilities_cost:
@@ -91,7 +91,7 @@ abilityTree_inventory_events:
     on player clicks item in abilityTree_inventory:
       - if <context.raw_slot> < 46:
         - determine passively cancelled
-        - if <context.item.script.name> == gui_invisible_item:
+        - if <context.item.script.name||null> == gui_invisible_item:
           - inventory open d:abilities_characterAbilityTrees
         - if <script[ability_<context.item.nbt[skillname]||null>].yaml_key[ability_type]||null> == active:
           - inject abilities_item_BuildLore

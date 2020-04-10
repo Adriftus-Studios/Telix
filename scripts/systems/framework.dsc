@@ -90,7 +90,7 @@ spawn_command:
   name: spawn
   permission: spawn
   tab complete:
-    - determine <server.list_online_players.parse[name]>
+    - determine <server.list_online_players.parse[name].filter[starts_with[<context.args.get[1]||>]]>
   script:
     - if <location[spawn]||null> != null:
       - teleport <server.match_player[<context.args.get[1]||null>]||<player>> <location[spawn]>
@@ -158,21 +158,22 @@ reload_scripts:
               - if <[value].yaml_key[category]||null> != null:
                   - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
               - if <[value].yaml_key[recipes]||null> != null:
-                - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
-                  - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
-                    - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                 - if <[value].yaml_key[recipe_book_category]||null> != null:
                   - foreach <[value].yaml_key[recipe_book_category].as_list> as:cat:
                     - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
                 - else:
                   - yaml id:server.recipe_book set categories.other:|:<[value].name>
                 - foreach <[value].list_keys[recipes]> as:recipe:
+                  - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
+                    - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
+                      - if <[value].yaml_key[recipes.<[recipe]>.type]> != furnace
+                        #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
                     - yaml id:server.recipe_fixer set restricted.shaped.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
                     - yaml id:server.recipe_fixer set restricted.shapeless.<[value].yaml_key[recipes.<[recipe]>.input].as_list.alphabetical.separated_by[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == furnace:
-                    - yaml id:server.recipe_fixer set restricted.furnace.<[value].yaml_key[recipes.<[recipe]>.input]>:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]||1>
+                    - yaml id:server.recipe_fixer set restricted.furnace.<[value].yaml_key[recipes.<[recipe]>.input]>:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]||1><&co><[value].yaml_key[recipes.<[recipe]>.cook_time]>
                   - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
@@ -248,7 +249,7 @@ reload_scripts:
         - yaml id:server.smeltery_recipes set <[output]>.output_quantity:1
     events:
       on server start:
-        - createworld spawn environment:normal
+        - createworld tor_mainland environment:normal
         - createworld boss_world environment:normal worldtype:flat
         - inject locally reload
       on script reload:
@@ -276,7 +277,7 @@ ott_command:
         - if <player.flag[ott]||null> != null:
           - flag <server.match_player[<context.args.get[1]>]> ott_request:<player>
           - narrate "<&6>You have requested to teleport to <context.args.get[1]>."
-          - narrate player:<server.match_player[<context.args.get[1]>]> "<&b><player.name> <&6>has requested to teleport to you. Click <&click[/ott accept]><&a>ACCEPT<&end_click> <&r><&6 to accept the request.>"
+          - narrate player:<server.match_player[<context.args.get[1]>]> "<&b><player.name> <&6>has requested to teleport to you. Click <&click[/ott accept]><&a><&l>ACCEPT<&end_click> <&r><&6> to accept the request."
         - else:
           - narrate "<&c>You can only use this command once, within 2 hours of when you first joined."
       - else:
@@ -287,31 +288,6 @@ ott_command:
       - narrate "<&6>It allows you to teleport to a player of your choice within those 2 hours. When you teleport, you won't be able to use OTT again."
       - narrate "<&a>|----------------------------------------------------|"
 
-rtp_task:
-  type: task
-  definitions: player
-  script:
-  - adjust <queue> linked_player:<[player]||<player>>
-  - repeat 100:
-    - define x:<util.random.decimal[<element[-4000]>].to[<element[4000]>].round_to[3]>
-    - define z:<util.random.decimal[<element[-4000]>].to[<element[4000]>].round_to[3]>
-    - chunkload <location[<[x]>,300,<[z]>,tor_mainland].chunk> duration:1s
-    - if <location[<[x]>,300,<[z]>,tor_mainland].biome.name.contains_text[ocean]>:
-      - repeat next
-    - teleport <player> <location[<[x]>,300,<[z]>,tor_mainland]>
-    - define x:<util.random.decimal[-1].to[1].round_to[3]>
-    - define z:<util.random.decimal[-1].to[1].round_to[3]>
-    - flag <player> no_fall
-    - while <player.location.below[0.15].material.name> == air || <player.location.below[0.15].material.name> == void_air:
-      - if !<player.is_online>:
-        - stop
-      - adjust <player> velocity:<location[<[x]>,-1,<[z]>]>
-      - wait 1t
-    - wait 1s
-    - flag <player> no_fly_kick:!
-    - flag <player> no_fall:!
-    - repeat stop
-
 rp_command:
   type: command
   name: rp
@@ -320,7 +296,7 @@ rp_command:
   aliases: resourcepack
   script:
   # The resource pack line.
-    - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/5373c12d2df73f4b69714710bf767a1d.zip>
+    - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/84f6509bd461ef7d8888c475abd1a69c.zip>
     - if <context.args.size> >= 1:
       - narrate "<&c>Simply type <&a>/rp<&c>"
     - else:
@@ -416,22 +392,21 @@ custom_item_override:
           - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
       - determine <[drops]||<list[]>>
     on item recipe formed:
-      - stop
-      - if <yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
-        - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
-        - inject build_item
-        - determine <[item]>
-      - if <yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item||null> != null:
-        - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
-        - inject build_item
-        - determine <[item]>
+      - if !<context.inventory.script_name.starts_with[recipe_book_]||false>:
+        - if <yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
+          - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
+          - inject build_item
+          - determine <[item]>
+        - if <yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item||null> != null:
+          - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
+          - inject build_item
+          - determine <[item]>
     on player crafts item:
       - define item:<context.item>
       - inject build_item
-      - determine ITEM:<[item]>
+      - determine <[item]>
     on furnace smelts item:
       - define item:<context.result_item>
-      - narrate <[item]>
       - if <yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>]||null> != null:
         - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[2]>]>
       - inject build_item
@@ -469,6 +444,11 @@ custom_item_override:
             - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
             - inject build_item
             - adjust <player.open_inventory> result:<[item]>
+        - if <player.open_inventory.inventory_type> == furnace:
+          - stop
+          - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.item.script.name.to_lowercase>]>
+          - adjust <player.open_inventory.location> furnace_cook_time:1000
+          - adjust <player.open_inventory.location> furnace_cook_time_total:1000
     on player drags in inventory:
       - if <player.open_inventory.inventory_type> == workbench:
         - wait 1t
@@ -480,14 +460,33 @@ custom_item_override:
           - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
           - inject build_item
           - adjust <player.open_inventory> result:<[item]>
+    on player places block:
+        - if <context.location.world.name> != tor_mainland && !<player.has_permission[place]>:
+          - determine cancelled
+    on player breaks block:
+        - if <context.location.world.name> != tor_mainland && !<player.has_permission[break]>:
+          - determine cancelled
+    on entity damages entity:
+      - if <context.entity.type> == player && <context.damager.type> == player:
+        - if <context.entity.location.world.name> != tor_mainland:
+          - determine passively cancelled
+    on entity damaged by suffocation:
+      - if <context.entity.location.world.name> != tor_mainland:
+        - determine passively cancelled
+    on entity damaged by fall:
+      - if <context.entity.location.world.name> != tor_mainland:
+        - determine passively cancelled
 
 system_override:
   type: world
   debug: false
   events:
-    on player right clicks entity:
+    on entity spawns:
+      - if <context.location.world.name> == spawn:
+        - determine cancelled
+    on player right clicks entity BUKKIT_PRIORITY:LOWEST:
       - if <context.entity.script.yaml_key[custom.interactable]||false>:
-        - determine passively cancelled
+        - determine cancelled
     on tick:
       - if !<server.list_online_players.filter[food_level.is[==].to[20]].is_empty>:
         - foreach <server.list_online_players.filter[food_level.is[==].to[20]]>:
@@ -495,7 +494,7 @@ system_override:
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
-      - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/5373c12d2df73f4b69714710bf767a1d.zip>
+      - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/84f6509bd461ef7d8888c475abd1a69c.zip>
       - wait 60t
       - adjust <player> resource_pack:<[rp_url]>
       - stop
@@ -505,12 +504,12 @@ system_override:
       - if <context.status> == FAILED_DOWNLOAD:
         - narrate "<&6>Please accept the resource pack."
         - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
-        - narrate "<&6>If your download failed, click <&click[/rp]><&7>[HERE]<&end_click>"
+        - narrate "<&6>If your download failed, click <element[<&l><&rb>HERE<&lb>].on_click[/rp]>"
       - else if <context.status> == DECLINED:
-        #- narrate "<&6>Please accept the resource pack."
-        #- narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
+        - narrate "<&6>Please accept the resource pack."
+        - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
         - if !<player.has_permission[bypass_resourcepack]>:
-          - narrate <player> "reason:<&c>The resource pack is needed in order to play.<&nl>Please enable resource packs in your server list by following these instructions<&nl><&nl><&a>Click on our server, and select <&b>Edit <&a>on the bottom of the screen.<&nl><&a>click <&b>Server Resource Packs<&co> <&a>option until <&b>enabled<&a> is displayed.<&nl><&a>Then get back in on the action!"
+          - kick <player> "reason:<&c>The resource pack is needed in order to play.<&nl>Please enable resource packs in your server list by following these instructions<&nl><&nl><&a>Click on our server, and select <&b>Edit <&a>on the bottom of the screen.<&nl><&a>click <&b>Server Resource Packs<&co> <&a>option until <&b>enabled<&a> is displayed.<&nl><&a>Then get back in on the action!"
       - else if <context.status> == SUCCESSFULLY_LOADED:
         - narrate "<&6>Resource pack successfully loaded"
       - else if <context.status> == ACCEPTED:
@@ -532,6 +531,8 @@ system_override:
         - yaml create id:player.<player.uuid>
     on player respawns:
       - flag <player> contaminated:!
+      - if !<context.is_bed_spawn>:
+        - determine <location[spawn]>
       - wait 1t
       - inject system_equipment_set
     on player drags in inventory:
@@ -566,19 +567,9 @@ system_override:
         - define item:<context.item.with[nbt=saved_location/<player.location.center>]>
         - inject build_item
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
+        - determine passively cancelled
 
-cause_error_command:
-  type: command
-  name: cause_error
-  permission: cause_error
-  script:
-  - define item:<player.item_in_hand>
-  - narrate <el@1.mul[b]>
 
-player_crafting:
-  type: inventory
-  inventory: workbench
-  
 kill_queue_command:
   type: command
   name: kill_queue
@@ -610,21 +601,6 @@ player_reset_command:
   - kick <player> reason:Standby<&sp>while<&sp>we<&sp>reset<&sp>your<&sp>player<&sp>data.
   - yaml id:player.<player.uuid> unload
   - adjust server delete_file:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml
-
-testtttt_command:
-  type: command
-  name: testt
-  permission: testt
-  script:
-  - wait 1s
-  - narrate <player.open_inventory>
-  - stop
-  - define book:<yaml[guild.<player.flag[guild]>].read[book].as_item.with[material=writable_book]>
-  - define item:<player.item_in_hand>
-  - fakeitem <[item]> duration:1t slot:<player.held_item_slot>
-  - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[book]>
-  - adjust <player> open_book
-  - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
 
 resend_recipes_command:
   type: command
@@ -683,7 +659,6 @@ build_item:
         - define ability:<[old_item].nbt[skillname]>
         - define "lore:<&e>-------------------------"
         - define "lore:|:<&b><script[ability_<[ability]>].yaml_key[description]>"
-        - define "lore:|:<&a>Ability Type<&co> <script[ability_<[ability]>].yaml_key[ability_type].to_titlecase>"
         - if <script[ability_<[ability]>].yaml_key[ability_type]> == command:
           - define "lore:|:<&a>Usage<&co> <&e>/<script[ability_<[ability]>].yaml_key[command_usage]>"
         - else if <script[ability_<[ability]>].yaml_key[usage]||null> != null:
@@ -696,10 +671,9 @@ build_item:
         - if <[item].nbt[saved_location]||null> != null:
           - define "lore:|:<&b>Saved Location: <[item].nbt[saved_location].as_location.x.round>X, <[item].nbt[saved_location].as_location.y.round>Y, <[item].nbt[saved_location].as_location.z.round>Z"
         - define "lore:|:<&b>"
-        - define "lore:|:<&b>Shift Click to store your current location"
-        - define "lore:|:<&b>Activate a teleport ability with the"
-        - define "lore:|:<&b>nodestone in your inventory to teleport"
-        - define "lore:|:<&b>to that location."
+        - define "lore:|:<&b>Shift Click while holding to store your current location"
+        - define "lore:|:<&b>Activate a teleport ability with the nodestone in your"
+        - define "lore:|:<&b>inventory to teleport to that location."
       - if <[item].script.yaml_key[category]> == fishing_rod:
         - define lore:|:<&6><&l><&m>-------------<&r><&6><&sp><&sp>Fishing<&sp>Rod<&sp><&sp><&l><&m>-------------
         - define lore:|:<[item].script.yaml_key[lore].as_list.parse[parsed]||<list[]>>
