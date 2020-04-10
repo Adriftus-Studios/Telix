@@ -3,52 +3,52 @@ abilitytrees:
   trees:
     Test:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     # Magic
     Arcane:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Electric:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Earth:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Nether:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Ender:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Ocean:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Musical:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Aer:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Archery:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Fisticuffs:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Endurance:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Stealth:
       available_check: true
@@ -56,17 +56,17 @@ abilitytrees:
       custom_model_data: -3
     Acrobatics:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Perception:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Thievery:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
     Athleticism:
       available_check: true
-      GUIItem: snow
+      GUIItem: iron_nugget
       custom_model_data: 1
