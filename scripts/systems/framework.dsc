@@ -276,7 +276,7 @@ ott_command:
         - if <player.flag[ott]||null> != null:
           - flag <server.match_player[<context.args.get[1]>]> ott_request:<player>
           - narrate "<&6>You have requested to teleport to <context.args.get[1]>."
-          - narrate player:<server.match_player[<context.args.get[1]>]> "<&b><player.name> <&6>has requested to teleport to you. Click <&click[/ott accept]><&a>ACCEPT<&end_click> <&r><&6 to accept the request.>"
+          - narrate player:<server.match_player[<context.args.get[1]>]> "<&b><player.name> <&6>has requested to teleport to you. Click <&click[/ott accept]><&a><&l>ACCEPT<&end_click> <&r><&6> to accept the request."
         - else:
           - narrate "<&c>You can only use this command once, within 2 hours of when you first joined."
       - else:
