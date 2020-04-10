@@ -12,7 +12,7 @@ actionbar_stats:
 actionbar_stats_update:
   type: task
   script:
-    - if <yaml[player.<player.uuid>].read[pvp.power_flash]||enabled>:
+    - if <yaml[player.<player.uuid>].read[pvp.power_flash]||enabled> == enabled:
       - actionbar "<&c><player.health.round_to[0]>/<player.health_max>❤ <&f>· <&3>✧<yaml[player.<player.uuid>].read[stats.power.current].round_to[0]>/<yaml[player.<player.uuid>].read[stats.power.max]>" targets:<player>
     - else:
       - actionbar "<&c><player.health.round_to[0]>/<player.health_max>❤ <&0>· <&b>✧<yaml[player.<player.uuid>].read[stats.power.current].round_to[0]>/<yaml[player.<player.uuid>].read[stats.power.max]>" targets:<player>
