@@ -528,6 +528,8 @@ system_override:
         - yaml create id:player.<player.uuid>
     on player respawns:
       - flag <player> contaminated:!
+      - if !<context.is_bed_location>:
+        - determine <location[spawn]>
       - wait 1t
       - inject system_equipment_set
     on player drags in inventory:
