@@ -656,6 +656,13 @@ guild_events:
       - foreach <yaml.list>:
         - if <def[value].substring[1,5]> == guild:
           - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
+    on delta time secondly every:5:
+    - foreach <server.list_online_players> as:player:
+      - adjust <queue> linked_player:<[player]>
+      - define nearby_flags:<player.location.find.entities[guild_flag_indicator].within[25]>
+      - foreach <[nearby_flags]||<list[]>> as:flag:
+        - if <[flag].custom_name.strip_color> != <yaml[guild.<[guild]>].read[name]>:
+          - cast slow_mining duration:10
     on player places block:
     - if <context.item_in_hand.script.name||null> == guild_flag && <context.location.world.name> != spawn && <context.location.world.name> != boss_world:
       - define guild:<player.flag[guild]||null>
