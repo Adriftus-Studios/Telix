@@ -42,3 +42,5 @@ temple_guardian_assignment:
     on click:
     - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Farewell, and safe travels."
     - teleport <player> <location[spawn]>
+    - wait 3s
+    - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> I trust you got what you needed."
