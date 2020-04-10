@@ -29,10 +29,19 @@ portal_tender_assignment:
     on assignment:
     - trigger name:click state:true
     on click:
-    - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Talk to the Temple Guardian when your ready to leave."
-    - teleport <player> <location[altars]>
-    - wait 6s
-    - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Welcome traveler!"
+    - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Where would you like to go to?"
+    - narrate "<element[<&6>1. I would like to use the altars.].on_click[/portal_tender altars]>"
+
+portal_tender_command:
+  type: command
+  name: portal_tender
+  script:
+  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[portal_tender_assignment]].size> != 0:
+    - if <context.args.get[1]> == altars:
+      - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Talk to the Temple Guardian when your ready to leave."
+      - teleport <player> <location[altars]>
+      - wait 6s
+      - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Welcome traveler!"
 
 temple_guardian_assignment:
   type: assignment
@@ -41,11 +50,11 @@ temple_guardian_assignment:
     - trigger name:click state:true
     on click:
     - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> How may I help you?"
-    - narrate "<element[<&6>1. I am ready to leave.].on_click[/temple_guardian_confirm leave]>"
+    - narrate "<element[<&6>1. I am ready to leave.].on_click[/temple_guardian leave]>"
 
-temple_guardian_confirm_command:
+temple_guardian_command:
   type: command
-  name: temple_guardian_confirm
+  name: temple_guardian
   script:
   - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[temple_guardian_assignment]].size> != 0:
     - if <context.args.get[1]> == leave:
