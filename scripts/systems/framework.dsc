@@ -446,6 +446,7 @@ custom_item_override:
         - if <player.open_inventory.inventory_type> == furnace:
           - narrate <context.item.script.name.to_lowercase>
           - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.item.script.name.to_lowercase>]>
+          - narrate <[item]>
     on player drags in inventory:
       - if <player.open_inventory.inventory_type> == workbench:
         - wait 1t
