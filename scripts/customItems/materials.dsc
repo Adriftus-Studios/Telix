@@ -408,7 +408,7 @@ custom_iron_ingot:
   type: item
   recipes:
     1:
-      type: furnacea
+      type: furnace
       cook_time: 10s
       experience: 5
       input: custom_iron_ore
