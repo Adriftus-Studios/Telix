@@ -2,9 +2,9 @@
 group_manager_saving:
   type: world
   reload:
-    - foreach <yaml.list.filter[starts_with[group]]>:
+    - foreach <yaml.list.filter[starts_with[group]]||<list[]>>:
       - yaml savefile:data/globalData/groups/<server.flag[server.name]>/<[value].substring[8]>.yml id:<[value]>
-    - foreach <server.list_files[data/globalData/groups/<server.flag[server.name]>]>:
+    - foreach <server.list_files[data/globalData/groups/<server.flag[server.name]>]||<list[]>>:
       - define type:<[value].split[.].get[2].to_lowercase>
       - define subtype:<[value].split[.].get[3].to_lowercase.replace[.yml].with[]>
       - yaml load:data/globalData/groups/<server.flag[server.name]>/<[value]> id:groups.<[type]>.<[subtype]>
