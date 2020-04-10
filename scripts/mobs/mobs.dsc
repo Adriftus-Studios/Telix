@@ -80,7 +80,9 @@ mob_spawning_events:
                     - narrate <[spawning_point].y>
                     - narrate <[spawning_point].highest.y>
                     - narrate <[mob]>
-                  - if !<[spawning_point].highest.y||128> < <[spawning_point].y||>:
+                  - define y1:<[spawning_point].y>
+                  - define y2:<[spawning_point].highest.y||128>
+                  - if !<[spawning_point].highest.y> < <[spawning_point].y>:
                     - if <[spawning_point].y> < <yaml[server.mobs].read[<[mob]>.min_y]>:
                       - define spawning_point:<[spawning_point].with_y[<util.random.int[<yaml[server.mobs].read[<[mob]>.min_y]>].to[<yaml[server.mobs].read[<[mob]>.max_y]>]>]>
                 - else:
