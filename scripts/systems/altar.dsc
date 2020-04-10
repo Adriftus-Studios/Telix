@@ -184,13 +184,13 @@ altar_events:
         - if <player.gamemode> == SURVIVAL:
           - drop <item[altar_<[tier]>]> <context.location>
     on player clicks barrier:
-      - wait 1t
       - if <context.location.notable_name.starts_with[altar_]||false>:
         - define tier:<context.location.notable_name.split[_e@].get[1].split[_].get[<context.location.notable_name.split[_e@].get[1].split[_].size>]>
         - if <inventory[altar_<player.uuid>_<[tier]>]||null> == null:
           - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>
         - inventory set d:<inventory[altar_<player.uuid>_<[tier]>]> slot:1 o:<item[altar_tier_<[tier]>].with[nbt=tier/<[tier]>]>
         - inventory open d:<inventory[altar_<player.uuid>_<[tier]>]>
+        - determine passively cancelled
     on player drags in altar_inventory:
       - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
       - foreach <context.raw_slots> as:slot:
