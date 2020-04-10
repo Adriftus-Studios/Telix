@@ -4,15 +4,15 @@ flag_handler:
         on entity damaged by suffocation:
         - if <player||null> != null:
             - if <player.has_flag[no_suffocate]>:
-                - determine 0.0
+                - determine cancelled
         on entity damaged by fall:
         - if <player||null> != null:
             - if <player.has_flag[no_fall]>:
-                - determine 0.0
+                - determine cancelled
         on entity damaged:
         - if <player||null> != null:
             - if <player.has_flag[no_damage]>:
-                - determine 0.0
+                - determine cancelled
         on player jumps:
         - if <player||null> != null:
             - if <player.has_flag[no_jump]> || <player.has_flag[no_move]>:
