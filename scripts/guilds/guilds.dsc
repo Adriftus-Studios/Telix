@@ -657,7 +657,7 @@ guild_events:
         - if <def[value].substring[1,5]> == guild:
           - yaml savefile:data/globalData/guilds/<server.flag[server.name]>/<[value].to_lowercase.replace[guild.].with[]>.yml id:<[value]>
     on player places block:
-    - if <context.item_in_hand.script.name||null> == guild_flag:
+    - if <context.item_in_hand.script.name||null> == guild_flag && <context.location.world.name> != spawn && <context.location.world.name> != boss_world:
       - define guild:<player.flag[guild]||null>
       - define location:<context.location>
       - define nearby_flags:<context.location.find.entities[guild_flag_indicator].within[100]>
