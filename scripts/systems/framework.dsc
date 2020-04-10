@@ -488,7 +488,7 @@ system_override:
         - narrate "<&6>Please accept the resource pack."
         - narrate "<&6>While our server is playable without it, it makes more sense when you have the resource pack enabled."
         - if !<player.has_permission[bypass_resourcepack]>:
-          - narrate <player> "reason:<&c>The resource pack is needed in order to play.<&nl>Please enable resource packs in your server list by following these instructions<&nl><&nl><&a>Click on our server, and select <&b>Edit <&a>on the bottom of the screen.<&nl><&a>click <&b>Server Resource Packs<&co> <&a>option until <&b>enabled<&a> is displayed.<&nl><&a>Then get back in on the action!"
+          - kick <player> "reason:<&c>The resource pack is needed in order to play.<&nl>Please enable resource packs in your server list by following these instructions<&nl><&nl><&a>Click on our server, and select <&b>Edit <&a>on the bottom of the screen.<&nl><&a>click <&b>Server Resource Packs<&co> <&a>option until <&b>enabled<&a> is displayed.<&nl><&a>Then get back in on the action!"
       - else if <context.status> == SUCCESSFULLY_LOADED:
         - narrate "<&6>Resource pack successfully loaded"
       - else if <context.status> == ACCEPTED:
