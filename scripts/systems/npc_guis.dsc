@@ -41,7 +41,7 @@ temple_guardian_assignment:
     - trigger name:click state:true
     on click:
     - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> How may I help you?"
-    - narrate "<&click[/temple_guardian_confirm leave]><&6>1. I am ready to leave.<&end_click>"
+    - narrate "<element[<&6>1. I am ready to leave.].on_click[/temple_guardian_confirm leave]>"
 
 temple_guardian_confirm_command:
   type: command
