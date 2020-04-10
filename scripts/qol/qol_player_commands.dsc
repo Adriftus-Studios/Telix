@@ -55,6 +55,6 @@ qol_ping_command:
     - if <context.args.get[1]||null> == null:
       - narrate "<&a>Your ping: <&b><player.ping>ms"
     - else if <server.list_online_players.parse[name].contains[<context.args.get[1]>]>:
-      - narrate "<&a><server.match_player[<context.args.get[1]>].name>'s ping: <&b><server.match_player[<context.args.get[1]>].name>ms"
+      - narrate "<&a><server.match_player[<context.args.get[1]>].name>'s ping: <&b><server.match_player[<context.args.get[1]>].ping>ms"
     - else:
       - narrate "<&c>This player is not online!"
