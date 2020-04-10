@@ -1248,9 +1248,9 @@ guild_gui_events:
     on player clicks in guild_info_gui:
     - if <context.raw_slot> <= <player.open_inventory.size>:
       - determine passively cancelled
-      - define guild:<player.flag[guild]>
+      - define guild:<player.flag[guild].replace[guild.].with[]>
       - if <context.inventory.slot[1].nbt[guild]||null> != null:
-        - define guild:<context.inventory.slot[1].nbt[guild]>
+        - define guild:<context.inventory.slot[1].nbt[guild].replace[guild.].with[]>
       - if <context.item.script.name||null> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
       - if <player.flag[guild]||null> == null:
