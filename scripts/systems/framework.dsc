@@ -477,6 +477,9 @@ system_override:
   type: world
   debug: false
   events:
+    on player kicked for flying:
+      - if <player.has_permission[kicked_for_flying_bypass]>:
+        - determine cancelled
     on entity spawns:
       - if <context.location.world.name> == spawn:
         - determine cancelled
