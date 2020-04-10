@@ -1,8 +1,8 @@
-Citadel_System:
-  type: world
-  events:
-    on player breaks block:
-      - run Citadel_BlockCheck def:<context.location>
+#Citadel_System_Break:
+  #type: world
+  #events:
+    #on player breaks block:
+      #- run Citadel_BlockCheck def:<context.location>
           
 Citadel_loadData:
   type: task
@@ -52,3 +52,34 @@ Citadel_DamageBlocks:
         - yaml unload id:citadel.<[loc].simple>
         - modifyblock <[loc]> air naturally
     - narrate "<&2>Block Health Remaining<&co><&e> <[healths].separated_by[,<&sp>]>"
+
+Bastion_Creation_PlacementCheck:
+  type: task
+  definitions: location|size
+  script:
+    - if <[location.y]> != 2:
+      # TODO
+      # Potential Narration Spot
+      # Bastion must be on Bedrock
+      - stop
+    - define thisCuboid:<cuboid[<location[<[location].x.-[<[size]>]>,0,<[location].z.-[<[size]>]>,<[location].world>]>|<location[<[location].x.+[<[size]>]>,255,<[location].z.+[<[size]>]>,<[location].world>]>]>
+    - if <server.list_notables[cuboid].filter[starts_with[bastion_<yaml[player.<player.uuid>].read[group.reinforcing]>].not].filter[starts_with[bastion_]].filter[intersects[<[thisCuboid]>]].size> > 0:
+    - if <cuboid[bastion_<yaml[player.<player.uuid>].read[group.reinforcing]>]||null> == null:
+      - note <[thisCuboid]> as:bastion_<yaml[player.<player.uuid>].read[group.reinforcing]>
+      - note <[location]> as:bastionBlock_<yaml[player.<player.uuid>].read[group.reinforcing]>_1
+    - else:
+      - 
+    # TODO
+    # Place actual Bastion block & initialize stuff.
+
+Bastion_PlaceBlock_Check:
+  type: world
+  events:
+    on player places BastionBlock bukkit_priority:LOWEST:
+      - define bastions <context.location.cuboids.filter[notable_name.starts_with[bastion_]]>
+      - if <[bastions].size> > 0:
+        - foreach <[bastions]>:
+          # TODO
+          # Group Check Below
+          - if PLAYER NOT IN GROUP:
+            - determine cancelled
