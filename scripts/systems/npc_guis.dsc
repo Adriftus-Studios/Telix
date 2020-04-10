@@ -40,7 +40,16 @@ temple_guardian_assignment:
     on assignment:
     - trigger name:click state:true
     on click:
-    - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Farewell, and safe travels."
-    - teleport <player> <location[spawn]>
-    - wait 3s
-    - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> I trust you got what you needed."
+    - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> How may I help you?"
+    - narrate " - <&click[/temple_guardian_confirm leave]><&6>I am ready to leave.<&end_click>"
+
+kill_queue_command:
+  type: command
+  name: temple_guardian_confirm
+  script:
+  - if <player.location.find.npcs.within[10].filter[script.is[==].to[temple_guardian_assignment]].size> != 0:
+    - if <context.args.get[1]> == leave:
+      - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Farewell, and safe travels."
+      - teleport <player> <location[spawn]>
+      - wait 3s
+      - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> I trust you got what you needed."
