@@ -463,7 +463,7 @@ system_override:
     on entity spawns:
       - if <context.location.world.name> == spawn:
         - determine cancelled
-    on player right clicks entity:
+    on player right clicks entity BUKKIT_PRIORITY:LOWEST:
       - if <context.entity.script.yaml_key[custom.interactable]||false>:
         - determine cancelled
     on tick:
