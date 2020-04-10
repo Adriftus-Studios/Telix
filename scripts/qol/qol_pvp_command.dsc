@@ -125,6 +125,8 @@ qol_pvp_settings_inventory:
     w_filler: <item[gui_invisible_item]>
     dmg_n: <item[qol_pvp_settings_damage_notifier]>
     fx_n: <item[qol_pvp_settings_effect_notifier]>
+    dmg_f: <item[qol_pvp_settings_damage_flash]>
+    pwr_f: <item[qol_pvp_settings_power_flash]>
   slots:
     - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
     - "[w_filler] [dmg_n] [fx_n] [] [] [] [] [] [w_filler]"
@@ -176,7 +178,7 @@ qol_pvp_settings_effect_notifier:
   setting: effect_notifier
   options: chat|bossbar|disabled
   
-  qol_pvp_settings_damage_flash:
+qol_pvp_settings_damage_flash:
   type: item
   debug: false
   material: stone
@@ -189,7 +191,7 @@ qol_pvp_settings_effect_notifier:
   setting: damage_flash
   options: enabled|disabled
   
-  qol_pvp_settings_power_flash:
+qol_pvp_settings_power_flash:
   type: item
   debug: false
   material: stone
