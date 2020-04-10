@@ -314,7 +314,7 @@ entity_frost_golem:
   speed: 0.2
   custom:
     xp_dropped: 20
-    kill_health: 500
+    kill_health: 550
     spawning_conditions:
       world: tor_mainland
       biome: snowy_tundra|snowy_mountains|snowy_beach|snowy_taiga|snowy_taiga_hills|snowy_taiga_mountains
