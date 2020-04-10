@@ -465,7 +465,7 @@ system_override:
         - determine cancelled
     on player right clicks entity:
       - if <context.entity.script.yaml_key[custom.interactable]||false>:
-        - determine passively cancelled
+        - determine cancelled
     on tick:
       - if !<server.list_online_players.filter[food_level.is[==].to[20]].is_empty>:
         - foreach <server.list_online_players.filter[food_level.is[==].to[20]]>:

@@ -183,7 +183,7 @@ altar_events:
         - determine NOTHING
         - if <player.gamemode> == SURVIVAL:
           - drop <item[altar_<[tier]>]> <context.location>
-    on player clicks barrier:
+    on player right clicks barrier:
       - if <context.location.notable_name.starts_with[altar_]||false>:
         - define tier:<context.location.notable_name.split[_e@].get[1].split[_].get[<context.location.notable_name.split[_e@].get[1].split[_].size>]>
         - if <inventory[altar_<player.uuid>_<[tier]>]||null> == null:
