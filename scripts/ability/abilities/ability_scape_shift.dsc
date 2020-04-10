@@ -12,8 +12,6 @@ ability_scape_shift:
     material: iron_nugget
     custom_model_data: 3
   script:
-    - stop
-    # FIX THIS SCRIPT BEFORE ENABLING IT
     - inject abilities_check
     - if !<script.yaml_key[whitelist_materials].contains[<player.location.below.material.name>]>:
       - narrate "Unsuitable location"
