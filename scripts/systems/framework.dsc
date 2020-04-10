@@ -406,7 +406,6 @@ custom_item_override:
       - determine ITEM:<[item].as_item>
     on furnace smelts item:
       - define item:<context.result_item>
-      - narrate <[item]>
       - if <yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>]||null> != null:
         - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[2]>]>
       - inject build_item
@@ -444,6 +443,8 @@ custom_item_override:
             - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
             - inject build_item
             - adjust <player.open_inventory> result:<[item]>
+        - if <player.open_inventory.inventory_type> == furnace:
+          - narrate <context.raw_slot>
     on player drags in inventory:
       - if <player.open_inventory.inventory_type> == workbench:
         - wait 1t
