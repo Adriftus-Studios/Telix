@@ -22,3 +22,11 @@ guild_master_interact_handler:
           - inventory open d:my_guild_gui
         - else:
           - inventory open d:new_guild_gui
+
+portal_tender_assignment:
+  type: assignment
+  actions:
+    on assignment:
+    - trigger name:click state:true
+    on click:
+    - teleport <player> <location[altars]>
