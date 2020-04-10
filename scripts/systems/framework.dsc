@@ -447,7 +447,7 @@ custom_item_override:
           - narrate <context.item.script.name.to_lowercase>
           - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.item.script.name.to_lowercase>]>
           - narrate <[item]>
-          - adjust <player.open_inventory> furnace_cook_time_total:1000
+          - adjust <player.open_inventory.location> furnace_cook_time_total:1000
     on player drags in inventory:
       - if <player.open_inventory.inventory_type> == workbench:
         - wait 1t
