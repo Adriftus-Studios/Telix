@@ -4,20 +4,20 @@ abilitytrees:
     Test:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -16
     # Magic
     Arcane:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -16
     Electric:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -16
     Earth:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -16
     Nether:
       available_check: true
       GUIItem: iron_nugget
@@ -29,11 +29,11 @@ abilitytrees:
     Ocean:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -16
     Musical:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -16
     Aer:
       available_check: true
       GUIItem: iron_nugget
@@ -41,7 +41,7 @@ abilitytrees:
     Archery:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -16
     Fisticuffs:
       available_check: true
       GUIItem: iron_nugget
@@ -49,7 +49,7 @@ abilitytrees:
     Endurance:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -16
     Stealth:
       available_check: true
       GUIItem: iron_nugget
@@ -57,11 +57,11 @@ abilitytrees:
     Acrobatics:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -16
     Perception:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -16
     Thievery:
       available_check: true
       GUIItem: iron_nugget
@@ -69,4 +69,4 @@ abilitytrees:
     Athleticism:
       available_check: true
       GUIItem: iron_nugget
-      custom_model_data: 1
+      custom_model_data: -16
