@@ -10,5 +10,6 @@ darkness_handler_events:
           - if !<[value].has_flag[cheatmode]> && <[value].location.world.name> == tor_mainland:
             - cast <[value]> blindness duration:3s
             - if !<[value].has_flag[darkness_notification]>:
+              - adjust <queue> linked_player:<[value]>
               - narrate "<&7>Your field of vision begins to lessen as the light around you fades away."
-              - flag <player> darkness_notification:1 duration:2m
+              - flag <[value]> darkness_notification:1 duration:2m
