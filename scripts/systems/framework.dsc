@@ -404,7 +404,7 @@ custom_item_override:
     on player crafts item:
       - define item:<context.item>
       - inject build_item
-      - determine ITEM:<[item].as_item>
+      - determine ITEM:<[item]>
     on furnace smelts item:
       - define item:<context.result_item>
       - if <yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>]||null> != null:
