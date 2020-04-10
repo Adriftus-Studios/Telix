@@ -148,7 +148,7 @@ qol_pvp_settings_inventory_events:
         - define next:<[options].find[<yaml[player.<player.uuid>].read[pvp.<[setting]>]>].+[1]>
         - define new:<[options].get[<[next]>]||<[options].first>>
         - yaml id:player.<player.uuid> set pvp.<[setting]>:<[new]>
-        - narrate "<&d>Set PvP setting <&b><[setting].replace[_].with[<&sp>].to_titlecase> <&d>to <&5><[new].to_titlecase>."
+        - actionbar "<&d>Set PvP setting <&b><[setting].replace[_].with[<&sp>].to_titlecase> <&d>to <&5><[new].to_titlecase>."
         - inventory open d:<inventory[qol_pvp_settings_inventory]>
     on player right clicks in qol_pvp_settings_inventory:
       - if <context.item.script.yaml_key[setting]||null> != null && <context.item.script.yaml_key[options]||null> != null:
@@ -162,7 +162,7 @@ qol_pvp_settings_inventory_events:
         - else:
           - define new:<[options].get[<[prev]>]>
         - yaml id:player.<player.uuid> set pvp.<[setting]>:<[new]>
-        - narrate "<&d>Set PvP setting <&b><[setting].replace[_].with[<&sp>].to_titlecase> <&d>to <&5><[new].to_titlecase>."
+        - actionbar "<&d>Set PvP setting <&b><[setting].replace[_].with[<&sp>].to_titlecase> <&d>to <&5><[new].to_titlecase>."
         - inventory open d:<inventory[qol_pvp_settings_inventory]>
 
 #Items
