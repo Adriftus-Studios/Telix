@@ -1250,8 +1250,8 @@ guild_gui_events:
       - determine passively cancelled
       - define guild:<player.flag[guild].replace[guild.].with[]>
       - if <context.inventory.slot[1].nbt[guild]||null> != null:
-        - define guild:<context.inventory.slot[1].nbt[guild].replace[guild.].with[]>
-      - narrate <context.inventory.slot[1].nbt[guild].replace[guild.].with[]>
+        - if <context.inventory.slot[1].nbt[guild].replace[guild.].with[]> != <player.flag[guild]>:
+          - define guild:<context.inventory.slot[1].nbt[guild].replace[guild.].with[]>
       - if <context.item.script.name||null> == gui_close_btn:
         - inventory open d:<inventory[my_guild_gui]>
       - if <player.flag[guild]||null> == null:
