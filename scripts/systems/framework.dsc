@@ -676,6 +676,8 @@ build_item:
         - adjust def:item skull_skin:<[old_item].skin.full>
         - if <[item].script.name> == custom_player_head:
           - adjust def:item display_name:<&r><&e><[old_item].skin.as_player.name>'s<&sp>Head
+      - if <[old_item].display||null> != null:
+        - adjust def:item display_name:<[old_item].display>
     - if <[item].script.yaml_key[category]||null> != null:
       - if <[item].script.yaml_key[category]> == ability:
         - define ability:<[old_item].nbt[skillname]>
