@@ -819,6 +819,6 @@ build_item:
         - define lore:|:<&8>Item<&sp>Weight:<&sp><[item].script.yaml_key[weight]||1>
     - else:
       - define lore:|:<[item].script.yaml_key[lore].as_list.parse[parsed]||<list[]>>
-    #- define lore:<[lore].parse[parsed]>
-    #- adjust def:item nbt:built/true
-    #- adjust def:item lore:<[lore]>
+    - define lore:<[lore].parse[parsed]>
+    - adjust def:item nbt:built/true
+    - adjust def:item lore:<[lore]>
