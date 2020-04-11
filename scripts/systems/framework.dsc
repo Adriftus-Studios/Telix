@@ -468,7 +468,7 @@ custom_item_override:
           - inject build_item
           - adjust <player.open_inventory> result:<[item]>
     on player places block:
-      - if !<context.item_in_hand.script.yaml_key[placable]||false>:
+      - if <context.item_in_hand.script.yaml_key[placable]||false>:
         - determine cancelled
       - if <context.location.world.name> != tor_mainland && !<player.has_permission[place]>:
         - determine cancelled
