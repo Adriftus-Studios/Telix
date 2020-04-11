@@ -417,7 +417,6 @@ custom_item_override:
         - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[2]>]>
       #- announce <yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[1]||null>
       #- announce <context.location.inventory.result.script.name||null>
-      - inject build_item
       - determine <[item]>
     on player picks up item:
       - if <context.item.script.name||null> == null || !<context.item.nbt[built]||false>:
