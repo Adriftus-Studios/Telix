@@ -30,7 +30,7 @@ portal_tender_assignment:
     - trigger name:click state:true
     on click:
     - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Where would you like to go to? (Click One)"
-    - narrate "<element[<&6>1. I would like to use the altars.].on_click[/portal_tender altars]>"
+    - narrate "<element[<&6> - I would like to use the altars.].on_click[/portal_tender altars]>"
 
 portal_tender_command:
   type: command
@@ -50,7 +50,7 @@ temple_guardian_assignment:
     - trigger name:click state:true
     on click:
     - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> How may I help you? (Click One)"
-    - narrate "<element[<&6>1. I am ready to leave.].on_click[/temple_guardian leave]>"
+    - narrate "<element[<&6> - I am ready to leave.].on_click[/temple_guardian leave]>"
 
 temple_guardian_command:
   type: command
