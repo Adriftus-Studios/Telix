@@ -17,6 +17,8 @@ ore_drop_events:
                     - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
                 - run playerLevel_GiveXP def:1
                 - if <server.has_flag[double_ore_drops]>:
-                    - determine <item[<[to_drop].random>].with[quantity=2]>
+                    - define item:<item[<[to_drop].random>].with[quantity=2]>
                 - else:
-                    - determine <item[<[to_drop].random>]>
+                    - define item:<item[<[to_drop].random>]>
+                - inject build_item
+                - determine <[item]>
