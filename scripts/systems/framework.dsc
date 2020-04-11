@@ -449,7 +449,7 @@ custom_item_override:
               - adjust <player.open_inventory> result:<[item]>
             - if <player.open_inventory.result.script.name||null> == null && <player.open_inventory.result||null> != null:
               - foreach <player.open_inventory.matrix> as:input_item:
-                - if <server.list_material_types.parse[name].contains[<[input_item].script.name.replace[custom_].with[]||null>]>:
+                - if !<server.list_material_types.parse[name].contains[<[input_item].script.name.replace[custom_].with[]||null>]>:
                   - inventory set d:<player.open_inventory> slot:1 o:<item[air]>
                   - stop
             #- if !<yaml[server.recipe_fixer].read[recipes].contains[custom_<player.open_inventory.result.script.name||<player.open_inventory.result.material.name>>]>:
