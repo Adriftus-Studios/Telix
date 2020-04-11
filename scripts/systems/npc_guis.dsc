@@ -32,6 +32,7 @@ mysterious_person_assignment:
     - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> Get away!"
     - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> I don't want to hurt you."
     - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> GET OUT OF MY HEAD!"
+    - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> Leave now!"
     - narrate <[lines].random>
 
 mysterious_person_command:
