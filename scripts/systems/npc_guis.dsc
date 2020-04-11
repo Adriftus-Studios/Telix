@@ -41,7 +41,7 @@ cannoneer_command:
   type: command
   name: mysterious_person
   script:
-  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[portal_tender_assignment]].size> != 0:
+  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[cannoneer_assignment]].size> != 0:
     - stop
     # TODO
   
@@ -61,7 +61,7 @@ mysterious_person_command:
   type: command
   name: mysterious_person
   script:
-  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[portal_tender_assignment]].size> != 0:
+  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[mysterious_person_assignment]].size> != 0:
     - stop
     # TODO
   
