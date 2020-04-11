@@ -495,9 +495,9 @@ system_override:
   debug: false
   events:
     on player chats:
-      - define msg:<context.message>
+      - define msg <context.message>
       - if <[msg].contains_text[<&lb>item<&rb>]>:
-        - define msg:<[msg].replace[<&lb>item<&rb>].with[<element[<player.item_in_hand.display>].on_hover[<player.item_in_hand>].type[SHOW_ITEM]>]>
+        - define msg <[msg].replace[<&lb>item<&rb>].with[<element[<player.item_in_hand.display>].on_hover[<player.item_in_hand>].type[SHOW_ITEM]>]>
       - determine <[msg]>
     on player kicked for flying:
       - if <player.has_permission[kicked_for_flying_bypass]>:
