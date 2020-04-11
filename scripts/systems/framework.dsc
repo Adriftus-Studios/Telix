@@ -555,7 +555,9 @@ system_override:
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
         - if <context.raw_slot> == 38:
-          - inventory open d:equipment_<player.uuid>
+          - if <inventory[equipment_<player.uuid>]||null> == null:
+            - note <inventory[equipment_character]> as:equipment_<player.uuid>
+          - inventory open d:<inventory[equipment_<player.uuid>]>
         - if <context.raw_slot> < 6 && <context.raw_slot> > -1:
           - define slotmap:<list[1/in@workbench[holder=<player>]|2/recipe_book_inventory|3/guilds|4/citadels|5/settings]>
           - if <context.cursor_item.quantity> != 0:
