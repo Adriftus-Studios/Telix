@@ -179,7 +179,7 @@ custom_copper_nugget:
       hide_in_recipebook: true
       input: custom_copper_ingot
 custom_copper_ingot:
-  material: brick
+  material: iron_ingot
   recipe_book_category: equipment.copper|materials.ingots
   display name: <&7>Copper Ingot
   weight: '1'
