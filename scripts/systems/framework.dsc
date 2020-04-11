@@ -421,40 +421,41 @@ custom_item_override:
         - determine ITEM:<[item]>
     on player clicks in inventory:
       - if !<context.inventory.script_name.starts_with[recipe_book_]||false>:
-        - if !<context.cursor_item.has_nbt[built]> && <context.cursor_item.material.name> != air && <context.slot> != -998:
-          - define item:<context.cursor_item>
-          - inject build_item
-          - wait 1t
-          - if <player.open_inventory.matrix||null> == null:
-            - if <context.raw_slot> > <player.open_inventory.size>:
-              - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
-            - else:
-              - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=<player.open_inventory.slot[<context.slot>].quantity>]>
-          - else if <player.open_inventory.matrix.size> == 4:
-            - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
-          - else if <player.open_inventory.matrix.size> == 9:
-            - if <context.raw_slot> > 10:
-              - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
-            - else:
-              - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=<player.open_inventory.slot[<context.slot>].quantity>]>
-        - if <player.open_inventory.inventory_type> == workbench:
-          - wait 1t
-          - if <yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
-            - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
+        - if <context.slot> != -998:
+          - if !<context.cursor_item.has_nbt[built]> && <context.cursor_item.material.name> != air:
+            - define item:<context.cursor_item>
             - inject build_item
-            - adjust <player.open_inventory> result:<[item]>
-          - if <yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item||null> != null:
-            - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
-            - inject build_item
-            - adjust <player.open_inventory> result:<[item]>
-          - narrate <player.open_inventory.result>
-          - if <yaml[server.recipe_fixer].read[recipes].contains[]>:
-            - narrate <player.open_inventory.result>
-        - if <player.open_inventory.inventory_type> == furnace:
-          - stop
-          - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.item.script.name.to_lowercase>]>
-          - adjust <player.open_inventory.location> furnace_cook_time:1000
-          - adjust <player.open_inventory.location> furnace_cook_time_total:1000
+            - wait 1t
+            - if <player.open_inventory.matrix||null> == null:
+              - if <context.raw_slot> > <player.open_inventory.size>:
+                - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
+              - else:
+                - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=<player.open_inventory.slot[<context.slot>].quantity>]>
+            - else if <player.open_inventory.matrix.size> == 4:
+              - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
+            - else if <player.open_inventory.matrix.size> == 9:
+              - if <context.raw_slot> > 10:
+                - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
+              - else:
+                - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=<player.open_inventory.slot[<context.slot>].quantity>]>
+          - if <player.open_inventory.inventory_type> == workbench:
+            - wait 1t
+            - if <yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
+              - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
+              - inject build_item
+              - adjust <player.open_inventory> result:<[item]>
+            - if <yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item||null> != null:
+              - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
+              - inject build_item
+              - adjust <player.open_inventory> result:<[item]>
+            - if <yaml[server.recipe_fixer].read[recipes].contains[custom_<player.open_inventory.result>]||false>:
+              - narrate <player.open_inventory.result>
+          - if <player.open_inventory.inventory_type> == furnace:
+            - stop
+            # this might be needed later
+            - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.item.script.name.to_lowercase>]>
+            - adjust <player.open_inventory.location> furnace_cook_time:1000
+            - adjust <player.open_inventory.location> furnace_cook_time_total:1000
     on player drags in inventory:
       - if <player.open_inventory.inventory_type> == workbench:
         - wait 1t
