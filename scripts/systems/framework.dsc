@@ -447,8 +447,9 @@ custom_item_override:
               - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
               - inject build_item
               - adjust <player.open_inventory> result:<[item]>
-            - if !<yaml[server.recipe_fixer].read[recipes].contains[custom_<player.open_inventory.result.script.name||<player.open_inventory.result.material.name>>]>:
-              - narrate <player.open_inventory.result.script.name||<player.open_inventory.result.material.name>>
+            - if <player.open_inventory.result.script.name||null> == null:
+            #- if !<yaml[server.recipe_fixer].read[recipes].contains[custom_<player.open_inventory.result.script.name||<player.open_inventory.result.material.name>>]>:
+            #  - narrate <player.open_inventory.result.script.name||<player.open_inventory.result.material.name>>
           - if <player.open_inventory.inventory_type> == furnace:
             - stop
             # this might be needed later
