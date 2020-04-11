@@ -308,7 +308,6 @@ rp_command:
 player_setup:
   type: task
   script:
-    - announce <queue.script.filename>
     - yaml create id:player.<player.uuid>
     - note <inventory[equipment_character]> as:equipment_<player.uuid>
     - yaml id:player.<player.uuid> set teleports_used.ott:0
@@ -459,7 +458,7 @@ custom_item_override:
             - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.item.script.name.to_lowercase||null>]>
             #- narrate <[item]>
             - stop
-            - adjust <player.open_inventory.location> furnace_cook_time:400
+            - adjust <player.open_inventory.location> furnace_cook_time:200
             - adjust <player.open_inventory.location> furnace_cook_time_total:400
     on player drags in inventory:
       - if <player.open_inventory.inventory_type> == workbench:
