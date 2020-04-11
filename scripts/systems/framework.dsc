@@ -408,9 +408,7 @@ custom_item_override:
           - determine <[item]>
         - if <context.inventory.result.script.name||null> == null && <context.inventory.result||null> != null:
           - foreach <context.inventory.matrix> as:input_item:
-            - narrate <server.list_material_types.parse[name].contains[<[input_item].script.name.replace[custom_].with[]||null>]>
-            - narrate <[input_item].script.name.replace[custom_].with[]||null>
-            - if !<server.list_material_types.parse[name].contains[<[input_item].script.name.replace[custom_].with[]||null>]>:
+            - if !<server.list_material_types.parse[name].contains[<[input_item].script.name.replace[custom_].with[]||null>]> && <[input_item].material.name> != air:
               - determine passively cancelled
     on furnace smelts item:
       - define item:<context.result_item>
