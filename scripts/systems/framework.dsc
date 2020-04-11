@@ -166,6 +166,7 @@ reload_scripts:
                 - foreach <[value].list_keys[recipes]> as:recipe:
                   - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
                     - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
+                      - yaml id:server.recipe_fixer set recipes:|:<[value].name>
                       - if <[value].yaml_key[recipes.<[recipe]>.type]> != furnace
                         #- adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
@@ -404,10 +405,7 @@ custom_item_override:
           - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
           - inject build_item
           - determine <[item]>
-        - narrate <context.item.script.name.replace[custom_].with[].to_lowercase>
         - if <server.list_material_types.parse[name].contains[<context.item.script.name.replace[custom_].with[].to_lowercase>]||false>:
-          - narrate 1
-          - narrate <yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null>
           - stop
           # TODO
     on furnace smelts item:
@@ -449,6 +447,9 @@ custom_item_override:
             - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
             - inject build_item
             - adjust <player.open_inventory> result:<[item]>
+          - narrate <player.open_inventory.result>
+          - if <yaml[server.recipe_fixer].read[recipes].contains[]>:
+            - narrate <player.open_inventory.result>
         - if <player.open_inventory.inventory_type> == furnace:
           - stop
           - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.item.script.name.to_lowercase>]>
