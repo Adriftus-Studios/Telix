@@ -6,8 +6,12 @@ guild_master_assignment:
     on assignment:
     - trigger name:click state:true
     on click:
-    - define "words:<list[<&a><&lb><&6>Guild Master<&a><&rb><&6> Make sure to watch your guild funds!|<&a><&lb><&6>Guild Master<&a><&rb><&6> When I was a young lad, I tried to start a guild too.|<&a><&lb><&6>Guild Master<&a><&rb><&6> You look like a person of character!|<&a><&lb><&6>Guild Master<&a><&rb><&6> HAHA! So, you want to start a guild, eh?].random>"
-    - narrate "<[words]>"
+    - define "lines:|:<&a><&lb><&6>Guild Master<&a><&rb><&6> Make sure to watch your guild funds!"
+    - define "lines:|:<&a><&lb><&6>Guild Master<&a><&rb><&6> When I was a young lad, I tried to start a guild too."
+    - define "lines:|:<&a><&lb><&6>Guild Master<&a><&rb><&6> You look like a person of character!"
+    - define "lines:|:<&a><&lb><&6>Guild Master<&a><&rb><&6> HAHA! So, you want to start a guild, eh?"
+    - narrate "<[lines].random>"
+    # Drew, I hate unorganized code... so I redid yours... -AJ-
   interact scripts:
   - 1 guild_master_interact_handler
 
@@ -23,6 +27,23 @@ guild_master_interact_handler:
         - else:
           - inventory open d:new_guild_gui
 
+cannoneer_assignment:
+  type: assignment
+  actions:
+    on assignment:
+    - trigger name:click state:true
+    on click:
+    - define "lines:|:<&a><&lb><&6>Cannoneer<&a><&rb><&6> Ever wondered what it's like beyond this tiny spec of sand?"
+    - narrate <[lines].random>
+
+cannoneer_command:
+  type: command
+  name: mysterious_person
+  script:
+  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[portal_tender_assignment]].size> != 0:
+    - stop
+    # TODO
+  
 mysterious_person_assignment:
   type: assignment
   actions:
