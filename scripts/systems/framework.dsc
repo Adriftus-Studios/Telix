@@ -554,11 +554,6 @@ system_override:
             - determine cancelled
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
-        - if <context.slot> == 39:
-          - if <inventory[equipment_<player.uuid>]||null> == null:
-            - note <inventory[equipment_character]> as:equipment_<player.uuid>
-          - determine passively cancelled
-          - inventory open d:<inventory[equipment_<player.uuid>]>
         - if <context.raw_slot> < 6 && <context.raw_slot> > -1:
           - define slotmap:<list[1/in@workbench[holder=<player>]|2/recipe_book_inventory|3/guilds|4/citadels|5/settings]>
           - if <context.cursor_item.quantity> != 0:
