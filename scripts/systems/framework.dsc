@@ -448,6 +448,7 @@ custom_item_override:
               - inject build_item
               - adjust <player.open_inventory> result:<[item]>
             - if <player.open_inventory.result.script.name||null> == null:
+              - narrate 1
             #- if !<yaml[server.recipe_fixer].read[recipes].contains[custom_<player.open_inventory.result.script.name||<player.open_inventory.result.material.name>>]>:
             #  - narrate <player.open_inventory.result.script.name||<player.open_inventory.result.material.name>>
           - if <player.open_inventory.inventory_type> == furnace:
