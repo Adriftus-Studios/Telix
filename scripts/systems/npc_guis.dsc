@@ -31,6 +31,7 @@ portal_tender_assignment:
     on click:
     - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Where would you like to go to? (Click One)"
     - narrate "<element[<&6> - I would like to use the altars.].on_click[/portal_tender altars]>"
+    - narrate "<element[<&6> - I want to fly.].on_click[/portal_tender rtp]>"
 
 portal_tender_command:
   type: command
@@ -42,6 +43,10 @@ portal_tender_command:
       - teleport <player> <location[altars]>
       - wait 6s
       - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Welcome traveler!"
+    - if <context.args.get[1]> == rtp:
+      - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Safe Travels."
+      - wait 3s
+      - inject rtp_task
 
 temple_guardian_assignment:
   type: assignment
