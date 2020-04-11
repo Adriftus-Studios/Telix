@@ -373,7 +373,7 @@ custom_item_override:
       - if <context.item.script.yaml_key[on_consume]||null> != null:
         - run <context.item.script.name> path:on_consume
     on player places block:
-      - if !<context.item_in_hand.script.yaml_key[placable]||true>:
+      - if !<context.item_in_hand.script.yaml_key[placable]||false>:
         - determine passively cancelled
       - stop
       - if <context.item_in_hand.script.name||null> != null:
