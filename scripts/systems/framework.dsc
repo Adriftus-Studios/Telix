@@ -308,7 +308,7 @@ rp_command:
 player_setup:
   type: task
   script:
-    - announce <queue>
+    - announce <queue.script>
     - yaml create id:player.<player.uuid>
     - note <inventory[equipment_character]> as:equipment_<player.uuid>
     - yaml id:player.<player.uuid> set teleports_used.ott:0
