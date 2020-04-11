@@ -4,7 +4,7 @@ custom_mundane_basic_nodestone:
   recipe_book_category: crafting.magic
   display name: <&7>Mundane Basic Nodestone
   lore:
-  - "<&7>Inactive. Use an altar to charge."
+  - "<&7>Inactive. Use a smeltery to charge."
   weight: '5'
   type: item
   placable: false
