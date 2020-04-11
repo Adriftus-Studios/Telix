@@ -62,6 +62,7 @@ spawn_cannon_command:
   - spawn cannon_entity <player.location> save:cannon
   - define cannon:<entry[cannon].spawned_entity>
   - adjust <[cannon]> armor_pose:head|<player.location.pitch.to_radians>,0,0
+  - narrate "Done"
   
 rtp_task:
   type: task
