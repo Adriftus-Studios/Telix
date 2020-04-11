@@ -638,8 +638,12 @@ build_item_command:
   name: build_item
   script:
     - define item:<player.item_in_hand>
+    - if <[item].material.name> == air:
+      - narrate "You're not holding anything."
+      - stop
     - inject build_item
     - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
+    - narrate "Done"
 
 build_item:
   type: task
