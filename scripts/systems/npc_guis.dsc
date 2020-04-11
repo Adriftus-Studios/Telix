@@ -23,6 +23,25 @@ guild_master_interact_handler:
         - else:
           - inventory open d:new_guild_gui
 
+mysterious_person_assignment:
+  type: assignment
+  actions:
+    on assignment:
+    - trigger name:click state:true
+    on click:
+    - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> Get away!"
+    - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> I don't want to hurt you."
+    - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> GET OUT OF MY HEAD!"
+    - narrate <[lines].random>
+
+mysterious_person_command:
+  type: command
+  name: mysterious_person
+  script:
+  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[portal_tender_assignment]].size> != 0:
+    - stop
+    # TODO
+  
 portal_tender_assignment:
   type: assignment
   actions:
@@ -45,7 +64,7 @@ portal_tender_command:
       - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Welcome traveler!"
     - if <context.args.get[1]> == rtp:
       - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Safe Travels."
-      - wait 3s
+      - wait 2s
       - inject rtp_task
 
 temple_guardian_assignment:
