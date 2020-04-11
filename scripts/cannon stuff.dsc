@@ -53,6 +53,14 @@ cannon_events:
       - if <player.has_flag[no_fly_kick]> || <player.fake_block[<player.location.below>]||null> != null:
         - determine cancelled
 
+cannon_assignment:
+  type: assignment
+  actions:
+    on assignment:
+    - trigger name:click state:true
+    on click:
+    - narrate "<context.entity>"
+
 spawn_cannon_command:
   type: command
   name: spawn_cannon
