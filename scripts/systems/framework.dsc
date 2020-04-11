@@ -417,7 +417,7 @@ custom_item_override:
       - if <context.location.inventory.result.material.name||air> != air:
         - announce <context.location.inventory.result.script.name||null2>
         - announce <context.result_item.script.name||null1>
-        - if <context.result_item.script.name||null1> != <context.location.inventory.result.script.name||null2>:
+        - if <context.result_item.script.name||<context.result_item.material.name||null1>> != <context.location.inventory.result.script.name||<context.location.inventory.result.material.name||null2>>:
           - determine passively cancelled
       - inject build_item
       - determine <[item]>
