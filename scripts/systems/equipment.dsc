@@ -150,11 +150,11 @@ equipment_inventory_handler:
         - if <context.cursor_item.script.name||null> == null:
           - determine passively cancelled
           - stop
-      - if <context.item.script.yaml_key[category]||null> == null:
-        - determine passively cancelled
-        - stop
       - if !<context.is_shift_click>:
         - if <context.raw_slot> < 55:
+          - if <context.item.script.yaml_key[category]||null> == null:
+            - determine passively cancelled
+            - stop
           - if !<[slotmap].parse[split[/].get[1]].contains[<context.raw_slot>]>:
             - determine passively cancelled
             - stop
@@ -202,6 +202,9 @@ equipment_inventory_handler:
               - stop
       - else:
         - if <context.raw_slot> > 54:
+          - if <context.item.script.yaml_key[category]||null> == null:
+            - determine passively cancelled
+            - stop
           - determine passively cancelled
           - define found:false
           - if <context.item.script.yaml_key[category]||null> == null:
