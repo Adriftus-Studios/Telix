@@ -62,6 +62,8 @@ calculate_base_stats:
   type: task
   debug: false
   script:
+    - if <yaml[player.<player.uuid>].read[stats.speed]|null> != null:
+      - inject player_setup
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
         - define value:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]||0>]||0>]>
@@ -77,6 +79,8 @@ calculate_weight_equipment_stats:
   type: task
   debug: false
   script:
+    - if <yaml[player.<player.uuid>].read[stats.speed]|null> != null:
+      - inject player_setup
     - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
     - if <inventory[equipment_<player.uuid>].slot[39].material.name||air> == elytra:
       - narrate 1
@@ -121,6 +125,8 @@ calculate_encumberance_speed:
   type: task
   debug: false
   script:
+    - if <yaml[player.<player.uuid>].read[stats.speed]|null> != null:
+      - inject player_setup
     - foreach <player.inventory.list_contents.filter[material.name.is[!=].to[writable_book]]> as:item:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
       - define weight:|:<[this_item_weight].*[<[item].quantity>]||1>
@@ -147,6 +153,8 @@ calculate_contamination:
   definitions: player
   debug: false
   script:
+    - if <yaml[player.<player.uuid>].read[stats.speed]|null> != null:
+      - inject player_setup
     - wait 1t
     - if <player.is_online>:
       - yaml id:player.<player.uuid> set stats.hazard_protection:<proc[get_hazard_protection_level].context[<player>]>
