@@ -4,7 +4,7 @@ cannon_base_entity:
   entity_type: armor_stand
   equipment: <item[air]>|<item[air]>|<item[air]>|<item[stick].with[custom_model_data=7]>
   gravity: false
-  visible: false
+  visible: true
   invulnerable: false
   custom:
     interactable: false
@@ -14,7 +14,7 @@ cannon_entity:
   entity_type: armor_stand
   equipment: <item[air]>|<item[air]>|<item[air]>|<item[stick].with[custom_model_data=6]>
   gravity: false
-  visible: false
+  visible: true
   invulnerable: false
   custom:
     interactable: false
