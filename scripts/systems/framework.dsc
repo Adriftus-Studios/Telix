@@ -381,7 +381,7 @@ custom_item_override:
             - yaml savefile:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<context.item_in_hand.script.name>.yml id:<context.location.simple>
             - yaml unload id:<context.location.simple>
     on player breaks block:
-      - if !<context.item.script.yaml_key[placable]||true>
+      - if !<context.item.script.yaml_key[placable]||false>:
         - determine passively cancelled
       - stop
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]||null> != null:
