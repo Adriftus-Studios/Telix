@@ -555,7 +555,6 @@ system_override:
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
         - if <context.slot> == 39:
-          - narrate 1
           - if <inventory[equipment_<player.uuid>]||null> == null:
             - note <inventory[equipment_character]> as:equipment_<player.uuid>
           - determine passively cancelled
