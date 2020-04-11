@@ -167,7 +167,7 @@ reload_scripts:
                   - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
                     - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
                       - yaml id:server.recipe_fixer set recipes:|:<[value].name>
-                      - if <[value].yaml_key[recipes.<[recipe]>.type]> != furnace
+                      - if <[value].yaml_key[recipes.<[recipe]>.type]> != furnace:
                         - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
                   - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
                     - yaml id:server.recipe_fixer set restricted.shaped.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
