@@ -455,9 +455,10 @@ custom_item_override:
               - inject build_item
               - adjust <player.open_inventory> result:<[item]>
           - if <player.open_inventory.inventory_type> == furnace:
-            - stop
             # this might be needed later
             - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.item.script.name.to_lowercase>]>
+            - narrate <[item]>
+            - stop
             - adjust <player.open_inventory.location> furnace_cook_time:400
             - adjust <player.open_inventory.location> furnace_cook_time_total:400
     on player drags in inventory:
