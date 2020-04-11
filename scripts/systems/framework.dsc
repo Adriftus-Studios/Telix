@@ -553,6 +553,8 @@ system_override:
           - if <[value]> < 6:
             - determine cancelled
     on player clicks in inventory:
+      - narrate <context.raw_slot>
+      - narrate <context.slot>
       - if <player.open_inventory> == <player.inventory>:
         - if <context.raw_slot> == 38:
           - if <inventory[equipment_<player.uuid>]||null> == null:
