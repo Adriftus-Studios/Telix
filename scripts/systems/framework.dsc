@@ -405,6 +405,7 @@ custom_item_override:
           - inject build_item
           - determine <[item]>
         - if <server.list_material_types.parse[name].contains[<context.item.script.name.replace[custom_].with[]>]>:
+          - narrate <yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null>
           - stop
           # TODO
     on furnace smelts item:
