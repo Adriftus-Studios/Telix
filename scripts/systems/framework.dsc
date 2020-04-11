@@ -636,7 +636,6 @@ resend_recipes_command:
 build_item_command:
   type: command
   name: build_item
-  permission: build_item
   script:
     - define item:<player.item_in_hand>
     - inject build_item
