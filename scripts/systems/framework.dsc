@@ -381,6 +381,8 @@ custom_item_override:
             - yaml savefile:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<context.item_in_hand.script.name>.yml id:<context.location.simple>
             - yaml unload id:<context.location.simple>
     on player breaks block:
+      - if !<context.item.script.yaml_key[placable]||true>
+        - determine passively cancelled
       - stop
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]||null> != null:
         - define item:<item[<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1].replace[.yml].with[]>]>
@@ -450,14 +452,12 @@ custom_item_override:
               - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
               - inject build_item
               - adjust <player.open_inventory> result:<[item]>
-            #- if !<yaml[server.recipe_fixer].read[recipes].contains[custom_<player.open_inventory.result.script.name||<player.open_inventory.result.material.name>>]>:
-            #  - narrate <player.open_inventory.result.script.name||<player.open_inventory.result.material.name>>
           - if <player.open_inventory.inventory_type> == furnace:
             - stop
             # this might be needed later
             - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.item.script.name.to_lowercase>]>
-            - adjust <player.open_inventory.location> furnace_cook_time:1000
-            - adjust <player.open_inventory.location> furnace_cook_time_total:1000
+            - adjust <player.open_inventory.location> furnace_cook_time:400
+            - adjust <player.open_inventory.location> furnace_cook_time_total:400
     on player drags in inventory:
       - if <player.open_inventory.inventory_type> == workbench:
         - wait 1t

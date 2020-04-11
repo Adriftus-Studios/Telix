@@ -7,6 +7,7 @@ custom_mundane_basic_nodestone:
   - "<&7>Inactive. Use an altar to charge."
   weight: '5'
   type: item
+  placable: false
   recipes:
     1:
       type: shaped
@@ -24,6 +25,7 @@ custom_charged_basic_nodestone:
   display name: <&b>Basic Nodestone
   weight: '5'
   type: item
+  placable: false
   recipes:
     1:
       type: smeltery
@@ -36,6 +38,7 @@ custom_depleted_nodestone:
   display name: <&7>Depleted Nodestone
   weight: '5'
   type: item
+  placable: false
 
 custom_blank_rune:
   type: item
