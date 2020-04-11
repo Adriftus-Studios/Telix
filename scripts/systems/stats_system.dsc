@@ -62,8 +62,6 @@ calculate_base_stats:
   type: task
   debug: false
   script:
-    - if <yaml[player.<player.uuid>].list_keys[]||null> == null:
-      - inject player_setup
     - foreach <script[default_stats].list_keys[stats.default]> as:stat:
       - if <script[default_stats].yaml_key[stats.default.<[stat]>]||null> != null:
         - define value:<script[default_stats].yaml_key[stats.default.<[stat]>].add[<script[default_stats].yaml_key[stats.increments.<[stat]>].mul[<yaml[player.<player.uuid>].read[stats.stat_points_spent.<[stat]>]||0>]||0>]>
@@ -123,8 +121,6 @@ calculate_encumberance_speed:
   type: task
   debug: false
   script:
-    - if <yaml[player.<player.uuid>].list_keys[]||null> == null:
-      - inject player_setup
     - foreach <player.inventory.list_contents.filter[material.name.is[!=].to[writable_book]]> as:item:
       - define this_item_weight:<[item].script.yaml_key[weight]||1>
       - define weight:|:<[this_item_weight].*[<[item].quantity>]||1>
