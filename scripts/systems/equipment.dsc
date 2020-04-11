@@ -150,6 +150,9 @@ equipment_inventory_handler:
         - if <context.cursor_item.script.name||null> == null:
           - determine passively cancelled
           - stop
+      - if <context.item.script.yaml_key[category]||null> == null:
+        - determine passively cancelled
+        - stop
       - if !<context.is_shift_click>:
         - if <context.raw_slot> < 55:
           - if !<[slotmap].parse[split[/].get[1]].contains[<context.raw_slot>]>:
