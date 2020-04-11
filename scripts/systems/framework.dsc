@@ -243,6 +243,7 @@ reload_scripts:
       - foreach <yaml[server.recipe_book].list_keys[used_for]> as:item:
         - yaml id:server.recipe_book set used_for.<[item]>:<yaml[server.recipe_book].read[used_for.<[item]>].as_list.deduplicate.exclude[air].exclude[<[item]>]>
       - yaml id:server.recipe_fixer savefile:recipe_fixer.yml
+      - yaml id:server.recipe_fixer set recipes:<yaml[server.recipe_fixer].read[recipes].as_list.deduplicate>
       - stop
       - foreach <server.list_recipe_ids[FURNACE]> as:recipe:
         - define output:<[recipe].replace[minecraft:].with[].replace[furnace_recipe_].with[].replace[_1].with[]>
