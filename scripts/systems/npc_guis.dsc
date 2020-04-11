@@ -34,6 +34,7 @@ cannoneer_assignment:
     - trigger name:click state:true
     on click:
     - define "lines:|:<&a><&lb><&6>Cannoneer<&a><&rb><&6> Ever wondered what it's like beyond this tiny spec of sand?"
+    - define "lines:|:<&a><&lb><&6>Cannoneer<&a><&rb><&6> I 'ear that Captain Barbossa's got 14 pound cannon balls... 14 POUND BALLS..."
     - narrate <[lines].random>
 
 cannoneer_command:
