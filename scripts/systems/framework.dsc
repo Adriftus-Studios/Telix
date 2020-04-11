@@ -414,7 +414,7 @@ custom_item_override:
       - define item:<context.result_item>
       - if <yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>]||null> != null:
         - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[2]>]>
-      - if <context.result_item.script.name||null1> != <context.location.inventory.result.script.name||null2>:
+      - if <context.result_item.script.name||null1> != <context.location.inventory.result.script.name||null2> && <context.result_item.material.name> != air:
         - determine passively cancelled
       - inject build_item
       - determine <[item]>
