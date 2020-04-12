@@ -46,6 +46,8 @@ smeltery_events:
           - define slotmap:<list[11/in1|12/in2|14/fuel1|16/out1|17/out2|20/in3|21/in4|23/fuel2|25/out3|26/out4|29/in5|30/in6|32/fuel3|34/out5|35/out6]>
           - if <[inventory].slot[50].script.name> == SMELTERY_TIMER:
             - define clock:<[inventory].slot[50]>
+          - if <[inventory].slot[11|12|14|16|17|20|21|23|25|26|29|30|32|34|35].deduplicate.exclude[<item[air]>].size> == 0:
+            - note remove as:<[inventory].notable_name>
             # get the contents of all input slots
           - foreach <[slotmap]> as:slot:
             - if <[slot].split[/].get[2].starts_with[in]>:
