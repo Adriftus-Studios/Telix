@@ -9,7 +9,7 @@ ability_fire_blast:
   description: Launch a powerful fire blast to burn your opponents
   icon:
     material: iron_nugget
-    custom_model_data: 5
+    custom_model_data: 105
   apply_damage:
     - hurt <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> 5
     - burn <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]> <script.yaml_key[duration]>
