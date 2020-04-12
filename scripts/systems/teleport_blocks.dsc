@@ -1,7 +1,7 @@
 gold_block_teleport_events:
   type: world
   events:
-    on player right clicks gold_block:
+    on player jumps:
     # teleport players to first gold block within 25 blocks. If they are not standing on the block,
     - if <player.location.below.material.name> == gold_block:
       - determine passively cancelled
