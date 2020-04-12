@@ -68,10 +68,10 @@ cosmetics_command:
         - spawn entity_lucid_soul <player.location.below[0.5]> save:soul
         - define soul:<entry[soul].spawned_entity>
         - adjust <[soul]> armor_pose:head|0,0,0
-        - adjust <player> passengers:<list[<[soul]>]>
+        - adjust <player> passengers:<list[<[soul]>].include[<player.passengers>]>
       - while <player.has_flag[soul]>:
-        - teleport <[soul]> <player.location.below[0.5].with_yaw[<[loop_index].mul[3]>]>
-        - adjust <player> passengers:<list[<[soul]>]>
+        - teleport <[soul]> <player.location.below[0.5]>
+        - adjust <player> passengers:<list[<[soul]>].include[<player.passengers>]>
         - wait 1t
         - if !<player.is_online>:
           - while stop
@@ -96,10 +96,10 @@ cosmetics_command:
         - spawn entity_tail1 <player.location.below[0.5]> save:tail
         - define tail:<entry[tail].spawned_entity>
         - adjust <[tail]> armor_pose:head|0,0,0
-        - adjust <player> passengers:<list[<[tail]>]>
+        - adjust <player> passengers:<list[<[tail]>].include[<player.passengers>]>
       - while <player.has_flag[tail]>:
         - teleport <[tail]> <player.location.below[0.5]>
-        - adjust <player> passengers:<list[<[tail]>]>
+        - adjust <player> passengers:<list[<[tail]>].include[<player.passengers>]>
         - wait 1t
         - if !<player.is_online>:
           - while stop
@@ -118,11 +118,11 @@ cosmetics_command:
         - define right_wing:<entry[wing2].spawned_entity>
         - adjust <[left_wing]> armor_pose:head|0,<element[50].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<element[-50].to_radians>,0
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
       - while <player.has_flag[cosmetic_shirt]>:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
         - wait 1t
         - if !<player.is_online>:
           - while stop
@@ -143,11 +143,11 @@ cosmetics_command:
         - define right_wing:<entry[wing2].spawned_entity>
         - adjust <[left_wing]> armor_pose:head|0,<element[30].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<element[-30].to_radians>,0
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
       - while <player.has_flag[cosmetic_shirt]>:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
         - wait 1t
         - if !<player.is_online>:
           - while stop
@@ -170,11 +170,11 @@ cosmetics_command:
         - define center:<player.location>
         - adjust <[left_wing]> armor_pose:head|0,<element[30].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<element[-30].to_radians>,0
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
       - while <player.has_flag[cosmetic_shirt]>:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
         - define offset:<player.location.sub[<[center]>]>
         - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
