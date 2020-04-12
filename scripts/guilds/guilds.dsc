@@ -1319,7 +1319,6 @@ guild_gui_events:
     - define guild:<player.flag[guild]>
     - if <context.inventory.slot[1].nbt[guild]||null> != null:
       - define guild:<context.inventory.slot[1].nbt[guild].replace[guild.].with[]>
-    - narrate <[guild]>
     - define desc:<yaml[guild.<[guild]>].read[description].as_list.get[1]>
     - define lore:|:<&a>Leader:<&sp><yaml[guild.<[guild]>].read[leader].as_player.name>
     - define lore:|:<&b>Members:<&sp><yaml[guild.<[guild]>].read[members].size>
