@@ -46,7 +46,7 @@ alchemy_station_events:
             - define clock:<[inventory].slot[41]>
             # get the contents of all input slots
           - if <[inventory].slot[12|16|23|30|34].deduplicate.exclude[<item[air]>].size> == 0:
-            - note remove as:<[inventory].notable_name>
+            #- note remove as:<[inventory].notable_name>
           - foreach <[slotmap]> as:slot:
             - if <[slot].split[/].get[2].starts_with[in]>:
               - define item:<[inventory].slot[<[slot].split[/].get[1]>].script.name||<item[air]>>
