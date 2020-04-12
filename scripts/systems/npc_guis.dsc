@@ -56,6 +56,7 @@ mysterious_person_assignment:
     - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> GET OUT OF MY HEAD!"
     - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> Leave now!"
     - narrate <[lines].random>
+    #- narrate "   <&7>Tell me where Orchid is. <&4>( Level 120 Required )"
 
 mysterious_person_command:
   type: command
