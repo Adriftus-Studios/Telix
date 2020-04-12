@@ -1327,9 +1327,9 @@ guild_gui_events:
       - foreach <[p].split[<&sp>]> as:s:
         - define line:|:<[s]>
         - if <[line].separated_by[<&sp>].length> > 50:
-          - define lore:|:<[line].separated_by[<&sp>]>
+          - define lore:|:<&f><[line].separated_by[<&sp>]>
           - define line:!
-      - define lore:|:<[line].separated_by[<&sp>]>
+      - define lore:|:<&f><[line].separated_by[<&sp>]>
     - inventory set d:<context.inventory> slot:11 o:<item[writable_book].with[display_name=<&6><yaml[guild.<[guild]>].read[name]>;lore=<[lore]>]>
     - inventory set d:<context.inventory> slot:12 o:<item[<yaml[guild.<[guild]>].read[flag].as_item.material>].with[display_name=<&b>Total<&sp>Flags:<&sp><yaml[guild.<[guild]>].read[flags].size||0>;patterns=<yaml[guild.<[guild]>].read[flag].as_item.patterns>]>
     - if <player.flag[guild]> != <[guild]>:
