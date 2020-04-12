@@ -9,6 +9,7 @@ fake_block_events:
         - foreach <player.location.find.blocks.within[4].include[<player.fake_block_locations>].deduplicate> as:block:
           - if <[block].notable_name.starts_with[fake_block__]||false>:
             - narrate 1
+            - narrate <[block].notable_name.split[__].get[2]>
             - if <player.has_flag[<[block].notable_name.split[__].get[2]>]>:
               - narrate 2
               - showfake <item[air]> <[block]> duration:1m
