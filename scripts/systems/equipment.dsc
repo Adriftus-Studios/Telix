@@ -181,9 +181,6 @@ equipment_inventory_handler:
             - determine passively cancelled
             - stop
           - if <context.cursor_item.material.name||air> != air:
-            - if <context.cursor_item.nbt[built]||null> == null:
-              - determine passively cancelled
-              - stop
             - if <context.cursor_item.script.yaml_key[category]||null> == null:
               - determine passively cancelled
               - stop
@@ -206,8 +203,6 @@ equipment_inventory_handler:
                     - stop
                   - wait 1t
                   - define item:<player.item_on_cursor>
-                  - if !<[item].has_nbt[built]>:
-                    - inject built_item
                   - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=1]>
                   - adjust <player> item_on_cursor:<item[air]>
                 - else:
@@ -231,9 +226,6 @@ equipment_inventory_handler:
               - stop
       - else:
         - if <context.raw_slot> > 54:
-          - if <context.item.nbt[built]||null> == null:
-            - determine passively cancelled
-            - stop
           - if <context.item.script.yaml_key[category]||null> == null:
             - determine passively cancelled
             - stop
@@ -248,7 +240,7 @@ equipment_inventory_handler:
                   - wait 1t
                   - inventory adjust slot:<context.slot> quantity:<player.inventory.slot[<context.slot>].quantity.-[1]>
                   - define item:<context.item>
-                  - inject build_item
+                  - inject build_item_stats
                   - inventory set d:<player.open_inventory> o:<[item].with[quantity=1]> slot:<[slot].split[/].get[1]>
                   - define found:true
         - else:
@@ -259,6 +251,10 @@ equipment_inventory_handler:
         - if <context.item.script.yaml_key[category]||null> != <[value]>:
           - if <player.open_inventory.slot[<[slotmap].map_find_key[<[value]>]>].material.name> == air:
             - inventory set d:<player.open_inventory> slot:<[slotmap].map_find_key[<[value]>]> o:<item[<[value]>_shadow]>
+      - foreach <list[11|12|16|20|21|24|25|26|29|30|34|43]> as:slot:
+        - define item:<player.open_inventory.slot[<[slot]>]>
+        - inject build_item_stats
+        - inventory set d:<player.open_inventory> slot:<[slot]> o:<[item]>
       - run update_stats def:<player[<player.open_inventory.notable_name.split[_].get[2]>]||<player>>
 
 invisible_placeholder:
