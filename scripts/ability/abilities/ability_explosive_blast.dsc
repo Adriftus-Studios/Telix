@@ -34,7 +34,7 @@ ability_explosive_blast:
       - playeffect lava at:<[points].get[<[number]>]> quantity:5 visibility:50
       - wait 1t
     #Damage
-    - foreach <[target].find.entities.within[<[power]>]>:
+    - foreach <[target].find.entities.within[<[power]>]||<list[]>>:
       #Replace burn with calculate_burn proc
       - burn <[value]> duration:<[power].*[1.5]>
       #Replace hurt with calculate_damage proc
