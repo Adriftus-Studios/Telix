@@ -50,7 +50,7 @@ fake_block_command:
         - flag <player> placing_fake_block:!
       - else:
         - narrate "Fake Block placing mode activated for flag <context.args.get[2]>"
-        - flag <player> placing_fake_block:<context.args.get[1]>
+        - flag <player> placing_fake_block:<context.args.get[2]>
     - else:
       - narrate "invalid args"
   - if <context.args.get[1]> == break:
