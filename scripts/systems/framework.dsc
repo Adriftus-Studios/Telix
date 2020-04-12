@@ -642,11 +642,11 @@ build_item:
   script:
   - if <[item].material.name||air> != air:
     - define old_item:<[item]>
-    - narrate <[item]>
     - if <[item].script.name||null> == null:
       - define item:<item[custom_<[item].material.name>]>
     - else:
       - define item:<item[<[old_item].script.name>]>
+      - narrate <item[<[old_item].script.name>]>
     - adjust def:item quantity:<[old_item].quantity>
     - if <[old_item].potion_base||null> != null:
       - define upgraded:true
