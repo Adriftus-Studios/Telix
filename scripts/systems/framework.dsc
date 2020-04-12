@@ -596,7 +596,6 @@ system_override:
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
         - determine passively cancelled
 
-
 kill_queue_command:
   type: command
   name: kill_queue
