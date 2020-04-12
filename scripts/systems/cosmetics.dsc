@@ -79,7 +79,6 @@ cosmetics_command:
         - define nametag:<entry[nametag].spawned_entity>
         - adjust <[nametag]> custom_name:<player.name>
         - adjust <[nametag]> armor_pose:head|0,0,0
-        - adjust <[nametag]> hide_from_players
         - adjust <player> passengers:<list[<[nametag]>].include[<player.passengers>]>
       - while <player.has_flag[nametag]>:
         - teleport <[nametag]> <player.location.below[0.5]>

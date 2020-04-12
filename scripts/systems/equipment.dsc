@@ -111,6 +111,30 @@ gloves_shadow:
     flags: HIDE_ATTRIBUTES|HIDE_ENCHANTS|HIDE_UNBREAKABLE
   display name: "No Gloves Equipped"
 
+equipment_character:
+  type: inventory
+  title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
+  size: 54
+  procedural items:
+  - foreach <list[necklace|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
+    - if <yaml[player.<player.uuid>].read[equipment.<[value]>].material.name||<item[air].material.name>> != air:
+      - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[<[value]>_shadow]||<item[air]>>>
+    - else:
+      - define items:|:<item[<[value]>_shadow]||<item[air]>>
+  - determine <[items]>
+  definitions:
+    w_filler: <item[gui_invisible_item]>
+    gui_top: <item[gui_equipment_top]>
+    gui_bottom: <item[gui_equipment_bottom]>
+    closeitem: <item[gui_close_btn]>
+  slots:
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
+  - "[w_filler] [] [] [w_filler] [w_filler] [] [] [] [w_filler]"
+  - "[gui_top] [] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
+  - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+
 equipment_inventory_handler:
   type: world
   debug: false
@@ -144,6 +168,7 @@ equipment_inventory_handler:
               - inventory set slot:<[slot]> d:<inventory[equipment_<player.uuid>]> o:<[new_item]>
         - run update_stats def:<player>
     on player clicks item in equipment_character with item:
+      - narrate <player.open_inventory.notable_name>
       - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
       - if <player.open_inventory.notable_name||null> == null:
         - inventory close
@@ -253,30 +278,6 @@ get_hazard_protection_level:
       - define list:|:<[item].script.yaml_key[hazard_protection]||0>
     - define list:<[list].deduplicate>
     - determine <[list].lowest>
-
-equipment_character:
-  type: inventory
-  title: <green><&6>◆ <&a><&n><&l>Equipment Menu<&r> <&6>◆
-  size: 54
-  procedural items:
-  - foreach <list[necklace|earrings|hat|ring1|ring2|gloves|shirt|cape|trinket1|trinket2|pants|shoes]>:
-    - if <yaml[player.<player.uuid>].read[equipment.<[value]>].material.name||<item[air].material.name>> != air:
-      - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[<[value]>_shadow]||<item[air]>>>
-    - else:
-      - define items:|:<item[<[value]>_shadow]||<item[air]>>
-  - determine <[items]>
-  definitions:
-    w_filler: <item[gui_invisible_item]>
-    gui_top: <item[gui_equipment_top]>
-    gui_bottom: <item[gui_equipment_bottom]>
-    closeitem: <item[gui_close_btn]>
-  slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [w_filler] [w_filler] [] [] [] [w_filler]"
-  - "[gui_top] [] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
-  - "[gui_bottom] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
 
 test_hat:
   type: item
