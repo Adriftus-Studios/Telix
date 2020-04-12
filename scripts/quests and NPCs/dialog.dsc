@@ -57,10 +57,9 @@ guide_command:
   type: command
   name: guide
   script:
-  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[guide_assignment]].size> != 0:
-    - choose <context.args.get[1]||null>:
-      - case basics:
-        - narrate TODO
+  - choose <context.args.get[1]||null>:
+    - case basics:
+      - narrate TODO
   
 mysterious_person_assignment:
   type: assignment
@@ -73,7 +72,6 @@ mysterious_person_assignment:
     - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> GET OUT OF MY HEAD!"
     - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> Leave now!"
     - narrate <[lines].random>
-    #- narrate "   <&7>Tell me where Orchid is. <&4>( Level 120 Required )"
 
 mysterious_person_command:
   type: command
