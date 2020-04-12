@@ -417,6 +417,7 @@ custom_item_override:
     on item recipe formed:
       - if !<context.inventory.script_name.starts_with[recipe_book_]||false>:
         - if <yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
+          - narrate 1
           - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
           - inject build_item
           - determine <[item]>
@@ -425,6 +426,7 @@ custom_item_override:
           - inject build_item
           - determine <[item]>
         - if <context.inventory.result.script.name||null> == null && <context.inventory.result||null> != null:
+          - narrate 2
           - foreach <context.inventory.matrix> as:input_item:
             - if !<server.list_material_types.parse[name].contains[<[input_item].script.name.replace[custom_].with[]||null>]> && <[input_item].material.name> != air:
               - determine passively cancelled
@@ -457,7 +459,6 @@ custom_item_override:
             - else if <player.open_inventory.matrix.size> == 4:
               - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
             - else if <player.open_inventory.matrix.size> == 9:
-              - narrate <context.raw_slot>
               - if <context.raw_slot> > 10:
                 - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
               - else:
