@@ -70,7 +70,7 @@ cosmetics_command:
         - adjust <[soul]> armor_pose:head|0,0,0
         - adjust <player> passengers:<list[<[soul]>]>
       - while <player.has_flag[soul]>:
-        - teleport <[soul]> <player.location.below[0.5]>
+        - teleport <[soul]> <player.location.below[0.5].with_yaw[90]>
         - adjust <player> passengers:<list[<[soul]>]>
         - wait 1t
         - if !<player.is_online>:
