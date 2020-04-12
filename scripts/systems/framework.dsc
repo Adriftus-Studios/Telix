@@ -92,8 +92,21 @@ spawn_command:
   tab complete:
     - determine <server.list_online_players.parse[name].filter[starts_with[<context.args.get[1]||>]]>
   script:
-    - if <location[spawn]||null> != null:
-      - teleport <server.match_player[<context.args.get[1]||null>]||<player>> <location[spawn]>
+    - define location:<player.location.with_pitch[90]>
+    - define destination:<location[spawn]>
+    - if !<player.has_permission[spawn.bypass_warmup]>:
+      - repeat 20:
+        - define layers:|:<proc[define_circle].context[<[location].above[<[value].mul[0.1]>]>|0.7].escaped>
+        - define cyl:|:<proc[define_circle].context[<[location].above[<[value].mul[0.1]>]>|0.7]>
+      - repeat 5:
+        - repeat <[layers].size>:
+          - define points:<[layers].get[<[value]>].unescaped>
+          - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
+          - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+          - wait 1t
+    - playeffect spell_witch at:<[cyl]> quantity:2 offset:0.1 visibility:100
+    - if <[location].find.players.within[1].contains[<player>]>:
+      - teleport <player> <[destination]>
 
 setspawn_command:
   type: command
