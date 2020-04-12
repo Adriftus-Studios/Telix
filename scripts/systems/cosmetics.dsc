@@ -69,7 +69,7 @@ cosmetics_command:
   script:
   - if <player.has_flag[cosmetic]>:
     - if <context.args.get[1]> == nametag:
-      - if <player.has_flag[soul]>:
+      - if <player.has_flag[nametag]>:
         - narrate "<&b>Deactivated cosmetic effect nametag"
         - flag <player> nametag:!
       - else:
