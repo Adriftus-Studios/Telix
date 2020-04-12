@@ -10,7 +10,7 @@ gold_block_teleport_events:
         - playeffect effect:dragon_breath at:<player.location> quantity:30
         - playsound <player.location> sound:entity_ender_eye_launch volume:2
       - else:
-        - narrate "<&c>There is no destination block above you!"
+        - narrate "<&c>There is no destination block within range above you!"
         - playeffect effect:smoke at:<player.location> quantity:30
         - playsound <player.location> sound:entity_villager_no volume:2
         - wait 2s
@@ -23,7 +23,7 @@ gold_block_teleport_events:
         - playeffect effect:dragon_breath at:<player.location> quantity:30
         - playsound <player.location> sound:entity_ender_eye_launch volume:2
       - else:
-        - narrate "<&c>There is no destination block below you!"
+        - narrate "<&c>There is no destination block within range below you!"
         - playeffect effect:smoke at:<player.location> quantity:30
         - playsound <player.location> sound:entity_villager_no volume:2
         - wait 2s
