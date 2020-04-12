@@ -65,7 +65,7 @@ cosmetics_command:
       - else:
         - narrate "<&b>Activated cosmetic effect lucid_soul"
         - flag <player> soul
-        - spawn entity_tail1 <player.location.below[0.5]> save:soul
+        - spawn entity_lucid_soul <player.location.below[0.5]> save:soul
         - define soul:<entry[soul].spawned_entity>
         - adjust <[soul]> armor_pose:head|0,0,0
         - adjust <player> passengers:<list[<[soul]>]>
