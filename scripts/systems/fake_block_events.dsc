@@ -41,12 +41,13 @@ fake_block_command:
     - determine <list[place|break]>
   script:
   - if <context.args.get[1]> == place:
-    - if <player.has_flag[placing_fake_block]>:
-      - narrate "Fake Block placing mode deactivated for flag <context.args.get[2]>"
-      - flag <player> placing_fake_block:!
-    - else:
-      - narrate "Fake Block placing mode activated for flag <context.args.get[2]>"
-      - flag <player> placing_fake_block:<context.args.get[1]>
+    - if <context.args.get[2]||null> != null:
+      - if <player.has_flag[placing_fake_block]>:
+        - narrate "Fake Block placing mode deactivated for flag <context.args.get[2]>"
+        - flag <player> placing_fake_block:!
+      - else:
+        - narrate "Fake Block placing mode activated for flag <context.args.get[2]>"
+        - flag <player> placing_fake_block:<context.args.get[1]>
   - if <context.args.get[1]> == break:
     - if <player.has_flag[breaking_fake_blocks]>:
       - narrate "Fake Block breaking mode deactivated"
