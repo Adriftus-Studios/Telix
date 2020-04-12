@@ -508,7 +508,7 @@ system_override:
     on player right clicks entity BUKKIT_PRIORITY:LOWEST:
       - if <context.entity.script.yaml_key[custom.interactable]||false>:
         - determine cancelled
-    on tick:
+    on delta time secondly:
       - if !<server.list_online_players.filter[food_level.is[==].to[20]].is_empty>:
         - foreach <server.list_online_players.filter[food_level.is[==].to[20]]>:
           - adjust <[value]> food_level:19
