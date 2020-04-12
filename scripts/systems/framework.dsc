@@ -642,8 +642,10 @@ build_item:
   script:
   - if <[item].material.name||air> != air:
     - define old_item:<[item]>
-    - if <[item].script||null> == null:
-      - define item:<item[custom_<[item].material.name>]>
+      - if <server.list_material_types.parse[name].contains[<[old_item].script.name.replace[custom_].with[]>]>:
+        - define item:<item[custom_<[item].material.name>]>
+      - else:
+        - define item:<item[<[old_item].script.name>]>
       - adjust def:item quantity:<[old_item].quantity>
       - if <[old_item].potion_base||null> != null:
         - define upgraded:true
