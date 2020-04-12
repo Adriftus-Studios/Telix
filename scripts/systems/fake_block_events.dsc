@@ -6,12 +6,11 @@ fake_block_events:
     on delta time secondly:
       - foreach <server.list_online_players>:
         - adjust <queue> linked_player:<[value]>
+        - foreach <player.fake_block_locations.exclude[<player.location.find.blocks.within[4]>]>:
+          - showfake <[value]> cancel
         - foreach <player.location.find.blocks.within[4].include[<player.fake_block_locations>].deduplicate> as:block:
           - if <[block].notable_name.starts_with[fake_block__]||false>:
-            - narrate 1
-            - narrate <[block].notable_name.split[__].get[2]>
             - if <player.has_flag[<[block].notable_name.split[__].get[2]>]>:
-              - narrate 2
               - showfake air <[block]> duration:1m players:<player>
     on player places block:
       - if <player.has_flag[placing_fake_block]>:
