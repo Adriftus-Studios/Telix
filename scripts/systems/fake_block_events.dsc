@@ -40,7 +40,7 @@ fake_block_command:
   - if <context.args.size> == 1:
     - determine <list[place|break]>
   script:
-  - if <context.args.get[1]> == place
+  - if <context.args.get[1]> == place:
     - if <player.has_flag[placing_fake_block]>:
       - narrate "Fake Block placing mode deactivated for flag <context.args.get[2]>"
       - flag <player> placing_fake_block:!
