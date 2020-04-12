@@ -47,6 +47,8 @@ mob_spawning_events:
       - if !<server.has_flag[no_mob_spawning]>:
         - foreach <server.list_online_players> as:player:
           - adjust <queue> linked_player:<[player]>
+          - if <player.has_flag[mob_spawning_delay]>:
+            - foreach next
           - define list:|:<yaml[server.mob_spawns].list_keys[all.all]||<list[]>>
           - define list:|:<yaml[server.mob_spawns].list_keys[<player.location.world.name>.all]||<list[]>>
           - define list:|:<yaml[server.mob_spawns].list_keys[all.<player.location.biome.name>]||<list[]>>
@@ -96,6 +98,7 @@ mob_spawning_events:
                     - repeat <util.random.int[<yaml[server.mobs].read[<[mob]>.min_quantity]>].to[<yaml[server.mobs].read[<[mob]>.max_quantity]>]>:
                       - run spawn_custom_mob def:<[mob]>|<[spawning_point].with_y[<[spawning_point].y.add[2]>]>
                     - flag <player> <[mob]>:true duration:<yaml[server.mobs].read[<[mob]>.every]>
+                    - flag <player> mob_spawning_delay:true duration:4m
 
 boss_bossbar_handler:
   type: task
