@@ -309,7 +309,8 @@ player_setup:
   type: task
   script:
     - yaml create id:player.<player.uuid>
-    - note <inventory[equipment_character]> as:equipment_<player.uuid>
+    - if <inventory[equipment_<player.uuid>]||null> == null:
+      - note <inventory[equipment_character]> as:equipment_<player.uuid>
     - yaml id:player.<player.uuid> set teleports_used.ott:0
     - yaml id:player.<player.uuid> set values.kills:0
     - yaml id:player.<player.uuid> set values.deaths:0
