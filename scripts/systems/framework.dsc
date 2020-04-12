@@ -642,38 +642,38 @@ build_item:
   script:
   - if <[item].material.name||air> != air:
     - define old_item:<[item]>
-      - if <server.list_material_types.parse[name].contains[<[old_item].script.name.replace[custom_].with[]>]>:
-        - define item:<item[custom_<[item].material.name>]>
-      - else:
-        - define item:<item[<[old_item].script.name>]>
-      - adjust def:item quantity:<[old_item].quantity>
-      - if <[old_item].potion_base||null> != null:
-        - define upgraded:true
-        - if <[old_item].potion_base.split[,].get[2]> == 1:
-          - define upgraded:false
-        - adjust def:item potion_effects:<[old_item].potion_base.split[,].get[1]>,<[upgraded]>,<[old_item].potion_base.split[,].get[3]>
-      - if <[old_item].custom_model_data||null> != null:
-        - adjust def:item custom_model_data:<[old_item].custom_model_data>
-      - if <[old_item].nbt||null> != null:
-        - adjust def:item nbt:<[old_item].nbt>
-      - if <[old_item].enchantments||null> != null:
-        - adjust def:item enchantments:<[old_item].enchantments.with_levels>
-      - if <[old_item].nbt_attributes||null> != null:
-        - adjust def:item nbt_attributes:<[old_item].nbt_attributes>
-      - if <[old_item].patterns||null> != null:
-        - adjust def:item patterns:<[old_item].patterns>
-      - if <[old_item].base_color||null> != null:
-        - adjust def:item base_color:<[old_item].base_color>
-      - if <[old_item].book||null> != null:
-        - adjust def:item book:<[old_item].book>
-      - if <[old_item].has_inventory>:
-        - adjust def:item inventory:<[old_item].inventory>
-      - if <[old_item].skin||null> != null:
-        - adjust def:item skull_skin:<[old_item].skin.full>
-        - if <[item].script.name> == custom_player_head:
-          - adjust def:item display_name:<&r><&e><[old_item].skin.as_player.name>'s<&sp>Head
-      - if <[old_item].display||null> != null:
-        - adjust def:item display_name:<[old_item].display>
+    - if <server.list_material_types.parse[name].contains[<[old_item].script.name.replace[custom_].with[]>]>:
+      - define item:<item[custom_<[item].material.name>]>
+    - else:
+      - define item:<item[<[old_item].script.name>]>
+    - adjust def:item quantity:<[old_item].quantity>
+    - if <[old_item].potion_base||null> != null:
+      - define upgraded:true
+      - if <[old_item].potion_base.split[,].get[2]> == 1:
+        - define upgraded:false
+      - adjust def:item potion_effects:<[old_item].potion_base.split[,].get[1]>,<[upgraded]>,<[old_item].potion_base.split[,].get[3]>
+    - if <[old_item].custom_model_data||null> != null:
+      - adjust def:item custom_model_data:<[old_item].custom_model_data>
+    - if <[old_item].nbt||null> != null:
+      - adjust def:item nbt:<[old_item].nbt>
+    - if <[old_item].enchantments||null> != null:
+      - adjust def:item enchantments:<[old_item].enchantments.with_levels>
+    - if <[old_item].nbt_attributes||null> != null:
+      - adjust def:item nbt_attributes:<[old_item].nbt_attributes>
+    - if <[old_item].patterns||null> != null:
+      - adjust def:item patterns:<[old_item].patterns>
+    - if <[old_item].base_color||null> != null:
+      - adjust def:item base_color:<[old_item].base_color>
+    - if <[old_item].book||null> != null:
+      - adjust def:item book:<[old_item].book>
+    - if <[old_item].has_inventory>:
+      - adjust def:item inventory:<[old_item].inventory>
+    - if <[old_item].skin||null> != null:
+      - adjust def:item skull_skin:<[old_item].skin.full>
+      - if <[item].script.name> == custom_player_head:
+        - adjust def:item display_name:<&r><&e><[old_item].skin.as_player.name>'s<&sp>Head
+    - if <[old_item].display||null> != null:
+      - adjust def:item display_name:<[old_item].display>
 
 build_item_stats:
   type: task
