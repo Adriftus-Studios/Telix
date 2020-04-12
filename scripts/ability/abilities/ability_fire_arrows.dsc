@@ -8,7 +8,7 @@ ability_fire_arrows:
   description: Your arrows light themselves for the next 15 seconds.
   icon:
     material: iron_nugget
-    custom_model_data: 10
+    custom_model_data: 110
   script:
     - flag player fire_arrows:true duration:15s
     - run bb_status def:fire_arrows|15s

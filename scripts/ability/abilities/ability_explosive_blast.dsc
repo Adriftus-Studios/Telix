@@ -9,8 +9,8 @@ ability_explosive_blast:
   description: Cast an explosion at your targeted location.
   usage: Power increases as the target distance increases.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 120
   script:
     #Definitions
     - define min:1

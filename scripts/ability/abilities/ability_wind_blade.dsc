@@ -7,8 +7,8 @@ ability_wind_blade:
   power_cost: 10
   description: Launch a blade of wind to cut through opponents.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 118
   damage:
     - foreach <[points].get[<[number]>].find.living_entities.within[2].exclude[<player>]>:
       #Replace hurt with calculate_damage proc

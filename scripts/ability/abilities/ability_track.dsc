@@ -9,7 +9,7 @@ ability_find:
   description: Will face you in the direction of a specified player.
   icon:
     material: iron_nugget
-    custom_model_data: 12
+    custom_model_data: 112
   script:
     - inject abilties_check
     - inject abilities_cost

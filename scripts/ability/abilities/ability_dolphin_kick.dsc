@@ -9,7 +9,7 @@ ability_dolphin_kick:
   usage: Underwater > Swimming + Sneak
   icon:
     material: iron_nugget
-    custom_model_data: 8
+    custom_model_data: 108
   events:
     on player starts sneaking:
       - if <player.swimming>:
