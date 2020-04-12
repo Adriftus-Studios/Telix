@@ -121,7 +121,7 @@ equipment_character:
       - define items:|:<yaml[player.<player.uuid>].read[equipment.<[value]>]||<item[<[value]>_shadow]||<item[air]>>>
     - else:
       - define items:|:<item[<[value]>_shadow]||<item[air]>>
-  - determine <[items]>
+  #- determine <[items]>
   definitions:
     w_filler: <item[gui_invisible_item]>
     gui_top: <item[gui_equipment_top]>
