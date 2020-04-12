@@ -45,7 +45,7 @@ cannoneer_command:
     - stop
     # TODO
   
-mysterious_person_assignment:
+guide_assignment:
   type: assignment
   actions:
     on assignment:
@@ -60,11 +60,11 @@ mysterious_person_assignment:
     - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> I know it all! Just ask."
     - narrate <[lines].random>
 
-mysterious_person_command:
+guide_command:
   type: command
   name: mysterious_person
   script:
-  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[mysterious_person_assignment]].size> != 0:
+  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[guide_assignment]].size> != 0:
     - stop
     # TODO
   
