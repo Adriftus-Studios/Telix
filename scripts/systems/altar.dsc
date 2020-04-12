@@ -188,6 +188,10 @@ altar_events:
           - drop <item[altar_<[tier]>]> <context.location>
     on player right clicks barrier:
       - if <context.location.notable_name.starts_with[altar_]||false>:
+        - if <player.has_permission[rotate_altars]> && <player.is_sneaking>:
+          - define entity:<context.location.notable_name.split[_e@].get[2].as_entity>
+          - rotate <[entity]> yaw:90 duration:1t frequency:1t
+          - stop
         - define tier:<context.location.notable_name.split[_e@].get[1].split[_].get[<context.location.notable_name.split[_e@].get[1].split[_].size>]>
         - if <inventory[altar_<player.uuid>_<[tier]>]||null> == null:
           - note <inventory[altar_inventory]> as:altar_<player.uuid>_<[tier]>

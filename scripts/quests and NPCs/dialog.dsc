@@ -59,7 +59,7 @@ guide_command:
   script:
   - choose <context.args.get[1]||null>:
     - case basics:
-      - narrate TODO
+      - narrate ""
   
 mysterious_person_assignment:
   type: assignment
