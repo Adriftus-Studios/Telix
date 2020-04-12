@@ -15,7 +15,6 @@ guild_master_assignment:
   interact scripts:
   - 1 guild_master_interact_handler
 
-
 guild_master_interact_handler:
   type: interact
   steps:
