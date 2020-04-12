@@ -496,6 +496,8 @@ system_override:
       - stop
       - adjust <player> quietly_discover_recipe:<server.list_recipe_ids>
       - adjust <player> resend_discovered_recipes
+      - wait 5t
+      - title "title:<&4>Alpha Session!" "subtitle:<&c>Run /build_items to rebuild any broken items."
     on resource pack status:
       - if <context.status> == FAILED_DOWNLOAD:
         - narrate "<&6>Please accept the resource pack."
