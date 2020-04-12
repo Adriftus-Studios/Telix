@@ -476,12 +476,12 @@ custom_item_override:
           - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
           - inject build_item
           - adjust <player.open_inventory> result:<[item]>
-    on player places block:
+    on player places block bukkit_priority:lowest:
       - if !<context.item_in_hand.script.yaml_key[placable]||true>:
         - determine cancelled
       - if <context.location.world.name> != tor_mainland && !<player.has_permission[place]>:
         - determine cancelled
-    on player breaks block:
+    on player breaks block bukkit_priority:lowest:
       - if <context.location.world.name> != tor_mainland && !<player.has_permission[break]>:
         - determine cancelled
     on entity damages entity:
