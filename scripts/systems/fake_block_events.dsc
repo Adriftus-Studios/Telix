@@ -12,7 +12,7 @@ fake_block_events:
             - narrate <[block].notable_name.split[__].get[2]>
             - if <player.has_flag[<[block].notable_name.split[__].get[2]>]>:
               - narrate 2
-              - showfake <item[air]> <[block]> duration:1m players:<player>
+              - showfake air <[block]> duration:1m players:<player>
     on player places block:
       - if <player.has_flag[placing_fake_block]>:
         - note <context.location> as:fake_block__<player.flag[placing_fake_block]>
