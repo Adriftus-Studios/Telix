@@ -177,15 +177,16 @@ equipment_inventory_handler:
           - stop
       - if !<context.is_shift_click>:
         - if <context.raw_slot> < 55:
-          - if <context.cursor_item.script.yaml_key[category]||null> == null:
-            - determine passively cancelled
-            - stop
           - if !<[slotmap].parse[split[/].get[1]].contains[<context.raw_slot>]>:
             - determine passively cancelled
             - stop
-          - if <context.cursor_item.nbt[built]||null> == null:
-            - determine passively cancelled
-            - stop
+          - if <context.cursor_item.material.name> != air:
+            - if <context.cursor_item.nbt[built]||null> == null:
+              - determine passively cancelled
+              - stop
+            - if <context.cursor_item.script.yaml_key[category]||null> == null:
+              - determine passively cancelled
+              - stop
           - if <context.cursor_item.material.name> == air:
             - if <context.item.script.name||null> != null:
               - if <context.item.script.name.ends_with[_shadow]>:
