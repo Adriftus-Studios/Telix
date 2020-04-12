@@ -124,6 +124,7 @@ reload_scripts:
       - yaml create id:server.recipe_fixer
       - yaml create id:server.mob_spawns
       - yaml create id:server.mobs
+      - yaml create id:server.quests
       - yaml load:data/skill_trees.yml id:server.skill_trees
       - adjust server reset_recipes
       - foreach <server.list_scripts>:
@@ -134,6 +135,9 @@ reload_scripts:
                   - announce to_ops "<[value].name> is not properly defined. (<[value].filename>)"
               - else:
                   - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
+          #- if <[value].yaml_key[type]> == task:
+          #  - if <[value].yaml_key[quest_name]||null> != null:
+          #    - yaml id:server.quests set <[value].yaml_key[quest_name]>
           - if <[value].yaml_key[type]> == item:
               - if <[value].yaml_key[recipe_book_note]||null> != null:
                 - yaml id:server.recipe_book set notes.<[value].name>:<[value].yaml_key[recipe_book_note]>
