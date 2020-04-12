@@ -23,8 +23,8 @@ fake_block_command:
   permission: fake_block
   script:
   - if <player.has_flag[placing_fake_block]>:
-    - narrate "Fake Block placing mode activated for flag <context.args.get[1]>"
-    - flag <player> placing_fake_block:<context.args.get[1]>
-  - else:
     - narrate "Fake Block placing mode deactivated for flag <context.args.get[1]>"
     - flag <player> placing_fake_block:!
+  - else:
+    - narrate "Fake Block placing mode activated for flag <context.args.get[1]>"
+    - flag <player> placing_fake_block:<context.args.get[1]>
