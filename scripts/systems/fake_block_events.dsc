@@ -4,7 +4,7 @@ fake_block_events:
   debug: false
   events:
     on delta time secondly:
-      - foreach <player.location.find.blocks.within[4].include[<player.fake_block_locations>].deduplicate> as:block:
+      - foreach <player.location.find.blocks.within[4]> as:block:
         - if <[block].notable_name.starts_with[fake_block__]||false>:
           - if <player.has_flag[<[block].notable_name.split[__].get[2]>]>
             - showfake <item[air]> <[block]> duration:1m
