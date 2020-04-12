@@ -37,14 +37,6 @@ cannoneer_assignment:
     - define "lines:|:<&a><&lb><&6>Cannoneer<&a><&rb><&6> I 'ear that Captain Barbossa's got 14 pound cannon balls... 14 POUND BALLS..."
     - narrate <[lines].random>
 
-cannoneer_command:
-  type: command
-  name: mysterious_person
-  script:
-  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[cannoneer_assignment]].size> != 0:
-    - stop
-    # TODO
-  
 guide_assignment:
   type: assignment
   actions:
@@ -52,21 +44,24 @@ guide_assignment:
     - trigger name:click state:true
     - trigger name:proximity state:true
     on click:
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Need to know something?"
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> I know it all! Just ask."
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> What would you like to know? (Click One)"
     - narrate <[lines].random>
+    - narrate "<element[<&6> - Tell me the basics.].on_click[/guide basics]>"
     on enter proximity:
     - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Need to know something?"
     - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> I know it all! Just ask."
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Knowledge is power."
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Smeltery, Guilds, Bosses; It's all here."
     - narrate <[lines].random>
 
 guide_command:
   type: command
-  name: mysterious_person
+  name: guide
   script:
   - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[guide_assignment]].size> != 0:
-    - stop
-    # TODO
+    - switch <context.args.get[1]||null>:
+      - case basics:
+        - narrate TODO
   
 mysterious_person_assignment:
   type: assignment
