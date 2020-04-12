@@ -36,6 +36,16 @@ entity_tail1:
   custom:
     interactable: false
 
+pink_lucids_wing2:
+  type: entity
+  entity_type: armor_stand
+  equipment: <item[air]>|<item[air]>|<item[air]>|<item[rabbit_hide].with[custom_model_data=6]>
+  gravity: false
+  visible: false
+  invulnerable: true
+  custom:
+    interactable: false
+
 pink_lucids_wing:
   type: entity
   entity_type: armor_stand
@@ -135,6 +145,31 @@ cosmetics_command:
           - while stop
       - if <[tail]||null> != null:
         - remove <[tail]>
+    - if <context.args.get[1]> == lucid4:
+      - if <player.has_flag[cosmetic_shirt]>:
+        - narrate "<&b>Deactivated cosmetic effect lucid"
+        - flag <player> cosmetic_shirt:!
+      - else:
+        - narrate "<&b>Activated cosmetic effect lucid"
+        - flag <player> cosmetic_shirt
+        - spawn pink_lucids_wing2 <player.location.below[0.5]> save:wing1
+        - spawn pink_lucids_wing2 <player.location.below[0.5]> save:wing2
+        - define left_wing:<entry[wing1].spawned_entity>
+        - define right_wing:<entry[wing2].spawned_entity>
+        - adjust <[left_wing]> armor_pose:head|0,<element[50].to_radians>,0
+        - adjust <[right_wing]> armor_pose:head|0,<element[-50].to_radians>,0
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
+      - while <player.has_flag[cosmetic_shirt]>:
+        - teleport <[left_wing]> <player.location.below[0.5]>
+        - teleport <[right_wing]> <player.location.below[0.5]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
+        - wait 1t
+        - if !<player.is_online>:
+          - while stop
+      - if <[left_wing]||null> != null:
+        - remove <[left_wing]>
+      - if <[right_wing]||null> != null:
+        - remove <[right_wing]>
     - if <context.args.get[1]> == lucid3:
       - if <player.has_flag[cosmetic_shirt]>:
         - narrate "<&b>Deactivated cosmetic effect lucid"
