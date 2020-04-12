@@ -4,7 +4,6 @@ fake_block_events:
   debug: false
   events:
     on delta time secondly:
-      - stop
       - foreach <server.list_online_players>:
         - adjust <queue> linked_player:<[value]>
         - foreach <player.fake_block_locations.exclude[<player.location.find.blocks.within[4]>]>:
@@ -14,6 +13,7 @@ fake_block_events:
             - if <player.has_flag[<[block].notable_name.split[__].get[2]>]>:
               - showfake air <[block]> duration:1m players:<player>
     on player walks:
+      - stop
       - foreach <player.fake_block_locations.exclude[<player.location.find.blocks.within[4]>]>:
         - showfake <[value]> cancel
       - foreach <player.location.find.blocks.within[4].include[<player.fake_block_locations>].deduplicate> as:block:
