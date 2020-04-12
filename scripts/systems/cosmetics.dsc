@@ -6,6 +6,16 @@ cosmetic_bunny_ears:
     custom_model_data: 4
   display name: <&b>Bunny Ears
 
+entity_nametag:
+  type: entity
+  entity_type: bat
+  gravity: false
+  visible: false
+  custom_name_visible: true
+  invulnerable: true
+  custom:
+    interactable: false
+
 entity_lucid_soul:
   type: entity
   entity_type: armor_stand
@@ -58,6 +68,26 @@ cosmetics_command:
     - determine <list[]>
   script:
   - if <player.has_flag[cosmetic]>:
+    - if <context.args.get[1]> == nametag:
+      - if <player.has_flag[soul]>:
+        - narrate "<&b>Deactivated cosmetic effect nametag"
+        - flag <player> nametag:!
+      - else:
+        - narrate "<&b>Activated cosmetic effect nametag"
+        - flag <player> nametag
+        - spawn entity_nametag <player.location.below[0.5]> save:nametag
+        - define nametag:<entry[nametag].spawned_entity>
+        - adjust <[nametag]> custom_name:<player.name>
+        - adjust <[nametag]> armor_pose:head|0,0,0
+        - adjust <player> passengers:<list[<[nametag]>].include[<player.passengers>]>
+      - while <player.has_flag[nametag]>:
+        - teleport <[nametag]> <player.location.below[0.5]>
+        - adjust <player> passengers:<list[<[nametag]>].include[<player.passengers>]>
+        - wait 1t
+        - if !<player.is_online>:
+          - while stop
+      - if <[nametag]||null> != null:
+        - remove <[nametag]>
     - if <context.args.get[1]> == lucid_soul:
       - if <player.has_flag[soul]>:
         - narrate "<&b>Deactivated cosmetic effect lucid_soul"
