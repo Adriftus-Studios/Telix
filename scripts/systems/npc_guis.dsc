@@ -59,7 +59,7 @@ guide_command:
   name: guide
   script:
   - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[guide_assignment]].size> != 0:
-    - switch <context.args.get[1]||null>:
+    - choose <context.args.get[1]||null>:
       - case basics:
         - narrate TODO
   
