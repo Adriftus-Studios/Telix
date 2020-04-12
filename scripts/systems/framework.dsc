@@ -94,10 +94,10 @@ spawn_command:
   script:
     - define location:<player.location.with_pitch[90]>
     - define destination:<location[spawn]>
+    - repeat 20:
+      - define layers:|:<proc[define_circle].context[<[location].above[<[value].mul[0.1]>]>|0.7].escaped>
+      - define cyl:|:<proc[define_circle].context[<[location].above[<[value].mul[0.1]>]>|0.7]>
     - if !<player.has_permission[spawn.bypass_warmup]>:
-      - repeat 20:
-        - define layers:|:<proc[define_circle].context[<[location].above[<[value].mul[0.1]>]>|0.7].escaped>
-        - define cyl:|:<proc[define_circle].context[<[location].above[<[value].mul[0.1]>]>|0.7]>
       - repeat 5:
         - repeat <[layers].size>:
           - define points:<[layers].get[<[value]>].unescaped>
