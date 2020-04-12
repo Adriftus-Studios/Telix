@@ -6,7 +6,7 @@ gold_block_teleport_events:
       - determine passively cancelled
       - define y_loc:<cuboid[<context.location.above>|<context.location.above[26]>].blocks[gold_block].parse[y].lowest||null>
         - if <[y_loc]> != null:
-          - teleport target_location:<context.location.with_y[<[y_loc].+[1]>]>
+          - teleport <context.location.with_y[<[y_loc].+[1]>]>
         - else:
           - narrate "nope"
     on player left clicks gold_block:
