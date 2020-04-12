@@ -9,7 +9,7 @@ ability_sand_cacoon:
   description: Retreat into a protective shell within the ground.
   icon:
     material: iron_nugget
-    custom_model_data: 4
+    custom_model_data: 104
   script:
     - inject abilities_check
     - adjust <player> noclip:true
