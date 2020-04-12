@@ -643,8 +643,7 @@ build_item:
   - if <[item].material.name||air> != air:
     - define old_item:<[item]>
     - narrate <[item]>
-    - stop
-    - if <server.list_material_types.parse[name].contains[<[old_item].script.name.replace[custom_].with[]>]>:
+    - if <[item].script.name||null> == null:
       - define item:<item[custom_<[item].material.name>]>
     - else:
       - define item:<item[<[old_item].script.name>]>
