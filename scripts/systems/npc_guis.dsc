@@ -50,6 +50,29 @@ mysterious_person_assignment:
   actions:
     on assignment:
     - trigger name:click state:true
+    - trigger name:proximity state:true
+    on click:
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Need to know something?"
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> I know it all! Just ask."
+    - narrate <[lines].random>
+    on enter proximity:
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Need to know something?"
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> I know it all! Just ask."
+    - narrate <[lines].random>
+
+mysterious_person_command:
+  type: command
+  name: mysterious_person
+  script:
+  - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[mysterious_person_assignment]].size> != 0:
+    - stop
+    # TODO
+  
+mysterious_person_assignment:
+  type: assignment
+  actions:
+    on assignment:
+    - trigger name:click state:true
     on click:
     - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> Get away!"
     - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> I don't want to hurt you."
