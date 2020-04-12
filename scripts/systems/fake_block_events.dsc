@@ -8,11 +8,14 @@ fake_block_events:
         - adjust <queue> linked_player:<[value]>
         - foreach <player.location.find.blocks.within[4].include[<player.fake_block_locations>].deduplicate> as:block:
           - if <[block].notable_name.starts_with[fake_block__]||false>:
-            - if <player.has_flag[<[block].notable_name.split[__].get[2]>]>
+            - narrate 1
+            - if <player.has_flag[<[block].notable_name.split[__].get[2]>]>:
+              - narrate 2
               - showfake <item[air]> <[block]> duration:1m
     on player places block:
       - if <player.has_flag[placing_fake_block]>:
         - note <context.location> as:fake_block__<player.flag[placing_fake_block]>
+        - narrate 1
   
 fake_block_command:
   type: command
