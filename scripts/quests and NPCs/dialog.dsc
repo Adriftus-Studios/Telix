@@ -90,6 +90,7 @@ portal_tender_assignment:
     - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Where would you like to go to? (Click One)"
     - narrate "<element[<&6> - I would like to use the altars.].on_click[/portal_tender altars]>"
     - narrate "<element[<&6> - I want to fly.].on_click[/portal_tender rtp]>"
+  test: 1
 
 portal_tender_command:
   type: command
