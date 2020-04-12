@@ -9,8 +9,11 @@ gold_block_teleport_events:
         - teleport <context.location.with_y[<[y_loc].+[1]>].center>
       - else:
         - narrate "<&c>There is no destination block above you!"
-    on player left clicks gold_block:
-      - if <player.is_sneaking>:
-        - stop
+    on player starts sneaking:
+    # teleport players to first gold block within 25 blocks. If they are not standing on the block,
+    - if <player.location.below.material.name> == gold_block:
+      - define y_loc:<cuboid[<context.location.below>|<context.location.below[26]>].blocks[gold_block].parse[y].highest||null>
+      - if <[y_loc]> != null:
+        - teleport <context.location.with_y[<[y_loc].+[1]>].center>
       - else:
-        - determine passively cancelled
+        - narrate "<&c>There is no destination block below you!"
