@@ -67,10 +67,10 @@ mysterious_person_assignment:
     on assignment:
     - trigger name:click state:true
     on click:
-    - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> Get away!"
-    - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> I don't want to hurt you."
-    - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> GET OUT OF MY HEAD!"
-    - define "lines:|:<&4><&lb><&5>Mysterious Person<&4><&rb><&6> Leave now!"
+    - define "lines:|:<&4><&lb><&5>Strange Being<&4><&rb><&6> Get away!"
+    - define "lines:|:<&4><&lb><&5>Strange Being<&4><&rb><&6> I don't want to hurt you."
+    - define "lines:|:<&4><&lb><&5>Strange Being<&4><&rb><&6> GET OUT OF MY HEAD!"
+    - define "lines:|:<&4><&lb><&5>Strange Being<&4><&rb><&6> Leave now!"
     - narrate <[lines].random>
 
 mysterious_person_command:

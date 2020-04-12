@@ -6,6 +6,26 @@ cosmetic_bunny_ears:
     custom_model_data: 4
   display name: <&b>Bunny Ears
 
+entity_nametag:
+  type: entity
+  entity_type: bat
+  gravity: false
+  visible: false
+  custom_name_visible: true
+  invulnerable: true
+  custom:
+    interactable: false
+
+entity_lucid_soul:
+  type: entity
+  entity_type: armor_stand
+  equipment: <item[air]>|<item[air]>|<item[air]>|<item[rabbit_hide].with[custom_model_data=5]>
+  gravity: false
+  visible: false
+  invulnerable: true
+  custom:
+    interactable: false
+
 entity_tail1:
   type: entity
   entity_type: armor_stand
@@ -48,6 +68,45 @@ cosmetics_command:
     - determine <list[]>
   script:
   - if <player.has_flag[cosmetic]>:
+    - if <context.args.get[1]> == nametag:
+      - if <player.has_flag[nametag]>:
+        - narrate "<&b>Deactivated cosmetic effect nametag"
+        - flag <player> nametag:!
+      - else:
+        - narrate "<&b>Activated cosmetic effect nametag"
+        - flag <player> nametag
+        - spawn entity_nametag <player.location.below[0.5]> save:nametag
+        - define nametag:<entry[nametag].spawned_entity>
+        - adjust <[nametag]> custom_name:<player.name>
+        - adjust <[nametag]> armor_pose:head|0,0,0
+        - adjust <player> passengers:<list[<[nametag]>].include[<player.passengers>]>
+      - while <player.has_flag[nametag]>:
+        - teleport <[nametag]> <player.location.below[0.5]>
+        - adjust <player> passengers:<list[<[nametag]>].include[<player.passengers>]>
+        - wait 1t
+        - if !<player.is_online>:
+          - while stop
+      - if <[nametag]||null> != null:
+        - remove <[nametag]>
+    - if <context.args.get[1]> == lucid_soul:
+      - if <player.has_flag[soul]>:
+        - narrate "<&b>Deactivated cosmetic effect lucid_soul"
+        - flag <player> soul:!
+      - else:
+        - narrate "<&b>Activated cosmetic effect lucid_soul"
+        - flag <player> soul
+        - spawn entity_lucid_soul <player.location.below[0.5]> save:soul
+        - define soul:<entry[soul].spawned_entity>
+        - adjust <[soul]> armor_pose:head|0,0,0
+        - adjust <player> passengers:<list[<[soul]>].include[<player.passengers>]>
+      - while <player.has_flag[soul]>:
+        - teleport <[soul]> <player.location.below[0.5]>
+        - adjust <player> passengers:<list[<[soul]>].include[<player.passengers>]>
+        - wait 1t
+        - if !<player.is_online>:
+          - while stop
+      - if <[soul]||null> != null:
+        - remove <[soul]>
     - if <context.args.get[1]> == bunnyears:
       - if <player.has_flag[head]>:
         - narrate "<&b>Deactivated cosmetic effect bunny ears"
@@ -67,10 +126,10 @@ cosmetics_command:
         - spawn entity_tail1 <player.location.below[0.5]> save:tail
         - define tail:<entry[tail].spawned_entity>
         - adjust <[tail]> armor_pose:head|0,0,0
-        - adjust <player> passengers:<list[<[tail]>]>
+        - adjust <player> passengers:<list[<[tail]>].include[<player.passengers>]>
       - while <player.has_flag[tail]>:
         - teleport <[tail]> <player.location.below[0.5]>
-        - adjust <player> passengers:<list[<[tail]>]>
+        - adjust <player> passengers:<list[<[tail]>].include[<player.passengers>]>
         - wait 1t
         - if !<player.is_online>:
           - while stop
@@ -89,11 +148,11 @@ cosmetics_command:
         - define right_wing:<entry[wing2].spawned_entity>
         - adjust <[left_wing]> armor_pose:head|0,<element[50].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<element[-50].to_radians>,0
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
       - while <player.has_flag[cosmetic_shirt]>:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
         - wait 1t
         - if !<player.is_online>:
           - while stop
@@ -114,11 +173,11 @@ cosmetics_command:
         - define right_wing:<entry[wing2].spawned_entity>
         - adjust <[left_wing]> armor_pose:head|0,<element[30].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<element[-30].to_radians>,0
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
       - while <player.has_flag[cosmetic_shirt]>:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
         - wait 1t
         - if !<player.is_online>:
           - while stop
@@ -141,11 +200,11 @@ cosmetics_command:
         - define center:<player.location>
         - adjust <[left_wing]> armor_pose:head|0,<element[30].to_radians>,0
         - adjust <[right_wing]> armor_pose:head|0,<element[-30].to_radians>,0
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
       - while <player.has_flag[cosmetic_shirt]>:
         - teleport <[left_wing]> <player.location.below[0.5]>
         - teleport <[right_wing]> <player.location.below[0.5]>
-        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>]>
+        - adjust <player> passengers:<list[<[left_wing]>|<[right_wing]>].include[<player.passengers>]>
         - define offset:<player.location.sub[<[center]>]>
         - run cosmetic_command_lucid_animation def:<[offset].add[<[sphere].random>].with_world[<player.location.world>]>|<[offset].add[<[sphere].random>].with_world[<player.location.world>]>
         - wait 1t
