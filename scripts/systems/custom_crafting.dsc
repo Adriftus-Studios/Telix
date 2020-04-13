@@ -93,6 +93,7 @@ custom_crafting_events:
             # Cancel
             - determine cancelled
         - inject custom_crafting_takeIngredients
+        - inject custom_crafting_determineOutput
 
 custom_crafting_takeIngredients:
   type: task
