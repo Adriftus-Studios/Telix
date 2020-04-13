@@ -19,7 +19,7 @@ guild_vault_entity:
   entity_type: armor_stand
   equipment: <item[air]>|<item[air]>|<item[air]>|<item[custom_guild_vault]>
   gravity: false
-  custom_name_visible: true
+  custom_name_visible: false
   invulnerable: true
   visible: false
   
