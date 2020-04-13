@@ -114,6 +114,7 @@ custom_crafting_events:
           - define list:|:<context.inventory.slot[<[value]>]>
       - narrate "<[list]>"
       - give <[list]>
+      - inventory update
       - note remove as:crafting.<player.uuid>
 
 custom_crafting_handleInput:
