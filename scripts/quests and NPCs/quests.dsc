@@ -16,7 +16,7 @@ start_quest:
   definitions: quest
   script:
   - define quest:<script[<[quest]>]>
-  - narrate quest started
+  - narrate "quest started"
   - foreach <[quest].list_keys[objectives]> as:objective:
     - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:0
 
@@ -38,7 +38,7 @@ check_quest_progress:
     - define required_value:<[quest].yaml_key[objectives.<[objective]>]>
     - if <[value]> == <[required_value]>:
       - define objectives_complete:|:<[objective]>
-  - if <[quest].list_keys[objectives].size> == <[objectives_complete].size>:
+  - if <[quest].list_keys[objectives].size> == <[objectives_complete].size||0>:
     - run complete_quest def:<[quest]>
   
 complete_quest:
