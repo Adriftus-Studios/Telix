@@ -1,18 +1,61 @@
 
 test_dialog:
   type: yaml data
+  character: <&a><&lb><&6>Portal Tender<&a><&rb><&6>
   dialog:
     start:
-      lines:
-      - hello I am the guide
+      actions:
+      - say: What would you like to know? (Click One)
       options:
       - Tell me the basics
     Tell me the basics:
       - Alright, Heres the basics
 
+play_dialog:
+  type: task
+  definitions: script
+  script:
+  - define script:<script[<[script]>]>
+
+
+dialog_command:
+  type: command
+  name: dialog
+  script:
+  - if <context.args.size> >= 2:
+    - define script:<context.args.get[1]>
+    - narrate <[script]>
+    - narrate <context.args.remove[1].separated_by[<&sp>]>
 
 #    /npc assign --set guild_master_assignment
 
+guide_assignment:
+  type: assignment
+  actions:
+    on assignment:
+    - trigger name:click state:true
+    - trigger name:proximity state:true
+    on click:
+    - run play_dialog def:test_dialog
+    - stop
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> What would you like to know? (Click One)"
+    - narrate <[lines].random>
+    - narrate "<element[<&6> - Tell me the basics.].on_click[/guide basics]>"
+    on enter proximity:
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Need to know something?"
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> I know it all! Just ask."
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Knowledge is power."
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Smeltery, Guilds, Bosses; It's all here."
+    - narrate <[lines].random>
+
+guide_command:
+  type: command
+  name: guide
+  script:
+  - choose <context.args.get[1]||null>:
+    - case basics:
+      - narrate ""
+  
 guild_master_assignment:
   type: assignment
   actions:
@@ -49,31 +92,6 @@ cannoneer_assignment:
     - define "lines:|:<&a><&lb><&6>Cannoneer<&a><&rb><&6> I 'ear that Captain Barbossa's got 14 pound cannon balls... 14 POUND BALLS..."
     - narrate <[lines].random>
 
-guide_assignment:
-  type: assignment
-  actions:
-    on assignment:
-    - trigger name:click state:true
-    - trigger name:proximity state:true
-    on click:
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> What would you like to know? (Click One)"
-    - narrate <[lines].random>
-    - narrate "<element[<&6> - Tell me the basics.].on_click[/guide basics]>"
-    on enter proximity:
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Need to know something?"
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> I know it all! Just ask."
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Knowledge is power."
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Smeltery, Guilds, Bosses; It's all here."
-    - narrate <[lines].random>
-
-guide_command:
-  type: command
-  name: guide
-  script:
-  - choose <context.args.get[1]||null>:
-    - case basics:
-      - narrate ""
-  
 mysterious_person_assignment:
   type: assignment
   actions:
