@@ -95,8 +95,17 @@ custom_crafting_takeIngredients:
   type: task
   script:
     - foreach <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]> as:slot:
-      - inventory adjust slot:<context.slot> quantity:<context.inventory.slot[<context.slot>].quantity.-[1]>
-      
+      - inventory adjust d:crafting.<player.uuid> slot:<context.slot> quantity:<context.inventory.slot[<context.slot>].quantity.-[1]>
+
+custom_crafting_determineOutput:
+  type: task
+  script:
+    - foreach <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>:
+      - define <[loop_index]>:<context.inventory.slots[<[loop_index]>]>
+      - define items:|:<context.inventory.slot[<[loop_index]>].script.name||<context.inventory.slot[<[loop_index]>].material.name>>
+    - define output:<yaml[custom_recipes_shaped].read[<[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>]||<yaml[custom_recipes_shaped].read[<[items].alphabetical.separated_by[.]>]||null>>
+    - if <[output]> != null:
+      - inventory set d:crafting.<player.uuid> slot:<script[custom_crafting_inventory].yaml_key[output_slot]> <item[<[output]>]>
 
 # DEBUG STUFF BELOW
 custom_crafting_inventory_testCommand:
