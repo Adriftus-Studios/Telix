@@ -49,7 +49,7 @@ complete_quest:
   - narrate done
   - define quest:<script[<[quest]>]>
   - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>:!
-  - yaml id:player.<player.uuid> set quests.completed:|:<[quest].name>
+  - yaml id:player.<player.uuid> set quests.completed:->:<[quest].name>
 
 get_completed_quests:
   type: procedure
