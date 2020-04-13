@@ -179,7 +179,7 @@ altar_events:
         - note <context.location> as:altar_<context.location.simple>_<context.item_in_hand.script.name.replace[altar_tier_].with[]>_<[altar]>
         - modifyblock <context.location> barrier
     on player breaks barrier:
-      - if <context.location.notable_name.starts_with[altar_]>:
+      - if <context.location.notable_name.starts_with[altar_]||false>:
         - define tier:<context.location.notable_name.split[_].get[<context.location.notable_name.split[_].size>]>
         - define entity:<context.location.notable_name.split[_e@].get[2].as_entity>
         - remove <[entity]>
