@@ -673,6 +673,13 @@ build_item_command:
     - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
     - narrate "Done"
 
+proc_build_item:
+  type: procedure
+  definitions: item
+  script:
+  - inject build_item
+  - determine <[item]>
+
 build_item:
   type: task
   definitions: item
