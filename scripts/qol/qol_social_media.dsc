@@ -42,7 +42,67 @@ qol_social_media_inventory_events:
 
 ##Items (Generated through qol_social_media_inventory using flag view_social_media)
 #Twitter
+custom_twitch_head:
+  type: item
+  debug: false
+  material: player_head
+  display name: <&b>Twitter
+  mechanisms:
+    skull_skin: <element[eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY4NWEwYmU3NDNlOTA2N2RlOTVjZDhjNmQxYmEyMWFiMjFkMzczNzFiM2Q1OTcyMTFiYjc1ZTQzMjc5In19fQ]>
+  prefix: &at
+  link: https://twitter.com/
+#Twitter
+custom_youtube_head:
+  type: item
+  debug: false
+  material: player_head
+  display name: <&b>Twitter
+  mechanisms:
+    skull_skin: <element[eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY4NWEwYmU3NDNlOTA2N2RlOTVjZDhjNmQxYmEyMWFiMjFkMzczNzFiM2Q1OTcyMTFiYjc1ZTQzMjc5In19fQ]>
+  prefix: &at
+  link: https://twitter.com/
+#Twitter
 custom_twitter_head:
+  type: item
+  debug: false
+  material: player_head
+  display name: <&b>Twitter
+  mechanisms:
+    skull_skin: <element[eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY4NWEwYmU3NDNlOTA2N2RlOTVjZDhjNmQxYmEyMWFiMjFkMzczNzFiM2Q1OTcyMTFiYjc1ZTQzMjc5In19fQ]>
+  prefix: &at
+  link: https://twitter.com/
+#Twitter
+custom_instagram_head:
+  type: item
+  debug: false
+  material: player_head
+  display name: <&b>Twitter
+  mechanisms:
+    skull_skin: <element[eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY4NWEwYmU3NDNlOTA2N2RlOTVjZDhjNmQxYmEyMWFiMjFkMzczNzFiM2Q1OTcyMTFiYjc1ZTQzMjc5In19fQ]>
+  prefix: &at
+  link: https://twitter.com/
+#Twitter
+custom_facebook_head:
+  type: item
+  debug: false
+  material: player_head
+  display name: <&b>Twitter
+  mechanisms:
+    skull_skin: <element[eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY4NWEwYmU3NDNlOTA2N2RlOTVjZDhjNmQxYmEyMWFiMjFkMzczNzFiM2Q1OTcyMTFiYjc1ZTQzMjc5In19fQ]>
+  prefix: &at
+  link: https://twitter.com/
+#Twitter
+custom_discord_head:
+  type: item
+  debug: false
+  material: player_head
+  display name: <&b>Twitter
+  mechanisms:
+    skull_skin: <element[eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY4NWEwYmU3NDNlOTA2N2RlOTVjZDhjNmQxYmEyMWFiMjFkMzczNzFiM2Q1OTcyMTFiYjc1ZTQzMjc5In19fQ]>
+  prefix: &at
+  link: https://twitter.com/
+#Twitter
+custom_server_head:
   type: item
   debug: false
   material: player_head
