@@ -105,7 +105,9 @@ custom_crafting_events:
       - inject custom_crafting_handleInput
     
     on player drags in custom_crafting_inventroy priority:-1000:
+      - narrate "1"
       - if <context.raw_slots.contains_any[<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>]>:
+        - narrate "2"
         - wait 1t
         - inject custom_crafting_determineOutput
     
