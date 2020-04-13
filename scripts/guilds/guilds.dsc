@@ -4,7 +4,7 @@ guild_settings:
     flag_health: 5000
   rank_permissions:
   - manage_flags
-  - edit_ranks
+  - edit_ranks55
   - manage_members
   - change_settings
   - place_flag
@@ -23,7 +23,6 @@ guild_settings:
   - total_flags_destroyed
   - total_heads_collected
   - age
-
 fixguilds_command:
   type: command
   name: fixguilds
