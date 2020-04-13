@@ -401,22 +401,16 @@ custom_item_override:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]||null> != null:
         - define item:<item[<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1].replace[.yml].with[]>]>
         - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]>
-        - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
+        - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]||<player.item_in_hand>>
         - if <[item].material> == <context.material> && <player.gamemode> != creative:
           - determine <[item]>
         - else:
           - determine NOTHING
     on piston extends:
-      - define relative:<context.location.sub[<context.relative>]>
-      - announce <[relative]>
-      - stop
       - foreach <context.blocks> as:block:
         - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<[block].simple>/].get[1]||null> != null:
           - determine passively cancelled
     on piston retracts:
-      - define relative:<context.relative.sub[<context.retract_location>]>
-      - announce <[relative]>
-      - stop
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.retract_location.simple>/].get[1]||null> != null:
         - determine passively cancelled
     on entity death:
