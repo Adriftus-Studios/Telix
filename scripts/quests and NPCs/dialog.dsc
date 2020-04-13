@@ -17,7 +17,7 @@ play_dialog:
   definitions: script
   script:
   - define script:<script[<[script]>]>
-  - execute as_player dialog <[script].name> start
+  - execute as_player "/dialog <[script].name> start"
 
 
 dialog_command:
