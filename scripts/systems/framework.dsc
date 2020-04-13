@@ -401,7 +401,7 @@ custom_item_override:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]||null> != null:
         - define item:<item[<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1].replace[.yml].with[]>]>
         - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]>
-        - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>
+        - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]||<player.item_in_hand>>
         - if <[item].material> == <context.material> && <player.gamemode> != creative:
           - determine <[item]>
         - else:
