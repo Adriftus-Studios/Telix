@@ -36,7 +36,8 @@ bb_notification:
     - else if <[progress]> > 1:
       - define progress:1
     - define players:<[players].unescaped>
-      
+    - narrate <[players]>
+    
     #Define timestamp id and create bossbar
     - define id:<[players].unescaped.as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
     - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> players:<[players]> style:SOLID
