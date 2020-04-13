@@ -35,14 +35,14 @@ bb_notification:
       - define progress:0
     - else if <[progress]> > 1:
       - define progress:1
-    - if <[players].type> == list:
-      - define players:<[players].as_list>
     - narrate <[players]>
     
     #Define timestamp id and create bossbar
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> players:<[players]> style:SOLID
-
+    - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> style:SOLID
+    
+    - bossbar update <[id]> players:<[players]>
+    
     #Wait for specified duration of time
     - wait <[duration]>
 
@@ -71,12 +71,11 @@ bb_timer:
       - define duration:10s
     - if !<list[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW].contains[<[color]>]>:
       - define color:YELLOW
-    - if <[players].type> == list:
-      - define players:<[players].as_list>
       
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]> color:<[color]> players:<[players]> style:SOLID
+    - bossbar create <[id]> title:<[title]> color:<[color]> style:SOLID
+    - bossbar update <[id]> players:<[players]>
     - define length:<[duration].as_duration.in_seconds.+[1]>
 
     #Wait for specified duration of time
@@ -109,8 +108,6 @@ bb_status:
       - define duration:5s
     #- if !<list[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW].contains[<[color]>]>:
     #  - define color:YELLOW
-    - if <[players].type> == list:
-      - define players:<[players].as_list>
       
     #Check for effect, define title
     - choose <[effect]>:
@@ -140,7 +137,8 @@ bb_status:
     
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]><&sp><&f><[duration].as_duration.in_seconds>s<&sp><[icon]> color:<[color]> players:<[players]> style:SOLID
+    - bossbar create <[id]> title:<[title]><&sp><&f><[duration].as_duration.in_seconds>s<&sp><[icon]> color:<[color]> style:SOLID
+    - bossbar update <[id]> players:<[players]>
     - define length:<[duration].as_duration.in_seconds.+[1]>
     
     #Wait for specified duration of time
