@@ -69,7 +69,7 @@ custom_aerotheum:
   display name: <&a>Aerotheum
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: smeltery
       output_quantity: 4

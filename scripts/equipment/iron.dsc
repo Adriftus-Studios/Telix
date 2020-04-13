@@ -16,7 +16,7 @@ custom_iron_sword:
   fake_durability: 250
   damage: 5
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -47,7 +47,7 @@ custom_iron_pickaxe:
   fake_durability: 250
   damage: 3
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -64,7 +64,7 @@ custom_iron_axe:
   fake_durability: 250
   damage: 4
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -102,7 +102,7 @@ custom_iron_shovel:
   fake_durability: 250
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -133,7 +133,7 @@ custom_iron_hoe:
   fake_durability: 250
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -186,7 +186,7 @@ custom_iron_boots:
     weight:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -223,7 +223,7 @@ custom_iron_leggings:
     weight:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -253,7 +253,7 @@ custom_iron_chestplate:
     weight:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -283,7 +283,7 @@ custom_iron_helmet:
     weight:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

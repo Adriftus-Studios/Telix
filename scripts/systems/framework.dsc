@@ -174,52 +174,52 @@ reload_scripts:
                   - yaml id:server.recipe_book set mob_info.<[value].yaml_key[mob_drops.<[num]>.dropped_by]>.drops:|:<[value].name>
               - if <[value].yaml_key[category]||null> != null:
                   - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
-              - if <[value].yaml_key[recipes]||null> != null:
+              - if <[value].yaml_key[custom_recipes]||null> != null:
                 - if <[value].yaml_key[recipe_book_category]||null> != null:
                   - foreach <[value].yaml_key[recipe_book_category].as_list> as:cat:
                     - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
                 - else:
                   - yaml id:server.recipe_book set categories.other:|:<[value].name>
-                - foreach <[value].list_keys[recipes]> as:recipe:
+                - foreach <[value].list_keys[custom_recipes]> as:recipe:
                   - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
                     - if <server.list_recipe_ids.contains[minecraft:<[value].name.replace[custom_].with[]>]>:
                       - yaml id:server.recipe_fixer set recipes:|:<[value].name>
-                      - if <[value].yaml_key[recipes.<[recipe]>.type]> != furnace && <[value].name> != custom_iron_ingot && <[value].name> != custom_gold_ingot:
+                      - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> != furnace && <[value].name> != custom_iron_ingot && <[value].name> != custom_gold_ingot:
                         - adjust server remove_recipes:minecraft:<[value].name.replace[custom_].with[]>
-                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == shaped:
-                    - yaml id:server.recipe_fixer set restricted.shaped.<[value].yaml_key[recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
-                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == shapeless:
-                    - yaml id:server.recipe_fixer set restricted.shapeless.<[value].yaml_key[recipes.<[recipe]>.input].as_list.alphabetical.separated_by[_]>:|:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]>
-                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == furnace:
-                    - yaml id:server.recipe_fixer set restricted.furnace.<[value].yaml_key[recipes.<[recipe]>.input]>:<[value].name><&co><[value].yaml_key[recipes.<[recipe]>.output_quantity]||1><&co><[value].yaml_key[recipes.<[recipe]>.cook_time]>
-                  - if !<[value].yaml_key[recipes.<[recipe]>.hide_in_recipebook]||false>:
+                  - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == shaped:
+                    - yaml id:server.recipe_fixer set restricted.shaped.<[value].yaml_key[custom_recipes.<[recipe]>.input].as_list.separated_by[_].replace[|].with[_]>:|:<[value].name><&co><[value].yaml_key[custom_recipes.<[recipe]>.output_quantity]>
+                  - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == shapeless:
+                    - yaml id:server.recipe_fixer set restricted.shapeless.<[value].yaml_key[custom_recipes.<[recipe]>.input].as_list.alphabetical.separated_by[_]>:|:<[value].name><&co><[value].yaml_key[custom_recipes.<[recipe]>.output_quantity]>
+                  - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == furnace:
+                    - yaml id:server.recipe_fixer set restricted.furnace.<[value].yaml_key[custom_recipes.<[recipe]>.input]>:<[value].name><&co><[value].yaml_key[custom_recipes.<[recipe]>.output_quantity]||1><&co><[value].yaml_key[custom_recipes.<[recipe]>.cook_time]>
+                  - if !<[value].yaml_key[custom_recipes.<[recipe]>.hide_in_recipebook]||false>:
                     - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
-                      - yaml id:server.recipe_book set <[value].yaml_key[recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[recipes.<[recipe]>.<[key]>]>
-                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == smeltery:
-                    - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
-                    - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
-                    - yaml id:server.smeltery_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
-                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == alchemy:
-                    - yaml id:server.alchemy_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
-                    - yaml id:server.alchemy_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
-                    - yaml id:server.alchemy_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
-                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == altar:
-                    - yaml id:server.altar_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
-                    - yaml id:server.altar_recipes set <[value].name>.input:<[value].yaml_key[recipes.<[recipe]>.input]>
-                    - yaml id:server.altar_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
-                    - yaml id:server.altar_recipes set <[value].name>.required_tier:<[value].yaml_key[recipes.<[recipe]>.tier]||5>
-                  - if <[value].yaml_key[recipes.<[recipe]>.type]> == cooking:
-                    - yaml id:server.cooking_recipes set <[value].name>.cook_time:<[value].yaml_key[recipes.<[recipe]>.cook_time]>
-                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[recipes.<[recipe]>.main_ingredient]||<list[]>>
-                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[recipes.<[recipe]>.side_ingredients]||<list[]>>
-                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[recipes.<[recipe]>.serving_dish]||<list[]>>
-                    - yaml id:server.cooking_recipes set <[value].name>.output_quantity:<[value].yaml_key[recipes.<[recipe]>.output_quantity]>
-                    - yaml id:server.cooking_recipes set <[value].name>.xp_given:<[value].yaml_key[recipes.<[recipe]>.xp_given]||1>
-                  - if <list[altar|alchemy|smeltery].contains[<[value].yaml_key[recipes.<[recipe]>.type]>]>:
-                    - foreach <[value].yaml_key[recipes.<[recipe]>.input].as_list.parse[split[/].get[1]]> as:entry:
+                      - yaml id:server.recipe_book set <[value].yaml_key[custom_recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[custom_recipes.<[recipe]>.<[key]>]>
+                  - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == smeltery:
+                    - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[custom_recipes.<[recipe]>.cook_time]>
+                    - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[custom_recipes.<[recipe]>.input]>
+                    - yaml id:server.smeltery_recipes set <[value].name>.output_quantity:<[value].yaml_key[custom_recipes.<[recipe]>.output_quantity]>
+                  - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == alchemy:
+                    - yaml id:server.alchemy_recipes set <[value].name>.cook_time:<[value].yaml_key[custom_recipes.<[recipe]>.cook_time]>
+                    - yaml id:server.alchemy_recipes set <[value].name>.input:<[value].yaml_key[custom_recipes.<[recipe]>.input]>
+                    - yaml id:server.alchemy_recipes set <[value].name>.output_quantity:<[value].yaml_key[custom_recipes.<[recipe]>.output_quantity]>
+                  - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == altar:
+                    - yaml id:server.altar_recipes set <[value].name>.cook_time:<[value].yaml_key[custom_recipes.<[recipe]>.cook_time]>
+                    - yaml id:server.altar_recipes set <[value].name>.input:<[value].yaml_key[custom_recipes.<[recipe]>.input]>
+                    - yaml id:server.altar_recipes set <[value].name>.output_quantity:<[value].yaml_key[custom_recipes.<[recipe]>.output_quantity]>
+                    - yaml id:server.altar_recipes set <[value].name>.required_tier:<[value].yaml_key[custom_recipes.<[recipe]>.tier]||5>
+                  - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == cooking:
+                    - yaml id:server.cooking_recipes set <[value].name>.cook_time:<[value].yaml_key[custom_recipes.<[recipe]>.cook_time]>
+                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[custom_recipes.<[recipe]>.main_ingredient]||<list[]>>
+                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[custom_recipes.<[recipe]>.side_ingredients]||<list[]>>
+                    - yaml id:server.cooking_recipes set <[value].name>.input:|:<[value].yaml_key[custom_recipes.<[recipe]>.serving_dish]||<list[]>>
+                    - yaml id:server.cooking_recipes set <[value].name>.output_quantity:<[value].yaml_key[custom_recipes.<[recipe]>.output_quantity]>
+                    - yaml id:server.cooking_recipes set <[value].name>.xp_given:<[value].yaml_key[custom_recipes.<[recipe]>.xp_given]||1>
+                  - if <list[altar|alchemy|smeltery].contains[<[value].yaml_key[custom_recipes.<[recipe]>.type]>]>:
+                    - foreach <[value].yaml_key[custom_recipes.<[recipe]>.input].as_list.parse[split[/].get[1]]> as:entry:
                       - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
                   - else:
-                    - foreach <[value].yaml_key[recipes.<[recipe]>.input]||<list[]>> as:entry:
+                    - foreach <[value].yaml_key[custom_recipes.<[recipe]>.input]||<list[]>> as:entry:
                       - foreach <[entry].as_list> as:entry:
                         - yaml id:server.recipe_book set used_for.<[entry]>:->:<[value].name>
                 - yaml id:server.recipe_fixer set restricted.<[value].name>:<yaml[server.recipe_fixer].read[restricted.<[value].name>].as_list.deduplicate.exclude[air]||<list[]>>

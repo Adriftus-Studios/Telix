@@ -8,7 +8,7 @@ custom_mundane_basic_nodestone:
   weight: '5'
   type: item
   placable: false
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -26,7 +26,7 @@ custom_charged_basic_nodestone:
   weight: '5'
   type: item
   placable: false
-  recipes:
+  custom_recipes:
     1:
       type: smeltery
       output_quantity: 1
@@ -47,7 +47,7 @@ custom_blank_rune:
   mechanisms:
     custom_model_data: -6
   display name: <&7>Blank Rune
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -63,7 +63,7 @@ custom_air_rune:
   mechanisms:
     custom_model_data: -7
   display name: <&7>Air Rune
-  recipes:
+  custom_recipes:
     1:
       type: altar
       tier: 1
@@ -90,7 +90,7 @@ custom_water_rune:
   mechanisms:
     custom_model_data: -8
   display name: <&7>Water Rune
-  recipes:
+  custom_recipes:
     1:
       type: altar
       tier: 2
@@ -117,7 +117,7 @@ custom_earth_rune:
   mechanisms:
     custom_model_data: -9
   display name: <&7>Earth Rune
-  recipes:
+  custom_recipes:
     1:
       type: altar
       tier: 3
@@ -144,7 +144,7 @@ custom_fire_rune:
   mechanisms:
     custom_model_data: -10
   display name: <&7>Fire Rune
-  recipes:
+  custom_recipes:
     1:
       type: altar
       tier: 4
@@ -171,7 +171,7 @@ custom_ender_rune:
   mechanisms:
     custom_model_data: -11
   display name: <&7>Ender Rune
-  recipes:
+  custom_recipes:
     1:
       type: altar
       tier: 5
@@ -202,7 +202,7 @@ custom_livingwood_twig:
       block: birch_log
       tool: custom_draw_knife
       chance: 70
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 4
@@ -225,7 +225,7 @@ custom_dreamwood_twig:
   material: stick
   recipe_book_category: crafting.magic
   display name: <&d>Dreamwood Twig
-  recipes:
+  custom_recipes:
     1:
       type: alchemy
       output_quantity: 1
@@ -241,7 +241,7 @@ custom_dreamwood:
   material: birch_log
   recipe_book_category: crafting.magic
   display name: <&d>Dreamwood
-  recipes:
+  custom_recipes:
     1:
       type: alchemy
       output_quantity: 1
@@ -253,7 +253,7 @@ custom_draw_knife:
   material: iron_axe
   display name: <&7>Draw Knife
   fake_durability: 114
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

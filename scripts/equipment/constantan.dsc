@@ -8,7 +8,7 @@ custom_constantan_sword:
   fake_durability: 250
   damage: 6
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -39,7 +39,7 @@ custom_constantan_pickaxe:
   fake_durability: 250
   damage: 4
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -56,7 +56,7 @@ custom_constantan_axe:
   fake_durability: 250
   damage: 5
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -94,7 +94,7 @@ custom_constantan_shovel:
   fake_durability: 250
   damage: 3
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -125,7 +125,7 @@ custom_constantan_hoe:
   fake_durability: 250
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -172,7 +172,7 @@ custom_constantan_boots:
     constitution:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -203,7 +203,7 @@ custom_constantan_leggings:
     constitution:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -227,7 +227,7 @@ custom_constantan_chestplate:
     constitution:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -251,7 +251,7 @@ custom_constantan_helmet:
     constitution:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

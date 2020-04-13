@@ -28,7 +28,7 @@ custom_leather_boots:
     power:
       max: 15
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -65,7 +65,7 @@ custom_leather_leggings:
     power:
       max: 15
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -95,7 +95,7 @@ custom_leather_chestplate:
     power:
       max: 15
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -125,7 +125,7 @@ custom_leather_helmet:
     power:
       max: 15
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

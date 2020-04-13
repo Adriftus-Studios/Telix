@@ -27,7 +27,7 @@ custom_smeltery:
   type: item
   material: blast_furnace
   display name: <&b>Smeltery
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

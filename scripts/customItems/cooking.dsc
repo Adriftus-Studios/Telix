@@ -10,7 +10,7 @@ custom_skewer:
   material: stick
   display name: <&7>Skewer
   weight: '1'
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -65,7 +65,7 @@ custom_raw_beef_kebab:
   weight: '1'
   food: -10
   thirst: -5
-  recipes:
+  custom_recipes:
     1:
       type: cooking
       output_quantity: 1
@@ -84,7 +84,7 @@ custom_raw_chicken_kebab:
   weight: '1'
   food: -10
   food: -5
-  recipes:
+  custom_recipes:
     1:
       type: cooking
       output_quantity: 1
@@ -103,7 +103,7 @@ custom_cooked_beef_kebab:
   weight: '1'
   food: 15
   thirst: 2
-  recipes:
+  custom_recipes:
     1:
       type: cooking
       output_quantity: 1
@@ -127,7 +127,7 @@ custom_cooked_chicken_kebab:
   weight: '1'
   food: 15
   thirst: 2
-  recipes:
+  custom_recipes:
     1:
       type: cooking
       output_quantity: 1
@@ -151,7 +151,7 @@ custom_mushroom_soup:
   weight: '1'
   food: 5
   thirst: 15
-  recipes:
+  custom_recipes:
     1:
       type: cooking
       output_quantity: 1
@@ -167,7 +167,7 @@ custom_chicken_soup:
   weight: '1'
   food: 8
   thirst: 15
-  recipes:
+  custom_recipes:
     1:
       type: cooking
       output_quantity: 1

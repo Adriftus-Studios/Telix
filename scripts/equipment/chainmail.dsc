@@ -5,7 +5,7 @@ custom_chainlink:
   display name: <&7>Chainlink
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: smeltery
       cook_time: 30s
@@ -33,7 +33,7 @@ custom_chainmail_boots:
     experience_multiplier:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -70,7 +70,7 @@ custom_chainmail_leggings:
     experience_multiplier:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -100,7 +100,7 @@ custom_chainmail_chestplate:
     experience_multiplier:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -130,7 +130,7 @@ custom_chainmail_helmet:
     experience_multiplier:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

@@ -25,7 +25,7 @@ custom_alchemy_station:
   type: item
   material: brewing_stand
   display name: <&b>Alchemy Station
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

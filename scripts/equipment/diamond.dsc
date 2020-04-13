@@ -13,7 +13,7 @@ custom_diamond_sword:
   fake_durability: 1561
   damage: 7
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -44,7 +44,7 @@ custom_diamond_pickaxe:
   fake_durability: 1561
   damage: 5
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -61,7 +61,7 @@ custom_diamond_axe:
   fake_durability: 1561
   damage: 6
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -99,7 +99,7 @@ custom_diamond_shovel:
   fake_durability: 1561
   damage: 4
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -130,7 +130,7 @@ custom_diamond_hoe:
   fake_durability: 1561
   damage: 3
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -180,7 +180,7 @@ custom_diamond_boots:
     power:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -214,7 +214,7 @@ custom_diamond_leggings:
     power:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -241,7 +241,7 @@ custom_diamond_chestplate:
     power:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -268,7 +268,7 @@ custom_diamond_helmet:
     power:
       max: 10
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

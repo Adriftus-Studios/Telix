@@ -8,7 +8,7 @@ custom_elementium_sword:
   fake_durability: 250
   damage: 6
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -39,7 +39,7 @@ custom_elementium_pickaxe:
   fake_durability: 250
   damage: 4
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -56,7 +56,7 @@ custom_elementium_axe:
   fake_durability: 250
   damage: 5
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -94,7 +94,7 @@ custom_elementium_shovel:
   fake_durability: 250
   damage: 3
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -125,7 +125,7 @@ custom_elementium_hoe:
   fake_durability: 250
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -174,7 +174,7 @@ custom_elementium_boots:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -208,7 +208,7 @@ custom_elementium_leggings:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -235,7 +235,7 @@ custom_elementium_chestplate:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -262,7 +262,7 @@ custom_elementium_helmet:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

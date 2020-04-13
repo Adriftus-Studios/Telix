@@ -8,7 +8,7 @@ custom_warpmetal_sword:
   fake_durability: 1370
   damage: 6
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -39,7 +39,7 @@ custom_warpmetal_pickaxe:
   fake_durability: 1370
   damage: 4
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -56,7 +56,7 @@ custom_warpmetal_axe:
   fake_durability: 1370
   damage: 5
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -94,7 +94,7 @@ custom_warpmetal_shovel:
   fake_durability: 1370
   damage: 3
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -125,7 +125,7 @@ custom_warpmetal_hoe:
   fake_durability: 1370
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -175,7 +175,7 @@ custom_warpmetal_boots:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -210,7 +210,7 @@ custom_boots_of_the_voidwalker:
     melee_damage:
       max: 2
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: altar
       tier: 5
@@ -236,7 +236,7 @@ custom_warpmetal_leggings:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -263,7 +263,7 @@ custom_warpmetal_chestplate:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -290,7 +290,7 @@ custom_warpmetal_helmet:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

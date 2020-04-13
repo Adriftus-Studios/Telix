@@ -5,7 +5,7 @@ custom_aluminum_nugget:
   display name: <&7>Aluminum Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -17,7 +17,7 @@ custom_aluminum_ingot:
   display name: <&7>Aluminum Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: furnace
       cook_time: 10s
@@ -42,7 +42,7 @@ custom_aluminum_block:
   display name: <&7>Aluminum Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -68,7 +68,7 @@ custom_bronze_nugget:
   display name: <&7>Bronze Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -80,7 +80,7 @@ custom_bronze_ingot:
   display name: <&7>Bronze Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       cook_time: 4m
       input: custom_tin_ingot/5|custom_copper_ingot/3
@@ -105,7 +105,7 @@ custom_bronze_block:
   display name: <&7>Bronze Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -120,7 +120,7 @@ custom_constantan_nugget:
   display name: <&7>Constantan Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -132,7 +132,7 @@ custom_constantan_ingot:
   display name: <&7>Constantan Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       cook_time: 4m
       input: custom_copper_ingot/5|custom_nickel_ingot/3
@@ -157,7 +157,7 @@ custom_constantan_block:
   display name: <&7>Constantan Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -172,7 +172,7 @@ custom_copper_nugget:
   display name: <&7>Copper Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -184,7 +184,7 @@ custom_copper_ingot:
   display name: <&7>Copper Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: furnace
       cook_time: 10s
@@ -209,7 +209,7 @@ custom_copper_block:
   display name: <&7>Copper Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -240,7 +240,7 @@ custom_diamond:
       biome: all
       block: stone
       chance: 280
-  recipes:
+  custom_recipes:
     1:
       type: furnace
       cook_time: 10s
@@ -257,7 +257,7 @@ custom_diamond_block:
   display name: <&7>Diamond Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -278,7 +278,7 @@ custom_elementium_nugget:
   display name: <&d>Elementium Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -290,7 +290,7 @@ custom_elementium_ingot:
   display name: <&d>Elementium Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -316,7 +316,7 @@ custom_elementium_block:
   display name: <&d>Elementium Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -331,7 +331,7 @@ custom_gold_nugget:
   display name: <&7>Gold Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -343,7 +343,7 @@ custom_gold_ingot:
   display name: <&7>Golden Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: furnace
       cook_time: 10s
@@ -368,7 +368,7 @@ custom_gold_block:
   display name: <&7>Golden Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       hide_in_recipebook: true
@@ -394,7 +394,7 @@ custom_iron_nugget:
   display name: <&7>Iron Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -406,7 +406,7 @@ custom_iron_ingot:
   display name: <&7>Iron Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: furnace
       cook_time: 10s
@@ -431,7 +431,7 @@ custom_iron_block:
   display name: <&7>Iron Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -457,7 +457,7 @@ custom_lead_nugget:
   display name: <&7>Lead Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -469,7 +469,7 @@ custom_lead_ingot:
   display name: <&7>Lead Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: furnace
       cook_time: 10s
@@ -494,7 +494,7 @@ custom_lead_block:
   display name: <&7>Lead Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -520,7 +520,7 @@ custom_manasteel_nugget:
   display name: <&b>Manasteel Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -532,7 +532,7 @@ custom_manasteel_ingot:
   display name: <&b>Manasteel Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -558,7 +558,7 @@ custom_manasteel_block:
   display name: <&b>Manasteel Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -572,7 +572,7 @@ custom_manaweave_cloth:
   material: leather
   recipe_book_category: equipment.manaweave
   display name: <&b>Manaweave Cloth
-  recipes:
+  custom_recipes:
     1:
       type: alchemy
       output_quantity: 1
@@ -584,7 +584,7 @@ custom_nickel_nugget:
   display name: <&7>Nickel Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -596,7 +596,7 @@ custom_nickel_ingot:
   display name: <&7>Nickel Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: furnace
       cook_time: 10s
@@ -621,7 +621,7 @@ custom_nickel_block:
   display name: <&7>Nickel Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -658,7 +658,7 @@ custom_obsidian_ingot:
   display name: <&7>Obsidian Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       cook_time: 17m
       input: custom_obsidian/4|custom_diamond/1
@@ -670,7 +670,7 @@ custom_silver_nugget:
   display name: <&7>Silver Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -682,7 +682,7 @@ custom_silver_ingot:
   display name: <&7>Silver Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: furnace
       cook_time: 10s
@@ -707,7 +707,7 @@ custom_silver_block:
   display name: <&7>Silver Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -733,7 +733,7 @@ custom_steel_nugget:
   display name: <&7>Steel Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -745,7 +745,7 @@ custom_steel_ingot:
   display name: <&7>Steel Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       cook_time: 4m
       input: custom_coal/6|custom_iron_ingot/2
@@ -770,7 +770,7 @@ custom_steel_block:
   display name: <&7>Steel Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -785,7 +785,7 @@ custom_terrasteel_nugget:
   display name: <&a>Terrasteel Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -802,7 +802,7 @@ custom_terrasteel_ingot:
   display name: <&a>Terrasteel Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -821,7 +821,7 @@ custom_terrasteel_block:
   display name: <&a>Terrasteel Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -836,7 +836,7 @@ custom_tin_nugget:
   display name: <&7>Tin Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -848,7 +848,7 @@ custom_tin_ingot:
   display name: <&7>Tin Ingot
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: furnace
       cook_time: 10s
@@ -873,7 +873,7 @@ custom_tin_block:
   display name: <&7>Tin Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -899,7 +899,7 @@ custom_warpmetal_nugget:
   display name: <&a>Warpmetal Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
@@ -910,7 +910,7 @@ custom_warpmetal_ingot:
   display name: <&a>Warpmetal
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -934,7 +934,7 @@ custom_warpmetal_block:
   display name: <&a>Warpmetal Block
   weight: '9'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -952,7 +952,7 @@ custom_iridium_ingot:
   contaminated: 1
   lore:
   - <&2><&l>Contamination Level: 1
-  recipes:
+  custom_recipes:
     1:
       type: furnace
       cook_time: 10s
@@ -964,7 +964,7 @@ custom_iridium_ore:
   display name: <&7>Iridium Ore
   weight: '1'
   type: item
-  recipes:
+  custom_recipes:
   ore:
     1:
       biome: all

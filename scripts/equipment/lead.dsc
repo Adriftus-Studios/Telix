@@ -8,7 +8,7 @@ custom_lead_sword:
   fake_durability: 150
   damage: 5
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -39,7 +39,7 @@ custom_lead_pickaxe:
   fake_durability: 150
   damage: 3
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -56,7 +56,7 @@ custom_lead_axe:
   fake_durability: 150
   damage: 4
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -94,7 +94,7 @@ custom_lead_shovel:
   fake_durability: 150
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -125,7 +125,7 @@ custom_lead_hoe:
   fake_durability: 150
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -178,7 +178,7 @@ custom_lead_boots:
     health:
       min: 1
       max: 3
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -215,7 +215,7 @@ custom_lead_leggings:
     health:
       min: 1
       max: 3
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -245,7 +245,7 @@ custom_lead_chestplate:
     health:
       min: 1
       max: 3
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -275,7 +275,7 @@ custom_lead_helmet:
     health:
       min: 1
       max: 3
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

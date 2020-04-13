@@ -25,7 +25,7 @@ custom_preparation_table:
   type: item
   material: beehive
   display name: <&b>Preparation Table
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -39,7 +39,7 @@ custom_food_test_recipe:
   display name: <&7>Custom food
   weight: '1'
   type: Item
-  recipes:
+  custom_recipes:
     1:
       type: cooking
       output_quantity: 1

@@ -8,7 +8,7 @@ custom_nickel_sword:
   fake_durability: 175
   damage: 5
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -39,7 +39,7 @@ custom_nickel_pickaxe:
   fake_durability: 175
   damage: 3
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -56,7 +56,7 @@ custom_nickel_axe:
   fake_durability: 175
   damage: 4
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -94,7 +94,7 @@ custom_nickel_shovel:
   fake_durability: 175
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -125,7 +125,7 @@ custom_nickel_hoe:
   fake_durability: 175
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -172,7 +172,7 @@ custom_nickel_boots:
     speed:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -203,7 +203,7 @@ custom_nickel_leggings:
     speed:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -227,7 +227,7 @@ custom_nickel_chestplate:
     speed:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -251,7 +251,7 @@ custom_nickel_helmet:
     speed:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

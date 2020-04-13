@@ -8,7 +8,7 @@ custom_terrasteel_sword:
   fake_durability: 2300
   damage: 6
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -39,7 +39,7 @@ custom_terrasteel_pickaxe:
   fake_durability: 2300
   damage: 4
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -56,7 +56,7 @@ custom_terrasteel_axe:
   fake_durability: 2300
   damage: 5
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -94,7 +94,7 @@ custom_terrasteel_shovel:
   fake_durability: 2300
   damage: 3
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -125,7 +125,7 @@ custom_terrasteel_hoe:
   fake_durability: 2300
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -175,7 +175,7 @@ custom_terrasteel_boots:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -209,7 +209,7 @@ custom_terrasteel_leggings:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -236,7 +236,7 @@ custom_terrasteel_chestplate:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -263,7 +263,7 @@ custom_terrasteel_helmet:
     melee_damage:
       max: 5
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

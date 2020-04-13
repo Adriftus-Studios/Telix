@@ -33,7 +33,7 @@ custom_golden_sword:
   fake_durability: 32
   damage: 4
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -64,7 +64,7 @@ custom_golden_pickaxe:
   fake_durability: 32
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -81,7 +81,7 @@ custom_golden_axe:
   fake_durability: 32
   damage: 3
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -119,7 +119,7 @@ custom_golden_shovel:
   fake_durability: 32
   damage: 1
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -150,7 +150,7 @@ custom_golden_hoe:
   fake_durability: 32
   damage: 1
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -200,7 +200,7 @@ custom_golden_boots:
     power:
       max: 20
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -234,7 +234,7 @@ custom_golden_leggings:
     power:
       max: 20
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -261,7 +261,7 @@ custom_golden_chestplate:
     power:
       max: 20
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -288,7 +288,7 @@ custom_golden_helmet:
     power:
       max: 20
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

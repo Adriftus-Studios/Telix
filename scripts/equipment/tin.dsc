@@ -8,7 +8,7 @@ custom_tin_sword:
   fake_durability: 200
   damage: 5
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -39,7 +39,7 @@ custom_tin_pickaxe:
   fake_durability: 200
   damage: 3
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -56,7 +56,7 @@ custom_tin_axe:
   fake_durability: 200
   damage: 4
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -94,7 +94,7 @@ custom_tin_shovel:
   fake_durability: 200
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -125,7 +125,7 @@ custom_tin_hoe:
   fake_durability: 200
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -181,7 +181,7 @@ custom_tin_boots:
     constitution:
       max: 2
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -221,7 +221,7 @@ custom_tin_leggings:
     constitution:
       max: 2
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -254,7 +254,7 @@ custom_tin_chestplate:
     constitution:
       max: 2
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -287,7 +287,7 @@ custom_tin_helmet:
     constitution:
       max: 2
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

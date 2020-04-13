@@ -16,7 +16,7 @@ custom_manaweave_cowl:
     power:
       min: 10
       max: 25
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -50,7 +50,7 @@ custom_manaweave_robe:
     power:
       min: 10
       max: 25
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -77,7 +77,7 @@ custom_manaweave_pants:
     power:
       min: 10
       max: 25
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -104,7 +104,7 @@ custom_manaweave_boots:
     power:
       min: 10
       max: 25
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1

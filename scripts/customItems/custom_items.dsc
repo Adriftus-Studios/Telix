@@ -3119,7 +3119,7 @@ custom_granite_wall:
   weight: '1'
   type: item
 custom_leather_tanned:
-  recipes:
+  custom_recipes:
     '1':
       cook_time: 2s
       input: custom_leather

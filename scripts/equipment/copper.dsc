@@ -8,7 +8,7 @@ custom_copper_sword:
   fake_durability: 175
   damage: 5
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -39,7 +39,7 @@ custom_copper_pickaxe:
   fake_durability: 175
   damage: 3
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -56,7 +56,7 @@ custom_copper_axe:
   fake_durability: 175
   damage: 4
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -94,7 +94,7 @@ custom_copper_shovel:
   fake_durability: 175
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -125,7 +125,7 @@ custom_copper_hoe:
   fake_durability: 175
   damage: 2
   attack_speed: 4
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -175,7 +175,7 @@ custom_copper_boots:
     constitution:
       max: 3
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -209,7 +209,7 @@ custom_copper_leggings:
     constitution:
       max: 3
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -236,7 +236,7 @@ custom_copper_chestplate:
     constitution:
       max: 3
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
@@ -263,7 +263,7 @@ custom_copper_helmet:
     constitution:
       max: 3
       min: 1
-  recipes:
+  custom_recipes:
     1:
       type: shaped
       output_quantity: 1
