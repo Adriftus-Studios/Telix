@@ -33,8 +33,8 @@ check_quest_progress:
   definitions: quest
   script:
   - define quest:<script[<[quest]>]>
-  - foreach <yaml[player.<player.uuid>].list_keys[quests.in_progress.<[quest].name>.objectives]> as:objective:
-    - define value:<yaml[player.<player.uuid>].read[quests.in_progress.<[quest].name>.objectives.<[objective]>]>
+  - foreach <yaml[player.<player.uuid>].list_keys[quests.inprogress.<[quest].name>.objectives]> as:objective:
+    - define value:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]>
     - define required_value:<[quest].yaml_key[objectives.<[objective]>]>
     - if <[value]> == <[required_value]>:
       - define objectives_complete:|:<[objective]>
