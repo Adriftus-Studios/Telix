@@ -100,17 +100,13 @@ custom_crafting_events:
     on player drags in custom_crafting_inventory:
       - if <context.raw_slots.contains[<script[custom_crafting_inventory].yaml_key[output_slot]>]>:
         - determine cancelled
+      - else if <context.raw_slots.contains_any[<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>]>:
+        - wait 1t
+        - inject custom_crafting_determineOutput
 
     on player clicks in custom_crafting_inventory priority:-1000:
       - inject custom_crafting_handleInput
-    
-    on player drags in custom_crafting_inventory priority:-1000:
-      - narrate "1"
-      - if <context.raw_slots.contains_any[<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>]>:
-        - narrate "2"
-        - wait 1t
-        - inject custom_crafting_determineOutput
-    
+
     on player closes custom_crafting_inventory:
       - foreach <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>:
         - if <context.inventory.slot[<[value]>].material.name> != air:
