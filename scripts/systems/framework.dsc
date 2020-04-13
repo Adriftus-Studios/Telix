@@ -408,7 +408,7 @@ custom_item_override:
           - determine NOTHING
     on piston extends:
       - foreach <context.blocks> as:block:
-        - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<[block]>/].get[1]||null> != null:
+        - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<[block].simple>/].get[1]||null> != null:
           - determine passively cancelled
     on piston retracts:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.retract_location.simple>/].get[1]||null> != null:
