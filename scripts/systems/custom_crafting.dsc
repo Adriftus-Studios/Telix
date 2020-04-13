@@ -1,4 +1,3 @@
-
 custom_crafting_test_item2:
   type: item
   display name: <&a>Crafting Test Item 2
@@ -7,10 +6,10 @@ custom_crafting_test_item2:
     1:
       type: shaped
       output_quantity: 1
-      recipe:
-        - "[custom_iron_nugget] [custom_iron_nugget] [custom_iron_nugget]"
-        - "[custom_iron_nugget] [custom_iron_ingot] [custom_iron_nugget]"
-        - "[custom_iron_nugget] [custom_iron_nugget] [custom_iron_nugget]"
+      input:
+        - "custom_iron_nugget|custom_iron_nugget|custom_iron_nugget"
+        - "custom_iron_nugget|custom_iron_ingot|custom_iron_nugget"
+        - "custom_iron_nugget|custom_iron_nugget|custom_iron_nugget"
     2:
       type: shapeless
       output_quantity: 1
@@ -23,13 +22,13 @@ custom_crafting_test_item:
   custom_recipes:
     1:
       type: shaped
-      recipe:
-        - "[] [custom_iron_ingot] []"
-        - "[] [custom_stick] []"
-        - "[] [] []"
+      input:
+        - "air|custom_iron_ingot|"
+        - "air|custom_stick|air"
+        - "air|air|air"
     2:
       type: shapeless
-      recipe: custom_iron_ingot|custom_iron_ingot|custom_stick
+      input: custom_iron_ingot|custom_iron_ingot|custom_stick
 
 custom_crafting_build_crafting_matrix:
   type: world
@@ -46,11 +45,11 @@ custom_crafting_build_crafting_matrix:
       - else if <[this_script].yaml_key[custom_recipes.<[recipe_number]>.type]> == shapeless:
         - inject locally process_shapeless_recipe
   process_shaped_recipe:
-    - define this_slot:1
-    - foreach <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe]> as:recipe_line:
-      - define <[this_slot]>:<[recipe_line].after[<&lb>].before[<&rb>]>
-      - define <[this_slot].+[1]>:<[recipe_line].after[<&lb>].after[<&lb>].before[<&rb>]>
-      - define <[this_slot].+[2]>:<[recipe_line].after[<&lb>].after[<&lb>].after[<&lb>].before[<&rb>]>
+    - define this_slot:0
+    - foreach <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input]> as:recipe_line:
+      - foreach <[recipe_line].as_list> as:this_input:
+        - define this_slot:++
+        - define <[this_slot]>:<[this_input]>
       - define this_slot:+:3
     - repeat 9 as:num:
       - if <[<[num]>].is[==].to[]>:
@@ -58,8 +57,8 @@ custom_crafting_build_crafting_matrix:
     - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item:<[this_script].name>
     - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
   process_shapeless_recipe:
-    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.item:<[this_script].name>
-    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
+    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.item:<[this_script].name>
+    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
   events:
     on server start:
       - inject locally build_stuff
@@ -71,9 +70,9 @@ custom_crafting_inventory:
   mapped_crafting_slots: 12|13|14|21|22|23|30|31|32
   output_slot: 26
   definitions:
-    filler: <item[white_stained_glass_pane]>
-    GUITop: <item[white_stained_glass_pane]>
-    GUIBottom: <item[white_stained_glass_pane]>
+    filler: <item[gui_invisible_item]>
+    GUITop: <item[gui_custom_crafting_top]>
+    GUIBottom: <item[gui_custom_crafting_bottom]>
   slots:
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
     - "[filler] [filler] [] [] [] [filler] [filler] [filler] [filler]"
@@ -141,7 +140,7 @@ custom_crafting_determineOutput:
       - define <[loop_index]>:<context.inventory.slot[<[value]>].script.name||<context.inventory.slot[<[value]>].material.name>>
       - define items:|:<context.inventory.slot[<[value]>].script.name||<context.inventory.slot[<[value]>].material.name>>
     - define output:<yaml[custom_recipes_shaped].read[<[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item]||<yaml[custom_recipes_shapeless].read[<[items].alphabetical.separated_by[.]>.item]||null>>
-    - define output:<yaml[custom_recipes_shaped].read[<[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.output_quantity]||<yaml[custom_recipes_shapeless].read[<[items].alphabetical.separated_by[.]>.output_quantity]||null>>
+    - define output_quantity:<yaml[custom_recipes_shaped].read[<[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.output_quantity]||<yaml[custom_recipes_shapeless].read[<[items].alphabetical.separated_by[.]>.output_quantity]||null>>
     - if <[output]> != null:
       - inventory set d:crafting.<player.uuid> slot:<script[custom_crafting_inventory].yaml_key[output_slot]> o:<[output].as_item.with[quantity=<[output_quantity]>]>
     - else:
