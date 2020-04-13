@@ -30,9 +30,9 @@ dialog_command:
     - foreach <[script].yaml_key[dialog.start.actions]> as:action:
       - if <[action].parsed.starts_with[say<&co>]>:
         - narrate <[script].yaml_key[character].parsed><&sp><[action].parsed.substring[5].trim>
-        - wait <[action].parsed.substring[5].trim.count[<&sp>].div[2]>s
+        - wait <[action].parsed.substring[5].trim.split[].count[<&sp>].div[2]>s
       - if <[action].parsed.starts_with[offer<&co>]>:
-        - narrate <[script].yaml_key[character].parsed><&sp><[action].parsed.substring[7].trim>
+        - narrate "<&6> - <[action].parsed.substring[7].trim>"
       
 
 #    /npc assign --set guild_master_assignment
