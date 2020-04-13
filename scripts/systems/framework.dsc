@@ -599,14 +599,19 @@ system_override:
             - note <inventory[equipment_character]> as:equipment_<player.uuid>
           - inventory open d:<inventory[equipment_<player.uuid>]>
         - if <context.raw_slot> < 6 && <context.raw_slot> > -1:
-          - define slotmap:<list[1/in@workbench[holder=<player>]|2/recipe_book_inventory|3/guilds|4/citadels|5/settings]>
+          - define slotmap:<list[2/recipe_book_inventory|3/guilds|4/citadels|5/settings]>
           - if <context.cursor_item.quantity> != 0:
             - determine passively cancelled
             - wait 1t
-            - narrate 1
             - inject custom_crafting_openInventory
             - stop
           - determine passively cancelled
+          - if <context.raw_slot> == 1:
+            - wait 1t
+            - inject custom_crafting_openInventory
+          - if <context.raw_slot> == 2:
+            - wait 1t
+            - inventory open d:recipe_book_inventory
           - if <[slotmap].map_get[<context.raw_slot>]||null> == guilds:
             - if <player.has_flag[guild]>:
               - inventory open d:my_guild_gui
@@ -615,7 +620,6 @@ system_override:
             - stop
           - if <inventory[<[slotmap].map_get[<context.raw_slot>]||null>]||null> != null:
             - wait 1t
-            - narrate 2
             - inject custom_crafting_openInventory
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
