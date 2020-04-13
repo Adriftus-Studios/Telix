@@ -109,6 +109,8 @@ custom_crafting_determineOutput:
     - announce "Definitions<&co> <queue.definitions>"
     - if <[output]> != null:
       - inventory set d:crafting.<player.uuid> slot:<script[custom_crafting_inventory].yaml_key[output_slot]> o:<item[<[output]>]>
+    - else:
+      - inventory set d:crafting.<player.uuid> slot:<script[custom_crafting_inventory].yaml_key[output_slot]> o:air
 
 # DEBUG STUFF BELOW
 custom_crafting_inventory_testCommand:
