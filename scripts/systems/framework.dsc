@@ -587,8 +587,9 @@ system_override:
           - if <[value]> < 6:
             - determine cancelled
     on player right clicks crafting_table:
-      - determine passively cancelled
-      - inject custom_crafting_openInventory
+      - if !<player.is_sneaking>:
+        - determine passively cancelled
+        - inject custom_crafting_openInventory
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
         - if <context.slot> == 39:
