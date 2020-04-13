@@ -112,7 +112,6 @@ custom_crafting_events:
       - foreach <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>:
         - if <context.inventory.slot[<[value]>].material.name> != air:
           - define list:|:<context.inventory.slot[<[value]>]>
-      - narrate "<[list]>"
       - give <[list]>
       - note remove as:crafting.<player.uuid>
       - wait 1t
