@@ -583,8 +583,7 @@ system_override:
             - determine cancelled
     on player opens inventory:
       - if <context.inventory.inventory_type> == workbench && <context.inventory.script_name||null> != recipe_book_crafting:
-        - wait 1t
-        - inventory open d:<inventory[custom_crafting_inventory]>
+        - inject custom_crafting_openInventory
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
         - if <context.slot> == 39:
@@ -598,7 +597,7 @@ system_override:
           - if <context.cursor_item.quantity> != 0:
             - determine passively cancelled
             - wait 1t
-            - inventory open d:<inventory[custom_crafting_inventory]>
+            - inject custom_crafting_openInventory
             - stop
           - determine passively cancelled
           - if <[slotmap].map_get[<context.raw_slot>]||null> == guilds:
