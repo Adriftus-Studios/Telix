@@ -7,7 +7,7 @@ test_dialog:
       actions:
       - say What would you like to know? (Click One)
       - offer options
-
+      - run custom_crafting_openInventory
       options:
       - Tell me the basics
     Tell me the basics:
