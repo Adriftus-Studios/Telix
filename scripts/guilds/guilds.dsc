@@ -23,6 +23,7 @@ guild_settings:
   - total_flags_destroyed
   - total_heads_collected
   - age
+  
 fixguilds_command:
   type: command
   name: fixguilds
