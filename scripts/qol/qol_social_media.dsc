@@ -11,7 +11,7 @@ qol_social_media_inventory:
       - define uuid:<player.uuid>
     - else:
       - define uuid:<player.flag[view_social_media]>
-    - foreach <script[telix_creator_codes].list_keys>:
+    - foreach <script[telix_creator_codes].list_keys.exclude[type]>:
       - if <script[telix_creator_codes].yaml_key[<[value]>.uuid]> == <[uuid]>:
         - define creator:<[value]>
     - if !<[creator]>:
