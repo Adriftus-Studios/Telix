@@ -582,8 +582,7 @@ system_override:
           - if <[value]> < 6:
             - determine cancelled
     on player opens inventory:
-      - narrate <context.inventory.script_name>
-      - if <context.inventory.inventory_type> == workbench && <context.inventory.script_name> != recipe_book_crafting:
+      - if <context.inventory.inventory_type> == workbench && <context.inventory.script_name||null> != recipe_book_crafting:
         - inventory open d:<inventory[custom_crafting_inventory]>
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
