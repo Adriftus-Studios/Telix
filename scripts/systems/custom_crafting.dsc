@@ -40,7 +40,7 @@ custom_crafting_events:
   events:
     on player clicks in custom_crafting_inventory:
       - if <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots].contains[<context.raw_slot>]||true> && <script[custom_crafting_inventory].yaml_key[output_slot]> != <context.raw_slot>:
-      - determine cancelled
+        - determine cancelled
     on player clicks in custom_crafting_inventory priority:-1000:
       - if <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots].contains[<context.raw_slot>]||false>:
         - inject custom_crafting_determineOutput
