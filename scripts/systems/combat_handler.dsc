@@ -71,6 +71,7 @@ logout_quit_command:
         - narrate "<&a>Safely logging out in <&2><player.flag[logging_out].expiration.as_duration.formatted>"
         - wait 1s
       - else:
+        - narrate "<&c>Logout cancelled. Please stand still."
         - stop
     - kick <player> "reason:<&a>----------------------------------------------------<&nl><&nl><&a>You have been safely removed from the server.<&nl><&nl><&a>----------------------------------------------------"
     
