@@ -24,6 +24,7 @@ dialog_command:
   type: command
   name: dialog
   script:
+  - narrate <npc>
   - if <context.args.size> >= 2:
     - define script:<script[<context.args.get[1]>]>
     - define option:<context.args.remove[1].separated_by[<&sp>]>
