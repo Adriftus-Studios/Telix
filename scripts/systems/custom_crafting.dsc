@@ -107,6 +107,12 @@ custom_crafting_events:
     on player drags in custom_crafting_inventroy priority:-1000:
       - if <context.raw_slots.contains_any[<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>]>:
         - inject custom_crafting_determineOutput
+    
+    on player closes custom_crafting_inventroy:
+      - foreach <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>:
+        - define list:|:<context.inventory.slot[<[value]>]>:
+      - give <[list]>
+      - note remove as:crafting.<player.uuid>
 
 custom_crafting_handleInput:
   type: task
