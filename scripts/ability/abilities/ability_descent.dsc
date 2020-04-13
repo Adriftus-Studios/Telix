@@ -8,8 +8,8 @@ ability_descent:
   description: Use air to slowly descend towards the ground
   usage: Sneak to cancel this skill
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 119
   check:
     - waituntil <player.location.below.material.name> != air || <player.is_sneaking>
     - flag player descending:!

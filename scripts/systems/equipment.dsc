@@ -171,21 +171,19 @@ equipment_inventory_handler:
       - define slotmap:<list[11/necklace|12/earrings|16/hat|20/ring1|21/ring2|24/gloves|25/shirt|26/cape|29/trinket1|30/trinket2|34/pants|43/shoes]>
       - if <player.open_inventory.notable_name||null> == null:
         - inventory close
-      - if <context.item.script.name.ends_with[_shadow]>:
+      - if <context.item.script.name.ends_with[_shadow]||false>:
         - if <context.cursor_item.script.name||null> == null:
           - determine passively cancelled
           - stop
       - if !<context.is_shift_click>:
         - if <context.raw_slot> < 55:
-          - if <context.cursor_item.script.yaml_key[category]||null> == null:
-            - determine passively cancelled
-            - stop
           - if !<[slotmap].parse[split[/].get[1]].contains[<context.raw_slot>]>:
             - determine passively cancelled
             - stop
-          - if <context.cursor_item.nbt[built]||null> == null:
-            - determine passively cancelled
-            - stop
+          - if <context.cursor_item.material.name||air> != air:
+            - if <context.cursor_item.script.yaml_key[category]||null> == null:
+              - determine passively cancelled
+              - stop
           - if <context.cursor_item.material.name> == air:
             - if <context.item.script.name||null> != null:
               - if <context.item.script.name.ends_with[_shadow]>:
@@ -205,8 +203,6 @@ equipment_inventory_handler:
                     - stop
                   - wait 1t
                   - define item:<player.item_on_cursor>
-                  - if !<[item].has_nbt[built]>:
-                    - inject built_item
                   - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=1]>
                   - adjust <player> item_on_cursor:<item[air]>
                 - else:
@@ -230,9 +226,6 @@ equipment_inventory_handler:
               - stop
       - else:
         - if <context.raw_slot> > 54:
-          - if <context.item.nbt[built]||null> == null:
-            - determine passively cancelled
-            - stop
           - if <context.item.script.yaml_key[category]||null> == null:
             - determine passively cancelled
             - stop

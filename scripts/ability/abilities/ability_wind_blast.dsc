@@ -9,7 +9,7 @@ ability_wind_blast:
   description: Launch a powerful blast of wind to push your opponents
   icon:
     material: iron_nugget
-    custom_model_data: 2
+    custom_model_data: 102
   apply_effect:
     - foreach <[points].get[<[number]>].find.living_entities.within[1.5].exclude[<player>]>:
       - adjust <[value]> velocity:<[loc].direction.vector.with_y[0.25]>

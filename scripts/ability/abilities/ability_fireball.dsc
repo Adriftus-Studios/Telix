@@ -8,8 +8,8 @@ ability_fireball:
   power_cost: 10
   description: Shoot a fireball towards your targeted location.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 121
   script:
     #Target Skill Tree: Nether, Target Points Requirement: 15, Target Power Cost: 10
     - inject abilities_check

@@ -8,8 +8,8 @@ ability_sonar:
   power_cost: 15
   description: Reveal entity locations in a 50 block radius.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 115
   script:
     #Stop ability usage if there are no entities within 50 blocks of the player.
     - if <player.location.find.entities.within[50].exclude[<player>].size> == 0:

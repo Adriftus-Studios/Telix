@@ -9,7 +9,7 @@ ability_ender_world:
   description: Transport yourself to the ender world.
   icon:
     material: iron_nugget
-    custom_model_data: 6
+    custom_model_data: 106
   script:
     - inject abilities_check
     - inject abilities_cost

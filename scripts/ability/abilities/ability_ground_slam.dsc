@@ -8,8 +8,8 @@ ability_ground_slam:
   description: Knockback/Stun players in a 5/3 block radius.
   usage: Grounded/Midair
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 116
   explosion:
     - playeffect explosion_huge at:<player.location.below> quantity:2 visibility:50
     - flag player no_jump:true duration:1s

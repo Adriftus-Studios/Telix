@@ -15,8 +15,8 @@ ability_parry:
   power_cost: 5
   description: Parry your opponent's attack and riposte.
   icon:
-    material: stone
-    custom_model_data: 1
+    material: iron_nugget
+    custom_model_data: 117
   animation:
     - repeat 2:
       - wait 0.125s

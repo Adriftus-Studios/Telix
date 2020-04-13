@@ -136,7 +136,6 @@ mob_spawning_test_command:
     - flag <player> mob_spawning_delay:true duration:4m
     - stop
   
-
 boss_bossbar_handler:
   type: task
   definitions: entity

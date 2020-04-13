@@ -8,7 +8,7 @@ ability_double_strike:
   description: Strike twice with the slotted weapon.
   icon:
     material: iron_nugget
-    custom_model_data: 5
+    custom_model_data: 105
   script:
     - if <player.target.distance[<player.location>]||5> <= 3:
       - stop

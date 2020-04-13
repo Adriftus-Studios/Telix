@@ -92,8 +92,21 @@ spawn_command:
   tab complete:
     - determine <server.list_online_players.parse[name].filter[starts_with[<context.args.get[1]||>]]>
   script:
-    - if <location[spawn]||null> != null:
-      - teleport <server.match_player[<context.args.get[1]||null>]||<player>> <location[spawn]>
+    - define location:<player.location.with_pitch[90]>
+    - define destination:<location[spawn]>
+    - repeat 20:
+      - define layers:|:<proc[define_circle].context[<[location].above[<[value].mul[0.1]>]>|0.7].escaped>
+      - define cyl:|:<proc[define_circle].context[<[location].above[<[value].mul[0.1]>]>|0.7]>
+    - if !<player.has_permission[spawn.bypass_warmup]>:
+      - repeat 5:
+        - repeat <[layers].size>:
+          - define points:<[layers].get[<[value]>].unescaped>
+          - define points:|:<[layers].get[<[layers].size.sub[<[value]>]>].unescaped>
+          - playeffect redstone at:<[points]> quantity:1 offset:0 visibility:100 special_data:1|<co@91,225,245>
+          - wait 1t
+    - playeffect spell_witch at:<[cyl]> quantity:2 offset:0.1 visibility:100
+    - if <[location].find.players.within[1].contains[<player>]>:
+      - teleport <player> <[destination]>
 
 setspawn_command:
   type: command
@@ -124,6 +137,7 @@ reload_scripts:
       - yaml create id:server.recipe_fixer
       - yaml create id:server.mob_spawns
       - yaml create id:server.mobs
+      - yaml create id:server.quests
       - yaml load:data/skill_trees.yml id:server.skill_trees
       - adjust server reset_recipes
       - foreach <server.list_scripts>:
@@ -134,6 +148,9 @@ reload_scripts:
                   - announce to_ops "<[value].name> is not properly defined. (<[value].filename>)"
               - else:
                   - yaml id:server.skills_by_level set <[value].yaml_key[ability_tree]>.<[value].yaml_key[points_to_unlock]>:|:<[value].yaml_key[name]>
+          #- if <[value].yaml_key[type]> == task:
+          #  - if <[value].yaml_key[quest_name]||null> != null:
+          #    - yaml id:server.quests set <[value].yaml_key[quest_name]>
           - if <[value].yaml_key[type]> == item:
               - if <[value].yaml_key[recipe_book_note]||null> != null:
                 - yaml id:server.recipe_book set notes.<[value].name>:<[value].yaml_key[recipe_book_note]>
@@ -400,6 +417,7 @@ custom_item_override:
     on item recipe formed:
       - if !<context.inventory.script_name.starts_with[recipe_book_]||false>:
         - if <yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
+          - narrate 1
           - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
           - inject build_item
           - determine <[item]>
@@ -408,6 +426,7 @@ custom_item_override:
           - inject build_item
           - determine <[item]>
         - if <context.inventory.result.script.name||null> == null && <context.inventory.result||null> != null:
+          - narrate 2
           - foreach <context.inventory.matrix> as:input_item:
             - if !<server.list_material_types.parse[name].contains[<[input_item].script.name.replace[custom_].with[]||null>]> && <[input_item].material.name> != air:
               - determine passively cancelled
@@ -472,12 +491,12 @@ custom_item_override:
           - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
           - inject build_item
           - adjust <player.open_inventory> result:<[item]>
-    on player places block:
+    on player places block bukkit_priority:lowest:
       - if !<context.item_in_hand.script.yaml_key[placable]||true>:
         - determine cancelled
       - if <context.location.world.name> != tor_mainland && !<player.has_permission[place]>:
         - determine cancelled
-    on player breaks block:
+    on player breaks block bukkit_priority:lowest:
       - if <context.location.world.name> != tor_mainland && !<player.has_permission[break]>:
         - determine cancelled
     on entity damages entity:

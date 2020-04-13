@@ -8,7 +8,7 @@ ability_rising_palm:
   description: Stun your target for 3s.
   icon:
     material: iron_nugget
-    custom_model_data: 12
+    custom_model_data: 112
   script:
     - inject abilties_check
     - if <player.target||null> == null || <player.has_flag[no_move]>:

@@ -8,7 +8,7 @@ ability_quicksand:
   description: Turn the ground around you into soul sand.
   icon:
     material: iron_nugget
-    custom_model_data: 13
+    custom_model_data: 113
   script:
     - inject abilities_check
     - inject abilities_cost

@@ -10,7 +10,7 @@ ability_scape_shift:
   description: Shift yourself 25 blocks forward, through the ground.
   icon:
     material: iron_nugget
-    custom_model_data: 3
+    custom_model_data: 103
   script:
     - inject abilities_check
     - if !<script.yaml_key[whitelist_materials].contains[<player.location.below.material.name>]>:
