@@ -32,6 +32,7 @@ dialog_command:
   - if <context.args.size> >= 2:
     - define script:<script[<context.args.get[1]>]>
     - define option:<context.args.remove[1].separated_by[<&sp>]>
+    - narrate <[script].yaml_key[dialog.<[option]>.actions]>
     - foreach <[script].yaml_key[dialog.<[option]>.actions]> as:action:
       - if <[action].parsed.starts_with[say]>:
         - narrate <[script].yaml_key[character_name].parsed><&sp><[action].parsed.substring[4].trim>
@@ -41,7 +42,8 @@ dialog_command:
           - foreach <[script].yaml_key[dialog.start.options]> as:option:
             - narrate "<element[ - <[option].parsed>].on_click[/dialog <[script].name> <[option]>]>"
       - else:
-        - execute as_op "ex <[action].parsed.trim>"
+        - narrate a
+        #- execute as_op "ex <[action].parsed.trim>"
 
 #    /npc assign --set guild_master_assignment
 
