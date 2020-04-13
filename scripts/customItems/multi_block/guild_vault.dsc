@@ -14,7 +14,7 @@ custom_guild_vault:
     - <&c>TIP<&co> Use <&a>Shift + Right-click<&c> to
     - <&c><&sp>rotate your vault 45°
     
-guild_flag_indicator:
+guild_vault_entity:
   type: entity
   entity_type: armor_stand
   equipment: <item[air]>|<item[air]>|<item[air]>|<item[custom_guild_vault]>
