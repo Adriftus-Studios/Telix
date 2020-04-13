@@ -407,6 +407,9 @@ custom_item_override:
         - else:
           - determine NOTHING
     on piston extends:
+      - define relative:<context.location.sub[<context.relative>]>
+      - announce <[relative]>
+      - announce <context.location><&sp><context.relative>
       - stop
       - foreach <context.blocks> as:block:
         - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<[block].simple>/].get[1]||null> != null:
