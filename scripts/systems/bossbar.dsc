@@ -4,7 +4,7 @@
 # - <[duration]> - Duration of notification/length of the timer. [Default > 10s]
 # - <[color]> - The colour of the bossbar. BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW. [Default > WHITE]
 # - <[progress]> - Progress (how much of the bossbar is filled) of the bossbar. Decimal number between 0.0 and 1.0. [Default > 1.0]
-# - <[players]> - List of players the bossbar will be sent to. [Default > <player>]
+# - <[players]> - List of players the bossbar will be sent to. Pass in an input list with .escaped. [Default > <player>]
 # - Style of bossbar notifications are always SOLID.
 # * - run bb_notification def:title|duration|color|progress|players
 
@@ -35,10 +35,12 @@ bb_notification:
       - define progress:0
     - else if <[progress]> > 1:
       - define progress:1
-    
+    - if <[players].type> == list:
+      - define players:<[players].unescaped>
+      
     #Define timestamp id and create bossbar
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> style:SOLID
+    - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> players:<[players]> style:SOLID
     
     #Wait for specified duration of time
     - wait <[duration]>
@@ -68,10 +70,12 @@ bb_timer:
       - define duration:10s
     - if !<list[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW].contains[<[color]>]>:
       - define color:YELLOW
+    - if <[players].type> == list:
+      - define players:<[players].unescaped>
       
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]> color:<[color]> style:SOLID
+    - bossbar create <[id]> title:<[title]> color:<[color]> players:<[players]> style:SOLID
     - define length:<[duration].as_duration.in_seconds.+[1]>
 
     #Wait for specified duration of time
@@ -104,6 +108,8 @@ bb_status:
       - define duration:5s
     #- if !<list[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW].contains[<[color]>]>:
     #  - define color:YELLOW
+    - if <[players].type> == list:
+      - define players:<[players].unescaped>
       
     #Check for effect, define title
     - choose <[effect]>:
@@ -133,7 +139,7 @@ bb_status:
     
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]><&sp><&f><[duration].as_duration.in_seconds>s<&sp><[icon]> color:<[color]> style:SOLID
+    - bossbar create <[id]> title:<[title]><&sp><&f><[duration].as_duration.in_seconds>s<&sp><[icon]> color:<[color]> players:<[players]> style:SOLID
     - define length:<[duration].as_duration.in_seconds.+[1]>
     
     #Wait for specified duration of time
