@@ -18,7 +18,7 @@ qol_pvp_command:
     - narrate "<&6>Use <&e>/pvp challenge <&6>for more information on Arena Challenges."
   challenge:
     - narrate "<&9><&n>Arena Challenges"
-    - narrate "<&b>Use <&f>/challenge <name> <&b>to challenge another player."
+    - narrate "<&b>Use <&f>/challenge <&lt>name<&gt> <&b>to challenge another player."
     - narrate "<&b>To <&a>accept <&b>or <&c>decline <&b>a challenge, use <&f>/challenge accept/decline."
     - narrate "<&6>If a player accepts your challenge, they get to pick an arena to fight in."
   script:
