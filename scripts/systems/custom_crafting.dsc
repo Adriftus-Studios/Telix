@@ -7,9 +7,9 @@ custom_crafting_test_item2:
       type: shaped
       output_quantity: 1
       input:
-        - "[custom_iron_nugget] [custom_iron_nugget] [custom_iron_nugget]"
-        - "[custom_iron_nugget] [custom_iron_ingot] [custom_iron_nugget]"
-        - "[custom_iron_nugget] [custom_iron_nugget] [custom_iron_nugget]"
+        - "custom_iron_nugget|custom_iron_nugget|custom_iron_nugget"
+        - "custom_iron_nugget|custom_iron_ingot|custom_iron_nugget"
+        - "custom_iron_nugget|custom_iron_nugget|custom_iron_nugget"
     2:
       type: shapeless
       output_quantity: 1
@@ -23,9 +23,9 @@ custom_crafting_test_item:
     1:
       type: shaped
       input:
-        - "[] [custom_iron_ingot] []"
-        - "[] [custom_stick] []"
-        - "[] [] []"
+        - "air|custom_iron_ingot|"
+        - "air|custom_stick|air"
+        - "air|air|air"
     2:
       type: shapeless
       input: custom_iron_ingot|custom_iron_ingot|custom_stick
@@ -45,11 +45,10 @@ custom_crafting_build_crafting_matrix:
       - else if <[this_script].yaml_key[custom_recipes.<[recipe_number]>.type]> == shapeless:
         - inject locally process_shapeless_recipe
   process_shaped_recipe:
-    - define this_slot:1
     - foreach <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input]> as:recipe_line:
-      - define <[this_slot]>:<[recipe_line].after[<&lb>].before[<&rb>]>
-      - define <[this_slot].+[1]>:<[recipe_line].after[<&lb>].after[<&lb>].before[<&rb>]>
-      - define <[this_slot].+[2]>:<[recipe_line].after[<&lb>].after[<&lb>].after[<&lb>].before[<&rb>]>
+      - foreach <[recipe_line].as_list> as:this_input:
+        - define this_slot:++
+        - define <[this_slot]>:<[this_input]>
       - define this_slot:+:3
     - repeat 9 as:num:
       - if <[<[num]>].is[==].to[]>:
