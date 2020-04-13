@@ -108,10 +108,9 @@ custom_crafting_events:
       - if <context.raw_slots.contains_any[<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>]>:
         - inject custom_crafting_determineOutput
     
-    on player closes custom_crafting_inventroy:
+    on player closes custom_crafting_inventory:
       - foreach <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>:
         - define list:|:<context.inventory.slot[<[value]>]>
-      - narrate <[list]>
       - give <[list]>
       - note remove as:crafting.<player.uuid>
 
