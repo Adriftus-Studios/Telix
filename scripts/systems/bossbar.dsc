@@ -25,7 +25,7 @@ bb_notification:
       - define progress:1
     - if <[players]||null> == null || !<[players].exists>:
       - define players:<player>
-    
+    - narrate <queue.definitions>
     #Check for definitions above/below/not what is expected (duration, color, progress)
     - if <[duration].as_duration.in_seconds> <= 0:
       - define duration:5s

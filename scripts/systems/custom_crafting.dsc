@@ -110,7 +110,7 @@ custom_crafting_events:
     
     on player closes custom_crafting_inventory:
       - foreach <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>:
-        - if <context.inventory.slot[<[value]>]> != air:
+        - if <context.inventory.slot[<[value]>].material.name> != air:
           - define list:|:<context.inventory.slot[<[value]>]>
       - narrate "<[list]>"
       - give <[list]>
