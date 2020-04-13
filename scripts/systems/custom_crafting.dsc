@@ -106,6 +106,7 @@ custom_crafting_events:
     
     on player drags in custom_crafting_inventroy priority:-1000:
       - if <context.raw_slots.contains_any[<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>]>:
+        - wait 1t
         - inject custom_crafting_determineOutput
     
     on player closes custom_crafting_inventory:
