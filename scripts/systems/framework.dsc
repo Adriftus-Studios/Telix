@@ -193,7 +193,7 @@ reload_scripts:
                   - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == furnace:
                     - yaml id:server.recipe_fixer set restricted.furnace.<[value].yaml_key[custom_recipes.<[recipe]>.input]>:<[value].name><&co><[value].yaml_key[custom_recipes.<[recipe]>.output_quantity]||1><&co><[value].yaml_key[custom_recipes.<[recipe]>.cook_time]>
                   - if !<[value].yaml_key[custom_recipes.<[recipe]>.hide_in_recipebook]||false>:
-                    - foreach <[value].list_keys[recipes.<[recipe]>]> as:key:
+                    - foreach <[value].list_keys[custom_recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[custom_recipes.<[recipe]>.type]>.<[value].name>.<[key]>:<[value].yaml_key[custom_recipes.<[recipe]>.<[key]>]>
                   - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == smeltery:
                     - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[custom_recipes.<[recipe]>.cook_time]>
