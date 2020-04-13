@@ -1,11 +1,24 @@
 
-test_quest:
+test_quest1:
   type: world
-  quest_name: Test Quest
+  quest_name: Test Quest 1
   on start:
-    - narrate Test Quest Started
+    - narrate "Test Quest 1 Started"
   objectives:
     break_grass: 20
+  events:
+    on player breaks grass_block:
+      - run modify_quest_progress def:<script.name>|break_grass|1
+
+test_quest2:
+  type: world
+  quest_name: Test Quest 2
+  on start:
+    - narrate "Test Quest 2 Started"
+  objectives:
+    break_grass: 20
+  prerequisites:
+    - test_quest1
   events:
     on player breaks grass_block:
       - run modify_quest_progress def:<script.name>|break_grass|1
@@ -15,9 +28,15 @@ start_quest:
   definitions: quest
   script:
   - define quest:<script[<[quest]>]>
-  - narrate "quest started"
-  - foreach <[quest].list_keys[objectives]> as:objective:
-    - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:0
+  - foreach <[quest].yaml_key[prerequisites]||<list[]>> as:pre:
+    - if !<proc[get_completed_quests].contains[<[pre]>]>:
+      - define applicable:false
+      - narrate "<&c>You have not completed the quest <script[<[pre]>].yaml_key[quest_name]>"
+  - if <[applicable]||true>:
+    - if <[quest].yaml_key[on<&sp>start]||null> != null:
+      - run <[quest]> "path:on start"
+    - foreach <[quest].list_keys[objectives]> as:objective:
+      - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:0
 
 modify_quest_progress:
   type: task
