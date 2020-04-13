@@ -613,7 +613,8 @@ system_override:
               - narrate "<&b>Talk to the guild master at spawn to create a guild."
             - stop
           - if <inventory[<[slotmap].map_get[<context.raw_slot>]||null>]||null> != null:
-            - inventory open d:<inventory[<[slotmap].map_get[<context.raw_slot>]>]>
+            - wait 1t
+            - inject custom_crafting_openInventory
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
         - wait 1t
