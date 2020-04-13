@@ -111,6 +111,7 @@ custom_crafting_events:
     on player closes custom_crafting_inventroy:
       - foreach <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>:
         - define list:|:<context.inventory.slot[<[value]>]>:
+      - narrate <[list]>
       - give <[list]>
       - note remove as:crafting.<player.uuid>
 
