@@ -102,7 +102,6 @@ custom_crafting_events:
       - if <context.raw_slots.contains[<script[custom_crafting_inventory].yaml_key[output_slot]>]>:
         - determine cancelled
       - else if <context.raw_slots.contains_any[<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>]>:
-        - narrate "2"
         - wait 1t
         - inject custom_crafting_determineOutput
 
