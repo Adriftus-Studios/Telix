@@ -140,11 +140,10 @@ custom_crafting_determineOutput:
     - foreach <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>:
       - define <[loop_index]>:<context.inventory.slot[<[value]>].script.name||<context.inventory.slot[<[value]>].material.name>>
       - define items:|:<context.inventory.slot[<[value]>].script.name||<context.inventory.slot[<[value]>].material.name>>
-    - announce <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>
     - define output:<yaml[custom_recipes_shaped].read[<[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item]||<yaml[custom_recipes_shapeless].read[<[items].alphabetical.separated_by[.]>.item]||null>>
     - define output:<yaml[custom_recipes_shaped].read[<[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.output_quantity]||<yaml[custom_recipes_shapeless].read[<[items].alphabetical.separated_by[.]>.output_quantity]||null>>
     - if <[output]> != null:
-      - inventory set d:crafting.<player.uuid> slot:<script[custom_crafting_inventory].yaml_key[output_slot]> o:<item[<[output].with[quantity=<[output_quantity]>]>]>
+      - inventory set d:crafting.<player.uuid> slot:<script[custom_crafting_inventory].yaml_key[output_slot]> o:<[output].as_item.with[quantity=<[output_quantity]>]>
     - else:
       - inventory set d:crafting.<player.uuid> slot:<script[custom_crafting_inventory].yaml_key[output_slot]> o:air
 
