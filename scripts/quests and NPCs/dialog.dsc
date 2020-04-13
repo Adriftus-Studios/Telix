@@ -1,13 +1,15 @@
 
 test_dialog:
   type: yaml data
-  character: <&a><&lb><&6>Guide<&a><&rb><&6>
+  character_name: <&a><&lb><&6>Guide<&a><&rb><&6>
   dialog:
     start:
       actions:
       - say What would you like to know? (Click One)
       - offer options
       - run custom_crafting_openInventory
+      - say test:
+        - narrate 1
       options:
       - Tell me the basics
     Tell me the basics:
@@ -32,7 +34,7 @@ dialog_command:
     - define option:<context.args.remove[1].separated_by[<&sp>]>
     - foreach <[script].yaml_key[dialog.<[option]>.actions]> as:action:
       - if <[action].parsed.starts_with[say]>:
-        - narrate <[script].yaml_key[character].parsed><&sp><[action].parsed.substring[4].trim>
+        - narrate <[script].yaml_key[character_name].parsed><&sp><[action].parsed.substring[4].trim>
         - wait <[action].parsed.substring[4].trim.split[].count[<&sp>].div[2]>s
       - else if <[action].parsed.starts_with[offer]>:
         - if <[action].parsed.substring[6].trim> == options:
@@ -40,7 +42,6 @@ dialog_command:
             - narrate "<element[ - <[option].parsed>].on_click[/dialog <[script].name> <[option]>]>"
       - else:
         - execute as_op "ex <[action].parsed.trim>"
-      
 
 #    /npc assign --set guild_master_assignment
 
