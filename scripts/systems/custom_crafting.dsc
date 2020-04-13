@@ -19,7 +19,7 @@ custom_crafting_build_crafting_matrix:
     - yaml create id:custom_recipes_shaped
     - yaml create id:custom_recipes_shapeless
     - foreach <server.list_scripts.filter[type.is[==].to[ITEM]]> as:this_script:
-      - if <[this_script].yaml_key[custom_recipes]||null> != null:
+      - if <[this_script].contains[custom_recipes]:
         - inject locally process_recipes
   process_recipes:
     - foreach <[this_script].list_keys[custom_recipes]> as:recipe_number:
