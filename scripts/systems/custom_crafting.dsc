@@ -104,7 +104,7 @@ custom_crafting_events:
     on player clicks in custom_crafting_inventory priority:-1000:
       - inject custom_crafting_handleInput
     
-    on player drags in custom_crafting_inventroy:
+    on player drags in custom_crafting_inventory priority:-1000:
       - narrate "1"
       - if <context.raw_slots.contains_any[<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>]>:
         - narrate "2"
