@@ -6,7 +6,7 @@ custom_crafting_test_item2:
     1:
       type: shaped
       output_quantity: 1
-      recipe:
+      input:
         - "[custom_iron_nugget] [custom_iron_nugget] [custom_iron_nugget]"
         - "[custom_iron_nugget] [custom_iron_ingot] [custom_iron_nugget]"
         - "[custom_iron_nugget] [custom_iron_nugget] [custom_iron_nugget]"
@@ -22,13 +22,13 @@ custom_crafting_test_item:
   custom_recipes:
     1:
       type: shaped
-      recipe:
+      input:
         - "[] [custom_iron_ingot] []"
         - "[] [custom_stick] []"
         - "[] [] []"
     2:
       type: shapeless
-      recipe: custom_iron_ingot|custom_iron_ingot|custom_stick
+      input: custom_iron_ingot|custom_iron_ingot|custom_stick
 
 custom_crafting_build_crafting_matrix:
   type: world
@@ -46,7 +46,7 @@ custom_crafting_build_crafting_matrix:
         - inject locally process_shapeless_recipe
   process_shaped_recipe:
     - define this_slot:1
-    - foreach <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe]> as:recipe_line:
+    - foreach <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input]> as:recipe_line:
       - define <[this_slot]>:<[recipe_line].after[<&lb>].before[<&rb>]>
       - define <[this_slot].+[1]>:<[recipe_line].after[<&lb>].after[<&lb>].before[<&rb>]>
       - define <[this_slot].+[2]>:<[recipe_line].after[<&lb>].after[<&lb>].after[<&lb>].before[<&rb>]>
@@ -57,8 +57,8 @@ custom_crafting_build_crafting_matrix:
     - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item:<[this_script].name>
     - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
   process_shapeless_recipe:
-    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.item:<[this_script].name>
-    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
+    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.item:<[this_script].name>
+    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
   events:
     on server start:
       - inject locally build_stuff
