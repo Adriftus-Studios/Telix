@@ -612,15 +612,11 @@ system_override:
           - if <context.raw_slot> == 2:
             - wait 1t
             - inventory open d:recipe_book_inventory
-          - if <[slotmap].map_get[<context.raw_slot>]||null> == guilds:
+          - if <context.raw_slot> == 3:
             - if <player.has_flag[guild]>:
               - inventory open d:my_guild_gui
             - else:
               - narrate "<&b>Talk to the guild master at spawn to create a guild."
-            - stop
-          - if <inventory[<[slotmap].map_get[<context.raw_slot>]||null>]||null> != null:
-            - wait 1t
-            - inject custom_crafting_openInventory
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
         - wait 1t
