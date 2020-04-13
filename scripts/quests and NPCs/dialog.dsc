@@ -7,13 +7,11 @@ test_dialog:
       actions:
       - say What would you like to know? (Click One)
       - offer options
-      - run custom_crafting_openInventory
-      - if <player.is_sneaking>
       options:
       - Tell me the basics
     Tell me the basics:
       actions:
-      - say Alright, Heres the basics
+      - say todo
 
 play_dialog:
   type: task
