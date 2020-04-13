@@ -364,6 +364,7 @@ player_setup:
     - yaml id:player.<player.uuid> set stats.encumberance:0
     - yaml id:player.<player.uuid> set lessons.current:10
     - yaml id:player.<player.uuid> set lessons.lifetime:0
+    - yaml id:player.<player.uuid> set quests.total_completed:0
     - foreach <script[abilitytrees].list_keys[trees]>:
       - if <server.has_flag[testing_mode]>:
         - yaml id:player.<player.uuid> set skills.<[value]>.current:1000

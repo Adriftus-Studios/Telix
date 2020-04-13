@@ -37,6 +37,8 @@ dialog_command:
         - if <[action].parsed.substring[6].trim> == options:
           - foreach <[script].yaml_key[dialog.start.options]> as:option:
             - narrate "<&b><element[ - <[option].parsed>].on_click[/dialog <[script].name> <[option]>]>"
+      - else if <[action].parsed.starts_with[quest]>:
+        - narrate todo
       - else:
         - execute as_op "ex <[action].parsed.trim>"
 
