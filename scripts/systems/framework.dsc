@@ -527,7 +527,7 @@ system_override:
       - if <player.has_permission[kicked_for_flying_bypass]>:
         - determine cancelled
     on entity spawns:
-      - if <context.location.world.name> == spawn && <context.entity.script.name||null> == null:
+      - if <context.location.world.name> == spawn && <context.entity.script.name||null> == null && !<context.entity.is_living>:
         - determine cancelled
     on player right clicks entity BUKKIT_PRIORITY:LOWEST:
       - if <context.entity.script.yaml_key[custom.interactable]||false>:
