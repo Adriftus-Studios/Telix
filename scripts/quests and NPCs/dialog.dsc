@@ -8,8 +8,7 @@ test_dialog:
       - say What would you like to know? (Click One)
       - offer options
       - run custom_crafting_openInventory
-      - if <player.is_sneaking>:
-        - narrate 1
+      - if <player.is_sneaking>
       options:
       - Tell me the basics
     Tell me the basics:
