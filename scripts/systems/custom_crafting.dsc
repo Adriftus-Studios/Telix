@@ -50,7 +50,6 @@ custom_crafting_build_crafting_matrix:
       - foreach <[recipe_line].as_list> as:this_input:
         - define this_slot:++
         - define <[this_slot]>:<[this_input]>
-      - define this_slot:+:3
     - repeat 9 as:num:
       - if <[<[num]>].is[==].to[]>:
         - define <[num]>:air
