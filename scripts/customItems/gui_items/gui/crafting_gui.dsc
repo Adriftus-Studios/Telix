@@ -1,13 +1,13 @@
-gui_altar_bottom:
+gui_custom_crafting_bottom:
   type: item
   material: gold_nugget
   mechanisms:
-    custom_model_data: 13
+    custom_model_data: 39
   display name: <&7>
 
-gui_altar_top:
+gui_custom_crafting_top:
   type: item
   material: gold_nugget
   mechanisms:
-    custom_model_data: 14
+    custom_model_data: 40
   display name: <&7>
