@@ -7,9 +7,8 @@ test_quest:
   objectives:
     break_grass: 20
   events:
-    on player breaks block:
-      - if <context.material.name> == grass_block:
-        - run modify_quest_progress def:<script.name>|break_grass|1
+    on player breaks grass_block:
+      - run modify_quest_progress def:<script.name>|break_grass|1
 
 start_quest:
   type: task
@@ -51,3 +50,9 @@ complete_quest:
   - define quest:<script[<[quest]>]>
   - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>:!
   - yaml id:player.<player.uuid> set quests.completed:|:<[quest].name>
+
+get_completed_quests:
+  type: procedure
+  definitions: player
+  script:
+  - determine <yaml[player.<player.uuid>].read[quests.completed]>
