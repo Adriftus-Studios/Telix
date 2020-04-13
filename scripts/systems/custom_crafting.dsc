@@ -71,8 +71,8 @@ custom_crafting_inventory:
   output_slot: 26
   definitions:
     filler: <item[white_stained_glass_pane]>
-    GUITop: <item[white_stained_glass_pane]>
-    GUIBottom: <item[white_stained_glass_pane]>
+    GUITop: <item[gui_custom_crafting_top]>
+    GUIBottom: <item[gui_custom_crafting_bottom]>
   slots:
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
     - "[filler] [filler] [] [] [] [filler] [filler] [filler] [filler]"
