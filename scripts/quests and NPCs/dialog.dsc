@@ -36,7 +36,7 @@ dialog_command:
       - else if <[action].parsed.starts_with[offer]>:
         - if <[action].parsed.substring[6].trim> == options:
           - foreach <[script].yaml_key[dialog.start.options]> as:option:
-            - narrate "<element[ - <[option].parsed>].on_click[/dialog <[script].name> <[option]>]>"
+            - narrate "<&b><element[ - <[option].parsed>].on_click[/dialog <[script].name> <[option]>]>"
       - else:
         - execute as_op "ex <[action].parsed.trim>"
 
