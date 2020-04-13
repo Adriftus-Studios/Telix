@@ -35,9 +35,8 @@ custom_crafting_build_crafting_matrix:
       - define <[this_slot].+[2]>:<[recipe_line].after[<&lb>].after[<&lb>].after[<&lb>].before[<&rb>]>
       - define this_slot:+:3
     - repeat 9 as:num:
-      - if <[num].is[==].to[]>:
+      - if <[<[num]>].is[==].to[]>:
         - define <[num]>:air
-        - narrate "Num <[num]> was set to air" players:<server.match_player[Xeane]>
     - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>:<[this_script].name>
   process_shapeless_recipe:
     - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe].as_list.alphabetical.separated_by[.]>:<[this_script].name>
