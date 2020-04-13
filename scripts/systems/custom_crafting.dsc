@@ -104,7 +104,7 @@ custom_crafting_events:
     on player clicks in custom_crafting_inventory priority:-1000:
       - inject custom_crafting_handleInput
     
-    on player drags in custom_crafting_inventroy priority:-1000:
+    on player drags in custom_crafting_inventroy:
       - narrate "1"
       - if <context.raw_slots.contains_any[<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>]>:
         - narrate "2"
@@ -115,10 +115,11 @@ custom_crafting_events:
       - foreach <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>:
         - if <context.inventory.slot[<[value]>].material.name> != air:
           - define list:|:<context.inventory.slot[<[value]>]>
-      - give <[list]>
       - note remove as:crafting.<player.uuid>
-      - wait 1t
-      - inventory update
+      - if <[list]||null> != null:
+        - give <[list]>
+        - wait 1t
+        - inventory update
 
 custom_crafting_handleInput:
   type: task
