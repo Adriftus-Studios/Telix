@@ -410,7 +410,7 @@ custom_item_override:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.relative.simple>/].get[1]||null> != null:
         - determine passively cancelled
     on piston retracts:
-      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.relative.simple>/].get[1]||null> != null:
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.retract_location.simple>/].get[1]||null> != null:
         - determine passively cancelled
     on entity death:
       - foreach <context.drops||<list[]>> as:item:
