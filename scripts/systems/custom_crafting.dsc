@@ -78,6 +78,7 @@ custom_crafting_events:
         - determine cancelled
 
     on player clicks in custom_crafting_inventory priority:-1000:
+      - wait 1t
       - if <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots].contains[<context.raw_slot>]||false>:
         - inject custom_crafting_determineOutput
       - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.inventory.slot[<context.raw_slot>].material.name> != air:
