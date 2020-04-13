@@ -12,4 +12,4 @@ join_and_leave_events:
           - narrate "<&a>Please talk to the guide to begin your journey."
         - else:
           - teleport <yaml[player.<player.uuid>].read[logout_location]>
-          - narrate "<&a><&l>Welcome back <player>!"
+          - narrate "<&a><&l>Welcome back <player.name>!"
