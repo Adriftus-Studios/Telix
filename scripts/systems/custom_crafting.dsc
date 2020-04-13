@@ -25,7 +25,7 @@ custom_crafting_build_crafting_matrix:
     - foreach <[this_script].list_keys[custom_recipes]> as:recipe_number:
       - if <[this_script].yaml_key[custom_recipes.<[recipe_number]>.type]> == shaped:
         - inject locally process_shaped_recipe
-      - else:
+      - else if <[this_script].yaml_key[custom_recipes.<[recipe_number]>.type]> == shapeless:
         - inject locally process_shapeless_recipe
   process_shaped_recipe:
     - foreach <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe]> as:recipe_line:
