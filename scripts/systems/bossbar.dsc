@@ -14,7 +14,6 @@ bb_notification:
   debug: false
   definitions: title|duration|color|progress|players
   script:
-    - narrate <queue.definitions>
     #Check for existing definitions and set defaults as necessary
     - if <[title]||null> == null || !<[title].exists>:
       - define title:Notification
@@ -36,12 +35,10 @@ bb_notification:
       - define progress:0
     - else if <[progress]> > 1:
       - define progress:1
-    - narrate <[players]>
     
     #Define timestamp id and create bossbar
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
     - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> style:SOLID
-    - narrate <[players]>
     
     #Wait for specified duration of time
     - wait <[duration]>
@@ -75,7 +72,6 @@ bb_timer:
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
     - bossbar create <[id]> title:<[title]> color:<[color]> style:SOLID
-    - bossbar update <[id]> players:<[players]>
     - define length:<[duration].as_duration.in_seconds.+[1]>
 
     #Wait for specified duration of time
@@ -138,7 +134,6 @@ bb_status:
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
     - bossbar create <[id]> title:<[title]><&sp><&f><[duration].as_duration.in_seconds>s<&sp><[icon]> color:<[color]> style:SOLID
-    - bossbar update <[id]> players:<[players]>
     - define length:<[duration].as_duration.in_seconds.+[1]>
     
     #Wait for specified duration of time
