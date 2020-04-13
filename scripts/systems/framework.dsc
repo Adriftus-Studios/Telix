@@ -414,6 +414,7 @@ custom_item_override:
     on piston retracts:
       - define relative:<context.location.sub[<context.relative>]>
       - announce <[relative]>
+      - announce <context.location><&sp><context.relative>
       - stop
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.retract_location.simple>/].get[1]||null> != null:
         - determine passively cancelled
