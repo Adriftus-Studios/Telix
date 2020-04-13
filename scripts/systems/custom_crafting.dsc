@@ -45,6 +45,7 @@ custom_crafting_build_crafting_matrix:
       - else if <[this_script].yaml_key[custom_recipes.<[recipe_number]>.type]> == shapeless:
         - inject locally process_shapeless_recipe
   process_shaped_recipe:
+    - define this_slot:0
     - foreach <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input]> as:recipe_line:
       - foreach <[recipe_line].as_list> as:this_input:
         - define this_slot:++
