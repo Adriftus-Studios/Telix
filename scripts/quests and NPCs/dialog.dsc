@@ -5,13 +5,14 @@ test_dialog:
   dialog:
     start:
       actions:
-      - say: What would you like to know? (Click One)
-      - offer: options
+      - say What would you like to know? (Click One)
+      - offer options
+
       options:
       - Tell me the basics
     Tell me the basics:
       actions:
-      - say: Alright, Heres the basics
+      - say Alright, Heres the basics
 
 play_dialog:
   type: task
@@ -30,13 +31,15 @@ dialog_command:
     - define script:<script[<context.args.get[1]>]>
     - define option:<context.args.remove[1].separated_by[<&sp>]>
     - foreach <[script].yaml_key[dialog.<[option]>.actions]> as:action:
-      - if <[action].parsed.starts_with[say<&co>]>:
-        - narrate <[script].yaml_key[character].parsed><&sp><[action].parsed.substring[5].trim>
-        - wait <[action].parsed.substring[5].trim.split[].count[<&sp>].div[2]>s
-      - if <[action].parsed.starts_with[offer<&co>]>:
-        - if <[action].parsed.substring[7].trim> == options:
+      - if <[action].parsed.starts_with[say]>:
+        - narrate <[script].yaml_key[character].parsed><&sp><[action].parsed.substring[3].trim>
+        - wait <[action].parsed.substring[3].trim.split[].count[<&sp>].div[2]>s
+      - if <[action].parsed.starts_with[offer]>:
+        - if <[action].parsed.substring[6].trim> == options:
           - foreach <[script].yaml_key[dialog.start.options]> as:option:
             - narrate "<element[ - <[option].parsed>].on_click[/dialog <[script].name> <[option]>]>"
+      - if <[action].parsed.starts_with[run]>:
+        - execute as_opped_player "ex run <[action].parsed.substring[5].trim>"
       
 
 #    /npc assign --set guild_master_assignment
