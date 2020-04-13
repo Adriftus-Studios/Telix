@@ -39,8 +39,7 @@ dialog_command:
           - foreach <[script].yaml_key[dialog.start.options]> as:option:
             - narrate "<element[ - <[option].parsed>].on_click[/dialog <[script].name> <[option]>]>"
       - else:
-        - narrate a
-        #- execute as_op "ex <[action].parsed.trim>"
+        - execute as_op "ex <[action].parsed.trim>"
 
 #    /npc assign --set guild_master_assignment
 
