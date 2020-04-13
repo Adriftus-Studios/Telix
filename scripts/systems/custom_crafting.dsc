@@ -48,7 +48,7 @@ custom_crafting_inventory_testCommand:
   type: command
   name: testcraft
   script:
-    - inject crafting_openInventory
+    - inject custom_crafting_openInventory
 
 # Crafting Slots:
 # [12] [13] [14]
