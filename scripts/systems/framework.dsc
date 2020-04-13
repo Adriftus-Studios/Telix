@@ -406,6 +406,12 @@ custom_item_override:
           - determine <[item]>
         - else:
           - determine NOTHING
+    on piston extends:
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.relative.simple>/].get[1]||null> != null:
+        - determine passively cancelled
+    on piston retracts:
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.relative.simple>/].get[1]||null> != null:
+        - determine passively cancelled
     on entity death:
       - foreach <context.drops||<list[]>> as:item:
         - if <[item].material.name> != air && <[item].script.name||null> == null:
