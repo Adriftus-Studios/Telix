@@ -1,3 +1,12 @@
+
+test_dialog:
+  type: yaml data
+  dialog:
+    - hello I am the guide
+    Tell me the basics:
+      - Alright, Heres the basics
+
+
 #    /npc assign --set guild_master_assignment
 
 guild_master_assignment:
