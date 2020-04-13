@@ -88,7 +88,6 @@ setwarp_command:
 spawn_command:
   type: command
   name: spawn
-  permission: spawn
   tab complete:
     - determine <server.list_online_players.parse[name].filter[starts_with[<context.args.get[1]||>]]>
   script:
