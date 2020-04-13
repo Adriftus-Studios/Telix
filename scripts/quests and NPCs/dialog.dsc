@@ -34,7 +34,7 @@ dialog_command:
       - if <[action].parsed.starts_with[offer<&co>]>:
         - if <[action].parsed.substring[7].trim> == options:
           - foreach <[script].yaml_key[dialog.start.options]> as:option:
-            - narrate "<element[ - <[option].parsed>].on_click[/dialog <[script]> <[option]>]>"
+            - narrate "<element[ - <[option].parsed>].on_click[/dialog <[script].name> <[option]>]>"
       
 
 #    /npc assign --set guild_master_assignment
