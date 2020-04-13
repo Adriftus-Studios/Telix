@@ -77,7 +77,21 @@ custom_crafting_events:
       - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.inventory.slot[<context.raw_slot>].material.name> == air:
         - determine cancelled
 
+    on player drags in custom_crafting_inventory:
+      - if !<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots].contains_any[<context.raw_slots>]||false> && <context.raw_slots.contains[<script[custom_crafting_inventory].yaml_key[output_slot]>]> && <context.raw_slots.contains> < 55:
+        - determine cancelled
+      - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.inventory.slot[<context.raw_slot>].material.name> == air:
+        - determine cancelled
+
     on player clicks in custom_crafting_inventory priority:-1000:
+      - inject custom_crafting_handleInput
+    
+    on player drags in custom_crafting_inventroy priority:-1000:
+      - inject custom_craft_handleInput
+
+custom_crafting_handleInput:
+  type: task
+  script:
       - if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.inventory.slot[<context.raw_slot>].material.name> != air:
         - define got_item:true
       - wait 1t
@@ -109,7 +123,6 @@ custom_crafting_determineOutput:
       - define items:|:<context.inventory.slot[<[value]>].script.name||<context.inventory.slot[<[value]>].material.name>>
     - announce <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>
     - define output:<yaml[custom_recipes_shaped].read[<[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>]||<yaml[custom_recipes_shapeless].read[<[items].alphabetical.separated_by[.]>]||null>>
-    - announce "Definitions<&co> <queue.definitions>"
     - if <[output]> != null:
       - inventory set d:crafting.<player.uuid> slot:<script[custom_crafting_inventory].yaml_key[output_slot]> o:<item[<[output]>]>
     - else:
