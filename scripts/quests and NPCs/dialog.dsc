@@ -1,7 +1,7 @@
 
 test_dialog:
   type: yaml data
-  character: <&a><&lb><&6>Portal Tender<&a><&rb><&6>
+  character: <&a><&lb><&6>Guide<&a><&rb><&6>
   dialog:
     start:
       actions:
@@ -29,7 +29,7 @@ dialog_command:
     - define option:<context.args.remove[1].separated_by[<&sp>]>
     - foreach <[script].yaml_key[dialog.start.actions]> as:action:
       - if <[action].parsed.starts_with[say<&co>]>:
-        - narrate <[script].yaml_key[character].parsed><&sp><[action].substring[3].parsed>
+        - narrate <[script].yaml_key[character].parsed><&sp><[action].substring[5].parsed>
 
 #    /npc assign --set guild_master_assignment
 
