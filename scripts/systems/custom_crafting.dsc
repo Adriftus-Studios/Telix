@@ -6,12 +6,44 @@ custom_crafting_test_item:
     1:
       type: shaped
       recipe:
-        - "[] [] []"
-        - "[] [] []"
+        - "[] [custom_iron_ingot] []"
+        - "[] [custom_stick] []"
         - "[] [] []"
     2:
       type: shapeless
-      recipe: custom_iron_ingot|custom_iron_ingot|stick
+      recipe: custom_iron_ingot|custom_iron_ingot|custom_stick
+
+custom_crafting_build_crafting_matrix:
+  type: world
+  build_stuff:
+    - yaml create id:custom_recipes_shaped
+    - yaml create id:custom_recipes_shapeless
+    - foreach <server.list_scripts.filter[container_type.is[==].to[ITEM]]> as:this_script:
+      - if <[this_script].yaml_key[custom_recipes]||null> != null:
+        - inject locally process_recipes
+  process_recipes:
+    - foreach <[this_script].list_keys[custom_recipes]> as:recipe_number:
+      - if <[this_script].yaml_key[custom_recipes.<[recipe_number]>.type]> == shaped:
+        - inject locally process_shaped_recipe
+      - else:
+        - inject locally process_shapeless_recipe
+  process_shaped_recipe:
+    - foreach <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe]> as:recipe_line:
+      - define loop:++
+      - define <[loop].*[1]>:<[recipe_line].after[<&lb>].before[<&rb>]>
+      - define <[loop].*[2]>:<[recipe_line].after[<&lb>].after[<&lb>].before[<&rb>]>
+      - define <[loop].*[3]>:<[recipe_line].after[<&lb>].after[<&lb>].after[<&lb>].before[<&rb>]>
+    - repeat 9 as:num:
+      - if <[num].is[==].to[]>:
+        - define <[num]>:air
+    - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>:<[this_script].name>
+  process_shapeless_recipe:
+    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe].alphabetical.separated_by[.]>:<[this_script].name>
+  events:
+    on server start:
+      - inject locally build_stuff
+    on script reload:
+      - inject locally build_stuff
 
 custom_crafting_inventory:
   type: inventory
