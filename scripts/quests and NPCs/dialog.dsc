@@ -9,7 +9,8 @@ test_dialog:
       options:
       - Tell me the basics
     Tell me the basics:
-      - Alright, Heres the basics
+      actions:
+      - say: Alright, Heres the basics
 
 play_dialog:
   type: task
@@ -24,8 +25,9 @@ dialog_command:
   script:
   - if <context.args.size> >= 2:
     - define script:<script[<context.args.get[1]>]>
-    - narrate <[script]>
-    - narrate <context.args.remove[1].separated_by[<&sp>]>
+    - define option:<context.args.remove[1].separated_by[<&sp>]>
+    - foreach <[script].yaml_key[dialog.start.actions]> as:action:
+      - narrate <[action]>
 
 #    /npc assign --set guild_master_assignment
 
