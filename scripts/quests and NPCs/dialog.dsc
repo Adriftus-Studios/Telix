@@ -23,7 +23,7 @@ dialog_command:
   name: dialog
   script:
   - if <context.args.size> >= 2:
-    - define script:<context.args.get[1]>
+    - define script:<script[<context.args.get[1]>]>
     - narrate <[script]>
     - narrate <context.args.remove[1].separated_by[<&sp>]>
 
