@@ -4,15 +4,15 @@
 # - <[duration]> - Duration of notification/length of the timer. [Default > 10s]
 # - <[color]> - The colour of the bossbar. BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW. [Default > WHITE]
 # - <[progress]> - Progress (how much of the bossbar is filled) of the bossbar. Decimal number between 0.0 and 1.0. [Default > 1.0]
-# - <[targets]> - List of players the bossbar will be sent to. [Default > <player>] UNUSED
+# - <[players]> - List of players the bossbar will be sent to. [Default > <player>] UNUSED
 # - Style of bossbar notifications are always SOLID.
-# * - run bb_notification def:title|duration|color|progress|targets
+# * - run bb_notification def:title|duration|color|progress|players
 
 #bb_notification (Run task)
 bb_notification:
   type: task
   debug: false
-  definitions: title|duration|color|progress|targets
+  definitions: title|duration|color|progress|players
   script:
     #Check for existing definitions and set defaults as necessary
     - if <[title]||null> == null || !<[title].exists>:
@@ -23,8 +23,8 @@ bb_notification:
       - define color:WHITE
     - if <[progress]||null> == null || !<[progress].exists>:
       - define progress:1
-    - if <[targets]||null> == null || !<[targets].exists>:
-      - define targets:<player>
+    - if <[players]||null> == null || !<[players].exists>:
+      - define players:<player>
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
     - if <[duration].as_duration.in_seconds> <= 0:
@@ -37,8 +37,8 @@ bb_notification:
       - define progress:1
 
     #Define timestamp id and create bossbar
-    - define id:<[targets].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> targets:<[targets]> style:SOLID
+    - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
+    - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> players:<[players].as_list> style:SOLID
 
     #Wait for specified duration of time
     - wait <[duration]>
@@ -51,7 +51,7 @@ bb_notification:
 bb_timer:
   type: task
   debug: false
-  definitions: title|duration|color|targets
+  definitions: title|duration|color|players
   script:
     #Check for existing definitions and set defaults as necessary
     - if <[title]||null> == null || !<[title].exists>:
@@ -60,8 +60,8 @@ bb_timer:
       - define duration:10s
     - if <[color]||null> == null || !<[color].exists>:
       - define color:YELLOW
-    - if <[targets]||null> == null || !<[targets].exists>:
-      - define targets:<player>
+    - if <[players]||null> == null || !<[players].exists>:
+      - define players:<player>
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
     - if <[duration].as_duration.in_seconds> <= 0:
@@ -70,8 +70,8 @@ bb_timer:
       - define color:YELLOW
 
     #Define timestamp id, create bossbar, and define length of time
-    - define id:<[targets].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]> color:<[color]> style:SOLID
+    - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
+    - bossbar create <[id]> title:<[title]> color:<[color]> players:<[players].as_list> style:SOLID
     - define length:<[duration].as_duration.in_seconds.+[1]>
 
     #Wait for specified duration of time
@@ -89,15 +89,15 @@ bb_timer:
 bb_status:
   type: task
   debug: true
-  definitions: effect|duration|targets
+  definitions: effect|duration|players
   script:
     #Check for existing definitions and set defaults as necessary
     - if <[effect]||null> == null || !<[effect].exists>:
       - define effect:stun
     - if <[duration]||null> == null || !<[duration].exists>:
       - define duration:5s
-    - if <[targets]||null> == null || !<[targets].exists>:
-      - define targets:<player>
+    - if <[players]||null> == null || !<[players].exists>:
+      - define players:<player>
     
     #Check for definitions above/below/not what is expected (duration, color, progress)
     - if <[duration].as_duration.in_seconds> <= 0:
@@ -132,8 +132,8 @@ bb_status:
         - define color:WHITE
     
     #Define timestamp id, create bossbar, and define length of time
-    - define id:<[targets].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]><&sp><&f><[duration].as_duration.in_seconds>s<&sp><[icon]> color:<[color]> style:SOLID
+    - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
+    - bossbar create <[id]> title:<[title]><&sp><&f><[duration].as_duration.in_seconds>s<&sp><[icon]> color:<[color]> players:<[players].as_list> style:SOLID
     - define length:<[duration].as_duration.in_seconds.+[1]>
     
     #Wait for specified duration of time
