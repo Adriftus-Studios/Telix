@@ -13,7 +13,7 @@ custom_crafting_test_item2:
     2:
       type: shapeless
       output_quantity: 1
-      recipe: custom_iron_ingot|custom_iron_ingot|custom_iron_nugget|custom_iron_nugget
+      input: custom_iron_ingot|custom_iron_ingot|custom_iron_nugget|custom_iron_nugget
 
 custom_crafting_test_item:
   type: item
