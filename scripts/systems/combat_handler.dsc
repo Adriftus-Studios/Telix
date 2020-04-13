@@ -63,10 +63,14 @@ logout_quit_command:
   - if <player.has_flag[combat]>:
     - narrate "<&c>You must wait another <&4><player.flag[combat].expiration.as_duration.formatted> <&c>seconds before logging out safely."
   - else:
+    - define move_check:<player.location.simple>
     - flag <player> logging_out duration:10s
     - repeat 10:
-      - playeffect dragon_breath <player.location> quantity:50
-      - narrate "<&a>Safely logging out in <&2><player.flag[logging_out].expiration.as_duration.formatted>"
-      - wait 1s
+      - if <player.location.simple> == <[move_check]>:
+        - playeffect dragon_breath <player.location> quantity:50
+        - narrate "<&a>Safely logging out in <&2><player.flag[logging_out].expiration.as_duration.formatted>"
+        - wait 1s
+      - else:
+        - stop
     - kick <player> "reason:<&a>----------------------------------------------------<&nl><&nl><&a>You have been safely removed from the server.<&nl><&nl><&a>----------------------------------------------------"
     
