@@ -27,7 +27,7 @@ dialog_command:
   - if <context.args.size> >= 2:
     - define script:<script[<context.args.get[1]>]>
     - define option:<context.args.remove[1].separated_by[<&sp>]>
-    - foreach <[script].yaml_key[dialog.start.actions]> as:action:
+    - foreach <[script].yaml_key[dialog.<[option]>.actions]> as:action:
       - if <[action].parsed.starts_with[say<&co>]>:
         - narrate <[script].yaml_key[character].parsed><&sp><[action].parsed.substring[5].trim>
         - wait <[action].parsed.substring[5].trim.split[].count[<&sp>].div[2]>s
