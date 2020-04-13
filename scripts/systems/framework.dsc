@@ -603,6 +603,7 @@ system_override:
           - if <context.cursor_item.quantity> != 0:
             - determine passively cancelled
             - wait 1t
+            - narrate 1
             - inject custom_crafting_openInventory
             - stop
           - determine passively cancelled
@@ -614,6 +615,7 @@ system_override:
             - stop
           - if <inventory[<[slotmap].map_get[<context.raw_slot>]||null>]||null> != null:
             - wait 1t
+            - narrate 2
             - inject custom_crafting_openInventory
       - if <context.item.script.yaml_key[GUI_Inventory]||null> != null:
         - determine passively cancelled
