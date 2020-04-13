@@ -70,7 +70,7 @@ custom_crafting_inventory:
   mapped_crafting_slots: 12|13|14|21|22|23|30|31|32
   output_slot: 26
   definitions:
-    filler: <item[white_stained_glass_pane]>
+    filler: <item[gui_invisible_item]>
     GUITop: <item[gui_custom_crafting_top]>
     GUIBottom: <item[gui_custom_crafting_bottom]>
   slots:
