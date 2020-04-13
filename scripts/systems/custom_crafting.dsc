@@ -6,12 +6,14 @@ custom_crafting_test_item2:
   custom_recipes:
     1:
       type: shaped
+      output_quantity: 1
       recipe:
         - "[custom_iron_nugget] [custom_iron_nugget] [custom_iron_nugget]"
         - "[custom_iron_nugget] [custom_iron_ingot] [custom_iron_nugget]"
         - "[custom_iron_nugget] [custom_iron_nugget] [custom_iron_nugget]"
     2:
       type: shapeless
+      output_quantity: 1
       recipe: custom_iron_ingot|custom_iron_ingot|custom_iron_nugget|custom_iron_nugget
 
 custom_crafting_test_item:
@@ -53,9 +55,11 @@ custom_crafting_build_crafting_matrix:
     - repeat 9 as:num:
       - if <[<[num]>].is[==].to[]>:
         - define <[num]>:air
-    - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>:<[this_script].name>
+    - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item:<[this_script].name>
+    - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
   process_shapeless_recipe:
-    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>:<[this_script].name>
+    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.item:<[this_script].name>
+    - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
   events:
     on server start:
       - inject locally build_stuff
@@ -94,14 +98,15 @@ custom_crafting_events:
         - determine cancelled
 
     on player drags in custom_crafting_inventory:
-      - if <context.raw_slots.exclude[<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>].size> > 0:
+      - if <context.raw_slots.contains[<script[custom_crafting_inventory].yaml_key[output_slot]>]>:
         - determine cancelled
 
     on player clicks in custom_crafting_inventory priority:-1000:
       - inject custom_crafting_handleInput
     
     on player drags in custom_crafting_inventroy priority:-1000:
-      - inject custom_craft_handleInput
+      - if <context.raw_slots.contains_any[<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots]>]>:
+        - inject custom_crafting_determineOutput
 
 custom_crafting_handleInput:
   type: task
@@ -136,9 +141,10 @@ custom_crafting_determineOutput:
       - define <[loop_index]>:<context.inventory.slot[<[value]>].script.name||<context.inventory.slot[<[value]>].material.name>>
       - define items:|:<context.inventory.slot[<[value]>].script.name||<context.inventory.slot[<[value]>].material.name>>
     - announce <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>
-    - define output:<yaml[custom_recipes_shaped].read[<[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>]||<yaml[custom_recipes_shapeless].read[<[items].alphabetical.separated_by[.]>]||null>>
+    - define output:<yaml[custom_recipes_shaped].read[<[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item]||<yaml[custom_recipes_shapeless].read[<[items].alphabetical.separated_by[.]>.item]||null>>
+    - define output:<yaml[custom_recipes_shaped].read[<[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.output_quantity]||<yaml[custom_recipes_shapeless].read[<[items].alphabetical.separated_by[.]>.output_quantity]||null>>
     - if <[output]> != null:
-      - inventory set d:crafting.<player.uuid> slot:<script[custom_crafting_inventory].yaml_key[output_slot]> o:<item[<[output]>]>
+      - inventory set d:crafting.<player.uuid> slot:<script[custom_crafting_inventory].yaml_key[output_slot]> o:<item[<[output].with[quantity=<[output_quantity]>]>]>
     - else:
       - inventory set d:crafting.<player.uuid> slot:<script[custom_crafting_inventory].yaml_key[output_slot]> o:air
 
