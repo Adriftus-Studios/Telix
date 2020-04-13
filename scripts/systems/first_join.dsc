@@ -1,7 +1,7 @@
 join_and_leave_events:
     type: world
     events:
-      on player logs out:
+      on player quits:
         - yaml id:player.<player.uuid> set logout_location:<player.location>
 
       on player joins:
