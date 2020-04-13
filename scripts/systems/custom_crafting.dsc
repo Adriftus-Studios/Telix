@@ -31,8 +31,8 @@ custom_crafting_build_crafting_matrix:
     - define this_slot:1
     - foreach <[this_script].yaml_key[custom_recipes.<[recipe_number]>.recipe]> as:recipe_line:
       - define <[this_slot]>:<[recipe_line].after[<&lb>].before[<&rb>]>
-      - define <[this_slot].+[2]>:<[recipe_line].after[<&lb>].after[<&lb>].before[<&rb>]>
-      - define <[this_slot].+[3]>:<[recipe_line].after[<&lb>].after[<&lb>].after[<&lb>].before[<&rb>]>
+      - define <[this_slot].+[1]>:<[recipe_line].after[<&lb>].after[<&lb>].before[<&rb>]>
+      - define <[this_slot].+[2]>:<[recipe_line].after[<&lb>].after[<&lb>].after[<&lb>].before[<&rb>]>
       - define this_slot:+:3
     - repeat 9 as:num:
       - if <[num].is[==].to[]>:
