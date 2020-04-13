@@ -2,7 +2,11 @@
 test_dialog:
   type: yaml data
   dialog:
-    - hello I am the guide
+    start:
+      lines:
+      - hello I am the guide
+      options:
+      - Tell me the basics
     Tell me the basics:
       - Alright, Heres the basics
 
