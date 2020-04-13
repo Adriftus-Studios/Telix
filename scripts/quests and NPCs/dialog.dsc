@@ -24,12 +24,11 @@ dialog_command:
   type: command
   name: dialog
   script:
-  - if <player.location.distance[<npc.location>]> > 6:
+  - if <player.location.distance[<npc.location>]||7> > 6:
     - stop
   - if <context.args.size> >= 2:
     - define script:<script[<context.args.get[1]>]>
     - define option:<context.args.remove[1].separated_by[<&sp>]>
-    - narrate <[script].yaml_key[dialog.<[option]>.actions]>
     - foreach <[script].yaml_key[dialog.<[option]>.actions]> as:action:
       - if <[action].parsed.starts_with[say]>:
         - narrate <[script].yaml_key[character_name].parsed><&sp><[action].parsed.substring[4].trim>
