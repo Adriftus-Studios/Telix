@@ -28,7 +28,8 @@ dialog_command:
     - define script:<script[<context.args.get[1]>]>
     - define option:<context.args.remove[1].separated_by[<&sp>]>
     - foreach <[script].yaml_key[dialog.start.actions]> as:action:
-      - narrate <[action].parsed>
+      - if <[action].starts_with[say:]>:
+        - narrate <[script].yaml_key[character].parsed><&sp><[action].substring[3].parsed>
 
 #    /npc assign --set guild_master_assignment
 
