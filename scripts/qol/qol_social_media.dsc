@@ -17,10 +17,10 @@ qol_social_media_inventory:
     - if !<[creator]>:
       - foreach <yaml[player.<[uuid]>].list_keys[social]||<list[]>>:
         - if <yaml[player.<[uuid]>].read[social.<[value]>]||None> != None:
-          - define heads:|:<item[custom_<[value]>_head].with[nbt=<list[account/<yaml[player.<[uuid]>].read[social.<[value]>]>]>]>
+          - define heads:|:<item[custom_<[value]>_head].with[nbt=<list[account/<yaml[player.<[uuid]>].read[social.<[value]>]>]>]||<item[air]>>
     - else:
       - foreach <script[telix_creator_codes].list_keys[<[creator]>.social]||<list[]>>:
-        - define heads:|:<item[custom_<[value]>_head].with[nbt=<list[account/<script[telix_creator_codes].read[<[creator]>.social.<[value]>]>]>]>
+        - define heads:|:<item[custom_<[value]>_head].with[nbt=<list[account/<script[telix_creator_codes].read[<[creator]>.social.<[value]>]>]>]||<item[air]>>
     - determine <[heads]>
   definitions:
     w_filler: <item[gui_invisible_item]>
