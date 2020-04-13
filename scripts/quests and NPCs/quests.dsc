@@ -16,7 +16,7 @@ start_quest:
   definitions: quest
   script:
   - define quest:<script[<[quest]>]>
-  - execute as_player "dialog <[quest].name> start"
+  - narrate quest started
   - foreach <[quest].list_keys[objectives]> as:objective:
     - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:0
 
