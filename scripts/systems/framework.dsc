@@ -163,6 +163,8 @@ reload_scripts:
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.biome:<[value].yaml_key[ore.<[ore]>.biome]||all>
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.chance:<[value].yaml_key[ore.<[ore]>.chance]||20>
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.tool:<[value].yaml_key[ore.<[ore]>.tool]||all>
+                - define biome:!
+                - define block:!
               - if <[value].yaml_key[mob_drops]||null> != null:
                 - foreach <[value].list_keys[mob_drops]> as:num:
                   - foreach <[value].yaml_key[mob_drops.<[num]>.dropped_by].as_list> as:mob:
@@ -172,6 +174,8 @@ reload_scripts:
                   - yaml id:server.recipe_book set mob_drops.<[value].name>.min_quantity:<[value].yaml_key[mob_drops.<[num]>.min_quantity]>
                   - yaml id:server.recipe_book set mob_drops.<[value].name>.max_quantity:<[value].yaml_key[mob_drops.<[num]>.max_quantity]>
                   - yaml id:server.recipe_book set mob_info.<[value].yaml_key[mob_drops.<[num]>.dropped_by]>.drops:|:<[value].name>
+                - define mob:!
+                - define num:!
               - if <[value].yaml_key[category]||null> != null:
                   - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
               - if <[value].yaml_key[custom_recipes]||null> != null:
