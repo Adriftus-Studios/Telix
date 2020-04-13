@@ -38,7 +38,7 @@ bb_notification:
 
     #Define timestamp id and create bossbar
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> players:<[players]> style:SOLID
+    - bossbar create <[id]> title:<[title]> color:<[color]> progress:<[progress]> players:<[players].as_list> style:SOLID
 
     #Wait for specified duration of time
     - wait <[duration]>
@@ -71,7 +71,7 @@ bb_timer:
 
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]> color:<[color]> players:<[players]> style:SOLID
+    - bossbar create <[id]> title:<[title]> color:<[color]> players:<[players].as_list> style:SOLID
     - define length:<[duration].as_duration.in_seconds.+[1]>
 
     #Wait for specified duration of time
@@ -133,7 +133,7 @@ bb_status:
     
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[players].as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
-    - bossbar create <[id]> title:<[title]><&sp><&f><[duration].as_duration.in_seconds>s<&sp><[icon]> color:<[color]> players:<[players]> style:SOLID
+    - bossbar create <[id]> title:<[title]><&sp><&f><[duration].as_duration.in_seconds>s<&sp><[icon]> color:<[color]> players:<[players].as_list> style:SOLID
     - define length:<[duration].as_duration.in_seconds.+[1]>
     
     #Wait for specified duration of time
