@@ -35,8 +35,7 @@ bb_notification:
       - define progress:0
     - else if <[progress]> > 1:
       - define progress:1
-    - if <[players].unescaped.type> == list:
-      - define players:<[players].unescaped>
+    - define players:<[players].unescaped>
       
     #Define timestamp id and create bossbar
     - define id:<[players].unescaped.as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
@@ -70,8 +69,7 @@ bb_timer:
       - define duration:10s
     - if !<list[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW].contains[<[color]>]>:
       - define color:YELLOW
-    - if <[players].unescaped.type> == list:
-      - define players:<[players].unescaped>
+    - define players:<[players].unescaped>
       
     #Define timestamp id, create bossbar, and define length of time
     - define id:<[players].unescaped.as_list.get[1].uuid>.<util.date.time.duration.in_seconds>
@@ -108,8 +106,7 @@ bb_status:
       - define duration:5s
     #- if !<list[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW].contains[<[color]>]>:
     #  - define color:YELLOW
-    - if <[players].unescaped.type> == list:
-      - define players:<[players].unescaped>
+    - define players:<[players].unescaped>
       
     #Check for effect, define title
     - choose <[effect]>:
