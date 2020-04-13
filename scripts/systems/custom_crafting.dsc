@@ -78,10 +78,12 @@ custom_crafting_events:
         - determine cancelled
 
     on player clicks in custom_crafting_inventory priority:-1000:
+      - if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.inventory.slot[<context.raw_slot>].material.name> != air:
+        - define got_item:true
       - wait 1t
       - if <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots].contains[<context.raw_slot>]||false>:
         - inject custom_crafting_determineOutput
-      - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.inventory.slot[<context.raw_slot>].material.name> != air:
+      - else if <[got_item]||false>:
         - if <context.cursor_item.material.name||air> != air:
           - if <context.cursor_item.script.name> == <context.inventory.slot[<context.raw_slot>].material.name> && <context.cursor_item.max_stack_size> > <context.cursor_item.quantity>:
             # Increment Cursor Item
