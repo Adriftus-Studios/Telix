@@ -39,7 +39,7 @@ custom_crafting_events:
   type: world
   events:
     on player clicks in custom_crafting_inventory priority:-1000:
-      - if <context.clicked_inventory.script.yaml_key[mapped_crafting_slots].contains[<context.slot>]>:
+      - if <context.clicked_inventory.script.yaml_key[mapped_crafting_slots].contains[<context.slot>]||false>:
         - narrate <context.clicked_inventory.slot[<context.slot>]>
       
 
