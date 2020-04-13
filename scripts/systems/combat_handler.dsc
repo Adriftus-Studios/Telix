@@ -57,7 +57,8 @@ logout_quit_command:
   name: logout
   description: Safely logout of the server.
   usage: /logout
-  alias: quit
+  aliases:
+  - quit
   tab complete:
   script:
   - if <player.has_flag[combat]>:
