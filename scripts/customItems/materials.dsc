@@ -394,7 +394,7 @@ custom_iron_nugget:
   display name: <&7>Iron Nugget
   weight: '0'
   type: item
-  recipes:
+  custom_recipes:
     1:
       type: shapeless
       output_quantity: 9
