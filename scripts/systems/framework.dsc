@@ -586,10 +586,9 @@ system_override:
         - foreach <context.raw_slots>:
           - if <[value]> < 6:
             - determine cancelled
-    on player opens inventory:
-      - if <context.inventory.inventory_type> == workbench && <context.inventory.script_name||null> != recipe_book_crafting:
-        - wait 1t
-        - inject custom_crafting_openInventory
+    on player right clicks crafting_table:
+      - determine passively cancelled
+      - inject custom_crafting_openInventory
     on player clicks in inventory:
       - if <player.open_inventory> == <player.inventory>:
         - if <context.slot> == 39:
