@@ -5,11 +5,11 @@ test_quest:
   on start:
     - narrate Test Quest Started
   objectives:
-    break_stone: 20
+    break_grass: 20
   events:
     on player breaks block:
       - if <context.material.name> == stone:
-        - run modify_quest_progress def:<script.name>|break_stone|1
+        - run modify_quest_progress def:<script.name>|break_grass|1
 
 start_quest:
   type: task
