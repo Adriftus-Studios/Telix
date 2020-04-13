@@ -414,8 +414,7 @@ custom_item_override:
         - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<[block].simple>/].get[1]||null> != null:
           - determine passively cancelled
     on piston retracts:
-      - define relative:<context.relative.sub[<context.retract_location>]>
-      - announce <[relative]>
+      - announce <context.retract_location>
       - stop
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.retract_location.simple>/].get[1]||null> != null:
         - determine passively cancelled
