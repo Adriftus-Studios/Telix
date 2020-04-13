@@ -41,6 +41,9 @@ custom_crafting_events:
     on player clicks in custom_crafting_inventory:
       - if !<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots].contains[<context.raw_slot>]||false> && <script[custom_crafting_inventory].yaml_key[output_slot]> != <context.raw_slot> && <context.raw_slot> < 55:
         - determine cancelled
+      - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.inventory.slot[<context.raw_slot>].material.name> == air:
+        - determine cancelled
+
     on player clicks in custom_crafting_inventory priority:-1000:
       - if <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots].contains[<context.raw_slot>]||false>:
         - inject custom_crafting_determineOutput
