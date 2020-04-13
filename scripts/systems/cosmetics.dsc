@@ -16,6 +16,16 @@ entity_nametag:
   custom:
     interactable: false
 
+entity_emblem_2:
+  type: entity
+  entity_type: armor_stand
+  equipment: <item[air]>|<item[air]>|<item[air]>|<item[rabbit_hide].with[custom_model_data=7]>
+  gravity: false
+  visible: false
+  invulnerable: true
+  custom:
+    interactable: false
+
 entity_lucid_soul:
   type: entity
   entity_type: armor_stand
@@ -73,11 +83,30 @@ cosmetics_command:
     - co
   tab complete:
   - if <context.raw_args.split[].count[<&sp>]> == 0:
-    - determine <list[curve1|sphere2|lucid1|lucid2|tail1|bunnyears].filter[starts_with[<context.args.get[1]||>]]>
+    - determine <list[curve1|sphere2|lucid1|lucid2|tail1|bunnyears|lucid_soul|nametag|emblem2].filter[starts_with[<context.args.get[1]||>]]>
   - else:
     - determine <list[]>
   script:
   - if <player.has_flag[cosmetic]>:
+    - if <context.args.get[1]> == emblem2:
+      - if <player.has_flag[emblem]>:
+        - narrate "<&b>Deactivated cosmetic effect emblem2"
+        - flag <player> emblem:!
+      - else:
+        - narrate "<&b>Activated cosmetic effect emblem2"
+        - flag <player> emblem
+        - spawn entity_emblem_2 <player.location.below[0.5]> save:emblem
+        - define emblem:<entry[emblem].spawned_entity>
+        - adjust <[emblem]> armor_pose:head|0,0,0
+        - adjust <player> passengers:<list[<[emblem]>].include[<player.passengers>]>
+      - while <player.has_flag[emblem]>:
+        - teleport <[emblem]> <player.location.below[0.5]>
+        - adjust <player> passengers:<list[<[emblem]>].include[<player.passengers>]>
+        - wait 1t
+        - if !<player.is_online>:
+          - while stop
+      - if <[emblem]||null> != null:
+        - remove <[emblem]>
     - if <context.args.get[1]> == nametag:
       - if <player.has_flag[nametag]>:
         - narrate "<&b>Deactivated cosmetic effect nametag"
