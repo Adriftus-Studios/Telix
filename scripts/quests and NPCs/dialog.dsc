@@ -5,7 +5,9 @@ test_dialog:
   dialog:
     start:
       actions:
-      - say: What would you like to know? (Click One)
+      - say: What would you like to know? (Click One)1
+      - say: What would you like to know? (Click One)2
+      - say: What would you like to know? (Click One)3
       options:
       - Tell me the basics
     Tell me the basics:
@@ -29,6 +31,7 @@ dialog_command:
     - foreach <[script].yaml_key[dialog.start.actions]> as:action:
       - if <[action].parsed.starts_with[say<&co>]>:
         - narrate <[script].yaml_key[character].parsed><&sp><[action].parsed.substring[5].trim>
+        - wait <[action].parsed.substring[5].trim.count[<&sp>]>s
 
 #    /npc assign --set guild_master_assignment
 
