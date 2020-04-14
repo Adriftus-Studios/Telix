@@ -478,13 +478,6 @@ custom_item_override:
               - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
               - inject build_item
               - adjust <player.open_inventory> result:<[item]>
-          - if <player.open_inventory.inventory_type> == furnace:
-            # this might be needed later
-            - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.item.script.name.to_lowercase||null>]||<context.item>>
-            #- narrate <[item]>
-            - stop
-            - adjust <player.open_inventory.location> furnace_cook_time:200
-            - adjust <player.open_inventory.location> furnace_cook_time_total:400
     on player drags in inventory:
       - if <player.open_inventory.inventory_type> == workbench:
         - wait 1t
