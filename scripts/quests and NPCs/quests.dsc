@@ -115,7 +115,7 @@ get_quests_inprogress:
   type: procedure
   definitions: player
   script:
-  - determine <proc[get_quests_inprogress]||<list[]>>
+  - determine <yaml[player.<[player].uuid||<player.uuid>>].list_keys[quests.inprogress]||<list[]>>
 
 applicable_for_quest:
   type: procedure
