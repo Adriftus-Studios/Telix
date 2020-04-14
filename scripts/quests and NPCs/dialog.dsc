@@ -32,24 +32,40 @@ dialog_command:
     - define script:<script[<context.args.get[1]>]>
     - define option:<context.args.remove[1].separated_by[<&sp>]>
     - foreach <[script].yaml_key[dialog.<[option]>.actions]> as:action:
-      - if <[action].parsed.starts_with[say]>:
-        - narrate <[script].yaml_key[character_name].parsed><&sp><[action].parsed.substring[4].trim>
-        - wait <[action].parsed.substring[4].trim.split[].count[<&sp>].div[2]>s
-      - else if <[action].parsed.starts_with[offer]>:
-        - if <[action].parsed.substring[6].trim> == options:
-          - foreach <[script].yaml_key[dialog.start.options]> as:option:
-            - narrate "<&b><element[ - <[option].split[|].get[1].trim.parsed>].on_click[/dialog <[script].name> <[option].split[|].get[2]>]>"
-      - else if <[action].parsed.starts_with[quest]>:
-        - if <[action].parsed.substring[7].trim.starts_with[start]>:
-          - define quest:<script[<[action].substring[13]>]>
-          - define status:<proc[applicable_for_quest].context[<[quest].name>]>
-          - if <[status]> == true:
-            - run start_quest def:<[quest].name>
-          - else:
-            - narrate <&c><[status]>
-            - stop
-      - else if <[action].parsed.starts_with[if]>:
-        - define result:<[action].substring[4]>
-        - narrate <[result].parsed>
+      - inject process_dialog_command
+
+process_dialog_command:
+  type: task
+  definitions: script|action
+  script:
+  - if <[action].parsed.starts_with[say]>:
+    - narrate <[script].yaml_key[character_name].parsed><&sp><[action].parsed.substring[4].trim>
+    - wait <[action].parsed.substring[4].trim.split[].count[<&sp>].div[2]>s
+  - else if <[action].parsed.starts_with[offer]>:
+    - if <[action].parsed.substring[6].trim> == options:
+      - foreach <[script].yaml_key[dialog.start.options]> as:option:
+        - narrate "<&b><element[ - <[option].split[|].get[1].trim.parsed>].on_click[/dialog <[script].name> <[option].split[|].get[2]>]>"
+  - else if <[action].parsed.starts_with[quest]>:
+    - if <[action].parsed.substring[7].trim.starts_with[start]>:
+      - define quest:<script[<[action].substring[13]>]>
+      - define status:<proc[applicable_for_quest].context[<[quest].name>]>
+      - if <[status]> == true:
+        - run start_quest def:<[quest].name>
       - else:
-        - execute as_op "ex <[action].parsed.trim>"
+        - narrate <&c><[status]>
+        - stop
+  - else if <[action].parsed.starts_with[if]>:
+    - define result:<[action].substring[4].parsed>
+    - if <[result].starts_with[!]>:
+      - if <[result].substring[2]> == true:
+        - define result:false
+      - else if <[result].substring[2]> == false:
+        - define result:true
+      - else:
+        - announce to_flagged:debug "<&c>Invalid if Statement in dialog script <[script].name>!"
+        - announce to_flagged:debug "<&c>File path: <[script].filename>"
+        - stop
+    - if <[result]> == <[action].substring[4].parsed>:
+      - if <[result]>:
+  - else:
+    - execute as_op "ex <[action].parsed.trim>"
