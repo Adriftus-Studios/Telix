@@ -129,13 +129,13 @@ applicable_for_quest:
     - if !<proc[get_completed_quests].contains[<[pre]>]>:
       - define applicable:false
       - determine "You have not completed the quest <script[<[pre]>].yaml_key[quest_name]>"
-  - if <yaml[player.<player.uuid>].read[stats.level]> < <[quest].yaml_key[level_requirement]>:
+  - if <yaml[player.<player.uuid>].read[stats.level]> < <[quest].yaml_key[level_requirement]||1>:
     - define applicable:false
     - determine "Your level is not high enough. Required Level: <[quest].yaml_key[level_requirement]>"
-  - if !<[quest].yaml_key[repeatable]> && <proc[get_completed_quests].contains[<[quest].name>]>:
+  - if !<[quest].yaml_key[repeatable]||false> && <proc[get_completed_quests].contains[<[quest].name>]>:
     - define applicable:false
     - determine "You cannot repeat this quest."
-  - if <[quest].yaml_key[repeatable]> && <player.has_flag[<[quest].name>]>:
+  - if <[quest].yaml_key[repeatable]||false> && <player.has_flag[<[quest].name>]>:
     - define applicable:false
     - determine "You cannot start this quest right now. You must wait <player.flag[<[quest].name>].expiration.formatted>"
   - determine <[applicable]||true>
