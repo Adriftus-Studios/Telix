@@ -47,6 +47,7 @@ custom_crafting_build_crafting_matrix:
       - else if <[this_script].yaml_key[custom_recipes.<[recipe_number]>.type]> == shapeless:
         - inject locally process_shapeless_recipe
   process_shaped_recipe:
+    - define regex_used:false
     - define this_slot:0
     - foreach <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input]> as:recipe_line:
       - foreach <[recipe_line].as_list> as:this_input:
@@ -57,7 +58,7 @@ custom_crafting_build_crafting_matrix:
     - repeat 9 as:num:
       - if <[<[num]>].is[==].to[]>:
         - define <[num]>:air
-    - if <[regex_used]||false>:
+    - if <[regex_used]>:
       - repeat 9 as:input_slot:
         - if <[<[input_slot]>].starts_with[regex<&co>]>:
           - define <[input_slot]>:<server.list_scripts.filter[container_type.is[==].to[item]].parse[script.name].filter[matches[<[<[input_slot]>].after[<&co>]>]].escaped>
