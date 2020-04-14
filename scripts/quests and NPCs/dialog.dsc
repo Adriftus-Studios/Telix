@@ -40,7 +40,7 @@ dialog_command:
             - narrate "<&b><element[ - <[option].split[|].get[1].trim.parsed>].on_click[/dialog <[script].name> <[option].split[|].get[2]>]>"
       - else if <[action].parsed.starts_with[quest]>:
         - if <[action].parsed.substring[7].trim.starts_with[start]>:
-          - define quest:<[action].substring[13]>
-          - narrate <proc[applicable_for_quest].context[<[quest]>]>
+          - define quest:<script[<[action].substring[13]>]>
+          - narrate <proc[applicable_for_quest].context[<[quest].name>]>
       - else:
         - execute as_op "ex <[action].parsed.trim>"

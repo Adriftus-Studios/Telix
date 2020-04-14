@@ -122,6 +122,9 @@ applicable_for_quest:
   definitions: quest|player
   script:
   - adjust <queue> linked_player:<[player]||<player>>
+  - define quest:<script[<[quest]>]||null>
+  - if <[quest]> == null:
+     - stop
   - foreach <[quest].yaml_key[prerequisites]||<list[]>> as:pre:
     - if !<proc[get_completed_quests].contains[<[pre]>]>:
       - define applicable:false
