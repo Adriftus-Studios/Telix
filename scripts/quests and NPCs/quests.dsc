@@ -20,6 +20,7 @@ test_quest2:
   description: This is also a test
   repeatable: true
   repeatable_every: 1d
+  additional_conditions:
   on start:
     - narrate "Test Quest 2 Started"
   on complete:
@@ -42,17 +43,20 @@ start_quest:
   - define quest:<script[<[quest]>]||null>
   - if <[quest]> == null:
      - stop
+  - if <[quest].yaml_key[additional_conditions].parse[parsed].contains[false]||false>:
+    - define applicable:false
+    - narrate "<&c>You have unmet conditions"
   - foreach <[quest].yaml_key[prerequisites]||<list[]>> as:pre:
     - if !<proc[get_completed_quests].contains[<[pre]>]>:
       - define applicable:false
       - narrate "<&c>You have not completed the quest <script[<[pre]>].yaml_key[quest_name]>"
-  - if <yaml[player.<player.uuid>].read[stats.level]> < <[quest].yaml_key[level_requirement]>:
+  - if <yaml[player.<player.uuid>].read[stats.level]||1> < <[quest].yaml_key[level_requirement]||1>:
     - define applicable:false
     - narrate "<&c>Your level is not high enough. Required Level: <[quest].yaml_key[level_requirement]>"
-  - if !<[quest].yaml_key[repeatable]> && <proc[get_completed_quests].contains[<[quest].name>]>:
+  - if !<[quest].yaml_key[repeatable]||false> && <proc[get_completed_quests].contains[<[quest].name>]>:
     - define applicable:false
     - narrate "<&c>You cannot repeat this quest."
-  - if <[quest].yaml_key[repeatable]> && <player.has_flag[<[quest].name>]>:
+  - if <[quest].yaml_key[repeatable]||false> && <player.has_flag[<[quest].name>]>:
     - define applicable:false
     - narrate "<&c>You cannot start this quest right now. You must wait <player.flag[<[quest].name>].expiration.formatted>"
   - if <[applicable]||true>:
@@ -125,6 +129,9 @@ applicable_for_quest:
   - define quest:<script[<[quest]>]||null>
   - if <[quest]> == null:
      - stop
+  - if <[quest].yaml_key[additional_conditions].parse[parsed].contains[false]||false>:
+    - define applicable:false
+    - determine "You have unmet conditions"
   - if <proc[get_quests_inprogress].contains[<[quest].name>]||false>:
     - define applicable:false
     - determine "You have already started this quest."
