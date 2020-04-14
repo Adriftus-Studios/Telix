@@ -119,7 +119,7 @@ get_quests_inprogress:
 
 applicable_for_quest:
   type: procedure
-  definitions: player
+  definitions: quest|player
   script:
   - adjust <queue> linked_player:<[player]||<player>>
   - foreach <[quest].yaml_key[prerequisites]||<list[]>> as:pre:

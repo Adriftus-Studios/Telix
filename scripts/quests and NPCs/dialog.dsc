@@ -30,10 +30,7 @@ dialog_command:
   - if <context.args.size> >= 2:
     - define script:<script[<context.args.get[1]>]>
     - define option:<context.args.remove[1].separated_by[<&sp>]>
-    - narrate <[script]>
-    - narrate <[option]>
     - foreach <[script].yaml_key[dialog.<[option]>.actions]> as:action:
-      - narrate <[action]>
       - if <[action].parsed.starts_with[say]>:
         - narrate <[script].yaml_key[character_name].parsed><&sp><[action].parsed.substring[4].trim>
         - wait <[action].parsed.substring[4].trim.split[].count[<&sp>].div[2]>s
@@ -44,6 +41,6 @@ dialog_command:
       - else if <[action].parsed.starts_with[quest]>:
         - if <[action].parsed.substring[7].trim.starts_with[start]>:
           - define quest:<[action].substring[13]>
-          - narrate <[quest]>
+          - narrate <proc[applicable_for_quest].context[<[quest]>]>
       - else:
         - execute as_op "ex <[action].parsed.trim>"
