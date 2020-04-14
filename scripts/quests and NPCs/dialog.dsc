@@ -12,9 +12,8 @@ test_dialog:
     basics1:
       actions:
       - say todo
+      - if !<player.is_sneaking> then wait 1s
       - define test:123
-      - if !<player.is_sneaking> then say 1
-      - if <player.is_sneaking> then say 2
       - say <[test]>
       - say 2do
 
