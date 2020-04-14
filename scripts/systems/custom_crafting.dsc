@@ -47,6 +47,7 @@ custom_crafting_build_crafting_matrix:
       - else if <[this_script].yaml_key[custom_recipes.<[recipe_number]>.type]> == shapeless:
         - inject locally process_shapeless_recipe
   process_shaped_recipe:
+    - define regex_used:false
     - define this_slot:0
     - foreach <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input]> as:recipe_line:
       - foreach <[recipe_line].as_list> as:this_input:
@@ -57,11 +58,11 @@ custom_crafting_build_crafting_matrix:
     - repeat 9 as:num:
       - if <[<[num]>].is[==].to[]>:
         - define <[num]>:air
-    - if <[regex_used]||false>:
+    - if <[regex_used]>:
       - repeat 9 as:input_slot:
         - if <[<[input_slot]>].starts_with[regex<&co>]>:
           - define <[input_slot]>:<server.list_scripts.filter[container_type.is[==].to[item]].parse[script.name].filter[matches[<[<[input_slot]>].after[<&co>]>]].escaped>
-      - run custom_crafting_recursive_shaped_recipe def:<[1]>|<[2]>|<[3]>|<[4]>|<[5]>|<[6]>|<[7]>|<[8]>|<[9]>
+      - run custom_crafting_recursive_shaped_recipe def:<[1]>|<[2]>|<[3]>|<[4]>|<[5]>|<[6]>|<[7]>|<[8]>|<[9]>|<[this_script]>|<[recipe_number]>
     - else:
       - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item:<[this_script].name>
       - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
@@ -76,13 +77,14 @@ custom_crafting_build_crafting_matrix:
 
 custom_crafting_recursive_shaped_recipe:
   type: task
-  definitions: 1,2,3,4,5,6,7,8,9
+  debug: true
+  definitions: 1|2|3|4|5|6|7|8|9|this_script|recipe_number
   script:
     - repeat 9:
       - if <[<[value]>].unescaped.before[@]||null> == li:
         - foreach <[<[value]>].unescaped.as_list> as:this_slot:
           - define <[value]>:<[this_slot]>
-          - run custom_crafting_recursive_shaped_recipe def:<[1]>|<[2]>|<[3]>|<[4]>|<[5]>|<[6]>|<[7]>|<[8]>|<[9]>
+          - run custom_crafting_recursive_shaped_recipe def:<[1]>|<[2]>|<[3]>|<[4]>|<[5]>|<[6]>|<[7]>|<[8]>|<[9]>|<[this_script]>|<[recipe_number]>
         - define regexed:true
     - if !<[regexed]||false>:
         - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item:<[this_script].name>
