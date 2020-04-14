@@ -1,7 +1,7 @@
 gold_block_teleport_events:
   type: world
   events:
-    on player jumps && !<player.has_flag[teleported_block]>:
+    on player jumps:
     # teleport players to first gold block within 25 blocks. If they are not standing on the block,
     - if <player.location.below.material.name> == gold_block:
       - define y_loc:<cuboid[<context.location.above>|<context.location.above[26]>].blocks[gold_block].parse[y].lowest||null>
@@ -16,7 +16,7 @@ gold_block_teleport_events:
         - playeffect effect:smoke at:<player.location> quantity:30
         - playsound <player.location> sound:entity_villager_no volume:2
         - flag player teleported_block duration:1s
-    on player starts sneaking && !<player.has_flag[teleported_block]>:
+    on player starts sneaking:
     # teleport players to first gold block within 25 blocks. If they are not standing on the block,
     - if <player.location.below.material.name> == gold_block:
       - define y_loc:<cuboid[<player.location.below[2]>|<player.location.below[26]>].blocks[gold_block].parse[y].highest||null>
