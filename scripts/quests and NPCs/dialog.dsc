@@ -12,7 +12,7 @@ test_dialog:
     basics1:
       actions:
       - say todo
-      - if !<player.is_online>
+      - if !<player.is_online> then say it worked
       - say 2do
 
 play_dialog:
@@ -67,7 +67,7 @@ process_dialog_command:
         - announce to_flagged:debug "<&c>File path: <[script].filename>"
         - stop
     - if <[result]> == <[action].substring[4].parsed>:
-      - if <[result]>:
+      - if <[result]> == true:
         - narrate yes
       - else:
         - narrate no
