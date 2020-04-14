@@ -82,7 +82,7 @@ check_quest_progress:
   - if <[quest]> == null:
      - stop
   - foreach <[quest].list_keys[objectives]> as:objective:
-    - define value:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]>
+    - define value:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>.value]||0>
     - define required_value:<[quest].yaml_key[objectives.<[objective]>.value]>
     - if <[value]> == <[required_value]>:
       - define objectives_complete:|:<[objective]>
@@ -102,7 +102,7 @@ complete_quest:
   - define quest:<script[<[quest]>]>
   - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>:!
   - yaml id:player.<player.uuid> set quests.completed:->:<[quest].name>
-  - if <[quest].yaml_key[repeatable]>:
+  - if <[quest].yaml_key[repeatable]||false>:
     - flag <player> <[quest].name> duration:<[quest].yaml_key[repeatable_every]||1d>
 
 get_completed_quests:

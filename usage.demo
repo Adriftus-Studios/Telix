@@ -329,3 +329,36 @@ custom_mob_drops_test_item:
       chance: 5
       min_quantity: 3
       max_quantity: 7
+
+# -----[ Quests ]-----
+  
+test_quest2:
+  type: world
+  # Name of the quest
+  quest_name: Test Quest 2
+  # Description of the quest
+  description: This is also a test
+  # Whether or not the quest is repeatable
+  repeatable: true
+  # If this quest is repeatable, sets the delay
+  repeatable_every: 1d
+  on start:
+  # Script that runs when the quest starts
+    - narrate "Test Quest 2 Started"
+  on complete:
+  # Script that runs when the quest is completed
+    - narrate "Completed Test Quest 2"
+  objectives:
+    # Objectives for the player to complete 
+    break_stone:
+      value: 40
+      description: Break 40 Stone Blocks
+  prerequisites:
+  # Quests that must be completed before this quest
+  # Does not have to be recursive
+    - test_quest1
+  # Required level for this quest
+  level_requirement: 5
+  events:
+    on player breaks stone:
+      - run modify_quest_progress def:<script.name>|break_stone|1
