@@ -13,6 +13,7 @@ test_dialog:
       actions:
       - say todo
       - quest start test_quest1
+      - say 2do
 
 play_dialog:
   type: task
