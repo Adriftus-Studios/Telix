@@ -12,6 +12,7 @@ test_dialog:
     basics1:
       actions:
       - say todo
+      - quest start test_quest1
 
 play_dialog:
   type: task
