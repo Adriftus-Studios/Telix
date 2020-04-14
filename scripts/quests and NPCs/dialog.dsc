@@ -74,6 +74,7 @@ process_dialog_command:
     - if <[result]> != <[action].substring[4].parsed>:
       - define cmd:<[action].substring[4].split[<&sp>then<&sp>].get[2]>
       - if <[result]> == true:
+        - narrate <[cmd]>
         - ~run process_dialog_command def:<[script]>|<[cmd]>
   - else:
     - execute as_op "ex <[action].parsed.trim>"
