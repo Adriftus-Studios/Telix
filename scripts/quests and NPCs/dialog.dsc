@@ -49,7 +49,7 @@ dialog_command:
             - narrate <&c><[status]>
             - stop
       - else if <[action].parsed.starts_with[if]>:
-        - define result:<[action].substring[3]>
+        - define result:<[action].substring[4]>
         - narrate <[result]>
       - else:
         - execute as_op "ex <[action].parsed.trim>"
