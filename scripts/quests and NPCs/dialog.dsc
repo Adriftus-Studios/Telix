@@ -56,7 +56,6 @@ process_dialog_command:
         - stop
   - else if <[action].parsed.starts_with[if]>:
     - define result:<[action].substring[4].parsed.split[<&sp>].get[1]>
-    - narrate <[result]>
     - if <[result].starts_with[!]>:
       - if <[result].substring[2]> == true:
         - define result:false
@@ -66,6 +65,7 @@ process_dialog_command:
         - announce to_flagged:debug "<&c>Invalid if Statement in dialog script <[script].name> ( <[result]> )!"
         - announce to_flagged:debug "<&c>File path: <[script].filename>"
         - stop
+    - narrate <[result]>
     - if <[result]> == <[action].substring[4].parsed>:
       - if <[result]> == true:
         - narrate yes
