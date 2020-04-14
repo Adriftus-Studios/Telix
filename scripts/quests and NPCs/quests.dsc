@@ -101,7 +101,7 @@ get_completed_quests:
   type: procedure
   definitions: player
   script:
-  - determine <yaml[player.<[player].uuid||<player.uuid>>].read[quests.completed]>
+  - determine <yaml[player.<[player].uuid||<player.uuid>>].read[quests.completed]||<list[]>>
 
 applicable_for_quest:
   type: procedure
