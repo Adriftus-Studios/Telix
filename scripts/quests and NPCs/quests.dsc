@@ -51,6 +51,7 @@ modify_quest_progress:
     - narrate <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]>
     - run check_quest_progress def:<[quest]>
   
+  
 check_quest_progress:
   type: task
   definitions: quest
