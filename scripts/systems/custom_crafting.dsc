@@ -65,6 +65,8 @@ custom_crafting_build_crafting_matrix:
           - define <[input_slot]>:<server.list_scripts.filter[container_type.is[==].to[item]].parse[name].filter[matches[<[<[input_slot]>].after[<&co>]>]]||null>
           - if <[<[input_slot]>]> == null:
             - announce "No regex match for <[<[input_slot]>].after[<&co>]> for item <[this_script].name> recipe."
+          - else:
+            - define <[input_slot]>:<[<[input_slot]>].escaped>
       - run custom_crafting_recursive_shaped_recipe def:<[1]>|<[2]>|<[3]>|<[4]>|<[5]>|<[6]>|<[7]>|<[8]>|<[9]>|<[this_script]>|<[recipe_number]>
     - else:
       - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item:<[this_script].name>
