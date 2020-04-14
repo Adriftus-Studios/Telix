@@ -94,6 +94,8 @@ complete_quest:
   - define quest:<script[<[quest]>]>
   - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>:!
   - yaml id:player.<player.uuid> set quests.completed:->:<[quest].name>
+  - if <[quest].yaml_key[repeatable]>:
+    - flag <player> <[quest].name> duration:<[quest].yaml_key[repeatable_every]||1d>
 
 get_completed_quests:
   type: procedure
