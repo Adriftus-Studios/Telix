@@ -144,7 +144,7 @@ portal_tender_command:
   script:
   - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[portal_tender_assignment]].size> != 0:
     - if <context.args.get[1]> == altars:
-      - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Talk to the Temple Guardian when your ready to leave."
+      - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> Talk to the Temple Guardian when you're ready to leave."
       - teleport <player> <location[altars]>
       - wait 6s
       - narrate "<&a><&lb><&6>Temple Guardian<&a><&rb><&6> Welcome traveler!"
