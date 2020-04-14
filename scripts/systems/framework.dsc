@@ -315,7 +315,7 @@ rp_command:
   aliases: resourcepack
   script:
   # The resource pack line.
-    - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/84f6509bd461ef7d8888c475abd1a69c.zip>
+    - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/8ecc8f8887349caa28175556d0b56dff.zip>
     - if <context.args.size> >= 1:
       - narrate "<&c>Simply type <&a>/rp<&c>"
     - else:
@@ -540,7 +540,7 @@ system_override:
     on player first login:
       - flag <player> ott:1 duration:2h
     on player joins:
-      - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/84f6509bd461ef7d8888c475abd1a69c.zip>
+      - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/8ecc8f8887349caa28175556d0b56dff.zip>
       - wait 60t
       - adjust <player> resource_pack:<[rp_url]>
       - stop
