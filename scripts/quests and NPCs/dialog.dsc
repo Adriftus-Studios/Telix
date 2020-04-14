@@ -12,7 +12,8 @@ test_dialog:
     basics1:
       actions:
       - say todo
-      - if !<player.is_online> then say it worked
+      - if !<player.is_sneaking> then 1
+      - if <player.is_sneaking> then 2
       - say 2do
 
 play_dialog:
@@ -72,10 +73,7 @@ process_dialog_command:
         - stop
     - if <[result]> != <[action].substring[4].parsed>:
       - define cmd:<[action].substring[4].split[<&sp>then<&sp>].get[2]>
-      - narrate <[cmd]>
       - if <[result]> == true:
-        - narrate yes
-      - else:
-        - narrate no
+        - ~run process_dialog_command def:<[script]>|<[cmd]>
   - else:
     - execute as_op "ex <[action].parsed.trim>"
