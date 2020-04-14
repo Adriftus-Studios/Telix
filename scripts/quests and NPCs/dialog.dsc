@@ -12,7 +12,7 @@ test_dialog:
     basics1:
       actions:
       - say todo
-      - if <player.is_online>
+      - if !<player.is_online>
       - say 2do
 
 play_dialog:
@@ -50,6 +50,6 @@ dialog_command:
             - stop
       - else if <[action].parsed.starts_with[if]>:
         - define result:<[action].substring[4]>
-        - narrate <[result]>
+        - narrate <[result].parsed>
       - else:
         - execute as_op "ex <[action].parsed.trim>"
