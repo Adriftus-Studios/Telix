@@ -55,6 +55,7 @@ custom_crafting_build_crafting_matrix:
         - define <[this_slot]>:<[this_input]>
         - if <[this_input].starts_with[regex<&co>]>:
           - define regex_used:true
+          - announce "Regex used on <[this_script].name>"
     - repeat 9 as:num:
       - if <[<[num]>].is[==].to[]>:
         - define <[num]>:air
