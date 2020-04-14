@@ -76,6 +76,7 @@ custom_crafting_build_crafting_matrix:
 
 custom_crafting_recursive_shaped_recipe:
   type: task
+  debug: true
   definitions: 1|2|3|4|5|6|7|8|9|this_script|recipe_number
   script:
     - repeat 9:
