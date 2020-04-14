@@ -123,7 +123,7 @@ custom_crafting_events:
     on player clicks in custom_crafting_inventory:
       - if !<script[custom_crafting_inventory].yaml_key[mapped_crafting_slots].as_list.contains[<context.raw_slot>]||false> && <script[custom_crafting_inventory].yaml_key[output_slot]> != <context.raw_slot> && <context.raw_slot> < 55:
         - determine cancelled
-      - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.inventory.slot[<context.raw_slot>].material.name> == air:
+      - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.inventory.slot[<context.raw_slot>].material.name||air> == air:
         - determine cancelled
 
     on player drags in custom_crafting_inventory:
@@ -159,11 +159,10 @@ custom_crafting_handleInput:
           - if <context.cursor_item.script.name> == <context.inventory.slot[<context.raw_slot>].material.name> && <context.cursor_item.max_stack_size> > <context.cursor_item.quantity>:
             # Increment Cursor Item
             - adjust <player> cursor_item:<context.cursor_item.with[quantity=<context.cursor_item.quantity.+[1]>]>
-            # Remove Clicked Item in Output
-            - inventory set d:<context.inventory> slot:<context.slot> o:air
             # Cancel
             - determine cancelled
         - inject custom_crafting_takeIngredients
+        - inventory set d:<context.inventory> slot:<context.slot> o:air
         - inject custom_crafting_determineOutput
 
 custom_crafting_takeIngredients:
