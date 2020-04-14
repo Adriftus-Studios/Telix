@@ -2,10 +2,14 @@
 test_quest1:
   type: world
   quest_name: Test Quest 1
+  description: This is just a test
+  repeatable: false
   on start:
     - narrate "Test Quest 1 Started"
   objectives:
-    break_grass: 20
+    break_grass:
+      value: 20
+      description: Break 20 Grass Blocks
   events:
     on player breaks grass_block:
       - run modify_quest_progress def:<script.name>|break_grass|1
@@ -13,14 +17,20 @@ test_quest1:
 test_quest2:
   type: world
   quest_name: Test Quest 2
+  description: This is also a test
+  repeatable: true
+  repeatable_every: 1d
   on start:
     - narrate "Test Quest 2 Started"
   on complete:
     - narrate "Completed Test Quest 2"
   objectives:
-    break_stone: 40
+    break_stone:
+      value: 40
+      description: Break 40 Stone Blocks
   prerequisites:
     - test_quest1
+  level_requirement: 5
   events:
     on player breaks stone:
       - run modify_quest_progress def:<script.name>|break_stone|1
@@ -34,6 +44,15 @@ start_quest:
     - if !<proc[get_completed_quests].contains[<[pre]>]>:
       - define applicable:false
       - narrate "<&c>You have not completed the quest <script[<[pre]>].yaml_key[quest_name]>"
+  - if <yaml[player.<player.uuid>].read[stats.level]> < <[quest].yaml_key[level_requirement]>:
+    - define applicable:false
+    - narrate "<&c>Your level is not high enough. Required Level: <[quest].yaml_key[level_requirement]>"
+  - if !<[quest].yaml_key[repeatable]> && <proc[get_completed_quests].contains[<[quest].name>]>:
+    - define applicable:false
+    - narrate "<&c>You cannot repeat this quest."
+  - if <[quest].yaml_key[repeatable]> && <player.has_flag[<[quest].name>]>:
+    - define applicable:false
+    - narrate "<&c>You cannot start this quest right now. You must wait <player.flag[<[quest].name>].expiration.formatted>"
   - if <[applicable]||true>:
     - if <[quest].yaml_key[on<&sp>start]||null> != null:
       - run <[quest]> "path:on start"
@@ -51,7 +70,6 @@ modify_quest_progress:
     - narrate <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]>
     - run check_quest_progress def:<[quest]>
   
-  
 check_quest_progress:
   type: task
   definitions: quest
@@ -59,7 +77,7 @@ check_quest_progress:
   - define quest:<script[<[quest]>]>
   - foreach <[quest].list_keys[objectives]> as:objective:
     - define value:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]>
-    - define required_value:<[quest].yaml_key[objectives.<[objective]>]>
+    - define required_value:<[quest].yaml_key[objectives.<[objective]>.value]>
     - if <[value]> == <[required_value]>:
       - define objectives_complete:|:<[objective]>
   - if <[quest].list_keys[objectives].size> == <[objectives_complete].size||0>:
