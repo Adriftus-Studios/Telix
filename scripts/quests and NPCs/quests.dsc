@@ -15,13 +15,15 @@ test_quest2:
   quest_name: Test Quest 2
   on start:
     - narrate "Test Quest 2 Started"
+  on complete:
+    - narrate "Completed Test Quest 2"
   objectives:
-    break_grass: 20
+    break_stone: 40
   prerequisites:
     - test_quest1
   events:
-    on player breaks grass_block:
-      - run modify_quest_progress def:<script.name>|break_grass|1
+    on player breaks stone:
+      - run modify_quest_progress def:<script.name>|break_stone|1
 
 start_quest:
   type: task
@@ -35,6 +37,7 @@ start_quest:
   - if <[applicable]||true>:
     - if <[quest].yaml_key[on<&sp>start]||null> != null:
       - run <[quest]> "path:on start"
+    - title "title:<&6>Quest Started!" "subtitle:<&6><[quest].yaml_key[quest_name]>"
     - foreach <[quest].list_keys[objectives]> as:objective:
       - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:0
 
@@ -65,7 +68,10 @@ complete_quest:
   type: task
   definitions: quest
   script:
-  - narrate done
+  - define quest:<script[<[quest]>]>
+  - if <[quest].yaml_key[on<&sp>completed]||null> != null:
+    - run <[quest]> "path:on completed"
+  - title "title:<&6>Quest Completed!" "subtitle:<&6><[quest].yaml_key[quest_name]>"
   - define quest:<script[<[quest]>]>
   - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>:!
   - yaml id:player.<player.uuid> set quests.completed:->:<[quest].name>
