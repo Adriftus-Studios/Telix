@@ -383,6 +383,133 @@ system_equipment_set:
   script:
     - equip head:<item[equipment_head_slot]> chest:<item[equipment_chest_slot]> legs:<item[equipment_leg_slot]> boots:<item[equipment_boots_slot]>
 
+custom_item_override:
+  type: world
+  debug: false
+  events:
+    on player consumes item:
+      - if <context.item.script.yaml_key[on_consume]||null> != null:
+        - run <context.item.script.name> path:on_consume
+    on player places block:
+      - if <context.item_in_hand.script.name||null> != null:
+        - if <context.material.is_block>:
+          - if <item[<context.item_in_hand.script.name.replace[custom_].with[]>]||null> == null:
+            - yaml create id:<context.location.simple>
+            - yaml savefile:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<context.item_in_hand.script.name>.yml id:<context.location.simple>
+            - yaml unload id:<context.location.simple>
+    on player breaks block:
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]||null> != null:
+        - define item:<item[<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1].replace[.yml].with[]>]>
+        - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]>
+        - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]||<player.item_in_hand>>
+        - if <[item].material> == <context.material> && <player.gamemode> != creative:
+          - determine <[item]>
+        - else:
+          - determine NOTHING
+    on piston extends:
+      - foreach <context.blocks> as:block:
+        - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<[block].simple>/].get[1]||null> != null:
+          - determine passively cancelled
+    on piston retracts:
+      - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.retract_location.simple>/].get[1]||null> != null:
+        - determine passively cancelled
+    on entity death:
+      - foreach <context.drops||<list[]>> as:item:
+        - if <[item].material.name> != air && <[item].script.name||null> == null:
+          - inject build_item
+          - define drops:|:<item[custom_<[item].material.name>].with[quantity=<[item].quantity>]||<[item]>>
+      - determine <[drops]||<list[]>>
+    on item recipe formed:
+      - if !<context.inventory.script_name.starts_with[recipe_book_]||false>:
+        - if <yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
+          - narrate 1
+          - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
+          - inject build_item
+          - determine <[item]>
+        - if <yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item||null> != null:
+          - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<context.recipe.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
+          - inject build_item
+          - determine <[item]>
+        - if <context.inventory.result.script.name||null> == null && <context.inventory.result||null> != null:
+          - narrate 2
+          - foreach <context.inventory.matrix> as:input_item:
+            - if !<server.list_material_types.parse[name].contains[<[input_item].script.name.replace[custom_].with[]||null>]> && <[input_item].material.name> != air:
+              - determine passively cancelled
+    on furnace smelts item:
+      - define item:<context.result_item>
+      - if <yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>]||null> != null:
+        - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[2]>]>
+      #- announce <yaml[server.recipe_fixer].read[restricted.furnace.<context.source_item.script.name>].split[:].get[1]||null>
+      #- announce <context.location.inventory.result.script.name||null>
+      #- adjust <context.location.inventory> input:<item[<context.source_item.script.name||<context.source_item.material.name>>].with[quantity=<context.source_item.quantity.sub[1]>]>
+      - inject build_item
+      - determine <[item]>
+    on player picks up item:
+      - if <context.item.script.name||null> == null || !<context.item.nbt[built]||false>:
+        - define item:<context.item>
+        - inject build_item
+        - determine ITEM:<[item]>
+    on player clicks in inventory:
+      - if !<context.inventory.script_name.starts_with[recipe_book_]||false>:
+        - if <context.slot> != -998:
+          - if !<context.cursor_item.has_nbt[built]> && <context.cursor_item.material.name> != air:
+            - define item:<context.cursor_item>
+            - inject build_item
+            - wait 1t
+            - if <player.open_inventory.matrix.size> == 4:
+              - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
+            - else if <player.open_inventory.matrix.size> == 9:
+              - if <context.raw_slot> > 10:
+                - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
+              - else:
+                - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=<player.open_inventory.slot[<context.slot>].quantity>]>
+          - if <player.open_inventory.inventory_type> == workbench:
+            - wait 1t
+            - if <yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
+              - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
+              - inject build_item
+              - adjust <player.open_inventory> result:<[item]>
+            - if <yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item||null> != null:
+              - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
+              - inject build_item
+              - adjust <player.open_inventory> result:<[item]>
+          - if <player.open_inventory.inventory_type> == furnace:
+            # this might be needed later
+            - define item:<yaml[server.recipe_fixer].read[restricted.furnace.<context.item.script.name.to_lowercase||null>]||<context.item>>
+            #- narrate <[item]>
+            - stop
+            - adjust <player.open_inventory.location> furnace_cook_time:200
+            - adjust <player.open_inventory.location> furnace_cook_time_total:400
+    on player drags in inventory:
+      - if <player.open_inventory.inventory_type> == workbench:
+        - wait 1t
+        - if <yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
+          - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<player.open_inventory.matrix.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
+          - inject build_item
+          - adjust <player.open_inventory> result:<[item]>
+        - if <yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item||null> != null:
+          - define item:<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shapeless.<player.open_inventory.matrix.parse[script.name.to_lowercase].filter[is[!=].to[null]].separated_by[_]>].get[1].split[:].get[2]>]>
+          - inject build_item
+          - adjust <player.open_inventory> result:<[item]>
+    on player places block bukkit_priority:lowest:
+      - if !<context.item_in_hand.script.yaml_key[placable]||true>:
+        - determine cancelled
+      - if <context.location.world.name> != tor_mainland && !<player.has_permission[place]>:
+        - determine cancelled
+    on player breaks block bukkit_priority:lowest:
+      - if <context.location.world.name> != tor_mainland && !<player.has_permission[break]>:
+        - determine cancelled
+    on entity damages entity:
+      - if <context.entity.type> == player && <context.damager.type> == player:
+        - if <context.entity.location.world.name> != tor_mainland:
+          - determine passively cancelled
+    on entity damaged by suffocation:
+      - if <context.entity.location.world.name> != tor_mainland:
+        - determine passively cancelled
+    on entity damaged by fall:
+      - if <context.entity.location.world.name> != tor_mainland:
+        - determine passively cancelled
+
 system_override:
   type: world
   debug: false
