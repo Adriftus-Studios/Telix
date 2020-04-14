@@ -102,3 +102,19 @@ get_completed_quests:
   definitions: player
   script:
   - determine <yaml[player.<[player].uuid||<player.uuid>>].read[quests.completed]>
+
+applicable_for_quest:
+  type: procedure
+  definitions: quest|player
+  script:
+  - adjust <queue> linked_player:<[player]||<player>>
+  - foreach <[quest].yaml_key[prerequisites]||<list[]>> as:pre:
+    - if !<proc[get_completed_quests].contains[<[pre]>]>:
+      - define applicable:false
+  - if <yaml[player.<player.uuid>].read[stats.level]> < <[quest].yaml_key[level_requirement]>:
+    - define applicable:false
+  - if !<[quest].yaml_key[repeatable]> && <proc[get_completed_quests].contains[<[quest].name>]>:
+    - define applicable:false
+  - if <[quest].yaml_key[repeatable]> && <player.has_flag[<[quest].name>]>:
+    - define applicable:false
+  - determine <[applicable]||true>
