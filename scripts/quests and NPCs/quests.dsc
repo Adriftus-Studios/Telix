@@ -125,6 +125,9 @@ applicable_for_quest:
   - define quest:<script[<[quest]>]||null>
   - if <[quest]> == null:
      - stop
+  - if <proc[get_quests_inprogress].contains[<[quest].name>]||false>:
+    - define applicable:false
+    - determine "You have already started this quest."
   - foreach <[quest].yaml_key[prerequisites]||<list[]>> as:pre:
     - if !<proc[get_completed_quests].contains[<[pre]>]>:
       - define applicable:false
