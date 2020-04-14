@@ -12,15 +12,15 @@ test_dialog:
     basics1:
       actions:
       - say todo
-      - quest start test_quest1
+      - if !<player.is_online>
       - say 2do
 
 play_dialog:
   type: task
-  definitions: script
+  definitions: script|path
   script:
   - define script:<script[<[script]>]>
-  - execute as_player "dialog <[script].name> start"
+  - execute as_player "dialog <[script].name> <[path]||start>"
 
 dialog_command:
   type: command
@@ -48,5 +48,8 @@ dialog_command:
           - else:
             - narrate <&c><[status]>
             - stop
+      - else if <[action].parsed.starts_with[if]>:
+        - define result:<[action].substring[4]>
+        - narrate <[result].parsed>
       - else:
         - execute as_op "ex <[action].parsed.trim>"
