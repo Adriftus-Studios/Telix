@@ -76,4 +76,4 @@ process_dialog_command:
       - if <[result]> == true:
         - ~run process_dialog_command def:<[script]>|<[cmd]>
   - else:
-    - execute as_op "ex <[action].parsed.trim>"
+    - execute as_op "ex <[action].parsed.trim>" silent
