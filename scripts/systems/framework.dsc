@@ -461,9 +461,9 @@ custom_item_override:
                 - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
               - else:
                 - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=<player.open_inventory.slot[<context.slot>].quantity>]>
-            - else if <player.open_inventory.matrix.size> == 4:
+            - else if <player.open_inventory.matrix.size||0> == 4:
               - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
-            - else if <player.open_inventory.matrix.size> == 9:
+            - else if <player.open_inventory.matrix.size||0> == 9:
               - if <context.raw_slot> > 10:
                 - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
               - else:
