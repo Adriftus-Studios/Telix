@@ -7,7 +7,7 @@ custom_crafting_test_item2:
       type: shaped
       output_quantity: 1
       input:
-        - "custom_iron_nugget|custom_iron_nugget|custom_iron_nugget"
+        - "regex:(.*)_log|custom_iron_nugget|custom_iron_nugget"
         - "custom_iron_nugget|custom_iron_ingot|custom_iron_nugget"
         - "custom_iron_nugget|custom_iron_nugget|custom_iron_nugget"
     2:
@@ -52,11 +52,19 @@ custom_crafting_build_crafting_matrix:
       - foreach <[recipe_line].as_list> as:this_input:
         - define this_slot:++
         - define <[this_slot]>:<[this_input]>
+        - if <[this_input].starts_with[regex<&co>]>:
+          - define regex_used:true
     - repeat 9 as:num:
       - if <[<[num]>].is[==].to[]>:
         - define <[num]>:air
-    - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item:<[this_script].name>
-    - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
+    - if <[regex_used]||false>:
+      - repeat 9 as:input_slot:
+        - if <[<[input_slot]>].starts_with[regex<&co>]>:
+          - define <[<[input_slot]>].after[<&co>]>.list:<server.list_scripts.filter[container_type.is[==].to[item]].parse[script.name].filter[matches[<[<[input_slot]>].after[<&co>]>]].escaped>
+      - run custom_crafting_recursive_shaped_recipe def:<[1]>|<[2]>|<[3]>|<[4]>|<[5]>|<[6]>|<[7]>|<[8]>|<[9]>
+    - else:
+      - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item:<[this_script].name>
+      - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
   process_shapeless_recipe:
     - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.item:<[this_script].name>
     - yaml id:custom_recipes_shapeless set <[this_script].yaml_key[custom_recipes.<[recipe_number]>.input].as_list.pad_right[9].with[air].alphabetical.separated_by[.]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
@@ -65,6 +73,20 @@ custom_crafting_build_crafting_matrix:
       - inject locally build_stuff
     on script reload:
       - inject locally build_stuff
+
+custom_crafting_recursive_shaped_recipe:
+  type: task
+  definitions: 1,2,3,4,5,6,7,8,9
+  script:
+    - repeat 9:
+      - if <[<[value]>].unescaped.before[@]||null> == li:
+        - foreach <[<[value]>].unescaped.as_list> as:this_slot:
+          - define <[value]>:<[this_slot]>
+          - run custom_crafting_recursive_shaped_recipe def:<[1]>|<[2]>|<[3]>|<[4]>|<[5]>|<[6]>|<[7]>|<[8]>|<[9]>
+        - define regexed:true
+    - if !<[regexed]||false>:
+        - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item:<[this_script].name>
+        - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.output_quantity:<[this_script].yaml_key[custom_recipes.<[recipe_number]>.output_quantity]||1>
 
 custom_crafting_inventory:
   type: inventory
