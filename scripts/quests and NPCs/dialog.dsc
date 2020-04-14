@@ -13,8 +13,6 @@ test_dialog:
       actions:
       - say todo
       - if !<player.is_sneaking> then wait 1s
-      - define test:123
-      - say <[test]>
       - say 2do
 
 play_dialog:
@@ -28,8 +26,9 @@ dialog_command:
   type: command
   name: dialog
   script:
-  - if <player.location.distance[<npc.location||null>]||7> > 6:
-    - stop
+  - if <npc.location||null> != null:
+    - if <player.location.distance[<npc.location||null>]||7> > 6:
+      - stop
   - if <context.args.size||0> >= 2:
     - define script:<script[<context.args.get[1]>]>
     - define option:<context.args.remove[1].separated_by[<&sp>]>
