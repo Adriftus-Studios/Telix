@@ -43,7 +43,7 @@ dialog_command:
           - define quest:<script[<[action].substring[13]>]>
           - define status:<proc[applicable_for_quest].context[<[quest].name>]>
           - if <[status]> == true:
-            - runs start_quest def:<[quest].name>
+            - run start_quest def:<[quest].name>
           - else:
             - narrate <&c><[status]>
             - stop
