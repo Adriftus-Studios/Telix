@@ -25,9 +25,9 @@ dialog_command:
   type: command
   name: dialog
   script:
-  - if <player.location.distance[<npc.location>]||7> > 6:
+  - if <player.location.distance[<npc.location||null>]||7> > 6:
     - stop
-  - if <context.args.size> >= 2:
+  - if <context.args.size||0> >= 2:
     - define script:<script[<context.args.get[1]>]>
     - define option:<context.args.remove[1].separated_by[<&sp>]>
     - foreach <[script].yaml_key[dialog.<[option]>.actions]> as:action:
@@ -41,6 +41,11 @@ dialog_command:
       - else if <[action].parsed.starts_with[quest]>:
         - if <[action].parsed.substring[7].trim.starts_with[start]>:
           - define quest:<script[<[action].substring[13]>]>
-          - narrate <proc[applicable_for_quest].context[<[quest].name>]>
+          - define status:<proc[applicable_for_quest].context[<[quest].name>]>
+          - if <[status]> == true:
+            - runs start_quest def:<[quest].name>
+          - else:
+            - narrate <&c><[status]>
+            - stop
       - else:
         - execute as_op "ex <[action].parsed.trim>"
