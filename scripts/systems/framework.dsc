@@ -456,7 +456,12 @@ custom_item_override:
             - define item:<context.cursor_item>
             - inject build_item
             - wait 1t
-            - if <player.open_inventory.matrix.size> == 4:
+            - if <player.open_inventory.matrix||null> == null && <player.open_inventory.script.name> != custom_crafting_inventory:
+              - if <context.raw_slot> > <player.open_inventory.size>:
+                - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
+              - else:
+                - inventory set d:<player.open_inventory> slot:<context.raw_slot> o:<[item].with[quantity=<player.open_inventory.slot[<context.slot>].quantity>]>
+            - else if <player.open_inventory.matrix.size> == 4:
               - inventory set d:<player.inventory> slot:<context.slot> o:<[item].with[quantity=<player.inventory.slot[<context.slot>].quantity>]>
             - else if <player.open_inventory.matrix.size> == 9:
               - if <context.raw_slot> > 10:
