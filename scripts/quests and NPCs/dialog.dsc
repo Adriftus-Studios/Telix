@@ -12,8 +12,10 @@ test_dialog:
     basics1:
       actions:
       - say todo
+      - define test:123
       - if !<player.is_sneaking> then say 1
       - if <player.is_sneaking> then say 2
+      - say <[test]>
       - say 2do
 
 play_dialog:
@@ -74,7 +76,6 @@ process_dialog_command:
     - if <[result]> != <[action].substring[4].parsed>:
       - define cmd:<[action].substring[4].split[<&sp>then<&sp>].get[2]>
       - if <[result]> == true:
-        - narrate <[cmd]>
         - ~run process_dialog_command def:<[script]>|<[cmd]>
   - else:
     - execute as_op "ex <[action].parsed.trim>"
