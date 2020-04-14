@@ -56,6 +56,7 @@ process_dialog_command:
         - stop
   - else if <[action].parsed.starts_with[if]>:
     - define result:<[action].substring[4].parsed>
+    - narrate <[result]>
     - if <[result].starts_with[!]>:
       - if <[result].substring[2]> == true:
         - define result:false
