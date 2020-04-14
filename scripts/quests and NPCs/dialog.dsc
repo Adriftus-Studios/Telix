@@ -42,7 +42,7 @@ dialog_command:
           - foreach <[script].yaml_key[dialog.start.options]> as:option:
             - narrate "<&b><element[ - <[option].split[|].get[1].trim.parsed>].on_click[/dialog <[script].name> <[option].split[|].get[2]>]>"
       - else if <[action].parsed.starts_with[quest]>:
-        - if <[action].parsed.substring[6].trim> == start:
+        - if <[action].parsed.substring[4].trim> == start:
           - define quest:<[action].substring[9]>
           - narrate <[quest]>
       - else:
