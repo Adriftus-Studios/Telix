@@ -7,9 +7,9 @@ custom_crafting_test_item2:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:(.*)_log|custom_iron_nugget|custom_iron_nugget"
-        - "custom_iron_nugget|custom_iron_ingot|custom_iron_nugget"
-        - "custom_iron_nugget|custom_iron_nugget|custom_iron_nugget"
+        - "regex:(.*)_log|regex:(.*)_log|regex:(.*)_log"
+        - "regex:(.*)_log|regex:(.*)_log|regex:(.*)_log"
+        - "regex:(.*)_log|regex:(.*)_log|regex:(.*)_log"
     2:
       type: shapeless
       output_quantity: 1
