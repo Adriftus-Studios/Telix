@@ -60,7 +60,7 @@ custom_crafting_build_crafting_matrix:
     - if <[regex_used]||false>:
       - repeat 9 as:input_slot:
         - if <[<[input_slot]>].starts_with[regex<&co>]>:
-          - define <[<[input_slot]>].after[<&co>]>.list:<server.list_scripts.filter[container_type.is[==].to[item]].parse[script.name].filter[matches[<[<[input_slot]>].after[<&co>]>]].escaped>
+          - define <[<[input_slot]>]>.list:<server.list_scripts.filter[container_type.is[==].to[item]].parse[script.name].filter[matches[<[<[input_slot]>].after[<&co>]>]].escaped>
       - run custom_crafting_recursive_shaped_recipe def:<[1]>|<[2]>|<[3]>|<[4]>|<[5]>|<[6]>|<[7]>|<[8]>|<[9]>
     - else:
       - yaml id:custom_recipes_shaped set <[1]>.<[2]>.<[3]>.<[4]>.<[5]>.<[6]>.<[7]>.<[8]>.<[9]>.item:<[this_script].name>
