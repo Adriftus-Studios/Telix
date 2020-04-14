@@ -3,7 +3,7 @@ gold_block_teleport_events:
   events:
     on player jumps:
     # teleport players to first gold block within 25 blocks. If they are not standing on the block,
-    - if <player.location.below.material.name> == gold_block && !<player.has_flag[teleported_block]>:
+    - if <player.location.below.material.name> == gold_block:
       - define y_loc:<cuboid[<context.location.above>|<context.location.above[26]>].blocks[gold_block].parse[y].lowest||null>
       - if <[y_loc]> != null && <context.location.with_y[<[y_loc].+[1]>].material.name> == air:
         - playeffect effect:dragon_breath at:<player.location> quantity:30
@@ -16,11 +16,9 @@ gold_block_teleport_events:
         - playeffect effect:smoke at:<player.location> quantity:30
         - playsound <player.location> sound:entity_villager_no volume:2
         - flag player teleported_block duration:1s
-    - else:
-      - narrate "<&c>You are moving to quickly"
     on player starts sneaking:
     # teleport players to first gold block within 25 blocks. If they are not standing on the block,
-    - if <player.location.below.material.name> == gold_block && !<player.has_flag[teleported_block]>:
+    - if <player.location.below.material.name> == gold_block:
       - define y_loc:<cuboid[<player.location.below[2]>|<player.location.below[26]>].blocks[gold_block].parse[y].highest||null>
       - if <[y_loc]> != null && <player.location.with_y[<[y_loc].+[1]>].material.name> == air:
         - playeffect effect:dragon_breath at:<player.location> quantity:30
@@ -33,5 +31,3 @@ gold_block_teleport_events:
         - playeffect effect:smoke at:<player.location> quantity:30
         - playsound <player.location> sound:entity_villager_no volume:2
         - flag player teleported_block duration:1s
-    - else:
-      - narrate "<&c>You are moving to quickly"
