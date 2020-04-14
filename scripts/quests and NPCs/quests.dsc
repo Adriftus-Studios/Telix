@@ -39,7 +39,9 @@ start_quest:
   type: task
   definitions: quest
   script:
-  - define quest:<script[<[quest]>]>
+  - define quest:<script[<[quest]>]||null>
+  - if <[quest]> == null:
+     - stop
   - foreach <[quest].yaml_key[prerequisites]||<list[]>> as:pre:
     - if !<proc[get_completed_quests].contains[<[pre]>]>:
       - define applicable:false
@@ -64,8 +66,10 @@ modify_quest_progress:
   type: task
   definitions: quest|objective|value
   script:
-  - define quest:<script[<[quest]>]>
-  - if <yaml[player.<player.uuid>].list_keys[quests.inprogress].contains[<[quest].name>]>:
+  - define quest:<script[<[quest]>]||null>
+  - if <[quest]> == null:
+     - stop
+  - if <proc[get_quests_inprogress].contains[<[quest].name>]||false>:
     - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>].add[<[value]>]||<[value]>>
     - narrate <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]>
     - run check_quest_progress def:<[quest]>
@@ -74,7 +78,9 @@ check_quest_progress:
   type: task
   definitions: quest
   script:
-  - define quest:<script[<[quest]>]>
+  - define quest:<script[<[quest]>]||null>
+  - if <[quest]> == null:
+     - stop
   - foreach <[quest].list_keys[objectives]> as:objective:
     - define value:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]>
     - define required_value:<[quest].yaml_key[objectives.<[objective]>.value]>
@@ -87,7 +93,9 @@ complete_quest:
   type: task
   definitions: quest
   script:
-  - define quest:<script[<[quest]>]>
+  - define quest:<script[<[quest]>]||null>
+  - if <[quest]> == null:
+     - stop
   - if <[quest].yaml_key[on<&sp>completed]||null> != null:
     - run <[quest]> "path:on completed"
   - title "title:<&6>Quest Completed!" "subtitle:<&6><[quest].yaml_key[quest_name]>"
@@ -102,6 +110,12 @@ get_completed_quests:
   definitions: player
   script:
   - determine <yaml[player.<[player].uuid||<player.uuid>>].read[quests.completed]||<list[]>>
+
+get_quests_inprogress:
+  type: procedure
+  definitions: player
+  script:
+  - determine <proc[get_quests_inprogress]||<list[]>>
 
 applicable_for_quest:
   type: procedure
