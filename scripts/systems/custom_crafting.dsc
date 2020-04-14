@@ -155,6 +155,7 @@ custom_crafting_handleInput:
       - if <script[custom_crafting_inventory].yaml_key[mapped_crafting_slots].contains[<context.raw_slot>]||false>:
         - inject custom_crafting_determineOutput
       - else if <[got_item]||false>:
+        - inventory set d:<context.inventory> slot:<context.slot> o:air
         - if <context.cursor_item.material.name||air> != air:
           - if <context.cursor_item.script.name> == <context.inventory.slot[<context.raw_slot>].material.name> && <context.cursor_item.max_stack_size> > <context.cursor_item.quantity>:
             # Increment Cursor Item
@@ -162,7 +163,6 @@ custom_crafting_handleInput:
             # Cancel
             - determine cancelled
         - inject custom_crafting_takeIngredients
-        - inventory set d:<context.inventory> slot:<context.slot> o:air
         - inject custom_crafting_determineOutput
 
 custom_crafting_takeIngredients:
