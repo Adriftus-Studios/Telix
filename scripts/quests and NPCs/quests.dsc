@@ -62,7 +62,6 @@ start_quest:
     - foreach <[quest].list_keys[objectives]> as:objective:
       - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:0
 
-
 modify_quest_progress:
   type: task
   definitions: quest|objective|value
