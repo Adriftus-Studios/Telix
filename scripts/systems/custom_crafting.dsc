@@ -76,7 +76,7 @@ custom_crafting_build_crafting_matrix:
 
 custom_crafting_recursive_shaped_recipe:
   type: task
-  definitions: 1,2,3,4,5,6,7,8,9
+  definitions: 1|2|3|4|5|6|7|8|9
   script:
     - repeat 9:
       - if <[<[value]>].unescaped.before[@]||null> == li:
