@@ -62,10 +62,13 @@ process_dialog_command:
       - else if <[result].substring[2]> == false:
         - define result:true
       - else:
-        - announce to_flagged:debug "<&c>Invalid if Statement in dialog script <[script].name>!"
+        - announce to_flagged:debug "<&c>Invalid if Statement in dialog script <[script].name> ( <[result]> )!"
         - announce to_flagged:debug "<&c>File path: <[script].filename>"
         - stop
     - if <[result]> == <[action].substring[4].parsed>:
       - if <[result]>:
+        - narrate yes
+      - else:
+        - narrate no
   - else:
     - execute as_op "ex <[action].parsed.trim>"
