@@ -8,8 +8,8 @@ test_dialog:
       - say What would you like to know? (Click One)
       - offer options
       options:
-      - Tell me the basics
-    Tell me the basics:
+      - Tell me the basics|basics1
+    basics1:
       actions:
       - say todo
 
@@ -36,7 +36,7 @@ dialog_command:
       - else if <[action].parsed.starts_with[offer]>:
         - if <[action].parsed.substring[6].trim> == options:
           - foreach <[script].yaml_key[dialog.start.options]> as:option:
-            - narrate "<&b><element[ - <[option].parsed>].on_click[/dialog <[script].name> <[option]>]>"
+            - narrate "<&b><element[ - <[option].split[|].get[1].parsed>].on_click[/dialog <[script].name> <[option].split[|].get[2]>]>"
       - else if <[action].parsed.starts_with[quest]>:
         - narrate todo
       - else:
