@@ -758,7 +758,7 @@ guilds_leave_btn:
   type: item
   material: iron_nugget
   mechanisms:
-    custom_model_data: 35
+    custom_model_data: 2
   display name: <&9>Leave Guild
 
 guilds_manage_claim_flags:
@@ -782,7 +782,7 @@ guilds_settings_btn:
   type: item
   material: iron_nugget
   mechanisms:
-    custom_model_data: 36
+    custom_model_data: 3
   guild_permission: change_settings
   display name: <&9>Change Settings
 

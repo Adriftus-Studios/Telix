@@ -61,7 +61,7 @@ af_merchant_button:
   material: iron_nugget
   display name: <&a>Merchant
   mechanisms:
-    custom_model_data: 34
+    custom_model_data: 1
   lore:
   - "<&b>Sell your caught fish here!"
 
