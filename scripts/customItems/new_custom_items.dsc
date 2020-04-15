@@ -42,9 +42,44 @@ custom_note_block:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
-        - "regex:custom_(.*)_planks|custom_redstone|regex:custom_(.*)_planks"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+        - "custom_oak_planks|custom_redstone|custom_oak_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "custom_spruce_planks|custom_redstone|custom_spruce_planks"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "custom_birch_planks|custom_redstone|custom_birch_planks"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "custom_jungle_planks|custom_redstone|custom_jungle_planks"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "custom_acacia_planks|custom_redstone|custom_acacia_planks"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "custom_dark_oak_planks|custom_redstone|custom_dark_oak_planks"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: note_block
   display name: <&7>Note Block
   weight: '1'
@@ -275,15 +310,85 @@ custom_black_bed:
       output_quantity: 1
       input:
         - "custom_black_wool|custom_black_wool|custom_black_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_black_wool|custom_black_wool|custom_black_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_black_wool|custom_black_wool|custom_black_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_black_wool|custom_black_wool|custom_black_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_black_wool|custom_black_wool|custom_black_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_black_wool|custom_black_wool|custom_black_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_black_wool|custom_black_wool|custom_black_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_black_wool|custom_black_wool|custom_black_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_black_wool|custom_black_wool|custom_black_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_black_wool|custom_black_wool|custom_black_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_black_wool|custom_black_wool|custom_black_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_black_wool|custom_black_wool|custom_black_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: black_bed
   display name: <&7>Black Bed
   weight: '1'
@@ -305,9 +410,44 @@ custom_smoker:
       type: shaped
       output_quantity: 1
       input:
-        - "air|regex:custom_stripped_(.*)_log|air"
-        - "regex:custom_stripped_(.*)_log|custom_furnace|regex:custom_stripped_(.*)_log"
-        - "air|regex:custom_stripped_(.*)_log|air"
+        - "air|custom_stripped_oak_log|air"
+        - "custom_stripped_oak_log|custom_furnace|custom_stripped_oak_log"
+        - "air|custom_stripped_oak_log|air"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_stripped_spruce_log|air"
+        - "custom_stripped_spruce_log|custom_furnace|custom_stripped_spruce_log"
+        - "air|custom_stripped_spruce_log|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_stripped_birch_log|air"
+        - "custom_stripped_birch_log|custom_furnace|custom_stripped_birch_log"
+        - "air|custom_stripped_birch_log|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_stripped_jungle_log|air"
+        - "custom_stripped_jungle_log|custom_furnace|custom_stripped_jungle_log"
+        - "air|custom_stripped_jungle_log|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_stripped_acacia_log|air"
+        - "custom_stripped_acacia_log|custom_furnace|custom_stripped_acacia_log"
+        - "air|custom_stripped_acacia_log|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_stripped_dark_oak_log|air"
+        - "custom_stripped_dark_oak_log|custom_furnace|custom_stripped_dark_oak_log"
+        - "air|custom_stripped_dark_oak_log|air"
   material: smoker
   display name: <&7>Smoker
   weight: '1'
@@ -454,15 +594,85 @@ custom_gray_bed:
       output_quantity: 1
       input:
         - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_gray_wool|custom_gray_wool|custom_gray_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: gray_bed
   display name: <&7>Gray Bed
   weight: '1'
@@ -497,15 +707,85 @@ custom_brown_bed:
       output_quantity: 1
       input:
         - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_brown_wool|custom_brown_wool|custom_brown_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: brown_bed
   display name: <&7>Brown Bed
   weight: '1'
@@ -697,15 +977,85 @@ custom_yellow_bed:
       output_quantity: 1
       input:
         - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_yellow_wool|custom_yellow_wool|custom_yellow_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: yellow_bed
   display name: <&7>Yellow Bed
   weight: '1'
@@ -1391,21 +1741,126 @@ custom_tripwire_hook:
       input:
         - "custom_iron_ingot|air|air"
         - "custom_stick|air|air"
-        - "regex:custom_(.*)_planks|air|air"
+        - "custom_oak_planks|air|air"
     1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_iron_ingot|air|air"
+        - "custom_stick|air|air"
+        - "custom_spruce_planks|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_iron_ingot|air|air"
+        - "custom_stick|air|air"
+        - "custom_birch_planks|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_iron_ingot|air|air"
+        - "custom_stick|air|air"
+        - "custom_jungle_planks|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_iron_ingot|air|air"
+        - "custom_stick|air|air"
+        - "custom_acacia_planks|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_iron_ingot|air|air"
+        - "custom_stick|air|air"
+        - "custom_dark_oak_planks|air|air"
+    6:
       type: shaped
       output_quantity: 1
       input:
         - "air|custom_iron_ingot|air"
         - "air|custom_stick|air"
-        - "air|regex:custom_(.*)_planks|air"
-    2:
+        - "air|custom_oak_planks|air"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_iron_ingot|air"
+        - "air|custom_stick|air"
+        - "air|custom_spruce_planks|air"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_iron_ingot|air"
+        - "air|custom_stick|air"
+        - "air|custom_birch_planks|air"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_iron_ingot|air"
+        - "air|custom_stick|air"
+        - "air|custom_jungle_planks|air"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_iron_ingot|air"
+        - "air|custom_stick|air"
+        - "air|custom_acacia_planks|air"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_iron_ingot|air"
+        - "air|custom_stick|air"
+        - "air|custom_dark_oak_planks|air"
+    12:
       type: shaped
       output_quantity: 1
       input:
         - "air|air|custom_iron_ingot"
         - "air|air|custom_stick"
-        - "air|air|regex:custom_(.*)_planks"
+        - "air|air|custom_oak_planks"
+    13:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|custom_iron_ingot"
+        - "air|air|custom_stick"
+        - "air|air|custom_spruce_planks"
+    14:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|custom_iron_ingot"
+        - "air|air|custom_stick"
+        - "air|air|custom_birch_planks"
+    15:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|custom_iron_ingot"
+        - "air|air|custom_stick"
+        - "air|air|custom_jungle_planks"
+    16:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|custom_iron_ingot"
+        - "air|air|custom_stick"
+        - "air|air|custom_acacia_planks"
+    17:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|custom_iron_ingot"
+        - "air|air|custom_stick"
+        - "air|air|custom_dark_oak_planks"
   material: tripwire_hook
   display name: <&7>Tripwire Hook
   weight: '1'
@@ -1788,9 +2243,44 @@ custom_jukebox:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
-        - "regex:custom_(.*)_planks|custom_diamond|regex:custom_(.*)_planks"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+        - "custom_oak_planks|custom_diamond|custom_oak_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "custom_spruce_planks|custom_diamond|custom_spruce_planks"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "custom_birch_planks|custom_diamond|custom_birch_planks"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "custom_jungle_planks|custom_diamond|custom_jungle_planks"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "custom_acacia_planks|custom_diamond|custom_acacia_planks"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "custom_dark_oak_planks|custom_diamond|custom_dark_oak_planks"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: jukebox
   display name: <&7>Jukebox
   weight: '1'
@@ -1825,15 +2315,85 @@ custom_green_bed:
       output_quantity: 1
       input:
         - "custom_green_wool|custom_green_wool|custom_green_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_green_wool|custom_green_wool|custom_green_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_green_wool|custom_green_wool|custom_green_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_green_wool|custom_green_wool|custom_green_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_green_wool|custom_green_wool|custom_green_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_green_wool|custom_green_wool|custom_green_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_green_wool|custom_green_wool|custom_green_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_green_wool|custom_green_wool|custom_green_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_green_wool|custom_green_wool|custom_green_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_green_wool|custom_green_wool|custom_green_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_green_wool|custom_green_wool|custom_green_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_green_wool|custom_green_wool|custom_green_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: green_bed
   display name: <&7>Green Bed
   weight: '1'
@@ -1849,9 +2409,44 @@ custom_lectern:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:custom_(.*)_slab|regex:custom_(.*)_slab|regex:custom_(.*)_slab"
+        - "custom_oak_slab|custom_oak_slab|custom_oak_slab"
         - "air|custom_bookshelf|air"
-        - "air|regex:custom_(.*)_slab|air"
+        - "air|custom_oak_slab|air"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_spruce_slab|custom_spruce_slab|custom_spruce_slab"
+        - "air|custom_bookshelf|air"
+        - "air|custom_spruce_slab|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_birch_slab|custom_birch_slab|custom_birch_slab"
+        - "air|custom_bookshelf|air"
+        - "air|custom_birch_slab|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_jungle_slab|custom_jungle_slab|custom_jungle_slab"
+        - "air|custom_bookshelf|air"
+        - "air|custom_jungle_slab|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_acacia_slab|custom_acacia_slab|custom_acacia_slab"
+        - "air|custom_bookshelf|air"
+        - "air|custom_acacia_slab|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_dark_oak_slab|custom_dark_oak_slab|custom_dark_oak_slab"
+        - "air|custom_bookshelf|air"
+        - "air|custom_dark_oak_slab|air"
   material: lectern
   display name: <&7>Lectern
   weight: '1'
@@ -1897,30 +2492,170 @@ custom_crafting_table:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
+        - "custom_oak_planks|custom_oak_planks|air"
+        - "custom_oak_planks|custom_oak_planks|air"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_spruce_planks|custom_spruce_planks|air"
+        - "custom_spruce_planks|custom_spruce_planks|air"
         - "air|air|air"
     2:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_birch_planks|custom_birch_planks|air"
+        - "custom_birch_planks|custom_birch_planks|air"
         - "air|air|air"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
     3:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_jungle_planks|custom_jungle_planks|air"
+        - "custom_jungle_planks|custom_jungle_planks|air"
         - "air|air|air"
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_acacia_planks|custom_acacia_planks|air"
+        - "custom_acacia_planks|custom_acacia_planks|air"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_oak_planks|custom_oak_planks"
+        - "air|custom_oak_planks|custom_oak_planks"
+        - "air|air|air"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_spruce_planks|custom_spruce_planks"
+        - "air|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_birch_planks|custom_birch_planks"
+        - "air|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_jungle_planks|custom_jungle_planks"
+        - "air|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_acacia_planks|custom_acacia_planks"
+        - "air|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    12:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_oak_planks|custom_oak_planks|air"
+        - "custom_oak_planks|custom_oak_planks|air"
+    13:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_spruce_planks|custom_spruce_planks|air"
+        - "custom_spruce_planks|custom_spruce_planks|air"
+    14:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_birch_planks|custom_birch_planks|air"
+        - "custom_birch_planks|custom_birch_planks|air"
+    15:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_jungle_planks|custom_jungle_planks|air"
+        - "custom_jungle_planks|custom_jungle_planks|air"
+    16:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_acacia_planks|custom_acacia_planks|air"
+        - "custom_acacia_planks|custom_acacia_planks|air"
+    17:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+    18:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_oak_planks|custom_oak_planks"
+        - "air|custom_oak_planks|custom_oak_planks"
+    19:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_spruce_planks|custom_spruce_planks"
+        - "air|custom_spruce_planks|custom_spruce_planks"
+    20:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_birch_planks|custom_birch_planks"
+        - "air|custom_birch_planks|custom_birch_planks"
+    21:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_jungle_planks|custom_jungle_planks"
+        - "air|custom_jungle_planks|custom_jungle_planks"
+    22:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_acacia_planks|custom_acacia_planks"
+        - "air|custom_acacia_planks|custom_acacia_planks"
+    23:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
   material: crafting_table
   display name: <&7>Crafting Table
   weight: '1'
@@ -2874,15 +3609,85 @@ custom_blue_bed:
       output_quantity: 1
       input:
         - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_blue_wool|custom_blue_wool|custom_blue_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: blue_bed
   display name: <&7>Blue Bed
   weight: '1'
@@ -3328,9 +4133,44 @@ custom_bookshelf:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "custom_book|custom_book|custom_book"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "custom_book|custom_book|custom_book"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "custom_book|custom_book|custom_book"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "custom_book|custom_book|custom_book"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "custom_book|custom_book|custom_book"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "custom_book|custom_book|custom_book"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: bookshelf
   display name: <&7>Bookshelf
   weight: '1'
@@ -3879,9 +4719,44 @@ custom_shield:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:custom_(.*)_planks|custom_iron_ingot|regex:custom_(.*)_planks"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
-        - "air|regex:custom_(.*)_planks|air"
+        - "custom_oak_planks|custom_iron_ingot|custom_oak_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+        - "air|custom_oak_planks|air"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_spruce_planks|custom_iron_ingot|custom_spruce_planks"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|custom_spruce_planks|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_birch_planks|custom_iron_ingot|custom_birch_planks"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|custom_birch_planks|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_jungle_planks|custom_iron_ingot|custom_jungle_planks"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|custom_jungle_planks|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_acacia_planks|custom_iron_ingot|custom_acacia_planks"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|custom_acacia_planks|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_dark_oak_planks|custom_iron_ingot|custom_dark_oak_planks"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|custom_dark_oak_planks|air"
   material: shield
   display name: <&7>Shield
   weight: '1'
@@ -3893,15 +4768,85 @@ custom_light_gray_bed:
       output_quantity: 1
       input:
         - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_light_gray_wool|custom_light_gray_wool|custom_light_gray_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: light_gray_bed
   display name: <&7>Light Gray Bed
   weight: '1'
@@ -4042,9 +4987,44 @@ custom_composter:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:custom_(.*)_slab|air|regex:custom_(.*)_slab"
-        - "regex:custom_(.*)_slab|air|regex:custom_(.*)_slab"
-        - "regex:custom_(.*)_slab|regex:custom_(.*)_slab|regex:custom_(.*)_slab"
+        - "custom_oak_slab|air|custom_oak_slab"
+        - "custom_oak_slab|air|custom_oak_slab"
+        - "custom_oak_slab|custom_oak_slab|custom_oak_slab"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_spruce_slab|air|custom_spruce_slab"
+        - "custom_spruce_slab|air|custom_spruce_slab"
+        - "custom_spruce_slab|custom_spruce_slab|custom_spruce_slab"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_birch_slab|air|custom_birch_slab"
+        - "custom_birch_slab|air|custom_birch_slab"
+        - "custom_birch_slab|custom_birch_slab|custom_birch_slab"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_jungle_slab|air|custom_jungle_slab"
+        - "custom_jungle_slab|air|custom_jungle_slab"
+        - "custom_jungle_slab|custom_jungle_slab|custom_jungle_slab"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_acacia_slab|air|custom_acacia_slab"
+        - "custom_acacia_slab|air|custom_acacia_slab"
+        - "custom_acacia_slab|custom_acacia_slab|custom_acacia_slab"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_dark_oak_slab|air|custom_dark_oak_slab"
+        - "custom_dark_oak_slab|air|custom_dark_oak_slab"
+        - "custom_dark_oak_slab|custom_dark_oak_slab|custom_dark_oak_slab"
   material: composter
   display name: <&7>Composter
   weight: '1'
@@ -5109,15 +6089,85 @@ custom_smithing_table:
       output_quantity: 1
       input:
         - "custom_iron_ingot|custom_iron_ingot|air"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
+        - "custom_oak_planks|custom_oak_planks|air"
+        - "custom_oak_planks|custom_oak_planks|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_iron_ingot|custom_iron_ingot|air"
+        - "custom_spruce_planks|custom_spruce_planks|air"
+        - "custom_spruce_planks|custom_spruce_planks|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_iron_ingot|custom_iron_ingot|air"
+        - "custom_birch_planks|custom_birch_planks|air"
+        - "custom_birch_planks|custom_birch_planks|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_iron_ingot|custom_iron_ingot|air"
+        - "custom_jungle_planks|custom_jungle_planks|air"
+        - "custom_jungle_planks|custom_jungle_planks|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_iron_ingot|custom_iron_ingot|air"
+        - "custom_acacia_planks|custom_acacia_planks|air"
+        - "custom_acacia_planks|custom_acacia_planks|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_iron_ingot|custom_iron_ingot|air"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|custom_iron_ingot|custom_iron_ingot"
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "air|custom_oak_planks|custom_oak_planks"
+        - "air|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_iron_ingot|custom_iron_ingot"
+        - "air|custom_spruce_planks|custom_spruce_planks"
+        - "air|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_iron_ingot|custom_iron_ingot"
+        - "air|custom_birch_planks|custom_birch_planks"
+        - "air|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_iron_ingot|custom_iron_ingot"
+        - "air|custom_jungle_planks|custom_jungle_planks"
+        - "air|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_iron_ingot|custom_iron_ingot"
+        - "air|custom_acacia_planks|custom_acacia_planks"
+        - "air|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_iron_ingot|custom_iron_ingot"
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
   material: smithing_table
   display name: <&7>Smithing Table
   weight: '1'
@@ -5536,15 +6586,85 @@ custom_red_bed:
       output_quantity: 1
       input:
         - "custom_red_wool|custom_red_wool|custom_red_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_red_wool|custom_red_wool|custom_red_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_red_wool|custom_red_wool|custom_red_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_red_wool|custom_red_wool|custom_red_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_red_wool|custom_red_wool|custom_red_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_red_wool|custom_red_wool|custom_red_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_red_wool|custom_red_wool|custom_red_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_red_wool|custom_red_wool|custom_red_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_red_wool|custom_red_wool|custom_red_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_red_wool|custom_red_wool|custom_red_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_red_wool|custom_red_wool|custom_red_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_red_wool|custom_red_wool|custom_red_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: red_bed
   display name: <&7>Red Bed
   weight: '1'
@@ -5980,15 +7100,85 @@ custom_fletching_table:
       output_quantity: 1
       input:
         - "custom_flint|custom_flint|air"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
+        - "custom_oak_planks|custom_oak_planks|air"
+        - "custom_oak_planks|custom_oak_planks|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_flint|custom_flint|air"
+        - "custom_spruce_planks|custom_spruce_planks|air"
+        - "custom_spruce_planks|custom_spruce_planks|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_flint|custom_flint|air"
+        - "custom_birch_planks|custom_birch_planks|air"
+        - "custom_birch_planks|custom_birch_planks|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_flint|custom_flint|air"
+        - "custom_jungle_planks|custom_jungle_planks|air"
+        - "custom_jungle_planks|custom_jungle_planks|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_flint|custom_flint|air"
+        - "custom_acacia_planks|custom_acacia_planks|air"
+        - "custom_acacia_planks|custom_acacia_planks|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_flint|custom_flint|air"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|custom_flint|custom_flint"
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "air|custom_oak_planks|custom_oak_planks"
+        - "air|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_flint|custom_flint"
+        - "air|custom_spruce_planks|custom_spruce_planks"
+        - "air|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_flint|custom_flint"
+        - "air|custom_birch_planks|custom_birch_planks"
+        - "air|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_flint|custom_flint"
+        - "air|custom_jungle_planks|custom_jungle_planks"
+        - "air|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_flint|custom_flint"
+        - "air|custom_acacia_planks|custom_acacia_planks"
+        - "air|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_flint|custom_flint"
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
   material: fletching_table
   display name: <&7>Fletching Table
   weight: '1'
@@ -6411,29 +7601,169 @@ custom_loom:
       output_quantity: 1
       input:
         - "custom_string|custom_string|air"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
+        - "custom_oak_planks|custom_oak_planks|air"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
-        - "air|custom_string|custom_string"
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_string|custom_string|air"
+        - "custom_spruce_planks|custom_spruce_planks|air"
         - "air|air|air"
     2:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_string|custom_string|air"
+        - "custom_birch_planks|custom_birch_planks|air"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_string|custom_string|air"
+        - "custom_jungle_planks|custom_jungle_planks|air"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_string|custom_string|air"
+        - "custom_acacia_planks|custom_acacia_planks|air"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_string|custom_string|air"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_string|custom_string"
+        - "air|custom_oak_planks|custom_oak_planks"
+        - "air|air|air"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_string|custom_string"
+        - "air|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_string|custom_string"
+        - "air|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_string|custom_string"
+        - "air|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_string|custom_string"
+        - "air|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_string|custom_string"
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    12:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_string|custom_string|air"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
-    3:
+        - "custom_oak_planks|custom_oak_planks|air"
+    13:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_string|custom_string|air"
+        - "custom_spruce_planks|custom_spruce_planks|air"
+    14:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_string|custom_string|air"
+        - "custom_birch_planks|custom_birch_planks|air"
+    15:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_string|custom_string|air"
+        - "custom_jungle_planks|custom_jungle_planks|air"
+    16:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_string|custom_string|air"
+        - "custom_acacia_planks|custom_acacia_planks|air"
+    17:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_string|custom_string|air"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+    18:
       type: shaped
       output_quantity: 1
       input:
         - "air|air|air"
         - "air|custom_string|custom_string"
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "air|custom_oak_planks|custom_oak_planks"
+    19:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_string|custom_string"
+        - "air|custom_spruce_planks|custom_spruce_planks"
+    20:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_string|custom_string"
+        - "air|custom_birch_planks|custom_birch_planks"
+    21:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_string|custom_string"
+        - "air|custom_jungle_planks|custom_jungle_planks"
+    22:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_string|custom_string"
+        - "air|custom_acacia_planks|custom_acacia_planks"
+    23:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_string|custom_string"
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
   material: loom
   display name: <&7>Loom
   weight: '1'
@@ -6499,7 +7829,42 @@ custom_daylight_detector:
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_quartz|custom_quartz|custom_quartz"
-        - "regex:custom_(.*)_slab|regex:custom_(.*)_slab|regex:custom_(.*)_slab"
+        - "custom_oak_slab|custom_oak_slab|custom_oak_slab"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_glass|custom_glass|custom_glass"
+        - "custom_quartz|custom_quartz|custom_quartz"
+        - "custom_spruce_slab|custom_spruce_slab|custom_spruce_slab"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_glass|custom_glass|custom_glass"
+        - "custom_quartz|custom_quartz|custom_quartz"
+        - "custom_birch_slab|custom_birch_slab|custom_birch_slab"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_glass|custom_glass|custom_glass"
+        - "custom_quartz|custom_quartz|custom_quartz"
+        - "custom_jungle_slab|custom_jungle_slab|custom_jungle_slab"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_glass|custom_glass|custom_glass"
+        - "custom_quartz|custom_quartz|custom_quartz"
+        - "custom_acacia_slab|custom_acacia_slab|custom_acacia_slab"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_glass|custom_glass|custom_glass"
+        - "custom_quartz|custom_quartz|custom_quartz"
+        - "custom_dark_oak_slab|custom_dark_oak_slab|custom_dark_oak_slab"
   material: daylight_detector
   display name: <&7>Daylight Detector
   weight: '1'
@@ -6516,15 +7881,85 @@ custom_orange_bed:
       output_quantity: 1
       input:
         - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_orange_wool|custom_orange_wool|custom_orange_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: orange_bed
   display name: <&7>Orange Bed
   weight: '1'
@@ -6631,7 +8066,42 @@ custom_campfire:
       input:
         - "air|custom_stick|air"
         - "custom_stick|custom_charcoal|custom_stick"
-        - "regex:custom_stripped_(.*)_log|regex:custom_stripped_(.*)_log|regex:custom_stripped_(.*)_log"
+        - "custom_stripped_oak_log|custom_stripped_oak_log|custom_stripped_oak_log"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_stick|air"
+        - "custom_stick|custom_charcoal|custom_stick"
+        - "custom_stripped_spruce_log|custom_stripped_spruce_log|custom_stripped_spruce_log"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_stick|air"
+        - "custom_stick|custom_charcoal|custom_stick"
+        - "custom_stripped_birch_log|custom_stripped_birch_log|custom_stripped_birch_log"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_stick|air"
+        - "custom_stick|custom_charcoal|custom_stick"
+        - "custom_stripped_jungle_log|custom_stripped_jungle_log|custom_stripped_jungle_log"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_stick|air"
+        - "custom_stick|custom_charcoal|custom_stick"
+        - "custom_stripped_acacia_log|custom_stripped_acacia_log|custom_stripped_acacia_log"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_stick|air"
+        - "custom_stick|custom_charcoal|custom_stick"
+        - "custom_stripped_dark_oak_log|custom_stripped_dark_oak_log|custom_stripped_dark_oak_log"
   material: campfire
   display name: <&7>Campfire
   weight: '1'
@@ -6776,15 +8246,85 @@ custom_magenta_bed:
       output_quantity: 1
       input:
         - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_magenta_wool|custom_magenta_wool|custom_magenta_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: magenta_bed
   display name: <&7>Magenta Bed
   weight: '1'
@@ -7102,15 +8642,85 @@ custom_purple_bed:
       output_quantity: 1
       input:
         - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_purple_wool|custom_purple_wool|custom_purple_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: purple_bed
   display name: <&7>Purple Bed
   weight: '1'
@@ -7439,15 +9049,85 @@ custom_pink_bed:
       output_quantity: 1
       input:
         - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_pink_wool|custom_pink_wool|custom_pink_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: pink_bed
   display name: <&7>Pink Bed
   weight: '1'
@@ -7565,15 +9245,85 @@ custom_cartography_table:
       output_quantity: 1
       input:
         - "custom_paper|custom_paper|air"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|air"
+        - "custom_oak_planks|custom_oak_planks|air"
+        - "custom_oak_planks|custom_oak_planks|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_paper|custom_paper|air"
+        - "custom_spruce_planks|custom_spruce_planks|air"
+        - "custom_spruce_planks|custom_spruce_planks|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_paper|custom_paper|air"
+        - "custom_birch_planks|custom_birch_planks|air"
+        - "custom_birch_planks|custom_birch_planks|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_paper|custom_paper|air"
+        - "custom_jungle_planks|custom_jungle_planks|air"
+        - "custom_jungle_planks|custom_jungle_planks|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_paper|custom_paper|air"
+        - "custom_acacia_planks|custom_acacia_planks|air"
+        - "custom_acacia_planks|custom_acacia_planks|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_paper|custom_paper|air"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|custom_paper|custom_paper"
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
-        - "air|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "air|custom_oak_planks|custom_oak_planks"
+        - "air|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_paper|custom_paper"
+        - "air|custom_spruce_planks|custom_spruce_planks"
+        - "air|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_paper|custom_paper"
+        - "air|custom_birch_planks|custom_birch_planks"
+        - "air|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_paper|custom_paper"
+        - "air|custom_jungle_planks|custom_jungle_planks"
+        - "air|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_paper|custom_paper"
+        - "air|custom_acacia_planks|custom_acacia_planks"
+        - "air|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_paper|custom_paper"
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|custom_dark_oak_planks|custom_dark_oak_planks"
   material: cartography_table
   display name: <&7>Cartography Table
   weight: '1'
@@ -7895,15 +9645,85 @@ custom_light_blue_bed:
       output_quantity: 1
       input:
         - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_light_blue_wool|custom_light_blue_wool|custom_light_blue_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: light_blue_bed
   display name: <&7>Light Blue Bed
   weight: '1'
@@ -8290,7 +10110,42 @@ custom_piston:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+        - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
+        - "custom_cobblestone|custom_redstone|custom_cobblestone"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
+        - "custom_cobblestone|custom_redstone|custom_cobblestone"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
+        - "custom_cobblestone|custom_redstone|custom_cobblestone"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
+        - "custom_cobblestone|custom_redstone|custom_cobblestone"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
+        - "custom_cobblestone|custom_redstone|custom_cobblestone"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
         - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
         - "custom_cobblestone|custom_redstone|custom_cobblestone"
   material: piston
@@ -8384,9 +10239,44 @@ custom_chest:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
-        - "regex:custom_(.*)_planks|air|regex:custom_(.*)_planks"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+        - "custom_oak_planks|air|custom_oak_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "custom_spruce_planks|air|custom_spruce_planks"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "custom_birch_planks|air|custom_birch_planks"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "custom_jungle_planks|air|custom_jungle_planks"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "custom_acacia_planks|air|custom_acacia_planks"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "custom_dark_oak_planks|air|custom_dark_oak_planks"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: chest
   display name: <&7>Chest
   weight: '1'
@@ -8616,15 +10506,85 @@ custom_grindstone:
       output_quantity: 1
       input:
         - "custom_stick|custom_stone_slab|custom_stick"
-        - "regex:custom_(.*)_planks|air|regex:custom_(.*)_planks"
+        - "custom_oak_planks|air|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_stick|custom_stone_slab|custom_stick"
+        - "custom_spruce_planks|air|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_stick|custom_stone_slab|custom_stick"
+        - "custom_birch_planks|air|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_stick|custom_stone_slab|custom_stick"
+        - "custom_jungle_planks|air|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_stick|custom_stone_slab|custom_stick"
+        - "custom_acacia_planks|air|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_stick|custom_stone_slab|custom_stick"
+        - "custom_dark_oak_planks|air|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_stick|custom_stone_slab|custom_stick"
-        - "regex:custom_(.*)_planks|air|regex:custom_(.*)_planks"
+        - "custom_oak_planks|air|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_stick|custom_stone_slab|custom_stick"
+        - "custom_spruce_planks|air|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_stick|custom_stone_slab|custom_stick"
+        - "custom_birch_planks|air|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_stick|custom_stone_slab|custom_stick"
+        - "custom_jungle_planks|air|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_stick|custom_stone_slab|custom_stick"
+        - "custom_acacia_planks|air|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_stick|custom_stone_slab|custom_stick"
+        - "custom_dark_oak_planks|air|custom_dark_oak_planks"
   material: grindstone
   display name: <&7>Grindstone
   weight: '1'
@@ -8731,15 +10691,85 @@ custom_cyan_bed:
       output_quantity: 1
       input:
         - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_cyan_wool|custom_cyan_wool|custom_cyan_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: cyan_bed
   display name: <&7>Cyan Bed
   weight: '1'
@@ -8908,15 +10938,85 @@ custom_white_bed:
       output_quantity: 1
       input:
         - "custom_white_wool|custom_white_wool|custom_white_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_white_wool|custom_white_wool|custom_white_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_white_wool|custom_white_wool|custom_white_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_white_wool|custom_white_wool|custom_white_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_white_wool|custom_white_wool|custom_white_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_white_wool|custom_white_wool|custom_white_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_white_wool|custom_white_wool|custom_white_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_white_wool|custom_white_wool|custom_white_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_white_wool|custom_white_wool|custom_white_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_white_wool|custom_white_wool|custom_white_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_white_wool|custom_white_wool|custom_white_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_white_wool|custom_white_wool|custom_white_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: white_bed
   display name: <&7>White Bed
   weight: '1'
@@ -8946,15 +11046,85 @@ custom_lime_bed:
       output_quantity: 1
       input:
         - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
       output_quantity: 1
       input:
+        - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "air|air|air"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "air|air|air"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "air|air|air"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "air|air|air"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "air|air|air"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
         - "air|air|air"
         - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_lime_wool|custom_lime_wool|custom_lime_wool"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: lime_bed
   display name: <&7>Lime Bed
   weight: '1'
@@ -9273,9 +11443,44 @@ custom_beehive:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "custom_honeycomb|custom_honeycomb|custom_honeycomb"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_planks|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "custom_honeycomb|custom_honeycomb|custom_honeycomb"
+        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "custom_honeycomb|custom_honeycomb|custom_honeycomb"
+        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "custom_honeycomb|custom_honeycomb|custom_honeycomb"
+        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "custom_honeycomb|custom_honeycomb|custom_honeycomb"
+        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "custom_honeycomb|custom_honeycomb|custom_honeycomb"
+        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
   material: beehive
   display name: <&7>Beehive
   weight: '1'
@@ -9841,9 +12046,44 @@ custom_barrel:
       type: shaped
       output_quantity: 1
       input:
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_slab|regex:custom_(.*)_planks"
-        - "regex:custom_(.*)_planks|air|regex:custom_(.*)_planks"
-        - "regex:custom_(.*)_planks|regex:custom_(.*)_slab|regex:custom_(.*)_planks"
+        - "custom_oak_planks|custom_oak_slab|custom_oak_planks"
+        - "custom_oak_planks|air|custom_oak_planks"
+        - "custom_oak_planks|custom_oak_slab|custom_oak_planks"
+    1:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_spruce_planks|custom_spruce_slab|custom_spruce_planks"
+        - "custom_spruce_planks|air|custom_spruce_planks"
+        - "custom_spruce_planks|custom_spruce_slab|custom_spruce_planks"
+    2:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_birch_planks|custom_birch_slab|custom_birch_planks"
+        - "custom_birch_planks|air|custom_birch_planks"
+        - "custom_birch_planks|custom_birch_slab|custom_birch_planks"
+    3:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_jungle_planks|custom_jungle_slab|custom_jungle_planks"
+        - "custom_jungle_planks|air|custom_jungle_planks"
+        - "custom_jungle_planks|custom_jungle_slab|custom_jungle_planks"
+    4:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_acacia_planks|custom_acacia_slab|custom_acacia_planks"
+        - "custom_acacia_planks|air|custom_acacia_planks"
+        - "custom_acacia_planks|custom_acacia_slab|custom_acacia_planks"
+    5:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_dark_oak_planks|custom_dark_oak_slab|custom_dark_oak_planks"
+        - "custom_dark_oak_planks|air|custom_dark_oak_planks"
+        - "custom_dark_oak_planks|custom_dark_oak_slab|custom_dark_oak_planks"
   material: barrel
   display name: <&7>Barrel
   weight: '1'
