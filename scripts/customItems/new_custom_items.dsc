@@ -12,7 +12,7 @@ custom_detector_rail:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_iron_ingot|air|custom_iron_ingot"
         - "custom_iron_ingot|custom_stone_pressure_plate|custom_iron_ingot"
@@ -93,21 +93,21 @@ custom_cut_sandstone_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_cut_sandstone|custom_cut_sandstone|custom_cut_sandstone"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_cut_sandstone|custom_cut_sandstone|custom_cut_sandstone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -145,21 +145,21 @@ custom_mossy_stone_brick_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_mossy_stone_bricks|custom_mossy_stone_bricks|custom_mossy_stone_bricks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_mossy_stone_bricks|custom_mossy_stone_bricks|custom_mossy_stone_bricks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -177,7 +177,7 @@ custom_birch_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_birch_planks|air|air"
         - "custom_birch_planks|custom_birch_planks|air"
@@ -215,14 +215,14 @@ custom_iron_bars:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "custom_iron_ingot|custom_iron_ingot|custom_iron_ingot"
         - "custom_iron_ingot|custom_iron_ingot|custom_iron_ingot"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "air|air|air"
         - "custom_iron_ingot|custom_iron_ingot|custom_iron_ingot"
@@ -268,7 +268,7 @@ custom_light_blue_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_light_blue_dye|custom_glass"
@@ -294,7 +294,7 @@ custom_cobblestone_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_cobblestone|air|air"
         - "custom_cobblestone|custom_cobblestone|air"
@@ -410,44 +410,44 @@ custom_smoker:
       type: shaped
       output_quantity: 1
       input:
-        - "air|custom_stripped_oak_log|air"
-        - "custom_stripped_oak_log|custom_furnace|custom_stripped_oak_log"
-        - "air|custom_stripped_oak_log|air"
+        - "air|custom_oak_wood|air"
+        - "custom_oak_wood|custom_furnace|custom_oak_wood"
+        - "air|custom_oak_wood|air"
     1:
       type: shaped
       output_quantity: 1
       input:
-        - "air|custom_stripped_spruce_log|air"
-        - "custom_stripped_spruce_log|custom_furnace|custom_stripped_spruce_log"
-        - "air|custom_stripped_spruce_log|air"
+        - "air|custom_spruce_wood|air"
+        - "custom_spruce_wood|custom_furnace|custom_spruce_wood"
+        - "air|custom_spruce_wood|air"
     2:
       type: shaped
       output_quantity: 1
       input:
-        - "air|custom_stripped_birch_log|air"
-        - "custom_stripped_birch_log|custom_furnace|custom_stripped_birch_log"
-        - "air|custom_stripped_birch_log|air"
+        - "air|custom_birch_wood|air"
+        - "custom_birch_wood|custom_furnace|custom_birch_wood"
+        - "air|custom_birch_wood|air"
     3:
       type: shaped
       output_quantity: 1
       input:
-        - "air|custom_stripped_jungle_log|air"
-        - "custom_stripped_jungle_log|custom_furnace|custom_stripped_jungle_log"
-        - "air|custom_stripped_jungle_log|air"
+        - "air|custom_jungle_wood|air"
+        - "custom_jungle_wood|custom_furnace|custom_jungle_wood"
+        - "air|custom_jungle_wood|air"
     4:
       type: shaped
       output_quantity: 1
       input:
-        - "air|custom_stripped_acacia_log|air"
-        - "custom_stripped_acacia_log|custom_furnace|custom_stripped_acacia_log"
-        - "air|custom_stripped_acacia_log|air"
+        - "air|custom_acacia_wood|air"
+        - "custom_acacia_wood|custom_furnace|custom_acacia_wood"
+        - "air|custom_acacia_wood|air"
     5:
       type: shaped
       output_quantity: 1
       input:
-        - "air|custom_stripped_dark_oak_log|air"
-        - "custom_stripped_dark_oak_log|custom_furnace|custom_stripped_dark_oak_log"
-        - "air|custom_stripped_dark_oak_log|air"
+        - "air|custom_dark_oak_wood|air"
+        - "custom_dark_oak_wood|custom_furnace|custom_dark_oak_wood"
+        - "air|custom_dark_oak_wood|air"
   material: smoker
   display name: <&7>Smoker
   weight: '1'
@@ -494,7 +494,7 @@ custom_acacia_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_acacia_planks|air|air"
         - "custom_acacia_planks|custom_acacia_planks|air"
@@ -527,28 +527,28 @@ custom_birch_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_birch_log|custom_birch_log|air"
         - "custom_birch_log|custom_birch_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_birch_log|custom_birch_log"
         - "air|custom_birch_log|custom_birch_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_birch_log|custom_birch_log|air"
         - "custom_birch_log|custom_birch_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_birch_log|custom_birch_log"
@@ -571,14 +571,14 @@ custom_spruce_fence:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_spruce_planks|custom_stick|custom_spruce_planks"
         - "custom_spruce_planks|custom_stick|custom_spruce_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_spruce_planks|custom_stick|custom_spruce_planks"
@@ -799,7 +799,7 @@ custom_black_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_black_dye|custom_glass"
@@ -812,7 +812,7 @@ custom_pink_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_pink_dye|custom_terracotta"
@@ -913,7 +913,7 @@ custom_spruce_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_spruce_planks|air|air"
         - "custom_spruce_planks|custom_spruce_planks|air"
@@ -1074,14 +1074,14 @@ custom_lime_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "custom_lime_stained_glass|custom_lime_stained_glass|custom_lime_stained_glass"
         - "custom_lime_stained_glass|custom_lime_stained_glass|custom_lime_stained_glass"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "air|air|air"
         - "custom_lime_stained_glass|custom_lime_stained_glass|custom_lime_stained_glass"
@@ -1104,7 +1104,7 @@ custom_blue_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_blue_dye|custom_glass"
@@ -1196,21 +1196,21 @@ custom_jungle_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -1223,28 +1223,28 @@ custom_stripped_birch_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_stripped_birch_log|custom_stripped_birch_log|air"
         - "custom_stripped_birch_log|custom_stripped_birch_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_stripped_birch_log|custom_stripped_birch_log"
         - "air|custom_stripped_birch_log|custom_stripped_birch_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_stripped_birch_log|custom_stripped_birch_log|air"
         - "custom_stripped_birch_log|custom_stripped_birch_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_stripped_birch_log|custom_stripped_birch_log"
@@ -1414,28 +1414,28 @@ custom_coarse_dirt:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_dirt|custom_gravel|air"
         - "custom_gravel|custom_dirt|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_dirt|custom_gravel"
         - "air|custom_gravel|custom_dirt"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "custom_dirt|custom_gravel|air"
         - "custom_gravel|custom_dirt|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|custom_dirt|custom_gravel"
@@ -1548,21 +1548,21 @@ custom_cookie:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_wheat|custom_cocoa_beans|custom_wheat"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "air|air|air"
         - "custom_wheat|custom_cocoa_beans|custom_wheat"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "air|air|air"
         - "air|air|air"
@@ -1575,28 +1575,28 @@ custom_dark_oak_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_dark_oak_log|custom_dark_oak_log|air"
         - "custom_dark_oak_log|custom_dark_oak_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_dark_oak_log|custom_dark_oak_log"
         - "air|custom_dark_oak_log|custom_dark_oak_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_dark_oak_log|custom_dark_oak_log|air"
         - "custom_dark_oak_log|custom_dark_oak_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_dark_oak_log|custom_dark_oak_log"
@@ -1614,28 +1614,28 @@ custom_stripped_dark_oak_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_stripped_dark_oak_log|custom_stripped_dark_oak_log|air"
         - "custom_stripped_dark_oak_log|custom_stripped_dark_oak_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_stripped_dark_oak_log|custom_stripped_dark_oak_log"
         - "air|custom_stripped_dark_oak_log|custom_stripped_dark_oak_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_stripped_dark_oak_log|custom_stripped_dark_oak_log|air"
         - "custom_stripped_dark_oak_log|custom_stripped_dark_oak_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_stripped_dark_oak_log|custom_stripped_dark_oak_log"
@@ -1683,7 +1683,7 @@ custom_blue_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_blue_dye|custom_terracotta"
@@ -1714,7 +1714,7 @@ custom_cyan_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_cyan_dye|custom_glass"
@@ -1737,126 +1737,126 @@ custom_tripwire_hook:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_iron_ingot|air|air"
         - "custom_stick|air|air"
         - "custom_oak_planks|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_iron_ingot|air|air"
         - "custom_stick|air|air"
         - "custom_spruce_planks|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_iron_ingot|air|air"
         - "custom_stick|air|air"
         - "custom_birch_planks|air|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_iron_ingot|air|air"
         - "custom_stick|air|air"
         - "custom_jungle_planks|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_iron_ingot|air|air"
         - "custom_stick|air|air"
         - "custom_acacia_planks|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_iron_ingot|air|air"
         - "custom_stick|air|air"
         - "custom_dark_oak_planks|air|air"
     6:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|custom_iron_ingot|air"
         - "air|custom_stick|air"
         - "air|custom_oak_planks|air"
     7:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|custom_iron_ingot|air"
         - "air|custom_stick|air"
         - "air|custom_spruce_planks|air"
     8:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|custom_iron_ingot|air"
         - "air|custom_stick|air"
         - "air|custom_birch_planks|air"
     9:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|custom_iron_ingot|air"
         - "air|custom_stick|air"
         - "air|custom_jungle_planks|air"
     10:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|custom_iron_ingot|air"
         - "air|custom_stick|air"
         - "air|custom_acacia_planks|air"
     11:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|custom_iron_ingot|air"
         - "air|custom_stick|air"
         - "air|custom_dark_oak_planks|air"
     12:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|custom_iron_ingot"
         - "air|air|custom_stick"
         - "air|air|custom_oak_planks"
     13:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|custom_iron_ingot"
         - "air|air|custom_stick"
         - "air|air|custom_spruce_planks"
     14:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|custom_iron_ingot"
         - "air|air|custom_stick"
         - "air|air|custom_birch_planks"
     15:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|custom_iron_ingot"
         - "air|air|custom_stick"
         - "air|air|custom_jungle_planks"
     16:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|custom_iron_ingot"
         - "air|air|custom_stick"
         - "air|air|custom_acacia_planks"
     17:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|custom_iron_ingot"
         - "air|air|custom_stick"
@@ -1874,7 +1874,7 @@ custom_prismarine_brick_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_prismarine_bricks|air|air"
         - "custom_prismarine_bricks|custom_prismarine_bricks|air"
@@ -1887,7 +1887,7 @@ custom_prismarine_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_prismarine|air|air"
         - "custom_prismarine|custom_prismarine|air"
@@ -1900,21 +1900,21 @@ custom_quartz_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_chiseled_quartz_block|custom_chiseled_quartz_block|custom_chiseled_quartz_block"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_chiseled_quartz_block|custom_chiseled_quartz_block|custom_chiseled_quartz_block"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -1927,14 +1927,14 @@ custom_dark_oak_fence:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_dark_oak_planks|custom_stick|custom_dark_oak_planks"
         - "custom_dark_oak_planks|custom_stick|custom_dark_oak_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_dark_oak_planks|custom_stick|custom_dark_oak_planks"
@@ -2034,14 +2034,14 @@ custom_oak_door:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_oak_planks|custom_oak_planks|air"
         - "custom_oak_planks|custom_oak_planks|air"
         - "custom_oak_planks|custom_oak_planks|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_oak_planks|custom_oak_planks"
         - "air|custom_oak_planks|custom_oak_planks"
@@ -2064,7 +2064,7 @@ custom_orange_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_orange_dye|custom_terracotta"
@@ -2121,28 +2121,28 @@ custom_stripped_acacia_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_stripped_acacia_log|custom_stripped_acacia_log|air"
         - "custom_stripped_acacia_log|custom_stripped_acacia_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_stripped_acacia_log|custom_stripped_acacia_log"
         - "air|custom_stripped_acacia_log|custom_stripped_acacia_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_stripped_acacia_log|custom_stripped_acacia_log|air"
         - "custom_stripped_acacia_log|custom_stripped_acacia_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_stripped_acacia_log|custom_stripped_acacia_log"
@@ -2175,21 +2175,21 @@ custom_nether_brick_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_nether_bricks|custom_nether_bricks|custom_nether_bricks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_nether_bricks|custom_nether_bricks|custom_nether_bricks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -2202,28 +2202,28 @@ custom_purpur_block:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_popped_chorus_fruit|custom_popped_chorus_fruit|air"
         - "custom_popped_chorus_fruit|custom_popped_chorus_fruit|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_popped_chorus_fruit|custom_popped_chorus_fruit"
         - "air|custom_popped_chorus_fruit|custom_popped_chorus_fruit"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "custom_popped_chorus_fruit|custom_popped_chorus_fruit|air"
         - "custom_popped_chorus_fruit|custom_popped_chorus_fruit|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|custom_popped_chorus_fruit|custom_popped_chorus_fruit"
@@ -2669,7 +2669,7 @@ custom_activator_rail:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_iron_ingot|custom_stick|custom_iron_ingot"
         - "custom_iron_ingot|custom_redstone_torch|custom_iron_ingot"
@@ -2705,28 +2705,28 @@ custom_cut_sandstone:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_sandstone|custom_sandstone|air"
         - "custom_sandstone|custom_sandstone|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_sandstone|custom_sandstone"
         - "air|custom_sandstone|custom_sandstone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "custom_sandstone|custom_sandstone|air"
         - "custom_sandstone|custom_sandstone|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|custom_sandstone|custom_sandstone"
@@ -2739,14 +2739,14 @@ custom_mossy_stone_brick_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_mossy_stone_bricks|custom_mossy_stone_bricks|custom_mossy_stone_bricks"
         - "custom_mossy_stone_bricks|custom_mossy_stone_bricks|custom_mossy_stone_bricks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_mossy_stone_bricks|custom_mossy_stone_bricks|custom_mossy_stone_bricks"
@@ -2764,21 +2764,21 @@ custom_smooth_quartz_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_smooth_quartz|custom_smooth_quartz|custom_smooth_quartz"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_smooth_quartz|custom_smooth_quartz|custom_smooth_quartz"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -2844,7 +2844,7 @@ custom_jungle_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_jungle_planks|air|air"
         - "custom_jungle_planks|custom_jungle_planks|air"
@@ -2918,7 +2918,7 @@ custom_stone_brick_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_stone_bricks|air|air"
         - "custom_stone_bricks|custom_stone_bricks|air"
@@ -2966,14 +2966,14 @@ custom_acacia_fence:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_acacia_planks|custom_stick|custom_acacia_planks"
         - "custom_acacia_planks|custom_stick|custom_acacia_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_acacia_planks|custom_stick|custom_acacia_planks"
@@ -2986,28 +2986,28 @@ custom_stone_bricks:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_stone|custom_stone|air"
         - "custom_stone|custom_stone|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_stone|custom_stone"
         - "air|custom_stone|custom_stone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "custom_stone|custom_stone|air"
         - "custom_stone|custom_stone|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|custom_stone|custom_stone"
@@ -3020,7 +3020,7 @@ custom_rail:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "custom_iron_ingot|air|custom_iron_ingot"
         - "custom_iron_ingot|custom_stick|custom_iron_ingot"
@@ -3073,21 +3073,21 @@ custom_smooth_red_sandstone_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_smooth_red_sandstone|custom_smooth_red_sandstone|custom_smooth_red_sandstone"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_smooth_red_sandstone|custom_smooth_red_sandstone|custom_smooth_red_sandstone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -3100,21 +3100,21 @@ custom_purpur_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_purpur_block|custom_purpur_block|custom_purpur_block"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_purpur_block|custom_purpur_block|custom_purpur_block"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -3127,7 +3127,7 @@ custom_lime_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_white_carpet|custom_white_carpet|custom_white_carpet"
         - "custom_white_carpet|custom_lime_dye|custom_white_carpet"
@@ -3140,7 +3140,7 @@ custom_powered_rail:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_gold_ingot|air|custom_gold_ingot"
         - "custom_gold_ingot|custom_stick|custom_gold_ingot"
@@ -3163,21 +3163,21 @@ custom_birch_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -3208,14 +3208,14 @@ custom_cobblestone_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_cobblestone|custom_cobblestone|custom_cobblestone"
         - "custom_cobblestone|custom_cobblestone|custom_cobblestone"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_cobblestone|custom_cobblestone|custom_cobblestone"
@@ -3309,21 +3309,21 @@ custom_polished_diorite_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_polished_diorite|custom_polished_diorite|custom_polished_diorite"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_polished_diorite|custom_polished_diorite|custom_polished_diorite"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -3471,7 +3471,7 @@ custom_dark_prismarine_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_dark_prismarine|air|air"
         - "custom_dark_prismarine|custom_dark_prismarine|air"
@@ -3494,14 +3494,14 @@ custom_acacia_door:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_acacia_planks|custom_acacia_planks|air"
         - "custom_acacia_planks|custom_acacia_planks|air"
         - "custom_acacia_planks|custom_acacia_planks|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_acacia_planks|custom_acacia_planks"
         - "air|custom_acacia_planks|custom_acacia_planks"
@@ -3514,28 +3514,28 @@ custom_oak_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_oak_log|custom_oak_log|air"
         - "custom_oak_log|custom_oak_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_oak_log|custom_oak_log"
         - "air|custom_oak_log|custom_oak_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_oak_log|custom_oak_log|air"
         - "custom_oak_log|custom_oak_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_oak_log|custom_oak_log"
@@ -3571,14 +3571,14 @@ custom_pink_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "custom_pink_stained_glass|custom_pink_stained_glass|custom_pink_stained_glass"
         - "custom_pink_stained_glass|custom_pink_stained_glass|custom_pink_stained_glass"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "air|air|air"
         - "custom_pink_stained_glass|custom_pink_stained_glass|custom_pink_stained_glass"
@@ -3749,7 +3749,7 @@ custom_jungle_sign:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
         - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
@@ -3835,14 +3835,14 @@ custom_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_glass|custom_glass"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "air|air|air"
         - "custom_glass|custom_glass|custom_glass"
@@ -3855,14 +3855,14 @@ custom_jungle_trapdoor:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
         - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|air"
         - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
@@ -3875,42 +3875,42 @@ custom_brown_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_brown_wool|custom_brown_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_brown_wool|custom_brown_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_brown_wool|custom_brown_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_brown_wool|custom_brown_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_brown_wool|custom_brown_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -3989,7 +3989,7 @@ custom_red_sandstone_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_red_sandstone|air|air"
         - "custom_red_sandstone|custom_red_sandstone|air"
@@ -4030,7 +4030,7 @@ custom_gray_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_gray_dye|custom_glass"
@@ -4053,21 +4053,21 @@ custom_dark_oak_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -4080,7 +4080,7 @@ custom_mossy_stone_brick_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_mossy_stone_bricks|air|air"
         - "custom_mossy_stone_bricks|custom_mossy_stone_bricks|air"
@@ -4118,7 +4118,7 @@ custom_light_gray_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_light_gray_dye|custom_glass"
@@ -4204,7 +4204,7 @@ custom_magenta_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass_pane|custom_glass_pane|custom_glass_pane"
         - "custom_glass_pane|custom_magenta_dye|custom_glass_pane"
@@ -4217,7 +4217,7 @@ custom_pink_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_pink_dye|custom_glass"
@@ -4255,7 +4255,7 @@ custom_light_gray_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_light_gray_dye|custom_terracotta"
@@ -4316,7 +4316,7 @@ custom_yellow_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_yellow_dye|custom_glass"
@@ -4334,7 +4334,7 @@ custom_spectral_arrow:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|custom_glowstone_dust|air"
         - "custom_glowstone_dust|custom_arrow|custom_glowstone_dust"
@@ -4347,14 +4347,14 @@ custom_andesite_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_andesite|custom_andesite|custom_andesite"
         - "custom_andesite|custom_andesite|custom_andesite"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_andesite|custom_andesite|custom_andesite"
@@ -4372,28 +4372,28 @@ custom_polished_diorite:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_diorite|custom_diorite|air"
         - "custom_diorite|custom_diorite|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_diorite|custom_diorite"
         - "air|custom_diorite|custom_diorite"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "custom_diorite|custom_diorite|air"
         - "custom_diorite|custom_diorite|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|custom_diorite|custom_diorite"
@@ -4506,21 +4506,21 @@ custom_diorite_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_diorite|custom_diorite|custom_diorite"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_diorite|custom_diorite|custom_diorite"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -4860,14 +4860,14 @@ custom_spruce_trapdoor:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
         - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|air"
         - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
@@ -4908,7 +4908,7 @@ custom_red_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_red_dye|custom_terracotta"
@@ -4926,7 +4926,7 @@ custom_white_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_white_dye|custom_terracotta"
@@ -4939,7 +4939,7 @@ custom_oak_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_oak_planks|air|air"
         - "custom_oak_planks|custom_oak_planks|air"
@@ -4962,7 +4962,7 @@ custom_granite_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_granite|air|air"
         - "custom_granite|custom_granite|air"
@@ -5038,14 +5038,14 @@ custom_jungle_fence:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_jungle_planks|custom_stick|custom_jungle_planks"
         - "custom_jungle_planks|custom_stick|custom_jungle_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_jungle_planks|custom_stick|custom_jungle_planks"
@@ -5058,14 +5058,14 @@ custom_black_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "custom_black_stained_glass|custom_black_stained_glass|custom_black_stained_glass"
         - "custom_black_stained_glass|custom_black_stained_glass|custom_black_stained_glass"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "air|air|air"
         - "custom_black_stained_glass|custom_black_stained_glass|custom_black_stained_glass"
@@ -5083,21 +5083,21 @@ custom_arrow:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_flint|air|air"
         - "custom_stick|air|air"
         - "custom_feather|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_flint|air"
         - "air|custom_stick|air"
         - "air|custom_feather|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|custom_flint"
         - "air|air|custom_stick"
@@ -5110,28 +5110,28 @@ custom_jungle_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_jungle_log|custom_jungle_log|air"
         - "custom_jungle_log|custom_jungle_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_jungle_log|custom_jungle_log"
         - "air|custom_jungle_log|custom_jungle_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_jungle_log|custom_jungle_log|air"
         - "custom_jungle_log|custom_jungle_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_jungle_log|custom_jungle_log"
@@ -5154,7 +5154,7 @@ custom_oak_sign:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
@@ -5172,21 +5172,21 @@ custom_spruce_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -5199,7 +5199,7 @@ custom_smooth_quartz_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_smooth_quartz|air|air"
         - "custom_smooth_quartz|custom_smooth_quartz|air"
@@ -5222,21 +5222,21 @@ custom_cobblestone_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_cobblestone|custom_cobblestone|custom_cobblestone"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_cobblestone|custom_cobblestone|custom_cobblestone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -5261,7 +5261,7 @@ custom_polished_andesite_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_polished_andesite|air|air"
         - "custom_polished_andesite|custom_polished_andesite|air"
@@ -5370,21 +5370,21 @@ custom_andesite_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_andesite|custom_andesite|custom_andesite"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_andesite|custom_andesite|custom_andesite"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -5407,21 +5407,21 @@ custom_prismarine_brick_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_prismarine_bricks|custom_prismarine_bricks|custom_prismarine_bricks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_prismarine_bricks|custom_prismarine_bricks|custom_prismarine_bricks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -5457,7 +5457,7 @@ custom_white_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_white_dye|custom_glass"
@@ -5493,21 +5493,21 @@ custom_polished_andesite_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_polished_andesite|custom_polished_andesite|custom_polished_andesite"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_polished_andesite|custom_polished_andesite|custom_polished_andesite"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -5550,7 +5550,7 @@ custom_green_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_green_dye|custom_glass"
@@ -5568,28 +5568,28 @@ custom_stripped_spruce_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_stripped_spruce_log|custom_stripped_spruce_log|air"
         - "custom_stripped_spruce_log|custom_stripped_spruce_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_stripped_spruce_log|custom_stripped_spruce_log"
         - "air|custom_stripped_spruce_log|custom_stripped_spruce_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_stripped_spruce_log|custom_stripped_spruce_log|air"
         - "custom_stripped_spruce_log|custom_stripped_spruce_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_stripped_spruce_log|custom_stripped_spruce_log"
@@ -5642,7 +5642,7 @@ custom_magenta_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_magenta_dye|custom_glass"
@@ -5665,28 +5665,28 @@ custom_stripped_oak_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_stripped_oak_log|custom_stripped_oak_log|air"
         - "custom_stripped_oak_log|custom_stripped_oak_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_stripped_oak_log|custom_stripped_oak_log"
         - "air|custom_stripped_oak_log|custom_stripped_oak_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_stripped_oak_log|custom_stripped_oak_log|air"
         - "custom_stripped_oak_log|custom_stripped_oak_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_stripped_oak_log|custom_stripped_oak_log"
@@ -5756,21 +5756,21 @@ custom_snow:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_snow_block|custom_snow_block|custom_snow_block"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_snow_block|custom_snow_block|custom_snow_block"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -5788,7 +5788,7 @@ custom_red_nether_brick_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_red_nether_bricks|air|air"
         - "custom_red_nether_bricks|custom_red_nether_bricks|air"
@@ -5849,7 +5849,7 @@ custom_andesite_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_andesite|air|air"
         - "custom_andesite|custom_andesite|air"
@@ -5945,7 +5945,7 @@ custom_polished_granite_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_polished_granite|air|air"
         - "custom_polished_granite|custom_polished_granite|air"
@@ -5976,42 +5976,42 @@ custom_gray_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_gray_wool|custom_gray_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_gray_wool|custom_gray_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_gray_wool|custom_gray_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_gray_wool|custom_gray_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_gray_wool|custom_gray_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -6024,21 +6024,21 @@ custom_brick_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_bricks|custom_bricks|custom_bricks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_bricks|custom_bricks|custom_bricks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -6186,28 +6186,28 @@ custom_stripped_jungle_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_stripped_jungle_log|custom_stripped_jungle_log|air"
         - "custom_stripped_jungle_log|custom_stripped_jungle_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_stripped_jungle_log|custom_stripped_jungle_log"
         - "air|custom_stripped_jungle_log|custom_stripped_jungle_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_stripped_jungle_log|custom_stripped_jungle_log|air"
         - "custom_stripped_jungle_log|custom_stripped_jungle_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_stripped_jungle_log|custom_stripped_jungle_log"
@@ -6230,7 +6230,7 @@ custom_brick_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_bricks|air|air"
         - "custom_bricks|custom_bricks|air"
@@ -6258,7 +6258,7 @@ custom_brown_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass_pane|custom_glass_pane|custom_glass_pane"
         - "custom_glass_pane|custom_brown_dye|custom_glass_pane"
@@ -6276,7 +6276,7 @@ custom_lime_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_lime_dye|custom_terracotta"
@@ -6289,7 +6289,7 @@ custom_yellow_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_white_carpet|custom_white_carpet|custom_white_carpet"
         - "custom_white_carpet|custom_yellow_dye|custom_white_carpet"
@@ -6302,7 +6302,7 @@ custom_green_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass_pane|custom_glass_pane|custom_glass_pane"
         - "custom_glass_pane|custom_green_dye|custom_glass_pane"
@@ -6444,7 +6444,7 @@ custom_ladder:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_stick|air|custom_stick"
         - "custom_stick|custom_stick|custom_stick"
@@ -6462,21 +6462,21 @@ custom_stone_brick_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_stone_bricks|custom_stone_bricks|custom_stone_bricks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_stone_bricks|custom_stone_bricks|custom_stone_bricks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -6494,7 +6494,7 @@ custom_acacia_sign:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
         - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
@@ -6512,42 +6512,42 @@ custom_white_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_white_wool|custom_white_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_white_wool|custom_white_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_white_wool|custom_white_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_white_wool|custom_white_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_white_wool|custom_white_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -6565,7 +6565,7 @@ custom_magenta_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_white_carpet|custom_white_carpet|custom_white_carpet"
         - "custom_white_carpet|custom_magenta_dye|custom_white_carpet"
@@ -6673,14 +6673,14 @@ custom_jungle_door:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_jungle_planks|custom_jungle_planks|air"
         - "custom_jungle_planks|custom_jungle_planks|air"
         - "custom_jungle_planks|custom_jungle_planks|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_jungle_planks|custom_jungle_planks"
         - "air|custom_jungle_planks|custom_jungle_planks"
@@ -6693,14 +6693,14 @@ custom_yellow_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "custom_yellow_stained_glass|custom_yellow_stained_glass|custom_yellow_stained_glass"
         - "custom_yellow_stained_glass|custom_yellow_stained_glass|custom_yellow_stained_glass"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "air|air|air"
         - "custom_yellow_stained_glass|custom_yellow_stained_glass|custom_yellow_stained_glass"
@@ -6713,42 +6713,42 @@ custom_quartz_pillar:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_quartz_block|air|air"
         - "custom_quartz_block|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|custom_quartz_block|air"
         - "air|custom_quartz_block|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|custom_quartz_block"
         - "air|air|custom_quartz_block"
         - "air|air|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|air"
         - "custom_quartz_block|air|air"
         - "custom_quartz_block|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|air"
         - "air|custom_quartz_block|air"
         - "air|custom_quartz_block|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|air"
         - "air|air|custom_quartz_block"
@@ -6793,7 +6793,7 @@ custom_light_blue_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_light_blue_dye|custom_terracotta"
@@ -6806,42 +6806,42 @@ custom_cyan_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_cyan_wool|custom_cyan_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_cyan_wool|custom_cyan_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_cyan_wool|custom_cyan_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_cyan_wool|custom_cyan_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_cyan_wool|custom_cyan_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -6925,21 +6925,21 @@ custom_smooth_sandstone_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_smooth_sandstone|custom_smooth_sandstone|custom_smooth_sandstone"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_smooth_sandstone|custom_smooth_sandstone|custom_smooth_sandstone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -6957,28 +6957,28 @@ custom_end_stone_bricks:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_end_stone|custom_end_stone|air"
         - "custom_end_stone|custom_end_stone|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_end_stone|custom_end_stone"
         - "air|custom_end_stone|custom_end_stone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "custom_end_stone|custom_end_stone|air"
         - "custom_end_stone|custom_end_stone|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|custom_end_stone|custom_end_stone"
@@ -7012,14 +7012,14 @@ custom_red_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "custom_red_stained_glass|custom_red_stained_glass|custom_red_stained_glass"
         - "custom_red_stained_glass|custom_red_stained_glass|custom_red_stained_glass"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "air|air|air"
         - "custom_red_stained_glass|custom_red_stained_glass|custom_red_stained_glass"
@@ -7042,14 +7042,14 @@ custom_oak_trapdoor:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|air"
         - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
@@ -7062,14 +7062,14 @@ custom_brick_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_bricks|custom_bricks|custom_bricks"
         - "custom_bricks|custom_bricks|custom_bricks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_bricks|custom_bricks|custom_bricks"
@@ -7192,14 +7192,14 @@ custom_acacia_trapdoor:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
         - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|air"
         - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
@@ -7222,42 +7222,42 @@ custom_light_blue_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_light_blue_wool|custom_light_blue_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_light_blue_wool|custom_light_blue_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_light_blue_wool|custom_light_blue_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_light_blue_wool|custom_light_blue_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_light_blue_wool|custom_light_blue_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -7283,21 +7283,21 @@ custom_paper:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_sugar_cane|custom_sugar_cane|custom_sugar_cane"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_sugar_cane|custom_sugar_cane|custom_sugar_cane"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -7330,21 +7330,21 @@ custom_stone_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_stone|custom_stone|custom_stone"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_stone|custom_stone|custom_stone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -7357,14 +7357,14 @@ custom_dark_oak_trapdoor:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
         - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|air"
         - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
@@ -7404,21 +7404,21 @@ custom_dark_prismarine_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_dark_prismarine|custom_dark_prismarine|custom_dark_prismarine"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_dark_prismarine|custom_dark_prismarine|custom_dark_prismarine"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -7456,7 +7456,7 @@ custom_red_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_white_carpet|custom_white_carpet|custom_white_carpet"
         - "custom_white_carpet|custom_red_dye|custom_white_carpet"
@@ -7530,42 +7530,42 @@ custom_light_gray_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_light_gray_wool|custom_light_gray_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_light_gray_wool|custom_light_gray_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_light_gray_wool|custom_light_gray_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_light_gray_wool|custom_light_gray_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_light_gray_wool|custom_light_gray_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -7578,14 +7578,14 @@ custom_diorite_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_diorite|custom_diorite|custom_diorite"
         - "custom_diorite|custom_diorite|custom_diorite"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_diorite|custom_diorite|custom_diorite"
@@ -7782,7 +7782,7 @@ custom_orange_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_orange_dye|custom_glass"
@@ -7973,7 +7973,7 @@ custom_white_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass_pane|custom_glass_pane|custom_glass_pane"
         - "custom_glass_pane|custom_white_dye|custom_glass_pane"
@@ -7986,42 +7986,42 @@ custom_green_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_green_wool|custom_green_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_green_wool|custom_green_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_green_wool|custom_green_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_green_wool|custom_green_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_green_wool|custom_green_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -8065,43 +8065,43 @@ custom_campfire:
       output_quantity: 1
       input:
         - "air|custom_stick|air"
-        - "custom_stick|custom_charcoal|custom_stick"
-        - "custom_stripped_oak_log|custom_stripped_oak_log|custom_stripped_oak_log"
+        - "custom_stick|custom_coal|custom_stick"
+        - "custom_oak_wood|custom_oak_wood|custom_oak_wood"
     1:
       type: shaped
       output_quantity: 1
       input:
         - "air|custom_stick|air"
-        - "custom_stick|custom_charcoal|custom_stick"
-        - "custom_stripped_spruce_log|custom_stripped_spruce_log|custom_stripped_spruce_log"
+        - "custom_stick|custom_coal|custom_stick"
+        - "custom_spruce_wood|custom_spruce_wood|custom_spruce_wood"
     2:
       type: shaped
       output_quantity: 1
       input:
         - "air|custom_stick|air"
-        - "custom_stick|custom_charcoal|custom_stick"
-        - "custom_stripped_birch_log|custom_stripped_birch_log|custom_stripped_birch_log"
+        - "custom_stick|custom_coal|custom_stick"
+        - "custom_birch_wood|custom_birch_wood|custom_birch_wood"
     3:
       type: shaped
       output_quantity: 1
       input:
         - "air|custom_stick|air"
-        - "custom_stick|custom_charcoal|custom_stick"
-        - "custom_stripped_jungle_log|custom_stripped_jungle_log|custom_stripped_jungle_log"
+        - "custom_stick|custom_coal|custom_stick"
+        - "custom_jungle_wood|custom_jungle_wood|custom_jungle_wood"
     4:
       type: shaped
       output_quantity: 1
       input:
         - "air|custom_stick|air"
-        - "custom_stick|custom_charcoal|custom_stick"
-        - "custom_stripped_acacia_log|custom_stripped_acacia_log|custom_stripped_acacia_log"
+        - "custom_stick|custom_coal|custom_stick"
+        - "custom_acacia_wood|custom_acacia_wood|custom_acacia_wood"
     5:
       type: shaped
       output_quantity: 1
       input:
         - "air|custom_stick|air"
-        - "custom_stick|custom_charcoal|custom_stick"
-        - "custom_stripped_dark_oak_log|custom_stripped_dark_oak_log|custom_stripped_dark_oak_log"
+        - "custom_stick|custom_coal|custom_stick"
+        - "custom_dark_oak_wood|custom_dark_oak_wood|custom_dark_oak_wood"
   material: campfire
   display name: <&7>Campfire
   weight: '1'
@@ -8110,42 +8110,42 @@ custom_torch:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_coal|air|air"
         - "custom_stick|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_coal|air"
         - "air|custom_stick|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|custom_coal"
         - "air|air|custom_stick"
         - "air|air|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "custom_coal|air|air"
         - "custom_stick|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|custom_coal|air"
         - "air|custom_stick|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|air|custom_coal"
@@ -8191,7 +8191,7 @@ custom_green_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_green_dye|custom_terracotta"
@@ -8209,28 +8209,28 @@ custom_spruce_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_spruce_log|custom_spruce_log|air"
         - "custom_spruce_log|custom_spruce_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_spruce_log|custom_spruce_log"
         - "air|custom_spruce_log|custom_spruce_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_spruce_log|custom_spruce_log|air"
         - "custom_spruce_log|custom_spruce_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_spruce_log|custom_spruce_log"
@@ -8333,14 +8333,14 @@ custom_cyan_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "custom_cyan_stained_glass|custom_cyan_stained_glass|custom_cyan_stained_glass"
         - "custom_cyan_stained_glass|custom_cyan_stained_glass|custom_cyan_stained_glass"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "air|air|air"
         - "custom_cyan_stained_glass|custom_cyan_stained_glass|custom_cyan_stained_glass"
@@ -8358,14 +8358,14 @@ custom_end_stone_brick_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_end_stone_bricks|custom_end_stone_bricks|custom_end_stone_bricks"
         - "custom_end_stone_bricks|custom_end_stone_bricks|custom_end_stone_bricks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_end_stone_bricks|custom_end_stone_bricks|custom_end_stone_bricks"
@@ -8378,14 +8378,14 @@ custom_orange_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "custom_orange_stained_glass|custom_orange_stained_glass|custom_orange_stained_glass"
         - "custom_orange_stained_glass|custom_orange_stained_glass|custom_orange_stained_glass"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 16
       input:
         - "air|air|air"
         - "custom_orange_stained_glass|custom_orange_stained_glass|custom_orange_stained_glass"
@@ -8418,7 +8418,7 @@ custom_brown_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_brown_dye|custom_terracotta"
@@ -8436,7 +8436,7 @@ custom_brown_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_brown_dye|custom_glass"
@@ -8459,7 +8459,7 @@ custom_nether_brick_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_nether_bricks|air|air"
         - "custom_nether_bricks|custom_nether_bricks|air"
@@ -8581,7 +8581,7 @@ custom_polished_diorite_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_polished_diorite|air|air"
         - "custom_polished_diorite|custom_polished_diorite|air"
@@ -8729,7 +8729,7 @@ custom_diorite_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_diorite|air|air"
         - "custom_diorite|custom_diorite|air"
@@ -8757,21 +8757,21 @@ custom_polished_granite_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_polished_granite|custom_polished_granite|custom_polished_granite"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_polished_granite|custom_polished_granite|custom_polished_granite"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -8820,28 +8820,28 @@ custom_acacia_wood:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_acacia_log|custom_acacia_log|air"
         - "custom_acacia_log|custom_acacia_log|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_acacia_log|custom_acacia_log"
         - "air|custom_acacia_log|custom_acacia_log"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_acacia_log|custom_acacia_log|air"
         - "custom_acacia_log|custom_acacia_log|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_acacia_log|custom_acacia_log"
@@ -8898,21 +8898,21 @@ custom_cut_red_sandstone_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_cut_red_sandstone|custom_cut_red_sandstone|custom_cut_red_sandstone"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_cut_red_sandstone|custom_cut_red_sandstone|custom_cut_red_sandstone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -8938,7 +8938,7 @@ custom_painting:
       output_quantity: 1
       input:
         - "custom_stick|custom_stick|custom_stick"
-        - "custom_stick|custom_blue_wool|custom_stick"
+        - "custom_stick|custom_white_wool|custom_stick"
         - "custom_stick|custom_stick|custom_stick"
   material: painting
   display name: <&7>Painting
@@ -8963,42 +8963,42 @@ custom_end_rod:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_blaze_rod|air|air"
         - "custom_popped_chorus_fruit|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_blaze_rod|air"
         - "air|custom_popped_chorus_fruit|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|custom_blaze_rod"
         - "air|air|custom_popped_chorus_fruit"
         - "air|air|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "custom_blaze_rod|air|air"
         - "custom_popped_chorus_fruit|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|custom_blaze_rod|air"
         - "air|custom_popped_chorus_fruit|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|air|custom_blaze_rod"
@@ -9026,14 +9026,14 @@ custom_birch_trapdoor:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
         - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|air"
         - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
@@ -9146,7 +9146,7 @@ custom_lead:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_string|custom_string|air"
         - "custom_string|custom_slime_ball|air"
@@ -9194,42 +9194,42 @@ custom_purple_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_purple_wool|custom_purple_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_purple_wool|custom_purple_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_purple_wool|custom_purple_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_purple_wool|custom_purple_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_purple_wool|custom_purple_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -9332,21 +9332,21 @@ custom_red_nether_brick_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_red_nether_bricks|custom_red_nether_bricks|custom_red_nether_bricks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_red_nether_bricks|custom_red_nether_bricks|custom_red_nether_bricks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -9359,7 +9359,7 @@ custom_blue_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass_pane|custom_glass_pane|custom_glass_pane"
         - "custom_glass_pane|custom_blue_dye|custom_glass_pane"
@@ -9377,14 +9377,14 @@ custom_birch_door:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_birch_planks|custom_birch_planks|air"
         - "custom_birch_planks|custom_birch_planks|air"
         - "custom_birch_planks|custom_birch_planks|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_birch_planks|custom_birch_planks"
         - "air|custom_birch_planks|custom_birch_planks"
@@ -9460,14 +9460,14 @@ custom_dark_oak_door:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_dark_oak_planks|custom_dark_oak_planks|air"
         - "custom_dark_oak_planks|custom_dark_oak_planks|air"
         - "custom_dark_oak_planks|custom_dark_oak_planks|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_dark_oak_planks|custom_dark_oak_planks"
         - "air|custom_dark_oak_planks|custom_dark_oak_planks"
@@ -9498,14 +9498,14 @@ custom_granite_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_granite|custom_granite|custom_granite"
         - "custom_granite|custom_granite|custom_granite"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_granite|custom_granite|custom_granite"
@@ -9539,14 +9539,14 @@ custom_birch_fence:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_birch_planks|custom_stick|custom_birch_planks"
         - "custom_birch_planks|custom_stick|custom_birch_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_birch_planks|custom_stick|custom_birch_planks"
@@ -9559,7 +9559,7 @@ custom_dark_oak_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_dark_oak_planks|air|air"
         - "custom_dark_oak_planks|custom_dark_oak_planks|air"
@@ -9577,21 +9577,21 @@ custom_oak_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -9629,7 +9629,7 @@ custom_scaffolding:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_bamboo|custom_string|custom_bamboo"
         - "custom_bamboo|air|custom_bamboo"
@@ -9737,7 +9737,7 @@ custom_spruce_sign:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
         - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
@@ -9860,28 +9860,28 @@ custom_polished_andesite:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_andesite|custom_andesite|air"
         - "custom_andesite|custom_andesite|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_andesite|custom_andesite"
         - "air|custom_andesite|custom_andesite"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "custom_andesite|custom_andesite|air"
         - "custom_andesite|custom_andesite|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|custom_andesite|custom_andesite"
@@ -9957,14 +9957,14 @@ custom_iron_door:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_iron_ingot|custom_iron_ingot|air"
         - "custom_iron_ingot|custom_iron_ingot|air"
         - "custom_iron_ingot|custom_iron_ingot|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_iron_ingot|custom_iron_ingot"
         - "air|custom_iron_ingot|custom_iron_ingot"
@@ -9977,21 +9977,21 @@ custom_prismarine_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_prismarine|custom_prismarine|custom_prismarine"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_prismarine|custom_prismarine|custom_prismarine"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -10009,21 +10009,21 @@ custom_sandstone_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_sandstone|custom_sandstone|custom_sandstone"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_sandstone|custom_sandstone|custom_sandstone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -10041,7 +10041,7 @@ custom_light_blue_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass_pane|custom_glass_pane|custom_glass_pane"
         - "custom_glass_pane|custom_light_blue_dye|custom_glass_pane"
@@ -10054,7 +10054,7 @@ custom_smooth_sandstone_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_smooth_sandstone|air|air"
         - "custom_smooth_sandstone|custom_smooth_sandstone|air"
@@ -10067,7 +10067,7 @@ custom_black_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_black_dye|custom_terracotta"
@@ -10156,7 +10156,7 @@ custom_gray_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass_pane|custom_glass_pane|custom_glass_pane"
         - "custom_glass_pane|custom_gray_dye|custom_glass_pane"
@@ -10169,7 +10169,7 @@ custom_purple_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_purple_dye|custom_glass"
@@ -10192,21 +10192,21 @@ custom_granite_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_granite|custom_granite|custom_granite"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_granite|custom_granite|custom_granite"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -10224,7 +10224,7 @@ custom_purpur_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_purpur_block|air|air"
         - "custom_purpur_block|custom_purpur_block|air"
@@ -10359,21 +10359,21 @@ custom_end_stone_brick_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_end_stone_bricks|custom_end_stone_bricks|custom_end_stone_bricks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_end_stone_bricks|custom_end_stone_bricks|custom_end_stone_bricks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -10409,7 +10409,7 @@ custom_magenta_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_magenta_dye|custom_terracotta"
@@ -10437,21 +10437,21 @@ custom_smooth_stone_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_smooth_stone|custom_smooth_stone|custom_smooth_stone"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_smooth_stone|custom_smooth_stone|custom_smooth_stone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -10806,14 +10806,14 @@ custom_oak_fence:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_oak_planks|custom_stick|custom_oak_planks"
         - "custom_oak_planks|custom_stick|custom_oak_planks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_oak_planks|custom_stick|custom_oak_planks"
@@ -10831,14 +10831,14 @@ custom_red_sandstone_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_red_sandstone|custom_red_sandstone|custom_red_sandstone"
         - "custom_red_sandstone|custom_red_sandstone|custom_red_sandstone"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_red_sandstone|custom_red_sandstone|custom_red_sandstone"
@@ -10874,7 +10874,7 @@ custom_stone_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_stone|air|air"
         - "custom_stone|custom_stone|air"
@@ -10912,7 +10912,7 @@ custom_mossy_cobblestone_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_mossy_cobblestone|air|air"
         - "custom_mossy_cobblestone|custom_mossy_cobblestone|air"
@@ -11191,21 +11191,21 @@ custom_acacia_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -11218,21 +11218,21 @@ custom_mossy_cobblestone_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_mossy_cobblestone|custom_mossy_cobblestone|custom_mossy_cobblestone"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_mossy_cobblestone|custom_mossy_cobblestone|custom_mossy_cobblestone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -11245,7 +11245,7 @@ custom_yellow_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_yellow_dye|custom_terracotta"
@@ -11258,7 +11258,7 @@ custom_quartz_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_chiseled_quartz_block|air|air"
         - "custom_chiseled_quartz_block|custom_chiseled_quartz_block|air"
@@ -11284,28 +11284,28 @@ custom_polished_granite:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_granite|custom_granite|air"
         - "custom_granite|custom_granite|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_granite|custom_granite"
         - "air|custom_granite|custom_granite"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "custom_granite|custom_granite|air"
         - "custom_granite|custom_granite|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|custom_granite|custom_granite"
@@ -11333,42 +11333,42 @@ custom_black_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_black_wool|custom_black_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_black_wool|custom_black_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_black_wool|custom_black_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_black_wool|custom_black_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_black_wool|custom_black_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -11396,14 +11396,14 @@ custom_red_nether_brick_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_red_nether_bricks|custom_red_nether_bricks|custom_red_nether_bricks"
         - "custom_red_nether_bricks|custom_red_nether_bricks|custom_red_nether_bricks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_red_nether_bricks|custom_red_nether_bricks|custom_red_nether_bricks"
@@ -11421,14 +11421,14 @@ custom_stone_brick_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_stone_bricks|custom_stone_bricks|custom_stone_bricks"
         - "custom_stone_bricks|custom_stone_bricks|custom_stone_bricks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_stone_bricks|custom_stone_bricks|custom_stone_bricks"
@@ -11580,7 +11580,7 @@ custom_end_stone_brick_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_end_stone_bricks|air|air"
         - "custom_end_stone_bricks|custom_end_stone_bricks|air"
@@ -11593,14 +11593,14 @@ custom_nether_brick_fence:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_nether_bricks|custom_nether_brick|custom_nether_bricks"
         - "custom_nether_bricks|custom_nether_brick|custom_nether_bricks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_nether_bricks|custom_nether_brick|custom_nether_bricks"
@@ -11626,14 +11626,14 @@ custom_mossy_cobblestone_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_mossy_cobblestone|custom_mossy_cobblestone|custom_mossy_cobblestone"
         - "custom_mossy_cobblestone|custom_mossy_cobblestone|custom_mossy_cobblestone"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_mossy_cobblestone|custom_mossy_cobblestone|custom_mossy_cobblestone"
@@ -11651,7 +11651,7 @@ custom_smooth_red_sandstone_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_smooth_red_sandstone|air|air"
         - "custom_smooth_red_sandstone|custom_smooth_red_sandstone|air"
@@ -11677,21 +11677,21 @@ custom_red_sandstone_slab:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_red_sandstone|custom_red_sandstone|custom_red_sandstone"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_red_sandstone|custom_red_sandstone|custom_red_sandstone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "air|air|air"
@@ -11772,14 +11772,14 @@ custom_nether_brick_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_nether_bricks|custom_nether_bricks|custom_nether_bricks"
         - "custom_nether_bricks|custom_nether_bricks|custom_nether_bricks"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_nether_bricks|custom_nether_bricks|custom_nether_bricks"
@@ -11802,14 +11802,14 @@ custom_sandstone_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_sandstone|custom_sandstone|custom_sandstone"
         - "custom_sandstone|custom_sandstone|custom_sandstone"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_sandstone|custom_sandstone|custom_sandstone"
@@ -11835,7 +11835,7 @@ custom_purple_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_purple_dye|custom_terracotta"
@@ -11868,7 +11868,7 @@ custom_birch_sign:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
         - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
@@ -11891,7 +11891,7 @@ custom_purple_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass_pane|custom_glass_pane|custom_glass_pane"
         - "custom_glass_pane|custom_purple_dye|custom_glass_pane"
@@ -11904,28 +11904,28 @@ custom_cut_red_sandstone:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_red_sandstone|custom_red_sandstone|air"
         - "custom_red_sandstone|custom_red_sandstone|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|custom_red_sandstone|custom_red_sandstone"
         - "air|custom_red_sandstone|custom_red_sandstone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "custom_red_sandstone|custom_red_sandstone|air"
         - "custom_red_sandstone|custom_red_sandstone|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
         - "air|custom_red_sandstone|custom_red_sandstone"
@@ -11943,14 +11943,14 @@ custom_prismarine_wall:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "custom_prismarine|custom_prismarine|custom_prismarine"
         - "custom_prismarine|custom_prismarine|custom_prismarine"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 6
       input:
         - "air|air|air"
         - "custom_prismarine|custom_prismarine|custom_prismarine"
@@ -11973,7 +11973,7 @@ custom_gray_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_gray_dye|custom_terracotta"
@@ -12092,42 +12092,42 @@ custom_pink_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_pink_wool|custom_pink_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_pink_wool|custom_pink_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_pink_wool|custom_pink_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_pink_wool|custom_pink_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_pink_wool|custom_pink_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -12162,7 +12162,7 @@ custom_red_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_red_dye|custom_glass"
@@ -12175,28 +12175,28 @@ custom_diorite:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "custom_cobblestone|custom_quartz|air"
         - "custom_quartz|custom_cobblestone|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|custom_cobblestone|custom_quartz"
         - "air|custom_quartz|custom_cobblestone"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|air"
         - "custom_cobblestone|custom_quartz|air"
         - "custom_quartz|custom_cobblestone|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 2
       input:
         - "air|air|air"
         - "air|custom_cobblestone|custom_quartz"
@@ -12229,7 +12229,7 @@ custom_sandstone_stairs:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "custom_sandstone|air|air"
         - "custom_sandstone|custom_sandstone|air"
@@ -12286,7 +12286,7 @@ custom_cyan_terracotta:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_terracotta|custom_terracotta|custom_terracotta"
         - "custom_terracotta|custom_cyan_dye|custom_terracotta"
@@ -12427,14 +12427,14 @@ custom_spruce_door:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_spruce_planks|custom_spruce_planks|air"
         - "custom_spruce_planks|custom_spruce_planks|air"
         - "custom_spruce_planks|custom_spruce_planks|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_spruce_planks|custom_spruce_planks"
         - "air|custom_spruce_planks|custom_spruce_planks"
@@ -12447,7 +12447,7 @@ custom_light_gray_stained_glass_pane:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass_pane|custom_glass_pane|custom_glass_pane"
         - "custom_glass_pane|custom_light_gray_dye|custom_glass_pane"
@@ -12500,42 +12500,42 @@ custom_blue_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_blue_wool|custom_blue_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_blue_wool|custom_blue_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_blue_wool|custom_blue_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_blue_wool|custom_blue_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_blue_wool|custom_blue_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -12548,7 +12548,7 @@ custom_lime_stained_glass:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 8
       input:
         - "custom_glass|custom_glass|custom_glass"
         - "custom_glass|custom_lime_dye|custom_glass"
@@ -12566,42 +12566,42 @@ custom_orange_carpet:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_orange_wool|custom_orange_wool|air"
         - "air|air|air"
         - "air|air|air"
     1:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "custom_orange_wool|custom_orange_wool|air"
         - "air|air|air"
     2:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
         - "custom_orange_wool|custom_orange_wool|air"
     3:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|custom_orange_wool|custom_orange_wool"
         - "air|air|air"
         - "air|air|air"
     4:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|custom_orange_wool|custom_orange_wool"
         - "air|air|air"
     5:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "air|air|air"
         - "air|air|air"
@@ -12696,7 +12696,7 @@ custom_dark_oak_sign:
   custom_recipes:
     0:
       type: shaped
-      output_quantity: 1
+      output_quantity: 3
       input:
         - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
         - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
