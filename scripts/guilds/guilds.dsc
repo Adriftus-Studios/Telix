@@ -409,7 +409,7 @@ invite_to_guild:
   - yaml id:guild.<[guild]> set pending_invitations:|:<[invited]>
   - yaml id:player.<[invited].uuid> set pending_guild_invitation:<[guild]>
   - if <[invited].is_online>:
-    - narrate player:<[invited]> "<&6>You were invited to the guild <&2><yaml[guild.<[guild]>].read[name]><&6>! <&nl><&6>Click<&co> <&click[/guild accept]><&a><&l>ACCEPT<&end_click><&r><&6> or <&click[/guild decline]><&c><&l>DECLINE<&end_click>"
+    - narrate player:<[invited]> "<&6>      * * * * * * * * * * * * * <&lb><&a> Guild Invite <&6><&rb>* * * * * * * * * * * * * * * * * * * * * * *<&nl><&6>You were invited to the guild <&2><yaml[guild.<[guild]>].read[name]><&6>! <&nl><&6>Click<&co> <&click[/guild accept]><&a><&l>ACCEPT<&end_click><&r><&6> or <&click[/guild decline]><&c><&l>DECLINE<&end_click><&nl><&6><&l>                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * "
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
     - narrate player:<[member]> "<&6><[inviter].name> has invited <[invited].name> to the guild."
 
@@ -420,9 +420,9 @@ decline_guild_invitation:
   - define guild:<[guild].to_lowercase.replace[<&sp>].with[_].replace[guild.].with[]>
   - yaml id:guild.<[guild]> set pending_invitations:<-:<[invited]>
   - yaml id:player.<player.uuid> set pending_guild_invitation:!
-  - narrate "<&6>You have declined this guilds invitation."
+  - narrate "<&c>You have declined this guilds invitation."
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:member:
-    - narrate player:<[member]> "<&6><[player].name> has refused to join the guild."
+    - narrate player:<[member]> "<&6><[player].name> <&c>has refused to join the guild."
 
 accept_guild_invitation:
   type: task
