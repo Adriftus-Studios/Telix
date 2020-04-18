@@ -795,14 +795,14 @@ build_item:
             - define modifiers:|:<[modifier]>
             - if <[value]> > 0:
               - if <list[speed|melee_damage|drop_rate_multiplier|ore_drops|experience_multiplier].contains[<[modifier]>]>:
-                - define lore:|:<&9>+<[value]>%<&sp><[stat_names].map_get[<[modifier]>]>
+                - define lore:|:<&9>+<[value].round>%<&sp><[stat_names].map_get[<[modifier]>]>
               - else:
-                - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
+                - define lore:|:<&9>+<[value].round><&sp><[stat_names].map_get[<[modifier]>]>
             - else:
               - if <list[speed|melee_damage|drop_rate_multiplier|ore_drops|experience_multiplier].contains[<[modifier]>]>:
-                - define lore:|:<&c><[value]>%<&sp><[stat_names].map_get[<[modifier]>]>
+                - define lore:|:<&c><[value].round>%<&sp><[stat_names].map_get[<[modifier]>]>
               - else:
-                - define lore:|:<&c><[value]><&sp><[stat_names].map_get[<[modifier]>]>
+                - define lore:|:<&c><[value].round><&sp><[stat_names].map_get[<[modifier]>]>
         - if <[item].script.list_keys[damage_modifiers.damage_resistance]||null> != null:
           - foreach <[item].script.list_keys[damage_modifiers.damage_resistance]> as:modifier:
             - define value:<[item].nbt[damage_modifiers.damage_resistance.<[modifier]>]||<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>]>>
