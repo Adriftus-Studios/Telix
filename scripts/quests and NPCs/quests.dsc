@@ -82,9 +82,6 @@ modify_quest_progress:
   - if <[quest]> == null:
      - stop
   - if <proc[get_quests_inprogress].contains[<[quest].name>]||false>:
-    - narrate <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]||0>
-    - narrate <[quest].yaml_key[objectives.<[objective]>.value]>
-    - narrate <proc[get_completed_objectives].context[<[quest]>]>
     - foreach <[quest].yaml_key[objectives.<[objective]>.prerequisites]||<list[]>> as:pre:
       - if !<proc[get_completed_objectives].context[<[quest]>].as_list.contains[<[pre]>]>:
         - stop
