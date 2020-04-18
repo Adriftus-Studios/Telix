@@ -8,6 +8,12 @@ star_item_command:
     - if <[item].nbt[used_sockets]||null> == null:
       - adjust def:item nbt:stars/0
     - adjust def:item nbt:stars/<[item].nbt[stars].add[1]>
+    - foreach <[item].nbt_keys> as:stat:
+      - if <[stat].starts_with[base_stats.]>:
+        - define stat:<[stat].replace[base_stats.].with[]>
+        - if <util.random.int[1].to[3]> == 1:
+          - define value:<[item].nbt[star_stat.<[stat]>]||0>
+          - adjust def:item nbt:star_stat.<[stat]>:<[value].add[val5]>
     - inject build_item
     - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
 
