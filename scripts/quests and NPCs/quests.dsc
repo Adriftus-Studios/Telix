@@ -144,7 +144,7 @@ get_completed_objectives:
     - define required_value:<[quest].yaml_key[objectives.<[objective]>.value]>
     - if <[value]> == <[required_value]>:
       - define objectives_complete:|:<[objective]>
-  - determine <[objectives_complete]>
+  - determine <[objectives_complete]||<list[]>>
 
 applicable_for_quest:
   type: procedure
