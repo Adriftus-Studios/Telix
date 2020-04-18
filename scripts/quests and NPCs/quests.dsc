@@ -10,9 +10,16 @@ test_quest1:
     break_grass:
       value: 20
       description: Break 20 Grass Blocks
+    break_stone:
+      value: 20
+      description: Break 20 Stone Blocks
+      prerequisites:
+      - break_grass
   events:
     on player breaks grass_block:
       - run modify_quest_progress def:<script.name>|break_grass|1
+    on player breaks stone:
+      - run modify_quest_progress def:<script.name>|break_stone|1
 
 test_quest2:
   type: world
@@ -85,7 +92,8 @@ check_quest_progress:
   script:
   - define quest:<script[<[quest]>]||null>
   - if <[quest]> == null:
-     - stop
+    - stop
+  - narrate <proc[get_completed_objectives].context[<[quest]>]>
   - foreach <[quest].list_keys[objectives]> as:objective:
     - define value:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>.value]||0>
     - define required_value:<[quest].yaml_key[objectives.<[objective]>.value]>
@@ -123,6 +131,20 @@ get_quests_inprogress:
   definitions: player
   script:
   - determine <yaml[player.<[player].uuid||<player.uuid>>].list_keys[quests.inprogress]||<list[]>>
+
+get_completed_objectives:
+  type: procedure
+  definitions: quest
+  script:
+  - define quest:<script[<[quest]>]||null>
+  - if <[quest]> == null:
+     - stop
+  - foreach <[quest].list_keys[objectives]> as:objective:
+    - define value:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>.value]||0>
+    - define required_value:<[quest].yaml_key[objectives.<[objective]>.value]>
+    - if <[value]> == <[required_value]>:
+      - define objectives_complete:|:<[objective]>
+  - determine <[objectives_complete]>
 
 applicable_for_quest:
   type: procedure

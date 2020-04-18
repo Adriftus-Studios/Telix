@@ -55,7 +55,7 @@ custom_crafting_build_crafting_matrix:
         - define <[this_slot]>:<[this_input]>
         - if <[this_input].starts_with[regex<&co>]>:
           - define regex_used:true
-          - announce "Regex used on <[this_script].name>"
+          - announce to_flagged:debug "Regex used on <[this_script].name>"
     - repeat 9 as:num:
       - if <[<[num]>].is[==].to[]>:
         - define <[num]>:air
@@ -64,7 +64,7 @@ custom_crafting_build_crafting_matrix:
         - if <[<[input_slot]>].starts_with[regex<&co>]>:
           - define <[input_slot]>:<server.list_scripts.filter[container_type.is[==].to[item]].parse[name].filter[matches[<[<[input_slot]>].after[<&co>]>]]||null>
           - if <[<[input_slot]>]> == null:
-            - announce "No regex match for <[<[input_slot]>].after[<&co>]> for item <[this_script].name> recipe."
+            - announce to_flagged:debug "No regex match for <[<[input_slot]>].after[<&co>]> for item <[this_script].name> recipe."
           - else:
             - define <[input_slot]>:<[<[input_slot]>].escaped>
       - run custom_crafting_recursive_shaped_recipe def:<[1]>|<[2]>|<[3]>|<[4]>|<[5]>|<[6]>|<[7]>|<[8]>|<[9]>|<[this_script]>|<[recipe_number]>
