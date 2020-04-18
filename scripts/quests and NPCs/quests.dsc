@@ -20,6 +20,7 @@ test_quest2:
   description: This is also a test
   repeatable: true
   repeatable_every: 1d
+  completion_xp: 100
   additional_conditions:
   on start:
     - narrate "Test Quest 2 Started"
@@ -102,6 +103,8 @@ complete_quest:
      - stop
   - if <[quest].yaml_key[on<&sp>completed]||null> != null:
     - run <[quest]> "path:on completed"
+  - if <[quest].yaml_key[completion_xp]||null> != null:
+    - run playerLevel_GiveXP def:<[quest].yaml_key[completion_xp]>
   - title "title:<&6>Quest Completed!" "subtitle:<&6><[quest].yaml_key[quest_name]>"
   - define quest:<script[<[quest]>]>
   - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>:!
