@@ -5,21 +5,7 @@ star_item_command:
   usage: /star_item
   script:
     - define item:<player.item_in_hand>
-    - if <[item].nbt[used_sockets]||null> == null:
-      - adjust def:item nbt:stars/0
-    - adjust def:item nbt:stars/<[item].nbt[stars].add[1]>
-    - define val:<util.random.decimal[15].to[30]>
-    - define val:<util.random.decimal[12].to[<[val]>]>
-    - define val:<util.random.decimal[9].to[<[val]>]>
-    - define val:<util.random.decimal[5].to[<[val]>]>
-    - define val:<util.random.decimal[1].to[<[val]>]>
-    - foreach <[item].nbt_keys> as:stat:
-      - if <[stat].starts_with[base_stats.]>:
-        - define stat:<[stat].replace[base_stats.].with[]>
-        - if <util.random.int[1].to[3]> == 1:
-          - define value:<[item].nbt[star_stat.<[stat]>]||0>
-          - adjust def:item nbt:star_stat.<[stat]>/<[value].add[<[val]>]>
-    - inject build_item
+    - inject star_item
     - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
 
 socket_item_command:
@@ -34,6 +20,27 @@ socket_item_command:
     - adjust def:item nbt:used_sockets/<[item].nbt[used_sockets].add[1]>
     - inject build_item
     - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
+
+star_item:
+  type: task
+  definitions: item|val
+  script:
+    - if <[item].nbt[used_sockets]||null> == null:
+      - adjust def:item nbt:stars/0
+    - adjust def:item nbt:stars/<[item].nbt[stars].add[1]>
+    - if <[value]||null> == null:
+      - define val:<util.random.decimal[15].to[30]>
+      - define val:<util.random.decimal[12].to[<[val]>]>
+      - define val:<util.random.decimal[9].to[<[val]>]>
+      - define val:<util.random.decimal[5].to[<[val]>]>
+      - define val:<util.random.decimal[1].to[<[val]>]>
+    - foreach <[item].nbt_keys> as:stat:
+      - if <[stat].starts_with[base_stats.]>:
+        - define stat:<[stat].replace[base_stats.].with[]>
+        - if <util.random.int[1].to[3]> == 1:
+          - define value:<[item].nbt[star_stat.<[stat]>]||0>
+          - adjust def:item nbt:star_stat.<[stat]>/<[value].add[<[val]>]>
+    - inject build_item
 
 enhancement_inventory_gui:
   type: inventory
@@ -123,16 +130,9 @@ enhancement_gui_handler:
             - wait 15t
             - if <player.open_inventory.script_name> != upgrade_star_force_inventory_gui:
               - stop
-            - define val5:<util.random.int[1].to[<[val4]>]>
-            - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val5]>]> slot:43
+            - define val:<util.random.int[1].to[<[val4]>]>
+            - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[val]>]> slot:43
             - define item:<player.open_inventory.slot[21]>
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=<[item].quantity.sub[1]>]> slot:21
-            - adjust def:item nbt:stars/<[item].nbt[stars].+1||1>
-            - foreach <[item].nbt_keys> as:stat:
-              - if <[stat].starts_with[base_stats.]>:
-                - define stat:<[stat].replace[base_stats.].with[]>
-                - if <util.random.int[1].to[3]> == 1:
-                  - define value:<[item].nbt[star_stat.<[stat]>]||0>
-                  - adjust def:item nbt:star_stat.<[stat]>:<[value].add[val5]>
-            - inject build_item
+            - inject star_item
             - inventory set d:<player.open_inventory> o:<[item].with[quantity=1]> slot:25
