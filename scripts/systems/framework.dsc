@@ -621,6 +621,12 @@ system_override:
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<[item]>
         - determine passively cancelled
 
+recipe_book_icon:
+  type: item
+  material: book
+  display name: <&6>Recipe Book
+  GUI_Inventory: recipe_book_inventory
+
 kill_queue_command:
   type: command
   name: kill_queue
