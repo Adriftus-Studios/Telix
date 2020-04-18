@@ -788,8 +788,7 @@ build_item:
                   - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[value]>]>
                   - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[value]>]>
             - if <[item].has_nbt[star_stat.<[modifier]>]>:
-              - narrate <[item].nbt[star_stat.<[modifier]>].div[6].add[1].round_to[4]>
-              - define value:<[value].mul[<[item].nbt[star_stat.<[modifier]>].div[6].add[1].round_to[4]>]>
+              - define value:<[value].mul[<[item].nbt[star_stat.<[modifier]>].div[6].add[1].round_to[4]>].round>
             - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
             - define stats:|:<[modifier]>/<[value]>
             - define modifiers:|:<[modifier]>
@@ -809,8 +808,6 @@ build_item:
             - if <[item].nbt[damage_modifiers.damage_resistance.<[modifier]>]||null> == null:
               - if <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]||null> != null:
                 - if <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]||null> != null:
-                  - narrate <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>
-                  - narrate <[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]>
                   - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.max]>]>
                   - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
                   - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>.min]>].to[<[value]>]>
@@ -828,8 +825,6 @@ build_item:
             - if <[item].nbt[damage_modifiers.damage_dealt.<[modifier]>]||null> == null:
               - if <[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.max]||null> != null:
                 - if <[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.min]||null> != null:
-                  - narrate <[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.min]>
-                  - narrate <[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.max]>
                   - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.min]>].to[<[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.max]>]>
                   - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.min]>].to[<[value]>]>
                   - define value:<util.random.decimal[<[item].script.yaml_key[damage_modifiers.damage_dealt.<[modifier]>.min]>].to[<[value]>]>
