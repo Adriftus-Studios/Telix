@@ -128,7 +128,7 @@ custom_crafting_events:
       - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.cursor_item.material.name> != air:
         - determine cancelled
       - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot>:
-        - narrate <context.cursor_item>
+        - adjust <player> item_on_cursor:<proc[proc_build_item].context[<context.item>]>
 
     on player drags in custom_crafting_inventory:
       - if <context.raw_slots.contains[<script[custom_crafting_inventory].yaml_key[output_slot]>]>:
