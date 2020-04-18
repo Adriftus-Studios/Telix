@@ -88,6 +88,8 @@ modify_quest_progress:
     - if <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]||0> != <[quest].yaml_key[objectives.<[objective]>.value]>:
       - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>].add[<[value]>]||<[value]>>
       - run check_quest_progress def:<[quest]>
+      - if <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]||0> == <[quest].yaml_key[objectives.<[objective]>.value]>:
+        - narrate 1
   
 check_quest_progress:
   type: task
