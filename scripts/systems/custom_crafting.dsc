@@ -136,6 +136,9 @@ custom_crafting_events:
         - inject custom_crafting_determineOutput
 
     on player clicks in custom_crafting_inventory priority:-1000:
+      - if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.cursor_item.material.name> != air:
+        - determine cancelled
+        - stop
       - inject custom_crafting_handleInput
 
     on player closes custom_crafting_inventory:
