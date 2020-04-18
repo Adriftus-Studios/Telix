@@ -788,21 +788,21 @@ build_item:
                   - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[value]>]>
                   - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[value]>]>
             - if <[item].has_nbt[star_stat.<[modifier]>]>:
-              - narrate <[item].nbt[star_stat.<[modifier]>].div[10].add[1]>
-              - define value:<[value].mul[<[item].nbt[star_stat.<[modifier]>].div[10].add[1]>]>
+              - narrate <[item].nbt[star_stat.<[modifier]>].div[6].add[1].round_to[4]>
+              - define value:<[value].mul[<[item].nbt[star_stat.<[modifier]>].div[6].add[1]>]>
             - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
             - define stats:|:<[modifier]>/<[value]>
             - define modifiers:|:<[modifier]>
             - if <[value]> > 0:
               - if <list[speed|melee_damage|drop_rate_multiplier|ore_drops|experience_multiplier].contains[<[modifier]>]>:
-                - define lore:|:<&9>+<[value].round>%<&sp><[stat_names].map_get[<[modifier]>]>
+                - define lore:|:<&9>+<[value]>%<&sp><[stat_names].map_get[<[modifier]>]>
               - else:
-                - define lore:|:<&9>+<[value].round><&sp><[stat_names].map_get[<[modifier]>]>
+                - define lore:|:<&9>+<[value]><&sp><[stat_names].map_get[<[modifier]>]>
             - else:
               - if <list[speed|melee_damage|drop_rate_multiplier|ore_drops|experience_multiplier].contains[<[modifier]>]>:
-                - define lore:|:<&c><[value].round>%<&sp><[stat_names].map_get[<[modifier]>]>
+                - define lore:|:<&c><[value]>%<&sp><[stat_names].map_get[<[modifier]>]>
               - else:
-                - define lore:|:<&c><[value].round><&sp><[stat_names].map_get[<[modifier]>]>
+                - define lore:|:<&c><[value]><&sp><[stat_names].map_get[<[modifier]>]>
         - if <[item].script.list_keys[damage_modifiers.damage_resistance]||null> != null:
           - foreach <[item].script.list_keys[damage_modifiers.damage_resistance]> as:modifier:
             - define value:<[item].nbt[damage_modifiers.damage_resistance.<[modifier]>]||<[item].script.yaml_key[damage_modifiers.damage_resistance.<[modifier]>]>>
