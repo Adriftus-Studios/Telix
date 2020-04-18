@@ -125,6 +125,8 @@ custom_crafting_events:
         - determine cancelled
       - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.inventory.slot[<context.raw_slot>].material.name||air> == air:
         - determine cancelled
+      - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot>:
+        - narrate 1
 
     on player drags in custom_crafting_inventory:
       - if <context.raw_slots.contains[<script[custom_crafting_inventory].yaml_key[output_slot]>]>:
@@ -162,7 +164,6 @@ custom_crafting_handleInput:
             - adjust <player> cursor_item:<context.cursor_item.with[quantity=<context.cursor_item.quantity.+[1]>]>
             # Cancel
             - determine cancelled
-        - narrate 1
         - inject custom_crafting_takeIngredients
         - inject custom_crafting_determineOutput
 
