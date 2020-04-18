@@ -113,20 +113,20 @@ bb_status:
       #Abilities
       - case fire_arrows:
         - define title:<&c><&l><[effect].replace[_].with[<&sp>].to_titlecase>
-        - define icon:<&c>⇱
+        - define icon:<&c><&chr[21F2]>
         - define color:RED
       #Effects
       - case stun:
         - define title:<&e><&l><[effect].to_titlecase>
-        - define icon:<&e>⚡
+        - define icon:<&e><&chr[26A1]>
         - define color:YELLOW
       - case freeze:
         - define title:<&b><&l><[effect].to_titlecase>
-        - define icon:<&b>☐
+        - define icon:<&b><&chr[2610]>
         - define color:BLUE
       - case burn:
         - define title:<&c><&l><[effect].to_titlecase>
-        - define icon:<&c>☀
+        - define icon:<&c><&chr[2600]>
         - define color:RED
       #Default
       - default:
