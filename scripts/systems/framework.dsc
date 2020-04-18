@@ -790,6 +790,7 @@ build_item:
             - if <[item].has_nbt[star_stat.<[modifier]>]>:
               - narrate <[item].nbt[star_stat.<[modifier]>]>
               - narrate <[value].mul[<[item].nbt[star_stat.<[modifier]>]>]>
+              - narrate <[value]>
               - define value:<[value].mul[<[item].nbt[star_stat.<[modifier]>].div[6].add[1].round_to[4]>]>
             - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
             - define stats:|:<[modifier]>/<[value]>
