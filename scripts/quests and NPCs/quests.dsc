@@ -85,6 +85,9 @@ modify_quest_progress:
     - narrate <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]||0>
     - narrate <[quest].yaml_key[objectives.<[objective]>.value]>
     - narrate <proc[get_completed_objectives].context[<[quest]>]>
+    - foreach <[quest].yaml_key[objectives.<[objective]>.prerequisites]> as:pre:
+      - if !<proc[get_completed_objectives].context[<[quest]>].as_list.contains[<[pre]>]>:
+        - stop
     - if <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]||0> != <[quest].yaml_key[objectives.<[objective]>.value]>:
       - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>].add[<[value]>]||<[value]>>
       - run check_quest_progress def:<[quest]>
