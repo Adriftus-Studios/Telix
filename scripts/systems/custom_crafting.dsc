@@ -162,6 +162,7 @@ custom_crafting_handleInput:
             - adjust <player> cursor_item:<context.cursor_item.with[quantity=<context.cursor_item.quantity.+[1]>]>
             # Cancel
             - determine cancelled
+        - narrate 1
         - inject custom_crafting_takeIngredients
         - inject custom_crafting_determineOutput
 
