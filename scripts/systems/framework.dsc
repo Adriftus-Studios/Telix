@@ -788,7 +788,7 @@ build_item:
                   - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[value]>]>
                   - define value:<util.random.int[<[item].script.yaml_key[equipment_modifiers.<[modifier]>.min]>].to[<[value]>]>
             - if <[item].has_nbt[star_stat.<[modifier]>]>:
-              - narrate <[item].nbt[star_stat.<[modifier]>].div[100]>
+              - narrate <[item].nbt[star_stat.<[modifier]>].div[10].add[1]>
               - define value:<[value].mul[<[item].nbt[star_stat.<[modifier]>].div[100]>]>
             - adjust def:item nbt:base_stats.<[modifier]>/<[value]>
             - define stats:|:<[modifier]>/<[value]>
