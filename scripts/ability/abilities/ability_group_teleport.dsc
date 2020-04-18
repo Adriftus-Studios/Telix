@@ -5,7 +5,8 @@ ability_group_teleport:
   ability_type: active
   points_to_unlock: 1
   power_cost: 20
-  description: Teleports all players in the bubble to spawn. Use nodestones to teleport players to saved locations.
+  description: Teleports all players in the bubble to spawn.
+  usage: Use nodestones to teleport players to saved locations.
   icon:
     material: nether_star
     custom_model_data: 0
