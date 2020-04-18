@@ -18,9 +18,6 @@ star_item_command:
         - define stat:<[stat].replace[base_stats.].with[]>
         - if <util.random.int[1].to[3]> == 1:
           - define value:<[item].nbt[star_stat.<[stat]>]||0>
-          - narrate <[stat]>
-          - narrate <[value]>
-          - narrate <[val]>
           - adjust def:item nbt:star_stat.<[stat]>/<[value].add[<[val]>]>
     - inject build_item
     - inventory set d:<player.inventory> o:<[item]> slot:<player.held_item_slot>
