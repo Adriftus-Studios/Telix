@@ -82,9 +82,9 @@ modify_quest_progress:
   - if <[quest]> == null:
      - stop
   - if <proc[get_quests_inprogress].contains[<[quest].name>]||false>:
-    - narrate <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>.value]||0>
+    - narrate <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]||0>
     - narrate <[quest].yaml_key[objectives.<[objective]>.value]>
-    - if <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>.value]||0> != <[quest].yaml_key[objectives.<[objective]>.value]>:
+    - if <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]||0> != <[quest].yaml_key[objectives.<[objective]>.value]>:
       - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>].add[<[value]>]||<[value]>>
       - run check_quest_progress def:<[quest]>
   
@@ -97,7 +97,7 @@ check_quest_progress:
     - stop
   - narrate <proc[get_completed_objectives].context[<[quest]>]>
   - foreach <[quest].list_keys[objectives]> as:objective:
-    - define value:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>.value]||0>
+    - define value:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]||0>
     - define required_value:<[quest].yaml_key[objectives.<[objective]>.value]>
     - if <[value]> == <[required_value]>:
       - define objectives_complete:|:<[objective]>
@@ -142,7 +142,7 @@ get_completed_objectives:
   - if <[quest]> == null:
      - stop
   - foreach <[quest].list_keys[objectives]> as:objective:
-    - define value:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>.value]||0>
+    - define value:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]||0>
     - define required_value:<[quest].yaml_key[objectives.<[objective]>.value]>
     - if <[value]> == <[required_value]>:
       - define objectives_complete:|:<[objective]>
