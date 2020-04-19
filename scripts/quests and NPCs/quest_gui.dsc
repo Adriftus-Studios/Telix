@@ -8,13 +8,14 @@ quest_gui_main:
     info_button: <item[info_button]>
     quest_info: <item[quest_info_button]>
     closeitem: <item[gui_close_btn]>
+    filler: <item[gui_invisible_item]>
     
   slots:
-  - "[quest_info] [] [] [] [] [] [] [] []"
-  - "[] [] [] [] [] [] [] [] []"
-  - "[gui_top] [] [] [] [] [] [] [] []"
-  - "[gui_bottom] [] [] [] [] [] [] [] []"
-  - "[] [] [] [] [closeitem] [] [] [] []"
+  - "[quest_info] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+  - "[filler] [] [] [] [] [] [] [] [filler]"
+  - "[gui_top] [] [] [] [] [] [] [] [filler]"
+  - "[gui_bottom] [] [] [] [] [] [] [] [filler]"
+  - "[filler] [filler] [filler] [filler] [closeitem] [filler] [filler] [filler] [filler]"
 
 quest_accept_gui:
   type: inventory
@@ -31,8 +32,9 @@ quest_accept_gui:
     closeitem: <item[gui_close_btn]>
     # The lore on this item should be dynamically generated from yaml, and not hard coded for each quest GUI.
     info_button: <item[quest_info_button]>
+    filler: <item[gui_invisible_item]>
   slots:
-  - "[] [] [] [] [info_button] [] [] [] []"
-  - "[] [] [acceptbutton] [] [] [] [declinebutton] [] []"
-  - "[] [] [] [] [closeitem] [] [] [] []"
+  - "[filler] [filler] [filler] [filler] [info_button] [filler] [filler] [filler] [filler]"
+  - "[filler] [] [acceptbutton] [] [] [] [declinebutton] [] [filler]"
+  - "[filler] [filler] [filler] [filler] [closeitem] [filler] [filler] [filler] [filler]"
 
