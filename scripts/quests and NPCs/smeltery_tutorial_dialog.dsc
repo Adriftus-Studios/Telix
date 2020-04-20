@@ -21,7 +21,7 @@ tutorial_pick:
 
 custom_tutorial_tin_ore:
   material: iron_ore
-  display name: <&7>Tin Ore
+  display name: <&7>Tutorial Tin Ore
   weight: '1'
   type: item
   ore:
@@ -34,14 +34,14 @@ custom_tutorial_tin_ore:
 
 custom_tutorial_copper_ore:
   material: iron_ore
-  display name: <&7>Copper Ore
+  display name: <&7>Tutorial Copper Ore
   weight: '1'
   type: item
   ore:
     1:
       biome: all
       block: stone
-      chance: 10
+      chance: 5
       conditions:
       - <proc[get_quests_inprogress].contains[smeltery_tutorial_1]>
 
@@ -64,11 +64,9 @@ smeltery_tutorial_1:
       - mine_copper
       - mine_tin
   events:
-    on player mines custom ore:
-      - if <context.script> == custom_tutorial_copper_ore:
-        - run modify_quest_progress def:<script.name>|mine_copper|1
-      - if <context.script> == custom_tutorial_tin_ore:
-        - run modify_quest_progress def:<script.name>|mine_tin|1
+    on player breaks custom_tutorial_copper_ore:
+      - run modify_quest_progress def:<script.name>|mine_copper|1
+    on player breaks custom_tutorial_tin_ore:
+      - run modify_quest_progress def:<script.name>|mine_tin|1
     on player interacts with npc balgoth_assignment:
-      - if <npc.script.list_keys[quests].contains[<script.name>]||false>:
-        - run modify_quest_progress def:<script.name>|talk_to_npc|1
+      - run modify_quest_progress def:<script.name>|talk_to_npc|1

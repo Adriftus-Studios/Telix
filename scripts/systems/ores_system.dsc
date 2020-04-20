@@ -10,7 +10,7 @@ ore_drop_events:
             - foreach <[drops]||<list[]>> as:drop:
                 - define tool:<yaml[server.recipe_book].read[ore_spawn.<[drop].split[/].get[1]>.tool]||all>
                 - if <[tool]> == <player.item_in_hand.script.name||null> || <[tool]> == all:
-                    - if !<yaml[server.recipe_book].read[ore_spawn.<[drop].split[/].get[1]>.conditions].parse[parsed].contains[false]||true>:
+                    - if !<yaml[server.recipe_book].read[ore_spawn.<[drop].split[/].get[1]>.conditions].parse[parsed].contains[false]||false>:
                         - if <util.random.int[1].to[<[drop].split[/].get[2]||30>]||0> == 1:
                             - define to_drop:|:<[drop].split[/].get[1]>
             - if <[to_drop]||null> != null:
@@ -22,5 +22,6 @@ ore_drop_events:
                 - else:
                     - define item:<item[<[to_drop].random>]>
                 - inject build_item
-                - event "player mines custom ore" context:location|<context.location>|material|<context.material>|xp|<context.xp>|item|<[item]>|script|<[item].script.name>
+                - event "player breaks block" context:location|<context.location>|material|<context.material>|xp|<context.xp>|item|<[item]>|script|<[item].script.name>
+                - event "player breaks <[to_drop]>" context:location|<context.location>|material|<context.material>|xp|<context.xp>|item|<[item]>|script|<[item].script.name>
                 - determine <[item]>
