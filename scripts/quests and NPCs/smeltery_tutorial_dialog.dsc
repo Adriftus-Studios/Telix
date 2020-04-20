@@ -17,8 +17,6 @@ test_dialog:
     basics1:
       actions:
       - say todo
-      - wait 10s
-      - say 2do
 
 test_quest3:
   type: world
@@ -37,6 +35,6 @@ test_quest3:
       prerequisites:
       - break_grass
   events:
-    on player mines custom ore:
-      - narrate test
+    on player breaks block:
+      - narrate <context.item>
       - run modify_quest_progress def:<script.name>|break_grass|1

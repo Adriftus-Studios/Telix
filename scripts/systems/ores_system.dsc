@@ -21,4 +21,7 @@ ore_drop_events:
                 - else:
                     - define item:<item[<[to_drop].random>]>
                 - inject build_item
+                - event "player breaks block" context:location|<context.location>|material|<context.material>|xp|<context.xp>|item|<[item]>
                 - determine <[item]>
+            - else:
+                - event "player breaks block" context:location|<context.location>|material|<context.material>|xp|<context.xp>|item|<item[<context.material>]>
