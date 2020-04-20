@@ -8,11 +8,18 @@ multiblock_testtask:
   script:
     - narrate "Woo! it worked!"
 
+multiblock_teststand:
+  type: entity
+  entity_type: armor_stand
+  marker: true
+  visible: false
+  equipment: air|air|air|stick[custom_model_data=8]
+
 multiblock_types:
   type: yaml data
   guild_bank:
     armor_stand: armor_stand
-    on_click_task: multiblock_testtask
+    on_click_task: multiblock_teststand
 
 multiblock_place:
   type: world
