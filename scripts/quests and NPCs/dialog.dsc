@@ -18,16 +18,15 @@ test_dialog:
 npc_interact_events:
   type: world
   events:
-    on player right clicks entity:
-      - if <context.entity.type> == npc:
-        - adjust <queue> linked_npc:<context.entity>
-        - ratelimit <player> 1s
-        - if <context.entity.has_trigger[click]>:
-          - event "player interacts with npc"
-          - if <context.entity.name.to_lowercase||null> != null:
-            - event "player interacts with npc <context.entity.name.to_lowercase>"
-          - if <context.entity.script.name||null> != null:
-            - event "player interacts with npc <context.entity.script.name>"
+    on player right clicks npc:
+    - adjust <queue> linked_npc:<context.entity>
+    - ratelimit <player> 1s
+    - if <context.entity.has_trigger[click]>:
+      - event "player interacts with npc"
+      - if <context.entity.name.to_lowercase||null> != null:
+        - event "player interacts with npc <context.entity.name.to_lowercase>"
+      - if <context.entity.script.name||null> != null:
+        - event "player interacts with npc <context.entity.script.name>"
 
 play_dialog:
   type: task
