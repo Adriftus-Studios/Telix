@@ -21,3 +21,11 @@ test_quest1:
 	on player interacts with npc (assigned_script_name):
 	  - narrate <player>
 	  - narrate <npc>
+	on player random teleport:
+	  - narrate <context.location>
+	  - narrate <player>
+	  - narrate <npc>
+	on player shoots cannon:
+	  - narrate <context.entity>
+	  - narrate <player>
+	  - narrate <npc>

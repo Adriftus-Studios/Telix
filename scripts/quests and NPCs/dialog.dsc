@@ -24,8 +24,10 @@ npc_interact_events:
         - ratelimit <player> 1s
         - if <context.entity.has_trigger[click]>:
           - event "player interacts with npc"
-          - event "player interacts with npc <context.entity.name.to_lowercase>"
-          - event "player interacts with npc <context.entity.script.name>"
+          - if <context.entity.name.to_lowercase||null> != null:
+            - event "player interacts with npc <context.entity.name.to_lowercase>"
+          - if <context.entity.script.name||null> != null:
+            - event "player interacts with npc <context.entity.script.name>"
 
 play_dialog:
   type: task
@@ -60,6 +62,8 @@ process_dialog_command:
     - if <[action].parsed.substring[6].trim> == options:
       - foreach <[script].yaml_key[dialog.<[option]>.options]> as:option:
         - narrate "<&b><element[<&3> - <[option].split[|].get[1].trim.parsed>].on_click[/dialog <[script].name> <[option].split[|].get[2]>]>"
+    - if <[action].parsed.substring[6].trim> == quests:
+      - run offer_quests def:<[script]>
   - else if <[action].parsed.starts_with[quest]>:
     - if <[action].parsed.substring[7].trim.starts_with[start]>:
       - define quest:<script[<[action].substring[13]>]>

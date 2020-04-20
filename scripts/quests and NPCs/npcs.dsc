@@ -7,10 +7,7 @@ balgoth_assignment:
     on assignment:
     - trigger name:click state:true
     on click:
-    - run offer_quests def:<script>
-  quests:
-    smeltery_tutorial_1:
-      dialog: smeltery_tutorial_dialog
+    - run play_dialog def:smeltery_tutorial_dialog|start
 
 guide_assignment:
   type: assignment

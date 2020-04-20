@@ -67,14 +67,9 @@ offer_quests:
       - define el:<element[<script[<[quest]>].yaml_key[quest_name]>]>
       - foreach <script[<[quest]>].list_keys[objectives]||<list[]>> as:obj:
         - define objectives:|:<script[<[quest]>].yaml_key[objectives.<[obj]>.description]>
-      - if <script[<[assignment]>].yaml_key[quests.<[quest]>.dialog]||none> != none:
-        - define "el:lvl <script[<[quest]>].yaml_key[level_requirement]||1> - <[el].on_hover[<[objectives].separated_by[<&nl>]||<list[]>>].on_click[/dialog <script[<[assignment]>].yaml_key[quests.<[quest]>.dialog]> start]>"
-      - else:
-        - define "el:lvl <script[<[quest]>].yaml_key[level_requirement]||1> - <[el].on_hover[<[objectives].separated_by[<&nl>]||<list[]>>].on_click[/dialog <script[<[assignment]>].yaml_key[quests.<[quest]>.dialog]||quest_start> <[quest]>]>"
-      - if <proc[applicable_for_quest].context[<[quest]>]> == level:
-        - define el:<&c><[el]>
-      - else:
-        - define el:<&9><[el]>
+      - if <proc[applicable_for_quest].context[<[quest]>]> == true:
+        - if <script[<[assignment]>].yaml_key[quests.<[quest]>.dialog]||none> != none:
+          - define "el:<&9>lvl <script[<[quest]>].yaml_key[level_requirement]||1> - <[el].on_hover[<[objectives].separated_by[<&nl>]||<list[]>>].on_click[/dialog <script[<[assignment]>].yaml_key[quests.<[quest]>.dialog]> <script[<[assignment]>].yaml_key[quests.<[quest]>.dialog_start]||start>]>"
       - narrate <[el]>
 
 start_quest:

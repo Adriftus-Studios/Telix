@@ -25,33 +25,29 @@ cannon_events:
   events:
     on player right clicks cannon_base_entity ignorecancelled:true:
       - determine passively cancelled
-      - teleport <player> <context.entity.location>
-      - flag <player> no_fly_kick
-      - playeffect explosion_huge at:<context.entity.location.forward[3]>  offset:0 visibility:300 quantity:1
-      - repeat 100:
-        - if !<player.is_online>:
-          - flag <player> no_fly_kick:!
-          - flag <player> no_fall:!
-          - stop
-        - adjust <player> velocity:<context.entity.location.forward[4].sub[<context.entity.location>]>
-        - wait 1t
-      - inject rtp_task
+      - inject cannon_shoot
     on player right clicks cannon_entity ignorecancelled:true:
       - determine passively cancelled
-      - teleport <player> <context.entity.location>
-      - flag <player> no_fly_kick
-      - playeffect explosion_huge at:<context.entity.location.forward[3]>  offset:0 visibility:300 quantity:1
-      - repeat 100:
-        - if !<player.is_online>:
-          - flag <player> no_fly_kick:!
-          - flag <player> no_fall:!
-          - stop
-        - adjust <player> velocity:<context.entity.location.forward[4].sub[<context.entity.location>]>
-        - wait 1t
-      - inject rtp_task
+      - inject cannon_shoot
     on player kicked for flying:
       - if <player.has_flag[no_fly_kick]> || <player.fake_block[<player.location.below>]||null> != null:
         - determine cancelled
+
+cannon_shoot:
+  type: task
+  script:
+    - event "player shoots cannon" context:entity|<context.entity>
+    - teleport <player> <context.entity.location>
+    - flag <player> no_fly_kick
+    - playeffect explosion_huge at:<context.entity.location.forward[3]>  offset:0 visibility:300 quantity:1
+    - repeat 100:
+      - if !<player.is_online>:
+        - flag <player> no_fly_kick:!
+        - flag <player> no_fall:!
+        - stop
+      - adjust <player> velocity:<context.entity.location.forward[4].sub[<context.entity.location>]>
+      - wait 1t
+    - inject rtp_task
 
 cannon_assignment:
   type: assignment
@@ -83,6 +79,7 @@ rtp_task:
     - chunkload <location[<[x]>,300,<[z]>,tor_mainland].chunk> duration:1s
     - if <location[<[x]>,300,<[z]>,tor_mainland].biome.name.contains_text[ocean]>:
       - repeat next
+    - event "player random teleport" context:location|<location[<[x]>,300,<[z]>,tor_mainland]>
     - teleport <player> <location[<[x]>,300,<[z]>,tor_mainland]>
     - define x:<util.random.decimal[-1].to[1].round_to[3]>
     - define z:<util.random.decimal[-1].to[1].round_to[3]>
