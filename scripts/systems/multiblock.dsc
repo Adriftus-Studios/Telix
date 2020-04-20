@@ -40,7 +40,7 @@ multiblock_place:
       - define uuid:<util.random.uuid>
       - note <[cuboid]> as:multiblock-area.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
       - note <[cuboid2]> as:multiblock-usable.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
-      - note <context.item> as:multiblock-item.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
+      - note <context.item_in_hand> as:multiblock-item.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
       - modifyblock <[cuboid].blocks.exclude[<[cuboid].center>]> stone
       - modifyblock <[cuboid].center> torch
       - spawn <script[multiblock_types].yaml_key[<context.item_in_hand.script.yaml_key[multiblock]>.armor_stand]> <[cuboid].center.with_yaw[<[this_yaw].-[180]>]>
