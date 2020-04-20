@@ -6,7 +6,7 @@ multiblock_testblock:
 multiblock_testtask:
   type: task
   script:
-    - narrate "Woo! it worked!"
+    - narrate "This would activate the multiblock task script!"
 
 multiblock_teststand:
   type: entity
@@ -50,7 +50,7 @@ multiblock_place:
         - foreach <[cuboids]>:
           - run <script[multiblock_types].yaml_key[<[value].after[.].before[^]>.on_click_task]>
     on player breaks stone bukkit_priority:MONITOR priority:10000:
-      - narrate "fired"
+      - narrate "block break event was detected on MONITOR level"
       - define cuboids:<context.location.cuboids.parse[notable_name].filter[starts_with[multiblock-area]]>
       - if <[cuboids].size> > 0:
         - foreach <[cuboids]>:
