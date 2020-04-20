@@ -27,7 +27,7 @@ dialog_command:
   name: dialog
   script:
   - if <npc.location||null> != null:
-    - if <player.location.distance[<npc.location||null>]||7> > 6:
+    - if <player.location.distance[<npc.location||null>]||11> > 10:
       - stop
   - if <context.args.size||0> >= 2:
     - define script:<script[<context.args.get[1]>]>
@@ -37,15 +37,15 @@ dialog_command:
 
 process_dialog_command:
   type: task
-  definitions: script|action
+  definitions: script|option|action
   script:
   - if <[action].parsed.starts_with[say]>:
-    - narrate <[script].yaml_key[character_name].parsed><&sp><[action].parsed.substring[4].trim>
-    - wait <[action].parsed.substring[4].trim.split[].count[<&sp>].div[2]>s
+    - narrate <[script].yaml_key[character_name].parsed><&sp><&l><&3><&co><&r><&sp><&b><[action].parsed.substring[4].trim>
+    - wait 1s
   - else if <[action].parsed.starts_with[offer]>:
     - if <[action].parsed.substring[6].trim> == options:
-      - foreach <[script].yaml_key[dialog.start.options]> as:option:
-        - narrate "<&b><element[ - <[option].split[|].get[1].trim.parsed>].on_click[/dialog <[script].name> <[option].split[|].get[2]>]>"
+      - foreach <[script].yaml_key[dialog.<[option]>.options]> as:option:
+        - narrate "<&b><element[<&3> - <[option].split[|].get[1].trim.parsed>].on_click[/dialog <[script].name> <[option].split[|].get[2]>]>"
   - else if <[action].parsed.starts_with[quest]>:
     - if <[action].parsed.substring[7].trim.starts_with[start]>:
       - define quest:<script[<[action].substring[13]>]>
