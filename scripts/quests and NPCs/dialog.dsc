@@ -57,7 +57,7 @@ process_dialog_command:
   script:
   - if <[action].parsed.starts_with[say]>:
     - narrate <[script].yaml_key[character_name].parsed><&sp><&l><&3><&co><&r><&sp><&b><[action].parsed.substring[4].trim>
-    - wait 1s
+    - wait <[action].parsed.substring[4].trim.split[].count[<&sp>].div[4]>
   - else if <[action].parsed.starts_with[offer]>:
     - if <[action].parsed.substring[6].trim> == options:
       - foreach <[script].yaml_key[dialog.<[option]>.options]> as:option:
