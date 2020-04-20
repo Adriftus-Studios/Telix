@@ -69,6 +69,8 @@ multiblock_place:
           - drop <[item_to_drop]> <context.location>
           - if <script[multiblock_types].yaml_key[<[identifier].after[^]>.on_place_task]||null> != null:
             - inject <script[multiblock_types].yaml_key[<[identifier].after[^]>.on_break_task]>
+    on player breaks stone bukkit_priority:MONITOR ignorecancelled:true:
+      - narrate "Break Event Captured"
         
         
         
