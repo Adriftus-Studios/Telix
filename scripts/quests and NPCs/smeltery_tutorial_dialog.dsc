@@ -18,22 +18,30 @@ test_dialog:
       actions:
       - say todo
 
-test_quest3:
+custom_tutorial_copper_ore:
+  material: iron_ore
+  display name: <&7>Copper Ore
+  weight: '1'
+  type: item
+  ore:
+    1:
+      biome: all
+      block: stone
+      chance: 100
+      conditions:
+      - <proc[get_quests_inprogress].contains[]>
+
+smeltery_tutorial_1:
   type: world
-  quest_name: Test Quest 1
-  description: This is just a test
+  quest_name: Smeltery Tutorial 1
+  description: Something
   repeatable: false
   on start:
     - narrate "Test Quest 1 Started"
   objectives:
-    break_grass:
+    mine_copper:
       value: 20
-      description: Break 20 Grass Blocks
-    break_stone:
-      value: 20
-      description: Break 20 Stone Blocks
-      prerequisites:
-      - break_grass
+      description: Mine 6 Copper Ore
   events:
     on player mines custom ore:
       - narrate <context.item>
