@@ -48,7 +48,7 @@ custom_tutorial_copper_ore:
 smeltery_tutorial_1:
   type: world
   quest_name: Smeltery Tutorial 1
-  description: Something
+  description: Mine in the mine at spawn, and then bring Balgoth the ores. There he will tell you to take them to the smeltery, and smelt the ores together.
   repeatable: false
   objectives:
     mine_copper:
@@ -59,7 +59,7 @@ smeltery_tutorial_1:
       description: Mine 3 Tin Ore
     talk_to_npc:
       value: 1
-      description: Talk to the NPC
+      description: Talk to Balgoth after gathering ores
       prerequisites:
       - mine_copper
       - mine_tin
