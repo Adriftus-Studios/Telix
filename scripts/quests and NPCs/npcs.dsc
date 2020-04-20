@@ -6,25 +6,6 @@ guide_assignment:
   actions:
     on assignment:
     - trigger name:click state:true
-    - trigger name:proximity state:true
-    on click:
-    - run play_dialog def:test_dialog
-    - stop
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> What would you like to know? (Click One)"
-    - narrate <[lines].random>
-    - narrate "<element[<&6> - Tell me the basics.].on_click[/guide basics]>"
-    on enter proximity:
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Need to know something?"
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> I know it all! Just ask."
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Knowledge is power."
-    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Smeltery, Guilds, Bosses; It's all here."
-    - narrate <[lines].random>
-
-guide_assignment:
-  type: assignment
-  actions:
-    on assignment:
-    - trigger name:click state:true
     #- trigger name:proximity state:true
     on click:
     - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> What would you like to know? (Click One)"

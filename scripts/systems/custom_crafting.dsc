@@ -129,6 +129,9 @@ custom_crafting_events:
         - determine cancelled
       - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && !<context.is_shift_click>:
         - adjust <player> item_on_cursor:<proc[proc_build_item].context[<context.item>]>
+        - event "player crafts item" context:inventory|<context.inventory>|item|<proc[proc_build_item].context[<context.item>]>|recipe|<context.inventory.slot[<list[12|13|14|21|22|23|30|31|32]>]>
+      - if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot>:
+        - event "player crafts item" context:inventory|<context.inventory>|item|<proc[proc_build_item].context[<context.item>]>|recipe|<context.inventory.slot[<list[12|13|14|21|22|23|30|31|32]>]>
 
     on player drags in custom_crafting_inventory:
       - if <context.raw_slots.contains[<script[custom_crafting_inventory].yaml_key[output_slot]>]>:

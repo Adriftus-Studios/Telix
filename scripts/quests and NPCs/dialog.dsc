@@ -26,6 +26,8 @@ dialog_command:
   type: command
   name: dialog
   script:
+  - if <context.args.get[1]> == quest_start:
+    - run start_quest def:<context.args.get[2]>
   - if <npc.location||null> != null:
     - if <player.location.distance[<npc.location||null>]||11> > 10:
       - stop

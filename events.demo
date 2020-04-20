@@ -1,0 +1,11 @@
+
+test_quest1:
+  type: world
+  events:
+    on player completes quest:
+      - narrate <context.quest>
+	on player starts quest:
+	  - narrate <context.quest>
+	on player completes quest objective:
+	  - narrate <context.quest>
+	  - narrate <context.objective>

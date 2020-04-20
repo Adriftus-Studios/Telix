@@ -399,7 +399,6 @@ custom_item_override:
             - yaml savefile:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<context.item_in_hand.script.name>.yml id:<context.location.simple>
             - yaml unload id:<context.location.simple>
     on player breaks block:
-      - narrate <context.>
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]||null> != null:
         - define item:<item[<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1].replace[.yml].with[]>]>
         - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]>
@@ -424,7 +423,6 @@ custom_item_override:
     on item recipe formed:
       - if !<context.inventory.script_name.starts_with[recipe_book_]||false>:
         - if <yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item||null> != null:
-          - narrate 1
           - define item:<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].as_item.with[quantity=<yaml[server.recipe_fixer].read[restricted.shaped.<context.recipe.parse[script.name.to_lowercase||air].separated_by[_]>].get[1].split[:].get[2]>]>
           - inject build_item
           - determine <[item]>
@@ -433,7 +431,6 @@ custom_item_override:
           - inject build_item
           - determine <[item]>
         - if <context.inventory.result.script.name||null> == null && <context.inventory.result||null> != null:
-          - narrate 2
           - foreach <context.inventory.matrix> as:input_item:
             - if !<server.list_material_types.parse[name].contains[<[input_item].script.name.replace[custom_].with[]||null>]> && <[input_item].material.name> != air:
               - determine passively cancelled
@@ -451,6 +448,8 @@ custom_item_override:
         - define item:<context.item>
         - inject build_item
         - determine ITEM:<[item]>
+    on player crafts item:
+      - narrate <context.recipe>
     on player clicks in inventory:
       - if !<context.inventory.script_name.starts_with[recipe_book_]||false>:
         - if <context.slot> != -998:

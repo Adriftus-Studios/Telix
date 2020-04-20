@@ -1,11 +1,11 @@
 
 smeltery_tutorial_dialog:
   type: yaml data
-  character_name: <&a><&lb><&6>Balgoth<&a><&lb><&6>
+  character_name: <&a><&lb><&6>Balgoth<&a><&rb><&6>
   dialog:
     start:
       actions:
-      - say Hello there <&3><player.display.name>
+      - say Hello there <&3><player.name>
       - say It seems that you want to learn the ways of making Telix Steel!
       - playsound custom npc_hearty_laugh
       - say Sadly, you won't be making any Telix Steel today. Let's start off with some bronze.

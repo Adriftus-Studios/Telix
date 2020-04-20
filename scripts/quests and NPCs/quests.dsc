@@ -44,17 +44,34 @@ test_quest2:
     on player breaks stone:
       - run modify_quest_progress def:<script.name>|break_stone|1
 
+test_quest_assignment:
+  type: assignment
+  actions:
+    on assignment:
+    - trigger name:click state:true
+    on click:
+    - narrate "something something something"
+    - run offer_quests def:<script>
+  quests:
+    test_quest1:
+      dialog: smeltery_tutorial_dialog
+    test_quest2:
+      dialog: none
+
 offer_quests:
   type: task
   definitions: assignment
   script:
-  - narrate <script[<[assignment]>].yaml_key[quests]>
   - foreach <script[<[assignment]>].list_keys[quests]||<list[]>> as:quest:
     - if <proc[applicable_for_quest].context[<[quest]>]> == true || <proc[applicable_for_quest].context[<[quest]>]> == level:
+      - narrate <script[<[assignment]>].yaml_key[quests.<[quest]>.dialog]>
       - define el:<element[<script[<[quest]>].yaml_key[quest_name]>]>
       - foreach <script[<[quest]>].list_keys[objectives]||<list[]>> as:obj:
         - define objectives:|:<script[<[quest]>].yaml_key[objectives.<[obj]>.description]>
-      - define "el:lvl <script[<[quest]>].yaml_key[level_requirement]||1> - <[el].on_hover[<[objectives].separated_by[<&nl>]>]>"
+      - if <script[<[assignment]>].yaml_key[quests.<[quest]>.dialog]||none> != none:
+        - define "el:lvl <script[<[quest]>].yaml_key[level_requirement]||1> - <[el].on_hover[<[objectives].separated_by[<&nl>]||<list[]>>].on_click[/dialog <script[<[assignment]>].yaml_key[quests.<[quest]>.dialog]> start]>"
+      - else:
+        - define "el:lvl <script[<[quest]>].yaml_key[level_requirement]||1> - <[el].on_hover[<[objectives].separated_by[<&nl>]||<list[]>>].on_click[/dialog <script[<[assignment]>].yaml_key[quests.<[quest]>.dialog]||quest_start> <[quest]>]>"
       - if <proc[applicable_for_quest].context[<[quest]>]> == level:
         - define el:<&c><[el]>
       - else:
@@ -88,6 +105,7 @@ start_quest:
     - if <[quest].yaml_key[on<&sp>start]||null> != null:
       - run <[quest]> "path:on start"
     - title "title:<&6>Quest Started!" "subtitle:<&6><[quest].yaml_key[quest_name]>"
+    - event "player starts quest" context:quest|<[quest]>
     - foreach <[quest].list_keys[objectives]> as:objective:
       - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:0
 
@@ -106,6 +124,7 @@ modify_quest_progress:
       - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>.objectives.<[objective]>:<yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>].add[<[value]>]||<[value]>>
       - run check_quest_progress def:<[quest]>
       - if <yaml[player.<player.uuid>].read[quests.inprogress.<[quest].name>.objectives.<[objective]>]||0> == <[quest].yaml_key[objectives.<[objective]>.value]>:
+        - event "player completes quest objective" context:quest|<[quest]>|objective|<[objective]>
         - narrate "<&b>Objective Complete: <[quest].yaml_key[objectives.<[objective]>.description]>"
   
 check_quest_progress:
@@ -138,6 +157,7 @@ complete_quest:
   - define quest:<script[<[quest]>]>
   - yaml id:player.<player.uuid> set quests.inprogress.<[quest].name>:!
   - yaml id:player.<player.uuid> set quests.completed:->:<[quest].name>
+  - event "player completes quest" context:quest|<[quest]>
   - if <[quest].yaml_key[repeatable]||false>:
     - flag <player> <[quest].name> duration:<[quest].yaml_key[repeatable_every]||1d>
 
