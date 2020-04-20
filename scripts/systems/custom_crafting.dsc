@@ -127,7 +127,7 @@ custom_crafting_events:
         - determine cancelled
       - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && <context.cursor_item.material.name> != air:
         - determine cancelled
-      - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot>:
+      - else if <script[custom_crafting_inventory].yaml_key[output_slot]> == <context.raw_slot> && !<context.is_shift_click>:
         - adjust <player> item_on_cursor:<proc[proc_build_item].context[<context.item>]>
 
     on player drags in custom_crafting_inventory:
