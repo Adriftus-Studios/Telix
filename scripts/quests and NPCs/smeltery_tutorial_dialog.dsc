@@ -35,6 +35,6 @@ test_quest3:
       prerequisites:
       - break_grass
   events:
-    on player breaks block:
+    on player mines custom ore:
       - narrate <context.item>
       - run modify_quest_progress def:<script.name>|break_grass|1
