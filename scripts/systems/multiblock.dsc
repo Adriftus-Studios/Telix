@@ -42,6 +42,7 @@ multiblock_place:
         - foreach <[cuboids]>:
           - run <script[multiblock_types].yaml_key[<[value].notable_name.after[.].before[^]>.on_click_task]>
     on player breaks stone bukkit_priority:MONITOR priority:10000:
+      - narrate "fired"
       - define cuboids:<context.location.cuboids.parse[notable_name].filter[starts_with[multiblock-area]]>
       - if <[cuboids].size> > 0:
         - foreach <[cuboids]>:
