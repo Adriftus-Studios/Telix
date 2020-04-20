@@ -1,63 +1,4 @@
 
-test_quest1:
-  type: world
-  quest_name: Test Quest 1
-  description: This is just a test
-  repeatable: false
-  on start:
-    - narrate "Test Quest 1 Started"
-  objectives:
-    break_grass:
-      value: 20
-      description: Break 20 Grass Blocks
-    break_stone:
-      value: 20
-      description: Break 20 Stone Blocks
-      prerequisites:
-      - break_grass
-  events:
-    on player breaks grass_block:
-      - run modify_quest_progress def:<script.name>|break_grass|1
-    on player breaks stone:
-      - run modify_quest_progress def:<script.name>|break_stone|1
-
-test_quest2:
-  type: world
-  quest_name: Test Quest 2
-  description: This is also a test
-  repeatable: true
-  repeatable_every: 1d
-  completion_xp: 100
-  additional_conditions:
-  on start:
-    - narrate "Test Quest 2 Started"
-  on complete:
-    - narrate "Completed Test Quest 2"
-  objectives:
-    break_stone:
-      value: 40
-      description: Break 40 Stone Blocks
-  prerequisites:
-    - test_quest1
-  level_requirement: 5
-  events:
-    on player breaks stone:
-      - run modify_quest_progress def:<script.name>|break_stone|1
-
-test_quest_assignment:
-  type: assignment
-  actions:
-    on assignment:
-    - trigger name:click state:true
-    on click:
-    - narrate "something something something"
-    - run offer_quests def:<script>
-  quests:
-    test_quest1:
-      dialog: smeltery_tutorial_dialog
-    test_quest2:
-      dialog: none
-
 offer_quests:
   type: task
   definitions: assignment
@@ -65,6 +6,7 @@ offer_quests:
   - foreach <script[<[assignment]>].list_keys[quests]||<list[]>> as:quest:
     - if <proc[applicable_for_quest].context[<[quest]>]> == true || <proc[applicable_for_quest].context[<[quest]>]> == level:
       - define el:<element[<script[<[quest]>].yaml_key[quest_name]>]>
+      - define objectives:!
       - foreach <script[<[quest]>].list_keys[objectives]||<list[]>> as:obj:
         - define objectives:|:<script[<[quest]>].yaml_key[objectives.<[obj]>.description]>
       - if <proc[applicable_for_quest].context[<[quest]>]> == true:
@@ -82,19 +24,24 @@ start_quest:
   - if <[quest].yaml_key[additional_conditions].parse[parsed].contains[false]||false>:
     - define applicable:false
     - narrate "<&c>You have unmet conditions"
+    - stop
   - foreach <[quest].yaml_key[prerequisites]||<list[]>> as:pre:
     - if !<proc[get_completed_quests].contains[<[pre]>]>:
       - define applicable:false
       - narrate "<&c>You have not completed the quest <script[<[pre]>].yaml_key[quest_name]>"
+      - stop
   - if <yaml[player.<player.uuid>].read[stats.level]||1> < <[quest].yaml_key[level_requirement]||1>:
     - define applicable:false
     - narrate "<&c>Your level is not high enough. Required Level: <[quest].yaml_key[level_requirement]>"
+    - stop
   - if !<[quest].yaml_key[repeatable]||false> && <proc[get_completed_quests].contains[<[quest].name>]>:
     - define applicable:false
     - narrate "<&c>You cannot repeat this quest."
+    - stop
   - if <[quest].yaml_key[repeatable]||false> && <player.has_flag[<[quest].name>]>:
     - define applicable:false
     - narrate "<&c>You cannot start this quest right now. You must wait <player.flag[<[quest].name>].expiration.formatted>"
+    - stop
   - if <[applicable]||true>:
     - if <[quest].yaml_key[on<&sp>start]||null> != null:
       - run <[quest]> "path:on start"
@@ -107,6 +54,7 @@ modify_quest_progress:
   type: task
   definitions: quest|objective|value
   script:
+  - narrate <[quest]>
   - define quest:<script[<[quest]>]||null>
   - if <[quest]> == null:
      - stop
