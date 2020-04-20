@@ -83,6 +83,7 @@ mysterious_person_command:
   - if <player.location.find.npcs.within[10].filter[script.name.is[==].to[mysterious_person_assignment]].size> != 0:
     - stop
     # TODO
+    # What was this guy going to do? Maybe like, if time is night, then offer items for sale? #MoneySink (In game money, obviously)
   
   
 portal_tender_assignment:
@@ -130,3 +131,16 @@ temple_guardian_command:
       - teleport <player> <location[spawn]>
       - wait 3s
       - narrate "<&a><&lb><&6>Portal Tender<&a><&rb><&6> I trust you got what you needed."
+
+# This is the stray dog at spawn. When you right click on him with an item, it will take that item, and give the player the item that was stored previously.
+# What that means is it's kinda like a community drop box of sorts.
+stray_dog_assignment:
+  type: assignment
+  actions:
+    on assignment:
+    - trigger name:click state:true
+    on click:
+    # this should take the item that they have in hand and give them the item that was previously stored in the dogs inventory.
+    - define "lines:|:<&a><&lb><&2><context.display.name>><&a><&rb><&6> *Bark Bark!*"
+    - define "lines:|:<&a><&lb><&2><context.display.name><&a><&rb><&6> If you see this message, please alert an admin."
+    - narrate <[lines].random>
