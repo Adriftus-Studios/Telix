@@ -41,7 +41,7 @@ multiblock_place:
       - if <[cuboids].size> > 0:
         - foreach <[cuboids]>:
           - run <script[multiblock_types].yaml_key[<[value].notable_name.after[.].before[^]>.on_click_task]>
-    on player breaks stone bukkit_priority:MONITOR:
+    on player breaks stone bukkit_priority:MONITOR priority:10000:
       - define cuboids:<context.location.cuboids.parse[notable_name].filter[starts_with[multiblock-area]]>
       - if <[cuboids].size> > 0:
         - foreach <[cuboids]>:
@@ -52,7 +52,7 @@ multiblock_place:
           - note remove as:multiblock-item.<[identifier]>
           - note remove as:multiblock-usable.<[identifier]>
           - note remove as:multiblock-area.<[identifier]>
-          - drop <[item_to_drop]> <context.location>
+          - determine <[item_to_drop]>
         
         
         
