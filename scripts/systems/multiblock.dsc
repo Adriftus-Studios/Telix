@@ -26,7 +26,7 @@ multiblock_place:
       - define cuboid:<cuboid[<[location].left>|<[location].forward_flat[2].right.above[2]>]>
       - define cuboid2:<cuboid[<[location].left>|<[location].right.above[2]>]>
       - narrate <[cuboid].blocks[air].size>
-      - playeffect happy_villager <[cuboid].blocks[air]> quantity:10
+      - playeffect happy_villager <[cuboid].blocks[air]> quantity:10 offset:0
       - if <[cuboid].blocks[air].size> != 9:
         - narrate "<&c>There is not enough room in this location."
         - narrate "<&e>This block requires a 3x3 space to be placed."
