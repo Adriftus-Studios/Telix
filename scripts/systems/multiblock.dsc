@@ -29,12 +29,13 @@ multiblock_place:
         - narrate "<&c>There is not enough room in this location."
         - narrate "<&e>This block requires a 3x3 space to be placed."
         - stop
-      - note <[cuboid]> as:multiblock-area.<context.item.script.yaml_key[multiblock]>^<[cuboid].center.simple>
-      - note <[cuboid2]> as:multiblock-usable.<context.item.script.yaml_key[multiblock]>^<[cuboid].center.simple>
-      - note <context.item> as:multiblock-item.<context.item.script.yaml_key[multiblock]>^<[cuboid].center.simple>
+      - define uuid:<util.random.uuid>
+      - note <[cuboid]> as:multiblock-area.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
+      - note <[cuboid2]> as:multiblock-usable.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
+      - note <context.item> as:multiblock-item.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
       - modifyblock <[cuboid].outline> stone
       - modifyblock <[cuboid].center> torch
-      - spawn <script[multiblock_types].yaml_key[<context.item.script.yaml_key[multiblock]>.armor_stand]> <[cuboid].center>
+      - spawn <script[multiblock_types].yaml_key[<context.item_in_hand.script.yaml_key[multiblock]>.armor_stand]> <[cuboid].center>
     on player right clicks stone:
       - define cuboids:<context.location.cuboids.filter[starts_with[multiblock-usable]]>
       - if <[cuboids].size> > 0:
