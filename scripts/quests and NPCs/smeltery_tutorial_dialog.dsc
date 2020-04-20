@@ -27,6 +27,10 @@ smeltery_tutorial_dialog:
       actions:
       - say What are you doing down there!? You know what. Since you're in the mine, why don't you pull up some tin as well?
       - quest start smeltery_tutorial_quest_2
+    smeltery_tutorial_quest_starting_dialog_3:
+      actions:
+      - say You did it! Now get that raw ore up here, and let me show you what a real blacksmith can do!
+      - quest start smeltery_tutorial_quest_3
   quests:
     smeltery_tutorial_quest_1:
       dialog: smeltery_tutorial_dialog
@@ -59,6 +63,8 @@ smeltery_tutorial_quest_2:
   repeatable: false
   prerequisites:
     - smeltery_tutorial_quest_1
+  on completed:
+  - run play_dialog def:smeltery_tutorial_dialog|smeltery_tutorial_quest_starting_dialog_3
   objectives:
     mine_tin:
       value: 5
@@ -66,6 +72,21 @@ smeltery_tutorial_quest_2:
   events:
     on player mines custom_tutorial_tin_ore:
       - run modify_quest_progress def:<script.name>|mine_tin|1
+
+smeltery_tutorial_quest_3:
+  type: world
+  quest_name: Smeltery Tutorial 3
+  description: Mine in the mine at spawn, and then bring Balgoth the ores. There he will tell you to take them to the smeltery, and smelt the ores together.
+  repeatable: false
+  prerequisites:
+    - smeltery_tutorial_quest_2
+  objectives:
+    talk_to_npc:
+      value: 1
+      description: Mine 5 Tin Ore
+  events:
+    on player interacts with npc balgoth_assignment:
+      - run modify_quest_progress def:<script.name>|talk_to_npc|1
 
 tutorial_pick:
   material: iron_pickaxe
@@ -83,7 +104,7 @@ custom_tutorial_tin_ore:
       block: stone
       chance: 10
       conditions:
-      - <proc[get_quests_inprogress].contains[smeltery_tutorial_quest_1]>
+      - <proc[get_quests_inprogress].contains[smeltery_tutorial_quest_2]>
 
 custom_tutorial_copper_ore:
   material: iron_ore
@@ -94,6 +115,6 @@ custom_tutorial_copper_ore:
     1:
       biome: all
       block: stone
-      chance: 5
+      chance: 10
       conditions:
       - <proc[get_quests_inprogress].contains[smeltery_tutorial_quest_1]>

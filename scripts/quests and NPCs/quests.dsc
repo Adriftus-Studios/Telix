@@ -54,7 +54,6 @@ modify_quest_progress:
   type: task
   definitions: quest|objective|value
   script:
-  - narrate <[quest]>
   - define quest:<script[<[quest]>]||null>
   - if <[quest]> == null:
      - stop
