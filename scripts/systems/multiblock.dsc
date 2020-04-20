@@ -18,10 +18,10 @@ multiblock_place:
   type: world
   events:
     on player places block:
-      - determine passively cancelled
-      - wait 1t
       - if <context.item_in_hand.script.yaml_key[multiblock]||null> == null:
         - stop
+      - determine passively cancelled
+      - wait 1t
       - define location:<context.location.with_yaw[<player.location.yaw.round_to_precision[90]>].with_pitch[0]>
       - define cuboid:<cuboid[<[location].left>|<[location].forward_flat[2].right.above[2]>]>
       - define cuboid2:<cuboid[<[location].left>|<[location].right.above[2]>]>
