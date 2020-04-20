@@ -18,13 +18,13 @@ multiblock_teststand:
 multiblock_types:
   type: yaml data
   guild_bank:
-    armor_stand: armor_stand
-    on_click_task: multiblock_teststand
+    armor_stand: multiblock_teststand
+    on_click_task: multiblock_testtask
 
 multiblock_place:
   type: world
   events:
-    on player places block:
+    on player places block bukkit_priority:HIGHEST:
       - if <context.item_in_hand.script.yaml_key[multiblock]||null> == null:
         - stop
       - determine passively cancelled
