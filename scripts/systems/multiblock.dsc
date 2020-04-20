@@ -40,7 +40,7 @@ multiblock_place:
       - define uuid:<util.random.uuid>
       - note <[cuboid]> as:multiblock-area.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
       - note <[cuboid2]> as:multiblock-usable.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
-      - note <context.item_in_hand.script> as:multiblock-item.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
+      - flag server multiblock-item.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>:<context.item_in_hand.script.name>
       - modifyblock <[cuboid].blocks.exclude[<[cuboid].center>]> stone
       - modifyblock <[cuboid].center> torch
       - spawn <script[multiblock_types].yaml_key[<context.item_in_hand.script.yaml_key[multiblock]>.armor_stand]> <[cuboid].center.with_yaw[<[this_yaw].-[180]>]>
@@ -55,11 +55,11 @@ multiblock_place:
       - if <[cuboids].size> > 0:
         - foreach <[cuboids]>:
           - define identifier:<[value].as_cuboid.notable_name.after[.]>
-          - define item_to_drop:<item[multiblock-item.<[identifier]>]>
+          - define item_to_drop:<server.flag[multiblock-item.<[identifier]>].as_item>
           - remove <[value].as_cuboid.center.find.entities[armor_stand].within[1]>
           - modifyblock <cuboid[multiblock-area.<[identifier]>].center> air
           - modifyblock <cuboid[multiblock-area.<[identifier]>]> air
-          - note remove as:multiblock-item.<[identifier]>
+          - flag server multiblock-item.<[identifier]>:!
           - note remove as:multiblock-usable.<[identifier]>
           - note remove as:multiblock-area.<[identifier]>
           - drop <[item_to_drop]> <context.location>
