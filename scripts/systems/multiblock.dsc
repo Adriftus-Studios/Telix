@@ -48,7 +48,7 @@ multiblock_place:
         - foreach <[cuboids]>:
           - define identifier:<[value].as_cuboid.notable_name.after[.]>
           - define item_to_drop:<item[multiblock-item.<[identifier]>]>
-          - remove <[value].center.find.entities[armor_stand].within[1]>
+          - remove <[value].as_cuboid.center.find.entities[armor_stand].within[1]>
           - modifyblock <cuboid[multiblock-area.<[identifier]>].center> air
           - modifyblock <cuboid[multiblock-area.<[identifier]>]> air
           - note remove as:multiblock-item.<[identifier]>
