@@ -15,6 +15,18 @@ test_dialog:
       - wait 10s
       - say 2do
 
+npc_interact_events:
+  type: world
+  events:
+    on player right clicks entity:
+      - if <context.entity.type> == npc:
+        - adjust <queue> linked_npc:<context.entity>
+        - ratelimit <player> 1s
+        - if <context.entity.has_trigger[click]>:
+          - event "player interacts with npc"
+          - event "player interacts with npc <context.entity.name.to_lowercase>"
+          - event "player interacts with npc <context.entity.script.name>"
+
 play_dialog:
   type: task
   definitions: script|path

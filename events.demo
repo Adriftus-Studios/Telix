@@ -4,8 +4,20 @@ test_quest1:
   events:
     on player completes quest:
       - narrate <context.quest>
+	  - narrate <player>
 	on player starts quest:
 	  - narrate <context.quest>
+	  - narrate <player>
 	on player completes quest objective:
 	  - narrate <context.quest>
 	  - narrate <context.objective>
+	  - narrate <player>
+	on player interacts with npc:
+	  - narrate <player>
+	  - narrate <npc>
+	on player interacts with npc (nametag):
+	  - narrate <player>
+	  - narrate <npc>
+	on player interacts with npc (assigned_script_name):
+	  - narrate <player>
+	  - narrate <npc>

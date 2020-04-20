@@ -64,7 +64,6 @@ offer_quests:
   script:
   - foreach <script[<[assignment]>].list_keys[quests]||<list[]>> as:quest:
     - if <proc[applicable_for_quest].context[<[quest]>]> == true || <proc[applicable_for_quest].context[<[quest]>]> == level:
-      - narrate <script[<[assignment]>].yaml_key[quests.<[quest]>.dialog]>
       - define el:<element[<script[<[quest]>].yaml_key[quest_name]>]>
       - foreach <script[<[quest]>].list_keys[objectives]||<list[]>> as:obj:
         - define objectives:|:<script[<[quest]>].yaml_key[objectives.<[obj]>.description]>

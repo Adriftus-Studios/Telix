@@ -69,3 +69,6 @@ smeltery_tutorial_1:
         - run modify_quest_progress def:<script.name>|mine_copper|1
       - if <context.script> == custom_tutorial_tin_ore:
         - run modify_quest_progress def:<script.name>|mine_tin|1
+    on player interacts with npc balgoth_assignment:
+      - if <npc.script.list_keys[quests].contains[<script.name>]||false>:
+        - run modify_quest_progress def:<script.name>|talk_to_npc|1
