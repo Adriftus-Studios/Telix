@@ -18,7 +18,7 @@ multiblock_place:
   type: world
   events:
     on player places block:
-      - if <context.item.script.yaml_key[multiblock]||null> == null:
+      - if <context.item_in_hand.script.yaml_key[multiblock]||null> == null:
         - stop
       - define location:<context.location.with_yaw[<player.location.yaw.round_to_precision[90]>].with_pitch[0]>
       - define cuboid:<cuboid[<[location].left>|<[location].forward_flat[2].right.above[2]>]>
