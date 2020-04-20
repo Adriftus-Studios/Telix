@@ -1,62 +1,85 @@
-Mini Quests that will introduce the player to the world of Telix
+Mini Quests that will introduce the player to the world of Telix. Most of these quest will be done at another part of the world. I'll indicate the location. 
 
+Main Narrate on First Join: (Maybe this will change?)
 There are a few things that we do differently. 
 These quests are designed specifically for introducing our unique systems.
 
-They should be funneled into these systems in order that they're presented here, as they all build on eachother.
+#They should be funneled into these systems in order that they're presented here, as they all build on eachother.
 
 
 
 
-NOTES: 
+NOTES and Standards: 
 NPC Names -- <&a><&lb> <&1><npc.name> <&a><&lb><&6>
 Top Chat Dividers -- "<&l><&e><&sp><&sp><&sp><&sp>* * * * * * * <&d>Quest <&e>* * * * * * *"
 Bottom Chat Dividers -- "<&l><&e><&sp><&sp><&sp><&sp>* * * * * * * * * * * * * * * * *"
-Objective Updates -- "<&6><&lb><&a> Objective <&6><&rb><&a><&co> <objective.text>"
+Objective Updates -- "<&6><&lb><&a> New Objective <&6><&rb><&a><&co> <objective.text>"
+
 
 
 
 Smeltery:
   NPC: Balgoth
+  Location: Tutorial Island
   Goal: Mine in the mine at spawn, and then bring Balgoth the ores.
     There he will tell you to take them to the smeltery, and smelt the ores together.
 
     dialog1: "<&a><&lb> <&1>Balgoth <&a><&lb><&6> Hello there <&3><player.display.name>"
     wait 3s
     dialog2: "<&6>It seems that you want to learn the ways of making Telix Steel!"
-    playsound custom npc_hearty_laugh (pseudo code)
+    playsound custom npc_hearty_laugh #(pseudo code)
     dialog2_5: "<&6>Sadly, you won't be making any Telix Steel today. Let's start off with some bronze."
     wait 3s
     dialog3: "<&6>Why don't you take this pickaxe and go mine some copper!"
     give tutorial_pick
     # They will mine these ores, but they won't be regular ores. They are only usable during this quest. So, like...tutorial_copper, tutorial_tin, etc.
     title "subitle:<&6>Mine 6 pieces of copper"
+      --  Player mines 6 pieces of copper --
+    dialog4: "<&6>What are you doing down there!? You know what. Since you're in the mine, why don't you pull up some tin as well?"
     wait 3s
-      --  Player gathers 6 pieces of copper --
-    dialog4: "<&6>What are you doing down there!? You know. Since you're in the mine, why don't you pull up some tin as well?"
-    
+    # I don't know the recipe for bronze. So, 6 copper, and 3 tin are arbitrary. The first thing they should make is a bronze sword (This will progress them to the next quest)
+    dialog5: "[ Objective Updates ] Now mine 3 Tin from deeper in the mine!"
+    title "subtite:<&6>Mine 3 peices of tin"
+      -- Player mines 3 pieces of Tin --
+    dialog6: "You did it! Now get that raw ore up here, and let me show you what a real blacksmith can do!"
 
-    When you mine a block at spawn, it should modify block to be coal_block, and give the player the block. This will display a level of RPG, and maybe a future system. 
-  Reward: You keep the ores that you just smelted, and it give you 5 copper pieces (The money)
-  Note: You can't drop the ores, or the ingots that you craft here. Maybe make it so you can't drop anywhere in spawn?
+    When you mine a block in spawn world, it should modify block to be coal_block, and give the player the block. This will display a level of RPG, and maybe a future system. It's all about immersion.
+  Reward: You keep the ingots that you just smelted, and it give you 5 copper pieces (The money)
+  Note: You can't drop the ores, or the ingots that you craft/mine here. Let's make them specific to the quest. Like, tutorial_copper_ore, tutorial_bronze_ingot
+
+Crafting:
+  NPC: Calapho
+  Location: Tutorial Island
+
+Cooking:
+  NPC: Malt
+  Location: Tutorial Island
+
+Rune Crafting:
+  NPC: Saladon
+  Location: Tutorial Island
 
 Abilities:
   NPC
+  location: Tutorial Island
   Goal
   Reward
 
 Custom Mobs:
   NPC
+  location: Tutorial Island
   Goal
   Reward
 
 Bosses:
   NPC
+  Location: Water Boss Arena
   Goal
   Reward
 
 Guilds:
   NPC
+  Location: Main Spawn
   Goal
   Reward
 
