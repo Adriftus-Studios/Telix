@@ -62,7 +62,7 @@ multiblock_place:
           - note remove as:multiblock-item.<[identifier]>
           - note remove as:multiblock-usable.<[identifier]>
           - note remove as:multiblock-area.<[identifier]>
-          - determine <[item_to_drop]>
+          - drop <[item_to_drop]> <context.location>
         
         
         
