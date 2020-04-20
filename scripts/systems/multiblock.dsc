@@ -45,7 +45,6 @@ multiblock_place:
       - modifyblock <[cuboid].center> torch
       - spawn <script[multiblock_types].yaml_key[<context.item_in_hand.script.yaml_key[multiblock]>.armor_stand]> <[cuboid].center.with_yaw[<[this_yaw].-[180]>]>
     on player right clicks stone:
-      - narrate "fired2"
       - define cuboids:<context.location.cuboids.parse[notable_name].filter[starts_with[multiblock-usable]]>
       - if <[cuboids].size> > 0:
         - foreach <[cuboids]>:
