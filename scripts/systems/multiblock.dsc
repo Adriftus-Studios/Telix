@@ -33,11 +33,11 @@ multiblock_place:
       - note <[cuboid]> as:multiblock-area.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
       - note <[cuboid2]> as:multiblock-usable.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
       - note <context.item> as:multiblock-item.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
-      - modifyblock <[cuboid].outline> stone
+      - modifyblock <[cuboid].blocks.exclude[<[cuboid].center>]> stone
       - modifyblock <[cuboid].center> torch
       - spawn <script[multiblock_types].yaml_key[<context.item_in_hand.script.yaml_key[multiblock]>.armor_stand]> <[cuboid].center>
     on player right clicks stone:
-      - define cuboids:<context.location.cuboids.filter[starts_with[multiblock-usable]]>
+      - define cuboids:<context.location.cuboids.parse[notable_name].filter[starts_with[multiblock-usable]]>
       - if <[cuboids].size> > 0:
         - foreach <[cuboids]>:
           - run <script[multiblock_types].yaml_key[<[value].notable_name.after[.].before[^]>.on_click_task]>
