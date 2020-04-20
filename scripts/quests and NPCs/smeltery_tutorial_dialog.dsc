@@ -28,11 +28,11 @@ smeltery_tutorial_quest:
   repeatable: false
   objectives:
     mine_copper:
-      value: 6
-      description: Mine 6 Copper Ore
-    mine_tin:
       value: 3
-      description: Mine 3 Tin Ore
+      description: Mine 3 Copper Ore
+    mine_tin:
+      value: 5
+      description: Mine 5 Tin Ore
     talk_to_npc:
       value: 1
       description: Talk to Balgoth after gathering ores
@@ -46,7 +46,7 @@ smeltery_tutorial_quest:
       - run modify_quest_progress def:<script.name>|mine_tin|1
     on player interacts with npc balgoth_assignment:
       - run modify_quest_progress def:<script.name>|talk_to_npc|1
-      
+
 tutorial_pick:
   material: iron_pickaxe
   type: item
