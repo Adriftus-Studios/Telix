@@ -1,8 +1,8 @@
-#Citadel_System_Break:
-  #type: world
-  #events:
-    #on player breaks block:
-      #- run Citadel_BlockCheck def:<context.location>
+Citadel_System_Break:
+  type: world
+  events:
+    on player breaks block:
+      - run Citadel_BlockCheck def:<context.location>
           
 Citadel_loadData:
   type: task
@@ -20,7 +20,7 @@ Citadel_BlockCheck:
   scripts:
     - define loc:<[location].simple>
     - if !<yaml.list.contains[citadel.<[loc]>]>:
-      - if <server.has_file[data/CITADEL/<[loc]>.yml]>:
+      - if <server.has_file[data/CITADEL/<[loc]>.yml]||false>:
         - run Citadel_loadData def:<[loc]>
       - else:
         - stop

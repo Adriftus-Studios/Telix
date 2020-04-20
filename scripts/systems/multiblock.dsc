@@ -20,6 +20,8 @@ multiblock_types:
   guild_bank:
     armor_stand: multiblock_teststand
     on_click_task: multiblock_testtask
+    on_place_task: null
+    on break_task: 
 
 multiblock_place:
   type: world
@@ -44,6 +46,8 @@ multiblock_place:
       - modifyblock <[cuboid].blocks.exclude[<[cuboid].center>]> stone
       - modifyblock <[cuboid].center> torch
       - spawn <script[multiblock_types].yaml_key[<context.item_in_hand.script.yaml_key[multiblock]>.armor_stand]> <[cuboid].center.with_yaw[<[this_yaw].-[180]>]>
+      - if <script[multiblock_types].yaml_key[<context.item_in_hand.script.yaml_key[multiblock]>.on_place_task]||null> != null:
+        - inject <script[multiblock_types].yaml_key[<context.item_in_hand.script.yaml_key[multiblock]>.on_place_task]>
     on player right clicks stone:
       - define cuboids:<context.location.cuboids.parse[notable_name].filter[starts_with[multiblock-usable]]>
       - if <[cuboids].size> > 0:
@@ -63,6 +67,8 @@ multiblock_place:
           - note remove as:multiblock-usable.<[identifier]>
           - note remove as:multiblock-area.<[identifier]>
           - drop <[item_to_drop]> <context.location>
+          - if <script[multiblock_types].yaml_key[<[identifier].after[^]>.on_place_task]||null> != null:
+            - inject <script[multiblock_types].yaml_key[<[identifier].after[^]>.on_break_task]>
         
         
         
