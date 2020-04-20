@@ -44,15 +44,6 @@ Smeltery:
     dialog6: "You did it! Now get that raw ore up here, and let me show you what a real blacksmith can do!"
 
 
-
-        AJ:
-
- ## There will be some more standards, like sounds played on each milestone, and particles, and all that. But I had to go to bed. It's like 10:20. I'll finish this one tomorrow.
-     It's almost done. Just a few more things that go into it. These will be on a tutorial island, and we can make the tutorial materials (Used in tutorials, and won't work anywhere else) 
-                  - Drew
-
-
-
     When you mine a block in spawn world, it should modify block to be coal_block, and give the player the block. This will display a level of RPG, and maybe a future system. It's all about immersion.
   Reward: You keep the ingots that you just smelted, and it give you 5 copper pieces (The money)
   Note: You can't drop the ores, or the ingots that you craft/mine here. Let's make them specific to the quest. Like, tutorial_copper_ore, tutorial_bronze_ingot
