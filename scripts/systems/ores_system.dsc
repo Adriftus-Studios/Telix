@@ -22,5 +22,5 @@ ore_drop_events:
                     - define item:<item[<[to_drop].random>]>
                 - inject build_item
                 - announce <[item]>
-                - event "player mines custom ore" context:location|<context.location>|material|<context.material>|xp|<context.xp>|item|<[item]>
+                - event "player mines custom ore" context:location|<context.location>|material|<context.material>|xp|<context.xp>|item|<[item]>|script|<[item].script.name>
                 - determine <[item]>
