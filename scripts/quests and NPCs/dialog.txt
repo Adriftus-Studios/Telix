@@ -28,6 +28,7 @@ Smeltery:
     wait 3s
     dialog2: "<&6>It seems that you want to learn the ways of making Telix Steel!"
     playsound custom npc_hearty_laugh #(pseudo code)
+    wait 5s
     dialog2_5: "<&6>Sadly, you won't be making any Telix Steel today. Let's start off with some bronze."
     wait 3s
     dialog3: "<&6>Why don't you take this pickaxe and go mine some copper!"
