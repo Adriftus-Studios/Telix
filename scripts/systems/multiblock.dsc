@@ -27,9 +27,10 @@ multiblock_place:
     on player places block bukkit_priority:HIGHEST:
       - if <context.item_in_hand.script.yaml_key[multiblock]||null> == null:
         - stop
+      - define this_yaw:<player.location.yaw.round_to_precision[90]>
       - determine passively cancelled
       - wait 1t
-      - define location:<context.location.with_yaw[<player.location.yaw.round_to_precision[90]>].with_pitch[0]>
+      - define location:<context.location.with_yaw[<[this_yaw]>].with_pitch[0]>
       - define cuboid:<cuboid[<[location].left>|<[location].forward_flat[2].right.above[2]>]>
       - define cuboid2:<cuboid[<[location].left>|<[location].right.above[2]>]>
       - if <[cuboid].blocks[air].size> != 27:
@@ -42,7 +43,7 @@ multiblock_place:
       - note <context.item> as:multiblock-item.<context.item_in_hand.script.yaml_key[multiblock]>^<[uuid]>
       - modifyblock <[cuboid].blocks.exclude[<[cuboid].center>]> stone
       - modifyblock <[cuboid].center> torch
-      - spawn <script[multiblock_types].yaml_key[<context.item_in_hand.script.yaml_key[multiblock]>.armor_stand]> <[cuboid].center>
+      - spawn <script[multiblock_types].yaml_key[<context.item_in_hand.script.yaml_key[multiblock]>.armor_stand]> <[cuboid].center.with_yaw[<[this_yaw].-[180]>]>
     on player right clicks stone:
       - narrate "fired2"
       - define cuboids:<context.location.cuboids.parse[notable_name].filter[starts_with[multiblock-usable]]>
