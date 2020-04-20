@@ -10,8 +10,9 @@ ore_drop_events:
             - foreach <[drops]||<list[]>> as:drop:
                 - define tool:<yaml[server.recipe_book].read[ore_spawn.<[drop].split[/].get[1]>.tool]>
                 - if <[tool]> == <player.item_in_hand.script.name||null> || <[tool]> == all:
-                    - if <util.random.int[1].to[<[drop].split[/].get[2]||30>]||0> == 1:
-                        - define to_drop:|:<[drop].split[/].get[1]>
+                    - if !<yaml[server.recipe_book].read[ore_spawn.<[drop].split[/].get[1]>.conditions].parse[parsed].contains[false]>:
+                        - if <util.random.int[1].to[<[drop].split[/].get[2]||30>]||0> == 1:
+                            - define to_drop:|:<[drop].split[/].get[1]>
             - if <[to_drop]||null> != null:
                 - if <proc[fake_durability_use].context[<player.item_in_hand>]||null> != null:
                     - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]>

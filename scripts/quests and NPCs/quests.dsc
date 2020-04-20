@@ -44,6 +44,23 @@ test_quest2:
     on player breaks stone:
       - run modify_quest_progress def:<script.name>|break_stone|1
 
+offer_quests:
+  type: task
+  definitions: assignment
+  script:
+  - narrate <script[<[assignment]>].yaml_key[quests]>
+  - foreach <script[<[assignment]>].list_keys[quests]||<list[]>> as:quest:
+    - if <proc[applicable_for_quest].context[<[quest]>]> == true || <proc[applicable_for_quest].context[<[quest]>]> == level:
+      - define el:<element[<script[<[quest]>].yaml_key[quest_name]>]>
+      - foreach <script[<[quest]>].list_keys[objectives]||<list[]>> as:obj:
+        - define objectives:|:<script[<[quest]>].yaml_key[objectives.<[obj]>.description]>
+      - define "el:lvl <script[<[quest]>].yaml_key[level_requirement]||1> - <[el].on_hover[<[objectives].separated_by[<&nl>]>]>"
+      - if <proc[applicable_for_quest].context[<[quest]>]> == level:
+        - define el:<&c><[el]>
+      - else:
+        - define el:<&9><[el]>
+      - narrate <[el]>
+
 start_quest:
   type: task
   definitions: quest
@@ -159,22 +176,16 @@ applicable_for_quest:
   - if <[quest]> == null:
      - stop
   - if <[quest].yaml_key[additional_conditions].parse[parsed].contains[false]||false>:
-    - define applicable:false
-    - determine "You have unmet conditions"
+    - define "applicable:unmet conditions"
   - if <proc[get_quests_inprogress].contains[<[quest].name>]||false>:
-    - define applicable:false
-    - determine "You have already started this quest."
+    - define "applicable:already started"
   - foreach <[quest].yaml_key[prerequisites]||<list[]>> as:pre:
     - if !<proc[get_completed_quests].contains[<[pre]>]>:
-      - define applicable:false
-      - determine "You have not completed the quest <script[<[pre]>].yaml_key[quest_name]>"
+      - define "applicable:prerequisites"
   - if <yaml[player.<player.uuid>].read[stats.level]> < <[quest].yaml_key[level_requirement]||1>:
-    - define applicable:false
-    - determine "Your level is not high enough. Required Level: <[quest].yaml_key[level_requirement]>"
+    - define "applicable:level"
   - if !<[quest].yaml_key[repeatable]||false> && <proc[get_completed_quests].contains[<[quest].name>]>:
-    - define applicable:false
-    - determine "You cannot repeat this quest."
+    - define "applicable:cannot repeat"
   - if <[quest].yaml_key[repeatable]||false> && <player.has_flag[<[quest].name>]>:
-    - define applicable:false
-    - determine "You cannot start this quest right now. You must wait <player.flag[<[quest].name>].expiration.formatted>"
+    - define "applicable:cooldown"
   - determine <[applicable]||true>

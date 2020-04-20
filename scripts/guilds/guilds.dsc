@@ -1132,7 +1132,10 @@ guild_gui_events:
           - if <yaml[guild.<player.flag[guild]>].read[flags.<[loc]>.name]> == <context.item.display>:
             - inventory open d:<inventory[flag_<player.flag[guild]>_<[loc]>]>
       - if <context.item.script.name||null> == gui_close_btn:
-        - inventory open d:<inventory[my_guild_gui]>
+        - if <player.has_flag[guild]>:
+          - inventory open d:my_guild_gui
+        - else:
+          - inventory open d:new_guild_gui
     - else:
       - if <context.is_shift_click>:
         - determine passively cancelled
@@ -1253,7 +1256,10 @@ guild_gui_events:
         - if <context.inventory.slot[1].nbt[guild].replace[guild.].with[]> != <player.flag[guild]>:
           - define guild:<context.inventory.slot[1].nbt[guild].replace[guild.].with[]>
       - if <context.item.script.name||null> == gui_close_btn:
-        - inventory open d:<inventory[my_guild_gui]>
+        - if <player.has_flag[guild]>:
+          - inventory open d:my_guild_gui
+        - else:
+          - inventory open d:new_guild_gui
       - if <player.flag[guild]||null> == null:
         - stop
       - if <player.flag[guild]> != <[guild]>:
@@ -1469,7 +1475,10 @@ guild_gui_events:
     on player clicks gui_close_btn in guild_settings_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
-      - inventory open d:<inventory[my_guild_gui]>
+      - if <player.has_flag[guild]>:
+        - inventory open d:my_guild_gui
+      - else:
+        - inventory open d:new_guild_gui
     on player clicks guild_transfer_leadership_yes_btn in guild_leadership_transfer_confirmation_gui:
     - if <context.raw_slot> <= 27:
       - determine passively cancelled
@@ -1540,7 +1549,10 @@ guild_gui_events:
     - if <context.raw_slot> <= 54:
       - determine passively cancelled
       - if <context.item.script.name||null> == gui_close_btn:
-        - inventory open d:<inventory[my_guild_gui]>
+        - if <player.has_flag[guild]>:
+          - inventory open d:my_guild_gui
+        - else:
+          - inventory open d:new_guild_gui
       - if <context.item.material.name||null> == player_head:
         - if <context.item.skin.as_player> == <player>:
           - narrate "<&c>You cannot edit this players permissions."

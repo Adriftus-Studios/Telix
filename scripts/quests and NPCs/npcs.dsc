@@ -20,14 +20,25 @@ guide_assignment:
     - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Smeltery, Guilds, Bosses; It's all here."
     - narrate <[lines].random>
 
-guide_command:
-  type: command
-  name: guide
-  script:
-  - choose <context.args.get[1]||null>:
-    - case basics:
-      - narrate ""
-  
+guide_assignment:
+  type: assignment
+  actions:
+    on assignment:
+    - trigger name:click state:true
+    #- trigger name:proximity state:true
+    on click:
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> What would you like to know? (Click One)"
+    - run offer_quests def:<script>
+    on enter proximity:
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Need to know something?"
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> I know it all! Just ask."
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Knowledge is power."
+    - define "lines:|:<&a><&lb><&6>Guide<&a><&rb><&6> Smeltery, Guilds, Bosses; It's all here."
+    - narrate <[lines].random>
+  quests:
+    smeltery_tutorial_1:
+      dialog: smeltery_tutorial_dialog
+
 guild_master_assignment:
   type: assignment
   actions:
