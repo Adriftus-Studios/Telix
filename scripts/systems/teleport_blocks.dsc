@@ -8,6 +8,7 @@ gold_block_teleport_events:
       - define y_loc:<cuboid[<context.location.above>|<context.location.above[26]>].blocks[gold_block].parse[y].lowest||null>
       - if <[y_loc]> != null && <context.location.with_y[<[y_loc].+[1]>].material.name> == air:
         - playeffect effect:dragon_breath at:<player.location> quantity:30
+        - event "player uses elevator" context:from|<player.location>|to|<context.location.with_y[<[y_loc].+[1]>].center.with_yaw[<player.location.yaw>]>
         - teleport <context.location.with_y[<[y_loc].+[1]>].center.with_yaw[<player.location.yaw>]>
         - playeffect effect:dragon_breath at:<player.location> quantity:30
         - playsound <player.location> sound:entity_ender_eye_launch volume:2
@@ -24,6 +25,7 @@ gold_block_teleport_events:
       - define y_loc:<cuboid[<player.location.below[2]>|<player.location.below[26]>].blocks[gold_block].parse[y].highest||null>
       - if <[y_loc]> != null && <player.location.with_y[<[y_loc].+[1]>].material.name> == air:
         - playeffect effect:dragon_breath at:<player.location> quantity:30
+        - event "player uses elevator" context:from|<player.location>|to|<player.location.with_y[<[y_loc].+[1]>].center.with_yaw[<player.location.yaw>]>
         - teleport <player.location.with_y[<[y_loc].+[1]>].center.with_yaw[<player.location.yaw>]>
         - playeffect effect:dragon_breath at:<player.location> quantity:30
         - playsound <player.location> sound:entity_ender_eye_launch volume:2

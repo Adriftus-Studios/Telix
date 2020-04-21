@@ -29,3 +29,8 @@ test_quest1:
 	  - narrate <context.entity>
 	  - narrate <player>
 	  - narrate <npc>
+	on player uses elevator:
+	  - narrate <context.to>
+	  - narrate <context.from>
+	  - narrate <player>
+	  
