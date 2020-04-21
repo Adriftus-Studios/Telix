@@ -72,6 +72,10 @@ process_dialog_command:
       - else:
         - narrate <&c><[status]>
         - stop
+  - else if <[action].parsed.starts_with[waituntil]>:
+    - narrate <[action].substring[11].parsed>
+    - waituntil <[action].substring[11].parsed>
+    - narrate <[action].substring[11].parsed>
   - else if <[action].parsed.starts_with[wait]>:
     - wait <[action].substring[6]>
   - else if <[action].parsed.starts_with[stop]>:

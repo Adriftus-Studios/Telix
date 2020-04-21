@@ -23,21 +23,14 @@ smeltery_tutorial_dialog:
       - say Why don't you take this pickaxe and go mine some copper!
       - quest start smeltery_tutorial_quest_1
       # Linke 27 should fire only after they mine the first 6 copper.
-    smeltery_tutorial_quest_starting_dialog_2:
-      actions:
+      - waituntil <proc[get_completed_objectives].context[smeltery_tutorial_quest_1].contains[mine_copper]>
       - say What are you doing down there!? You know what. Since you're in the mine, why don't you pull up some tin as well?
-      - quest start smeltery_tutorial_quest_2
-    smeltery_tutorial_quest_starting_dialog_3:
-      actions:
+      - waituntil <proc[get_completed_objectives].context[smeltery_tutorial_quest_1].contains[mine_tin]>
       - say You did it! Now get that raw ore up here, and let me show you what a real blacksmith can do!
-      - quest start smeltery_tutorial_quest_3
   quests:
     smeltery_tutorial_quest_1:
       dialog: smeltery_tutorial_dialog
       dialog_start: smeltery_tutorial_quest_starting_dialog_1
-    smeltery_tutorial_quest_2:
-      dialog: smeltery_tutorial_dialog
-      dialog_start: smeltery_tutorial_quest_starting_dialog_2
 
 smeltery_tutorial_quest_1:
   type: world
@@ -46,45 +39,21 @@ smeltery_tutorial_quest_1:
   repeatable: false
   on start:
   - give tutorial_pick
-  on completed:
-  - run play_dialog def:smeltery_tutorial_dialog|smeltery_tutorial_quest_starting_dialog_2
   objectives:
     mine_copper:
       value: 3
       description: Mine 3 Copper Ore
-  events:
-    on player mines custom_tutorial_copper_ore:
-      - run modify_quest_progress def:<script.name>|mine_copper|1
-
-smeltery_tutorial_quest_2:
-  type: world
-  quest_name: Smeltery Tutorial 2
-  description: Mine in the mine at spawn, and then bring Balgoth the ores. There he will tell you to take them to the smeltery, and smelt the ores together.
-  repeatable: false
-  prerequisites:
-    - smeltery_tutorial_quest_1
-  on completed:
-  - run play_dialog def:smeltery_tutorial_dialog|smeltery_tutorial_quest_starting_dialog_3
-  objectives:
     mine_tin:
       value: 5
       description: Mine 5 Tin Ore
-  events:
-    on player mines custom_tutorial_tin_ore:
-      - run modify_quest_progress def:<script.name>|mine_tin|1
-
-smeltery_tutorial_quest_3:
-  type: world
-  quest_name: Smeltery Tutorial 3
-  description: Mine in the mine at spawn, and then bring Balgoth the ores. There he will tell you to take them to the smeltery, and smelt the ores together.
-  repeatable: false
-  prerequisites:
-    - smeltery_tutorial_quest_2
-  objectives:
     talk_to_npc:
       value: 1
-      description: Mine 5 Tin Ore
+      description: Talk to Balgoth
   events:
+    on player mines custom_tutorial_copper_ore:
+      - run modify_quest_progress def:<script.name>|mine_copper|1
+    on player mines custom_tutorial_tin_ore:
+      - run modify_quest_progress def:<script.name>|mine_tin|1
     on player interacts with npc balgoth_assignment:
       - run modify_quest_progress def:<script.name>|talk_to_npc|1
 
@@ -104,7 +73,7 @@ custom_tutorial_tin_ore:
       block: stone
       chance: 10
       conditions:
-      - <proc[get_quests_inprogress].contains[smeltery_tutorial_quest_2]>
+      - <proc[get_quests_inprogress].contains[smeltery_tutorial_quest_1]>
 
 custom_tutorial_copper_ore:
   material: iron_ore
@@ -115,6 +84,6 @@ custom_tutorial_copper_ore:
     1:
       biome: all
       block: stone
-      chance: 10
+      chance: 5
       conditions:
       - <proc[get_quests_inprogress].contains[smeltery_tutorial_quest_1]>
