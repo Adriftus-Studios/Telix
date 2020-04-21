@@ -391,16 +391,18 @@ custom_item_override:
     on player consumes item:
       - if <context.item.script.yaml_key[on_consume]||null> != null:
         - run <context.item.script.name> path:on_consume
-    on player places block:
+    on player places block bukkit_priority:highest:
       - if <context.item_in_hand.script.name||null> != null:
         - if <context.material.is_block>:
-          - if <item[<context.item_in_hand.script.name.replace[custom_].with[]>]||null> == null:
+          - if <item[<context.item_in_hand.script.name.replace[custom_].with[]>]||null> == null || <context.item_in_hand.script.name> == custom_stone:
             - yaml create id:<context.location.simple>
             - yaml savefile:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<context.item_in_hand.script.name>.yml id:<context.location.simple>
             - yaml unload id:<context.location.simple>
-    on player breaks block:
+    on player breaks block bukkit_priority:highest:
       - if <server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]||null> != null:
         - define item:<item[<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1].replace[.yml].with[]>]>
+        - if <[item].script.name> == custom_stone:
+          - stop
         - adjust server delete_file:DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/<server.list_files[DONT_PUT_SHIT_IN_HERE/blocks/<context.location.simple>/].get[1]>
         - inventory set d:<player.inventory> slot:<player.held_item_slot> o:<proc[fake_durability_use].context[<player.item_in_hand>]||<player.item_in_hand>>
         - if <[item].material> == <context.material> && <player.gamemode> != creative:
