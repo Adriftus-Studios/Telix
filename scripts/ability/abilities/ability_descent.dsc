@@ -5,7 +5,7 @@ ability_descent:
   ability_type: active
   points_to_unlock: 15
   power_cost: 15
-  description: Use air to slowly descend towards the ground
+  description: Use air to slowly descend towards the ground.
   usage: Sneak to cancel this skill
   icon:
     material: iron_nugget
