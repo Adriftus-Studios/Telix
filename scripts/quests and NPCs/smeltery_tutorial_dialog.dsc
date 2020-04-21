@@ -46,9 +46,13 @@ smeltery_tutorial_quest_1:
     mine_tin:
       value: 5
       description: Mine 5 Tin Ore
+      prerequisites:
+      - mine_copper
     talk_to_npc:
       value: 1
       description: Talk to Balgoth
+      prerequisites:
+      - mine_tin
   events:
     on player mines custom_tutorial_copper_ore:
       - run modify_quest_progress def:<script.name>|mine_copper|1
