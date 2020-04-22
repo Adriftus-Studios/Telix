@@ -9824,6 +9824,48 @@ custom_stick:
         - "air|air|air"
         - "air|air|custom_bamboo"
         - "air|air|custom_bamboo"
+    6:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "custom_stick|air|air"
+        - "custom_stick|air|air"
+        - "air|air|air"
+    7:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|custom_stick|air"
+        - "air|custom_stick|air"
+        - "air|air|air"
+    8:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|custom_stick"
+        - "air|air|custom_stick"
+        - "air|air|air"
+    9:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "custom_stick|air|air"
+        - "custom_stick|air|air"
+    10:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|custom_stick|air"
+        - "air|custom_stick|air"
+    11:
+      type: shaped
+      output_quantity: 1
+      input:
+        - "air|air|air"
+        - "air|air|custom_stick"
+        - "air|air|custom_stick"
   material: stick
   lore:
   - <&b>Sturdy organic material
