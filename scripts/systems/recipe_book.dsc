@@ -323,8 +323,9 @@ show_recipe:
             - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>]||<item[air]>>
           - else:
             - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
+          - narrate <[slots].get[<[value]>]>
           - inventory set d:<[inv]> slot:<[slots].get[<[value]>]> o:<[item1]>
-      - inventory set d:<[inv]> slot:35 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.output_quantity]>;flags=HIDE_ATTRIBUTES]>
+      - inventory set d:<[inv]> slot:26 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.output_quantity]>;flags=HIDE_ATTRIBUTES]>
     - if <[type]> == altar:
       - define inv:<inventory[recipe_book_altar]>
       - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
