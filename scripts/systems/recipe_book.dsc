@@ -73,9 +73,20 @@ recipe_book_alchemy:
 
 recipe_book_crafting:
   type: inventory
-  inventory: workbench
-  title: <&6>◆<&a><&n><&l>Crafting<&r><&6>◆
-  
+  mapped_crafting_slots: 12|13|14|21|22|23|30|31|32
+  output_slot: 26
+  definitions:
+    filler: <item[gui_invisible_item]>
+    GUITop: <item[gui_custom_crafting_top]>
+    GUIBottom: <item[gui_custom_crafting_bottom]>
+  slots:
+    - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+    - "[filler] [filler] [] [] [] [filler] [filler] [filler] [filler]"
+    - "[filler] [filler] [] [] [] [filler] [filler] [] [filler]"
+    - "[GUITop] [filler] [] [] [] [filler] [filler] [filler] [filler]"
+    - "[GUIBottom] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+    - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+
 recipe_book_furnace:
   type: inventory
   inventory: furnace
@@ -311,7 +322,7 @@ show_recipe:
             - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>]||<item[air]>>
           - else:
             - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
-          - inventory set d:<[inv]> slot:<[value].add[1]> o:<[item1]>
+          - inventory set d:<[inv]> slot:<[inv].script.yaml_key[mapped_crafting_slots].get[<[value]>]> o:<[item1]>
       - inventory set d:<[inv]> slot:1 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.output_quantity]>;flags=HIDE_ATTRIBUTES]>
     - if <[type]> == altar:
       - define inv:<inventory[recipe_book_altar]>
