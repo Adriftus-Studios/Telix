@@ -515,6 +515,8 @@ place_guild_flag:
   - yaml id:guild.<[guild]> set flags.<[location]>.location:<[location].simple>
   - yaml id:guild.<[guild]> set flags.<[location]>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
   - yaml id:guild.<[guild]> set flags.<[location]>.health:5000
+  - define cuboid:<cuboid[<[location].world>,<[location].x.sub[10]>,<[location].y.sub[10]>,<[location].z.sub[10]>,<[location].x.add[10]>,<[location].y.add[10]>,<[location].z.add[10]>]>
+  - note <[cuboid]> as:<[guild]>_claim_<[location]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&6><[player].name> has placed a guild flag."
   - inventory set d:<inventory[flag_<[guild]>_<[location]>]> slot:13 o:<item[guild_flag_health_icon].with[display_name=<&r><&a><yaml[guild.<[guild]>].read[flags.<[location]>.name]>;lore=<&c><&chr[2764]><&sp><yaml[guild.<[guild]>].read[flags.<[location]>.health]>]>
@@ -533,6 +535,7 @@ remove_guild_flag:
   - yaml id:guild.<[guild]> set flags.<[location]>:!
   - foreach <server.list_online_players.filter[open_inventory.notable_name.contains[<[location]>]]>:
     - inventory close d:<[value]>
+  - note remove as:<[guild]>_claim_<[location]>
   - note remove as:flag_<[guild]>_<[location]>
   - run update_guild_flags_gui def:<[guild]>
   
@@ -640,6 +643,10 @@ change_guild_relation:
 guild_events:
   type: world
   events:
+    on player enters notable cuboid:
+    - narrates <context.cuboids>
+    on player exits notable cuboid:
+    - narrates <context.cuboids>
     on delta time minutely every:1:
     - foreach <yaml.list.filter[starts_with[guild.]]> as:guild:
       - yaml id:<[guild]> set age:++
