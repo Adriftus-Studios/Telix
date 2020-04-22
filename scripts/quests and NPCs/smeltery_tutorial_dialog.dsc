@@ -1,13 +1,13 @@
 
 # NOTES and Standards:
-# NPC Names -- <&a><&lb> <&1><npc.name> <&a><&rb><&6>
+# NPC Names -- <&a><&lb> <&2><npc.name> <&a><&rb><&6>
 # Top Chat Dividers -- "<&l><&e><&sp><&sp><&sp><&sp>* * * * * * * <&d>Quest <&e>* * * * * * *"
 # Bottom Chat Dividers -- "<&l><&e><&sp><&sp><&sp><&sp>* * * * * * * * * * * * * * * * *"
 # Objective Updates -- "<&6><&lb><&a> New Objective <&6><&rb><&a><&co> <objective.text>"
 
 smeltery_tutorial_dialog:
   type: yaml data
-  character_name: <&a><&lb> <&1>Balgoth <&a><&rb><&6>
+  character_name: <&a><&lb> <&2>Balgoth <&a><&rb><&6>
   dialog:
     start:
       actions:
