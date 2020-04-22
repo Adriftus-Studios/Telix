@@ -15,6 +15,8 @@ ability_teleport:
       - inject abilities_cost
       - define location:<player.location.with_pitch[90]>
       - define destination:<location[spawn]>
+      # Sounds need to fire after the location is defined
+      - run teleport_sound_task
       - repeat 36:
         - define item:<player.inventory.slot[<[value]>]>
         - if <[item].nbt[saved_location]||null> != null && <[item].nbt[teleport_charges]> > 0:
@@ -43,3 +45,14 @@ ability_teleport:
       - flag <player> teleport_cooldown duration:10m
     - else:
       - narrate "<&c>You cannot use this ability for <player.flag[teleport_cooldown].expiration.formatted>."
+
+
+#Teleport sounds
+
+teleport_sound_task:
+  type: task
+  script:
+    # need to know exactly how long the teleport thing is, so I can time is all perfectly. It'll be off for now, but tuned later.
+    - repeat 20:
+      - playsound <[location]> sound:magic.small_swoosh custom
+      - wait 1s
