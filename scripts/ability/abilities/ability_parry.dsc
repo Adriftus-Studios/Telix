@@ -37,7 +37,7 @@ ability_parry:
         - inject abilities_cost
         - flag player parrying:true duration:2s
         - run bb_timer def:<&5>Parrying|2s|purple
-        #- playsound <player.location.forward> sound:ability.fisticuffs.parry custom
+        - playsound <player.location.forward> sound:magic.parry custom
         #- inject locally animation
     #Execute Riposte
     on player damaged by entity flagged:parrying:
