@@ -645,9 +645,9 @@ guild_events:
   type: world
   events:
     on player enters notable cuboid:
-    - narrates <context.cuboids>
+    - narrate <context.cuboids>
     on player exits notable cuboid:
-    - narrates <context.cuboids>
+    - narrate <context.cuboids>
     on delta time minutely every:1:
     - foreach <yaml.list.filter[starts_with[guild.]]> as:guild:
       - yaml id:<[guild]> set age:++
