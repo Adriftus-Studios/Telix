@@ -55,4 +55,4 @@ teleport_sound_task:
     # need to know exactly how long the teleport thing is, so I can time is all perfectly. It'll be off for now, but tuned later.
     - repeat 20:
       - playsound <[location]> sound:magic.small_swoosh custom
-      - wait 1s
+      - wait 10t
