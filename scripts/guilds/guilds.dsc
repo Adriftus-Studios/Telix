@@ -516,6 +516,7 @@ place_guild_flag:
   - yaml id:guild.<[guild]> set flags.<[location]>.name:flag<yaml[guild.<[guild]>].list_keys[flags].size>
   - yaml id:guild.<[guild]> set flags.<[location]>.health:5000
   - define cuboid:<cuboid[<[location].world>,<[location].x.sub[10]>,<[location].y.sub[10]>,<[location].z.sub[10]>,<[location].x.add[10]>,<[location].y.add[10]>,<[location].z.add[10]>]>
+  - narrate <[cuboid]>
   - note <[cuboid]> as:<[guild]>_claim_<[location]>
   - foreach <yaml[guild.<[guild]>].read[members].filter[is_online]> as:player:
     - narrate player:<[player]> "<&6><[player].name> has placed a guild flag."
