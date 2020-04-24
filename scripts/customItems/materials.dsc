@@ -339,7 +339,7 @@ custom_gold_nugget:
       input: custom_gold_ingot
 custom_gold_ingot:
   material: gold_ingot
-  recipe_book_category: equipment.gold|materials.ingots|materials.ores
+  recipe_book_category: equipment.gold|materials.ingots
   display name: <&7>Golden Ingot
   weight: '1'
   type: item

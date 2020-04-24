@@ -203,22 +203,24 @@ recipe_book_events:
         - foreach <yaml[server.recipe_book].list_keys[categories.<[type]>].alphabetical> as:cat:
           - inventory add d:<context.inventory> o:<item[stone].with[display_name=<&6><[cat].substring[1,1].to_uppercase><[cat].substring[2]>;nbt=category/<[type]>.<[cat]>]>
       - else:
-        - define items:<yaml[server.recipe_book].read[categories.<[type]>].alphabetical.parse[as_item]>
+        - define items:<yaml[server.recipe_book].read[categories.<[type]>].alphabetical.filter[as_item.is[!=].to[null]].parse[as_item]>
         - repeat 35:
-          - define item:<[items].get[<[value].add[<[page].mul[35].sub[35]>]>].script.name>
+          - define item:<[items].get[<[value].add[<[page].mul[35].sub[35]>]>].script.name||null>
+          - if <[item]> == null:
+            - repeat stop
           - define lore:<list[]>
-          - define sdrecipes:<list[]>
+          - define sdrecipes:<list[null]>
           - foreach <yaml[server.recipe_book].list_keys[shaped.<[item]>]||<list[]>> as:num:
-            - if !<[sdrecipes].contains[<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:
+            - if !<[sdrecipes].contains[<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped||null>]>:
               - define sdrecipes:|:<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>
-          - if <[sdrecipes].size||0> != 0:
-            - define "lore:|:<&f>Has <[sdrecipes].size||0> Shaped Recipes"
-          - define slrecipes:<list[]>
+          - if <[sdrecipes].size||1> != 1:
+            - define "lore:|:<&f>Has <[sdrecipes].size.sub[1]||0> Shaped Recipes"
+          - define slrecipes:<list[null]>
           - foreach <yaml[server.recipe_book].list_keys[shapeless.<[item]>]||<list[]>> as:num:
-            - if !<[slrecipes].contains[<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:
+            - if !<[slrecipes].contains[<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped||null>]>:
               - define slrecipes:|:<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>
-          - if <[slrecipes].size||0> != 0:
-            - define "lore:|:<&f>Has <[slrecipes].size||0> Shapeless Recipes"
+          - if <[slrecipes].size||1> != 1:
+            - define "lore:|:<&f>Has <[slrecipes].size.sub[1]||0> Shapeless Recipes"
           - if <yaml[server.recipe_book].list_keys[furnace.<[item]>].size||0> != 0:
             - define "lore:|:<&f>Has <yaml[server.recipe_book].list_keys[furnace.<[item]>].size||0> Furnace Recipes"
           - if <yaml[server.recipe_book].list_keys[smeltery.<[item]>].size||0> != 0:
@@ -296,7 +298,7 @@ show_recipes:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - if <[type]> != shaped && <[type]> != shapeless:
           - define "lore:|:<&f><[type].to_titlecase>"
-          - define list:|:<[item].with[lore=<[lore]>;nbt=type/<[type]>;quantity=<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.output_quantity]>]>
+          - define list:|:<[item].with[lore=<[lore]>;nbt=type/<[type]>;quantity=<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.output_quantity]||1>]>
         - else:
           - foreach <yaml[server.recipe_book].list_keys[<[type]>.<[item].script.name>]> as:num:
             - if !<[srecipes].contains[<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:

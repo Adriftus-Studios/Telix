@@ -163,6 +163,7 @@ reload_scripts:
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.chance:<[value].yaml_key[ore.<[ore]>.chance]||20>
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.tool:<[value].yaml_key[ore.<[ore]>.tool]||all>
                   - yaml id:server.recipe_book set ore_spawn.<[value].name>.conditions:<[value].yaml_key[ore.<[ore]>.conditions]||true>
+                  
               - if <[value].yaml_key[mob_drops]||null> != null:
                 - foreach <[value].list_keys[mob_drops]> as:num:
                   - foreach <[value].yaml_key[mob_drops.<[num]>.dropped_by].as_list> as:mob:
@@ -173,13 +174,13 @@ reload_scripts:
                   - yaml id:server.recipe_book set mob_drops.<[value].name>.max_quantity:<[value].yaml_key[mob_drops.<[num]>.max_quantity]>
                   - yaml id:server.recipe_book set mob_info.<[value].yaml_key[mob_drops.<[num]>.dropped_by]>.drops:|:<[value].name>
               - if <[value].yaml_key[category]||null> != null:
-                  - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
+                - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
+              - if <[value].yaml_key[recipe_book_category]||null> != null:
+                - foreach <[value].yaml_key[recipe_book_category].as_list> as:cat:
+                  - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
+              - else:
+                - yaml id:server.recipe_book set categories.other:|:<[value].name>
               - if <[value].yaml_key[custom_recipes]||null> != null:
-                - if <[value].yaml_key[recipe_book_category]||null> != null:
-                  - foreach <[value].yaml_key[recipe_book_category].as_list> as:cat:
-                    - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
-                - else:
-                  - yaml id:server.recipe_book set categories.other:|:<[value].name>
                 - foreach <[value].list_keys[custom_recipes]> as:recipe:
                   - define type:<[value].yaml_key[custom_recipes.<[recipe]>.type]>
                   - if <server.list_material_types.parse[name].contains[<[value].name.replace[custom_].with[]>]>:
