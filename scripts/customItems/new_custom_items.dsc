@@ -10152,42 +10152,42 @@ custom_piston:
       type: shaped
       output_quantity: 1
       input:
-        - "custom_oak_planks|custom_oak_planks|custom_oak_planks"
+        - "regex:(.*)_planks|regex:(.*)_planks|regex:(.*)_planks"
         - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
         - "custom_cobblestone|custom_redstone|custom_cobblestone"
     1:
       type: shaped
       output_quantity: 1
       input:
-        - "custom_spruce_planks|custom_spruce_planks|custom_spruce_planks"
+        - "regex:(.*)_planks|regex:(.*)_planks|regex:(.*)_planks"
         - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
         - "custom_cobblestone|custom_redstone|custom_cobblestone"
     2:
       type: shaped
       output_quantity: 1
       input:
-        - "custom_birch_planks|custom_birch_planks|custom_birch_planks"
+        - "regex:(.*)_planks|regex:(.*)_planks|regex:(.*)_planks"
         - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
         - "custom_cobblestone|custom_redstone|custom_cobblestone"
     3:
       type: shaped
       output_quantity: 1
       input:
-        - "custom_jungle_planks|custom_jungle_planks|custom_jungle_planks"
+        - "regex:(.*)_planks|regex:(.*)_planks|regex:(.*)_planks"
         - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
         - "custom_cobblestone|custom_redstone|custom_cobblestone"
     4:
       type: shaped
       output_quantity: 1
       input:
-        - "custom_acacia_planks|custom_acacia_planks|custom_acacia_planks"
+        - "regex:(.*)_planks|regex:(.*)_planks|regex:(.*)_planks"
         - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
         - "custom_cobblestone|custom_redstone|custom_cobblestone"
     5:
       type: shaped
       output_quantity: 1
       input:
-        - "custom_dark_oak_planks|custom_dark_oak_planks|custom_dark_oak_planks"
+        - "regex:(.*)_planks|regex:(.*)_planks|regex:(.*)_planks"
         - "custom_cobblestone|custom_iron_ingot|custom_cobblestone"
         - "custom_cobblestone|custom_redstone|custom_cobblestone"
   material: piston
