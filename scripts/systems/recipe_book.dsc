@@ -271,17 +271,21 @@ show_recipes:
     - foreach <yaml[server.recipe_book].list_keys[].exclude[used_for].exclude[mob_info].exclude[categories]> as:type:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - if <[type]> != shaped && <[type]> != shapeless:
-          - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
+          - define "lore:|:<&f><[type]>"
+          - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>;quantity=<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.output_quantity]>]>
         - else:
           - foreach <yaml[server.recipe_book].list_keys[<[type]>.<[item].script.name>]> as:num:
             - if !<[srecipes].contains[<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:
-              - define lore:<[type]>
-              - define lore:|:<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical>
+              - define "lore:<&f><[type].to_titlecase>"
+              - foreach <yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical.deduplicate> as:ing:
+                - if !<[ing].starts_with[regex]>:
+                  - define "lore:|:<&r><yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].count[<[ing]>]> <item[<[ing]>].display>"
+                - else:
+                  - define "lore:|:<&r><yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].count[<[ing]>]> *<item[custom_<server.list_material_types.filter[name.matches[<[ing].substring[7]>]].parse[name].get[1]>].display>"
               - define srecipes:|:<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>
-              - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>|num/<[num]>]>
+              - define list:|:<[item].with[lore=<[lore]>;nbt=type/<[type]>|num/<[num]>;quantity=<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.output_quantity]>]>
     - if <[list].size> == 0:
       - stop
-    - narrate <[list]>
     - if <[list].size> == 1:
       - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>|<[list].get[1].nbt[num]||0>
     - else:
@@ -358,11 +362,15 @@ show_recipe:
       - define slots:<list[12|13|14|21|22|23|30|31|32]>
       - repeat 9:
         - if <[value]> <= <yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input].as_list.size>:
-          - if <item[<yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input].as_list.get[<[value]>]>].material.name> == air:
-            - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input].as_list.get[<[value]>]>]||<item[air]>>
+          - define item1:<yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input].as_list.get[<[value]>]||air>
+          - if <[item1].starts_with[regex]>:
+            - define "lore:<&f>Usable Items:"
+            - foreach <server.list_material_types.filter[name.matches[<[item1].substring[7]>]].parse[name]> as:dep:
+              - define lore:|:<item[custom_<[dep]>].display>
+            - define item1:<item[custom_<server.list_material_types.filter[name.matches[<[item1].substring[7]>]].get[1].name>].with[lore=<[lore]>]>
           - else:
-            - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input].as_list.get[<[value]>]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
-          - inventory set d:<[inv]> slot:<[slots].get[<[value]>]> o:<[item1]>
+            - define item1:<item[<[item1]>]>
+          - inventory set d:<[inv]> slot:<[slots].get[<[value]>]> o:<[item1].with[flags=HIDE_ATTRIBUTES]>
       - inventory set d:<[inv]> slot:26 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.output_quantity]>;flags=HIDE_ATTRIBUTES]>
     - if <[type]> == altar:
       - define inv:<inventory[recipe_book_altar]>

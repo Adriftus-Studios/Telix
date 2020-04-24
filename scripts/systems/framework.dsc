@@ -195,7 +195,12 @@ reload_scripts:
                       - yaml id:server.recipe_fixer set restricted.furnace.<[value].yaml_key[custom_recipes.<[recipe]>.input]>:<[value].name><&co><[value].yaml_key[custom_recipes.<[recipe]>.output_quantity]||1><&co><[value].yaml_key[custom_recipes.<[recipe]>.cook_time]>
                   - if <[type]> == shaped || <[type]> == shapeless:
                     - foreach <[value].list_keys[custom_recipes.<[recipe]>]> as:key:
-                      - yaml id:server.recipe_book set <[value].yaml_key[custom_recipes.<[recipe]>.type]>.<[value].name>.<[recipe]>.<[key]>:<[value].yaml_key[custom_recipes.<[recipe]>.<[key]>]>
+                      - if <[key]> != input:
+                        - yaml id:server.recipe_book set <[value].yaml_key[custom_recipes.<[recipe]>.type]>.<[value].name>.<[recipe]>.<[key]>:<[value].yaml_key[custom_recipes.<[recipe]>.<[key]>]>
+                      - else:
+                        - foreach <[value].yaml_key[custom_recipes.<[recipe]>.input]> as:ii:
+                          - foreach <[ii].as_list.parse[as_element]> as:inp:
+                            - yaml id:server.recipe_book set <[value].yaml_key[custom_recipes.<[recipe]>.type]>.<[value].name>.<[recipe]>.input:|:<[inp]>
                   - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == smeltery:
                     - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[custom_recipes.<[recipe]>.cook_time]>
                     - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[custom_recipes.<[recipe]>.input]>
