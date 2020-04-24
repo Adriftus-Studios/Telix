@@ -11,7 +11,7 @@ recipe_book_inventory:
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
   - "[w_filler] [] [] [] [] [] [] [] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [closeitem] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [previous_page_button] [closeitem] [next_page_button] [w_filler] [w_filler] [w_filler]"
 
 rb_top:
   type: item
@@ -192,27 +192,51 @@ recipe_book_events:
     - if <context.inventory.script_name||null> == recipe_book_crafting:
       - determine cancelled
     on player opens recipe_book_inventory:
-    - define type:<player.flag[context].split[/].get[1]||all>
-    - flag <player> context:!
+    - define type:<context.inventory.slot[1].nbt[type]||all>
+    - define page:<context.inventory.slot[1].nbt[page]||1>
     - if <[type]> == all:
       - foreach <yaml[server.recipe_book].list_keys[categories].alphabetical> as:cat:
         - inventory add d:<context.inventory> o:<item[stone].with[display_name=<&6><[cat].substring[1,1].to_uppercase><[cat].substring[2]>;nbt=category/<[cat]>]>
     - else:
+      - define pages:<yaml[server.recipe_book].list_keys[categories.<[type]>].size.div[35].round_up||<yaml[server.recipe_book].list_keys[categories.all].size.div[35].round_up||<yaml[server.recipe_book].read[categories.<[type]>].size.div[35].round_up>>>
       - if <yaml[server.recipe_book].list_keys[categories.<[type]>]||null> != null:
         - foreach <yaml[server.recipe_book].list_keys[categories.<[type]>].alphabetical> as:cat:
           - inventory add d:<context.inventory> o:<item[stone].with[display_name=<&6><[cat].substring[1,1].to_uppercase><[cat].substring[2]>;nbt=category/<[type]>.<[cat]>]>
       - else:
         - define items:<yaml[server.recipe_book].read[categories.<[type]>].alphabetical.parse[as_item]>
-        - repeat 45:
-          - inventory add d:<context.inventory> o:<[items].get[<[value]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
+        - repeat 35:
+          - inventory add d:<context.inventory> o:<[items].get[<[value].add[<[page].mul[35].sub[35]>]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
     on player clicks in recipe_book_*:
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
       - if <context.raw_slot> != -998 && <context.raw_slot> <= <player.open_inventory.size> && <context.item.material.name> != air:
+        - define type:<context.inventory.slot[1].nbt[type]||all>
+        - define page:<context.inventory.slot[1].nbt[page]||1>
+        - if <context.item.script.name||null> == previous_page_button:
+          - define pages:<yaml[server.recipe_book].list_keys[categories.<[type]>].size.div[35].round_up||<yaml[server.recipe_book].list_keys[categories.all].size.div[35].round_up||<yaml[server.recipe_book].read[categories.<[type]>].size.div[35].round_up>>>
+          - if <[page].sub[1]> <= 0:
+            - determine passively cancelled
+            - stop
+          - define inv:<inventory[recipe_book_inventory]>
+          - inventory adjust d:<[inv]> slot:1 nbt:type/<[type]>
+          - inventory adjust d:<[inv]> slot:1 nbt:page/<[page].sub[1]>
+          - inventory open d:<[inv]>
+          - stop
+        - if <context.item.script.name||null> == next_page_button:
+          - define pages:<yaml[server.recipe_book].list_keys[categories.<[type]>].size.div[35].round_up||<yaml[server.recipe_book].list_keys[categories.all].size.div[35].round_up||<yaml[server.recipe_book].read[categories.<[type]>].size.div[35].round_up>>>
+          - if <[page].add[1]> > <[pages]>:
+            - determine passively cancelled
+            - stop
+          - define inv:<inventory[recipe_book_inventory]>
+          - inventory adjust d:<[inv]> slot:1 nbt:type/<[type]>
+          - inventory adjust d:<[inv]> slot:1 nbt:page/<[page].add[1]>
+          - inventory open d:<[inv]>
+          - stop
         - if <player.open_inventory.script_name> == recipe_book_inventory:
           - if <context.item.nbt[category]||null> != null:
-            - flag <player> context:<context.item.nbt[category]>
-            - inventory open d:recipe_book_inventory
+            - define inv:<inventory[recipe_book_inventory]>
+            - inventory adjust d:<[inv]> slot:1 nbt:type/<context.item.nbt[category]>
+            - inventory open d:<[inv]>
             - stop
         - if <context.click> == LEFT:
           - if <player.open_inventory.script_name> == recipe_book_inventory:
