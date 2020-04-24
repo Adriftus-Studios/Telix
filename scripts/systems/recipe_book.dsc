@@ -275,12 +275,15 @@ show_recipes:
         - else:
           - foreach <yaml[server.recipe_book].list_keys[<[type]>.<[item].script.name>]> as:num:
             - if !<[srecipes].contains[<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:
+              - define lore:<[type]>
+              - define lore:|:<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical>
               - define srecipes:|:<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>
               - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>|num/<[num]>]>
     - if <[list].size> == 0:
       - stop
+    - narrate <[list]>
     - if <[list].size> == 1:
-      - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>
+      - run show_recipe def:<[list].get[1]>|<[list].get[1].nbt[type]>|<[list].get[1].nbt[num]||0>
     - else:
       - define inv:<inventory[recipe_book_chooser]>
       - inventory open d:<[inv]>
@@ -292,10 +295,6 @@ show_recipe:
   definitions: item|type|num
   script:
     - define num:<[num]||0>
-    - if <yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input]||null> == null && <[num]> == 1:
-      - define num:0
-    - if <yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input]||null> == null && <[num]> == 0:
-      - define num:1
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
     - if <[type]> == cooking:
@@ -350,6 +349,10 @@ show_recipe:
       - inventory set d:<[inv]> slot:1 o:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input]>].with[flags=HIDE_ATTRIBUTES]>
       - inventory set d:<[inv]> slot:3 o:<item[<[item]>].with[flags=HIDE_ATTRIBUTES]>
     - if <[type]> == shaped || <[type]> == shapeless:
+      - if <yaml[server.recipe_book].read[<[type]>.<[item]>.1.input]||null> == null && <[num]> == 1:
+        - define num:0
+      - if <yaml[server.recipe_book].read[<[type]>.<[item]>.0.input]||null> == null && <[num]> == 0:
+        - define num:1
       - define inv:<inventory[recipe_book_crafting]>
       - inventory open d:<[inv]>
       - define slots:<list[12|13|14|21|22|23|30|31|32]>

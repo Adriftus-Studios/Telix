@@ -9826,46 +9826,46 @@ custom_stick:
         - "air|air|custom_bamboo"
     6:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
-        - "custom_stick|air|air"
-        - "custom_stick|air|air"
+        - "regex:(.*)_planks|air|air"
+        - "regex:(.*)_planks|air|air"
         - "air|air|air"
     7:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
-        - "air|custom_stick|air"
-        - "air|custom_stick|air"
+        - "air|regex:(.*)_planks|air"
+        - "air|regex:(.*)_planks|air"
         - "air|air|air"
     8:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
-        - "air|air|custom_stick"
-        - "air|air|custom_stick"
+        - "air|air|regex:(.*)_planks"
+        - "air|air|regex:(.*)_planks"
         - "air|air|air"
     9:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
-        - "custom_stick|air|air"
-        - "custom_stick|air|air"
+        - "regex:(.*)_planks|air|air"
+        - "regex:(.*)_planks|air|air"
     10:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
-        - "air|custom_stick|air"
-        - "air|custom_stick|air"
+        - "air|regex:(.*)_planks|air"
+        - "air|regex:(.*)_planks|air"
     11:
       type: shaped
-      output_quantity: 1
+      output_quantity: 4
       input:
         - "air|air|air"
-        - "air|air|custom_stick"
-        - "air|air|custom_stick"
+        - "air|air|regex:(.*)_planks"
+        - "air|air|regex:(.*)_planks"
   material: stick
   lore:
   - <&b>Sturdy organic material
