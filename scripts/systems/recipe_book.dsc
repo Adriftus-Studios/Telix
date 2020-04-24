@@ -244,7 +244,7 @@ recipe_book_events:
               - run show_recipes def:<context.item>
           - else if <player.open_inventory.script_name> == recipe_book_chooser:
             - if <context.item.nbt[type]||null> != null:
-              - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>
+              - run show_recipe def:<context.item.script.name>|<context.item.nbt[type]>|<context.item.nbt[num]>
           - else:
             - if <context.item.script.name.starts_with[custom_]||false>:
               - run show_recipes def:<context.item>
@@ -267,9 +267,16 @@ show_recipes:
   definitions: item
   script:
     - define list:<list[]>
+    - define srecipes:<list[]>
     - foreach <yaml[server.recipe_book].list_keys[].exclude[used_for].exclude[mob_info].exclude[categories]> as:type:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
-        - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
+        - if <[type]> != shaped && <[type]> != shapeless:
+          - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>]>
+        - else:
+          - foreach <yaml[server.recipe_book].list_keys[<[type]>.<[item].script.name>]> as:num:
+            - if !<[srecipes].contains[<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:
+              - define srecipes:|:<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>
+              - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>|num/<[num]>]>
     - if <[list].size> == 0:
       - stop
     - if <[list].size> == 1:
@@ -282,8 +289,13 @@ show_recipes:
 
 show_recipe:
   type: task
-  definitions: item|type
+  definitions: item|type|num
   script:
+    - define num:<[num]||0>
+    - if <yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input]||null> == null && <[num]> == 1:
+      - define num:0
+    - if <yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input]||null> == null && <[num]> == 0:
+      - define num:1
     - if <[item].script.name||null> != null:
       - define item:<[item].script.name>
     - if <[type]> == cooking:
@@ -342,13 +354,13 @@ show_recipe:
       - inventory open d:<[inv]>
       - define slots:<list[12|13|14|21|22|23|30|31|32]>
       - repeat 9:
-        - if <[value]> <= <yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.size>:
-          - if <item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>].material.name> == air:
-            - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>]||<item[air]>>
+        - if <[value]> <= <yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input].as_list.size>:
+          - if <item[<yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input].as_list.get[<[value]>]>].material.name> == air:
+            - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input].as_list.get[<[value]>]>]||<item[air]>>
           - else:
-            - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input].as_list.get[<[value]>]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
+            - define item1:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input].as_list.get[<[value]>]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
           - inventory set d:<[inv]> slot:<[slots].get[<[value]>]> o:<[item1]>
-      - inventory set d:<[inv]> slot:26 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.output_quantity]>;flags=HIDE_ATTRIBUTES]>
+      - inventory set d:<[inv]> slot:26 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.output_quantity]>;flags=HIDE_ATTRIBUTES]>
     - if <[type]> == altar:
       - define inv:<inventory[recipe_book_altar]>
       - define slotmap:<list[3/in|5/in|7/in|21/in|25/in|39/in|41/in|43/in|23/out]>
