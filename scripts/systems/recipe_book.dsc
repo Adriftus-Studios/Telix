@@ -205,7 +205,31 @@ recipe_book_events:
       - else:
         - define items:<yaml[server.recipe_book].read[categories.<[type]>].alphabetical.parse[as_item]>
         - repeat 35:
-          - inventory add d:<context.inventory> o:<[items].get[<[value].add[<[page].mul[35].sub[35]>]>].with[flags=HIDE_ATTRIBUTES]||<item[air]>>
+          - define item:<[items].get[<[value].add[<[page].mul[35].sub[35]>]>].script.name>
+          - define lore:<list[]>
+          - define sdrecipes:<list[]>
+          - foreach <yaml[server.recipe_book].list_keys[shaped.<[item]>]> as:num:
+            - if !<[sdrecipes].contains[<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:
+              - define sdrecipes:|:<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>
+          - if <[sdrecipes].size||0> != 0:
+            - define "lore:|:<&f>Has <[sdrecipes].size||0> Shaped Recipes"
+          - define slrecipes:<list[]>
+          - foreach <yaml[server.recipe_book].list_keys[shapeless.<[item]>]> as:num:
+            - if !<[slrecipes].contains[<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:
+              - define slrecipes:|:<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>
+          - if <[slrecipes].size||0> != 0:
+            - define "lore:|:<&f>Has <[slrecipes].size||0> Shapeless Recipes"
+          - if <yaml[server.recipe_book].list_keys[furnace.<[item]>].size||0> != 0:
+            - define "lore:|:<&f>Has <yaml[server.recipe_book].list_keys[furnace.<[item]>].size||0> Furnace Recipes"
+          - if <yaml[server.recipe_book].list_keys[smeltery.<[item]>].size||0> != 0:
+            - define "lore:|:<&f>Has <yaml[server.recipe_book].list_keys[smeltery.<[item]>].size||0> Smeltery Recipes"
+          - if <yaml[server.recipe_book].list_keys[alchemy.<[item]>].size||0> != 0:
+            - define "lore:|:<&f>Has <yaml[server.recipe_book].list_keys[alchemy.<[item]>].size||0> Alchemy Station Recipes"
+          - if <yaml[server.recipe_book].list_keys[altar.<[item]>].size||0> != 0:
+            - define "lore:|:<&f>Has <yaml[server.recipe_book].list_keys[altar.<[item]>].size||0> Altar Recipes"
+          - if <yaml[server.recipe_book].read[used_for.<[item]>].as_list.size||0> != 0:
+            - define "lore:|:<&f>Used to craft <yaml[server.recipe_book].read[used_for.<[item]>].as_list.size||0> items"
+          - inventory add d:<context.inventory> o:<[item].as_item.with[lore=<[lore]>;flags=HIDE_ATTRIBUTES]||<item[air]>>
     on player clicks in recipe_book_*:
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
@@ -271,8 +295,8 @@ show_recipes:
     - foreach <yaml[server.recipe_book].list_keys[].exclude[used_for].exclude[mob_info].exclude[categories]> as:type:
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - if <[type]> != shaped && <[type]> != shapeless:
-          - define "lore:|:<&f><[type]>"
-          - define list:|:<[item].with[lore=<[type]>;nbt=type/<[type]>;quantity=<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.output_quantity]>]>
+          - define "lore:|:<&f><[type].to_titlecase>"
+          - define list:|:<[item].with[lore=<[lore]>;nbt=type/<[type]>;quantity=<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.output_quantity]>]>
         - else:
           - foreach <yaml[server.recipe_book].list_keys[<[type]>.<[item].script.name>]> as:num:
             - if !<[srecipes].contains[<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:
