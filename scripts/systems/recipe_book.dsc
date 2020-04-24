@@ -208,13 +208,13 @@ recipe_book_events:
           - define item:<[items].get[<[value].add[<[page].mul[35].sub[35]>]>].script.name>
           - define lore:<list[]>
           - define sdrecipes:<list[]>
-          - foreach <yaml[server.recipe_book].list_keys[shaped.<[item]>]> as:num:
+          - foreach <yaml[server.recipe_book].list_keys[shaped.<[item]>]||<list[]>> as:num:
             - if !<[sdrecipes].contains[<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:
               - define sdrecipes:|:<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>
           - if <[sdrecipes].size||0> != 0:
             - define "lore:|:<&f>Has <[sdrecipes].size||0> Shaped Recipes"
           - define slrecipes:<list[]>
-          - foreach <yaml[server.recipe_book].list_keys[shapeless.<[item]>]> as:num:
+          - foreach <yaml[server.recipe_book].list_keys[shapeless.<[item]>]||<list[]>> as:num:
             - if !<[slrecipes].contains[<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:
               - define slrecipes:|:<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>
           - if <[slrecipes].size||0> != 0:
@@ -377,10 +377,8 @@ show_recipe:
       - inventory set d:<[inv]> slot:1 o:<item[<yaml[server.recipe_book].read[<[type]>.<[item]>.input]>].with[flags=HIDE_ATTRIBUTES]>
       - inventory set d:<[inv]> slot:3 o:<item[<[item]>].with[flags=HIDE_ATTRIBUTES]>
     - if <[type]> == shaped || <[type]> == shapeless:
-      - if <yaml[server.recipe_book].read[<[type]>.<[item]>.1.input]||null> == null && <[num]> == 1:
-        - define num:0
-      - if <yaml[server.recipe_book].read[<[type]>.<[item]>.0.input]||null> == null && <[num]> == 0:
-        - define num:1
+      - if <yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.input]||null> == null:
+        - define num:<yaml[server.recipe_book].list_keys[<[type]>.<[item]>].get[1]>
       - define inv:<inventory[recipe_book_crafting]>
       - inventory open d:<[inv]>
       - define slots:<list[12|13|14|21|22|23|30|31|32]>
@@ -394,7 +392,9 @@ show_recipe:
             - define item1:<item[custom_<server.list_material_types.filter[name.matches[<[item1].substring[7]>]].get[1].name>].with[lore=<[lore]>]>
           - else:
             - define item1:<item[<[item1]>]>
-          - inventory set d:<[inv]> slot:<[slots].get[<[value]>]> o:<[item1].with[flags=HIDE_ATTRIBUTES]>
+          - if <[item1].material.name> != air:
+            - adjust def:item1 flags:HIDE_ATTRIBUTES
+          - inventory set d:<[inv]> slot:<[slots].get[<[value]>]> o:<[item1]>
       - inventory set d:<[inv]> slot:26 o:<item[<[item]>].with[quantity=<yaml[server.recipe_book].read[<[type]>.<[item]>.<[num]>.output_quantity]>;flags=HIDE_ATTRIBUTES]>
     - if <[type]> == altar:
       - define inv:<inventory[recipe_book_altar]>
