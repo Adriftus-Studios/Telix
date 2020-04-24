@@ -201,13 +201,11 @@ recipe_book_events:
       - define pages:<yaml[server.recipe_book].list_keys[categories.<[type]>].size.div[35].round_up||<yaml[server.recipe_book].list_keys[categories.all].size.div[35].round_up||<yaml[server.recipe_book].read[categories.<[type]>].size.div[35].round_up>>>
       - if <yaml[server.recipe_book].list_keys[categories.<[type]>]||null> != null:
         - foreach <yaml[server.recipe_book].list_keys[categories.<[type]>].alphabetical> as:cat:
-          - inventory add d:<context.inventory> o:<item[stone].with[display_name=<&6><[cat].substring[1,1].to_uppercase><[cat].substring[2]>;nbt=category/<[type]>.<[cat]>]>
+          - inventory add d:<context.inventory> o:<item[stone].with[display_name=<&6><[cat].to_titlecase>;nbt=category/<[type]>.<[cat]>]>
       - else:
-        - define items:<yaml[server.recipe_book].read[categories.<[type]>].alphabetical.filter[as_item.is[!=].to[null]].parse[as_item]>
+        - define items:<yaml[server.recipe_book].read[categories.<[type]>].alphabetical.filter[as_item.is[!=].to[null]]>
         - repeat 35:
-          - define item:<[items].get[<[value].add[<[page].mul[35].sub[35]>]>].script.name||null>
-          - if <[item]> == null:
-            - repeat stop
+          - define item:<[items].get[<[value].add[<[page].mul[35].sub[35]>]>]||null>
           - define lore:<list[]>
           - define sdrecipes:<list[null]>
           - foreach <yaml[server.recipe_book].list_keys[shaped.<[item]>]||<list[]>> as:num:
@@ -231,7 +229,7 @@ recipe_book_events:
             - define "lore:|:<&f>Has <yaml[server.recipe_book].list_keys[altar.<[item]>].size||0> Altar Recipes"
           - if <yaml[server.recipe_book].read[used_for.<[item]>].as_list.size||0> != 0:
             - define "lore:|:<&f>Used to craft <yaml[server.recipe_book].read[used_for.<[item]>].as_list.size||0> items"
-          - inventory add d:<context.inventory> o:<[item].as_item.with[lore=<[lore]>;flags=HIDE_ATTRIBUTES]||<item[air]>>
+          - inventory add d:<context.inventory> o:<[item].as_item.with[lore=<[lore]>]||<item[air]>>
     on player clicks in recipe_book_*:
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled

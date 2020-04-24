@@ -175,11 +175,12 @@ reload_scripts:
                   - yaml id:server.recipe_book set mob_info.<[value].yaml_key[mob_drops.<[num]>.dropped_by]>.drops:|:<[value].name>
               - if <[value].yaml_key[category]||null> != null:
                 - yaml id:server.equipment set <[value].yaml_key[category]>:|:<[value]>
-              - if <[value].yaml_key[recipe_book_category]||null> != null:
-                - foreach <[value].yaml_key[recipe_book_category].as_list> as:cat:
-                  - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
-              - else:
-                - yaml id:server.recipe_book set categories.other:|:<[value].name>
+              - if <[value].yaml_key[custom_recipes]||null> != null || <[value].yaml_key[ore]||null> != null || <[value].yaml_key[mob_drops]||null> != null:
+                - if <[value].yaml_key[recipe_book_category]||null> != null:
+                  - foreach <[value].yaml_key[recipe_book_category].as_list> as:cat:
+                    - yaml id:server.recipe_book set categories.<[cat]>:|:<[value].name>
+                - else:
+                  - yaml id:server.recipe_book set categories.other:|:<[value].name>
               - if <[value].yaml_key[custom_recipes]||null> != null:
                 - foreach <[value].list_keys[custom_recipes]> as:recipe:
                   - define type:<[value].yaml_key[custom_recipes.<[recipe]>.type]>
