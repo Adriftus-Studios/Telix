@@ -296,12 +296,12 @@ show_recipes:
       - define lore:<list[]>
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - if <[type]> != shaped && <[type]> != shapeless:
-          - define "lore:|:<&f><[type].to_titlecase>"
+          - define "lore:|:<&f><[type].to_titlecase.replace[_].with[ ]>"
           - define list:|:<[item].with[lore=<[lore]>;nbt=type/<[type]>;quantity=<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.output_quantity]||1>]>
         - else:
           - foreach <yaml[server.recipe_book].list_keys[<[type]>.<[item].script.name>]> as:num:
             - if !<[srecipes].contains[<yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>]>:
-              - define "lore:<&f><[type].to_titlecase>"
+              - define "lore:<&f><[type].to_titlecase.replace[_].with[ ]>"
               - foreach <yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].alphabetical.deduplicate> as:ing:
                 - if !<[ing].starts_with[regex]>:
                   - define "lore:|:<&r><yaml[server.recipe_book].read[<[type]>.<[item].script.name>.<[num]>.input].as_list.exclude[air].count[<[ing]>]> <item[<[ing]>].display>"
@@ -356,22 +356,22 @@ show_recipe:
       - foreach <yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by].as_list> as:mob:
         - define lore:|:<&r><[mob].replace[entity_].with[].substring[1,1].to_uppercase><[mob].replace[entity_].with[].replace[_].with[<&sp>].substring[2]>
       - define egg:<item[<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by].as_list.get[1].as_entity.script.yaml_key[entity_type]||<yaml[server.recipe_book].read[mob_drops.<[item]>.dropped_by].as_list.get[1]>>_spawn_egg]>
-      - inventory set d:<[inv]> slot:12 o:<item[zombie_spawn_egg].with[display_name=<&7>Dropped<&sp>by<&co>;lore=<[lore]>]>
-      - inventory set d:<[inv]> slot:14 o:<item[gold_nugget].with[display_name=Amount<&sp>dropped;lore=<&r>Max<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.max_quantity]>|<&r>Min<&sp>Amount:<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.min_quantity]>]>
-      - inventory set d:<[inv]> slot:16 o:<item[gold_nugget].with[display_name=Chance:<&sp>1<&sp>out<&sp>of<&sp><yaml[server.recipe_book].read[mob_drops.<[item]>.chance]>]>
+      - inventory set d:<[inv]> slot:12 "o:<item[zombie_spawn_egg].with[display_name=<&7>Dropped by<&co>;lore=<[lore]>]>"
+      - inventory set d:<[inv]> slot:14 "o:<item[gold_nugget].with[display_name=<&b>Amount dropped;lore=<&r>Max Amount: <yaml[server.recipe_book].read[mob_drops.<[item]>.max_quantity]>|<&r>Min Amount: <yaml[server.recipe_book].read[mob_drops.<[item]>.min_quantity]>]>"
+      - inventory set d:<[inv]> slot:16 "o:<item[gold_nugget].with[display_name=<&b>Chance: 1 out of <yaml[server.recipe_book].read[mob_drops.<[item]>.chance]>]>"
     - if <[type]> == ore_spawn:
       - define inv:<inventory[recipe_book_ores]>
       - inventory open d:<[inv]>
       - foreach <yaml[server.recipe_book].read[ore_spawn.<[item]>.biome].as_list> as:biome:
-        - define biome_lore:|:<&r><[biome].substring[1,1].to_uppercase><[biome].replace[_].with[<&sp>].substring[2]>
-      - inventory set d:<[inv]> slot:11 o:<item[stone].with[display_name=<&r><&6>Biomes<&co>;lore=<[biome_lore]>]>
+        - define "biome_lore:|:<&r><[biome].substring[1,1].to_uppercase><[biome].replace[_].with[ ].substring[2]>"
+      - inventory set d:<[inv]> slot:11 "o:<item[stone].with[display_name=<&r><&6>Biomes<&co>;lore=<[biome_lore]>]>"
       - foreach <yaml[server.recipe_book].read[ore_spawn.<[item]>.block].as_list> as:block:
-        - define lore:|:<&r><[block].substring[1,1].to_uppercase><[block].replace[_].with[<&sp>].substring[2]>
+        - define "lore:|:<&r><[block].substring[1,1].to_uppercase><[block].replace[_].with[ ].substring[2]>"
       - define block:<item[<yaml[server.recipe_book].read[ore_spawn.<[item]>.block].as_list.get[1]>]>
-      - inventory set d:<[inv]> slot:13 o:<[block].with[display_name=<&r><&6>Blocks<&co>;lore=<[lore]>]>
-      - inventory set d:<[inv]> slot:15 o:<item[stone].with[display_name=<&r><&6>Chance:<&sp>1<&sp>in<&sp><yaml[server.recipe_book].read[ore_spawn.<[item]>.chance]>]>
+      - inventory set d:<[inv]> slot:13 "o:<[block].with[display_name=<&r><&6>Blocks<&co>;lore=<[lore]>]>"
+      - inventory set d:<[inv]> slot:15 "o:<item[stone].with[display_name=<&r><&6>Chance: 1 in <yaml[server.recipe_book].read[ore_spawn.<[item]>.chance]>]>"
       - define tool:<item[<yaml[server.recipe_book].read[ore_spawn.<[item]>.tool]>]||<item[iron_axe]>>
-      - inventory set d:<[inv]> slot:17 o:<[tool].with[display_name=<&r><&6>Tool<&sp>Required:<&sp><[tool].display||<&6>Any>;flags=HIDE_ATTRIBUTES]>
+      - inventory set d:<[inv]> slot:17 "o:<[tool].with[display_name=<&r><&6>Tool Required: <[tool].display||<&6>Any>;flags=HIDE_ATTRIBUTES]>"
     - if <[type]> == furnace:
       - define inv:<inventory[recipe_book_furnace]>
       - inventory open d:<[inv]>
