@@ -229,7 +229,7 @@ recipe_book_events:
             - define "lore:|:<&f>Has <yaml[server.recipe_book].list_keys[altar.<[item]>].size||0> Altar Recipes"
           - if <yaml[server.recipe_book].read[used_for.<[item]>].as_list.size||0> != 0:
             - define "lore:|:<&f>Used to craft <yaml[server.recipe_book].read[used_for.<[item]>].as_list.size||0> items"
-          - inventory add d:<context.inventory> o:<[item].as_item.with[lore=<[lore]>]||<item[air]>>
+          - inventory add d:<context.inventory> o:<[item].as_item.with[lore=<[lore]>;flags=HIDE_ATTRIBUTES]||<item[air]>>
     on player clicks in recipe_book_*:
       - if <context.raw_slot> <= <player.open_inventory.size>:
         - determine passively cancelled
