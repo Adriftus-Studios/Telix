@@ -11,10 +11,15 @@ furnace_inventory:
   slots:
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [furnace_fuel_meter] [w_filler] [furnace_timer] [w_filler] [] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
   - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [furnace_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+
+furnace_fuel_meter:
+  type: item
+  material: lava_bucket
+  display name: <&7>No Fuel
 
 furnace_timer:
   type: item
@@ -54,7 +59,7 @@ furnace_events:
           - define contents:<[inventory].slot[12]||null>
           - if <[contents]> == null:
             - note remove as:<[active_location].notable_name>
-            - inventory set d:<[inventory]> slot:50 o:<item[furnace_timer]>
+            - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
             - foreach next
           # find what items are needed for crafting
           - define crafting:air
@@ -65,7 +70,7 @@ furnace_events:
                 - foreach stop
           - if <[crafting]||air> == air:
             - note remove as:<[active_location].notable_name>
-            - inventory set d:<[inventory]> slot:50 o:<item[furnace_timer]>
+            - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
             - foreach next
           # find if resulting items can fit in output slots
           - if <[crafting]||null> != null && <[crafting]> != air:
@@ -83,7 +88,7 @@ furnace_events:
                     - define amount_needed:<[remaining]>
             - if <[amount_needed]> != 0:
               - note remove as:<[active_location].notable_name>
-              - inventory set d:<[inventory]> slot:50 o:<item[furnace_timer]>
+              - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
               - foreach next
             # countdown smelting timer
             - define time:<[clock].nbt[time].sub[1]||<yaml[server.furnace_recipes].read[<[crafting]>.cook_time]>>
@@ -94,14 +99,14 @@ furnace_events:
             - if <[time]> > 0:
               - if <[clock]||null> == null:
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:50 o:<item[furnace_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time].div[60].round_up>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time].div[60].round_up>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
-                  - inventory set d:<[inventory]> slot:50 o:<item[furnace_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
+                  - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
               - else:
                 - if <[time]> > 60:
-                  - inventory set d:<[inventory]> slot:50 o:<item[furnace_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time].div[60].round_up>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
+                  - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time].div[60].round_up>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].div[60].round_up><&sp>Minutes]>
                 - else:
-                  - inventory set d:<[inventory]> slot:50 o:<item[furnace_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
+                  - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer].with[display_name=<&7>Cooking<&sp><item[<[crafting]>].script.yaml_key[display<&sp>name].parsed>;quantity=<[time]>;nbt=time/<[time]>;nbt=crafting/<[crafting]>;lore=<&f><[time].round_up><&sp>Seconds]>
             - else:
               # craft item and remove required ingredients
               - define amount_needed:<yaml[server.furnace_recipes].read[<[crafting]>.output_quantity]>
@@ -122,9 +127,9 @@ furnace_events:
               - foreach <yaml[server.furnace_recipes].read[<[crafting]>.input].as_list> as:input:
                 - announce <[input]>
                 - inventory remove d:<[inventory]> o:<[inventory].slot[<[inventory].find.scriptname[<[input].split[/].get[1]||<[input]>>]>].with[quantity=<[input].split[/].get[2]||1>]||<[inventory].slot[<[inventory].find.material[<[input].split[/].get[1]||<[input]>>]>].with[quantity=<[input].split[/].get[2]||1>]>>
-              - inventory set d:<[inventory]> slot:50 o:<item[furnace_timer]>
+              - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
           - else:
-            - inventory set d:<[inventory]> slot:50 o:<item[furnace_timer]>
+            - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
     on player places furnace:
       - if <context.item_in_hand.script.name||null> == custom_furnace:
         - note <inventory[furnace_inventory]> as:furnace_<context.location.simple>
