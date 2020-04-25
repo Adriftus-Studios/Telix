@@ -24,7 +24,7 @@ custom_crafting_test_item:
       type: shaped
       output_quantity: 1
       input:
-        - "air|custom_iron_ingot|"
+        - "air|custom_iron_ingot|air"
         - "air|custom_stick|air"
         - "air|air|air"
     2:

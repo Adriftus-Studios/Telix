@@ -10534,13 +10534,6 @@ custom_red_sandstone:
   type: item
 custom_stick:
   custom_recipes:
-    '11':
-      input:
-      - air|air|air
-      - air|air|regex:(.*)_planks
-      - air|air|regex:(.*)_planks
-      output_quantity: 4
-      type: shaped
     '0':
       input:
       - custom_bamboo|air|air
@@ -10616,6 +10609,13 @@ custom_stick:
       - air|air|air
       - air|regex:(.*)_planks|air
       - air|regex:(.*)_planks|air
+      output_quantity: 4
+      type: shaped
+    '11':
+      input:
+      - air|air|air
+      - air|air|regex:(.*)_planks
+      - air|air|regex:(.*)_planks
       output_quantity: 4
       type: shaped
   material: stick
