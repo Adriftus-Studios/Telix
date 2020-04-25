@@ -214,6 +214,7 @@ custom_music_disc_stal:
   weight: '1'
   type: item
 custom_birch_stairs:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input:
@@ -522,6 +523,7 @@ custom_experience_bottle:
   weight: '1'
   type: item
 custom_cake:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       input:
@@ -551,6 +553,7 @@ custom_dried_kelp_block:
   weight: '1'
   type: item
 custom_acacia_stairs:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input:
@@ -565,6 +568,7 @@ custom_acacia_stairs:
   weight: '1'
   type: item
 custom_dark_oak_fence_gate:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input:
@@ -586,6 +590,7 @@ custom_dark_oak_fence_gate:
   weight: '1'
   type: item
 custom_birch_wood:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input:
@@ -631,6 +636,7 @@ custom_potted_lily_of_the_valley:
   weight: '1'
   type: item
 custom_spruce_fence:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input:
@@ -863,6 +869,7 @@ custom_brown_bed:
   weight: '1'
   type: item
 custom_dark_oak_button:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input: custom_dark_oak_planks
@@ -1004,6 +1011,7 @@ custom_cyan_dye:
   weight: '1'
   type: item
 custom_spruce_stairs:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input:
@@ -1066,6 +1074,7 @@ custom_chiseled_quartz_block:
   weight: '1'
   type: item
 custom_yellow_bed:
+  recipe_book_category: building.colors.yellow
   custom_recipes:
     '11':
       input:
@@ -1322,6 +1331,7 @@ custom_redstone_ore:
   weight: '1'
   type: item
 custom_jungle_slab:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input:
@@ -1350,6 +1360,7 @@ custom_jungle_slab:
   weight: '1'
   type: item
 custom_stripped_birch_wood:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input:
@@ -1404,6 +1415,7 @@ custom_lime_banner:
   weight: '1'
   type: item
 custom_jungle_pressure_plate:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input:
@@ -1696,6 +1708,7 @@ custom_lava:
   weight: '1'
   type: item
 custom_cookie:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       input:
@@ -1723,6 +1736,7 @@ custom_cookie:
   weight: '1'
   type: item
 custom_dark_oak_wood:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input:
@@ -1763,6 +1777,7 @@ custom_potted_acacia_sapling:
   weight: '1'
   type: item
 custom_stripped_dark_oak_wood:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input:
@@ -1818,6 +1833,7 @@ custom_purple_shulker_box:
   weight: '1'
   type: item
 custom_beetroot_soup:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       input: custom_bowl|custom_beetroot|custom_beetroot|custom_beetroot|custom_beetroot|custom_beetroot|custom_beetroot
@@ -2094,6 +2110,7 @@ custom_quartz_slab:
   weight: '1'
   type: item
 custom_dark_oak_fence:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input:
@@ -2207,6 +2224,7 @@ custom_armor_stand:
   weight: '1'
   type: item
 custom_oak_door:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input:
@@ -2258,6 +2276,7 @@ custom_orange_terracotta:
   weight: '1'
   type: item
 custom_cooked_chicken:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       cook_time: 10s
@@ -2318,6 +2337,7 @@ custom_stripped_acacia_log:
   weight: '1'
   type: item
 custom_stripped_acacia_wood:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input:
@@ -3016,6 +3036,7 @@ custom_stripped_jungle_log:
   weight: '1'
   type: item
 custom_oak_pressure_plate:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input:
@@ -3065,6 +3086,7 @@ custom_oak_pressure_plate:
   weight: '1'
   type: item
 custom_jungle_stairs:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input:
@@ -3158,6 +3180,7 @@ custom_cocoa:
   weight: '1'
   type: item
 custom_jungle_button:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input: custom_jungle_planks
@@ -3169,6 +3192,7 @@ custom_jungle_button:
   weight: '1'
   type: item
 custom_acacia_planks:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input: custom_stripped_acacia_wood
@@ -3221,6 +3245,7 @@ custom_lime_glazed_terracotta:
   weight: '1'
   type: item
 custom_acacia_fence:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input:
@@ -3294,6 +3319,7 @@ custom_soul_sand:
   weight: '1'
   type: item
 custom_jungle_boat:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input:
@@ -3422,6 +3448,7 @@ custom_stripped_dark_oak_log:
   weight: '1'
   type: item
 custom_birch_slab:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input:
@@ -3727,6 +3754,7 @@ custom_purple_concrete_powder:
   weight: '1'
   type: item
 custom_spruce_boat:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input:
@@ -3794,6 +3822,7 @@ custom_magenta_glazed_terracotta:
   weight: '1'
   type: item
 custom_acacia_door:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input:
@@ -3815,6 +3844,7 @@ custom_acacia_door:
   weight: '1'
   type: item
 custom_oak_wood:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input:
@@ -4126,6 +4156,7 @@ custom_dead_tube_coral_block:
   weight: '1'
   type: item
 custom_jungle_sign:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input:
@@ -4140,6 +4171,7 @@ custom_jungle_sign:
   weight: '1'
   type: item
 custom_birch_button:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input: custom_birch_planks
@@ -4244,6 +4276,7 @@ custom_glass_pane:
   weight: '1'
   type: item
 custom_jungle_trapdoor:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input:
@@ -4440,6 +4473,7 @@ custom_melon_slice:
   weight: '1'
   type: item
 custom_cooked_beef:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       cook_time: 10s
@@ -4452,6 +4486,7 @@ custom_cooked_beef:
   weight: '1'
   type: item
 custom_dark_oak_slab:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input:
@@ -4516,6 +4551,7 @@ custom_tropical_fish:
   weight: '1'
   type: item
 custom_spruce_button:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input: custom_spruce_planks
@@ -4750,6 +4786,7 @@ custom_heavy_weighted_pressure_plate:
   weight: '1'
   type: item
 custom_yellow_stained_glass:
+  recipe_book_category: building.colors.yellow
   custom_recipes:
     '0':
       input:
@@ -4905,6 +4942,7 @@ custom_air:
   weight: '1'
   type: item
 custom_spruce_planks:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input: custom_stripped_spruce_wood
@@ -4936,6 +4974,7 @@ custom_red_concrete_powder:
   weight: '1'
   type: item
 custom_cooked_rabbit:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       cook_time: 10s
@@ -4968,6 +5007,7 @@ custom_bucket:
   weight: '1'
   type: item
 custom_cooked_salmon:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       cook_time: 10s
@@ -5156,6 +5196,7 @@ custom_glowstone:
   weight: '1'
   type: item
 custom_birch_boat:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input:
@@ -5345,6 +5386,7 @@ custom_poisonous_potato:
   weight: '1'
   type: item
 custom_spruce_trapdoor:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input:
@@ -5430,6 +5472,7 @@ custom_white_terracotta:
   weight: '1'
   type: item
 custom_oak_stairs:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input:
@@ -5541,6 +5584,7 @@ custom_end_portal:
   weight: '1'
   type: item
 custom_jungle_fence:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input:
@@ -5614,6 +5658,7 @@ custom_arrow:
   weight: '1'
   type: item
 custom_jungle_wood:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input:
@@ -5671,6 +5716,7 @@ custom_ender_eye:
   weight: '1'
   type: item
 custom_oak_sign:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input:
@@ -5690,6 +5736,7 @@ custom_brown_concrete:
   weight: '1'
   type: item
 custom_spruce_slab:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input:
@@ -5780,6 +5827,7 @@ custom_carrot:
   weight: '1'
   type: item
 custom_oak_planks:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input: custom_stripped_oak_wood
@@ -5824,6 +5872,7 @@ custom_flint_and_steel:
   weight: '1'
   type: item
 custom_spruce_fence_gate:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input:
@@ -5850,6 +5899,7 @@ custom_jungle_leaves:
   weight: '1'
   type: item
 custom_jungle_planks:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input: custom_stripped_jungle_wood
@@ -6105,6 +6155,7 @@ custom_bubble_coral_block:
   weight: '1'
   type: item
 custom_dark_oak_boat:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input:
@@ -6139,11 +6190,13 @@ custom_green_stained_glass:
   weight: '1'
   type: item
 custom_yellow_concrete:
+  recipe_book_category: building.colors.yellow
   material: yellow_concrete
   display name: <&7>Yellow Concrete
   weight: '1'
   type: item
 custom_stripped_spruce_wood:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input:
@@ -6199,6 +6252,7 @@ custom_stone_axe:
   weight: '1'
   type: item
 custom_yellow_wall_banner:
+  recipe_book_category: building.colors.yellow
   material: yellow_wall_banner
   display name: <&7>Yellow Wall Banner
   weight: '1'
@@ -6242,6 +6296,7 @@ custom_chipped_anvil:
   weight: '1'
   type: item
 custom_stripped_oak_wood:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input:
@@ -6330,6 +6385,7 @@ custom_globe_banner_pattern:
   weight: '1'
   type: item
 custom_cooked_mutton:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       cook_time: 10s
@@ -6516,6 +6572,7 @@ custom_potted_cactus:
   weight: '1'
   type: item
 custom_acacia_button:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input: custom_acacia_planks
@@ -6776,6 +6833,7 @@ custom_smithing_table:
   weight: '1'
   type: item
 custom_yellow_shulker_box:
+  recipe_book_category: building.colors.yellow
   material: yellow_shulker_box
   display name: <&7>Yellow Shulker Box
   weight: '1'
@@ -6786,6 +6844,7 @@ custom_spruce_leaves:
   weight: '1'
   type: item
 custom_stripped_jungle_wood:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input:
@@ -6903,6 +6962,7 @@ custom_lime_terracotta:
   weight: '1'
   type: item
 custom_yellow_carpet:
+  recipe_book_category: building.colors.yellow
   custom_recipes:
     '0':
       input:
@@ -6984,6 +7044,7 @@ custom_blue_wall_banner:
   weight: '1'
   type: item
 custom_baked_potato:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       cook_time: 10s
@@ -7020,6 +7081,7 @@ custom_tall_seagrass:
   weight: '1'
   type: item
 custom_dark_oak_planks:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input: custom_stripped_dark_oak_wood
@@ -7051,6 +7113,7 @@ custom_green_glazed_terracotta:
   weight: '1'
   type: item
 custom_cooked_cod:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       cook_time: 10s
@@ -7146,6 +7209,7 @@ custom_clay_ball:
   weight: '1'
   type: item
 custom_acacia_sign:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input:
@@ -7333,6 +7397,7 @@ custom_red_bed:
   weight: '1'
   type: item
 custom_jungle_door:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input:
@@ -7354,6 +7419,7 @@ custom_jungle_door:
   weight: '1'
   type: item
 custom_yellow_stained_glass_pane:
+  recipe_book_category: building.colors.yellow
   custom_recipes:
     '0':
       input:
@@ -7422,6 +7488,7 @@ custom_quartz_pillar:
   weight: '1'
   type: item
 custom_bread:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       input:
@@ -7545,6 +7612,7 @@ custom_light_blue_banner:
   weight: '1'
   type: item
 custom_dark_oak_pressure_plate:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input:
@@ -7712,6 +7780,7 @@ custom_dark_oak_sapling:
   weight: '1'
   type: item
 custom_oak_trapdoor:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input:
@@ -7768,6 +7837,7 @@ custom_red_concrete:
   weight: '1'
   type: item
 custom_fletching_table:
+  recipe_book_category: crafting.stations
   custom_recipes:
     '11':
       input:
@@ -7864,6 +7934,7 @@ custom_bubble_coral:
   weight: '1'
   type: item
 custom_acacia_trapdoor:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input:
@@ -8037,6 +8108,7 @@ custom_stone_slab:
   weight: '1'
   type: item
 custom_dark_oak_trapdoor:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input:
@@ -8156,6 +8228,7 @@ custom_red_carpet:
   weight: '1'
   type: item
 custom_birch_pressure_plate:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input:
@@ -8486,6 +8559,7 @@ custom_orange_stained_glass:
   weight: '1'
   type: item
 custom_pumpkin_pie:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       input: custom_pumpkin|custom_sugar|custom_egg
@@ -8496,6 +8570,7 @@ custom_pumpkin_pie:
   weight: '1'
   type: item
 custom_oak_boat:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input:
@@ -8788,6 +8863,7 @@ custom_end_gateway:
   weight: '1'
   type: item
 custom_yellow_glazed_terracotta:
+  recipe_book_category: building.colors.yellow
   custom_recipes:
     '0':
       cook_time: 10s
@@ -8831,6 +8907,7 @@ custom_potted_brown_mushroom:
   weight: '1'
   type: item
 custom_spruce_wood:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input:
@@ -9121,6 +9198,7 @@ custom_oak_sapling:
   weight: '1'
   type: item
 custom_yellow_wool:
+  recipe_book_category: building.colors.yellow
   custom_recipes:
     '0':
       input: custom_yellow_dye|custom_white_wool
@@ -9160,6 +9238,7 @@ custom_potato:
   weight: '1'
   type: item
 custom_spruce_pressure_plate:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input:
@@ -9417,6 +9496,7 @@ custom_attached_pumpkin_stem:
   weight: '1'
   type: item
 custom_honey_bottle:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       input: custom_honey_block|custom_glass_bottle|custom_glass_bottle|custom_glass_bottle|custom_glass_bottle
@@ -9496,6 +9576,7 @@ custom_black_banner:
   weight: '1'
   type: item
 custom_acacia_wood:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input:
@@ -9710,6 +9791,7 @@ custom_tube_coral:
   weight: '1'
   type: item
 custom_birch_trapdoor:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input:
@@ -9867,6 +9949,7 @@ custom_quartz:
   weight: '1'
   type: item
 custom_birch_fence_gate:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input:
@@ -10084,6 +10167,7 @@ custom_ender_pearl:
   weight: '1'
   type: item
 custom_birch_door:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input:
@@ -10181,6 +10265,7 @@ custom_gray_wool:
   weight: '1'
   type: item
 custom_dark_oak_door:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input:
@@ -10269,6 +10354,7 @@ custom_stone:
   default_drop: custom_cobblestone
   type: item
 custom_birch_fence:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input:
@@ -10290,6 +10376,7 @@ custom_birch_fence:
   weight: '1'
   type: item
 custom_dark_oak_stairs:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input:
@@ -10309,6 +10396,7 @@ custom_tropical_fish_bucket:
   weight: '1'
   type: item
 custom_oak_slab:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input:
@@ -10476,6 +10564,7 @@ custom_grass:
   weight: '1'
   type: item
 custom_spruce_sign:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input:
@@ -10892,6 +10981,7 @@ custom_light_blue_wall_banner:
   weight: '1'
   type: item
 custom_yellow_banner:
+  recipe_book_category: building.colors.yellow
   custom_recipes:
     '0':
       input:
@@ -10945,6 +11035,7 @@ custom_purple_stained_glass:
   weight: '1'
   type: item
 custom_yellow_dye:
+  recipe_book_category: building.colors.yellow
   custom_recipes:
     '1':
       input: custom_dandelion
@@ -11528,6 +11619,7 @@ custom_dark_prismarine:
   weight: '1'
   type: item
 custom_oak_fence_gate:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input:
@@ -11677,6 +11769,7 @@ custom_dead_bubble_coral_block:
   weight: '1'
   type: item
 custom_oak_fence:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input:
@@ -11770,6 +11863,7 @@ custom_command_block_minecart:
   weight: '1'
   type: item
 custom_jungle_fence_gate:
+  recipe_book_category: building.wood.jungle
   custom_recipes:
     '0':
       input:
@@ -12026,6 +12120,7 @@ custom_lime_bed:
   weight: '1'
   type: item
 custom_acacia_pressure_plate:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input:
@@ -12085,6 +12180,7 @@ custom_magenta_shulker_box:
   weight: '1'
   type: item
 custom_acacia_slab:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input:
@@ -12140,6 +12236,7 @@ custom_mossy_cobblestone_slab:
   weight: '1'
   type: item
 custom_yellow_terracotta:
+  recipe_book_category: building.colors.yellow
   custom_recipes:
     '0':
       input:
@@ -12466,6 +12563,7 @@ custom_purple_concrete:
   weight: '1'
   type: item
 custom_oak_button:
+  recipe_book_category: building.wood.oak
   custom_recipes:
     '0':
       input: custom_oak_planks
@@ -12768,6 +12866,7 @@ custom_purple_terracotta:
   weight: '1'
   type: item
 custom_acacia_sapling:
+  recipe_book_category: building.wood.acacia
   material: acacia_sapling
   display name: <&7>Acacia Sapling
   burntime: '100'
@@ -12789,6 +12888,7 @@ custom_potted_white_tulip:
   weight: '1'
   type: item
 custom_birch_sign:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input:
@@ -12955,6 +13055,7 @@ custom_lilac:
   weight: '1'
   type: item
 custom_yellow_concrete_powder:
+  recipe_book_category: building.colors.yellow
   custom_recipes:
     '0':
       input: custom_yellow_dye|custom_sand|custom_sand|custom_sand|custom_sand|custom_gravel|custom_gravel|custom_gravel|custom_gravel
@@ -12965,6 +13066,7 @@ custom_yellow_concrete_powder:
   weight: '1'
   type: item
 custom_birch_planks:
+  recipe_book_category: building.wood.birch
   custom_recipes:
     '0':
       input: custom_stripped_birch_wood
@@ -13112,6 +13214,7 @@ custom_pink_carpet:
   weight: '1'
   type: item
 custom_cooked_porkchop:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       cook_time: 10s
@@ -13300,6 +13403,7 @@ custom_coal_ore:
   weight: '1'
   type: item
 custom_acacia_boat:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input:
@@ -13389,6 +13493,7 @@ custom_white_banner:
   weight: '1'
   type: item
 custom_rabbit_stew:
+  recipe_book_category: cooking.food
   custom_recipes:
     '1':
       input: custom_baked_potato|custom_cooked_rabbit|custom_bowl|custom_carrot|custom_brown_mushroom
@@ -13422,6 +13527,7 @@ custom_green_concrete_powder:
   weight: '1'
   type: item
 custom_mushroom_stew:
+  recipe_book_category: cooking.food
   custom_recipes:
     '0':
       input: custom_brown_mushroom|custom_red_mushroom|custom_bowl
@@ -13437,6 +13543,7 @@ custom_orange_shulker_box:
   weight: '1'
   type: item
 custom_spruce_door:
+  recipe_book_category: building.wood.spruce
   custom_recipes:
     '0':
       input:
@@ -13496,6 +13603,7 @@ custom_infested_chiseled_stone_bricks:
   weight: '1'
   type: item
 custom_acacia_fence_gate:
+  recipe_book_category: building.wood.acacia
   custom_recipes:
     '0':
       input:
@@ -13722,6 +13830,7 @@ custom_nether_bricks:
   weight: '1'
   type: item
 custom_dark_oak_sign:
+  recipe_book_category: building.wood.dark_oak
   custom_recipes:
     '0':
       input:

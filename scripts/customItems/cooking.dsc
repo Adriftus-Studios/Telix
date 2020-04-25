@@ -4,12 +4,29 @@ custom_bowl:
   material: bowl
   display name: <&7>Bowl
   weight: '1'
+  recipe_book_category: cooking.items
+  custom_recipes:
+    '0':
+      input:
+      - air|air|air
+      - custom_stick|air|custom_stick
+      - air|custom_stick|air
+      output_quantity: 1
+      type: shaped
+    '1':
+      input:
+      - custom_stick|air|custom_stick
+      - air|custom_stick|air
+      - air|air|air
+      output_quantity: 1
+      type: shaped
   
 custom_skewer:
   type: item
   material: stick
   display name: <&7>Skewer
   weight: '1'
+  recipe_book_category: cooking.items
   custom_recipes:
     1:
       type: shaped
@@ -65,6 +82,7 @@ custom_raw_beef_kebab:
   weight: '1'
   food: -10
   thirst: -5
+  recipe_book_category: cooking.food
   custom_recipes:
     1:
       type: cooking
@@ -83,7 +101,8 @@ custom_raw_chicken_kebab:
   #  custom_model_data: 0
   weight: '1'
   food: -10
-  food: -5
+  thirst: -5
+  recipe_book_category: cooking.food
   custom_recipes:
     1:
       type: cooking
@@ -103,6 +122,7 @@ custom_cooked_beef_kebab:
   weight: '1'
   food: 15
   thirst: 2
+  recipe_book_category: cooking.food
   custom_recipes:
     1:
       type: cooking
@@ -127,6 +147,7 @@ custom_cooked_chicken_kebab:
   weight: '1'
   food: 15
   thirst: 2
+  recipe_book_category: cooking.food
   custom_recipes:
     1:
       type: cooking
@@ -151,6 +172,7 @@ custom_mushroom_soup:
   weight: '1'
   food: 5
   thirst: 15
+  recipe_book_category: cooking.food
   custom_recipes:
     1:
       type: cooking
@@ -167,6 +189,7 @@ custom_chicken_soup:
   weight: '1'
   food: 8
   thirst: 15
+  recipe_book_category: cooking.food
   custom_recipes:
     1:
       type: cooking

@@ -227,6 +227,8 @@ recipe_book_events:
             - define "lore:|:<&f>Has 1 Alchemy Station Recipes"
           - if <yaml[server.recipe_book].list_keys[altar.<[item]>].size||0> != 0:
             - define "lore:|:<&f>Has 1 Altar Recipes"
+          - if <yaml[server.recipe_book].list_keys[cooking.<[item]>].size||0> != 0:
+            - define "lore:|:<&f>Has 1 Cooking Recipes"
           - if <yaml[server.recipe_book].read[used_for.<[item]>].as_list.size||0> != 0:
             - define "lore:|:<&f>Used to craft <yaml[server.recipe_book].read[used_for.<[item]>].as_list.size||0> items"
           - inventory add d:<context.inventory> o:<[item].as_item.with[lore=<[lore]>;flags=HIDE_ATTRIBUTES]||<item[air]>>
