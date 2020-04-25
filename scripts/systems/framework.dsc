@@ -129,6 +129,7 @@ reload_scripts:
       - yaml create id:server.ore_rates
       - yaml create id:server.drop_rates
       - yaml create id:server.smeltery_recipes
+      - yaml create id:server.furnace_recipes
       - yaml create id:server.alchemy_recipes
       - yaml create id:server.altar_recipes
       - yaml create id:server.cooking_recipes
@@ -206,6 +207,10 @@ reload_scripts:
                   - else:
                     - foreach <[value].list_keys[custom_recipes.<[recipe]>]> as:key:
                       - yaml id:server.recipe_book set <[value].yaml_key[custom_recipes.<[recipe]>.type]>.<[value].name>.<[recipe]>.<[key]>:<[value].yaml_key[custom_recipes.<[recipe]>.<[key]>]>
+                  - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == furnace:
+                    - yaml id:server.furnace_recipes set <[value].name>.cook_time:<[value].yaml_key[custom_recipes.<[recipe]>.cook_time]>
+                    - yaml id:server.furnace_recipes set <[value].name>.input:<[value].yaml_key[custom_recipes.<[recipe]>.input]>
+                    - yaml id:server.furnace_recipes set <[value].name>.output_quantity:<[value].yaml_key[custom_recipes.<[recipe]>.output_quantity]||1>
                   - if <[value].yaml_key[custom_recipes.<[recipe]>.type]> == smeltery:
                     - yaml id:server.smeltery_recipes set <[value].name>.cook_time:<[value].yaml_key[custom_recipes.<[recipe]>.cook_time]>
                     - yaml id:server.smeltery_recipes set <[value].name>.input:<[value].yaml_key[custom_recipes.<[recipe]>.input]>

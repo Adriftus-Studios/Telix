@@ -9128,19 +9128,6 @@ custom_yellow_wool:
   burntime: '100'
   weight: '1'
   type: item
-custom_furnace:
-  custom_recipes:
-    '0':
-      input:
-      - custom_cobblestone|custom_cobblestone|custom_cobblestone
-      - custom_cobblestone|air|custom_cobblestone
-      - custom_cobblestone|custom_cobblestone|custom_cobblestone
-      output_quantity: 1
-      type: shaped
-  material: furnace
-  display name: <&7>Furnace
-  weight: '1'
-  type: item
 custom_anvil:
   custom_recipes:
     '0':

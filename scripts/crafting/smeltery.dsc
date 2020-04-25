@@ -156,7 +156,7 @@ smeltery_events:
           - define list:|:<[block]>
       - foreach <[list]||<list[]>> as:loc:
         - modifyblock <[loc]> air
-        - drop <item[custom_alchemy_station]> <[loc]>
+        - drop <item[custom_smeltery]> <[loc]>
       - determine <context.blocks.exclude[<[list]||<list[]>>]>
     on player clicks blast_furnace:
       - if <context.click_type> == RIGHT_CLICK_BLOCK:
