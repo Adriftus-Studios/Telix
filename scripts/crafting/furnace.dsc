@@ -195,7 +195,7 @@ furnace_events:
           - foreach <[slotmap]> as:slot:
             - if !<[found]>:
               - if <context.inventory.slot[<[slot].split[/].get[1]>]> == <item[air]>:
-                - if <[slot].split[/].get[2].starts_with[in]>:
+                - if <[slot].split[/].get[2].starts_with[in]> || <[slot].split[/].get[2].starts_with[fuel]>:
                   - inventory adjust slot:<context.slot> quantity:0
                   - inventory set d:<player.open_inventory> o:<context.item> slot:<[slot].split[/].get[1]>
                   - wait 1t
