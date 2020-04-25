@@ -220,13 +220,13 @@ recipe_book_events:
           - if <[slrecipes].size||1> != 1:
             - define "lore:|:<&f>Has <[slrecipes].size.sub[1]||0> Shapeless Recipes"
           - if <yaml[server.recipe_book].list_keys[furnace.<[item]>].size||0> != 0:
-            - define "lore:|:<&f>Has <yaml[server.recipe_book].list_keys[furnace.<[item]>].size||0> Furnace Recipes"
+            - define "lore:|:<&f>Has 1 Furnace Recipes"
           - if <yaml[server.recipe_book].list_keys[smeltery.<[item]>].size||0> != 0:
-            - define "lore:|:<&f>Has <yaml[server.recipe_book].list_keys[smeltery.<[item]>].size||0> Smeltery Recipes"
+            - define "lore:|:<&f>Has 1 Smeltery Recipes"
           - if <yaml[server.recipe_book].list_keys[alchemy.<[item]>].size||0> != 0:
-            - define "lore:|:<&f>Has <yaml[server.recipe_book].list_keys[alchemy.<[item]>].size||0> Alchemy Station Recipes"
+            - define "lore:|:<&f>Has 1 Alchemy Station Recipes"
           - if <yaml[server.recipe_book].list_keys[altar.<[item]>].size||0> != 0:
-            - define "lore:|:<&f>Has <yaml[server.recipe_book].list_keys[altar.<[item]>].size||0> Altar Recipes"
+            - define "lore:|:<&f>Has 1 Altar Recipes"
           - if <yaml[server.recipe_book].read[used_for.<[item]>].as_list.size||0> != 0:
             - define "lore:|:<&f>Used to craft <yaml[server.recipe_book].read[used_for.<[item]>].as_list.size||0> items"
           - inventory add d:<context.inventory> o:<[item].as_item.with[lore=<[lore]>;flags=HIDE_ATTRIBUTES]||<item[air]>>
