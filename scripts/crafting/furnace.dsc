@@ -19,7 +19,7 @@ furnace_inventory:
 furnace_fuel_meter:
   type: item
   material: lava_bucket
-  display name: <&7>No Fuel
+  display name: <&7>Fuel
 
 furnace_timer:
   type: item
@@ -54,22 +54,36 @@ furnace_events:
           - foreach next
         - if <[inventory].script_name> == furnace_INVENTORY:
           - define slotmap:<list[12/in|25/out|30/fuel]>
-          - if <[inventory].slot[50].script.name> == furnace_TIMER:
-            - define clock:<[inventory].slot[50]>
+          - define clock:<[inventory].slot[23]>
           - define contents:<[inventory].slot[12]||null>
           - if <[contents]> == null:
             - note remove as:<[active_location].notable_name>
             - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
             - foreach next
-          # find what items are needed for crafting
-          - define crafting:air
+          # find what items are needed for crafting and check and use fuel
           - foreach <yaml[server.furnace_recipes].list_keys[]> as:recipe:
-            - if <[crafting]> == air:
+            - if <[crafting]||air> == air:
               - if <[contents].script.name||<[contents].material.name>> == <yaml[server.furnace_recipes].read[<[recipe]>.input]>:
                 - define crafting:<[recipe]>
                 - foreach stop
+          - define fuel:<[inventory].slot[21].nbt[fuel]||0>
+          - if <[fuel].sub[20]> <= 0:
+            - define to_add:<[inventory].slot[30].script.yaml_key[burntime]||0>
+            - if <[to_add]> != 0:
+              - inventory adjust d:<[inventory]> slot:21 nbt:fuel/<[to_add]>
+              - inventory set d:<[inventory]> slot:30 o:<[inventory].slot[30].with[quantity=<[inventory].slot[30].quantity.sub[1]>]>
+              - inventory adjust d:<[inventory]> slot:21 "lore:<list[<&b><duration[<[to_add]>t].in_seconds> Seconds of fuel remaining]>"
+            - else:
+              - note remove as:<[active_location].notable_name>
+              - inventory set d:<[inventory]> slot:21 o:<item[furnace_fuel_meter]>
+              - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
+              - foreach next
+          - else:
+            - inventory adjust d:<[inventory]> slot:21 nbt:fuel/<[fuel].sub[20]>
+            - inventory adjust d:<[inventory]> slot:21 "lore:<list[<&b><duration[<[fuel].sub[20]>t].in_seconds> Seconds of fuel remaining]>"
           - if <[crafting]||air> == air:
-            - note remove as:<[active_location].notable_name>
+            - if <[fuel]> <= 0:
+              - note remove as:<[active_location].notable_name>
             - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
             - foreach next
           # find if resulting items can fit in output slots
@@ -125,7 +139,6 @@ furnace_events:
                       - inventory set d:<[inventory]> slot:<[slot].split[/].get[1]> o:<item[<[crafting]>].with[quantity=<[add].add[<[has]>]>]>
                       - define amount_needed:<[remaining]>
               - foreach <yaml[server.furnace_recipes].read[<[crafting]>.input].as_list> as:input:
-                - announce <[input]>
                 - inventory remove d:<[inventory]> o:<[inventory].slot[<[inventory].find.scriptname[<[input].split[/].get[1]||<[input]>>]>].with[quantity=<[input].split[/].get[2]||1>]||<[inventory].slot[<[inventory].find.material[<[input].split[/].get[1]||<[input]>>]>].with[quantity=<[input].split[/].get[2]||1>]>>
               - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
           - else:
