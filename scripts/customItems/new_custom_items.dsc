@@ -458,6 +458,7 @@ custom_potted_bamboo:
   weight: '1'
   type: item
 custom_smoker:
+  recipe_book_category: crafting.stations
   custom_recipes:
     '0':
       input:
@@ -1666,6 +1667,7 @@ custom_dispenser:
   weight: '1'
   type: item
 custom_blast_furnace:
+  recipe_book_category: crafting.stations
   custom_recipes:
     '0':
       input:
@@ -2697,6 +2699,7 @@ custom_sunflower:
   weight: '1'
   type: item
 custom_crafting_table:
+  recipe_book_category: crafting.stations
   custom_recipes:
     '22':
       input:
@@ -9944,6 +9947,7 @@ custom_purple_carpet:
   weight: '1'
   type: item
 custom_cartography_table:
+  recipe_book_category: crafting.stations
   custom_recipes:
     '11':
       input:
@@ -11294,6 +11298,7 @@ custom_prismarine:
   weight: '1'
   type: item
 custom_campfire:
+  recipe_book_category: crafting.stations
   custom_recipes:
     '0':
       input:

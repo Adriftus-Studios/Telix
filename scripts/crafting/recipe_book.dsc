@@ -293,6 +293,7 @@ show_recipes:
     - define list:<list[]>
     - define srecipes:<list[]>
     - foreach <yaml[server.recipe_book].list_keys[].exclude[used_for].exclude[mob_info].exclude[categories]> as:type:
+      - define lore:<list[]>
       - if <yaml[server.recipe_book].read[<[type]>.<[item].script.name>]||null> != null:
         - if <[type]> != shaped && <[type]> != shapeless:
           - define "lore:|:<&f><[type].to_titlecase>"

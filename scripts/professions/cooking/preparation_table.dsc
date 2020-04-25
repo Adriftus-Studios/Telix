@@ -25,6 +25,7 @@ custom_preparation_table:
   type: item
   material: beehive
   display name: <&b>Preparation Table
+  recipe_book_category: crafting.stations
   custom_recipes:
     1:
       type: shaped

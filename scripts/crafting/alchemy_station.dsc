@@ -24,6 +24,7 @@ alchemy_station_timer:
 custom_alchemy_station:
   type: item
   material: brewing_stand
+  recipe_book_category: crafting.stations
   display name: <&b>Alchemy Station
   custom_recipes:
     1:

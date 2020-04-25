@@ -29,6 +29,7 @@ furnace_timer:
   display name: <&7>Not Smelting
 
 custom_furnace:
+  recipe_book_category: crafting.stations
   custom_recipes:
     '0':
       input:

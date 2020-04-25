@@ -27,6 +27,7 @@ custom_smeltery:
   type: item
   material: blast_furnace
   display name: <&b>Smeltery
+  recipe_book_category: crafting.stations
   custom_recipes:
     1:
       type: shaped
