@@ -3168,7 +3168,15 @@ custom_jungle_button:
 custom_acacia_planks:
   custom_recipes:
     '0':
+      input: custom_stripped_acacia_wood
+      output_quantity: 4
+      type: shapeless
+    '1':
       input: custom_acacia_log
+      output_quantity: 4
+      type: shapeless
+    '2':
+      input: custom_acacia_wood
       output_quantity: 4
       type: shapeless
   material: acacia_planks
@@ -4899,6 +4907,14 @@ custom_spruce_planks:
       input: custom_stripped_spruce_wood
       output_quantity: 4
       type: shapeless
+    '1':
+      input: custom_spruce_log
+      output_quantity: 4
+      type: shapeless
+    '2':
+      input: custom_spruce_wood
+      output_quantity: 4
+      type: shapeless
   material: spruce_planks
   lore:
   - <&b>Straightened Spruce planks
@@ -5763,7 +5779,15 @@ custom_carrot:
 custom_oak_planks:
   custom_recipes:
     '0':
+      input: custom_stripped_oak_wood
+      output_quantity: 4
+      type: shapeless
+    '1':
       input: custom_oak_log
+      output_quantity: 4
+      type: shapeless
+    '2':
+      input: custom_oak_wood
       output_quantity: 4
       type: shapeless
   material: oak_planks
@@ -5825,7 +5849,15 @@ custom_jungle_leaves:
 custom_jungle_planks:
   custom_recipes:
     '0':
-      input: custom_stripped_jungle_log
+      input: custom_stripped_jungle_wood
+      output_quantity: 4
+      type: shapeless
+    '1':
+      input: custom_jungle_log
+      output_quantity: 4
+      type: shapeless
+    '2':
+      input: custom_jungle_wood
       output_quantity: 4
       type: shapeless
   material: jungle_planks
@@ -6987,7 +7019,15 @@ custom_tall_seagrass:
 custom_dark_oak_planks:
   custom_recipes:
     '0':
-      input: custom_stripped_dark_oak_log
+      input: custom_stripped_dark_oak_wood
+      output_quantity: 4
+      type: shapeless
+    '1':
+      input: custom_dark_oak_log
+      output_quantity: 4
+      type: shapeless
+    '2':
+      input: custom_dark_oak_wood
       output_quantity: 4
       type: shapeless
   material: dark_oak_planks
@@ -12935,6 +12975,14 @@ custom_yellow_concrete_powder:
 custom_birch_planks:
   custom_recipes:
     '0':
+      input: custom_stripped_birch_wood
+      output_quantity: 4
+      type: shapeless
+    '1':
+      input: custom_birch_log
+      output_quantity: 4
+      type: shapeless
+    '2':
       input: custom_birch_wood
       output_quantity: 4
       type: shapeless
