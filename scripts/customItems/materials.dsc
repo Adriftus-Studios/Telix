@@ -9,7 +9,6 @@ custom_aluminum_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_aluminum_ingot
 custom_aluminum_ingot:
   material: iron_ingot
@@ -26,7 +25,6 @@ custom_aluminum_ingot:
     2:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_aluminum_nugget|custom_aluminum_nugget|custom_aluminum_nugget
       - custom_aluminum_nugget|custom_aluminum_nugget|custom_aluminum_nugget
@@ -34,7 +32,6 @@ custom_aluminum_ingot:
     3:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_aluminum_block
 custom_aluminum_block:
   material: iron_block
@@ -46,7 +43,6 @@ custom_aluminum_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_aluminum_ingot|custom_aluminum_ingot|custom_aluminum_ingot
       - custom_aluminum_ingot|custom_aluminum_ingot|custom_aluminum_ingot
@@ -72,7 +68,6 @@ custom_bronze_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_bronze_ingot
 custom_bronze_ingot:
   material: brick
@@ -89,7 +84,6 @@ custom_bronze_ingot:
     2:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_bronze_nugget|custom_bronze_nugget|custom_bronze_nugget
       - custom_bronze_nugget|custom_bronze_nugget|custom_bronze_nugget
@@ -97,7 +91,6 @@ custom_bronze_ingot:
     3:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_bronze_block
 custom_bronze_block:
   material: iron_block
@@ -109,7 +102,6 @@ custom_bronze_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_bronze_ingot|custom_bronze_ingot|custom_bronze_ingot
       - custom_bronze_ingot|custom_bronze_ingot|custom_bronze_ingot
@@ -124,7 +116,6 @@ custom_constantan_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_constantan_ingot
 custom_constantan_ingot:
   material: brick
@@ -141,7 +132,6 @@ custom_constantan_ingot:
     2:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_constantan_nugget|custom_constantan_nugget|custom_constantan_nugget
       - custom_constantan_nugget|custom_constantan_nugget|custom_constantan_nugget
@@ -149,7 +139,6 @@ custom_constantan_ingot:
     3:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_constantan_block
 custom_constantan_block:
   material: iron_block
@@ -161,7 +150,6 @@ custom_constantan_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_constantan_ingot|custom_constantan_ingot|custom_constantan_ingot
       - custom_constantan_ingot|custom_constantan_ingot|custom_constantan_ingot
@@ -176,7 +164,6 @@ custom_copper_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_copper_ingot
 custom_copper_ingot:
   material: iron_ingot
@@ -193,7 +180,6 @@ custom_copper_ingot:
     2:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
       - custom_copper_nugget|custom_copper_nugget|custom_copper_nugget
@@ -201,7 +187,6 @@ custom_copper_ingot:
     3:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_copper_block
 custom_copper_block:
   material: iron_block
@@ -213,7 +198,6 @@ custom_copper_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
       - custom_copper_ingot|custom_copper_ingot|custom_copper_ingot
@@ -249,7 +233,6 @@ custom_diamond:
     2:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_diamond_block
 custom_diamond_block:
   material: diamond_block
@@ -261,7 +244,6 @@ custom_diamond_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_diamond|custom_diamond|custom_diamond
       - custom_diamond|custom_diamond|custom_diamond
@@ -282,7 +264,6 @@ custom_elementium_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_elementium_ingot
 custom_elementium_ingot:
   material: iron_ingot
@@ -294,7 +275,6 @@ custom_elementium_ingot:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_elementium_nugget|custom_elementium_nugget|custom_elementium_nugget
       - custom_elementium_nugget|custom_elementium_nugget|custom_elementium_nugget
@@ -302,7 +282,6 @@ custom_elementium_ingot:
     2:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_elementium_block
     3:
       type: altar
@@ -320,7 +299,6 @@ custom_elementium_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
       - custom_elementium_ingot|custom_elementium_ingot|custom_elementium_ingot
@@ -335,7 +313,6 @@ custom_gold_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_gold_ingot
 custom_gold_ingot:
   material: gold_ingot
@@ -352,7 +329,6 @@ custom_gold_ingot:
     2:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_gold_nugget|custom_gold_nugget|custom_gold_nugget
       - custom_gold_nugget|custom_gold_nugget|custom_gold_nugget
@@ -360,7 +336,6 @@ custom_gold_ingot:
     3:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_gold_block
 custom_gold_block:
   material: gold_block
@@ -371,7 +346,6 @@ custom_gold_block:
   custom_recipes:
     1:
       type: shaped
-      hide_in_recipebook: true
       output_quantity: 1
       input:
       - custom_gold_ingot|custom_gold_ingot|custom_gold_ingot
@@ -398,7 +372,6 @@ custom_iron_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_iron_ingot
 custom_iron_ingot:
   material: iron_ingot
@@ -415,7 +388,6 @@ custom_iron_ingot:
     2:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_iron_nugget|custom_iron_nugget|custom_iron_nugget
       - custom_iron_nugget|custom_iron_nugget|custom_iron_nugget
@@ -423,7 +395,6 @@ custom_iron_ingot:
     3:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_iron_block
 custom_iron_block:
   material: iron_block
@@ -435,7 +406,6 @@ custom_iron_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
       - custom_iron_ingot|custom_iron_ingot|custom_iron_ingot
@@ -461,7 +431,6 @@ custom_lead_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_lead_ingot
 custom_lead_ingot:
   material: iron_ingot
@@ -478,7 +447,6 @@ custom_lead_ingot:
     2:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_lead_nugget|custom_lead_nugget|custom_lead_nugget
       - custom_lead_nugget|custom_lead_nugget|custom_lead_nugget
@@ -486,7 +454,6 @@ custom_lead_ingot:
     3:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_lead_block
 custom_lead_block:
   material: iron_block
@@ -498,7 +465,6 @@ custom_lead_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
       - custom_lead_ingot|custom_lead_ingot|custom_lead_ingot
@@ -524,7 +490,6 @@ custom_manasteel_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_manasteel_ingot
 custom_manasteel_ingot:
   material: iron_ingot
@@ -536,7 +501,6 @@ custom_manasteel_ingot:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_manasteel_nugget|custom_manasteel_nugget|custom_manasteel_nugget
       - custom_manasteel_nugget|custom_manasteel_nugget|custom_manasteel_nugget
@@ -544,7 +508,6 @@ custom_manasteel_ingot:
     2:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_manasteel_block
     3:
       type: altar
@@ -562,7 +525,6 @@ custom_manasteel_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_manasteel_ingot|custom_manasteel_ingot|custom_manasteel_ingot
       - custom_manasteel_ingot|custom_manasteel_ingot|custom_manasteel_ingot
@@ -588,7 +550,6 @@ custom_nickel_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_nickel_ingot
 custom_nickel_ingot:
   material: iron_ingot
@@ -605,7 +566,6 @@ custom_nickel_ingot:
     2:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_nickel_nugget|custom_nickel_nugget|custom_nickel_nugget
       - custom_nickel_nugget|custom_nickel_nugget|custom_nickel_nugget
@@ -613,7 +573,6 @@ custom_nickel_ingot:
     3:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_nickel_block
 custom_nickel_block:
   material: iron_block
@@ -625,7 +584,6 @@ custom_nickel_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_nickel_ingot|custom_nickel_ingot|custom_nickel_ingot
       - custom_nickel_ingot|custom_nickel_ingot|custom_nickel_ingot
@@ -674,7 +632,6 @@ custom_silver_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_silver_ingot
 custom_silver_ingot:
   material: iron_ingot
@@ -691,7 +648,6 @@ custom_silver_ingot:
     2:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_silver_nugget|custom_silver_nugget|custom_silver_nugget
       - custom_silver_nugget|custom_silver_nugget|custom_silver_nugget
@@ -699,7 +655,6 @@ custom_silver_ingot:
     3:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_silver_block
 custom_silver_block:
   material: iron_block
@@ -711,7 +666,6 @@ custom_silver_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
       - custom_silver_ingot|custom_silver_ingot|custom_silver_ingot
@@ -737,7 +691,6 @@ custom_steel_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_steel_ingot
 custom_steel_ingot:
   material: iron_ingot
@@ -754,7 +707,6 @@ custom_steel_ingot:
     2:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_steel_nugget|custom_steel_nugget|custom_steel_nugget
       - custom_steel_nugget|custom_steel_nugget|custom_steel_nugget
@@ -762,7 +714,6 @@ custom_steel_ingot:
     3:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_steel_block
 custom_steel_block:
   material: iron_block
@@ -774,7 +725,6 @@ custom_steel_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_steel_ingot|custom_steel_ingot|custom_steel_ingot
       - custom_steel_ingot|custom_steel_ingot|custom_steel_ingot
@@ -813,7 +763,6 @@ custom_terrasteel_ingot:
     2:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_terrasteel_block
 custom_terrasteel_block:
   material: iron_block
@@ -825,7 +774,6 @@ custom_terrasteel_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_terrasteel_ingot|custom_terrasteel_ingot|custom_terrasteel_ingot
       - custom_terrasteel_ingot|custom_terrasteel_ingot|custom_terrasteel_ingot
@@ -840,7 +788,6 @@ custom_tin_nugget:
     1:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_tin_ingot
 custom_tin_ingot:
   material: iron_ingot
@@ -857,7 +804,6 @@ custom_tin_ingot:
     2:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_tin_nugget|custom_tin_nugget|custom_tin_nugget
       - custom_tin_nugget|custom_tin_nugget|custom_tin_nugget
@@ -865,7 +811,6 @@ custom_tin_ingot:
     3:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_tin_block
 custom_tin_block:
   material: iron_block
@@ -877,7 +822,6 @@ custom_tin_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_tin_ingot|custom_tin_ingot|custom_tin_ingot
       - custom_tin_ingot|custom_tin_ingot|custom_tin_ingot
@@ -921,7 +865,6 @@ custom_warpmetal_ingot:
     2:
       type: shapeless
       output_quantity: 9
-      hide_in_recipebook: true
       input: custom_warpmetal_block
     3:
       type: smeltery
@@ -938,7 +881,6 @@ custom_warpmetal_block:
     1:
       type: shaped
       output_quantity: 1
-      hide_in_recipebook: true
       input:
       - custom_warpmetal_ingot|custom_warpmetal_ingot|custom_warpmetal_ingot
       - custom_warpmetal_ingot|custom_warpmetal_ingot|custom_warpmetal_ingot
