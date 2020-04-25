@@ -215,8 +215,8 @@ recipe_book_events:
             - define "lore:|:<&f>Has <[sdrecipes].size.sub[1]||0> Shaped Recipes"
           - define slrecipes:<list[null]>
           - foreach <yaml[server.recipe_book].list_keys[shapeless.<[item]>]||<list[]>> as:num:
-            - if !<[slrecipes].contains[<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped||null>]>:
-              - define slrecipes:|:<yaml[server.recipe_book].read[shaped.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>
+            - if !<[slrecipes].contains[<yaml[server.recipe_book].read[shapeless.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped||null>]>:
+              - define slrecipes:|:<yaml[server.recipe_book].read[shapeless.<[item]>.<[num]>.input].as_list.exclude[air].alphabetical.escaped>
           - if <[slrecipes].size||1> != 1:
             - define "lore:|:<&f>Has <[slrecipes].size.sub[1]||0> Shapeless Recipes"
           - if <yaml[server.recipe_book].list_keys[furnace.<[item]>].size||0> != 0:
