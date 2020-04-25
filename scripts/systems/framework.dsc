@@ -527,10 +527,11 @@ system_override:
   debug: false
   events:
     on player chats:
-      - define msg <context.message>
+      - define msg <context.full_text>
       - if <[msg].contains_text[<&lb>item<&rb>]>:
-        - define msg <[msg].replace[<&lb>item<&rb>].with[<element[<player.item_in_hand.display>].on_hover[<player.item_in_hand>].type[SHOW_ITEM]>]>
-      - determine <[msg]>
+        - define msg "<[msg].replace[<&lb>item<&rb>].with[<&hover[<player.item_in_hand>].type[SHOW_ITEM]><player.item_in_hand.display><&end_hover>]>"
+      - determine passively cancelled
+      - announce <[msg]>
     on player kicked for flying:
       - if <player.has_permission[kicked_for_flying_bypass]>:
         - determine cancelled
@@ -548,11 +549,8 @@ system_override:
       - flag <player> ott:1 duration:2h
     on player joins:
       - define rp_url <server.flag[resourcepackurl]||https://download.nodecdn.net/containers/nodecraft/minepack/8ecc8f8887349caa28175556d0b56dff.zip>
-      - wait 60t
+      - wait 3s
       - adjust <player> resource_pack:<[rp_url]>
-      - stop
-      - adjust <player> quietly_discover_recipe:<server.list_recipe_ids>
-      - adjust <player> resend_discovered_recipes
     on resource pack status:
       - if <context.status> == FAILED_DOWNLOAD:
         - narrate "<&6>Please accept the resource pack."
@@ -637,7 +635,7 @@ system_override:
 
 recipe_book_icon:
   type: item
-  material: book
+  material: knowledge_book
   display name: <&6>Recipe Book
   GUI_Inventory: recipe_book_inventory
 
