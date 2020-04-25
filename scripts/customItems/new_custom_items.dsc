@@ -31,6 +31,13 @@ custom_white_glazed_terracotta:
   display name: <&7>White Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_white_terracotta
 custom_potted_azure_bluet:
   material: potted_azure_bluet
   display name: <&7>Potted Azure Bluet
@@ -41,6 +48,13 @@ custom_cracked_stone_bricks:
   display name: <&7>Cracked Stone Bricks
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_stone_bricks
 custom_note_block:
   custom_recipes:
     '0':
@@ -94,6 +108,13 @@ custom_pink_glazed_terracotta:
   display name: <&7>Pink Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_pink_terracotta
 custom_cut_sandstone_slab:
   custom_recipes:
     '0':
@@ -126,6 +147,13 @@ custom_orange_glazed_terracotta:
   display name: <&7>Orange Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_orange_terracotta
 custom_dragon_egg:
   material: dragon_egg
   display name: <&7>Dragon Egg
@@ -201,6 +229,13 @@ custom_blue_glazed_terracotta:
   display name: <&7>Blue Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_blue_terracotta
 custom_large_fern:
   material: large_fern
   display name: <&7>Large Fern
@@ -902,6 +937,12 @@ custom_emerald:
       type: shapeless
       output_quantity: 9
       input: custom_emerald_block
+    '1':
+      type: furnace
+      output_quantity: 1
+      experience: 1.0
+      cook_time: 10s
+      input: custom_emerald_ore
 custom_bricks:
   custom_recipes:
     '0':
@@ -1243,6 +1284,12 @@ custom_lime_dye:
       type: shapeless
       output_quantity: 2
       input: custom_green_dye|custom_white_dye
+    '1':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_sea_pickle
 custom_black_wool:
   material: black_wool
   display name: <&7>Black Wool
@@ -2161,6 +2208,13 @@ custom_smooth_quartz:
   display name: <&7>Smooth Quartz
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_quartz_block
 custom_orange_terracotta:
   custom_recipes:
     '0':
@@ -2179,11 +2233,25 @@ custom_cooked_chicken:
   display name: <&7>Cooked Chicken
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.35
+      cook_time: 10s
+      input: custom_chicken
 custom_purple_glazed_terracotta:
   material: purple_glazed_terracotta
   display name: <&7>Purple Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_purple_terracotta
 custom_beetroots:
   material: beetroots
   display name: <&7>Beetroots
@@ -2870,6 +2938,13 @@ custom_red_glazed_terracotta:
   display name: <&7>Red Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_red_terracotta
 custom_smooth_quartz_slab:
   custom_recipes:
     '0':
@@ -3082,6 +3157,13 @@ custom_lime_glazed_terracotta:
   display name: <&7>Lime Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_lime_terracotta
 custom_acacia_fence:
   custom_recipes:
     '0':
@@ -3469,6 +3551,13 @@ custom_charcoal:
   display name: <&7>Lump of Coal
   weight: 0.75
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.15
+      cook_time: 10s
+      input: custom_birch_wood
 custom_bamboo_sapling:
   material: bamboo_sapling
   display name: <&7>Bamboo Sapling
@@ -3557,6 +3646,13 @@ custom_sponge:
   display name: <&7>Sponge
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.15
+      cook_time: 10s
+      input: custom_wet_sponge
 custom_purple_concrete_powder:
   material: purple_concrete_powder
   display name: <&7>Purple Concrete Powder
@@ -3625,6 +3721,13 @@ custom_magenta_glazed_terracotta:
   display name: <&7>Magenta Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_magenta_terracotta
 custom_acacia_door:
   custom_recipes:
     '0':
@@ -3742,11 +3845,24 @@ custom_redstone:
       type: shapeless
       output_quantity: 9
       input: custom_redstone_block
+    '1':
+      type: furnace
+      output_quantity: 1
+      experience: 0.7
+      cook_time: 10s
+      input: custom_redstone_ore
 custom_cyan_glazed_terracotta:
   material: cyan_glazed_terracotta
   display name: <&7>Cyan Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_cyan_terracotta
 custom_blue_bed:
   custom_recipes:
     '0':
@@ -4208,6 +4324,13 @@ custom_cooked_beef:
   display name: <&7>Steak
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.35
+      cook_time: 10s
+      input: custom_beef
 custom_dark_oak_slab:
   custom_recipes:
     '0':
@@ -4258,6 +4381,13 @@ custom_popped_chorus_fruit:
   display name: <&7>Popped Chorus Fruit
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_chorus_fruit
 custom_tropical_fish:
   material: tropical_fish
   display name: <&7>Tropical Fish
@@ -4349,6 +4479,13 @@ custom_terracotta:
   display name: <&7>Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.35
+      cook_time: 10s
+      input: custom_clay
 custom_cocoa_beans:
   material: cocoa_beans
   display name: <&7>Cocoa Beans
@@ -4504,6 +4641,13 @@ custom_smooth_stone:
   display name: <&7>Smooth Stone
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_stone
 custom_spectral_arrow:
   custom_recipes:
     '0':
@@ -4661,6 +4805,13 @@ custom_cooked_rabbit:
   display name: <&7>Cooked Rabbit
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.35
+      cook_time: 10s
+      input: custom_rabbit
 custom_bucket:
   custom_recipes:
     '0':
@@ -4686,6 +4837,13 @@ custom_cooked_salmon:
   display name: <&7>Cooked Salmon
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.35
+      cook_time: 10s
+      input: custom_salmon
 custom_diorite_slab:
   custom_recipes:
     '0':
@@ -5353,6 +5511,13 @@ custom_gray_glazed_terracotta:
   display name: <&7>Gray Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_gray_terracotta
 custom_ender_eye:
   material: ender_eye
   display name: <&7>Eye of Ender
@@ -5431,6 +5596,13 @@ custom_light_gray_glazed_terracotta:
   display name: <&7>Light Gray Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_light_gray_terracotta
 custom_cobblestone_slab:
   custom_recipes:
     '0':
@@ -5754,6 +5926,13 @@ custom_green_dye:
   display name: <&7>Green Dye
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 1.0
+      cook_time: 10s
+      input: custom_cactus
 custom_bubble_coral_block:
   material: bubble_coral_block
   display name: <&7>Bubble Coral Block
@@ -5985,6 +6164,13 @@ custom_cooked_mutton:
   display name: <&7>Cooked Mutton
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.35
+      cook_time: 10s
+      input: custom_mutton
 custom_snow:
   custom_recipes:
     '0':
@@ -6464,6 +6650,13 @@ custom_black_glazed_terracotta:
   display name: <&7>Black Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_black_terracotta
 custom_potted_blue_orchid:
   material: potted_blue_orchid
   display name: <&7>Potted Blue Orchid
@@ -6618,6 +6811,13 @@ custom_baked_potato:
   display name: <&7>Baked Potato
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.35
+      cook_time: 10s
+      input: custom_potato
 custom_cyan_banner:
   custom_recipes:
     '0':
@@ -6656,11 +6856,25 @@ custom_green_glazed_terracotta:
   display name: <&7>Green Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_green_terracotta
 custom_cooked_cod:
   material: cooked_cod
   display name: <&7>Cooked Cod
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.35
+      cook_time: 10s
+      input: custom_cod
 custom_stone_sword:
   custom_recipes:
     '0':
@@ -8331,6 +8545,12 @@ custom_dried_kelp:
       type: shapeless
       output_quantity: 9
       input: custom_dried_kelp_block
+    '1':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_kelp
 custom_fire_charge:
   material: fire_charge
   display name: <&7>Fire Charge
@@ -8475,6 +8695,13 @@ custom_yellow_glazed_terracotta:
   display name: <&7>Yellow Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_yellow_terracotta
 custom_kindling:
   material: dead_bush
   lore:
@@ -8955,6 +9182,12 @@ custom_lapis_lazuli:
       type: shapeless
       output_quantity: 9
       input: custom_lapis_block
+    '1':
+      type: furnace
+      output_quantity: 1
+      experience: 0.2
+      cook_time: 10s
+      input: custom_lapis_ore
 custom_horn_coral_fan:
   material: horn_coral_fan
   display name: <&7>Horn Coral Fan
@@ -9214,6 +9447,13 @@ custom_smooth_sandstone:
   display name: <&7>Smooth Sandstone
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_sandstone
 custom_shears:
   custom_recipes:
     '0':
@@ -9523,6 +9763,13 @@ custom_quartz:
   display name: <&7>Quartz
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.2
+      cook_time: 10s
+      input: custom_nether_quartz_ore
 custom_birch_fence_gate:
   custom_recipes:
     '0':
@@ -9761,6 +10008,13 @@ custom_brown_glazed_terracotta:
   display name: <&7>Brown Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_brown_terracotta
 custom_hopper_minecart:
   custom_recipes:
     '0':
@@ -9903,6 +10157,13 @@ custom_stone:
   weight: 1
   type: item
   default_drop: custom_cobblestone
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_cobblestone
 custom_birch_fence:
   custom_recipes:
     '0':
@@ -10364,6 +10625,13 @@ custom_light_blue_glazed_terracotta:
   display name: <&7>Light Blue Glazed Terracotta
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_light_blue_terracotta
 custom_potted_poppy:
   material: potted_poppy
   display name: <&7>Potted Poppy
@@ -10824,6 +11092,13 @@ custom_nether_brick:
   display name: <&7>Nether Brick
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_netherrack
 custom_bedrock:
   material: bedrock
   display name: <&7>Bedrock
@@ -12341,6 +12616,13 @@ custom_smooth_red_sandstone:
   display name: <&7>Smooth Red Sandstone
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_red_sandstone
 custom_blue_concrete_powder:
   material: blue_concrete_powder
   display name: <&7>Blue Concrete Powder
@@ -12428,6 +12710,13 @@ custom_brick:
   display name: <&7>Brick
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.3
+      cook_time: 10s
+      input: custom_clay_ball
 custom_orange_concrete_powder:
   material: orange_concrete_powder
   display name: <&7>Orange Concrete Powder
@@ -12625,6 +12914,13 @@ custom_cooked_porkchop:
   display name: <&7>Cooked Porkchop
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.35
+      cook_time: 10s
+      input: custom_porkchop
 custom_coal:
   material: coal
   lore:
@@ -12642,6 +12938,12 @@ custom_coal:
       type: shapeless
       output_quantity: 9
       input: custom_coal_block
+    '1':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_coal_ore
 custom_dead_brain_coral_fan:
   material: dead_brain_coral_fan
   display name: <&7>Dead Brain_Coral Fan
@@ -13071,6 +13373,13 @@ custom_glass:
   display name: <&7>Glass
   weight: '1'
   type: item
+  custom_recipes:
+    '0':
+      type: furnace
+      output_quantity: 1
+      experience: 0.1
+      cook_time: 10s
+      input: custom_sand
 custom_orange_carpet:
   custom_recipes:
     '0':
