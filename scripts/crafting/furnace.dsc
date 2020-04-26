@@ -48,8 +48,9 @@ furnace_events:
   debug: false
   events:
     on delta time secondly every:1:
+      - stop
       - foreach <server.list_notables[locations].filter[notable_name.starts_with[active_furnace_]]> as:active_location:
-        - define inventory:<inventory[furnace_<[active_location].simple>]>
+        - define inventory:<inventory[furnace_<[active_location].simple>]||null>
         - if <[inventory]> == null:
           - note remove as:<[active_location].notable_name>
           - foreach next
@@ -138,6 +139,10 @@ furnace_events:
               - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
           - else:
             - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
+    on item moves from inventory to furnace_inventory:
+      - announce 1
+    on item moves from furnace_inventory to inventory:
+      - announce 2
     on player places furnace:
       - if <context.item_in_hand.script.name||null> == custom_furnace:
         - note <inventory[furnace_inventory]> as:furnace_<context.location.simple>
