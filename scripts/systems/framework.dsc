@@ -588,6 +588,9 @@ system_override:
     on block burns:
       - if <context.location.world.name> == spawn:
         - determine cancelled
+    on block spreads:
+      - if <context.location.world.name> == spawn:
+        - determine cancelled
     on player respawns:
       - flag <player> contaminated:!
       - if !<context.is_bed_spawn>:
