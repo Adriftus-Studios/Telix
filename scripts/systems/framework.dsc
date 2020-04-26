@@ -585,6 +585,9 @@ system_override:
         - yaml load:data/globalData/players/<server.flag[server.name]>/<player.uuid>.yml id:player.<player.uuid>
       - else:
         - yaml create id:player.<player.uuid>
+    on block burns:
+      - if <context.location.world.name> == spawn:
+        - determine cancelled
     on player respawns:
       - flag <player> contaminated:!
       - if !<context.is_bed_spawn>:
