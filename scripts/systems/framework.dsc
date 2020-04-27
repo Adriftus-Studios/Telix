@@ -591,6 +591,9 @@ system_override:
     on block spreads:
       - if <context.location.world.name> == spawn:
         - determine cancelled
+    on shutdown:
+      - foreach <server.list_online_players> as:player:
+        - yaml id:player.<[player].uuid> set logout_location:<[player].location>
     on player respawns:
       - flag <player> contaminated:!
       - if !<context.is_bed_spawn>:
