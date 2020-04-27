@@ -1,7 +1,7 @@
 
 custom_guild_vault:
   type: item
-  material: stick
+  material: sponge
   mechanisms:
     custom_model_data: 8
     flags: HIDE_ALL
