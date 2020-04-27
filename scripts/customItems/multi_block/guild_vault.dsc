@@ -2,6 +2,7 @@
 custom_guild_vault:
   type: item
   material: sponge
+  multiblock: guild_bank
   mechanisms:
     custom_model_data: 8
     flags: HIDE_ALL

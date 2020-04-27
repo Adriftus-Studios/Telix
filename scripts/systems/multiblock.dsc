@@ -21,7 +21,6 @@ multiblock_types:
     armor_stand: multiblock_teststand
     on_click_task: multiblock_testtask
     on_place_task: null
-    on break_task: 
 
 multiblock_place:
   type: world
