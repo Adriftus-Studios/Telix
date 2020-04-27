@@ -52,8 +52,7 @@ multiblock_place:
       - if <[cuboids].size> > 0:
         - foreach <[cuboids]>:
           - run <script[multiblock_types].yaml_key[<[value].after[.].before[^]>.on_click_task]>
-    on player breaks stone bukkit_priority:MONITOR priority:10000:
-      - narrate "block break event was detected on MONITOR level"
+    on player breaks stone|air bukkit_priority:MONITOR priority:10000:
       - define cuboids:<context.location.cuboids.parse[notable_name].filter[starts_with[multiblock-area]]>
       - if <[cuboids].size> > 0:
         - foreach <[cuboids]>:
@@ -68,11 +67,5 @@ multiblock_place:
           - drop <[item_to_drop]> <context.location>
           - if <script[multiblock_types].yaml_key[<[identifier].after[^]>.on_place_task]||null> != null:
             - inject <script[multiblock_types].yaml_key[<[identifier].after[^]>.on_break_task]>
-    on player breaks stone bukkit_priority:MONITOR ignorecancelled:true:
-      - narrate "Break Event Captured"
-        
-        
-        
-
 
         
