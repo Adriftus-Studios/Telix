@@ -18,7 +18,7 @@ multiblock_teststand:
 multiblock_types:
   type: yaml data
   guild_bank:
-    armor_stand: multiblock_teststand
+    armor_stand: guild_vault_entity
     on_click_task: multiblock_testtask
     on_place_task: null
 
