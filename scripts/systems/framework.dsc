@@ -586,10 +586,10 @@ system_override:
       - else:
         - yaml create id:player.<player.uuid>
     on block burns:
-      - if <context.location.world.name> == spawn:
+      - if <context.location.world.name> == spawn || <context.location.world.name> == flat:
         - determine cancelled
     on block spreads:
-      - if <context.location.world.name> == spawn:
+      - if <context.location.world.name> == spawn || <context.location.world.name> == flat:
         - determine cancelled
     on shutdown bukkit_priority:MONITOR:
       - foreach <server.list_online_players> as:player:
