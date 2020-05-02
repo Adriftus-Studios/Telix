@@ -39,7 +39,7 @@ qol_pvp_challenge_command:
   debug: false
   name: challenge
   tab complete:
-    - define args1:<list[send|accept|decline]>
+    - define args1:<list[send|revoke|accept|decline]>
     - define args2:<server.list_online_players.parse[name]>
     - if <context.args.size||0> == 0:
       - determine <[args1]>
@@ -57,7 +57,7 @@ qol_pvp_challenge_command:
     #Receive
     - flag <[receiver]> challenges_received:->:<[sender]>
     - run bb_notification def:<&6>⚠<&sp><&c>CHALLENGER<&sp>APPROACHING<&sp><&6>⚠|15s|yellow|1|<[receiver]>
-    - narrate "<&c>You have been challenged by <&6><[sender].name> to a duel!" targets:<[receiver]>
+    - narrate "<&c>You have been challenged by <&6><[sender].name> <&c>to a duel!" targets:<[receiver]>
     - narrate "<&c>You have 5 minutes to accept their challenge." targets:<[receiver]>
     - narrate "<&a>/challenge accept <[sender].name><&8>| <&c>/challenge decline <[sender].name>." targets:<[receiver]>
     #Remove challenges
@@ -66,9 +66,10 @@ qol_pvp_challenge_command:
     - flag <[receiver]> challenges_received:<-:<[sender]>
   revoke:
     #Remove challenges
-    - flag <[sender]> challenges_sent:<-:<[receiver]>
-    - flag <[receiver]> challenges_received:<-:<[sender]>
-    - narrate "wip"
+    - flag <player> challenges_sent:<-:<server.match_player[<context.args.get[2]>]>
+    - flag <server.match_player[<context.args.get[2]>]> challenges_received:<-:<player>
+    - narrate "<&c>You have revoked your challenge to <&6><[receiver].name>." targets:<player>
+    - narrate "<&c>A challenge invitation has been revoked by <&6><[sender].name>." targets:<server.match_player[<context.args.get[2]>]>
   accept:
     #Sender
     - flag <player> challenges_received:<-:<server.match_player[<context.args.get[2]>]>
