@@ -1204,7 +1204,7 @@ guild_gui_events:
     on player clicks in my_guild_gui:
     - if <context.raw_slot> <= 36:
       - determine passively cancelled
-      - if <context.item.script.name> == gui_close_btn:
+      - if <context.item.script.name||null> == gui_close_btn:
         - inventory close
     - else:
       - if <context.is_shift_click>:
