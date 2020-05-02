@@ -64,6 +64,11 @@ qol_pvp_challenge_command:
     - wait 5m
     - flag <[sender]> challenges_sent:<-:<[receiver]>
     - flag <[receiver]> challenges_received:<-:<[sender]>
+  revoke:
+    #Remove challenges
+    - flag <[sender]> challenges_sent:<-:<[receiver]>
+    - flag <[receiver]> challenges_received:<-:<[sender]>
+    - narrate "wip"
   accept:
     #Sender
     - flag <player> challenges_received:<-:<server.match_player[<context.args.get[2]>]>
@@ -91,6 +96,15 @@ qol_pvp_challenge_command:
           - inject locally send
         - else:
           - narrate "<&c>You cannot challenge this player."
+      - else:
+        - narrate "<&c>Command argument invalid! (Argument #2)"
+    - else if <context.args.get[1].to_lowercase> == revoke:
+      - if <server.match_player[<context.args.get[2]>]||null> != null:
+        - if <server.match_player[<context.args.get[2]>].is_online>:
+          - inject locally decline
+        - else:
+          - narrate "<&c>This player is not online!"
+          - inject locally revoke
       - else:
         - narrate "<&c>Command argument invalid! (Argument #2)"
     - else if <context.args.get[1].to_lowercase> == accept:
