@@ -32,7 +32,7 @@ custom_boss_dagon_helmet:
   lore:
     - <&6>
   drops_on_death: false
-##
+  
 custom_boss_dagon_trident:
   type: item
   material: trident

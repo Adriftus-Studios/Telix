@@ -139,10 +139,6 @@ furnace_events:
               - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
           - else:
             - inventory set d:<[inventory]> slot:23 o:<item[furnace_timer]>
-    on item moves from inventory to furnace_inventory:
-      - announce 1
-    on item moves from furnace_inventory to inventory:
-      - announce 2
     on player places furnace:
       - if <context.item_in_hand.script.name||null> == custom_furnace:
         - note <inventory[furnace_inventory]> as:furnace_<context.location.simple>
