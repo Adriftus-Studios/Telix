@@ -60,8 +60,7 @@ define_sphere1:
   - define blocks_between:<[blocks_between]||0.4>
   - define location:<[location].with_pitch[90].with_yaw[0]>
   - define cir:<[radius].mul[<util.pi>].mul[2]>
-  - define between:<element[180].div[<[radius].mul[<util.pi>].mul[2].div[<[blocks_between]>]>]>
-  - define between2:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[<[blocks_between]>]>]>
+  - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[<[blocks_between]>]>]>
   - repeat <[cir].div[<[blocks_between]>].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>].add[90]>]>
     - if <[offset].get[1]> < 0:
@@ -74,7 +73,7 @@ define_sphere1:
       - define B:<[offset].get[2]>
     - define location2:<[location].above[<[A]>]>
     - repeat <[cir].div[<[blocks_between]>].round> as:value2:
-      - define offset2:<proc[find_offset].context[<[B]>|<[value2].mul[<[between2]>]>]>
+      - define offset2:<proc[find_offset].context[<[B]>|<[value2].mul[<[between]>]>]>
       - define points:|:<[location2].up[<[offset2].get[1]>].right[<[offset2].get[2]>]>
   - determine <[points]>
 
@@ -85,8 +84,7 @@ define_sphere2:
   - define blocks_between:<[blocks_between]||0.4>
   - define location:<[location].with_pitch[90].with_yaw[0]>
   - define cir:<[radius].mul[<util.pi>].mul[2]>
-  - define between:<element[180].div[<[radius].mul[<util.pi>].mul[2].div[<[blocks_between]>]>]>
-  - define between2:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[<[blocks_between]>]>]>
+  - define between:<element[360].div[<[radius].mul[<util.pi>].mul[2].div[<[blocks_between]>]>]>
   - repeat <[cir].div[<[blocks_between]>].round>:
     - define offset:<proc[find_offset].context[<[radius]>|<[value].mul[<[between]>].add[90]>]>
     - if <[offset].get[1]> < 0:
@@ -100,7 +98,7 @@ define_sphere2:
     - define location2:<[location].above[<[A]>]>
     - define layer:!
     - repeat <[cir].div[<[blocks_between]>].round> as:value2:
-      - define offset2:<proc[find_offset].context[<[B]>|<[value2].mul[<[between2]>]>]>
+      - define offset2:<proc[find_offset].context[<[B]>|<[value2].mul[<[between]>]>]>
       - define layer:|:<[location2].up[<[offset2].get[1]>].right[<[offset2].get[2]>]>
     - define layers:|:<[layer].escaped>
   - determine <[layers]>
@@ -217,7 +215,7 @@ test_effects_command:
       - wait 1t
   - if <context.args.get[1]> == sphere1:
     - define points:<proc[define_sphere1].context[<player.location.forward[4]>|2|0.5]>
-    - playeffect <[particle]> at:<[points]> quantity:1 offset:0 visibility:100
+    - playeffect redstone <[points]> offset:0 visibility:300 quantity:1 special_data:1|<co@255,0,0>
   - if <context.args.get[1]> == sphere2:
     - define layers:<proc[define_sphere2].context[<player.location.above>|2|0.5]>
     - define center:<player.location>
