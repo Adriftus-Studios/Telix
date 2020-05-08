@@ -74,5 +74,6 @@ logout_quit_command:
       - else:
         - narrate "<&c>Logout cancelled. Please stand still."
         - stop
+    - flag player combat:!
     - kick <player> "reason:<&a>----------------------------------------------------<&nl><&nl><&a>You have been safely removed from the server.<&nl><&nl><&a>----------------------------------------------------"
     
