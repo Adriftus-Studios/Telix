@@ -107,7 +107,7 @@ custom_crafting_inventory:
     - "[filler] [filler] [] [] [] [filler] [filler] [filler] [filler]"
     - "[filler] [filler] [] [] [] [filler] [filler] [] [filler]"
     - "[GUITop] [filler] [] [] [] [filler] [filler] [filler] [filler]"
-    - "[GUIBottom] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [recipe_book_icon]"
+    - "[GUIBottom] [filler] [filler] [filler] [filler] [filler] [filler] [recipe_book_icon] [filler]"
     - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
 custom_crafting_openInventory:

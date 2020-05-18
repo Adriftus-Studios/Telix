@@ -3,16 +3,16 @@ preparation_table_inventory:
   title: <&6>◆ <&a><&n><&l>Preparation<&r> <&6>◆
   size: 54
   definitions:
-    w_filler: <item[gui_invisible_item]>
+    filler: <item[gui_invisible_item]>
     gui_top: <item[gui_preparation_table_top]>
     gui_bottom: <item[gui_preparation_table_bottom]>
   slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [] [] [] [w_filler] [w_filler] [] [w_filler] [w_filler]"
-  - "[] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [preparation_table_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+  - "[filler] [filler] [] [filler] [filler] [filler] [filler] [filler] [filler]"
+  - "[filler] [] [] [] [filler] [filler] [] [filler] [filler]"
+  - "[] [filler] [] [filler] [filler] [filler] [filler] [filler] [filler]"
+  - "[] [filler] [filler] [filler] [filler] [filler] [recipe_book_icon] [filler] [filler]"
+  - "[filler] [filler] [filler] [filler] [preparation_table_timer] [filler] [filler] [filler] [filler]"
 
 preparation_table_timer:
   type: item

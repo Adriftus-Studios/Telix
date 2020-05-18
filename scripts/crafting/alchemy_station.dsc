@@ -4,15 +4,15 @@ alchemy_station_inventory:
   title: <&6>◆ <&a><&n><&l>Alchemy<&r> <&6>◆
   size: 45
   definitions:
-    w_filler: <item[gui_invisible_item]>
+    filler: <item[gui_invisible_item]>
     gui_top: <item[gui_alchemy_station_top]>
     gui_bottom: <item[gui_alchemy_station_bottom]>
   slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler]"
-  - "[gui_top] [w_filler] [w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[gui_bottom] [w_filler] [] [w_filler] [w_filler] [w_filler] [] [w_filler] [recipe_book_icon]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [alchemy_station_timer] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[filler] [filler] [filler] [filler] [recipe_book_icon] [filler] [filler] [filler] [filler]"
+  - "[filler] [filler] [] [filler] [filler] [filler] [] [filler] [filler]"
+  - "[gui_top] [filler] [filler] [filler] [] [filler] [filler] [filler] [filler]"
+  - "[gui_bottom] [filler] [] [filler] [filler] [filler] [] [filler] [filler]"
+  - "[filler] [filler] [filler] [filler] [alchemy_station_timer] [filler] [filler] [filler] [filler]"
 
 alchemy_station_timer:
   type: item

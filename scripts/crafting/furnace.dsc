@@ -4,17 +4,17 @@ furnace_inventory:
   title: <&6>◆ <&a><&n><&l>Furnace<&r> <&6>◆
   size: 54
   definitions:
-    w_filler: <item[gui_invisible_item]>
+    filler: <item[gui_invisible_item]>
     closeitem: <item[gui_close_btn]>
     gui_top: <item[gui_furnace_top]>
     gui_bottom: <item[gui_furnace_bottom]>
   slots:
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [furnace_fuel_meter] [w_filler] [furnace_timer] [w_filler] [] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [recipe_book_icon]"
-  - "[w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler] [w_filler]"
+  - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
+  - "[filler] [filler] [] [filler] [filler] [filler] [filler] [filler] [filler]"
+  - "[filler] [filler] [furnace_fuel_meter] [filler] [furnace_timer] [filler] [] [filler] [filler]"
+  - "[filler] [filler] [] [filler] [filler] [filler] [filler] [filler] [filler]"
+  - "[filler] [filler] [filler] [filler] [filler] [filler] [recipe_book_icon] [filler] [filler]"
+  - "[filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler] [filler]"
 
 furnace_fuel_meter:
   type: item
